@@ -1,0 +1,1141 @@
+Epipelagic representations and rigid local systems
+
+By Zhiwei Yun
+
+Abstract
+
+We construct automorphic representations for quasi-split groups $G$ over the function field $F=k(t)$ one of whose local components is an epipelagic representation in the sense of Reeder and Yu. We also construct the attached Galois representations under the Langlands correspondence. These Galois representations give new classes of conjecturally rigid, wildly ramified ${\vphantom{G}}^{L}{G}$ -local systems over $\mathbb{P}^{1}-\{0,\infty\}$ that generalize the Kloosterman sheaves constructed earlier by Heinloth, Ngô and the author. We study the monodromy of these local systems and compute all examples when $G$ is a classical group.
+
+1. Introduction
+
+Let $G$ be a reductive quasi-split group over a local field $K$ as in § 1.4.4 . Recently, Reeder and Yu [18] constructed a family of supercuspidal representations of $p$ -adic groups called epipelagic representations , generalizing the simple supercuspidals constructed earlier by Gross and Reeder [9] . These are supercuspidal representations constructed by compactly inducing certain characters of the pro- $p$ part of a parahoric subgroup ${\mathbf{P}}$ of $G$ . The construction of epipelagic representations uses the $\theta$ -groups $(L_{{\mathbf{P}}},V_{{\mathbf{P}}})$ studied by Vinberg et al .
+
+The main results of this paper include
+
+Realization of epipelagic representations (for the local function field) as a local component of an automorphic representation $\pi$ of $G(\mathbb{A}_{F})$ , where $F$ is the function field $k(t)$ . This is done in Proposition 2.7 . Here $\pi=\pi(\chi,\phi)$ depends on two parameters $\chi$ and $\phi$ (a multiplicative on $\widetilde{L}_{{\mathbf{P}}}(k)$ and a stable linear functional $\phi:V_{{\mathbf{P}}}\to k$ ).
+
+Construction of the Galois representation $\rho_{\pi}:\textup{Gal}(F^{s}/F)\to{\vphantom{G}}^{L}{G}(\overline{\mathbb{Q}}_{\ell})$ attached to $\pi=\pi(\chi,\phi)$ under the Langlands correspondence. This is done in Theorem 3.5 and Corollary 3.7 . The Galois representation $\rho_{\pi}$ can be equivalently thought of as an $\ell$ -adic ${\vphantom{G}}^{L}{G}$ -local systems $\textup{Kl}_{{\vphantom{G}}^{L}{G},{\mathbf{P}}}(\chi,\phi)$ over $\mathbb{P}^{1}-\{0,\infty\}$ , where ${\vphantom{G}}^{L}{G}$ is the Langlands dual group of $G$ . We also offer a way to calculate these ${\vphantom{G}}^{L}{G}$ -local systems in terms of the Fourier transform (see Proposition 3.9 ).
+
+Description of the local monodromy the local systems $\textup{Kl}_{{\vphantom{G}}^{L}{G},{\mathbf{P}}}(\chi,\phi)$ . The main result is Theorem 4.7 that describes the monodromy of $\textup{Kl}_{{\vphantom{G}}^{L}{G},{\mathbf{P}}}(\chi,\phi)$ at $0$ when $G$ is split and $\chi=1$ . We also conditionally deduce the cohomological rigidity of $\textup{Kl}_{{\vphantom{G}}^{L}{G},{\mathbf{P}}}(\chi,\phi)$ (see § 5 ), and make predictions on the monodromy at $0$ in general (see § 4.9 ).
+
+Computation of the local systems $\textup{Kl}_{{\vphantom{G}}^{L}{G},{\mathbf{P}}}(\chi,\phi)$ when $G$ is a classical group (§ 6 , § 7 and § 8 ). In each of these cases, we express the local system $\textup{Kl}_{{\vphantom{G}}^{L}{G},{\mathbf{P}}}(\chi,\phi)$ as the Fourier transform of the direct image complex of an explicit morphism to $V_{{\mathbf{P}}}$ . As a result, we obtain new families of exponential sums (indexed by $G$ and ${\mathbf{P}}$ ) generalizing Kloosterman sums, see Corollaries 6.6 , 7.6 and 8.7 .
+
+In [10] , Heinloth, Ngô and the author considered the case of “simple supercuspidals” of Gross and Reeder. These correspond to the special case ${\mathbf{P}}=\mathbf{I}$ is an Iwahori subgroup. In [10] we constructed the Kloosterman sheaves $\textup{Kl}_{\widehat{G},\mathbf{I}}(\chi,\phi)$ , and proved properties of their local and global monodromy expected by Frenkel and Gross in [7] for split $G$ .
+
+The general case to be considered in this article exhibits certain interesting phenomena which are not seen in the special case treated in [10] .
+
+First, the $\widehat{G}$ -local systems $\textup{Kl}_{\widehat{G},{\mathbf{P}}}(\chi,\phi)$ on $\mathbb{P}^{1}-\{0,\infty\}$ form an algebraic family as the additive character $\phi$ defining $\pi_{\infty}$ varies. In other words, these local systems are obtained from a single “master” $\widehat{G}$ -local system $\textup{Kl}_{\widehat{G},{\mathbf{P}}}(\chi)$ on the larger base $V^{*,\textup{st}}_{{\mathbf{P}}}$ by restriction to various $\mathbb{G}_{m}$ -orbits. Here the base space $V^{*,\textup{st}}_{{\mathbf{P}}}$ is the stable locus of the dual vector space of $V_{{\mathbf{P}}}$ which is part of Vinberg’s $\theta$ -groups.
+
+Second, when $\chi=1$ , the local system $\textup{Kl}_{\widehat{G},{\mathbf{P}}}(1,\phi)$ has unipotent tame monodromy at $0$ given by a unipotent class $\underline{u}$ in $\widehat{G}^{\sigma,\circ}$ ( $\sigma$ is the pinned automorphism defining $G$ ), which only depends on the type of ${\mathbf{P}}$ . On the other hand, the types of ${\mathbf{P}}$ are in bijection with regular elliptic $\mathbb{W}$ -conjugacy classes $\underline{w}$ in $\mathbb{W}\sigma$ (at least when $\textup{char}(k)$ is large, see § 2.2 ). Therefore our construction gives a map $\{\mbox{regular elliptic $\mathbb{W}$-conjugacy classes in $\mathbb{W}\sigma$}\}\to\{\mbox{unipotent classes in $\widehat{G}^{\sigma,\circ}$}\}$ sending $\underline{w}$ to $\underline{u}$ via the intermediate step of an admissible parahoric subgroup ${\mathbf{P}}$ . When $G$ is split, Theorem 4.7 gives an alternative description of this map using Lusztig’s theory of cells in affine Weyl groups, and using this we are able to compute the map ( 1.1 ) for all types of $G$ in § 4.8 (verified for split $G$ and conjectural in general). In [15] , Lusztig defined a map from all conjugacy classes in $\mathbb{W}$ to unipotent conjugacy classes in $\widehat{G}$ . One can check case-by-case that this map coincides with the restriction of Lusztig’s map to regular elliptic conjugacy classes.
+
+As in the work of Frenkel and Gross [7] , we expect that there should be a parallel story when $\ell$ -adic local systems are replaced with connections on algebraic vector bundles (on varieties over $\mathbb{C}$ ). In particular, the “master” $\widehat{G}$ -local system $\textup{Kl}_{\widehat{G},{\mathbf{P}}}(\chi)$ should correspond to a $\widehat{G}$ -connection over $V^{*,\textup{st}}_{{\mathbf{P}},\mathbb{C}}$ . When $G$ is a classical group, the formulae in § 6 -§ 8 give descriptions of these connections as Fourier transform of Gauss-Manin connections. Are there simple formulae for these connection in general?
+
+Another problem is to calculate the Euler characteristics (equivalently Swan conductor at $\infty$ ) of the local systems $\textup{Kl}^{V}_{\widehat{G},{\mathbf{P}}}(1,\phi)$ for representations $V$ of $\widehat{G}$ . Such calculations would give evidence to (and sometimes proofs of) the prediction made by Reeder and Yu about the Langlands parameters of epipelagic representations (see § 2.5 ). We do one such calculation in the case $G$ is a unitary group (see Proposition 6.8 ), but in general the complexity of the calculation seems to be formidable (see also the proof of [10] in which we treated the case ${\mathbf{P}}$ is Iwahori, which already took many pages).
+
+While we have a more or less complete picture for the local monodromy of the local systems $\textup{Kl}_{\widehat{G},{\mathbf{P}}}(1,\phi)$ (partly conjectural), we do not discuss their global monodromy here, i.e., the Zariski closure of the image of the geometric $\pi_{1}(\mathbb{P}^{1}-\{0,\infty\})$ in $\widehat{G}$ . It can be as small as a finite group as we see in Proposition 6.7 (2) when $G$ is an odd unitary group and ${\mathbf{P}}$ is a special parahoric subgroup. Does the global monodromy group of $\textup{Kl}_{\widehat{G},{\mathbf{P}}}(1,\phi)$ depend only on ${\mathbf{P}}$ , and if so, how do we read it off from ${\mathbf{P}}$ ?
+
+Let $k$ be a finite field and $F=k(t)$ be the rational function field over $k$ . Places of $F$ are in natural bijection with closed points of $X:=\mathbb{P}^{1}_{k}$ , the set of which is denoted by $|X|$ . In particular we have two places $0$ and $\infty$ of $F$ . For a place $x\in|X|$ , let $F_{x}$ (resp. $\mathcal{O}_{x}$ ) be the completed local field (resp. completed local ring) of $X$ at $x$ , and let $k_{x}$ be the residue field at $x$ . Let $\mathbb{A}_{F}=\prod^{\prime}_{x\in|X|}F_{x}$ be the ring of adèles of $F$ .
+
+Let $\ell$ be a prime number different from $\textup{char}(k)$ . We shall consider constructible $\overline{\mathbb{Q}}_{\ell}$ -complexes over various algebraic stacks over $k$ or $\bar{k}$ . All sheaf-theoretic operations are understood as derived functors .
+
+Let $\mathbb{G}$ be a split reductive group over $k$ whose derived group is absolutely almost simple. Fix a pinning $\dagger=(\mathbb{B},\mathbb{T},\cdots)$ of $\mathbb{G}$ , where $\mathbb{B}$ is a Borel subgroup of $\mathbb{G}$ and $\mathbb{T}\subset\mathbb{B}$ a split maximal torus. Let $\mathbb{W}=N_{\mathbb{G}}(\mathbb{T})/\mathbb{T}$ be the Weyl group of $\mathbb{G}$ . Let $\Phi\subset\mathbb{X}^{*}(\mathbb{T})$ be the set of roots. Fix a cyclic subgroup $\mathbb{Z}/e\mathbb{Z}\hookrightarrow\textup{Aut}^{\dagger}(\mathbb{G})$ of the pinned automorphism group of $\mathbb{G}$ , and denote the image of $1$ by $\sigma\in\textup{Aut}^{\dagger}(\mathbb{G})$ .
+
+We assume $\textup{char}(k)$ is prime to $e$ and that $k^{\times}$ contains $e$ th roots of unity.
+
+Let $Z\mathbb{G}$ be the center of $\mathbb{G}$ . We also assume that $\mathbb{X}^{*}(Z\mathbb{G})^{\sigma}=0$ .
+
+Let $\widetilde{X}\to X$ be the $\mu_{e}$ -cover totally ramified over $0$ and $\infty$ . Then $\widetilde{X}$ is also isomorphic to $\mathbb{P}^{1}_{k}$ , and we denote its affine coordinate by $t^{1/e}$ . We denote $X^{\circ}:=X-\{0,\infty\};\hskip 28.45274pt\widetilde{X}^{\circ}:=\widetilde{X}-\{0,\infty\}.$
+
+The data $\mathbb{G}$ and $\sigma$ define a quasi-split group scheme $G$ over $X^{\circ}$ which splits over the $\mu_{e}$ -cover $\widetilde{X}^{\circ}\to X^{\circ}$ . More precisely, for any $k[t,t^{-1}]$ -algebra $R$ , we have $G(R)=\mathbb{G}(R\otimes_{k[t,t^{-1}]}k[t^{1/e},t^{-1/e}])^{\mu_{e}}$ where $\mu_{e}$ acts on $t^{1/e}$ by multiplication and on $\mathbb{G}$ via the fixed map $\mu_{e}\hookrightarrow\textup{Aut}^{\dagger}(\mathbb{G})$ . Since $\mathbb{X}^{*}(Z\mathbb{G})^{\sigma}=0$ , the center of $G$ does not contain a split torus.
+
+Let $\SS$ be the neutral component of $\mathbb{T}^{\sigma}$ . Then $S=\SS\otimes_{k}F$ is a maximal split torus of $G$ over $F$ .
+
+Let $\widehat{G}$ be the reductive group over $\overline{\mathbb{Q}}_{\ell}$ whose root system is dual to that of $\mathbb{G}$ . We also fix a pinned $\dagger$ of $\widehat{G}$ , through which we identify $\textup{Aut}^{\dagger}(\widehat{G})$ with $\textup{Aut}^{\dagger}(\mathbb{G})$ . We define the Langlands dual group ${\vphantom{G}}^{L}{G}$ of $G$ to be ${\vphantom{G}}^{L}{G}=\widehat{G}\rtimes\mu_{e}$ where $\mu_{e}$ acts through $\mu_{e}\hookrightarrow\textup{Aut}^{\dagger}(\mathbb{G})\cong\textup{Aut}^{\dagger}(\widehat{G})$ .
+
+We shall use the convention in [21] for loop groups. For example, when $x\in X$ , we use $L_{x}G$ (resp. $L^{+}_{x}G$ , if $x\in X^{\circ}$ ) to denote the loop group (resp. positive loop group) of the group scheme $G$ at $x$ . Then $L_{x}G$ (resp. $L_{x}^{+}G$ ) is a group ind-scheme (resp. pro-algebraic group) over $k(x)$ , the residue field of $x$ . A parahoric subgroup of $G(F_{x})$ is also viewed as a pro-algebraic subgroup of $L_{x}G$ over $k(x)$ . Since $G$ splits over $\widetilde{X}^{\circ}$ , for $\widetilde{x}\in\widetilde{X}^{\circ}$ , we use $L_{\widetilde{x}}\mathbb{G}$ to denote the loop group of the constant group scheme $G\times_{X^{\circ}}\widetilde{X}^{\circ}\cong\mathbb{G}\times\widetilde{X}^{\circ}$ at $\widetilde{x}$ .
+
+1.1. The goal
+
+Let $G$ be a reductive quasi-split group over a local field $K$ as in § 1.4.4 . Recently, Reeder and Yu [18] constructed a family of supercuspidal representations of $p$ -adic groups called epipelagic representations , generalizing the simple supercuspidals constructed earlier by Gross and Reeder [9] . These are supercuspidal representations constructed by compactly inducing certain characters of the pro- $p$ part of a parahoric subgroup ${\mathbf{P}}$ of $G$ . The construction of epipelagic representations uses the $\theta$ -groups $(L_{{\mathbf{P}}},V_{{\mathbf{P}}})$ studied by Vinberg et al .
+
+The main results of this paper include • Realization of epipelagic representations (for the local function field) as a local component of an automorphic representation $\pi$ of $G(\mathbb{A}_{F})$ , where $F$ is the function field $k(t)$ . This is done in Proposition 2.7 . Here $\pi=\pi(\chi,\phi)$ depends on two parameters $\chi$ and $\phi$ (a multiplicative on $\widetilde{L}_{{\mathbf{P}}}(k)$ and a stable linear functional $\phi:V_{{\mathbf{P}}}\to k$ ). • Construction of the Galois representation $\rho_{\pi}:\textup{Gal}(F^{s}/F)\to{\vphantom{G}}^{L}{G}(\overline{\mathbb{Q}}_{\ell})$ attached to $\pi=\pi(\chi,\phi)$ under the Langlands correspondence. This is done in Theorem 3.5 and Corollary 3.7 . The Galois representation $\rho_{\pi}$ can be equivalently thought of as an $\ell$ -adic ${\vphantom{G}}^{L}{G}$ -local systems $\textup{Kl}_{{\vphantom{G}}^{L}{G},{\mathbf{P}}}(\chi,\phi)$ over $\mathbb{P}^{1}-\{0,\infty\}$ , where ${\vphantom{G}}^{L}{G}$ is the Langlands dual group of $G$ . We also offer a way to calculate these ${\vphantom{G}}^{L}{G}$ -local systems in terms of the Fourier transform (see Proposition 3.9 ). • Description of the local monodromy the local systems $\textup{Kl}_{{\vphantom{G}}^{L}{G},{\mathbf{P}}}(\chi,\phi)$ . The main result is Theorem 4.7 that describes the monodromy of $\textup{Kl}_{{\vphantom{G}}^{L}{G},{\mathbf{P}}}(\chi,\phi)$ at $0$ when $G$ is split and $\chi=1$ . We also conditionally deduce the cohomological rigidity of $\textup{Kl}_{{\vphantom{G}}^{L}{G},{\mathbf{P}}}(\chi,\phi)$ (see § 5 ), and make predictions on the monodromy at $0$ in general (see § 4.9 ). • Computation of the local systems $\textup{Kl}_{{\vphantom{G}}^{L}{G},{\mathbf{P}}}(\chi,\phi)$ when $G$ is a classical group (§ 6 , § 7 and § 8 ). In each of these cases, we express the local system $\textup{Kl}_{{\vphantom{G}}^{L}{G},{\mathbf{P}}}(\chi,\phi)$ as the Fourier transform of the direct image complex of an explicit morphism to $V_{{\mathbf{P}}}$ . As a result, we obtain new families of exponential sums (indexed by $G$ and ${\mathbf{P}}$ ) generalizing Kloosterman sums, see Corollaries 6.6 , 7.6 and 8.7 .
+
+1.2. Comparison with [10]
+
+In [10] , Heinloth, Ngô and the author considered the case of “simple supercuspidals” of Gross and Reeder. These correspond to the special case ${\mathbf{P}}=\mathbf{I}$ is an Iwahori subgroup. In [10] we constructed the Kloosterman sheaves $\textup{Kl}_{\widehat{G},\mathbf{I}}(\chi,\phi)$ , and proved properties of their local and global monodromy expected by Frenkel and Gross in [7] for split $G$ .
+
+The general case to be considered in this article exhibits certain interesting phenomena which are not seen in the special case treated in [10] .
+
+First, the $\widehat{G}$ -local systems $\textup{Kl}_{\widehat{G},{\mathbf{P}}}(\chi,\phi)$ on $\mathbb{P}^{1}-\{0,\infty\}$ form an algebraic family as the additive character $\phi$ defining $\pi_{\infty}$ varies. In other words, these local systems are obtained from a single “master” $\widehat{G}$ -local system $\textup{Kl}_{\widehat{G},{\mathbf{P}}}(\chi)$ on the larger base $V^{*,\textup{st}}_{{\mathbf{P}}}$ by restriction to various $\mathbb{G}_{m}$ -orbits. Here the base space $V^{*,\textup{st}}_{{\mathbf{P}}}$ is the stable locus of the dual vector space of $V_{{\mathbf{P}}}$ which is part of Vinberg’s $\theta$ -groups.
+
+Second, when $\chi=1$ , the local system $\textup{Kl}_{\widehat{G},{\mathbf{P}}}(1,\phi)$ has unipotent tame monodromy at $0$ given by a unipotent class $\underline{u}$ in $\widehat{G}^{\sigma,\circ}$ ( $\sigma$ is the pinned automorphism defining $G$ ), which only depends on the type of ${\mathbf{P}}$ . On the other hand, the types of ${\mathbf{P}}$ are in bijection with regular elliptic $\mathbb{W}$ -conjugacy classes $\underline{w}$ in $\mathbb{W}\sigma$ (at least when $\textup{char}(k)$ is large, see § 2.2 ). Therefore our construction gives a map 
+ 
+ (1.1)  $\{\mbox{regular elliptic $\mathbb{W}$-conjugacy classes in $\mathbb{W}\sigma$}\}\to\{\mbox{unipotent classes in $\widehat{G}^{\sigma,\circ}$}\}$ 
+ sending $\underline{w}$ to $\underline{u}$ via the intermediate step of an admissible parahoric subgroup ${\mathbf{P}}$ . When $G$ is split, Theorem 4.7 gives an alternative description of this map using Lusztig’s theory of cells in affine Weyl groups, and using this we are able to compute the map ( 1.1 ) for all types of $G$ in § 4.8 (verified for split $G$ and conjectural in general). In [15] , Lusztig defined a map from all conjugacy classes in $\mathbb{W}$ to unipotent conjugacy classes in $\widehat{G}$ . One can check case-by-case that this map coincides with the restriction of Lusztig’s map to regular elliptic conjugacy classes.
+
+1.3. Open questions
+
+As in the work of Frenkel and Gross [7] , we expect that there should be a parallel story when $\ell$ -adic local systems are replaced with connections on algebraic vector bundles (on varieties over $\mathbb{C}$ ). In particular, the “master” $\widehat{G}$ -local system $\textup{Kl}_{\widehat{G},{\mathbf{P}}}(\chi)$ should correspond to a $\widehat{G}$ -connection over $V^{*,\textup{st}}_{{\mathbf{P}},\mathbb{C}}$ . When $G$ is a classical group, the formulae in § 6 -§ 8 give descriptions of these connections as Fourier transform of Gauss-Manin connections. Are there simple formulae for these connection in general?
+
+Another problem is to calculate the Euler characteristics (equivalently Swan conductor at $\infty$ ) of the local systems $\textup{Kl}^{V}_{\widehat{G},{\mathbf{P}}}(1,\phi)$ for representations $V$ of $\widehat{G}$ . Such calculations would give evidence to (and sometimes proofs of) the prediction made by Reeder and Yu about the Langlands parameters of epipelagic representations (see § 2.5 ). We do one such calculation in the case $G$ is a unitary group (see Proposition 6.8 ), but in general the complexity of the calculation seems to be formidable (see also the proof of [10] in which we treated the case ${\mathbf{P}}$ is Iwahori, which already took many pages).
+
+While we have a more or less complete picture for the local monodromy of the local systems $\textup{Kl}_{\widehat{G},{\mathbf{P}}}(1,\phi)$ (partly conjectural), we do not discuss their global monodromy here, i.e., the Zariski closure of the image of the geometric $\pi_{1}(\mathbb{P}^{1}-\{0,\infty\})$ in $\widehat{G}$ . It can be as small as a finite group as we see in Proposition 6.7 (2) when $G$ is an odd unitary group and ${\mathbf{P}}$ is a special parahoric subgroup. Does the global monodromy group of $\textup{Kl}_{\widehat{G},{\mathbf{P}}}(1,\phi)$ depend only on ${\mathbf{P}}$ , and if so, how do we read it off from ${\mathbf{P}}$ ?
+
+1.4. Notation and convention
+
+Let $k$ be a finite field and $F=k(t)$ be the rational function field over $k$ . Places of $F$ are in natural bijection with closed points of $X:=\mathbb{P}^{1}_{k}$ , the set of which is denoted by $|X|$ . In particular we have two places $0$ and $\infty$ of $F$ . For a place $x\in|X|$ , let $F_{x}$ (resp. $\mathcal{O}_{x}$ ) be the completed local field (resp. completed local ring) of $X$ at $x$ , and let $k_{x}$ be the residue field at $x$ . Let $\mathbb{A}_{F}=\prod^{\prime}_{x\in|X|}F_{x}$ be the ring of adèles of $F$ .
+
+Let $\ell$ be a prime number different from $\textup{char}(k)$ . We shall consider constructible $\overline{\mathbb{Q}}_{\ell}$ -complexes over various algebraic stacks over $k$ or $\bar{k}$ . All sheaf-theoretic operations are understood as derived functors .
+
+Let $\mathbb{G}$ be a split reductive group over $k$ whose derived group is absolutely almost simple. Fix a pinning $\dagger=(\mathbb{B},\mathbb{T},\cdots)$ of $\mathbb{G}$ , where $\mathbb{B}$ is a Borel subgroup of $\mathbb{G}$ and $\mathbb{T}\subset\mathbb{B}$ a split maximal torus. Let $\mathbb{W}=N_{\mathbb{G}}(\mathbb{T})/\mathbb{T}$ be the Weyl group of $\mathbb{G}$ . Let $\Phi\subset\mathbb{X}^{*}(\mathbb{T})$ be the set of roots. Fix a cyclic subgroup $\mathbb{Z}/e\mathbb{Z}\hookrightarrow\textup{Aut}^{\dagger}(\mathbb{G})$ of the pinned automorphism group of $\mathbb{G}$ , and denote the image of $1$ by $\sigma\in\textup{Aut}^{\dagger}(\mathbb{G})$ .
+
+We assume $\textup{char}(k)$ is prime to $e$ and that $k^{\times}$ contains $e$ th roots of unity.
+
+Let $Z\mathbb{G}$ be the center of $\mathbb{G}$ . We also assume that $\mathbb{X}^{*}(Z\mathbb{G})^{\sigma}=0$ .
+
+Let $\widetilde{X}\to X$ be the $\mu_{e}$ -cover totally ramified over $0$ and $\infty$ . Then $\widetilde{X}$ is also isomorphic to $\mathbb{P}^{1}_{k}$ , and we denote its affine coordinate by $t^{1/e}$ . We denote $X^{\circ}:=X-\{0,\infty\};\hskip 28.45274pt\widetilde{X}^{\circ}:=\widetilde{X}-\{0,\infty\}.$
+
+The data $\mathbb{G}$ and $\sigma$ define a quasi-split group scheme $G$ over $X^{\circ}$ which splits over the $\mu_{e}$ -cover $\widetilde{X}^{\circ}\to X^{\circ}$ . More precisely, for any $k[t,t^{-1}]$ -algebra $R$ , we have $G(R)=\mathbb{G}(R\otimes_{k[t,t^{-1}]}k[t^{1/e},t^{-1/e}])^{\mu_{e}}$ where $\mu_{e}$ acts on $t^{1/e}$ by multiplication and on $\mathbb{G}$ via the fixed map $\mu_{e}\hookrightarrow\textup{Aut}^{\dagger}(\mathbb{G})$ . Since $\mathbb{X}^{*}(Z\mathbb{G})^{\sigma}=0$ , the center of $G$ does not contain a split torus.
+
+Let $\SS$ be the neutral component of $\mathbb{T}^{\sigma}$ . Then $S=\SS\otimes_{k}F$ is a maximal split torus of $G$ over $F$ .
+
+Let $\widehat{G}$ be the reductive group over $\overline{\mathbb{Q}}_{\ell}$ whose root system is dual to that of $\mathbb{G}$ . We also fix a pinned $\dagger$ of $\widehat{G}$ , through which we identify $\textup{Aut}^{\dagger}(\widehat{G})$ with $\textup{Aut}^{\dagger}(\mathbb{G})$ . We define the Langlands dual group ${\vphantom{G}}^{L}{G}$ of $G$ to be ${\vphantom{G}}^{L}{G}=\widehat{G}\rtimes\mu_{e}$ where $\mu_{e}$ acts through $\mu_{e}\hookrightarrow\textup{Aut}^{\dagger}(\mathbb{G})\cong\textup{Aut}^{\dagger}(\widehat{G})$ .
+
+We shall use the convention in [21] for loop groups. For example, when $x\in X$ , we use $L_{x}G$ (resp. $L^{+}_{x}G$ , if $x\in X^{\circ}$ ) to denote the loop group (resp. positive loop group) of the group scheme $G$ at $x$ . Then $L_{x}G$ (resp. $L_{x}^{+}G$ ) is a group ind-scheme (resp. pro-algebraic group) over $k(x)$ , the residue field of $x$ . A parahoric subgroup of $G(F_{x})$ is also viewed as a pro-algebraic subgroup of $L_{x}G$ over $k(x)$ . Since $G$ splits over $\widetilde{X}^{\circ}$ , for $\widetilde{x}\in\widetilde{X}^{\circ}$ , we use $L_{\widetilde{x}}\mathbb{G}$ to denote the loop group of the constant group scheme $G\times_{X^{\circ}}\widetilde{X}^{\circ}\cong\mathbb{G}\times\widetilde{X}^{\circ}$ at $\widetilde{x}$ .
+
+1.4.1. The function field
+
+Let $k$ be a finite field and $F=k(t)$ be the rational function field over $k$ . Places of $F$ are in natural bijection with closed points of $X:=\mathbb{P}^{1}_{k}$ , the set of which is denoted by $|X|$ . In particular we have two places $0$ and $\infty$ of $F$ . For a place $x\in|X|$ , let $F_{x}$ (resp. $\mathcal{O}_{x}$ ) be the completed local field (resp. completed local ring) of $X$ at $x$ , and let $k_{x}$ be the residue field at $x$ . Let $\mathbb{A}_{F}=\prod^{\prime}_{x\in|X|}F_{x}$ be the ring of adèles of $F$ .
+
+1.4.2. Sheaves
+
+Let $\ell$ be a prime number different from $\textup{char}(k)$ . We shall consider constructible $\overline{\mathbb{Q}}_{\ell}$ -complexes over various algebraic stacks over $k$ or $\bar{k}$ . All sheaf-theoretic operations are understood as derived functors .
+
+1.4.3. The absolute group data
+
+Let $\mathbb{G}$ be a split reductive group over $k$ whose derived group is absolutely almost simple. Fix a pinning $\dagger=(\mathbb{B},\mathbb{T},\cdots)$ of $\mathbb{G}$ , where $\mathbb{B}$ is a Borel subgroup of $\mathbb{G}$ and $\mathbb{T}\subset\mathbb{B}$ a split maximal torus. Let $\mathbb{W}=N_{\mathbb{G}}(\mathbb{T})/\mathbb{T}$ be the Weyl group of $\mathbb{G}$ . Let $\Phi\subset\mathbb{X}^{*}(\mathbb{T})$ be the set of roots. Fix a cyclic subgroup $\mathbb{Z}/e\mathbb{Z}\hookrightarrow\textup{Aut}^{\dagger}(\mathbb{G})$ of the pinned automorphism group of $\mathbb{G}$ , and denote the image of $1$ by $\sigma\in\textup{Aut}^{\dagger}(\mathbb{G})$ .
+
+We assume $\textup{char}(k)$ is prime to $e$ and that $k^{\times}$ contains $e$ th roots of unity.
+
+Let $Z\mathbb{G}$ be the center of $\mathbb{G}$ . We also assume that $\mathbb{X}^{*}(Z\mathbb{G})^{\sigma}=0$ .
+
+1.4.4. The quasi-split group
+
+Let $\widetilde{X}\to X$ be the $\mu_{e}$ -cover totally ramified over $0$ and $\infty$ . Then $\widetilde{X}$ is also isomorphic to $\mathbb{P}^{1}_{k}$ , and we denote its affine coordinate by $t^{1/e}$ . We denote 
+ 
+ $X^{\circ}:=X-\{0,\infty\};\hskip 28.45274pt\widetilde{X}^{\circ}:=\widetilde{X}-\{0,\infty\}.$ 
+
+
+The data $\mathbb{G}$ and $\sigma$ define a quasi-split group scheme $G$ over $X^{\circ}$ which splits over the $\mu_{e}$ -cover $\widetilde{X}^{\circ}\to X^{\circ}$ . More precisely, for any $k[t,t^{-1}]$ -algebra $R$ , we have $G(R)=\mathbb{G}(R\otimes_{k[t,t^{-1}]}k[t^{1/e},t^{-1/e}])^{\mu_{e}}$ where $\mu_{e}$ acts on $t^{1/e}$ by multiplication and on $\mathbb{G}$ via the fixed map $\mu_{e}\hookrightarrow\textup{Aut}^{\dagger}(\mathbb{G})$ . Since $\mathbb{X}^{*}(Z\mathbb{G})^{\sigma}=0$ , the center of $G$ does not contain a split torus.
+
+Let $\SS$ be the neutral component of $\mathbb{T}^{\sigma}$ . Then $S=\SS\otimes_{k}F$ is a maximal split torus of $G$ over $F$ .
+
+1.4.5. Langlands dual group
+
+Let $\widehat{G}$ be the reductive group over $\overline{\mathbb{Q}}_{\ell}$ whose root system is dual to that of $\mathbb{G}$ . We also fix a pinned $\dagger$ of $\widehat{G}$ , through which we identify $\textup{Aut}^{\dagger}(\widehat{G})$ with $\textup{Aut}^{\dagger}(\mathbb{G})$ . We define the Langlands dual group ${\vphantom{G}}^{L}{G}$ of $G$ to be ${\vphantom{G}}^{L}{G}=\widehat{G}\rtimes\mu_{e}$ where $\mu_{e}$ acts through $\mu_{e}\hookrightarrow\textup{Aut}^{\dagger}(\mathbb{G})\cong\textup{Aut}^{\dagger}(\widehat{G})$ .
+
+1.4.6. Loop groups
+
+We shall use the convention in [21] for loop groups. For example, when $x\in X$ , we use $L_{x}G$ (resp. $L^{+}_{x}G$ , if $x\in X^{\circ}$ ) to denote the loop group (resp. positive loop group) of the group scheme $G$ at $x$ . Then $L_{x}G$ (resp. $L_{x}^{+}G$ ) is a group ind-scheme (resp. pro-algebraic group) over $k(x)$ , the residue field of $x$ . A parahoric subgroup of $G(F_{x})$ is also viewed as a pro-algebraic subgroup of $L_{x}G$ over $k(x)$ . Since $G$ splits over $\widetilde{X}^{\circ}$ , for $\widetilde{x}\in\widetilde{X}^{\circ}$ , we use $L_{\widetilde{x}}\mathbb{G}$ to denote the loop group of the constant group scheme $G\times_{X^{\circ}}\widetilde{X}^{\circ}\cong\mathbb{G}\times\widetilde{X}^{\circ}$ at $\widetilde{x}$ .
+
+2. Epipelagic representations and automorphic representations
+
+In this section we let $K=F_{\infty}$ denote the local field of $F$ at $\infty$ . We first recall the construction of epipelagic representations of $G(K)$ following Reeder and Yu [18] . We then realize these epipelagic representations as the local components at $\infty$ of automorphic representations of $G(\mathbb{A}_{F})$ .
+
+2.1. Admissible parahorics and $\theta$ -groups
+
+The Borel subgroup $\mathbb{B}\subset\mathbb{G}$ allows us to define a standard Iwahori subgroup $\mathbf{I}\subset G(K)$ in the following way. Let $K_{e}$ be the totally ramified extension of $K$ of degree $e$ , then $G(K)\subset\mathbb{G}(K_{e})$ by construction. We define $\mathbf{I}$ to be the preimage of $\mathbb{B}$ under the homomorphism $G(K)\cap\mathbb{G}(\mathcal{O}_{K_{e}})\to\mathbb{G}(\mathcal{O}_{K_{e}})\twoheadrightarrow\mathbb{G}$ , the last map being given by $\mathcal{O}_{K_{e}}\twoheadrightarrow k$ .
+
+Let ${\mathbf{P}}\subset G(K)$ be a standard parahoric subgroup (i.e., $\mathbf{I}\subset{\mathbf{P}}$ ). Let ${\mathbf{P}}\supset{\mathbf{P}}^{+}\supset{\mathbf{P}}^{++}$ be the first three steps in the Moy-Prasad filtration of ${\mathbf{P}}$ . In particular, ${\mathbf{P}}^{+}$ is the pro-unipotent radical of ${\mathbf{P}}$ and $L_{\mathbf{P}}:={\mathbf{P}}/{\mathbf{P}}^{+}$ is the Levi factor of ${\mathbf{P}}$ . We may view $L_{{\mathbf{P}}}$ as a subgroup of ${\mathbf{P}}$ containing $\SS=\mathbb{T}^{\sigma,\circ}$ . Let $V_{{\mathbf{P}}}={\mathbf{P}}^{+}/{\mathbf{P}}^{++}$ , a vector space over $k$ on which $L_{{\mathbf{P}}}$ acts. The pair $(L_{{\mathbf{P}}},V_{{\mathbf{P}}})$ is an example of a $\theta$ -group in the terminology of the Vinberg school.
+
+The parahoric ${\mathbf{P}}$ is called admissible if there exists a closed orbit of $L_{\mathbf{P}}$ on the dual space $V^{*}_{\mathbf{P}}$ with finite stabilizers. Such orbits are called stable . Stable orbits form an open subset $V^{*,\textup{st}}_{\mathbf{P}}\subset V^{*}_{\mathbf{P}}$ . Elements in $V^{*,\textup{st}}_{{\mathbf{P}}}$ are called stable functionals on $V_{{\mathbf{P}}}$ . For a complete list of admissible parahoric subgroups for various types of $G$ when $\textup{char}(k)$ is large, see the tables in [8] .
+
+2.2. Relation with regular elliptic numbers
+
+Let $\mathbb{W}^{\prime}=\mathbb{W}\rtimes\mu_{e}$ where $\mu_{e}$ acts on $\mathbb{W}$ via its pinned action on $\mathbb{G}$ . Springer [19] defined the notion of regular elements for $(\mathbb{W},\sigma)$ . We shall use a slightly different notion of $\mathbb{Z}$ -regularity defined by Gross, Levy, Reeder and Yu in [8] . An element $w\in\mathbb{W}^{\prime}$ is $\mathbb{Z}$ -regular if it permutes the roots $\Phi$ freely. See [8] for the relation between $\mathbb{Z}$ -regularity and Springer’s notion of regularity. Combining [8] and [19] one easily sees that a $\mathbb{Z}$ -regular element in $\mathbb{W}\sigma\subset\mathbb{W}^{\prime}$ is determined, up to $\mathbb{W}$ -conjugacy, by its order.
+
+On the other hand, an element $w\in\mathbb{W}^{\prime}$ is elliptic if $\mathbb{X}^{*}(\mathbb{T}^{\textup{ad}})^{w}=0$ . The order of a $\mathbb{Z}$ -regular elliptic element in $\mathbb{W}\sigma\subset\mathbb{W}^{\prime}$ is called a regular elliptic number of the pair $(\mathbb{W},\sigma)$ . The above discussion says that the assignment $w\mapsto\textup{ord}(w)$ is a bijection between $\mathbb{Z}$ -regular elliptic elements in $\mathbb{W}\sigma$ up to $\mathbb{W}$ -conjugacy and regular elliptic number of the pair $(\mathbb{W},\sigma)$ .
+
+To each standard parahoric ${\mathbf{P}}$ , we can assign a natural number $m$ as follows. Consider the apartment $\mathfrak{A}$ in the building of $G(K)$ corresponding to the maximal split torus $S=\SS\otimes_{k}F$ . Let $\xi$ be the barycenter of the facet corresponding to ${\mathbf{P}}$ . The number $m=m({\mathbf{P}})$ is defined as the smallest positive integer such that $\alpha(\xi)\in\frac{1}{m}\mathbb{Z}$ for all affine roots $\alpha$ of $G(K)$ with respect to $S$ (see [18] ).
+
+When ${\mathbf{P}}$ is admissible, $\textup{char}(k)$ is not torsion for $G$ and $\textup{char}(k)\nmid m({\mathbf{P}})$ , it was shown in [18] that $m({\mathbf{P}})$ is a regular elliptic number of $(\mathbb{W},\sigma)$ , and conversely every regular elliptic number $m$ determines an admissible parahoric ${\mathbf{P}}$ up to conjugacy. Combing these facts, one sees that when $\textup{char}(k)$ is larger than the twisted Coxeter number $h_{\sigma}$ of $(\mathbb{G},\sigma)$ , there are natural bijections between the following three sets (1) Admissible standard parahorics ${\mathbf{P}}$ of $G(K)$ ; (2) $\mathbb{Z}$ -regular elliptic elements $w\in\mathbb{W}\sigma$ up to $\mathbb{W}$ -conjugacy; (3) Regular elliptic numbers $m$ of the pair $(\mathbb{W},\sigma)$ .
+
+For a list of regular elliptic numbers in all types of $G$ , see § 4.8 .
+
+(1) The Iwahori $\mathbf{I}$ is always admissible. It corresponds to the twisted Coxeter number $h_{\sigma}$ . In this case $L_{\mathbf{I}}=\mathbb{T}^{\sigma,\circ}$ , and $V_{\mathbf{I}}$ is the sum of affine simple root spaces of $G$ . (2) Let $\sigma\in\textup{Out}(\mathbb{G})$ by the opposition of the Dynkin diagram. Then $-1\in\mathbb{W}\sigma$ is a regular elliptic element, and $m=2$ is a regular elliptic number. The corresponding admissible ${\mathbf{P}}_{2}$ is a maximal parahoric except in type $A_{1}$ and $C_{n}$ . The Levi quotient $L_{2}\cong\mathbb{G}^{\theta,\circ}$ where $\theta$ is a Chevalley involution on $\mathbb{G}$ , and $V_{\mathbf{P}}$ can be identified with the $(-1)$ -eigenspace of $\theta$ on $\textup{Lie}\mathbb{G}$ . (3) Besides the case $m=2$ , there are a few more cases of admissible parahorics that are maximal: 
+ 
+ ${\vphantom{D}}^{3}{D}_{4}\ (m=3),E_{6}\ (m=3),{\vphantom{E}}^{2}{E}_{6}\ (m=4),E_{8}\ (m=3,4,5)\textup{ and }F_{4}\ (m=3).$ (4) There are a few cases of admissible parahorics that are minimal (but not Iwahori). They are 
+ 
+ ${\vphantom{A}}^{2}{A}_{2},{\vphantom{A}}^{2}{A}_{5},C_{2},D_{4},{\vphantom{D}}^{3}{D}_{4},E_{6},{\vphantom{E}}^{2}{E}_{6},E_{7},E_{8},F_{4},G_{2}.$ 
+ In these cases, the admissible minimal parahoric corresponds to the unique vertex in the affine Dynkin diagram $\widetilde{\textup{Dyn}}(G)$ with three or more edges coming towards it.
+
+From now on, till the end of § 5 , we shall fix an admissible standard parahoric subgroup ${\mathbf{P}}$ of $G(K)$ . Let $m=m({\mathbf{P}})$ as defined in § 2.2 .
+
+2.4. Epipelagic supercuspidal representations
+
+Fix a nontrivial character $\psi:k=\mathbb{F}_{q}\to\mathbb{Q}_{\ell}(\mu_{p})^{\times}$ . For a stable functional $\phi\in V^{*,\textup{st}}_{{\mathbf{P}}}(k)$ , viewed as a linear map $\phi:V_{{\mathbf{P}}}\to k$ , Reeder-Yu [18] show that the compact induction 
+ 
+ $\textup{c-Ind}^{G(K)}_{{\mathbf{P}}^{+}}(\psi\phi)$ 
+ is a finite direct sum of irreducible supercuspidal representations of $G(K)$ (recall the center of $G(K)$ is finite). Its simple summands are called epipelagic representations of $G(K)$ attached to the parahoric ${\mathbf{P}}$ and the stable functional $\phi$ . These irreducible representations of $G(K)$ are characterized by having an $\psi\phi$ -eigenvector under ${\mathbf{P}}^{+}$ and having depth $1/m$ .
+
+2.5. Expected Langlands parameter
+
+Let $\mathcal{I}_{K}\lhd W(K^{s}/K)$ be the inertia group and the Weil group of $K$ . Let $\pi$ be an epipelagic representation of $G(K)$ attached to ${\mathbf{P}}$ and a stable linear functional $\phi:V_{{\mathbf{P}}}\to k$ . According the the local Langlands conjecture, there should be a Galois representation $\rho_{\pi}:W(K^{s}/K)\to{\vphantom{G}}^{L}{G}(\overline{\mathbb{Q}}_{\ell})$ attached to $\pi$ as the conjectural Langlands parameter. In particular, $\mathcal{I}_{K}$ acts on the Lie algebra ${\widehat{\mathfrak{g}}}$ of $\widehat{G}$ by composing $\rho_{\pi}$ with the adjoint representation of $\widehat{G}$ . Guided by the conjecture in [9] relating the adjoint gamma factors and formal degrees, Reeder and Yu predicted in [18] that (1) ${\widehat{\mathfrak{g}}}^{\mathcal{I}_{K}}=0$ ; (2) $\textup{Swan}({\widehat{\mathfrak{g}}})=\#\Phi/m$ . If moreover $\textup{char}(k)$ does not divide the order of $\mathbb{W}$ , Reeder and Yu made even sharper predictions: the restriction of $\rho_{\pi}$ to $\mathcal{I}_{K}$ should look like 
+ 
+ $\textstyle{1\ignorespaces\ignorespaces\ignorespaces\ignorespaces}$ $\textstyle{\mathcal{I}^{+}_{K}\ignorespaces\ignorespaces\ignorespaces\ignorespaces\ignorespaces\ignorespaces\ignorespaces\ignorespaces}$ $\textstyle{\mathcal{I}_{K}\ignorespaces\ignorespaces\ignorespaces\ignorespaces\ignorespaces\ignorespaces\ignorespaces\ignorespaces}$ $\scriptstyle{\rho_{\pi}}$ $\textstyle{\mathcal{I}^{t}_{K}\ignorespaces\ignorespaces\ignorespaces\ignorespaces\ignorespaces\ignorespaces\ignorespaces\ignorespaces}$ $\textstyle{1}$ $\textstyle{1\ignorespaces\ignorespaces\ignorespaces\ignorespaces}$ $\textstyle{\widehat{T}\ignorespaces\ignorespaces\ignorespaces\ignorespaces}$ $\textstyle{N_{{\vphantom{G}}^{L}{G}}(\widehat{T})\ignorespaces\ignorespaces\ignorespaces\ignorespaces}$ $\textstyle{\mathbb{W}^{\prime}\ignorespaces\ignorespaces\ignorespaces\ignorespaces}$ $\textstyle{1}$ 
+ where such that a generator of the tame inertia $\mathcal{I}^{t}_{K}$ maps to a regular elliptic element $w\in\mathbb{W}\sigma$ of order $m$ .
+
+2.6. Realization in automorphic representations
+
+Recall $K=F_{\infty}$ and now we denote ${\mathbf{P}}$ by ${\mathbf{P}}_{\infty}$ . Let $\mathbf{I}_{0}\subset G(F_{0})$ be the Iwahori subgroup corresponding to the opposite Borel $\mathbb{B}^{\textup{opp}}$ of $\mathbb{G}$ , as $\mathbf{I}=\mathbf{I}_{\infty}$ was constructed from $\mathbb{B}$ . Let ${\mathbf{P}}_{0}\subset G(F_{0})$ be the parahoric subgroup containing $\mathbf{I}_{0}$ of the same type as ${\mathbf{P}}_{\infty}$ . Let $\widetilde{{\mathbf{P}}}_{0}$ be the normalizer of ${\mathbf{P}}_{0}$ in $G(F_{0})$ and $\Omega_{{\mathbf{P}}}=\widetilde{{\mathbf{P}}}_{0}/{\mathbf{P}}_{0}$ \footnote{ 1 One can show that $\Omega_{{\mathbf{P}}}$ is always equal to the full stabilizer $\Omega$ of the fundamental alcove under the extended affine Weyl group of $G(K)$ . In other words, the sub-Dynkin diagram of the affine Dynkin diagram $\widetilde{\textup{Dyn}}(G)$ of $G$ representing an admissible standard parahoric ${\mathbf{P}}$ is always stable under the automorphisms of $\widetilde{\textup{Dyn}}(G)$ fixing the extended node.} . The Levi quotient of ${\mathbf{P}}_{0}$ is again identified with $L_{{\mathbf{P}}}$ . Let $L^{\textup{ab}}_{{\mathbf{P}}}=L_{{\mathbf{P}}}/L_{{\mathbf{P}}}^{\textup{der}}$ be the maximal quotient torus of $L_{{\mathbf{P}}}$ . Let ${\mathbf{P}}^{\textup{ss}}_{0}=\ker({\mathbf{P}}_{0}\to L^{\textup{ab}}_{{\mathbf{P}}})$ and let 
+ 
+ $\widetilde{L}^{\textup{ab}}_{{\mathbf{P}}}=\widetilde{{\mathbf{P}}}_{0}/{\mathbf{P}}^{\textup{ss}}_{0}.$ 
+ Note that $\widetilde{L}^{\textup{ab}}_{{\mathbf{P}}}$ is an extension of the finite group $\Omega_{{\mathbf{P}}}$ by the torus $L^{\textup{ab}}_{{\mathbf{P}}}$ .
+
+Fix a character $\chi:\widetilde{L}^{\textup{ab}}_{\mathbf{P}}(k)\to\overline{\mathbb{Q}}_{\ell}^{\times}$ and a stable linear functional $\phi:V_{{\mathbf{P}}}\to k$ .
+
+Now we try to classify automorphic representations $\pi=\otimes^{\prime}_{x\in|X|}\pi_{x}$ of $G(\mathbb{A}_{F})$ satisfying • $\pi_{x}$ is unramified for $x\neq 0,\infty$ ; • $\pi_{0}$ has an eigenvector under $\widetilde{{\mathbf{P}}}_{0}$ on which it acts through $\chi$ via the quotient $\widetilde{L}^{\textup{ab}}_{{\mathbf{P}}}$ ; • $\pi_{\infty}$ has an eigenvector under ${\mathbf{P}}^{+}_{\infty}$ on which it acts through $\psi\phi$ (i.e., $\pi_{\infty}$ is an epipelagic supercuspidal representation attached to ${\mathbf{P}}^{+}_{\infty}$ and the stable functional $\phi$ ).
+
+There is a unique automorphic representation $\pi=\pi(\chi,\phi)$ of $G(\mathbb{A}_{F})$ satisfying all the above conditions. Moreover, we have (1) $\pi$ is cuspidal, and appears with multiplicity one in the automorphic spectrum of $G$ . (2) Both eigenspaces $\pi_{0}^{(\widetilde{{\mathbf{P}}}_{0},\chi)}$ and $\pi_{\infty}^{({\mathbf{P}}_{\infty}^{+},\psi\phi)}$ are one-dimensional.
+
+Consider the vector space of $\overline{\mathbb{Q}}_{\ell}$ -valued functions 
+ 
+ $\mathcal{A}:=\textup{Fun}\left(G(F)\backslash G(\mathbb{A}_{F})/\prod_{x\neq 0,\infty}G(\mathcal{O}_{x})\right)^{(\widetilde{{\mathbf{P}}}_{0},\chi)\times({\mathbf{P}}^{+}_{\infty},\psi\phi)}.$ 
+ Here the superscript means taking the eigenspace under $\widetilde{{\mathbf{P}}}_{0}\times{\mathbf{P}}^{+}_{\infty}$ on which $\widetilde{{\mathbf{P}}}_{0}$ acts through $\chi$ and ${\mathbf{P}}^{+}_{\infty}$ acts through $\psi\phi$ . We first show that $\dim\mathcal{A}=1$ .
+
+Let $\widetilde{\Gamma}_{0}=G(k[t,t^{-1}])\cap\widetilde{{\mathbf{P}}}_{0}$ . Then $\widetilde{L}_{{\mathbf{P}}}$ is also a subgroup of $\widetilde{\Gamma}_{0}$ . Let $W_{{\mathbf{P}}}$ be the Weyl group of $L_{{\mathbf{P}}}$ , identified with a subgroup of the extended affine Weyl group $\widetilde{W}$ of $G(F_{\infty})$ (both are with respect to $\SS$ ). Let $\widetilde{W}_{{\mathbf{P}}}=N_{\widetilde{W}}(W_{{\mathbf{P}}})$ , which is an extension of $\Omega_{{\mathbf{P}}}$ by $W_{{\mathbf{P}}}$ .
+
+A parahoric variant of [10] gives an equality between double cosets 
+ 
+ $G(F)\backslash G(\mathbb{A}_{F})/(\widetilde{{\mathbf{P}}}_{0}\times\prod_{x\neq 0,\infty}G(\mathcal{O}_{x})\times{\mathbf{P}}^{+}_{\infty})=\widetilde{\Gamma}_{0}\backslash G(F_{\infty})/{\mathbf{P}}^{+}_{\infty}$ 
+ and the Birkhoff decomposition 
+ 
+ $G(F_{\infty})=\bigsqcup_{\widetilde{w}\in\widetilde{W}_{{\mathbf{P}}}\backslash\widetilde{W}/W_{{\mathbf{P}}}}\widetilde{\Gamma}_{0}\widetilde{w}{\mathbf{P}}_{\infty}.$ 
+
+
+Recall the apartment $\mathfrak{A}$ and the barycenter $\xi$ of the facet corresponding to ${\mathbf{P}}_{\infty}$ as in § 2.2 . The set $\Psi_{\textup{aff}}$ of affine roots of $G(F_{\infty})$ are certain affine functions on $\mathfrak{A}$ . For a subgroup $\mathbf{K}$ of $G(F_{\infty})$ , we use $\Psi(\mathbf{K})$ to denote the set of affine roots whose root subgroups are contained in $\mathbf{K}$ . Therefore $\Psi({\mathbf{P}}_{\infty})=\{\alpha\in\Psi_{\textup{aff}}|\alpha(\xi)\geq 0\}$ , $\Psi(\Gamma_{0})=\{\alpha\in\Psi_{\textup{aff}}|\alpha(\xi)\leq 0\}$ , and $\Psi(L_{{\mathbf{P}}})=\{\alpha\in\Psi_{\textup{aff}}|\alpha(\xi)=0\}$
+
+By the definition of $m=m({\mathbf{P}})$ , we have $\alpha(\xi)\in\frac{1}{m}\mathbb{Z}$ . Moreover, since $\xi$ is the barycenter of its facet, $\Psi({\mathbf{P}}^{+}_{\infty})-\Psi({\mathbf{P}}^{++}_{\infty})=\{\alpha\in\Psi_{\textup{aff}}|\alpha(\xi)=\frac{1}{m}\}$ (these are exactly the affine roots that appear in $V_{{\mathbf{P}}}$ ), and $\Psi({\mathbf{P}}^{++}_{\infty})=\{\alpha\in\Psi_{\textup{aff}}|\alpha(\xi)\geq\frac{2}{m}\}$ .
+
+Suppose $f$ is nonzero on the double coset $\widetilde{\Gamma}_{0}\widetilde{w}\ell{\mathbf{P}}^{+}_{\infty}$ for some $\widetilde{w}\in\widetilde{W}$ and $\ell\in L_{{\mathbf{P}}}$ . Note that $f$ is a function on the quotient $\Gamma^{\textup{ss}}_{0}\backslash(\widetilde{\Gamma}_{0}\widetilde{w}\ell{\mathbf{P}}^{+}_{\infty})/{\mathbf{P}}^{++}_{\infty}$ (where $\Gamma^{\textup{ss}}_{0}:=\ker(\widetilde{\Gamma}_{0}\to\widetilde{L}^{\textup{ab}}_{{\mathbf{P}}})$ ), and is $(V_{{\mathbf{P}}},\psi\phi)$ -eigen. For $\alpha\in\Psi({\mathbf{P}}^{+}_{\infty})-\Psi({\mathbf{P}}^{++}_{\infty})$ (equivalently, $\alpha(\xi)=\frac{1}{m}$ ), we identify the affine root subgroup of $\alpha$ with the $\alpha$ -weight space $V_{{\mathbf{P}}}(\alpha)$ of $V_{{\mathbf{P}}}$ . Suppose also $\widetilde{w}\alpha\in\Psi(\Gamma^{\textup{ss}}_{0})$ (equivalently $(\widetilde{w}\alpha)(\xi)\leq 0$ ). then for any $u_{\alpha}\in V_{{\mathbf{P}}}(\alpha)$ , we have 
+ 
+ $\psi(\langle{\phi,\textup{Ad}(\ell^{-1})u_{\alpha}}\rangle)f(\widetilde{w}\ell)=f(\widetilde{w}\ell\textup{Ad}(\ell^{-1})u_{\alpha})=f(\widetilde{w}u_{\alpha}\ell)=f(\textup{Ad}(\widetilde{w})u_{\alpha}\widetilde{w}\ell)=f(\widetilde{w}\ell).$ 
+ Therefore we must have $\langle{\phi,\textup{Ad}(\ell^{-1})V_{{\mathbf{P}}}(\alpha)}\rangle=0$ . The annihilator of $\bigoplus_{\alpha(\xi)=\frac{1}{m},(\widetilde{w}\alpha)(\xi)\leq 0}V_{{\mathbf{P}}}(\alpha)\subset V_{{\mathbf{P}}}$ in the dual space is $V^{*,\widetilde{w}}_{{\mathbf{P}}}:=\bigoplus_{\alpha(\xi)=\frac{1}{m},(\widetilde{w}\alpha)(\xi)>0}V_{{\mathbf{P}}}(\alpha)^{*}=\bigoplus_{\beta(\xi)=-\frac{1}{m},(\widetilde{w}\beta)(\xi)<0}V^{*}_{{\mathbf{P}}}(\alpha)$ . Then the above discussion shows that the orbit $L_{{\mathbf{P}}}\cdot\phi$ intersects $V^{*,\widetilde{w}}_{{\mathbf{P}}}$ .
+
+For $\beta(\xi)=\frac{1}{m}$ , the condition $(\widetilde{w}\beta)(\xi)<0$ is equivalent to saying that $(\widetilde{w}\alpha)(\xi)\leq\alpha(\xi)$ , or $\langle{\bar{\beta},\widetilde{w}^{-1}\xi-\xi}\rangle\leq 0$ , where $\bar{\beta}$ is the vector part of $\beta$ . In other words, in the weight decomposition of $V^{*,\widetilde{w}}_{{\mathbf{P}}}$ under the torus $\SS$ , a weight $\bar{\beta}\in\mathbb{X}^{*}(\SS)$ appears if and only if it satisfies $\langle{\bar{\beta},\widetilde{w}^{-1}\xi-\xi}\rangle\leq 0$ .
+
+Suppose $\widetilde{w}^{-1}\xi\neq\xi$ , let $\lambda=m(\widetilde{w}^{-1}\xi-\xi)\in\mathbb{X}_{*}(\SS)$ . Any point of $V^{*,\widetilde{w}}_{{\mathbf{P}}}=\oplus_{\langle{\bar{\beta},\lambda}\rangle\leq 0}V^{*}_{{\mathbf{P}}}(\beta)$ under the action of the one-dimensional torus $\lambda(\mathbb{G}_{m})$ has a limit point in $\oplus_{\langle{\bar{\beta},\lambda}\rangle=0}V^{*}_{{\mathbf{P}}}(\beta)$ . Since the orbit $L_{{\mathbf{P}}}\cdot\phi$ is closed, it contains a point $\phi^{\prime}\in\oplus_{\langle{\bar{\beta},\lambda}\rangle=0}V^{*}_{{\mathbf{P}}}(\beta)$ . But then the torus $\lambda(\mathbb{G}_{m})$ fixes $\phi^{\prime}$ , contradicting the assumption that $\phi$ , hence $\phi^{\prime}$ , should have finite stabilizer under $L_{{\mathbf{P}}}$ . This shows that $f$ must be zero on $\Gamma\widetilde{w}{\mathbf{P}}_{\infty}$ for $\widetilde{w}^{-1}\xi\neq\xi$ .
+
+Those $\widetilde{w}$ with $\widetilde{w}^{-1}\xi=\xi$ are precisely those in $\widetilde{W}_{{\mathbf{P}}}$ , therefore, $f$ , as a function on $G(F_{\infty})$ , is supported on the unit coset $\widetilde{\Gamma}_{0}{\mathbf{P}}_{\infty}=\widetilde{\Gamma}_{0}\times{\mathbf{P}}^{+}_{\infty}$ . The $(\widetilde{{\mathbf{P}}}_{0},\chi)$ -eigen property of $f$ as a function on $G(\mathbb{A}_{F})$ implies that it is left $(\widetilde{\Gamma}_{0},\chi)$ -eigen as a function on $G(F_{\infty})$ . Together with the right $({\mathbf{P}}^{+}_{\infty},\psi\phi)$ -eigen property, the function $f$ is unique up to a scalar. We have shown that $\dim\mathcal{A}=1$ .
+
+Next we check that $\mathcal{A}$ consists of cuspidal functions. In fact, for any $f\in\mathcal{A}$ , $g\in G(\mathbb{A}_{F})$ and any proper $F$ -parabolic $P\subset G$ with unipotent radical $U_{P}$ , the constant term $\int_{U_{P}(F)\backslash U_{P}(\mathbb{A}_{F})}f(ng)dn$ can be written as a finite sum of the form $h(g_{\infty}):=\int_{\Gamma\backslash U_{P}(F_{\infty})}f(g^{\infty},n_{\infty}g_{\infty})dn_{\infty}$ , for some discrete subgroup $\Gamma\subset U_{P}(F_{\infty})$ and $g=(g^{\infty},g_{\infty})$ where $g_{\infty}\in G(F_{\infty}),g^{\infty}\in G(\mathbb{A}^{\infty}_{F})$ . The function $h:G(F_{\infty})\to\overline{\mathbb{Q}}_{\ell}$ defined above is left $U_{P}(F_{\infty})$ -invariant and right $({\mathbf{P}}^{+}_{\infty},\psi\phi)$ -eigen, hence induces a $U_{P}(F_{\infty})$ -invariant map $c_{h}:\textup{c-Ind}^{G(F_{\infty})}_{{\mathbf{P}}^{+}_{\infty}}(\bar{\psi}\phi)\to\overline{\mathbb{Q}}_{\ell}$ by $h^{\prime}\mapsto\int_{G(F_{\infty})/{\mathbf{P}}^{+}_{\infty}}h(x)h^{\prime}(x^{-1})dx$ . However, as we discussed in § 2.4 , $\textup{c-Ind}^{G(F_{\infty})}_{{\mathbf{P}}^{+}_{\infty}}(\bar{\psi}\phi)$ is a finite direct sum of supercuspidal representations, hence has zero Jacquet module with respect to $P$ . Therefore $c_{h}=0$ and $h$ must be the zero function. This implies that the constant term $\int_{U_{P}(F)\backslash U_{P}(\mathbb{A}_{F})}f(ng)dn$ must be zero.
+
+Since cuspidal functions belong to the discrete spectrum, we have 
+ 
+ (2.1)  $\dim\mathcal{A}=\sum_{\pi}m(\pi)\dim\pi_{0}^{(\widetilde{{\mathbf{P}}}_{0},\chi)}\dim\pi_{\infty}^{({\mathbf{P}}_{\infty}^{+},\psi\phi)}.$ 
+ where the sum is over isomorphism classes of $\pi$ satisfying the conditions in § 2.6 , and $m(\pi)$ is the multiplicity that $\pi$ appears in the automorphic spectrum of $G(\mathbb{A}_{F})$ . Since $\dim\mathcal{A}=1$ , the right side of ( 2.1 ) only has one nonzero term, in which all factors are equal to one. ∎
+
+3. Generalized Kloosterman sheaves
+
+We keep the notations from § 2.6 . In this section, we will construct generalized Kloosterman sheaves as Galois representations attached to the automorphic representations $\pi(\chi,\phi)$ in Proposition 2.7 . The construction uses ideas from the geometric Langlands correspondence.
+
+3.1. A sheaf on the moduli space of $G$ -bundles
+
+Let $\textup{Bun}_{G}({\mathbf{P}}^{\textup{ss}}_{0},{\mathbf{P}}^{++}_{\infty})$ be the moduli stack of $G$ -bundles over $X=\mathbb{P}^{1}$ with ${\mathbf{P}}^{\textup{ss}}_{0}$ -level structures at $0$ and ${\mathbf{P}}^{++}_{\infty}$ -level structures at $\infty$ . This is an algebraic stack over $k$ . For the construction of moduli stacks with parahoric level structures, such as $\textup{Bun}_{G}({\mathbf{P}}_{0},{\mathbf{P}}_{\infty})$ , see [20] ; the moduli stack $\textup{Bun}_{G}({\mathbf{P}}^{\textup{ss}}_{0},{\mathbf{P}}^{++}_{\infty})$ is an $L^{\textup{ab}}_{{\mathbf{P}}}\times({\mathbf{P}}_{\infty}/{\mathbf{P}}_{\infty}^{++})$ -torsor over $\textup{Bun}_{G}({\mathbf{P}}_{0},{\mathbf{P}}_{\infty})$ . In the sequel we abbreviate $\textup{Bun}:=\textup{Bun}_{G}({\mathbf{P}}^{\textup{ss}}_{0},{\mathbf{P}}^{++}_{\infty})$ . The trivial $G$ -bundle with the tautological level structures at $0$ and $\infty$ gives a base point $\star\in\textup{Bun}(k)$ .
+
+There is an action of $\widetilde{L}^{\textup{ab}}_{{\mathbf{P}}}\times V_{{\mathbf{P}}}$ on Bun because $\widetilde{{\mathbf{P}}}_{0}$ normalizes ${\mathbf{P}}^{\textup{ss}}_{0}$ and ${\mathbf{P}}_{\infty}^{+}$ normalizes ${\mathbf{P}}^{++}_{\infty}$ . The character $\chi$ defines a rank one Kummer local system $\mathcal{L}_{\chi}$ on $\widetilde{L}^{\textup{ab}}_{{\mathbf{P}}}$ such that its Frobenius traces at $k$ -rational points give back the character $\chi:\widetilde{L}^{\textup{ab}}_{{\mathbf{P}}}(k)\to\overline{\mathbb{Q}}_{\ell}^{\times}$ . Let $S$ be a scheme and $s:S\to V^{*}_{{\mathbf{P}}}$ be a morphism. We also consider $V_{{\mathbf{P}}}\times S$ as a constant additive group over $S$ , over which we have a rank one local system $\textup{AS}_{S}:=(\textup{id}\times s)^{*}\langle{,}\rangle^{*}\textup{AS}_{\psi}$ where $\langle{,}\rangle:V_{{\mathbf{P}}}\times V^{*}_{{\mathbf{P}}}\to\mathbb{G}_{a}$ is the natural pairing and $\textup{AS}_{\psi}$ is the rank one Artin-Schreier local system on $\mathbb{G}_{a}$ given by the additive character $\psi$ .
+
+Both $\mathcal{L}_{\chi}$ and $\textup{AS}_{S}$ are character sheaves. We spell out what this means for $\textup{AS}_{S}$ . Let $a:V_{{\mathbf{P}}}\times V_{{\mathbf{P}}}\times S\to V_{{\mathbf{P}}}\times S$ be the addition map in the first two variables, and let $p_{23}:V_{{\mathbf{P}}}\times V_{{\mathbf{P}}}\times S\to V_{{\mathbf{P}}}\times S$ be the projection onto the last two factors. Then there is an isomorphism $a^{*}\textup{AS}_{S}\cong p_{23}^{*}\textup{AS}_{S}$ , which satisfies the usual cocycle relation when pulled back to $V^{3}_{{\mathbf{P}}}\times S$ .
+
+For any scheme $S$ over $V^{*}_{{\mathbf{P}}}$ , we consider the product $\textup{Bun}\times S$ , on which the algebraic group $\widetilde{L}^{\textup{ab}}_{{\mathbf{P}}}$ and the constant group scheme $V_{{\mathbf{P}}}\times S$ acts. We may then talk about the derived category of $(\widetilde{L}^{\textup{ab}}_{{\mathbf{P}}},\mathcal{L}_{\chi})$ -equivariant and $(V_{{\mathbf{P}}}\times S,\textup{AS}_{S})$ -equivariant $\overline{\mathbb{Q}}_{\ell}$ -complex on $\textup{Bun}\times S$ . We denote this category by $\mathcal{D}(\chi,S)$ .
+
+Let $\textup{Bun}_{G}(\widetilde{{\mathbf{P}}}_{0},{\mathbf{P}}^{+}_{\infty})$ be the quotient of Bun by the $\widetilde{L}^{\textup{ab}}_{{\mathbf{P}}}\times V_{{\mathbf{P}}}$ -action. The parahoric analog of the Birkhoff decomposition [10] gives a decomposition 
+ 
+ (3.1)  $\textup{Bun}_{G}(\widetilde{{\mathbf{P}}}_{0},{\mathbf{P}}^{+}_{\infty})(k)\cong\widetilde{\Gamma}_{0}\backslash G(F_{\infty})/{\mathbf{P}}^{+}_{\infty}=\bigsqcup_{w\in\widetilde{W}_{{\mathbf{P}}}\backslash\widetilde{W}/W_{{\mathbf{P}}}}\widetilde{\Gamma}_{0}\backslash(\widetilde{\Gamma}_{0}\widetilde{w}{\mathbf{P}}_{\infty})/{\mathbf{P}}^{+}_{\infty}.$ 
+ Moreover, the same is true when $k$ is replaced by its algebraic closure (and with $G(F_{\infty}),{\mathbf{P}}_{\infty}$ etc. base changed to $\bar{k}$ ). By the parahoric analog of [10] , when $\widetilde{w}=1$ , the unit double coset is an open point with trivial stabilizer, which is also the image of $\star$ . The preimage $U$ of this open point in Bun is then a $\widetilde{L}^{\textup{ab}}_{{\mathbf{P}}}\times V_{{\mathbf{P}}}$ -torsor trivialized by the base point $\star$ , giving an open immersion 
+ 
+ $j:U\cong\widetilde{L}^{\textup{ab}}_{{\mathbf{P}}}\times V_{{\mathbf{P}}}\hookrightarrow\textup{Bun}.$ 
+ For $?=!$ or $*$ , let 
+ 
+ $A_{?}(\chi,S)=(j\times\textup{id}_{S})_{?}(\mathcal{L}_{\chi}\boxtimes\textup{AS}_{S})\in\mathcal{D}(\chi,S).$ 
+
+
+Let $S$ be a scheme over $V^{*,\textup{st}}_{{\mathbf{P}}}$ . (1) Any object $A\in\mathcal{D}(\chi,S)$ has vanishing stalks outside $U\times S$ . In particular, the canonical map $A_{!}(\chi,S)\to A_{*}(\chi,S)$ is an isomorphism. We shall denote them by $A(\chi,S)$ . (2) The functor 
+ 
+ $\displaystyle D^{b}_{c}(S)$ $\displaystyle\to$ $\displaystyle\mathcal{D}(\chi,S)$ 
+ 
+ $\displaystyle C$ $\displaystyle\mapsto$ $\displaystyle(j\times\textup{id}_{S})_{!}((\mathcal{L}_{\chi}\boxtimes\textup{AS}_{S})\otimes\textup{pr}_{S}^{*}C)$ 
+ is an equivalence of categories. Here $\textup{pr}_{S}:U\times S\to S$ is the projection.
+
+(2) is an immediate consequences of (1). To show (1), it suffices to treat the case $S=\textup{Spec}\ \bar{k}$ , which corresponds to a point $\phi\in V^{*,\textup{st}}(\bar{k})$ . We base change the situation to $\bar{k}$ without changing notation. By the Birkhoff decomposition ( 3.1 ), we need to show that any sheaf on $\Gamma^{\textup{ss}}_{0}\backslash(\widetilde{\Gamma}_{0}\widetilde{w}{\mathbf{P}}_{\infty})/{\mathbf{P}}^{++}_{\infty}$ that are $(V_{{\mathbf{P}}},\phi^{*}\textup{AS}_{\psi})$ -equivariant on the right must be zero. The argument is a straight-forward sheaf-theoretic analog of the argument given in Proposition 2.7 . ∎
+
+3.3. Hecke operators
+
+For more details on the Satake equivalence and Hecke operators, we refer to [10] . In particular, our Satake category consists of weight zero complexes as normalized in [10] (note this involves the choice of a half Tate twist). Here we only set up the notation in order to state our main result.
+
+The Hecke correspondence for $\textup{Bun}=\textup{Bun}({\mathbf{P}}^{\textup{ss}}_{0},{\mathbf{P}}^{++}_{\infty})$ classifies $(x,\mathcal{E},\mathcal{E}^{\prime},\tau)$ where $x\in\widetilde{X}^{\circ}$ , $\mathcal{E},\mathcal{E}^{\prime}\in\textup{Bun}$ and $\tau:\mathcal{E}|_{\widetilde{X}-\{x\}}\stackrel{{\scriptstyle\sim}}{{\to}}\mathcal{E}^{\prime}|_{\widetilde{X}-\{x\}}$ is an isomorphism of $G$ -torsors preserving the level structures at $0$ and $\infty$ . Let $\pi:\textup{Hk}\to\widetilde{X}^{\circ}$ be the morphism that remembers only $x$ , and let $\textup{Hk}_{x}$ be the fiber of $\pi$ over $x\in\widetilde{X}^{\circ}$ . For fixed $x\in\widetilde{X}^{\circ}$ , there is an evaluation map $\textup{ev}_{x}:\textup{Hk}_{x}\to[L^{+}_{x}\mathbb{G}\backslash L_{x}\mathbb{G}/L^{+}_{x}\mathbb{G}]$ by recording the behavior of $\tau$ around $x$ . For every $V\in\textup{Rep}(\widehat{G})$ , the geometric Satake correspondence gives a perverse sheaf $\textup{IC}_{V}$ (normalized to be pure of weight zero) on the affine Grassmannian $\textup{Gr}_{x}=L_{x}\mathbb{G}/L^{+}_{x}\mathbb{G}$ of $\mathbb{G}$ that descends to the stack $[L^{+}_{x}\mathbb{G}\backslash L_{x}\mathbb{G}/L^{+}_{x}\mathbb{G}]$ . The pullback $\textup{ev}_{x}^{*}\textup{IC}_{V}$ defines a complex on $\textup{Hk}_{x}$ . When $x$ varies in $\widetilde{X}^{\circ}$ , it can be shown that the complexes $\textup{ev}_{x}^{*}\textup{IC}_{V}$ can be glued to a complex $\textup{IC}^{\textup{Hk}}_{V}$ on Hk , whose restriction to each fiber $\textup{Hk}_{x}$ is $\textup{ev}_{x}^{*}\textup{IC}_{V}$ .
+
+Let $S$ be a scheme of finite type over $k$ . Consider the diagram 
+ 
+ (3.2)  $\textstyle{S\times\textup{Hk}\ignorespaces\ignorespaces\ignorespaces\ignorespaces\ignorespaces\ignorespaces\ignorespaces\ignorespaces\ignorespaces\ignorespaces\ignorespaces\ignorespaces}$ $\scriptstyle{\textup{id}_{S}\times\overleftarrow{h}}$ $\scriptstyle{\textup{id}_{S}\times\overrightarrow{h}}$ $\scriptstyle{\pi}$ $\textstyle{\widetilde{X}^{\circ}}$ $\textstyle{S\times\textup{Bun}}$ $\textstyle{S\times\textup{Bun}}$ 
+ where $\overleftarrow{h}$ and $\overrightarrow{h}$ send $(x,\mathcal{E},\mathcal{E}^{\prime},\tau)$ to $\mathcal{E}$ and $\mathcal{E}^{\prime}$ respectively. For each $V\in\textup{Rep}(\widehat{G})$ , we define the geometric Hecke operator (relative to the base $S$ ) to be the functor 
+ 
+ (3.3)  $\displaystyle T^{V}_{S}$ $\displaystyle:$ $\displaystyle D^{b}_{c}(S\times\textup{Bun})\to D^{b}_{c}(\widetilde{X}^{\circ}\times S\times\textup{Bun})$ 
+ $\displaystyle A\mapsto(\pi\times\textup{id}_{S}\times\overrightarrow{h})_{!}\left((\textup{id}_{S}\times\overleftarrow{h})^{*}A\otimes\textup{IC}^{\textup{Hk}}_{V}\right).$ 
+
+
+An $S$ -family of Hecke eigensheaves is the data $(A,E_{{\vphantom{G}}^{L}{G}},\{\iota_{V}\}_{V\in\textup{Rep}(\widehat{G})})$ where • $A\in D^{b}(S\times\textup{Bun})$ ; • $E_{{\vphantom{G}}^{L}{G}}$ is a ${\vphantom{G}}^{L}{G}$ -local system on $X^{\circ}\times S$ . We denote the pullback of $E_{{\vphantom{G}}^{L}{G}}$ to $\widetilde{X}^{\circ}\times S$ by $E_{\widehat{G}}$ , which is a $\widehat{G}$ -local system with a $\mu_{e}$ -equivariant structure (with $\mu_{e}$ acting both on $\widehat{G}$ via pinned automorphisms and on $\widetilde{X}^{\circ}$ ). • For each $V\in\textup{Rep}(\widehat{G})$ , $\iota_{V}$ is an isomorphism over $\widetilde{X}^{\circ}\times S\times\textup{Bun}$ 
+ 
+ $\iota_{V}:T^{V}_{S}(A)\cong E^{V}_{\widehat{G}}\otimes_{S}A,$ 
+ where $E^{V}_{\widehat{G}}$ is the local system associated to $E_{\widehat{G}}$ and the representation $V$ of $\widehat{G}$ . Here $E^{V}_{\widehat{G}}\otimes_{S}A$ means the pullback of $E^{V}_{\widehat{G}}\boxtimes A$ along the diagonal map $\textup{id}_{\widetilde{X}}\times\Delta_{S}\times\textup{id}_{\textup{Bun}}:\widetilde{X}^{\circ}\times S\times\textup{Bun}\to\widetilde{X}^{\circ}\times S\times S\times\textup{Bun}$ . These data should satisfy the following conditions. (1) The isomorphisms $\iota_{V}$ should be compatible with the tensor structure of $\textup{Rep}(\widehat{G})$ . For details, see [5] . (2) The isomorphisms $\iota_{V}$ should be compatible with the actions of $\mu_{e}$ . In other words, for $V\in\textup{Rep}(\widehat{G})$ , let $V^{\sigma}$ be the same vector space on which $\widehat{G}$ acts via $\widehat{G}\xrightarrow{\sigma}\widehat{G}\to\textup{GL}(V)$ . Let $\sigma_{\widetilde{X}^{\circ}}:\widetilde{X}^{\circ}\to\widetilde{X}^{\circ}$ be the action of $\mu_{e}$ on $\widetilde{X}^{\circ}$ . Then we have a canonical isomorphism of functors $T^{V^{\sigma}}_{S}(-)\cong(\sigma_{\widetilde{X}^{\circ}}\times\textup{id}_{S\times\textup{Bun}})^{*}T^{V}_{S}(-)$ (coming from the $\mu_{e}$ -equivariant nature of the Hecke correspondence) and an isomorphism of local systems $E^{V^{\sigma}}_{\widehat{G}}\cong(\sigma_{\widetilde{X}^{\circ}}\times\textup{id}_{S})^{*}E^{V}_{\widehat{G}}$ since $E_{\widehat{G}}$ comes from the ${\vphantom{G}}^{L}{G}$ -local system $E_{{\vphantom{G}}^{L}{G}}$ . Then the following diagram is required to be commutative 
+ 
+ $\textstyle{T^{V^{\sigma}}_{S}(A)\ignorespaces\ignorespaces\ignorespaces\ignorespaces\ignorespaces\ignorespaces\ignorespaces\ignorespaces}$ $\scriptstyle{\iota_{V^{\sigma}}}$ $\scriptstyle{\wr}$ $\textstyle{E^{V^{\sigma}}_{\widehat{G}}\otimes_{S}A\ignorespaces\ignorespaces\ignorespaces\ignorespaces}$ $\scriptstyle{\wr}$ $\textstyle{(\sigma_{\widetilde{X}^{\circ}}\times\textup{id}_{S\times\textup{Bun}})^{*}T^{V}_{S}(A)\ignorespaces\ignorespaces\ignorespaces\ignorespaces}$ $\scriptstyle{(\sigma_{\widetilde{X}^{\circ}}\times\textup{id}_{S})^{*}\iota_{V}}$ $\textstyle{(\sigma_{\widetilde{X}^{\circ}}\times\textup{id}_{S})^{*}E^{V}_{\widehat{G}}\otimes_{S}A}$ 
+ For details, see [10] .
+
+Let $S$ be a scheme over $V^{*,\textup{st}}_{{\mathbf{P}}}$ . The complex $A(\chi,S)$ can be given the structure of an $S$ -family of Hecke eigensheaves. We denote the corresponding eigen ${\vphantom{G}}^{L}{G}$ -local system by $\textup{Kl}_{{\vphantom{G}}^{L}{G},{\mathbf{P}}}(\chi,S)$ , which is a ${\vphantom{G}}^{L}{G}$ -local system over $X^{\circ}\times S$ .
+
+We abbreviate $A(\chi,S)$ by $A$ . We first prove that $T^{V}_{S}(A)\cong E^{V}_{S}\otimes_{S}A$ for some complex $E^{V}_{S}$ on $X^{\circ}\times S$ . Note that the Hecke operators preserve the $(\widetilde{L}^{\textup{ab}}_{{\mathbf{P}}},\chi)$ and $(V_{{\mathbf{P}}}\times S,\textup{AS}_{S})$ -equivariant structures, hence they give functors 
+ 
+ $T^{V}_{S}:\mathcal{D}(\chi,S)\to\mathcal{D}(\chi,\widetilde{X}^{\circ}\times S).$ 
+ Applying Lemma 3.2 (2) to $S^{\prime}=\widetilde{X}^{\circ}\times S$ , objects on the right side above are of the form $(\textup{id}_{\widetilde{X}^{\circ}}\times S\times j)_{!}(\mathcal{L}_{\chi}\boxtimes\textup{AS}_{S}\otimes\textup{pr}^{*}_{S}E^{V}_{S})\cong E^{V}_{S}\otimes_{S}A$ for some $E^{V}_{S}\in D^{b}_{c}(\widetilde{X}^{\circ}\times S)$ .
+
+By the construction of the Hecke operators and its compatibility with the geometric Satake correspondence, the assignment $V\mapsto E^{V}_{S}$ carries associativity and commutativity constraints for tensor functors (with respect to the sheaf-theoretic tensor product of $E^{V}_{S}$ and $E^{V^{\prime}}_{S}$ ).
+
+It remains to show that $E^{V}_{S}$ is a local system. We first consider the case where $S$ is a geometric point. The argument in this case is the same as in the Iwahori level case treated in [10] : one first argues that $E^{V}_{S}[1]$ is a perverse sheaf, and then use the tensor structure of $V\mapsto E^{V}_{S}$ to show that it is indeed a local system. Let us only mention one key point in proving that $E^{V}[1]$ is perverse, that is to show an analogue of [10] : the map $\pi\times\overrightarrow{h}:\overleftarrow{h}^{-1}(U)\subset\textup{Hk}\to\widetilde{X}^{\circ}\times\textup{Bun}$ is affine. For this we only need to argue that for any $x\in\widetilde{X}^{\circ}(R)$ where $R$ is a finitely generated $k$ -algebra, the preimage of $U$ in the affine Grassmannian $\textup{Gr}_{x}$ over $R$ is affine. Note that $U$ is the non-vanishing locus of some line bundle $\mathcal{L}$ on Bun . The pullback of $\mathcal{L}$ to $\textup{Gr}_{x}$ has to be ample relative to the base $\textup{Spec}R$ because the relative Picard group of $\textup{Gr}_{x}$ is $\mathbb{Z}$ by [6] . Therefore the preimage of $U$ in $\textup{Gr}_{x}$ is affine.
+
+We then treat the general case. Since the Hecke operators $T^{V}_{S}$ commute with pullback along a base change map $S^{\prime}\to S$ , so does the formation of $E^{V}_{S}$ . Therefore, for every geometric point $s\in S$ , $E^{V}_{S}|_{\widetilde{X}^{\circ}\times\{s\}}$ is isomorphic to $E^{V}_{s}$ , which is a local system on $\widetilde{X}^{\circ}\times\{s\}$ by the argument of the previous paragraph. Let $t\in S$ be a geometric point that specializes to another geometric point $s$ , then we have the specialization map $\textup{sp}^{V}_{s\to t}:E^{V}_{s}\to E^{V}_{t}$ . Note that $E^{V}_{s}$ and $E^{V}_{t}$ are plain vector spaces of dimension $\dim V$ . As $V\in\textup{Rep}(\widehat{G})$ varies, the functors $V\mapsto E^{V}_{s}$ and $V\mapsto E^{V}_{t}$ are fiber functors of the rigid tensor category $\textup{Rep}(\widehat{G})$ and the maps $\{\textup{sp}^{V}_{s\to t}\}_{V}$ gives a morphism of tensor functors. Therefore each $\textup{sp}^{V}_{s\to t}$ is an isomorphism by [4] . This being true for every pair of specialization $(t,s)$ , $E^{V}_{S}$ is a local system over $S$ . The proof is complete. ∎
+
+Let $\mathbb{G}_{m}^{\textup{rot}}$ be the one-dimensional torus acting simply transitively on $\widetilde{X}^{\circ}$ . It also acts on $X^{\circ}$ via $e$ th power. It also acts on every standard parahoric subgroup of the loop groups $L_{0}G$ and $L_{\infty}G$ , hence on $L_{{\mathbf{P}}}$ and $V_{{\mathbf{P}}}$ . We denote action of $\lambda\in\mathbb{G}_{m}^{\textup{rot}}$ on various spaces by $\lambda\cdot_{\textup{rot}}(-)$ .
+
+Viewing $L_{{\mathbf{P}}}$ as the Levi factor of ${\mathbf{P}}_{\infty}$ , there is an action of $L_{{\mathbf{P}}}\rtimes\mathbb{G}_{m}^{\textup{rot}}$ on Bun where $L_{{\mathbf{P}}}$ changes the ${\mathbf{P}}^{++}_{\infty}$ -level structures. When $S=V^{*,\textup{st}}_{{\mathbf{P}}}$ , this action can be extended to every space in the Hecke correspondence diagram ( 3.2 ) by making $L_{{\mathbf{P}}}\rtimes\mathbb{G}_{m}^{\textup{rot}}$ act on $S=V^{*,\textup{st}}_{{\mathbf{P}}}$ in the natural way, such that all maps in ( 3.2 ) are $L_{{\mathbf{P}}}\rtimes\mathbb{G}_{m}^{\textup{rot}}$ -equivariant. Consequently, we have
+
+The ${\vphantom{G}}^{L}{G}$ -local system $\widetilde{\textup{Kl}}_{{\vphantom{G}}^{L}{G},m}(\chi,V^{*,\textup{st}}_{{\mathbf{P}}})$ over $X^{\circ}\times V^{*,\textup{st}}_{{\mathbf{P}}}$ is equivariant under the action of $L_{{\mathbf{P}}}\rtimes\mathbb{G}_{m}^{\textup{rot}}$ on $X^{\circ}\times V^{*,\textup{st}}_{{\mathbf{P}}}$ . Here $\mathbb{G}_{m}^{\textup{rot}}$ acts diagonally on $X^{\circ}\times V^{*,\textup{st}}_{{\mathbf{P}}}$ . Therefore, $\textup{Kl}_{{\vphantom{G}}^{L}{G},{\mathbf{P}}}(\chi,V^{*,\textup{st}}_{{\mathbf{P}}})$ descends to an $L_{{\mathbf{P}}}$ -equivariant $\widehat{G}$ -local system over $V^{*,\textup{st}}_{{\mathbf{P}}}$ , equipped with a $\mu_{e}$ -equivariant structure (which acts on both $\widehat{G}$ and on $V^{*,\textup{st}}_{{\mathbf{P}}}$ via the embedding $\mu_{e}\hookrightarrow\mathbb{G}_{m}^{\textup{rot}}$ ). We denote this $\widehat{G}$ -local system on $V^{*,\textup{st}}_{{\mathbf{P}}}$ by $\textup{Kl}_{\widehat{G},{\mathbf{P}}}(\chi)$ .
+
+For a stable linear functional $\phi:V_{{\mathbf{P}}}\to k$ , viewed as a point $\phi\in V^{*,\textup{st}}_{{\mathbf{P}}}(k)$ , the notation $\textup{Kl}_{\widehat{G},{\mathbf{P}}}(\chi,\phi)$ and $\textup{Kl}_{{\vphantom{G}}^{L}{G},{\mathbf{P}}}(\chi,\phi)$ is defined as in Theorem 3.5 by taking $S$ to be the $\textup{Spec}\ k\xrightarrow{\phi}V^{*,\textup{st}}_{{\mathbf{P}}}$ .
+
+A direct consequence of Theorem 3.5 and Lemma 3.6 is
+
+For a stable linear functional $\phi:V_{{\mathbf{P}}}\to k$ , the ${\vphantom{G}}^{L}{G}$ -local system $\textup{Kl}_{{\vphantom{G}}^{L}{G},{\mathbf{P}}}(\chi,\phi)$ over $X^{\circ}$ is the global Langlands parameter attached to the automorphic representation $\pi(\chi,\phi)$ in Proposition 2.7 . Moreover, $\textup{Kl}_{\widehat{G},{\mathbf{P}}}(\chi,\phi)$ is isomorphic to the pullback of $\textup{Kl}_{\widehat{G},{\mathbf{P}}}(\chi)$ along the map $a_{\phi}:\widetilde{X}^{\circ}\cong\mathbb{G}_{m}^{\textup{rot}}\to V^{*,\textup{st}}_{{\mathbf{P}}}$ given by $\lambda\mapsto\lambda\cdot_{\textup{rot}}\phi$ .
+
+The case considered in [10] is ${\mathbf{P}}=\mathbf{I}$ . In this case, $L_{\mathbf{I}}=\SS$ and $V_{\mathbf{I}}=\oplus_{i=0}^{r}V_{\mathbf{I}}(\alpha_{i})$ for affine simple roots $\{\alpha_{i}\}$ of $G$ . If $G$ is adjoint, we may identify the quotient $[V^{*,\textup{st}}_{\mathbf{I}}/\SS]$ with $\mathbb{G}_{m}$ (via projection to the factor $V_{{\mathbf{P}}}(\alpha_{0})^{*}$ ). So in this case the Kloosterman sheaf $\textup{Kl}_{\widehat{G},\mathbf{I}}(\chi)$ descends to a $\widehat{G}$ -local system on $\mathbb{G}_{m}$ , without any dependence on the functional $\phi$ .
+
+3.8. Calculation of the local system
+
+The moduli stack $\textup{Bun}_{G}(\widetilde{{\mathbf{P}}}_{0},{\mathbf{P}}_{\infty}^{+})$ has a unique point which has trivial automorphism group. We denote the corresponding $G$ -bundle over $X$ with level structure by $\mathcal{E}$ . For $x\in X^{\circ}$ , let $\mathfrak{G}$ be the automorphisms of $\mathcal{E}|_{X-\{1\}}$ preserving the level structures at $0$ and $\infty$ . This is a group ind-scheme over $k$ . Now consider $1\in\widetilde{X}$ , a preimage of $1\in X$ . To distinguish them we denote the $1\in\widetilde{X}$ by $\widetilde{1}$ . Evaluating an automorphism $g\in\mathfrak{G}$ in the formal neighborhood of $\widetilde{1}$ (note $\mathcal{E}$ gives a $\mathbb{G}$ -bundle over $\widetilde{X}$ ) gives a morphism 
+ 
+ $\textup{ev}_{\widetilde{1}}:\mathfrak{G}\to L^{+}_{\widetilde{1}}\mathbb{G}\backslash L_{\widetilde{1}}\mathbb{G}/L^{+}_{\widetilde{1}}\mathbb{G}.$ 
+ We shall abbreviate $L_{\widetilde{1}}\mathbb{G}$ and $L^{+}_{\widetilde{1}}\mathbb{G}$ by $L\mathbb{G}$ and $L^{+}\mathbb{G}$ .
+
+Let $\lambda\in\mathbb{X}_{*}(\mathbb{T})$ be a dominant coweight of $\mathbb{G}$ , which defines an affine Schubert variety $\textup{Gr}_{\leq\lambda}$ in the affine Grassmannian $\textup{Gr}=L\mathbb{G}/L^{+}\mathbb{G}$ . Let $\mathfrak{G}_{\leq\lambda}$ be the preimage of $L^{+}\mathbb{G}\backslash\textup{Gr}_{\leq\lambda}\subset L^{+}\mathbb{G}\backslash L\mathbb{G}/L^{+}\mathbb{G}$ under $\textup{ev}_{\widetilde{1}}$ . The intersection complex $\textup{IC}_{\lambda}$ of $\mathfrak{G}_{\leq\lambda}$ corresponds, under the geometric Satake equivalence, to the irreducible representation $V_{\lambda}$ of $\widehat{G}$ with highest weight $\lambda$ .
+
+We have two more evaluation maps, at $0$ and $\infty$ 
+ 
+ $(\textup{ev}_{0},\textup{ev}_{\infty}):\mathfrak{G}_{\leq\lambda}\to\widetilde{{\mathbf{P}}}_{0}\times{\mathbf{P}}^{+}_{\infty}.$ 
+ Composing with the projections $\widetilde{{\mathbf{P}}}_{0}\to\widetilde{L}^{\textup{ab}}_{{\mathbf{P}}}$ and ${\mathbf{P}}^{+}_{\infty}\to V_{{\mathbf{P}}}$ , we get 
+ 
+ (3.4)  $(f^{\prime},f^{\prime\prime}):\mathfrak{G}_{\leq\lambda}\to\widetilde{L}^{\textup{ab}}_{{\mathbf{P}}}\times V_{{\mathbf{P}}}.$ 
+
+
+Let $\textup{Four}_{\psi}:D^{b}_{c}(V_{{\mathbf{P}}})\to D^{b}_{c}(V^{*}_{{\mathbf{P}}})$ be the Fourier-Deligne transform (without cohomological shift). We have 
+ 
+ $\textup{Kl}^{V_{\lambda}}_{\widehat{G},{\mathbf{P}}}(\chi)\cong\textup{Four}_{\psi}\left(f^{\prime\prime}_{!}(f^{\prime*}\mathcal{L}_{\chi}\otimes\textup{ev}^{*}_{\widetilde{1}}\textup{IC}_{\lambda})\right)|_{V_{{\mathbf{P}}}^{*,\textup{st}}}.$ 
+
+
+We shall work with the base $S=V^{*,\textup{st}}_{{\mathbf{P}}}$ . By construction, $\textup{Kl}^{V_{\lambda}}_{\widehat{G},{\mathbf{P}}}(\chi)$ is the restriction of $T^{V_{\lambda}}_{S}(A(\chi,S))$ to the point $\{\widetilde{1}\}\times S\times\{\star\}\subset\widetilde{X}^{\circ}\times S\times\textup{Bun}$ . Let $\textup{Hk}_{1}\subset\textup{Hk}$ be the preimage of $(\widetilde{1},\star)$ under $(\pi,\overrightarrow{h})$ , and $\textup{Hk}^{U}_{1}\subset\textup{Hk}_{1}$ be the preimage of $U$ under $\overleftarrow{h}_{1}$ (restriction of $\overleftarrow{h}$ ). By proper base change and the definition of the Hecke operators ( 3.3 ), we have 
+ 
+ (3.5)  $\textup{Kl}^{V_{\lambda}}_{\widehat{G},{\mathbf{P}}}(\chi)=\textup{pr}_{S,!}((\textup{id}_{S}\times\overleftarrow{h}_{1})^{*}\textup{AS}_{S}\otimes\textup{IC}^{\textup{Hk}_{1}}_{\lambda}).$ 
+ where 
+ 
+ $S\times U\xleftarrow{\textup{id}_{S}\times\overleftarrow{h}_{1}}S\times\textup{Hk}^{U}_{1}\xrightarrow{\textup{pr}_{S}}S$ 
+ and $\textup{IC}^{\textup{Hk}_{1}}_{\lambda}$ is the restriction of $\textup{IC}^{\textup{Hk}}_{\lambda}$ to $\textup{Hk}_{1}$ . By the definition of Hk , $\textup{Hk}^{U}_{1}$ classifies isomorphisms pairs $(\mathcal{E}^{\prime},\tau)$ where $\mathcal{E}^{\prime}\in U$ and $\tau$ is an isomorphism between $\star|_{\widetilde{X}^{\circ}-\{\widetilde{1}\}}$ and $\mathcal{E}^{\prime}|_{\widetilde{X}^{\circ}-\{\widetilde{1}\}}$ preserving the ${\mathbf{P}}^{\textup{ss}}_{0}$ and ${\mathbf{P}}^{++}_{\infty}$ -level structures. Note that both $\star$ and $\mathcal{E}^{\prime}\in U$ maps to the open point $\mathcal{E}$ in $\textup{Bun}_{G}(\widetilde{{\mathbf{P}}}_{0},{\mathbf{P}}^{+}_{\infty})$ , therefore we have an isomorphism $\iota:\mathfrak{G}\cong\textup{Hk}^{U}_{1}$ sending an automorphism $\alpha$ of $\mathcal{E}|_{\widetilde{X}^{\circ}-\{\widetilde{1}\}}$ (viewed as an automorphism of $\star|_{\widetilde{X}^{\circ}-\{\widetilde{1}\}}$ not necessarily preserving the ${\mathbf{P}}^{\textup{ss}}_{0}$ and ${\mathbf{P}}^{++}_{\infty}$ -level structures) to the pair $(\mathcal{E}^{\prime}_{\alpha},\alpha)\in\textup{Hk}^{U}_{1}$ where $\mathcal{E}^{\prime}_{\alpha}$ is the unique point in $U$ obtained by modifying the ${\mathbf{P}}^{\textup{ss}}_{0}$ and ${\mathbf{P}}^{++}_{\infty}$ -level structures of $\star$ so that $\alpha$ becomes an isomorphism between $\star|_{\widetilde{X}^{\circ}-\{\widetilde{1}\}}$ and $\mathcal{E}^{\prime}_{\alpha}|_{\widetilde{X}^{\circ}-\{\widetilde{1}\}}$ preserving the ${\mathbf{P}}^{\textup{ss}}_{0}$ and ${\mathbf{P}}^{++}_{\infty}$ -level structures. Moreover, under $\iota$ , $\overleftarrow{h}_{1}:\textup{Hk}^{U}_{1}\to U$ is identified with $(f^{\prime},f^{\prime\prime})$ defined in ( 3.4 ). Therefore, ( 3.5 ) implies 
+ 
+ $\displaystyle\textup{Kl}^{V_{\lambda}}_{\widehat{G},{\mathbf{P}}}(\chi)$ $\displaystyle\cong$ $\displaystyle\textup{pr}_{S,!}(f^{\prime*}\mathcal{L}_{\chi}\otimes(\textup{id}_{S}\times f^{\prime\prime})^{*}\textup{AS}_{S}\otimes\textup{ev}^{*}_{\widetilde{1}}\textup{IC}_{\lambda})$ 
+ $\displaystyle=$ $\displaystyle\textup{pr}_{V^{*}_{{\mathbf{P}}},!}(f^{\prime*}\mathcal{L}_{\chi}\otimes(\textup{id}_{V^{*}_{{\mathbf{P}}}}\times f^{\prime\prime})^{*}\langle{\cdot,\cdot}\rangle^{*}\textup{AS}_{\psi}\otimes\textup{ev}^{*}_{\widetilde{1}}\textup{IC}_{\lambda})|_{S}$ 
+ Using proper base change, the above is further isomorphic to 
+ 
+ $\displaystyle\textup{pr}_{V^{*}_{{\mathbf{P}}},!}\left((\textup{id}_{V^{*}_{{\mathbf{P}}}}\times f^{\prime\prime})_{!}(f^{\prime*}\mathcal{L}_{\chi}\otimes\textup{ev}^{*}_{\widetilde{1}}\textup{IC}_{\lambda})\otimes\langle{\cdot,\cdot}\rangle^{*}\textup{AS}_{\psi}\right)|_{S}=\textup{Four}_{\psi}\left(f^{\prime\prime}_{!}(f^{\prime*}\mathcal{L}_{\chi}\otimes\textup{ev}^{*}_{\widetilde{1}}\textup{IC}_{\lambda})\right)|_{S}.$ 
+ ∎
+
+4. Unipotent monodromy
+
+The goal of this section is to study the monodromy of the Kloosterman sheaves $\textup{Kl}_{\widehat{G},{\mathbf{P}}}(\chi,\phi)$ at $0$ , especially when $\chi=1$ .
+
+4.1. Lusztig’s theory of (two-sided) cells
+
+Let $W_{\textup{aff}}$ be the affine Weyl group attached to $G(K)$ . There is a partition of $W_{\textup{aff}}$ into finitely many two-sided cells . There is a partial order among these cells. The largest cell is the singleton $\{1\}$ ; the smallest one contains the longest element $w_{0}$ in the Weyl group $W_{\mathbf{Q}}$ of a special parahoric subgroup $\mathbf{Q}$ . Each cell $\underline{c}$ is assigned an integer $a(\underline{c})$ satisfying $0\leq a(\underline{c})\leq\min\{\ell(w)|w\in\underline{c}\}$ .
+
+Let $\widehat{G}^{\sigma,\circ}$ be the neutral component of the fixed point of $\sigma$ on $\widehat{G}$ .
+
+There is an order preserving bijection 
+ 
+ $\{\textup{two-sided cells in }W_{\textup{aff}}\}\longleftrightarrow\{\textup{unipotent conjugacy classes in }\widehat{G}^{\sigma,\circ}\}$ 
+ such that if $\underline{c}\leftrightarrow\underline{u}$ , then $a(\underline{c})=\dim\mathcal{B}_{u}$ where $\mathcal{B}_{u}$ is the Springer fiber of $u\in\underline{u}$ (inside the flag variety of $\widehat{G}^{\sigma,\circ}$ ).
+
+Lusztig’s paper only dealt with the case of split $G$ . However, for our quasi-split $G$ , the affine Weyl group $W_{\textup{aff}}$ is isomorphic to the affine Weyl group of a split group $G^{\prime}$ as Coxeter groups. Moreover, one can choose $G^{\prime}$ so that $\widehat{G}^{\prime}=\widehat{G}^{\sigma,\circ}$ . Therefore the quasi-split case of the above theorem follows from the split case.
+
+For a standard parahoric subgroup ${\mathbf{P}}\subset G(K)$ , let $\underline{c}_{{\mathbf{P}}}$ be the two-sided cell in $W_{\textup{aff}}$ containing the longest element $w_{{\mathbf{P}}}\in W_{{\mathbf{P}}}$ (the Weyl group of $L_{{\mathbf{P}}}$ ). We define $\underline{u}_{{\mathbf{P}}}$ to be the unipotent class of $\widehat{G}^{\sigma,\circ}$ corresponding to $\underline{c}_{{\mathbf{P}}}$ under Theorem 4.2 .
+
+For any standard parahoric ${\mathbf{P}}$ , we have $a(\underline{c}_{\mathbf{P}})=\ell(w_{{\mathbf{P}}})$ .
+
+We may assume $G$ is simply-connected. Let $a=\ell(w_{{\mathbf{P}}})$ . Let $\mathbf{H}:=C_{c}(\mathbf{I}\backslash G(K)/\mathbf{I})$ be the Iwahori Hecke algebra and let $\{C_{w}\}_{w\in W_{\textup{aff}}}$ be its Kazhdan-Lusztig basis. By definition, $a(\underline{c}_{{\mathbf{P}}})$ is equal to $a(w_{{\mathbf{P}}})$ , which is the largest power of $q^{1/2}$ appearing in the coefficient of $C_{w_{{\mathbf{P}}}}$ in $C_{x}C_{y}$ for some $x,y\in W_{\textup{aff}}$ . Since $C_{w_{{\mathbf{P}}}}^{2}=f(q^{1/2})C_{w_{{\mathbf{P}}}}$ for $f(q^{1/2})=q^{-a/2}\sum_{x\in W_{{\mathbf{P}}}}q^{\ell(x)}$ whose highest degree term is $q^{a/2}$ , we have $a(w_{{\mathbf{P}}})\geq a$ . On the other hand, one always has $a(w_{{\mathbf{P}}})\leq\ell(w_{{\mathbf{P}}})=a$ by [15] , therefore $a(\underline{c}_{{\mathbf{P}}})=a(w_{{\mathbf{P}}})=a$ . ∎
+
+We now give an alternative description of the unipotent class $\underline{u}_{{\mathbf{P}}}$ . To state it, we recall the truncated induction defined by Lusztig [13] in a special case, which was first constructed by Macdonald [17] . Let $W=\mathbb{W}^{\sigma}$ be the $F$ -Weyl group of $G$ (this is also $W_{\mathbf{Q}}$ for a special parahoric $\mathbf{Q}$ , and is also the Weyl group of $\widehat{G}^{\sigma,\circ}$ ), then $\mathfrak{a}=\mathbb{X}_{*}(\mathbb{T})^{\sigma}_{\mathbb{C}}$ is the reflection representation of $W$ . The sign representation $\epsilon$ of $W_{{\mathbf{P}}}$ appears in $\textup{Res}^{W}_{W_{{\mathbf{P}}}}\textup{Sym}^{\ell(w_{{\mathbf{P}}})}(\mathfrak{a})$ with multiplicity one. The truncated induction $j^{W}_{W_{{\mathbf{P}}}}(\epsilon)$ is the unique irreducible $W$ -submodule of $\textup{Sym}^{\ell(w_{{\mathbf{P}}})}(\mathfrak{a})$ that contains the sign representation of $W_{{\mathbf{P}}}$ .
+
+Let ${\mathbf{P}}$ be a standard parahoric subgroup of $G(K)$ . (1) Under the Springer correspondence, $j^{W}_{W_{{\mathbf{P}}}}(\epsilon)$ corresponds to the unipotent class $\underline{u}_{{\mathbf{P}}}$ of $\widehat{G}^{\sigma,\circ}$ together with the trivial local system on it. (2) Suppose ${\mathbf{P}}\subset\mathbf{Q}$ for some special parahoric $\mathbf{Q}$ , then ${\mathbf{P}}$ corresponds to a standard parabolic subgroup $P\subset L_{\mathbf{Q}}$ , hence also to a standard parabolic subgroup $\widehat{P}\subset\widehat{G}^{\sigma,\circ}$ . Then $\underline{u}_{{\mathbf{P}}}$ is the Richardson class attached to $\widehat{P}$ (i.e., the unipotent class in $\widehat{G}^{\sigma,\circ}$ that contains a dense open subset of the unipotent radical of $\widehat{P}$ ).
+
+Remark 4.3 allows us to reduce to the case $G$ is split.
+
+(1) Let $\underline{u}$ (together with the trivial local system on it) be the unipotent class in $\widehat{G}$ that corresponds to $j_{W_{{\mathbf{P}}}}^{W}(\epsilon)$ under the Springer correspondence. Springer theory tells that $\dim\mathcal{B}_{u}=\ell(w_{{\mathbf{P}}})$ for any $u\in\underline{u}$ .
+
+Recall $\mathbf{H}:=C_{c}(\mathbf{I}\backslash G(K)/\mathbf{I})$ is the Iwahori Hecke algebra and let $\mathbf{H}_{{\mathbf{P}}}:=C(\mathbf{I}\backslash{\mathbf{P}}/\mathbf{I})$ be its parahoric subalgebra. Let $M$ be an irreducible $\mathbf{H}$ -module such that $M^{\mathbf{H}_{{\mathbf{P}}}}\neq 0$ and that $C_{w}$ acts on $M$ by zero for any $w$ lying in cells $\underline{c}\leq\underline{c}_{{\mathbf{P}}}$ . Such an $\mathbf{H}$ -module can be found in the cell subquotient $\mathbf{H}_{\underline{c}_{{\mathbf{P}}}}$ . The Langlands parameter of $M$ is a triple $(u^{\prime},s,\rho)$ where $u^{\prime}$ is a unipotent class in $\widehat{G}$ . By the construction of Lusztig’s bijection Theorem 4.2 , $u^{\prime}\in\underline{u}_{{\mathbf{P}}}$ . Consider the $\mathbf{H}$ -module ${\vphantom{M}}^{*}{M}$ (changing the action of $T_{s}$ to $-qT^{-1}_{s}$ for simple reflections $s\in W_{\textup{aff}}$ , see [14] ), then ${\vphantom{M}}^{*}{M}$ contains a copy of the sign representation of $\mathbf{H}_{{\mathbf{P}}}$ . Applying [14] to ${\vphantom{M}}^{*}{M}$ , we conclude that $u^{\prime}$ lies in the closure of $\underline{u}$ . Since we also have $\dim\mathcal{B}_{u^{\prime}}=a(\underline{c}_{{\mathbf{P}}})=\ell(w_{{\mathbf{P}}})$ by Theorem 4.2 and Lemma 4.5 , we must have $\underline{u}=\underline{u}_{{\mathbf{P}}}$ .
+
+(2) follows from [12] . ∎
+
+The main result of this section is
+
+Assume $\chi=1$ and $G$ is split. Then for any stable functional $\phi:V_{{\mathbf{P}}}\to k$ , the local monodromy of the $\widehat{G}$ -local system $\textup{Kl}_{\widehat{G},{\mathbf{P}}}(1,\phi)$ at $0$ is tame and is given by the conjugacy class $\underline{u}_{{\mathbf{P}}}$ .
+
+The proof of the theorem relies on deep results of Lusztig and Bezrukavnikov on cells in affine Weyl groups, and occupies § 4.10 to § 4.16 .
+
+If ${\mathbf{P}}=\mathbf{I}$ , then $\underline{c}_{{\mathbf{P}}}$ is the maximal cell, hence $\underline{u}_{{\mathbf{P}}}$ is the regular unipotent class. This case of the theorem was proved in [10] . Another extremal case is when ${\mathbf{P}}$ is a special parahoric of $G(K)$ (this happens only when $G$ is an odd unitary group and $m=2$ ), the quasi-split analog of the above theorem should say that $\textup{Kl}_{\widehat{G},{\mathbf{P}}}(1,\phi)$ is unramified at $0$ , which is the case as we will see in Proposition 6.7 (2).
+
+4.8. Tables of unipotent monodromy
+
+Proposition 4.6 allows us to determine the unipotent classes $\underline{u}_{{\mathbf{P}}}$ in $\widehat{G}^{\sigma}$ in all cases. We shall assume $\textup{char}(k)$ is large so that ${\mathbf{P}}$ corresponds to a unique regular elliptic number $m=m({\mathbf{P}})$ of $(\mathbb{W},\sigma)$ . We denote $\underline{u}_{{\mathbf{P}}}$ by $\underline{u}_{m}$ . For classical groups, the classification of admissible parahorics will be reviewed in § 6 -§ 8 . The notation $\boxed{i}\times j$ denotes $j$ Jordan blocks each of size $i$ .
+
+
+ 
+ $G$ $m$ $\underline{u}_{m}$ $\widehat{G}^{\sigma}$ 
+ $A_{n-1}$ $n$ $\boxed{n}$ $A_{n-1}$ 
+ ${\vphantom{A}}^{2}{A}_{n-1},n$ odd $m=\frac{2n}{d}$ ; $d|n$ $\boxed{\frac{m}{2}}\times d$ $B_{\frac{n-1}{2}}$ 
+ $m=\frac{2(n-1)}{d}$ ; $\frac{n-1}{d}$ odd, $d<n-1$ $\boxed{1}+\boxed{\frac{m}{2}}\times d$ 
+ ${\vphantom{A}}^{2}{A}_{n-1},n$ even $m=\frac{2n}{d}$ ; $\frac{n}{d}$ odd $\boxed{\frac{m}{2}-1}+\boxed{\frac{m}{2}}\times(d-2)+\boxed{\frac{m}{2}+1}$ $C_{\frac{n}{2}}$ 
+ $m=\frac{2(n-1)}{d}$ ; $d|n-1,d<n-1$ $\boxed{\frac{m}{2}}\times(d-1)+\boxed{\frac{m}{2}+1}$ 
+ $B_{n}$ $m=2n/d;d|n$ $\boxed{m}\times d$ $C_{n}$ 
+ $C_{n}$ $m=2n/d;d|n,d$ odd $\boxed{m}\times(d-1)+\boxed{m+1}$ $B_{n}$ 
+ $m=2n/d;d|n,d$ even $\boxed{1}+\boxed{m-1}+\boxed{m}\times(d-2)+\boxed{m+1}$ 
+ $D_{n}$ $m=2n/d;d|n,d$ even $\boxed{m-1}+\boxed{m}\times(d-2)+\boxed{m+1}$ $D_{n}$ 
+ $m=\frac{2(n-1)}{d};d|n-1,d$ odd $\boxed{1}+\boxed{m}\times(d-1)+\boxed{m+1}$ 
+ ${\vphantom{D}}^{2}{D}_{n}$ $m=2n/d;d|n,d$ odd $\boxed{m-1}+\boxed{m}\times(d-1)$ $B_{n-1}$ 
+ $m=\frac{2(n-1)}{d};d|n-1,d$ even $\boxed{1}+\boxed{m}\times d$ 
+
+
+For exceptional groups, we use the tables in [8] to list all regular elliptic numbers, and use Bala-Carter’s notation [3] to denote unipotent classes. In many cases, the fact that $\dim\mathcal{B}_{u}=\ell(w_{{\mathbf{P}}})$ is already enough to determine the class $\underline{u}_{{\mathbf{P}}}$ . In the remaining cases $G$ is always split. • When ${\mathbf{P}}\subset\mathbb{G}(\mathcal{O}_{K})$ , we use Proposition 4.6 to conclude that $\underline{u}_{{\mathbf{P}}}$ is the $S$ -distinguished unipotent classes assigned to these admissible parahoric subgroups in [8] . The weighted Dynkin diagram of the distinguished unipotent class $\underline{u}_{{\mathbf{P}}}$ is obtained by putting $0$ on simple roots in $L_{{\mathbf{P}}}$ and putting $2$ elsewhere. • For those ${\mathbf{P}}$ not contained in $\mathbb{G}(\mathcal{O}_{K})$ , we first use the tables in [16] to find the dimension of the truncated induction $j^{W}_{W_{{\mathbf{P}}}}(\epsilon)$ , and then use the tables in [3] to find the corresponding unipotent classes.
+
+
+ 
+ $G$ $m$ $\underline{u}_{m}$ $\widehat{G}^{\sigma}$ $G$ $m$ $\underline{u}_{m}$ $\widehat{G}^{\sigma}$ $G$ $m$ $\underline{u}_{m}$ $\widehat{G}^{\sigma}$ 
+ $E_{6}$ $3$ $2A_{2}+A_{1}$ $E_{6}$ ${\vphantom{D}}^{3}{D}_{4}$ 3 $A_{1}$ $G_{2}$ $E_{8}$ 2 $4A_{1}$ $E_{8}$ 
+ $6$ $E_{6}(a_{3})$   6 $G_{2}(a_{1})$   3 $2A_{2}+2A_{1}$ 
+ $9$ $E_{6}(a_{1})$   12 $G_{2}$   4 $2A_{3}$ 
+ $12$ $E_{6}$  $F_{4}$ 2 $A_{1}+\widetilde{A}_{1}$ $F_{4}$  5 $A_{4}+A_{3}$ 
+ ${\vphantom{E}}^{2}{E}_{6}$ 2 $A_{1}$ $F_{4}$  3 $\widetilde{A}_{2}+A_{1}$   6 $E_{8}(a_{7})$ 
+ 4 $A_{2}+\widetilde{A}_{1}$   4 $F_{4}(a_{3})$   8 $A_{7}$ 
+ 6 $F_{4}(a_{3})$   6 $F_{4}(a_{2})$   10 $E_{8}(a_{6})$ 
+ 12 $F_{4}(a_{1})$   8 $F_{4}(a_{1})$   12 $E_{8}(a_{5})$ 
+ 18 $F_{4}$   12 $F_{4}$   15 $E_{8}(a_{4})$ 
+ $E_{7}$ 2 $4A_{1}$ $E_{7}$ $G_{2}$ 2 $\widetilde{A}_{1}$ $G_{2}$  20 $E_{8}(a_{2})$ 
+ 6 $E_{7}(a_{5})$   3 $G_{2}(a_{1})$   24 $E_{8}(a_{1})$ 
+ 14 $E_{7}(a_{1})$   6 $G_{2}$   30 $E_{8}$ 
+ 18 $E_{7}$ 
+
+
+4.9. Conjectural description of the tame monodromy for general $\chi$
+
+Finally we give a conjectural description of the local monodromy of $\textup{Kl}_{{\vphantom{G}}^{L}{G},{\mathbf{P}}}(\chi,\phi)$ at $0$ for general $\chi:\widetilde{L}^{\textup{ab}}_{{\mathbf{P}}}\to\overline{\mathbb{Q}}_{\ell}^{\times}$ and quasi-split $G$ . First of all $\textup{Kl}_{{\vphantom{G}}^{L}{G},{\mathbf{P}}}(\chi,\phi)$ is tame at $0$ . Recall the tame inertia $\mathcal{I}^{t}_{0}\cong\varprojlim_{(n,p)=1}\mu_{n}(\bar{k})$ and in particular $\mathcal{I}^{t}_{0}\twoheadrightarrow\mu_{e}(k)$ . Let $\xi\in\mathcal{I}^{t}_{0}$ be a generator that maps to $\sigma\in\mu_{e}$ . We predict that under the monodromy representation $\mathcal{I}^{t}_{0}\to{\vphantom{G}}^{L}{G}$ associated with $\textup{Kl}_{{\vphantom{G}}^{L}{G},{\mathbf{P}}}(\chi,\phi)$ , $\xi$ should go to $(\kappa u,\sigma)\in\widehat{G}^{\sigma}\times{\sigma}\subset{\vphantom{G}}^{L}{G}$ where $\kappa u$ is the Jordan decomposition into the semisimple part and unipotent part of an element in $\widehat{G}^{\sigma}$ .
+
+We first describe the semisimple part $\kappa$ . Up to $\widehat{G}$ -conjugacy we may arrange that $\kappa\in\widehat{T}$ . By further $\widehat{T}$ -conjugation, only the image of $\kappa$ in the $\sigma$ -coinvariants $\widehat{T}_{\sigma}$ is well-defined. The character $k^{\times}\otimes\mathbb{X}_{*}(\mathbb{T})^{\sigma}=\SS(k)\to L^{\textup{ab}}_{{\mathbf{P}}}\xrightarrow{\chi}\overline{\mathbb{Q}}_{\ell}^{\times}$ gives a homomorphism $\chi^{\prime}:k^{\times}\to\widehat{T}_{\sigma}=\textup{Hom}(\mathbb{X}_{*}(\mathbb{T})^{\sigma},\overline{\mathbb{Q}}_{\ell}^{\times})$ . Local class field theory identifies $k^{\times}$ with the tame inertia of $\textup{Gal}(F^{\textup{ab}}_{0}/F_{0})$ (where $F^{\textup{ab}}_{0}$ is a maximal abelian extension of $F_{0}$ ), hence there is a canonical surjection $\mathcal{I}^{t}_{0}\twoheadrightarrow k^{\times}$ . Composing with $\chi^{\prime}$ we get a homomorphism $\chi^{\prime\prime}:\mathcal{I}^{t}_{0}\to\widehat{T}_{\sigma}$ . The image of $\kappa$ in $\widehat{T}_{\sigma}$ should be $\chi^{\prime\prime}(\xi)$ . This should be provable using similar techniques as in the proof of [21] , based on results in [1] .
+
+Next we describe the unipotent part $u$ . Let $W_{\kappa,\textup{aff}}\subset W_{\textup{aff}}$ be the subgroup generated by affine reflections whose vector part $\alpha\in\Phi$ is such that the composition $\mathbb{G}_{m}(k)\xrightarrow{\alpha^{\vee}}\SS(k)\to L^{\textup{ab}}_{{\mathbf{P}}}(k)\xrightarrow{\chi}\overline{\mathbb{Q}}_{\ell}^{\times}$ is trivial. It can be shown that $W_{\kappa,\textup{aff}}$ is an affine Coxeter group. In fact $W_{\kappa,\textup{aff}}$ can be identified with the affine Weyl group of the group dual to $\widehat{G}^{\sigma,\circ}_{\kappa}$ , the centralizer in $\widehat{G}^{\sigma,\circ}$ of an element $\widetilde{\kappa}\in\widehat{T}^{\sigma,\circ}$ lifting $\kappa\in\widehat{T}_{\sigma}$ . The longest element $w_{{\mathbf{P}}}\in W_{{\mathbf{P}}}$ belongs to $W_{\kappa,\textup{aff}}$ , hence lies in a two-sided cell $\underline{c}_{\kappa,{\mathbf{P}}}$ of $W_{\kappa,\textup{aff}}$ . By Lusztig’s Theorem 4.2 , $\underline{c}_{\kappa,{\mathbf{P}}}$ corresponds to a unipotent class $\underline{u}_{\kappa,{\mathbf{P}}}$ of $\widehat{G}^{\sigma,\circ}_{\kappa}$ . The unipotent element $u$ should lie in $\underline{u}_{\kappa,{\mathbf{P}}}$ . This should be provable, in the same way as Theorem 4.7 , using the results of Bezrukavnikov et al. in [2] , which are monodromic analogue of his results in [1] .
+
+4.10. Hecke operators at $0$
+
+The rest of this section is devoted to the proof of Theorem 4.7 . We first set up some notation. Fix a stable functional $\phi:V_{{\mathbf{P}}}\to k$ . Since $\chi=1$ , we simply denote the Kloosterman sheaf $\textup{Kl}_{\widehat{G},{\mathbf{P}}}(1,\phi)$ by $\textup{Kl}_{\widehat{G},{\mathbf{P}}}(\phi)$ . Comparing a general split $G$ with its simply-connected cover $G^{\textup{sc}}$ , it is easy to see that the local system $\textup{Kl}_{\widehat{G},{\mathbf{P}}}(\phi)$ induces the local system $\textup{Kl}_{\widehat{G^{\textup{sc}}},m}(\phi)$ via the map $\widehat{G}\to\widehat{G^{\textup{sc}}}=\widehat{G}^{\textup{ad}}$ . Therefore it suffices to prove Theorem 4.7 for simply-connected $G$ .
+
+In the sequel we shall base change all spaces to $\bar{k}$ without changing notation. When $S$ is a point $\phi:\textup{Spec}\ \bar{k}\to V^{*,\textup{st}}_{{\mathbf{P}}}$ , we denote the category of automorphic sheaves $\mathcal{D}(1,S)$ by $\mathcal{D}(\phi)$ . Let $A(\phi)\in\mathcal{D}(\phi)$ be the automorphic sheaf $A(1,S)$ in Lemma 3.2 (1), which is a Hecke eigensheaf with eigen local system $\textup{Kl}_{\widehat{G},{\mathbf{P}}}(\phi)$ by Theorem 3.5 .
+
+Geometric Hecke operators on $\mathcal{D}(\phi)$ that arise from modifying $G$ -bundles at $0$ can be introduced using a diagram similar to ( 3.2 ). For details we refer to [21] . We have a functor 
+ 
+ $T_{0}(-,-):D^{b}_{c}({\mathbf{P}}_{0}\backslash L_{0}G/{\mathbf{P}}_{0})\times\mathcal{D}(\phi)\to\mathcal{D}(\phi)$ 
+ There is a monoidal structure on $D^{b}_{c}({\mathbf{P}}_{0}\backslash L_{0}G/{\mathbf{P}}_{0})$ given by convolution of sheaves $(C_{1},C_{2})\mapsto C_{1}\stackrel{{\scriptstyle{\mathbf{P}}_{0}}}{{*}}C_{2}$ with unit object $\delta_{{\mathbf{P}}_{0}}$ given by the constant sheaf supported on the identity double coset. This monoidal structure is compatible with the composition of geometric Hecke operators: there is natural isomorphism of endo-functors on $\mathcal{D}(\phi)$ 
+ 
+ $T_{0}(C_{1},T_{0}(C_{2},-))\cong T_{0}(C_{1}\stackrel{{\scriptstyle{\mathbf{P}}_{0}}}{{*}}C_{2},-)$ 
+ which satisfies associativity. By Lemma 3.2 (1), $\mathcal{D}(\phi)\cong D^{b}_{c}(\textup{Vect})$ with the inverse functor given by $(-)\otimes A(\phi)$ , therefore we have $T_{0}(C,A(\phi))\cong e(C)\otimes A(\phi)$ for some monoidal functor 
+ 
+ $e:D^{b}_{c}({\mathbf{P}}_{0}\backslash L_{0}G/{\mathbf{P}}_{0})\to D^{b}_{c}(\textup{Vect}).$ 
+
+
+One key idea leading to the proof of Theorem 4.7 is the following simple observation.
+
+The functor $e$ is exact with respect to the perverse t-structure on the source and the usual t-structure on the target.
+
+Let $\omega:\textup{Fl}_{{\mathbf{P}}_{0}}=L_{0}G/{\mathbf{P}}_{0}\to\textup{Bun}_{G}({\mathbf{P}}_{0},{\mathbf{P}}^{++}_{\infty})$ be the uniformization map. Recall from Lemma 3.2 that any object in $\mathcal{D}(\phi)$ is supported on the open subset $U\subset\textup{Bun}$ . We think of $\textup{Fl}_{{\mathbf{P}}_{0}}$ as the fiber preimage of $\star\in\textup{Bun}$ under $\overrightarrow{h}_{0}:\textup{Hk}_{0}\to\textup{Bun}$ , and think of $\omega$ as the restriction of $\overleftarrow{h}_{0}:\textup{Hk}_{0}\to\textup{Bun}$ , where $\textup{Hk}_{0}$ is the analog of Hk that only modifies the $G$ -bundles at $0$ . By construction, $e(C)$ is the stalk at $\star$ of $T(C,A(\phi))=\overrightarrow{h}_{0,!}(\overleftarrow{h}^{*}_{0}A(\phi)\otimes C^{\textup{Hk}})$ . By proper base change we have 
+ 
+ (4.1)  $e(C)\cong\textup{H}_{c}^{*}({\omega^{-1}(U),\omega^{*}A(\phi)\otimes C})\cong\textup{H}^{*}({\omega^{-1}(U),\omega^{*}A(\phi)\otimes C})$ 
+ where the second isomorphism is proved by replacing $C$ by its Verdier dual $\mathbb{D}(C)$ in the first isomorphism and using Lemma 3.2 (1).
+
+If $C\in D^{b}_{c}({\mathbf{P}}_{0}\backslash L_{0}G/{\mathbf{P}}_{0})$ is perverse, then $\omega^{*}A(\phi)\otimes C$ is a perverse sheaf on $\omega^{-1}(U)$ . By ( 4.1 ) and the t-exactness properties of direct image functors under an affine morphism, it suffices to show that $\omega^{-1}(U)\subset\textup{Fl}_{{\mathbf{P}}_{0}}$ is affine. However, using the Birkhoff decomposition ( 3.1 ) (with the role of $0$ and $\infty$ swapped), we have $\omega^{-1}(U)\cong\Gamma_{\infty}^{+}=(\textup{Res}^{k[t,t^{-1}]}_{k}G)\cap{\mathbf{P}}^{+}_{\infty}$ , which is an affine algebraic group. ∎
+
+4.12. Gaitsgory’s nearby cycles functor
+
+Let $\mathcal{P}:=\textup{Perv}({\mathbf{P}}_{0}\backslash L_{0}G/{\mathbf{P}}_{0})\subset D^{b}_{c}({\mathbf{P}}_{0}\backslash L_{0}G/{\mathbf{P}}_{0})$ be the category of perverse sheaves (the perverse t-structures is inherited from the category of $\overline{\mathbb{Q}}_{\ell}$ -complexes on the affine partial flag variety $L_{0}G/{\mathbf{P}}_{0}$ ).
+
+There is a parahoric analogue Gaitsgory’s nearby cycles functor (see [21] ) 
+ 
+ $Z_{{\mathbf{P}}_{0}}:\textup{Rep}(\widehat{G})\to\mathcal{P}.$ 
+ This is an exact central functor (see [1] ) that admits an action of the inertia group $\mathcal{I}_{0}$ because it comes from nearby cycles. This action factors through the tame quotient $\mathcal{I}^{t}_{0}$ and is unipotent. By [21] , there is a canonical $\mathcal{I}_{0}$ -equivariant isomorphism 
+ 
+ $T_{0}(Z_{{\mathbf{P}}_{0}}(V),A(\phi))\cong(\textup{Kl}^{V}_{\widehat{G},{\mathbf{P}}}(\phi))|_{\textup{Spec}F^{s}_{0}}\otimes A(\phi)$ 
+ that is compatible with the monoidal structures. Here $\mathcal{I}_{0}$ acts on $Z_{{\mathbf{P}}_{0}}(V)$ by the above remark and on the geometric stalk $(\textup{Kl}^{V}_{\widehat{G},{\mathbf{P}}}(\phi))|_{\textup{Spec}F^{s}_{0}}$ ( $F^{s}_{0}$ is a separable closure of the local field $F_{0}$ ). In other words, we have an isomorphism of tensor functors 
+ 
+ (4.2)  $e\circ Z_{{\mathbf{P}}_{0}}(-)\cong\textup{Kl}_{\widehat{G},{\mathbf{P}}}(\phi)|_{\textup{Spec}F^{s}_{0}}:\textup{Rep}(\widehat{G})\to\textup{Vect}$ 
+ that is equivariant under the actions of $\mathcal{I}_{0}$ .
+
+4.13. Serre quotients of $\mathcal{P}$
+
+The category $\mathcal{P}=\textup{Perv}({\mathbf{P}}_{0}\backslash L_{0}G/{\mathbf{P}}_{0})$ is not closed under the convolution $\stackrel{{\scriptstyle{\mathbf{P}}_{0}}}{{*}}$ in general. There is a universal way to fix this problem. Let $\mathcal{N}\subset\mathcal{P}$ be the Serre subcategory of $\mathcal{P}$ generated (under extensions) by irreducible objects that appear as simple constituents of ${\vphantom{\textup{H}}}^{p}{\textup{H}}^{i}(C_{1}\stackrel{{\scriptstyle{\mathbf{P}}_{0}}}{{*}}C_{2})$ for some $C_{1},C_{2}\in\mathcal{P}$ and $i\neq 0$ . Consider the Serre quotient $\overline{\mathcal{P}}:=\mathcal{P}/\mathcal{N}$ .
+
+The functor ${\vphantom{\textup{H}}}^{p}{\textup{H}}^{0}(-\stackrel{{\scriptstyle{\mathbf{P}}_{0}}}{{*}}-):\mathcal{P}\times\mathcal{P}\to\mathcal{P}\twoheadrightarrow\overline{\mathcal{P}}$ factors through $\overline{\mathcal{P}}\times\overline{\mathcal{P}}$ and and it defines a monoidal structure $\circledast:\overline{\mathcal{P}}\times\overline{\mathcal{P}}\to\overline{\mathcal{P}}$ on $\overline{\mathcal{P}}$ .
+
+We show that if an irreducible object $C\in\mathcal{N}$ , then ${\vphantom{\textup{H}}}^{p}{\textup{H}}^{0}(C\stackrel{{\scriptstyle{\mathbf{P}}_{0}}}{{*}}C^{\prime})\in\mathcal{N}$ for any $C^{\prime}\in\mathcal{P}$ . By definition $C$ is a subquotient of ${\vphantom{\textup{H}}}^{p}{\textup{H}}^{i}(C_{1}\stackrel{{\scriptstyle{\mathbf{P}}_{0}}}{{*}}C_{2})$ for some $i\neq 0$ and $C_{1},C_{2}$ simple objects in $\mathcal{P}$ . By the decomposition theorem, $C$ is in fact a direct summand of ${\vphantom{\textup{H}}}^{p}{\textup{H}}^{i}(C_{1}\stackrel{{\scriptstyle{\mathbf{P}}_{0}}}{{*}}C_{2})$ . Therefore it suffices to show that ${\vphantom{\textup{H}}}^{p}{\textup{H}}^{0}({\vphantom{\textup{H}}}^{p}{\textup{H}}^{i}(C_{1}\stackrel{{\scriptstyle{\mathbf{P}}_{0}}}{{*}}C_{2})\stackrel{{\scriptstyle{\mathbf{P}}_{0}}}{{*}}C^{\prime})\in\mathcal{N}$ . Again by the decomposition theorem, the spectral sequence ${\vphantom{\textup{H}}}^{p}{\textup{H}}^{j}({\vphantom{\textup{H}}}^{p}{\textup{H}}^{i}(C_{1}\stackrel{{\scriptstyle{\mathbf{P}}_{0}}}{{*}}C_{2})\stackrel{{\scriptstyle{\mathbf{P}}_{0}}}{{*}}C^{\prime})\Rightarrow{\vphantom{\textup{H}}}^{p}{\textup{H}}^{i+j}(C_{1}\stackrel{{\scriptstyle{\mathbf{P}}_{0}}}{{*}}C_{2}\stackrel{{\scriptstyle{\mathbf{P}}_{0}}}{{*}}C^{\prime})$ degenerates at $E_{2}$ , therefore ${\vphantom{\textup{H}}}^{p}{\textup{H}}^{0}({\vphantom{\textup{H}}}^{p}{\textup{H}}^{i}(C_{1}\stackrel{{\scriptstyle{\mathbf{P}}_{0}}}{{*}}C_{2})\stackrel{{\scriptstyle{\mathbf{P}}_{0}}}{{*}}C^{\prime})$ is a subquotient of ${\vphantom{\textup{H}}}^{p}{\textup{H}}^{i}(C_{1}\stackrel{{\scriptstyle{\mathbf{P}}_{0}}}{{*}}C_{2}\stackrel{{\scriptstyle{\mathbf{P}}_{0}}}{{*}}C^{\prime})$ , hence in $\mathcal{N}$ since $i\neq 0$ . This shows that the functor ${\vphantom{\textup{H}}}^{p}{\textup{H}}^{0}(-\stackrel{{\scriptstyle{\mathbf{P}}_{0}}}{{*}}-)$ factors through $\overline{\mathcal{P}}\times\overline{\mathcal{P}}$ . The associativity of $\circledast$ can be proved in the same way. ∎
+
+Let $a$ be the length of the longest element of $W_{{\mathbf{P}}}$ , so we have $a=a(\underline{c})$ by Lemma 4.5 . Let $\pi:\textup{Fl}=L_{0}G/\mathbf{I}_{0}\to\textup{Fl}_{{\mathbf{P}}_{0}}=L_{0}G/{\mathbf{P}}_{0}$ be the projection. Let $\mathcal{Q}=\textup{Perv}(\mathbf{I}_{0}\backslash L_{0}G/\mathbf{I}_{0})$ . Since $\pi$ is smooth of relative dimension $a$ , the functor $\pi^{\natural}:=\pi^{*}[a](a/2)$ gives an exact functor $\mathcal{P}\to\mathcal{Q}$ that is also fully faithful (we fix a square root of $q=\#k$ , hence the half Tate twist makes sense). We may therefore identify $\mathcal{P}$ with a full subcategory of $\mathcal{Q}$ via the functor $\pi^{\natural}$ .
+
+The category $\mathcal{Q}$ carries a filtration by full subcategories indexed by two-sided cells in $W_{\textup{aff}}$ . Let $\underline{c}=\underline{c}_{{\mathbf{P}}}$ be the cell containing the longest element in $W_{{\mathbf{P}}}$ . Then $\mathcal{P}\subset\mathcal{Q}_{\leq\underline{c}}$ . The category $\mathcal{P}_{<\underline{c}}:=\mathcal{P}\cap\mathcal{Q}_{<\underline{c}}$ is a Serre subcategory (generated by those irreducible objects in $\mathcal{P}$ indexed by longest representatives of $(W_{{\mathbf{P}}},W_{{\mathbf{P}}})$ -double cosets in $W_{\textup{aff}}$ that belong to a cell smaller than $\underline{c}$ ). Let $\mathcal{P}_{\underline{c}}:=\mathcal{P}/\mathcal{P}_{<\underline{c}}$ be the Serre quotient. This is a full subcategory of a similar Serre quotient $\mathcal{Q}_{\underline{c}}:=\mathcal{Q}_{\leq\underline{c}}/\mathcal{Q}_{<\underline{c}}$ . It is known that $\mathcal{Q}_{\underline{c}}$ carries a monoidal structure $\odot$ given by truncated convolution: $\widetilde{C}_{1}\odot\widetilde{C}_{2}$ is the image of ${\vphantom{\textup{H}}}^{p}{\textup{H}}^{a}(\widetilde{C}_{1}\stackrel{{\scriptstyle\mathbf{I}_{0}}}{{*}}\widetilde{C}_{2})(a/2)$ in $\mathcal{Q}_{\underline{c}}$ .
+
+The category $\mathcal{P}_{\underline{c}}\subset\mathcal{Q}_{\underline{c}}$ is closed under the truncated convolution $\odot$ . The quotient functor $\mathcal{P}\twoheadrightarrow\mathcal{P}_{\underline{c}}$ factors through $\overline{\mathcal{P}}$ and induces a monoidal Serre quotient functor 
+ 
+ $\eta:(\overline{\mathcal{P}},\circledast)\twoheadrightarrow(\mathcal{P}_{\underline{c}},\odot)$ 
+
+
+For $C_{1},C_{2}\in\mathcal{P}$ with image $\widetilde{C}_{1}$ and $\widetilde{C}_{2}$ in $\mathcal{Q}$ , we have 
+ 
+ (4.3)  $\pi^{\natural}C_{1}\stackrel{{\scriptstyle\mathbf{I}_{0}}}{{*}}\pi^{\natural}C_{2}\cong\pi^{\natural}(C_{1}\stackrel{{\scriptstyle{\mathbf{P}}_{0}}}{{*}}C_{2})\otimes\textup{H}^{*}({{\mathbf{P}}_{0}/\mathbf{I}_{0}})[a](a/2).$ 
+
+
+We first show that $\mathcal{N}\subset\mathcal{P}_{<\underline{c}}$ so the quotient functor factors as $\overline{\mathcal{P}}\twoheadrightarrow\mathcal{P}_{\underline{c}}$ . For a simple perverse sheaf $C_{w}\in\mathcal{N}$ indexed by $w\in W_{{\mathbf{P}}}\backslash W_{\textup{aff}}/W_{{\mathbf{P}}}$ , it appears in ${\vphantom{\textup{H}}}^{p}{\textup{H}}^{i}(C_{1}\stackrel{{\scriptstyle{\mathbf{P}}_{0}}}{{*}}C_{2})$ for some simple perverse sheaves $C_{1},C_{2}\in\mathcal{P}$ and some $i\neq 0$ . Since $C_{1}\stackrel{{\scriptstyle{\mathbf{P}}_{0}}}{{*}}C_{2}$ is isomorphic to its own Verdier dual, we may assume $i>0$ . Using ( 4.3 ) and taking the top cohomology of $\textup{H}^{*}({{\mathbf{P}}_{0}/\mathbf{I}_{0}})$ , we conclude that $\pi^{\natural}{\vphantom{\textup{H}}}^{p}{\textup{H}}^{i}(C_{1}\stackrel{{\scriptstyle{\mathbf{P}}_{0}}}{{*}}C_{2})$ is a direct summand of ${\vphantom{\textup{H}}}^{p}{\textup{H}}^{a+i}(\pi^{\natural}C_{1}\stackrel{{\scriptstyle\mathbf{I}_{0}}}{{*}}\pi^{\natural}C_{2})(a/2)$ . Therefore $\pi^{\natural}C_{w}$ also appears in ${\vphantom{\textup{H}}}^{p}{\textup{H}}^{a+i}(\pi^{\natural}C_{1}\stackrel{{\scriptstyle\mathbf{I}_{0}}}{{*}}\pi^{\natural}C_{2})(a/2)$ . Now $\pi^{\natural}C_{w}$ is $\textup{IC}_{\widetilde{w}}$ (up to a Tate twist) for $\widetilde{w}$ the longest representative of the coset $w$ . By the definition of the $a$ -function, this means $a(\widetilde{w})\geq a+i>a$ , hence $\widetilde{w}$ belongs to a smaller cell than $\underline{c}$ (we have a priori $\widetilde{w}\leq\underline{c}$ ). This shows that $\pi^{\natural}C_{w}\in\mathcal{Q}_{<\underline{c}}$ , hence $C_{w}\in\mathcal{P}_{<\underline{c}}$ . The conclusion is that $\mathcal{N}\subset\mathcal{P}_{<\underline{c}}$ and we have a Serre quotient functor $\overline{\mathcal{P}}\twoheadrightarrow\mathcal{P}_{\underline{c}}$ .
+
+Taking $a$ -th perverse cohomologies of both sides of ( 4.3 ), we get 
+ 
+ ${\vphantom{\textup{H}}}^{p}{\textup{H}}^{a}(\pi^{\natural}C_{1}\stackrel{{\scriptstyle\mathbf{I}_{0}}}{{*}}\pi^{\natural}C_{2})\cong\bigoplus_{i\geq 0}\pi^{\natural}{\vphantom{\textup{H}}}^{p}{\textup{H}}^{i}(C_{1}\stackrel{{\scriptstyle{\mathbf{P}}_{0}}}{{*}}C_{2})\otimes\textup{H}^{2a-i}({{\mathbf{P}}_{0}/\mathbf{I}_{0}})(a/2).$ 
+ For $i>0$ the corresponding term on the right side lies in $\mathcal{N}$ , hence have zero image in $\mathcal{P}_{\underline{c}}$ by the previous discussion. Therefore $\pi^{\natural}C_{1}\odot\pi^{\natural}C_{2}$ , defined as the image of ${\vphantom{\textup{H}}}^{p}{\textup{H}}^{a}(\pi^{\natural}C_{1}\stackrel{{\scriptstyle\mathbf{I}_{0}}}{{*}}\pi^{\natural}C_{2})(a/2)$ in $\mathcal{Q}_{\underline{c}}$ , is equal to the image of $\pi^{\natural}{\vphantom{\textup{H}}}^{p}{\textup{H}}^{0}(C_{1}\stackrel{{\scriptstyle{\mathbf{P}}_{0}}}{{*}}C_{2})\otimes\textup{H}^{2a}({{\mathbf{P}}_{0}/\mathbf{I}_{0}})(a)\cong\pi^{\natural}{\vphantom{\textup{H}}}^{p}{\textup{H}}^{0}(C_{1}\stackrel{{\scriptstyle{\mathbf{P}}_{0}}}{{*}}C_{2})$ in $\mathcal{P}_{\underline{c}}$ , which is the same as the image of $C_{1}\circledast C_{2}\in\overline{\mathcal{P}}$ in $\mathcal{P}_{\underline{c}}$ . This shows that $\mathcal{P}_{\underline{c}}$ is closed under $\odot$ , and that the quotient functor $\overline{\mathcal{P}}\to\mathcal{P}_{\underline{c}}$ is monoidal. ∎
+
+4.16. Finish of the proof of Theorem 4.7
+
+By Lemma 4.11 , $e$ is a t-exact functor, and therefore $e|_{\mathcal{P}}$ factors through the Serre quotient $\overline{\mathcal{P}}$ by the universal property of $\overline{\mathcal{P}}$ . We get a monoidal functor $\overline{e}:(\overline{\mathcal{P}},\circledast)\to(\textup{Vect},\otimes)$ .
+
+Denote by $\bar{Z}$ the composition $\textup{Rep}(\widehat{G})\xrightarrow{Z_{{\mathbf{P}}_{0}}}\mathcal{P}\twoheadrightarrow\overline{\mathcal{P}}$ , which is an exact monoidal functor. Let $\overline{\mathcal{P}}^{\prime}\subset\overline{\mathcal{P}}$ be the full subcategory consisting of subquotients of the images of $\bar{Z}$ . Similarly, let $\mathcal{P}^{\prime}_{\underline{c}}\subset\mathcal{P}_{\underline{c}}$ be the full subcategory consisting of subquotient of images of $\eta\circ\bar{Z}$ .
+
+Summarizing, we have the following commutative diagram 
+ 
+ $\textstyle{\textup{Rep}(\widehat{G})\ignorespaces\ignorespaces\ignorespaces\ignorespaces}$ $\scriptstyle{\bar{Z}_{{\mathbf{P}}_{0}}}$ $\textstyle{\overline{\mathcal{P}}^{\prime}\ignorespaces\ignorespaces\ignorespaces\ignorespaces\ignorespaces\ignorespaces\ignorespaces\ignorespaces}$ $\scriptstyle{\eta^{\prime}}$ $\textstyle{\overline{\mathcal{P}}\ignorespaces\ignorespaces\ignorespaces\ignorespaces\ignorespaces\ignorespaces\ignorespaces\ignorespaces}$ $\scriptstyle{\eta}$ $\scriptstyle{\overline{e}}$ Vect $\textstyle{\mathcal{P}^{\prime}_{\underline{c}}\ignorespaces\ignorespaces\ignorespaces\ignorespaces}$ $\textstyle{\mathcal{P}_{\underline{c}}}$ 
+ Both functors $\bar{Z}$ and $\eta^{\prime}\circ\bar{Z}$ are exact central functors. Applying a criterion of Bezrukavnikov in [1] to both functors, we see that both $\overline{\mathcal{P}}^{\prime}$ and $\mathcal{P}^{\prime}_{\underline{c}}$ are neutral Tannakian categories over $\overline{\mathbb{Q}}_{\ell}$ and hence the tensor functor $\eta^{\prime}$ between them must be faithful ( [4] ). However $\eta^{\prime}$ is also a Serre quotient functor. This forces $\eta^{\prime}$ to be an equivalence of tensor categories. Write $\overline{\mathcal{P}}^{\prime}\cong\textup{Rep}(\widehat{H})$ for some algebraic subgroup $\widehat{H}\subset\widehat{G}$ so that $\bar{Z}$ becomes the restriction functor from $\widehat{G}$ to $\widehat{H}$ . Therefore we may identify the two rows in the above diagram and obtain a factorization of the fiber functor $e\circ Z_{{\mathbf{P}}_{0}}$ as 
+ 
+ $e\circ Z_{{\mathbf{P}}_{0}}:\textup{Rep}(\widehat{G})\xrightarrow{\textup{Res}^{\widehat{G}}_{\widehat{H}}}\textup{Rep}(\widehat{H})\cong\mathcal{P}^{\prime}_{\underline{c}}\cong\overline{\mathcal{P}}^{\prime}\xrightarrow{\overline{e}}\textup{Vect}.$ 
+ Note that the category $\mathcal{P}^{\prime}_{\underline{c}}$ (viewed as a subcategory of $\mathcal{Q}_{\underline{c}}$ ) is the category $\mathcal{A}_{w_{{\mathbf{P}}}}$ introduced by Bezrukavnikov in [1] , where $w_{{\mathbf{P}}}\in W_{{\mathbf{P}}}$ is the longest element, and is a Duflo (or distinguished) involution ( [14] ) by Lemma 4.5 . Fix a topological generator $\xi\in\mathcal{I}^{t}_{0}$ , then $\xi$ acts on the restriction functor $\textup{Res}^{\widehat{G}}_{\widehat{H}}$ . By Tannakian formalism, the action of $\xi$ on the fiber functor $\overline{e}\circ\textup{Res}^{\widehat{G}}_{\widehat{H}}=e\circ Z_{{\mathbf{P}}_{0}}$ gives an element $u\in\widehat{G}$ that commutes with $\widehat{H}$ (see [1] ). By ( 4.2 ), $u$ is conjugate to the image of $\xi$ under the monodromy representation of the local system $\textup{Kl}_{\widehat{G},{\mathbf{P}}}(\phi)$ . Therefore we need to prove that $u\in\underline{u}_{{\mathbf{P}}}$ , i.e., $u$ corresponds to $\underline{c}_{{\mathbf{P}}}$ under Lusztig’s bijection in Theorem 4.2 . But this is exactly what was shown by Bezrukavnikov in [1] . This completes the proof of Theorem 4.7 .
+
+5. Rigidity
+
+In this section we shall deduce that $\textup{Kl}_{\widehat{G},{\mathbf{P}}}(1,\phi)$ is cohomologically rigid under some additional assumptions. We work over the base field $\bar{k}$ without changing notation.
+
+5.1. Cohomological rigidity
+
+Recall that a $\widehat{G}$ -local system $E_{\widehat{G}}$ over an open subset $X^{\circ}$ of a complete smooth connected algebraic curve $X$ is called cohomologically rigid if 
+ 
+ $\textup{H}^{*}({X,j_{!*}E^{\textup{Ad}}_{\widehat{G}}})=0$ 
+ where $j:X^{\circ}\hookrightarrow X$ is the inclusion, $E^{\textup{Ad}}_{\widehat{G}}$ is the local system on $X^{\circ}$ associated with the adjoint representation of $\widehat{G}$ on its Lie algebra ${\widehat{\mathfrak{g}}}$ , and $j_{!*}$ simply means the sheaf-theoretic direct image $\textup{H}^{0}j_{*}$ .
+
+Back to the situation of § 2.6 with $\chi=1$ . We write $\textup{Kl}_{\widehat{G},{\mathbf{P}}}(1,\phi)$ as $\textup{Kl}_{\widehat{G},{\mathbf{P}}}(\phi)$ . Let $j:X^{\circ}\hookrightarrow X$ be the open inclusion, and $i_{0},i_{\infty}:\textup{Spec}\ \bar{k}\hookrightarrow X$ be the closed embedding of the two points $0$ and $\infty$ .
+
+Assume $\chi=1$ and $G$ is split. Assume $\textup{char}(k)$ is sufficiently large so that $m=m({\mathbf{P}})$ is a regular elliptic number for $\mathbb{W}$ (see § 2.2 ). Assuming the properties (1) and (2) in § 2.5 about the monodromy of $\textup{Kl}_{\widehat{G},{\mathbf{P}}}(\phi)$ at $\infty$ hold. Then we have 
+ 
+ $\textup{H}^{*}({X,j_{!*}\textup{Kl}^{\textup{Ad}}_{\widehat{G},{\mathbf{P}}}(\phi)})=0.$ 
+ I.e., $\textup{Kl}_{\widehat{G},{\mathbf{P}}}(\phi)$ is cohomologically rigid.
+
+Since ${\widehat{\mathfrak{g}}}^{\mathcal{I}_{\infty}}=0$ by property (2) of § 2.5 , $\textup{Kl}^{\textup{Ad}}_{\widehat{G},{\mathbf{P}}}(\phi)$ admits no global sections, i.e., $\textup{H}^{0}({X^{\circ},\textup{Kl}^{\textup{Ad}}_{\widehat{G},{\mathbf{P}}}(\phi)})=\textup{H}^{0}({X,j_{!*}\textup{Kl}^{\textup{Ad}}_{\widehat{G},{\mathbf{P}}}(\phi)})=0$ . Dually $\textup{H}_{c}^{2}({X^{\circ},\textup{Kl}^{\textup{Ad}}_{\widehat{G},{\mathbf{P}}}(\phi)})=\textup{H}^{2}({X,j_{!*}\textup{Kl}^{\textup{Ad}}_{\widehat{G},{\mathbf{P}}}(\phi)})=0$ .
+
+The distinguished triangle $j_{!}\to j_{!*}\to i_{0,*}\textup{H}^{0}i^{*}_{0}\oplus i_{\infty,*}\textup{H}^{0}i_{\infty}^{*}\to j_{!}[1]$ gives an exact sequence 
+ 
+ (5.1)  $0\to{\widehat{\mathfrak{g}}}^{\mathcal{I}_{0}}\oplus{\widehat{\mathfrak{g}}}^{\mathcal{I}_{\infty}}\to\textup{H}_{c}^{1}({X^{\circ},\textup{Kl}^{\textup{Ad}}_{\widehat{G},{\mathbf{P}}}(\phi)})\to\textup{H}^{1}({X,j_{!*}\textup{Kl}^{\textup{Ad}}_{\widehat{G},{\mathbf{P}}}(\phi)})\to 0.$ 
+ The Grothendieck-Ogg-Shafarevich formula implies 
+ 
+ $\chi_{c}(X^{\circ},\textup{Kl}^{\textup{Ad}}_{\widehat{G},{\mathbf{P}}}(\phi))=-\textup{Swan}_{\infty}({\widehat{\mathfrak{g}}}).$ 
+ Using the vanishing of $\textup{H}^{2}_{c}$ and property (2) of § 2.5 , we get 
+ 
+ $\dim\textup{H}_{c}^{1}({X^{\circ},\textup{Kl}^{\textup{Ad}}_{\widehat{G},{\mathbf{P}}}(\phi)})=\#\Phi/m.$ 
+ On the other hand, by Theorem 4.7 , ${\widehat{\mathfrak{g}}}^{\mathcal{I}_{0}}$ is the dimension of the centralizer of a unipotent element $u$ in the unipotent conjugacy class $\underline{u}_{{\mathbf{P}}}$ in $\widehat{G}$ . By Steinberg’s theorem, $\dim{\widehat{\mathfrak{g}}}^{\mathcal{I}_{0}}=\dim{\widehat{\mathfrak{g}}}^{u}=2\dim\mathcal{B}_{u}+r$ (where $r$ is the rank of $G$ ). By Theorem 4.2 (1), $\dim\mathcal{B}_{u}=a(\underline{c}_{{\mathbf{P}}})=\ell(w_{{\mathbf{P}}})$ . Hence $\dim\mathcal{B}_{u}=\#\Psi(L_{{\mathbf{P}}})/2$ ( $\Psi(L_{{\mathbf{P}}})$ is the root system of $L_{{\mathbf{P}}}$ ), and 
+ 
+ $\dim{\widehat{\mathfrak{g}}}^{\mathcal{I}_{0}}=2\dim\mathcal{B}_{u}+r=\#\Psi(L_{{\mathbf{P}}})+r=\dim L_{{\mathbf{P}}}.$ 
+ By the dictionary between stable gradings on Lie algebras and regular elements in Weyl groups given in [8] , $L_{{\mathbf{P}}}$ is isomorphic to the neutral component of the fixed point subgroup of an automorphism of $\mathbb{G}$ given by a lifting of a regular elliptic element $w\in\mathbb{W}$ of order $m$ . By analyzing the action of $w$ on the Lie algebra of $\mathbb{G}$ it is easy to see that $\dim L_{{\mathbf{P}}}=\#\Phi/m$ . Therefore the first two terms in the exact sequence ( 5.1 ) both have dimension $\#\Phi/m$ , hence the third term vanishes. This proves the vanishing of $\textup{H}_{c}^{*}({X,j_{!*}\textup{Kl}^{\textup{Ad}}_{\widehat{G},{\mathbf{P}}}(\phi)})$ in all degrees. ∎
+
+When ${\mathbf{P}}=\mathbf{I}$ , we computed the Euler characteristic of $\textup{Kl}^{\textup{Ad}}_{\widehat{G},\mathbf{I}}(\phi)$ in [10] and used this to confirm the predictions about the wild monodromy at $\infty$ in § 2.5 in the Iwahori case (in this case, these predictions were made in [9] ). However, the computation in [10] is very complicated (see the argument of Proposition 6.5 to get a sense). In principle, similar but even more complicated computation could be done for general admissible parahoric subgroups ${\mathbf{P}}$ , and the result would confirm the predictions in § 2.5 (at least when $\underline{u}_{{\mathbf{P}}}$ is a distinguished unipotent class, in which case $\textup{Kl}^{\textup{Ad}}_{\widehat{G},{\mathbf{P}}}(\phi)$ does not have global sections).
+
+6. Examples: Quasi-split unitary groups
+
+When $G$ is split of type $A$ , the only admissible standard parahoric subgroup is the Iwahori $\mathbf{I}$ . In this case, $\textup{Kl}_{{\vphantom{G}}^{L}{G},\mathbf{I}}(\chi,\phi)$ has been calculated in [10] , and is identified with the Kloosterman sheaves defined by Deligne. In section, we shall compute the generalized Kloosterman sheaves for the quasi-split unitary group $G$ .
+
+6.1. Linear algebra
+
+Assume $\textup{char}(k)\neq 2$ . Let $(M,q)$ be a quadratic space over $k$ of dimension $n$ . Let $(\cdot,\cdot):M\times M\to k$ be the associated symmetric bilinear form $(x,y)=q(x+y)-q(x)-q(y)$ . Let $K^{\prime}$ be the ramified quadratic extension of $K$ with uniformizer $\varpi^{1/2}$ . Then there is a Hermitian form $h$ on $M\otimes_{k}K^{\prime}$ defined as 
+ 
+ (6.1)  $h(x+\varpi^{1/2}y,z+\varpi^{1/2}w)=(x,y)-\varpi(y,w)+\varpi^{1/2}(y,z)-\varpi^{1/2}(x,w)$ 
+ for $x,y,z,w\in M\otimes_{k}K$ .
+
+Let $G=\textup{U}(M\otimes K^{\prime},h)$ be the unitary group of the Hermitian space $(M\otimes K^{\prime},h)$ . This corresponds to the absolute group $\mathbb{G}=\textup{GL}(M)$ and a nontrivial outer automorphism $\sigma$ . The regular elliptic numbers $m$ of $(\mathbb{W},\sigma)$ are in bijection with divisors $d|n$ or $d|n-1$ (in which case we require $d<n-1$ ) such that the quotient $n/d$ or $(n-1)/d$ is odd. We have $m=2n/d$ or $m=2(n-1)/d$ in the two cases. Since $m/2$ is always odd, we write $m/2=2\ell+1$ . For $d$ and $m$ as above, we fix a decomposition 
+ 
+ (6.2)  $M=M_{-\ell}\oplus M_{-1}\oplus M_{0}\oplus M_{1}\oplus\cdots\oplus M_{\ell}$ 
+ such that $d=\dim M_{i}\leq\dim M_{0}\leq d+1$ (for all $i=\pm 1,\cdots,\pm\ell$ ), and $(M_{i},M_{j})=0$ unless $i+j=0$ . Denote the restriction of $q$ to $M_{0}$ by $q_{0}$ . The pairing $(\cdot,\cdot)$ identifies $M_{-j}$ with $M_{j}^{*}$ .
+
+Let $\widetilde{{\mathbf{P}}}_{m}\subset G(K)$ be the stabilizer of the lattice chain $\Lambda_{\ell}\supset\Lambda_{\ell-1}\supset\cdots\supset\Lambda_{-\ell}$ defined as 
+ 
+ $\Lambda_{i}=\bigoplus_{-\ell\leq j\leq i}M_{j}\otimes\mathcal{O}_{K^{\prime}}\oplus\bigoplus_{i<j\leq\ell}M_{j}\otimes\varpi^{1/2}\mathcal{O}_{K^{\prime}}.$ 
+ Its reductive quotient is $\widetilde{L}_{m}=\prod_{i=1}^{\ell}\textup{GL}(M_{i})\times\textup{O}(M_{0},q_{0})$ , where $\textup{GL}(M_{i})$ acts on $M_{i}$ by the standard representation and on $M_{-i}=M_{i}^{*}$ by the dual of the standard representation. We have 
+ 
+ (6.3)  $\widetilde{L}^{\textup{ab}}_{m}\cong\prod_{i=1}^{\ell}\mathbb{G}_{m}\times\{\pm 1\}$ 
+ by taking determinants. The subgroup ${\mathbf{P}}_{m}\subset\widetilde{{\mathbf{P}}}_{m}$ , defined as the kernel of $\widetilde{{\mathbf{P}}}_{m}\to\widetilde{L}_{m}\to\widetilde{L}^{\textup{ab}}_{m}\twoheadrightarrow\{\pm 1\}$ , is an admissible parahoric subgroup of $G(K)$ with $m({\mathbf{P}}_{m})=m$ . The vector space $V_{m}:=V_{{\mathbf{P}}_{m}}$ is 
+ 
+ (6.4)  $V_{m}=\textup{Hom}(M_{1},M_{0})\oplus\cdots\oplus\textup{Hom}(M_{\ell},M_{\ell-1})\oplus\textup{Sym}^{2}(M_{\ell}).$ 
+ A better way to think of $V_{m}$ is the following. We consider the cyclic quiver 
+ 
+ (6.5)  $\textstyle{M_{1}\ignorespaces\ignorespaces\ignorespaces\ignorespaces}$ $\scriptstyle{\psi_{0}}$ $\textstyle{M_{2}\ignorespaces\ignorespaces\ignorespaces\ignorespaces}$ $\scriptstyle{\psi_{1}}$ $\textstyle{\cdots\ignorespaces\ignorespaces\ignorespaces\ignorespaces}$ $\textstyle{M_{\ell}\ignorespaces\ignorespaces\ignorespaces\ignorespaces}$ $\scriptstyle{\psi_{\ell-1}}$ $\textstyle{M_{0}\ignorespaces\ignorespaces\ignorespaces\ignorespaces}$ $\scriptstyle{\psi_{-1}}$ $\textstyle{M_{-1}\ignorespaces\ignorespaces\ignorespaces\ignorespaces}$ $\scriptstyle{\psi_{-2}}$ $\textstyle{M_{-2}\ignorespaces\ignorespaces\ignorespaces\ignorespaces}$ $\textstyle{\cdots\ignorespaces\ignorespaces\ignorespaces\ignorespaces}$ $\scriptstyle{\psi_{-\ell}}$ $\textstyle{M_{-\ell}\ignorespaces\ignorespaces\ignorespaces\ignorespaces}$ $\scriptstyle{\psi_{\ell}}$ 
+ There is an involution $\tau$ acting on such quivers: $\tau$ sends $\{\psi_{i}:M_{i+1}\to M_{i}\}$ to $\{\psi^{*}_{-i-1}:M_{i+1}=M_{-i-1}^{*}\to M_{-i}^{*}=M_{i}\}$ (indices understood modulo $2\ell+1$ ). Then $V_{m}$ is the space of $\tau$ -invariant cyclic quivers.
+
+When $m=2$ , the cyclic quiver degenerates to a quiver with a single vertex $M=M_{0}$ and a self-adjoint operator $\psi$ on itself.
+
+6.2. Stable locus
+
+The dual space $V^{*}_{m}$ is the space of $\tau$ -invariant cyclic quivers of the shape ( 6.5 ), except that all arrows are reversed. Let $\phi_{i}:M_{i}\to M_{i+1}$ be the arrows. We think of $\phi_{\ell}:M_{\ell}\to M_{-\ell}$ as a quadratic form on $M_{\ell}$ . An element $\phi=(\phi_{-\ell},\cdots,\phi_{\ell})\in V^{*}_{m}$ is stable under the $L_{m}$ -action if and only if • All maps $\phi_{i}$ have the maximal possible rank; • We have two quadratic forms on $M_{0}$ : $q_{0}$ and the pullback of $\phi_{\ell}$ to $M_{0}$ via the map $\phi_{\ell-1}\cdots\phi_{0}:M_{0}\to M_{\ell}$ . We denote the second quadratic form by $q^{\prime}_{0}$ . Then these quadratic forms are in general position: the pencil of quadrics spanned by $q_{0}$ and $q^{\prime}_{0}$ is degenerate at $n$ distinct points on $\mathbb{P}^{1}$ . In particular, when $\dim M_{0}=d$ and $\phi$ is stable, then all $\phi_{i}$ are isomorphisms, and $\phi_{\ell}$ has at most a one-dimensional kernel. When $\dim M_{0}=d+1$ and $\phi$ is stable, then $\phi_{0}$ is surjective, $\phi_{1},\cdots,\phi_{\ell-1}$ are isomorphisms, and $\phi_{\ell}$ must be nondegenerate.
+
+When $m=2$ , $V^{*}_{2}$ is simply the space of quadratic forms on $M$ . An element $\phi\in V^{*}_{2}(k)$ is stable under the $L_{2}=\textup{SO}(M,q)$ -action exactly when the quadratic form $\phi$ is in general position with $q$ (note $\phi$ itself can be degenerate).
+
+6.3. The scheme $\mathfrak{G}_{\lambda}$
+
+According to § 3.8 , we need to describe the variety $\mathfrak{G}_{\lambda}$ for the minuscule $\lambda=(1,0,\cdots)$ (corresponding to the standard representation of $\widehat{G}=\textup{GL}_{n}$ ) and the morphism $(f^{\prime},f^{\prime\prime}):\mathfrak{G}_{\lambda}\to\widetilde{L}^{\textup{ab}}_{m}\times V_{m}$ .
+
+Let $\mathcal{E}=M\otimes\mathcal{O}_{\widetilde{X}}$ with Hermitian form (into $\mathcal{O}_{\widetilde{X}}$ ) given by a formula similar to ( 6.1 ). There is an increasing filtration $F_{*}$ on the fiber of $\mathcal{E}$ at $\infty$ defined by $F_{\leq i}=\sum_{j\leq i}M_{i}$ . We have the tautological trivializations $\textup{Gr}^{F}_{i}\mathcal{E}=M_{i}$ . There is a decreasing filtration $F^{*}$ on the fiber of $\mathcal{E}$ at $0$ defined by $F^{\geq i}=\sum_{j\geq i}M_{i}$ . The triple $(\mathcal{E},F_{*},F^{*})$ defines the open point of $\textup{Bun}_{G}(\widetilde{{\mathbf{P}}}_{0},{\mathbf{P}}_{\infty}^{+})$ .
+
+The group ind-scheme $\mathfrak{G}$ is the group of unitary automorphisms of $(\mathcal{E}|_{\widetilde{X}-\{\pm 1\}},F_{*},F^{*})$ that induces the identity on the associated graded of $F_{*}$ . The locus $\mathfrak{G}_{\lambda}$ consists of those $g\in\mathfrak{G}\subset G(F^{\prime})$ ( $F^{\prime}=k(t^{1/2})$ ) that have a simple pole at $t^{1/2}=1$ with residue of rank one. Such $g$ can be written uniquely as 
+ 
+ $g=\frac{t^{1/2}}{t^{1/2}-1}A-\frac{1}{t^{1/2}-1}B$ 
+ for $A,B\in\textup{GL}(M)$ .
+
+(1) The scheme $\mathfrak{G}_{\lambda}$ classifies pairs $(A,B)\in\textup{O}(M,q)\times\textup{O}(M,q)$ such that • $(Ax,By)=(Bx,Ay)$ for all $x,y\in M$ . • $A$ lies in the unipotent radical $U(F_{*})$ of the parabolic $P(F_{*})\subset\textup{O}(M,q)$ preserving the filtration $F_{*}$ on $M$ ; $B$ lies in the parabolic $P(F^{*})\subset\textup{O}(M,q)$ preserving the filtration $F^{*}$ on $M$ . • $A-B$ has rank one. (2) The map $(f^{\prime},f^{\prime\prime}):\mathfrak{G}_{\lambda}\to\widetilde{L}^{\textup{ab}}_{m}\times V_{m}$ is given by 
+ 
+ $\displaystyle f^{\prime}(A,B)=(\det(B_{0,0}),\cdots,\det(B_{\ell,\ell}));$ 
+ 
+ $\displaystyle f^{\prime\prime}(A,B)=(A_{0,1},A_{1,2},\cdots,A_{\ell-1,\ell},-B_{\ell,-\ell})$ 
+ in the block presentation of $A,B$ under the decomposition ( 6.2 ). (3) Consider the morphism $j:\mathfrak{G}_{\lambda}\to\mathbb{P}(M)$ sending $(A,B)\in\mathfrak{G}_{\lambda}$ to the line in $M$ that is the image of the rank one endomorphism $C:=I-A^{-1}B\in\textup{End}(M)$ . Then $j$ is an open embedding.
+
+(1) The fact $g=\frac{t^{1/2}}{t^{1/2}-1}A-\frac{1}{t^{1/2}-1}B$ is unitary is equivalent to $A,B\in\textup{O}(M,q)$ and $(Ax,By)=(Bx,Ay)$ . The residue of $g$ at $t^{1/2}=1$ is $A-B$ , which hence has rank one.
+
+(2) The value of $g$ at $t^{1/2}=0$ is $B$ , hence we have the formula for $f^{\prime}(A,B)$ . Expanding $g$ at $t^{1/2}=\infty$ using the local uniformizer $t^{-1/2}$ , we get $g=A+t^{-1/2}(A-B)+O(t^{-1})$ , which gives the formula for $f^{\prime\prime}(A,B)$ .
+
+(3) The map $j$ is an open embedding since $U(F_{*})\times P(F^{*})$ is open in $\textup{O}(M,q)$ . ∎
+
+For $i=0,\cdots,\ell$ , let $q_{[-i,i]}$ be the restriction of the quadratic form $q$ to $M_{-i}\oplus\cdots\oplus M_{i}$ , and then extended to $M$ by zero on the rest of the direct summands (so that $q_{[-\ell,\ell]}=q$ ).
+
+(1) Under the embedding $j:\mathfrak{G}_{\lambda}\hookrightarrow\mathbb{P}(M)$ , $\mathfrak{G}_{\lambda}$ is the complement of the divisors $q_{0}=0,q_{[-1,1]}=0,\cdots,q_{[-\ell+1,\ell-1]}=0$ and $q=0$ . The map $(f^{\prime},f^{\prime\prime}):\mathbb{P}(M)\supset\mathfrak{G}_{\lambda}\to\widetilde{L}^{\textup{ab}}_{m}\times V_{m}$ is given by 
+ 
+ (6.6)  $\displaystyle f^{\prime}([v])=(-1,\frac{q_{0}(v)}{q_{[-1,1]}(v)},\frac{q_{[-1,1]}(v)}{q_{[-2,2]}(v)},\cdots,\frac{q_{[-\ell+2,\ell-2]}(v)}{q_{[-\ell+1,\ell-1]}(v)},\frac{q_{[-\ell+1,\ell-1]}(v)}{q(v)});$ 
+ 
+ (6.7)  $\displaystyle f^{\prime\prime}([v])=(\frac{(-,v_{-1})}{q_{0}(v)}v_{0},\frac{(-,v_{-2})}{q_{[-1,1]}(v)}v_{1},\cdots,\frac{(-,v_{-\ell})}{q_{[-\ell+1,\ell-1]}(v)}v_{\ell-1},\frac{(-,v_{\ell})}{q(v)}v_{\ell}).$ (2) The local system $\textup{Kl}^{\textup{St}}_{\widehat{G},{\mathbf{P}}_{m}}(\chi)$ on $V_{m}^{*,\textup{rs}}$ attached to the unitary group $G$ , the admissible parahoric ${\mathbf{P}}_{m}$ , the character $\chi=(\chi_{0},\chi_{1},\cdots,\chi_{\ell})$ (where $\chi_{0}$ has order two) and the standard representation of the dual group $\widehat{G}=\textup{GL}_{n}$ is the Fourier transform of the complex $f^{\prime\prime}_{!}f^{\prime*}\mathcal{L}_{\chi}[n-1](\frac{n-1}{2})$ .
+
+(1) For $(A,B)\in\mathfrak{G}_{\lambda}$ , let $C=I-A^{-1}B$ which has rank one. The condition $(Ax,By)=(Bx,Ay)$ implies $(Cx,y)=(x,Cy)$ (for all $x,y\in M$ ). This together with the fact that $I-C\in\textup{O}(M,q)$ implies that $C(x)=\frac{(x,v)}{q(v)}v$ for some $v\in M$ with $q(v)=(v,v)/2\neq 0$ . In other words, $I-C=R_{[v]}$ , the orthogonal reflection in the direction of $v$ . Note that $j(A,B)=[v]\in\mathbb{P}(M)$ .
+
+We inductively find $A=A_{1}\cdots A_{\ell-1}A_{\ell}$ such that $AR_{[v]}\in\overline{P}$ . Here $A_{i}$ is the identity on $M_{j}$ for all $j\neq i$ and sends $x_{i}\in M_{i}$ to $x_{i}\mod F_{<i}$ . It is easy to check that 
+ 
+ $\displaystyle A_{\ell}(x_{\ell})$ $\displaystyle=$ $\displaystyle x_{\ell}+\frac{(x_{\ell},v_{-\ell})}{q_{[-\ell+1,\ell-1]}(v)}v_{\leq\ell-1};$ 
+ 
+ $\displaystyle A_{\ell-1}(x_{\ell-1})$ $\displaystyle=$ $\displaystyle x_{\ell-1}+\frac{(x_{\ell-1},v_{-\ell+1})}{q_{[-\ell+2,\ell-2]}(v)}v_{\leq\ell-2};$ 
+ $\displaystyle\cdots;$ 
+ 
+ $\displaystyle A_{1}(x_{1})$ $\displaystyle=$ $\displaystyle x_{1}+\frac{(x_{1},v_{-1})}{q_{0}(v)}v_{\leq 0}.$ 
+ Here we write $v_{\leq i}$ for the projection of $v$ to the factor $\oplus_{j\leq i}M_{j}$ of $M$ . Taking the blocks $A_{i,i+1}$ we get the formula for $f^{\prime\prime}([v])$ except for the last entry. The last entry of $f^{\prime\prime}([v])$ is the negative of the lower-left corner block $B_{\ell,-\ell}$ , which is the same as the corner block of $R_{[v]}$ . The formula we get is exactly ( 6.7 ). The action of $B=AR_{[v]}$ on the associated graded $M_{i}=\textup{Gr}^{i}_{F^{*}}M$ is given by 
+ 
+ $B_{i,i}(x_{i})=x_{i}-\frac{(x_{i},v_{-i})}{q_{[-i,i]}(v)}v_{i}.$ 
+ In particular, $B_{0,0}$ is the reflection $R_{v_{0}}$ on $M_{0}$ . Taking determinants we get the formula for $f^{\prime}([v])$ as in ( 6.6 ).
+
+(2) For the coweight $\lambda$ , we have $\textup{IC}_{\lambda}=\overline{\mathbb{Q}}_{\ell}[n-1](\frac{n-1}{2})$ . Therefore (2) follows from Proposition 3.9 . ∎
+
+A direct consequence of Proposition 6.5 is the following.
+
+Let $\phi=(\phi_{-\ell},\cdots,\phi_{\ell})\in V^{*,\textup{st}}_{m}(k)$ be a stable functional. Recall $\mathfrak{G}_{\lambda}\cong\mathbb{P}(M)-\cup_{i=0}^{\ell}Q(q_{[-i,i]})$ , the complement of the quadrics defined by the $q_{[-i,i]}$ . Let $f_{\phi}:\widetilde{X}^{\circ}\times\mathfrak{G}_{\lambda}\to\mathbb{A}^{1}$ be given by 
+ 
+ $f_{\phi}(x,[v])=\sum_{i=0}^{\ell-1}\frac{(\phi_{i}v_{i},v_{-i-1})}{q_{[-i,i]}(v)}+\frac{\phi_{\ell}(v_{\ell})}{q(v)}x.$ 
+ Note that $\phi_{\ell}(-)$ is a quadratic form. Let $\pi:\widetilde{X}^{\circ}\times\mathfrak{G}_{\lambda}\to\widetilde{X}^{\circ}$ be the projection. Then we have an isomorphism over $\widetilde{X}^{\circ}$ 
+ 
+ (6.8)  $\textup{Kl}^{\textup{St}}_{\widehat{G},{\mathbf{P}}_{m}}(1,\phi)\cong\pi_{!}f_{\phi}^{*}\textup{AS}_{\psi}[n-1]\left(\frac{n-1}{2}\right).$ 
+
+
+We identify $\widetilde{X}^{\circ}$ with the torus $\mathbb{G}_{m}^{\textup{rot}}$ . The action of $\mathbb{G}_{m}^{\textup{rot}}$ on $V^{*}_{m}$ is by scaling the last component $\textup{Sym}^{2}(M_{\ell}^{*})$ . Let $a_{\phi}:\mathbb{G}_{m}^{\textup{rot}}\to V^{*,\textup{st}}_{m}$ be given by the $\mathbb{G}_{m}^{\textup{rot}}$ -orbit of $\phi$ . It takes the form $x\mapsto(\phi_{0},\cdots,\phi_{\ell-1},x\phi_{\ell})$ . By Corollary 3.7 and Proposition 6.5 (2), 
+ 
+ $\textup{Kl}^{\textup{St}}_{\widehat{G},{\mathbf{P}}_{m}}(\chi,\phi)=a_{\phi}^{*}\textup{Kl}^{\textup{St}}_{\widehat{G},{\mathbf{P}}_{m}}(\chi)\cong a_{\phi}^{*}\textup{Four}_{\psi}(f^{\prime\prime}_{!}\overline{\mathbb{Q}}_{\ell})[n-1]\left(\frac{n-1}{2}\right).$ 
+ By proper base change, the last term is isomorphic to $\pi_{!}b_{\phi}^{*}\textup{AS}_{\psi}[n-1]$ where $b_{\phi}:\mathbb{G}_{m}^{\textup{rot}}\times\mathfrak{G}_{\lambda}\to\mathbb{A}^{1}$ is given by $(x,[v])\mapsto x\cdot_{\textup{rot}}f^{\prime\prime}([v])$ . The explicit formula of $f^{\prime\prime}$ in Proposition 6.5 (1) shows that $b_{\phi}=f_{\phi}$ . Therefore ( 6.8 ) holds. ∎
+
+When $m=2$ , we may describe the local system $\textup{Kl}^{\textup{St}}_{\widehat{G},{\mathbf{P}}}(1,\phi)$ more explicitly.
+
+Let $\phi\in V^{*,\textup{st}}_{2}(k)$ such that the pencil of quadrics spanned by $q$ and $\phi$ is degenerate exactly at $\phi-\lambda_{i}q$ for distinct elements $\lambda_{1},\cdots,\lambda_{n}\in\bar{k}$ . (1) Consider the morphism 
+ 
+ $\displaystyle f_{\phi}:\mathbb{P}(M)-Q(q)$ $\displaystyle\to$ $\displaystyle\mathbb{A}^{1}$ 
+ 
+ $\displaystyle{[v]}$ $\displaystyle\mapsto$ $\displaystyle\frac{\phi(v)}{q(v)}.$ 
+ The local system $\textup{Kl}^{\textup{St}}_{\widehat{G},2}(1,\phi)$ over $\widetilde{X}^{\circ}\cong\mathbb{G}_{m}^{\textup{rot}}$ is the restriction of the Fourier transform of $f_{\phi,!}\overline{\mathbb{Q}}_{\ell}[n-1](\frac{n-1}{2})$ from $\mathbb{A}^{1}$ to $\mathbb{G}_{m}^{\textup{rot}}$ . (2) When $n$ is odd, $\textup{Kl}^{\textup{St}}_{\widehat{G},2}(1,\phi)$ over $\mathbb{G}_{m}\otimes_{k}\bar{k}$ is isomorphic to $\oplus_{i=1}^{n}\textup{AS}_{\psi_{i}}|_{\mathbb{G}_{m}^{\textup{rot}}}$ , where $\psi_{i}(t)=\psi(\lambda_{i}t)$ . (3) When $n$ is even, then $\textup{Kl}^{\textup{St}}_{\widehat{G},2}(1,\phi)$ over $\mathbb{G}_{m}\otimes_{k}\bar{k}$ is isomorphic to $\textup{Four}_{\psi}(\mathcal{L}_{\phi}[1])|_{\mathbb{G}_{m}^{\textup{rot}}}$ , where $\mathcal{L}_{\phi}$ is the middle extension of the rank one local system on $\mathbb{A}^{1}-\{\lambda_{1},\cdots,\lambda_{n}\}$ with monodromy equal to $-1$ around each puncture $\lambda_{i}$ .
+
+We work over the base field $\bar{k}$ without changing notation. (1) One checks that the map $f_{\phi}$ is the composition $\mathbb{P}(M)-Q(q)\xrightarrow{f^{\prime\prime}}V_{2}\xrightarrow{\phi}\mathbb{A}^{1}$ . Therefore (1) is a direct consequence of Proposition 6.5 (2).
+
+(2)(3) The morphism $f_{\phi}$ can be compactified into a pencil of quadrics spanned by $\phi$ and $q$ : 
+ 
+ $\widetilde{f}_{\phi}:\textup{Bl}_{Z}\mathbb{P}(M)\to\mathbb{P}^{1}$ 
+ where $Z=Q(\phi)\cap Q(q)$ is the base locus of this pencil and $\textup{Bl}_{Z}\mathbb{P}(M)$ is the blow-up of $\mathbb{P}(M)$ along $Z$ . The fiber of $\widetilde{f}_{\phi}$ over $[x,y]\in\mathbb{P}^{1}$ is the quadric defined by $y\phi-xq=0$ . Let $j:\mathbb{P}(M)-Z\hookrightarrow\textup{Bl}_{Z}\mathbb{P}(M)$ be the open immersion and $i:\mathbb{P}^{1}\times Z\hookrightarrow\textup{Bl}_{Z}\mathbb{P}(M)$ be the closed immersion of the exceptional divisor. Then $f_{\phi,!}\overline{\mathbb{Q}}_{\ell}$ is the restriction of $(\widetilde{f}_{\phi}j)_{!}\overline{\mathbb{Q}}_{\ell}$ to $\mathbb{A}^{1}$ . We have an distinguished triangle in $D^{b}_{c}(\mathbb{P}^{1})$ : 
+ 
+ $(\widetilde{f}_{\phi}j)_{!}\overline{\mathbb{Q}}_{\ell}\to\widetilde{f}_{\phi,*}\overline{\mathbb{Q}}_{\ell}\to\textup{H}^{*}({Z})\otimes\overline{\mathbb{Q}}_{\ell,\mathbb{P}^{1}}\to(\widetilde{f}_{\phi}j)_{!}\overline{\mathbb{Q}}_{\ell}[1].$ 
+ Therefore, $\widetilde{f}_{\phi,*}\overline{\mathbb{Q}}_{\ell}|_{\mathbb{A}^{1}}$ and $f_{\phi,!}\overline{\mathbb{Q}}_{\ell}$ differ by a constant sheaf, hence their Fourier transforms are the same over $\mathbb{G}_{m}^{\textup{rot}}=\widetilde{X}^{\circ}$ .
+
+Since $\phi$ is a stable point, the degenerate quadrics $\phi-\lambda_{i}q$ in the pencil are projective cones over $(n-3)$ -dimensional quadrics. All quadrics (degenerate or not) have vanishing odd degree cohomology. Let $c_{1}$ be the Chern class of the line bundle $\mathcal{O}_{\mathbb{P}(M)}(1)$ , viewed as a morphism $\overline{\mathbb{Q}}_{\ell}(-1)\to\mathbf{R}^{2}\widetilde{f}_{\phi,*}\overline{\mathbb{Q}}_{\ell}$ . The $i$ -th power of $c_{1}$ gives a morphism 
+ 
+ $c_{1}^{i}:\overline{\mathbb{Q}}_{\ell}(-i)\to\mathbf{R}^{2i}\widetilde{f}_{\phi,*}\overline{\mathbb{Q}}_{\ell}.$ 
+
+
+When $n$ is odd, $c_{1}^{i}$ is an isomorphism for $i\neq\frac{n-1}{2}$ . When $i=\frac{n-1}{2}$ , $c_{1}^{i}$ is an injection of sheaves with cokernel a sum of skyscraper sheaves supported at the critical values of $\widetilde{f}_{\phi}$ , i.e., $\{\lambda_{1},\cdots,\lambda_{n}\}$ . Therefore, $f_{\phi,!}\overline{\mathbb{Q}}_{\ell}[n-1]$ differs from the sum of these skyscraper sheaves by constant sheaves. This implies (2).
+
+When $n$ is even, $c_{1}^{i}$ is an isomorphism for $i\neq\frac{n-2}{2}$ . When $i=\frac{n-2}{2}$ , $c_{1}^{i}$ is an injection with cokernel $\mathcal{L}_{\phi}$ being the extension by zero of a rank one local system on $\mathbb{A}^{1}-\{\lambda_{1},\cdots,\lambda_{n}\}$ . By Picard-Lefschetz theory, $\mathcal{L}_{\phi}$ has monodromy $-1$ around $\{\lambda_{1},\cdots,\lambda_{n}\}$ , hence $\mathcal{L}_{\phi}[1]$ is an irreducible perverse sheaf on $\mathbb{A}^{1}$ . Now $f_{\phi,!}\overline{\mathbb{Q}}_{\ell}[n-1]$ differs from $\mathcal{L}_{\phi}[1]$ by constant sheaves, which implies (3). ∎
+
+Finally we calculate the Euler characteristic of $\textup{Kl}^{\textup{St}}_{\widehat{G},{\mathbf{P}}_{m}}(1,\phi)$ , which then gives evidence for the conjectural description of its Swan conductor at $\infty$ in § 2.5 .
+
+We have 
+ 
+ (6.9)  $-\chi_{c}(\widetilde{X}^{\circ},\textup{Kl}^{\textup{St}}_{\widehat{G},{\mathbf{P}}_{m}}(\chi,\phi))=\begin{cases}d&\phi_{\ell}\textup{ nondegenerate;}\\
+d-1&\phi_{\ell}\textup{ degenerate.}\end{cases}$ 
+
+
+We shall work over $\bar{k}$ and ignore all Tate twists.
+
+By the same argument as in [11] , the Swan conductor of $\textup{Kl}^{\textup{St}}_{\widehat{G},{\mathbf{P}}_{m}}(\chi,\phi)$ at $\infty$ , hence the Euler characteristic of $\textup{Kl}^{\textup{St}}_{\widehat{G},{\mathbf{P}}_{m}}(\chi,\phi)$ does not depend on $\chi$ . Therefore we assume $\chi=1$ .
+
+Let $Q_{i}\subset\mathbb{P}(M)$ be the quadric defined by $q_{[-i,i]}=0$ . Let $U_{i}=\mathbb{P}(\oplus_{j=-i}^{i}M_{j})-\cup_{j=0}^{i}Q_{i}$ . In particular $U_{\ell}=\mathfrak{G}_{\lambda}$ . We also define $W_{i}\subset U_{i}$ to be the quadric defined by $\phi_{\ell}(\phi_{\ell-1}\cdots\phi_{i}v_{i})=0$ .
+
+Let $f_{i}:U_{\ell}\to\mathbb{A}^{1}$ be the function $[v]\mapsto\frac{(\phi_{i}v_{i},v_{-i-1})}{q_{[-i,i]}([v])}$ . This function only depends on the coordinates $v_{-i-1},\cdots,v_{0},\cdots,v_{i}$ . Let $f_{\leq i}=f_{0}+f_{1}+\cdots+f_{i}$ , and $f_{\leq-1}:=0$ .
+
+Consider the projection $\pi_{2}:\mathbb{G}_{m}^{\textup{rot}}\times\mathfrak{G}_{\lambda}\to\mathfrak{G}_{\lambda}=\mathbb{P}(M)-\cup Q_{i}$ . The stalk of $\pi_{2,!}f_{\phi}^{*}\textup{AS}_{\psi}$ over $[v]$ is $f_{\leq\ell-1}^{*}\textup{AS}_{\psi}\otimes\textup{H}^{*}({\mathbb{G}_{m}^{\textup{rot}},T_{f_{\ell}([v])}^{*}\textup{AS}_{\psi}})$ , where $T_{f_{\ell}([v])}$ is the multiplication by $f_{\ell([v])}$ map $\mathbb{G}_{m}\to\mathbb{A}^{1}$ . We have $\textup{H}^{*}({\mathbb{G}_{m}^{\textup{rot}},T_{f_{\ell}([v])}^{*}\textup{AS}_{\psi}})=\textup{H}_{c}^{*}({\mathbb{G}_{m}})$ if $f_{\ell}([v])=0$ and $\overline{\mathbb{Q}}_{\ell}[-1]$ if $f_{\ell}([v])\neq 0$ . Therefore 
+ 
+ (6.10)  $(-1)^{n-1}\chi_{c}(\widetilde{X}^{\circ},\textup{Kl}^{\textup{St}}_{\widehat{G},{\mathbf{P}}_{m}}(1,\phi))=\chi_{c}(\pi_{2,!}f_{\phi}^{*}\textup{AS}_{\psi})=-\chi_{c}(U_{\ell},f_{\leq\ell-1}^{*}\textup{AS}_{\psi})+\chi_{c}(W_{\ell},f_{\leq\ell-1}^{*}\textup{AS}_{\psi}).$ 
+ We then show that for $0\leq i\leq\ell-1$ , we have 
+ 
+ (6.11)  $\displaystyle\chi_{c}(U_{i+1},f_{\leq i}^{*}\textup{AS}_{\psi})=\chi_{c}(U_{i},f_{\leq i-1}^{*}\textup{AS}_{\psi});$ 
+ 
+ (6.12)  $\displaystyle\chi_{c}(W_{i+1},f_{\leq i}^{*}\textup{AS}_{\psi})=\chi_{c}(W_{i},f_{\leq i-1}^{*}\textup{AS}_{\psi}).$ 
+
+
+For ( 6.11 ), let $U^{\prime}_{i}=\mathbb{P}(M_{-i-1}\oplus M_{i})-\cup_{j=0}^{i}Q_{i}$ . Consider the projection $p:U_{i+1}\to U^{\prime}_{i}$ by forgetting the $M_{i+1}$ component. Then we have $\chi_{c}(U_{i+1},f_{\leq i}^{*}\textup{AS}_{\psi})=\chi_{c}(U^{\prime}_{i},f_{\leq i}^{*}\textup{AS}_{\psi}\otimes p_{!}\overline{\mathbb{Q}}_{\ell})$ . Fix $[v^{\prime}]=[v_{-i-1},\cdots,v_{i}]\in U_{i}$ and let $q_{i}:=q_{i}([v^{\prime}])$ (which is independent of $v_{-i-1}$ ). The fiber of $p$ over $[v^{\prime}]$ is $M_{i+1}$ with the affine hyperplane $(v_{i+1},v_{-i-1})+q_{i}=0$ removed. When $v_{-i-1}\neq 0$ , we have $\textup{H}_{c}^{*}({p^{-1}([v^{\prime}])})\cong\textup{H}_{c}^{*}({\mathbb{G}_{m}})[-2d+2]$ ; when $v_{-i-1}=0$ , we have $\textup{H}_{c}^{*}({p^{-1}([v^{\prime}])})\cong\overline{\mathbb{Q}}_{\ell}[-2d]$ . Since $U_{i}$ can be identified with the subscheme of $U^{\prime}_{i}$ where $v_{-i-1}=0$ , we have $\chi_{c}(U_{i+1},f_{\leq i}^{*}\textup{AS}_{\psi})=\chi_{c}(U^{\prime}_{i},f_{\leq i}^{*}\textup{AS}_{\psi}\otimes p_{!}\overline{\mathbb{Q}}_{\ell})=\chi_{c}(U_{i},f_{\leq i-1}^{*}\textup{AS}_{\psi})$ (the function $f_{\leq i}$ changes to $f_{\leq i-1}$ because $v_{-i-1}=0$ ).
+
+For ( 6.12 ), let $p:W_{i+1}\to W_{i}$ is the projection. We have $p_{!}f_{\leq i}^{*}\textup{AS}_{\psi}=f_{\leq i-1}^{*}\textup{AS}_{\psi}\otimes p_{!}f^{*}_{i}\textup{AS}_{\psi}$ , and we need to compare $p_{!}f^{*}_{i}\textup{AS}_{\psi}$ with the constant sheaf on $W_{i}$ . We decompose $p$ into two steps $W_{i+1}\xrightarrow{p_{1}}W^{\prime\prime}_{i}\xrightarrow{p_{2}}U_{i}$ , where $W^{\prime\prime}_{i}\subset\mathbb{P}(M_{-i}\oplus M_{i+1})-\cup_{j=0}^{i}Q_{i}$ is cut out the same the quadric $\phi_{\ell}(\phi_{\ell-1}\cdots\phi_{i+1}v_{i+1})=0$ . Fix $v^{\prime\prime}=[v_{-i},\cdots,v_{i+1}]\in W^{\prime\prime}_{i}$ and let $q_{i}:=q_{i}([v^{\prime\prime}])$ . The fiber $p_{1}^{-1}([v^{\prime\prime}])=\{v_{-i-1}\in M_{-i-1}|(v_{-i-1},v_{i+1})+q_{i}\neq 0\}$ . The function $f_{i}$ along the fiber $p_{1}^{-1}([v^{\prime\prime}])$ is a linear function in $v_{-i-1}$ given by $f_{i}(v_{-i-1})=\frac{(\phi_{i}v_{i},v_{-i-1})}{q_{i}}$ . Therefore the stalk of $p_{1,!}f_{i}^{*}\textup{AS}_{\psi}$ at $[v^{\prime\prime}]$ , which is $\textup{H}_{c}^{*}({p_{1}^{-1}([v^{\prime\prime}]),f_{i}^{*}\textup{AS}_{\psi}})$ , vanishes whenever $v_{i+1}$ is not parallel to $\phi_{i}v_{i}$ (or one of them is zero while the other one is not). When $\phi_{i}v_{i}\neq 0$ , the stalk of $p_{2,!}p_{1,!}f_{i}^{*}\textup{AS}_{\psi}$ can be calculated only along those nonzero $v_{i+1}$ parallel to $\phi_{i}v_{i}$ . Choose an isomorphism $M_{-i-1}\cong\mathbb{A}^{d}$ such that the first coordinate is given by the functional $(\phi_{i}v_{i},-)/q_{i}$ . Then the stalk of $p_{2,!}p_{1,!}f_{i}^{*}\textup{AS}_{\psi}$ is $\textup{H}_{c}^{*}({\mathbb{G}_{m}\times\mathbb{A}^{1}-\Delta(\mathbb{G}_{m}),\textup{pr}_{2}^{*}\textup{AS}_{\psi}})[-2d+2]\cong\overline{\mathbb{Q}}_{\ell}[-2d+2]$ (here $\Delta(\mathbb{G}_{m})\subset\mathbb{G}_{m}\times\mathbb{A}^{1}$ is the diagonal). For $\phi_{i}v_{i}=0$ , the stalk of $p_{2,!}p_{1,!}f_{i}^{*}\textup{AS}_{\psi}$ can be calculated only along $v_{i+1}=0$ , hence equal to $\textup{H}_{c}^{*}({M_{-i-1}})\cong\overline{\mathbb{Q}}_{\ell}[-2d]$ . Putting together, we conclude that $p_{!}f^{*}_{i}\textup{AS}_{\psi}$ and the constant sheaf $\overline{\mathbb{Q}}_{\ell}$ are the same in the Grothendieck group of $D_{c}^{b}(W_{i})$ . Therefore $\chi_{c}(W_{i+1},f_{\leq i}^{*}\textup{AS}_{\psi})=\chi_{c}(W_{i},f_{\leq i-1}^{*}\textup{AS}_{\psi}\otimes p_{!}f^{*}_{i}\textup{AS}_{\psi})=\chi_{c}(W_{i},f_{\leq i-1}^{*}\textup{AS}_{\psi})$ .
+
+Combining ( 6.11 ), ( 6.12 ) and ( 6.10 ), we see that 
+ 
+ $(-1)^{n-1}\chi_{c}(\widetilde{X}^{\circ},\textup{Kl}^{\textup{St}}_{\widehat{G},{\mathbf{P}}_{m}}(1,\phi))=-\chi_{c}(U_{0})+\chi_{c}(W_{0}).$ 
+ Now $U_{0}=\mathbb{P}(M_{0})-Q_{0}$ and $W_{0}=Q^{\prime}_{0}-Q_{0}$ , where $Q^{\prime}_{0}$ is the quadric in $\mathbb{P}(M_{0})$ defined by $\phi_{\ell}(\phi_{\ell-1}\cdots\phi_{0}(v_{0}))=0$ . Hence 
+ 
+ (6.13)  $(-1)^{n-1}\chi_{c}(\widetilde{X}^{\circ},\textup{Kl}^{\textup{St}}_{\widehat{G},{\mathbf{P}}_{m}}(1,\phi))=-\chi_{c}(\mathbb{P}(M_{0}))+\chi_{c}(Q_{0})+\chi_{c}(Q^{\prime}_{0})-\chi_{c}(Q_{0}\cap Q^{\prime}_{0}).$ 
+ Since $\phi$ is stable, all $\phi_{i}$ are surjective for $0\leq i\leq\ell-1$ , $Q^{\prime}_{0}$ is either minimally degenerate or nondegenerate, and $Q_{0}\cap Q^{\prime}_{0}$ is always smooth (and equal to the intersection of two smooth quadrics).
+
+In the following table we list the dimensions of the primitive cohomology of $Q_{0},Q^{\prime}_{0}$ (always in even degree) and $Q_{0}\cap Q^{\prime}_{0}$ (in the middle degree, which is $\dim M_{0}-3$ ) in each case according to whether $\dim M_{0}=d$ or $d+1$ , and the parity of $d$ . Using this table and ( 6.13 ) one easily deduces ( 6.9 ).
+
+
+ $\dim M_{0}$ Parity of $\dim M_{0}$ $Q_{0}$ $Q^{\prime}_{0}$ $Q_{0}\cap Q^{\prime}_{0}$ 
+ $d$ even 1 1 (nondeg) or 0 (degen) $d-2$ 
+ $d$ odd 0 0 (nondeg) or 1 (degen) $d$ 
+ $d+1$ even 1 0 $d-1$ 
+ $d+1$ odd 0 1 $d+1$ 
+ ∎
+
+7. Examples: Symplectic groups
+
+Let $(M,\omega)$ be a symplectic vector space of dimension $2n$ over $k$ and let $\mathbb{G}=\textup{Sp}(M,\omega)$ . Extend $\omega$ linearly to a symplectic form on $M\otimes K$ and let $G=\textup{Sp}(M\otimes K,\omega)$ . Regular elliptic numbers $m$ of $\mathbb{W}$ in this case are in bijection with divisors $d|n$ . We have $m=2n/d$ and set $\ell=n/d$ . Fix a decomposition $M=M_{1}\oplus M_{2}\oplus\cdots\oplus M_{\ell}\oplus M_{\ell+1}\oplus\cdots\oplus M_{m}$ such that $\dim_{k}M_{i}=d$ and $\omega(M_{i},M_{j})=0$ unless $i+j=m+1$ . Then $M_{j}$ can be identified with $M^{*}_{m+1-j}$ using the symplectic form $\omega$ .
+
+Let ${\mathbf{P}}_{m}\subset G(K)$ be the stabilizer of the chain of lattices $\Lambda_{m}\supset\Lambda_{m-1}\supset\cdots\supset\Lambda_{1}$ , where $\Lambda_{i}=\sum_{1\leq j\leq i}M_{j}\otimes\mathcal{O}_{K}+\sum_{i<j\leq m}M_{j}\otimes\varpi\mathcal{O}_{K}$ and $\varpi\in\mathcal{O}_{K}$ is a uniformizer. This is an admissible parahoric subgroup of $G(K)$ with $m({\mathbf{P}}_{m})=m$ . Its Levi quotient is $L_{m}\cong\prod_{i=1}^{\ell}\textup{GL}(M_{i})$ where the $i$ -th factor acts on $M_{i}$ by the standard representation and on $M_{m+1-i}=M^{*}_{i}$ by the dual of the standard representation. We have $\widetilde{L}_{m}=L_{m}$ and given by the determinants of the GL -factors. The vector space $V_{m}:=V_{{\mathbf{P}}_{m}}$ is We may arrange $M_{1},\cdots,M_{m}$ into a cyclic quiver There is an involution $\tau$ on the space of such quivers sending $\{\psi_{i}:M_{i+1}\to M_{i}\}$ to $\{-\psi^{*}_{m-i}:M_{i+1}=M_{m-i}^{*}\to M_{m+1-i}^{*}=M_{i}\}$ . Then $V_{m}$ is the set of $\tau$ -invariant cyclic quivers of the above shape.
+
+When $m=2$ , the cyclic quiver degenerates to a pair of self-adjoint maps $\textstyle{M_{1}\ignorespaces\ignorespaces\ignorespaces\ignorespaces}$ $\scriptstyle{\psi_{2}}$ $\textstyle{M_{2}\ignorespaces\ignorespaces\ignorespaces\ignorespaces}$ $\scriptstyle{\psi_{1}}$
+
+The dual space $V^{*}_{m}$ is the space of $\tau$ -invariant cyclic quivers similar to ( 7.4 ), except that all the arrows are reversed. Let $\phi_{i}:M_{i}\to M_{i+1}$ be the arrows. We think of $\phi_{m}$ and $\phi_{\ell}$ as quadratic forms on $M_{m}$ and $M_{\ell}$ respectively. Then $\phi=(\phi_{1},\cdots,\phi_{m})\in V^{*}_{m}$ is stable if and only if
+
+All the maps $\phi_{i}$ are isomorphisms;
+
+We have two quadratic forms on $M_{m}$ : $\phi_{m}$ and the transport of $\phi_{\ell}$ to $M_{m}$ using the isomorphism $\phi_{\ell-1}\cdots\phi_{1}\phi_{m}:M_{m}\stackrel{{\scriptstyle\sim}}{{\to}}M_{\ell}$ . They are in general position in the same sense as explained in § 6.2 .
+
+Let $\lambda\in\mathbb{X}_{*}(T)$ be the dominant short coroot. The corresponding representation of $\widehat{G}=\textup{SO}_{2n+1}$ is the standard representation. We shall describe $\mathfrak{G}_{\leq\lambda}$ and the map $(f^{\prime},f^{\prime\prime}):\mathfrak{G}_{\leq\lambda}\to\widetilde{L}^{\textup{ab}}_{m}\times V_{m}$ .
+
+Let $\mathcal{E}=M\otimes\mathcal{O}_{X}$ be the trivial vector bundle of rank $2n$ over $X$ with a symplectic form (into $\mathcal{O}_{X}$ ) given by $\omega$ . Define an increasing filtration of the fiber of $\mathcal{E}$ at $\infty$ by $F_{\leq i}\mathcal{E}_{\infty}=\oplus_{j=1}^{i}M_{j}$ . Define a decreasing filtration of the fiber of $\mathcal{E}$ at $0$ by $F^{\geq i}\mathcal{E}_{0}=\oplus_{j=i}^{m}M_{j}$ . The group ind-scheme $\mathfrak{G}$ is the group of symplectic automorphisms of $\mathcal{E}|_{X-\{1\}}$ preserving the filtrations $F_{*},F^{*}$ and acts by identity on the associated graded of $F_{*}$ . The subscheme $\mathfrak{G}_{\leq\lambda}$ consists of those $g\in\mathfrak{G}\subset G(F)$ whose entries have at most simple poles at $t=1$ , and $\textup{Res}_{t=1}g$ has rank at most one. Therefore any element in $\mathfrak{G}$ can be written uniquely as $g=\frac{t}{t-1}A-\frac{1}{t-1}B$ for $A,B\in\textup{GL}(M)$ .
+
+The scheme $\mathfrak{G}_{\leq\lambda}$ classifies pairs $(A,B)\in\textup{Sp}(M,\omega)\times\textup{Sp}(M,\omega)$ satisfying
+
+$A$ lies in the unipotent radical $U(F_{*})$ of the parabolic $P(F_{*})\subset\textup{Sp}(M,\omega)$ preserving the filtration $F_{*}$ of $M$ ; $B$ lies in the opposite parabolic $P(F^{*})\subset\textup{Sp}(M,\omega)$ preserving the filtration $F^{*}$ of $M$ .
+
+$A-B$ has rank at most one. Moreover, $C=I-A^{-1}B\in\textup{End}(M)$ satisfies $\omega(Cx,y)+\omega(x,Cy)=0$ for all $x,y\in M$ .
+
+The map $(f^{\prime},f^{\prime\prime}):\mathfrak{G}_{\leq\lambda}\to\widetilde{L}^{\textup{ab}}_{m}\times V_{m}$ is given by
+
+in the block presentation of $A,B$ under the decomposition ( 7.1 ).
+
+Let $\textup{Sym}^{2}(M)_{\leq 1}\subset\textup{Sym}^{2}(M)$ be the subscheme of symmetric pure 2-tensors. Then $\textup{Sym}^{2}(M)_{\leq 1}$ can be identified with the scheme of endomorphisms $D$ of $M$ satisfying $\omega(Dx,y)+\omega(x,Dy)=0$ and of rank at most one). Then the morphism $j:\mathfrak{G}_{\leq\lambda}\to\textup{Sym}^{2}(M)_{\leq 1}$ sending $(A,B)\in\mathfrak{G}_{\leq\lambda}$ to $C=I-A^{-1}B$ is an open embedding.
+
+(1) The fact that $g=\frac{t}{t-1}A-\frac{1}{t-1}B$ preserves the symplectic form $\omega$ is equivalent to $A,B\in\textup{Sp}(M,\omega)$ and $\omega(Ax,By)+\omega(Bx,Ay)=2\omega(x,y)$ for all $x,y\in M$ . The last condition is further equivalent to $\omega(Cx,y)+\omega(x,Cy)=0$ for all $x,y\in M$ . Note that $g(0)=B,g(\infty)=A$ and $\textup{Res}_{t=1}g=A-B$ , hence the rest of the conditions follows.
+
+(2) is proved in the same way as Lemma 6.4 (2).
+
+(3) Since $D$ has rank at most one, we may write it as $D(x)=\omega(x,u)v$ for some $u,v\in M$ . The condition $\omega(Dx,y)+\omega(x,Dy)=0$ for all $x,y\in M$ implies that $u$ and $v$ are parallel vectors. Hence $u\cdot v\in\textup{Sym}^{2}(M)_{\leq 1}$ . The fact that $j$ is an open embedding follows from the fact that $U(F_{*})\times P(F^{*})\hookrightarrow\textup{Sp}(M,\omega)$ is an open embedding. ∎
+
+For $u\cdot v\in\textup{Sym}^{2}(M)_{\leq 1}$ , write $u=(u_{1},\cdots,u_{m})$ and $v=(v_{1},\cdots,v_{m})$ with $u_{i},v_{i}\in M_{i}$ . Then define $\gamma_{i}(u\cdot v):=\omega(v_{m+1-i},u_{i}).$ This is independent of the choice of $u,v$ expressing $u\cdot v$ , and therefore defines a regular function on $\textup{Sym}^{2}(M)_{\leq 1}$ . Note that $\gamma_{i}+\gamma_{m+1-i}=0$ since $u$ and $v$ are parallel.
+
+Under the open embedding $j:\mathfrak{G}_{\leq\lambda}\hookrightarrow\textup{Sym}^{2}(M)_{\leq 1}$ , $\mathfrak{G}_{\leq\lambda}$ is the complement of the union of the divisors $\gamma_{1}+\cdots+\gamma_{i}=1$ for $i=1,\cdots,\ell$ . The morphism $(f^{\prime},f^{\prime\prime}):\textup{Sym}^{2}(M)_{\leq 1}\supset\mathfrak{G}_{\leq\lambda}\to\widetilde{L}^{\textup{ab}}_{m}\times V_{m}$ is given by
+
+Here we abbreviate $\gamma_{i}(u\cdot v)$ by $\gamma_{i}$ .
+
+The local system $\textup{Kl}^{\textup{St}}_{\widehat{G},{\mathbf{P}}_{m}}(\chi)$ attached to the standard representation of $\widehat{G}=\textup{SO}_{2n+1}$ , the admissible parahoric subgroup ${\mathbf{P}}_{m}$ and the multiplicative character $\chi=(\chi_{1},\cdots,\chi_{\ell})$ is given by (the restriction to $V^{*,\textup{st}}_{m}$ of) the Fourier transform of the complex $f^{\prime\prime}_{!}f^{\prime*}\mathcal{L}_{\chi}[2n-1](\frac{2n-1}{2})$ .
+
+(1) Write $C=I-A^{-1}B$ as $\omega(-,u)v$ for parellel vectors $u,v\in M$ . We inductively construct $A=A_{2}\cdots A_{m}\in U(F_{*})$ such that $B=A(I-C)\in P(F^{*})$ , and that $A_{i}$ is the identity on $M_{j},j\neq i$ and $A_{i}(x_{i})\in x_{i}+F_{\leq i-1}$ for any $x_{i}\in M_{i}$ . We may inductively determine
+
+Here we write $v_{\leq i}$ for the projection of $v$ to the direct factor $\oplus_{j\leq i}M_{j}$ of $M$ . Therefore the entries of $A$ corresponding to $\textup{Hom}(M_{i+1},M_{i})$ ( $1\leq i\leq\ell$ ) takes the form $A_{i,i+1}=\frac{\omega(-,u_{m-i})}{1-\gamma_{1}-\cdots-\gamma_{m-i}}v_{i}\in\textup{Hom}(M_{i+1},M_{i}).$ Using $\gamma_{i}=-\gamma_{m+1-i}$ to simplify the denominators, we get the formula given in ( 7.6 ) except for the first entry. The corner block of $B=A(I-C)$ corresponding to $\textup{Hom}(M_{1},M_{m})$ is the same as the corner block of $I-C$ , which takes the form $-\omega(-,u_{m})v_{m}$ , whose negative gives the first entry of the formula ( 7.6 ).
+
+The matrix $B=A(I-C)$ has block diagonal entries $B_{i,i}=\textup{id}-\frac{\omega(-,u_{m+1-i})}{1-\gamma_{1}-\cdots-\gamma_{m-i}}v_{i}\in\textup{GL}(M_{i}).$ Taking determinants we get Using that $\gamma_{i}=-\gamma_{m+1-i}$ we get the formula ( 7.7 ).
+
+(2) We only need to apply Proposition 3.9 to the standard representation $V_{\lambda}$ of $\textup{SO}_{2n+1}$ ; note that $\textup{IC}_{\lambda}=\overline{\mathbb{Q}}_{\ell}[2n-1](\frac{2n-1}{2})$ in this case. ∎
+
+Similar to Corollary 6.6 , we have
+
+Let $\phi=(\phi_{1},\cdots,\phi_{m})\in V^{*,\textup{st}}_{m}(k)$ be a stable functional. Recall that $\mathfrak{G}_{\leq\lambda}$ in this case is $\textup{Sym}^{2}(M)_{\leq 1}-\cup_{i=1}^{\ell}\Gamma_{i}$ where the divisor $\Gamma_{i}$ is defined by the equation $\gamma_{1}+\cdots+\gamma_{i}=1$ for functions $\gamma_{i}$ in ( 7.5 ). Let $f_{\phi}:X^{\circ}\times\mathfrak{G}_{\leq\lambda}\to\mathbb{A}^{1}$ be given by $f_{\phi}(x,u\cdot v)=\omega(\phi_{m}v_{m},u_{m})x+\sum_{i=1}^{\ell}\frac{\omega(\phi_{i}v_{i},u_{m-i})}{1-\gamma_{1}(u\cdot v)-\cdots-\gamma_{i}(u\cdot v)}.$ Let $\pi:X^{\circ}\times\mathfrak{G}_{\leq\lambda}\to X^{\circ}$ be the projection. Then we have an isomorphism over $X^{\circ}$
+
+7.1. Linear algebra
+
+Let $(M,\omega)$ be a symplectic vector space of dimension $2n$ over $k$ and let $\mathbb{G}=\textup{Sp}(M,\omega)$ . Extend $\omega$ linearly to a symplectic form on $M\otimes K$ and let $G=\textup{Sp}(M\otimes K,\omega)$ . Regular elliptic numbers $m$ of $\mathbb{W}$ in this case are in bijection with divisors $d|n$ . We have $m=2n/d$ and set $\ell=n/d$ . Fix a decomposition 
+ 
+ (7.1)  $M=M_{1}\oplus M_{2}\oplus\cdots\oplus M_{\ell}\oplus M_{\ell+1}\oplus\cdots\oplus M_{m}$ 
+ such that $\dim_{k}M_{i}=d$ and $\omega(M_{i},M_{j})=0$ unless $i+j=m+1$ . Then $M_{j}$ can be identified with $M^{*}_{m+1-j}$ using the symplectic form $\omega$ .
+
+Let ${\mathbf{P}}_{m}\subset G(K)$ be the stabilizer of the chain of lattices $\Lambda_{m}\supset\Lambda_{m-1}\supset\cdots\supset\Lambda_{1}$ , where 
+ 
+ $\Lambda_{i}=\sum_{1\leq j\leq i}M_{j}\otimes\mathcal{O}_{K}+\sum_{i<j\leq m}M_{j}\otimes\varpi\mathcal{O}_{K}$ 
+ and $\varpi\in\mathcal{O}_{K}$ is a uniformizer. This is an admissible parahoric subgroup of $G(K)$ with $m({\mathbf{P}}_{m})=m$ . Its Levi quotient is $L_{m}\cong\prod_{i=1}^{\ell}\textup{GL}(M_{i})$ where the $i$ -th factor acts on $M_{i}$ by the standard representation and on $M_{m+1-i}=M^{*}_{i}$ by the dual of the standard representation. We have $\widetilde{L}_{m}=L_{m}$ and 
+ 
+ (7.2)  $\widetilde{L}^{\textup{ab}}_{m}\cong\prod_{i=1}^{\ell}\mathbb{G}_{m}$ 
+ given by the determinants of the GL -factors. The vector space $V_{m}:=V_{{\mathbf{P}}_{m}}$ is 
+ 
+ (7.3)  $V_{m}=\textup{Sym}^{2}(M^{*}_{1})\oplus\textup{Hom}(M_{2},M_{1})\oplus\cdots\oplus\textup{Hom}(M_{\ell},M_{\ell-1})\oplus\textup{Sym}^{2}(M_{\ell}).$ 
+ We may arrange $M_{1},\cdots,M_{m}$ into a cyclic quiver 
+ 
+ (7.4)  $\textstyle{M_{1}\ignorespaces\ignorespaces\ignorespaces\ignorespaces}$ $\scriptstyle{\psi_{m}}$ $\textstyle{M_{2}\ignorespaces\ignorespaces\ignorespaces\ignorespaces}$ $\scriptstyle{\psi_{1}}$ $\textstyle{\cdots\ignorespaces\ignorespaces\ignorespaces\ignorespaces}$ $\textstyle{M_{\ell}\ignorespaces\ignorespaces\ignorespaces\ignorespaces}$ $\scriptstyle{\psi_{\ell-1}}$ $\textstyle{M_{m}\ignorespaces\ignorespaces\ignorespaces\ignorespaces}$ $\scriptstyle{\psi_{m-1}}$ $\textstyle{M_{m-1}\ignorespaces\ignorespaces\ignorespaces\ignorespaces}$ $\textstyle{\cdots\ignorespaces\ignorespaces\ignorespaces\ignorespaces}$ $\scriptstyle{\psi_{\ell+1}}$ $\textstyle{M_{\ell+1}\ignorespaces\ignorespaces\ignorespaces\ignorespaces}$ $\scriptstyle{\psi_{\ell}}$ 
+ There is an involution $\tau$ on the space of such quivers sending $\{\psi_{i}:M_{i+1}\to M_{i}\}$ to $\{-\psi^{*}_{m-i}:M_{i+1}=M_{m-i}^{*}\to M_{m+1-i}^{*}=M_{i}\}$ . Then $V_{m}$ is the set of $\tau$ -invariant cyclic quivers of the above shape.
+
+When $m=2$ , the cyclic quiver degenerates to a pair of self-adjoint maps 
+ 
+ $\textstyle{M_{1}\ignorespaces\ignorespaces\ignorespaces\ignorespaces}$ $\scriptstyle{\psi_{2}}$ $\textstyle{M_{2}\ignorespaces\ignorespaces\ignorespaces\ignorespaces}$ $\scriptstyle{\psi_{1}}$ 
+
+
+7.2. Stable locus
+
+The dual space $V^{*}_{m}$ is the space of $\tau$ -invariant cyclic quivers similar to ( 7.4 ), except that all the arrows are reversed. Let $\phi_{i}:M_{i}\to M_{i+1}$ be the arrows. We think of $\phi_{m}$ and $\phi_{\ell}$ as quadratic forms on $M_{m}$ and $M_{\ell}$ respectively. Then $\phi=(\phi_{1},\cdots,\phi_{m})\in V^{*}_{m}$ is stable if and only if • All the maps $\phi_{i}$ are isomorphisms; • We have two quadratic forms on $M_{m}$ : $\phi_{m}$ and the transport of $\phi_{\ell}$ to $M_{m}$ using the isomorphism $\phi_{\ell-1}\cdots\phi_{1}\phi_{m}:M_{m}\stackrel{{\scriptstyle\sim}}{{\to}}M_{\ell}$ . They are in general position in the same sense as explained in § 6.2 .
+
+7.3. The scheme $\mathfrak{G}_{\leq\lambda}$
+
+Let $\lambda\in\mathbb{X}_{*}(T)$ be the dominant short coroot. The corresponding representation of $\widehat{G}=\textup{SO}_{2n+1}$ is the standard representation. We shall describe $\mathfrak{G}_{\leq\lambda}$ and the map $(f^{\prime},f^{\prime\prime}):\mathfrak{G}_{\leq\lambda}\to\widetilde{L}^{\textup{ab}}_{m}\times V_{m}$ .
+
+Let $\mathcal{E}=M\otimes\mathcal{O}_{X}$ be the trivial vector bundle of rank $2n$ over $X$ with a symplectic form (into $\mathcal{O}_{X}$ ) given by $\omega$ . Define an increasing filtration of the fiber of $\mathcal{E}$ at $\infty$ by $F_{\leq i}\mathcal{E}_{\infty}=\oplus_{j=1}^{i}M_{j}$ . Define a decreasing filtration of the fiber of $\mathcal{E}$ at $0$ by $F^{\geq i}\mathcal{E}_{0}=\oplus_{j=i}^{m}M_{j}$ . The group ind-scheme $\mathfrak{G}$ is the group of symplectic automorphisms of $\mathcal{E}|_{X-\{1\}}$ preserving the filtrations $F_{*},F^{*}$ and acts by identity on the associated graded of $F_{*}$ . The subscheme $\mathfrak{G}_{\leq\lambda}$ consists of those $g\in\mathfrak{G}\subset G(F)$ whose entries have at most simple poles at $t=1$ , and $\textup{Res}_{t=1}g$ has rank at most one. Therefore any element in $\mathfrak{G}$ can be written uniquely as 
+ 
+ $g=\frac{t}{t-1}A-\frac{1}{t-1}B$ 
+ for $A,B\in\textup{GL}(M)$ .
+
+(1) The scheme $\mathfrak{G}_{\leq\lambda}$ classifies pairs $(A,B)\in\textup{Sp}(M,\omega)\times\textup{Sp}(M,\omega)$ satisfying • $A$ lies in the unipotent radical $U(F_{*})$ of the parabolic $P(F_{*})\subset\textup{Sp}(M,\omega)$ preserving the filtration $F_{*}$ of $M$ ; $B$ lies in the opposite parabolic $P(F^{*})\subset\textup{Sp}(M,\omega)$ preserving the filtration $F^{*}$ of $M$ . • $A-B$ has rank at most one. Moreover, $C=I-A^{-1}B\in\textup{End}(M)$ satisfies $\omega(Cx,y)+\omega(x,Cy)=0$ for all $x,y\in M$ . (2) The map $(f^{\prime},f^{\prime\prime}):\mathfrak{G}_{\leq\lambda}\to\widetilde{L}^{\textup{ab}}_{m}\times V_{m}$ is given by 
+ 
+ $\displaystyle f^{\prime}(A,B)$ $\displaystyle=$ $\displaystyle(\det(B_{1,1}),\cdots,\det(B_{\ell,\ell}));$ 
+ 
+ $\displaystyle f^{\prime\prime}(A,B)$ $\displaystyle=$ $\displaystyle(-B_{m,1},A_{1,2},\cdots,A_{\ell,\ell+1})$ 
+ in the block presentation of $A,B$ under the decomposition ( 7.1 ). (3) Let $\textup{Sym}^{2}(M)_{\leq 1}\subset\textup{Sym}^{2}(M)$ be the subscheme of symmetric pure 2-tensors. Then $\textup{Sym}^{2}(M)_{\leq 1}$ can be identified with the scheme of endomorphisms $D$ of $M$ satisfying $\omega(Dx,y)+\omega(x,Dy)=0$ and of rank at most one). Then the morphism $j:\mathfrak{G}_{\leq\lambda}\to\textup{Sym}^{2}(M)_{\leq 1}$ sending $(A,B)\in\mathfrak{G}_{\leq\lambda}$ to $C=I-A^{-1}B$ is an open embedding.
+
+(1) The fact that $g=\frac{t}{t-1}A-\frac{1}{t-1}B$ preserves the symplectic form $\omega$ is equivalent to $A,B\in\textup{Sp}(M,\omega)$ and $\omega(Ax,By)+\omega(Bx,Ay)=2\omega(x,y)$ for all $x,y\in M$ . The last condition is further equivalent to $\omega(Cx,y)+\omega(x,Cy)=0$ for all $x,y\in M$ . Note that $g(0)=B,g(\infty)=A$ and $\textup{Res}_{t=1}g=A-B$ , hence the rest of the conditions follows.
+
+(2) is proved in the same way as Lemma 6.4 (2).
+
+(3) Since $D$ has rank at most one, we may write it as $D(x)=\omega(x,u)v$ for some $u,v\in M$ . The condition $\omega(Dx,y)+\omega(x,Dy)=0$ for all $x,y\in M$ implies that $u$ and $v$ are parallel vectors. Hence $u\cdot v\in\textup{Sym}^{2}(M)_{\leq 1}$ . The fact that $j$ is an open embedding follows from the fact that $U(F_{*})\times P(F^{*})\hookrightarrow\textup{Sp}(M,\omega)$ is an open embedding. ∎
+
+For $u\cdot v\in\textup{Sym}^{2}(M)_{\leq 1}$ , write $u=(u_{1},\cdots,u_{m})$ and $v=(v_{1},\cdots,v_{m})$ with $u_{i},v_{i}\in M_{i}$ . Then define 
+ 
+ (7.5)  $\gamma_{i}(u\cdot v):=\omega(v_{m+1-i},u_{i}).$ 
+ This is independent of the choice of $u,v$ expressing $u\cdot v$ , and therefore defines a regular function on $\textup{Sym}^{2}(M)_{\leq 1}$ . Note that $\gamma_{i}+\gamma_{m+1-i}=0$ since $u$ and $v$ are parallel.
+
+(1) Under the open embedding $j:\mathfrak{G}_{\leq\lambda}\hookrightarrow\textup{Sym}^{2}(M)_{\leq 1}$ , $\mathfrak{G}_{\leq\lambda}$ is the complement of the union of the divisors $\gamma_{1}+\cdots+\gamma_{i}=1$ for $i=1,\cdots,\ell$ . The morphism $(f^{\prime},f^{\prime\prime}):\textup{Sym}^{2}(M)_{\leq 1}\supset\mathfrak{G}_{\leq\lambda}\to\widetilde{L}^{\textup{ab}}_{m}\times V_{m}$ is given by 
+ 
+ (7.6)  $\displaystyle f^{\prime}(u\cdot v)$ $\displaystyle=$ $\displaystyle(\frac{1}{1-\gamma_{1}},\frac{1-\gamma_{1}}{1-\gamma_{1}-\gamma_{2}},\cdots,\frac{1-\gamma_{1}-\cdots-\gamma_{\ell-1}}{1-\gamma_{1}-\cdots-\gamma_{\ell}})$ 
+ 
+ (7.7)  $\displaystyle f^{\prime\prime}(u\cdot v)$ $\displaystyle=$ $\displaystyle(\omega(-,u_{m})v_{m},\frac{\omega(-,u_{m-1})}{1-\gamma_{1}}v_{1},\frac{\omega(-,u_{m-2})}{1-\gamma_{1}-\gamma_{2}}v_{2},\cdots,\frac{\omega(-,u_{\ell})}{1-\gamma_{1}-\cdots-\gamma_{\ell}}v_{\ell}).$ 
+ Here we abbreviate $\gamma_{i}(u\cdot v)$ by $\gamma_{i}$ . (2) The local system $\textup{Kl}^{\textup{St}}_{\widehat{G},{\mathbf{P}}_{m}}(\chi)$ attached to the standard representation of $\widehat{G}=\textup{SO}_{2n+1}$ , the admissible parahoric subgroup ${\mathbf{P}}_{m}$ and the multiplicative character $\chi=(\chi_{1},\cdots,\chi_{\ell})$ is given by (the restriction to $V^{*,\textup{st}}_{m}$ of) the Fourier transform of the complex $f^{\prime\prime}_{!}f^{\prime*}\mathcal{L}_{\chi}[2n-1](\frac{2n-1}{2})$ .
+
+(1) Write $C=I-A^{-1}B$ as $\omega(-,u)v$ for parellel vectors $u,v\in M$ . We inductively construct $A=A_{2}\cdots A_{m}\in U(F_{*})$ such that $B=A(I-C)\in P(F^{*})$ , and that $A_{i}$ is the identity on $M_{j},j\neq i$ and $A_{i}(x_{i})\in x_{i}+F_{\leq i-1}$ for any $x_{i}\in M_{i}$ . We may inductively determine 
+ 
+ $\displaystyle A_{m}x_{m}$ $\displaystyle=$ $\displaystyle x_{m}+\frac{\omega(x_{m},u_{1})}{1-\gamma_{1}}v_{\leq m-1};$ 
+ 
+ $\displaystyle A_{m-1}x_{m-1}$ $\displaystyle=$ $\displaystyle x_{m-1}+\frac{\omega(x_{m-1},u_{2})}{1-\gamma_{1}-\gamma_{2}}v_{\leq m-2};$ 
+ $\displaystyle\cdots$ 
+ 
+ $\displaystyle A_{2}x_{2}$ $\displaystyle=$ $\displaystyle x_{2}+\frac{\omega(x_{2},u_{m-1})}{1-\gamma_{1}-\cdots-\gamma_{m-1}}v_{1}.$ 
+ Here we write $v_{\leq i}$ for the projection of $v$ to the direct factor $\oplus_{j\leq i}M_{j}$ of $M$ . Therefore the entries of $A$ corresponding to $\textup{Hom}(M_{i+1},M_{i})$ ( $1\leq i\leq\ell$ ) takes the form 
+ 
+ $A_{i,i+1}=\frac{\omega(-,u_{m-i})}{1-\gamma_{1}-\cdots-\gamma_{m-i}}v_{i}\in\textup{Hom}(M_{i+1},M_{i}).$ 
+ Using $\gamma_{i}=-\gamma_{m+1-i}$ to simplify the denominators, we get the formula given in ( 7.6 ) except for the first entry. The corner block of $B=A(I-C)$ corresponding to $\textup{Hom}(M_{1},M_{m})$ is the same as the corner block of $I-C$ , which takes the form $-\omega(-,u_{m})v_{m}$ , whose negative gives the first entry of the formula ( 7.6 ).
+
+The matrix $B=A(I-C)$ has block diagonal entries 
+ 
+ $B_{i,i}=\textup{id}-\frac{\omega(-,u_{m+1-i})}{1-\gamma_{1}-\cdots-\gamma_{m-i}}v_{i}\in\textup{GL}(M_{i}).$ 
+ Taking determinants we get 
+ 
+ $\det(B_{i,i})=\frac{1-\gamma_{1}-\cdots-\gamma_{m+1-i}}{1-\gamma_{1}-\cdots-\gamma_{m-i}}.$ 
+ Using that $\gamma_{i}=-\gamma_{m+1-i}$ we get the formula ( 7.7 ).
+
+(2) We only need to apply Proposition 3.9 to the standard representation $V_{\lambda}$ of $\textup{SO}_{2n+1}$ ; note that $\textup{IC}_{\lambda}=\overline{\mathbb{Q}}_{\ell}[2n-1](\frac{2n-1}{2})$ in this case. ∎
+
+Similar to Corollary 6.6 , we have
+
+Let $\phi=(\phi_{1},\cdots,\phi_{m})\in V^{*,\textup{st}}_{m}(k)$ be a stable functional. Recall that $\mathfrak{G}_{\leq\lambda}$ in this case is $\textup{Sym}^{2}(M)_{\leq 1}-\cup_{i=1}^{\ell}\Gamma_{i}$ where the divisor $\Gamma_{i}$ is defined by the equation $\gamma_{1}+\cdots+\gamma_{i}=1$ for functions $\gamma_{i}$ in ( 7.5 ). Let $f_{\phi}:X^{\circ}\times\mathfrak{G}_{\leq\lambda}\to\mathbb{A}^{1}$ be given by 
+ 
+ $f_{\phi}(x,u\cdot v)=\omega(\phi_{m}v_{m},u_{m})x+\sum_{i=1}^{\ell}\frac{\omega(\phi_{i}v_{i},u_{m-i})}{1-\gamma_{1}(u\cdot v)-\cdots-\gamma_{i}(u\cdot v)}.$ 
+ Let $\pi:X^{\circ}\times\mathfrak{G}_{\leq\lambda}\to X^{\circ}$ be the projection. Then we have an isomorphism over $X^{\circ}$ 
+ 
+ $\textup{Kl}^{\textup{St}}_{\widehat{G},{\mathbf{P}}_{m}}(1,\phi)\cong\pi_{!}f_{\phi}^{*}\textup{AS}_{\psi}[2n-1]\left(\frac{2n-1}{2}\right).$ 
+
+
+8. Examples: Split and quasi-split orthogonal groups
+
+Assume $\textup{char}(k)\neq 2$ . Let $(M,q)$ be a quadratic space of dimension $2n$ or $2n+1$ over $k$ . Let $(\cdot,\cdot):M\times M\to k$ be the associated symmetric bilinear form $(x,y)=q(x+y)-q(x)-q(y)$ . The regular elliptic numbers of $m$ of the root systems of type $B_{n},D_{n}$ and ${\vphantom{D}}^{2}{D}_{n}$ are in bijection with
+
+Type $B_{n}$ ( $\dim M=2n+1$ ): divisors $d|n$ (corresponding $m=2n/d$ );
+
+Type $D_{n}$ ( $\dim M=2n$ ): even divisors $d|n$ (corresponding $m=2n/d$ ) or odd divisors $d|n-1$ (corresponding $m=2(n-1)/d$ );
+
+Type ${\vphantom{D}}^{2}{D}_{n}$ ( $\dim M=2n$ ): odd divisors $d|n$ (corresponding $m=2n/d$ ) or even divisors $d|n-1$ (corresponding $m=2(n-1)/d$ ).
+
+We write $m=2\ell$ . Fix a decomposition $M=M_{0}\oplus M_{1}\oplus\cdots M_{\ell-1}\oplus M_{\ell}\oplus M_{\ell+1}\oplus\cdots\oplus M_{m-1}$ where $\dim M_{i}=d$ for $i=1,\cdots,\ell-1,\ell+1,\cdots,m-1$ , $\dim M_{0}$ and $\dim M_{\ell}$ are either $d$ or $d+1$ , and we make sure that when $\dim M=2n+1$ , $\dim M_{0}$ is even. We see that
+
+Type $B_{n}$ : $\dim M_{0}$ is even and $\dim M_{\ell}$ is odd;
+
+Type $D_{n}$ : $\dim M_{0}=\dim M_{\ell}$ is even;
+
+Type ${\vphantom{D}}^{2}{D}_{n}$ : $\dim M_{0}=\dim M_{\ell}$ is odd.
+
+The decomposition ( 8.1 ) should satisfy $(M_{i},M_{j})=0$ unless $i+j\equiv 0\mod m$ . The restriction of $q$ to $M_{0}$ and $M_{\ell}$ are denoted by $q_{0}$ and $q_{\ell}$ . The pairing $(\cdot,\cdot)$ induce an isomorphism $M_{i}^{*}\cong M_{m-i}$ .
+
+Let $M_{+}=\oplus_{i>0}M_{i}$ , then $M=M_{0}\oplus M_{+}$ and correspondingly $q=q_{0}\oplus q_{+}$ . We use $q_{0,K}$ and $q_{+,K}$ to denote their $K$ -linear extension to $M_{0}\otimes K$ and $M_{+}\otimes K$ respectively. Define a new quadratic form $q^{\prime}_{K}$ on $M\otimes K$ by $q^{\prime}_{K}=\varpi q_{0,K}\oplus q_{+,K}.$ Let $G=\textup{SO}(M\otimes K,q^{\prime}_{K})$ . We have
+
+When $\dim M_{0}$ is even, choosing a maximal isotropic decomposition $M_{0}=M_{0}^{+}\oplus M_{0}^{-}$ gives a self-dual lattice $M_{0}^{+}\otimes\mathcal{O}_{K}\oplus M_{0}^{-}\otimes\varpi^{-1}\mathcal{O}_{K}\oplus M_{+}\otimes\mathcal{O}_{K}\subset M\otimes K$ . Therefore $G$ is a split orthogonal group.
+
+When $\dim M_{0}$ is odd, $G$ is a quasi-split orthogonal group of type ${\vphantom{D}}^{2}{D}_{n}$ .
+
+Let $\widetilde{{\mathbf{P}}}_{m}\subset G(K)$ be the stabilizer of the lattice chain $\Lambda_{m-1}\supset\Lambda_{m-1}\supset\cdots\supset\Lambda_{0}$ under $G(K)$ , where $\Lambda_{i}=\sum_{0\leq j\leq i}M_{j}\otimes\mathcal{O}_{K}+\sum_{i<j\leq m-1}M_{j}\otimes\varpi\mathcal{O}_{K}.$ Its reductive quotient $\widetilde{L}_{m}$ is the subgroup of $\textup{O}(M_{0},q_{0})\times\prod_{i=1}^{\ell-1}\textup{GL}(M_{i})\times\textup{O}(M_{\ell},q_{\ell})$ of index two, where the factor $\textup{GL}(M_{i})$ acts on $M_{i}$ by the standard representation and on $M_{m-i}=M_{i}^{*}$ by the dual of the standard representation. We have by taking determinants (for elements in $\widetilde{L}_{m}$ , the determinant of the last factor $\textup{O}(M_{\ell},q_{\ell})$ is the same as the first one $\textup{O}(M_{0},q_{0})$ ). The subgroup ${\mathbf{P}}_{m}\subset\widetilde{{\mathbf{P}}}_{m}$ , defined as the kernel of $\widetilde{{\mathbf{P}}}_{m}\to\widetilde{L}_{m}\to\widetilde{L}^{\textup{ab}}_{m}\twoheadrightarrow\{\pm 1\}$ , is an admissible parahoric subgroup of $G(K)$ with $m({\mathbf{P}}_{m})=m$ . The vector space $V_{m}:=V_{{\mathbf{P}}_{m}}$ is Again, it is more natural to view $V_{m}$ as $\tau$ -invariant cyclic quivers where $\tau$ sends $\{\psi_{i}:M_{i+1}\to M_{i}\}$ to $\{-\psi_{m-1-i}^{*}:M_{i+1}=M_{m-1-i}^{*}\to M_{m-i}^{*}=M_{i}\}$ (indices are understood modulo $m$ ).
+
+When $m=2$ , the quiver degenerates to a pair of maps $\textstyle{M_{0}\ignorespaces\ignorespaces\ignorespaces\ignorespaces}$ $\scriptstyle{\psi_{1}}$ $\textstyle{M_{1}\ignorespaces\ignorespaces\ignorespaces\ignorespaces}$ $\scriptstyle{\psi_{0}}$ such that $\psi_{1}=-\psi_{0}^{*}$ .
+
+The dual space $V^{*}_{m}$ is the space of $\tau$ -invariant cyclic quivers similar to ( 8.5 ), except that all the arrows are reversed. Let $\phi_{i}:M_{i}\to M_{i+1}$ be the arrows. Then $\phi=(\phi_{0},\cdots,\phi_{m-1})\in V^{*}_{m}$ is stable if and only if
+
+All the maps $\phi_{i}$ have the maximal possible rank;
+
+We have two quadratic forms on $M_{0}$ : $q_{0}$ and the pullback of $q_{\ell}$ to $M_{0}$ via the map $\phi_{\ell-1}\cdots\phi_{0}:M_{0}\to M_{\ell}$ . They are in general position in the sense explained in § 6.2 .
+
+We make a remark about the moduli stack $\textup{Bun}_{G}(\widetilde{{\mathbf{P}}}_{0},{\mathbf{P}}^{+}_{\infty})$ . It classifies the following data
+
+A vector bundle $\mathcal{E}$ over $X=\mathbb{P}^{1}$ of rank equal to $\dim M$ with a perfect symmetric bilinear pairing on $\mathcal{E}|_{X^{\circ}}$ (into $\mathcal{O}_{X^{\circ}}$ ), such that the corresponding rational map $\iota:\mathcal{E}\dashrightarrow\mathcal{E}^{\vee}$ has simple pole at $0$ whose residue has rank $\dim M_{0}$ and simple zero at $\infty$ .
+
+A filtration $\mathcal{E}(-\{\infty\})=F_{-1}\mathcal{E}\subset F_{0}\mathcal{E}\subset F_{1}\mathcal{E}\subset\cdots F_{m-1}\mathcal{E}=\mathcal{E}$ together with isomorphisms $\textup{Gr}^{F}_{i}\mathcal{E}\cong M_{i}$ . Extend this filtration by letting $F_{i+m}\mathcal{E}:=F_{i}\mathcal{E}(\{\infty\})$ . Then we require that $F_{i}\mathcal{E}$ and $F_{2m-1-i}\mathcal{E}$ are in perfect pairing around $\infty$ under the quadratic form on $\mathcal{E}$ , such that the induced pairing between $M_{i}$ and $M_{m-i}$ is the same as the one fixed in § 8.1 .
+
+A filtration $\mathcal{E}(-\{0\})=F^{m}\mathcal{E}\subset F^{m-1}\mathcal{E}\subset\cdots\subset F^{1}\mathcal{E}\subset F^{0}\mathcal{E}=\mathcal{E}$ such that $\textup{Gr}_{F}^{i}\mathcal{E}$ has dimension $\dim M_{i}$ . Extend this filtration by letting $F^{i+m}\mathcal{E}:=F^{i}\mathcal{E}(-\{0\})$ . Then we require that $F^{i}\mathcal{E}$ and $F^{1-i}\mathcal{E}$ are in perfect pairing into around $0$ under the quadratic form on $\mathcal{E}$ .
+
+A trivialization of $\delta:\mathcal{O}_{X}\cong\det\mathcal{E}$ such that $\delta^{\vee}\circ\det(\iota)\circ\delta=t^{-\dim M_{0}}\in k[t,t^{-1}]=\textup{Aut}_{X^{\circ}}(\mathcal{O}_{X^{\circ}})$ (which is unique up to a sign).
+
+Let $\lambda\in\mathbb{X}_{*}(T)$ be the dominant minuscule coweight such that $V_{\lambda}$ is the standard representation of the dual group $\widehat{G}=\textup{Sp}_{2n}$ or $\textup{SO}_{2n}$ . We shall describe the scheme $\mathfrak{G}_{\lambda}$ and the map $(f^{\prime},f^{\prime\prime}):\mathfrak{G}_{\lambda}\to\widetilde{L}^{\textup{ab}}_{m}\times V_{m}$ .
+
+Let $\mathcal{E}_{+}=M_{+}\oplus\mathcal{O}_{X}$ and $\mathcal{E}_{0}=M_{0}\otimes\mathcal{O}_{X}$ . Let $q_{0,\mathcal{E}}$ and $q_{+,\mathcal{E}}$ denote the $\mathcal{O}_{X}$ -linear extension of $q_{0}$ and $q_{+}$ to $\mathcal{E}_{0}$ and $\mathcal{E}_{+}$ . Define a new rational quadratic form on the trivial vector bundle $\mathcal{E}=M\otimes\mathcal{O}_{X}=\mathcal{E}_{0}\oplus\mathcal{E}_{+}$ by $q_{\mathcal{E}}=t^{-1}q_{0,\mathcal{E}}\oplus q_{+,\mathcal{E}}.$ Then $(\mathcal{E},q_{\mathcal{E}})$ satisfies the condition in § 8.3 (1). The decomposition ( 8.1 ) gives the filtrations required in § 8.3 (2)(3). Fixing a trivialization of the line $\det M_{0}\otimes\det M_{\ell}$ (which is the same as $\det M$ ), then we get the data required in § 8.3 (4). We thus get a point $(\mathcal{E},q_{\mathcal{E}},F_{*},F^{*},\cdots)\in\textup{Bun}_{G}(\widetilde{{\mathbf{P}}}_{0},{\mathbf{P}}_{\infty}^{+})(k)$ . This is the unique point of this moduli stack with trivial automorphism group.
+
+The group ind-scheme $\mathfrak{G}$ is the group of orthogonal automorphisms of $\mathcal{E}|_{X-\{1\}}$ preserving all the auxiliary data specified in § 8.3 . The subscheme $\mathfrak{G}_{\lambda}$ consists of $g\in\mathfrak{G}\subset G(F)$ whose entries have at most simple poles at $t=1$ , and $\textup{Res}_{t=1}g$ has rank one. Therefore any element in $\mathfrak{G}_{\lambda}$ can be uniquely written as $g=\frac{t}{t-1}A-\frac{1}{t-1}B$ for $A,B\in\textup{GL}(M)$ .
+
+The scheme $\mathfrak{G}_{\lambda}$ classifies pairs $(A,B)\in\textup{GL}(M)\times\textup{GL}(M)$ of block form $A=\left(\begin{array}[]{cc}I&A_{0+}\\
+0&A_{++}\end{array}\right);B=\left(\begin{array}[]{cc}B_{00}&0\\
+B_{+0}&B_{++}\end{array}\right)$ under the decomposition $M=M_{0}\oplus M_{+}$ and satisfying
+
+$A_{++},B_{++}\in\textup{O}(M_{+},q_{+}),B_{00}\in\textup{O}(M_{0},q_{0})$ and
+
+for all $x\in M_{0}$ and $y\in M_{+}$ .
+
+$A_{++}$ lies in the unipotent radical $U(F_{*})$ of the parabolic $P(F_{*})\subset\textup{SO}(M_{+},q_{+})$ preserving the filtration $F_{*}$ of $M_{+}$ ; $B_{++}$ lies in the opposite parabolic $P(F^{*})\subset\textup{O}(M_{+},q_{+})$ preserving the filtration $F^{*}$ of $M_{+}$ ;
+
+$A-B$ has rank one.
+
+The morphism $(f^{\prime},f^{\prime\prime}):\mathfrak{G}_{\lambda}\to\widetilde{L}^{\textup{ab}}_{m}\times V_{m}$ is given by
+
+in the block presentation of $A,B$ under the decomposition ( 8.1 ).
+
+Consider the morphism $j:\mathfrak{G}_{\lambda}\to\mathbb{P}(M)$ sending $(A,B)\in\mathfrak{G}_{\lambda}$ to the line in $M$ that is the image of the rank one endomorphism $C=I-A^{-1}B$ . Then the image of $j$ is contained in the quadric $Q(q)$ defined by $q=0$ , and the resulting map $j:\mathfrak{G}_{\lambda}\to Q(q)$ is an open embedding.
+
+(1) The fact that $g$ preserves the quadratic form $q_{\mathcal{E}}$ in ( 8.6 ) is equivalent to the conditions in the first bulleted point. The rest of (1) and (2) are similar to their unitary or symplectic counterparts.
+
+(3) Write $C=I-A^{-1}B$ in the block form $C=\left(\begin{array}[]{cc}I-B_{00}+A_{0+}A^{-1}_{++}B_{+0}&A_{0+}A_{++}^{-1}B_{++}\\
+-A_{++}^{-1}B_{+0}&I-A^{-1}_{++}B_{++}\end{array}\right).$ Since $I-A^{-1}_{++}B_{++}$ has rank one (it is easy to show that it is nonzero) and $A^{-1}_{++}B_{++}\in\textup{O}(M_{+},q_{+})$ , we must have $A^{-1}_{++}B_{++}=R_{[v_{+}]}$ (the orthogonal reflection in the direction of $v_{+}$ ) for some nonzero vector $v_{+}\in M_{+}$ . In other words, $I-A^{-1}_{++}B_{++}=\frac{(-,v_{+})}{q_{+}(v_{+})}v_{+}$ . Since $C$ has rank one, we must have $A_{0+}A_{++}^{-1}B_{++}=\frac{(-,v_{+})}{q_{+}(v_{+})}v_{0}$ for some vector $v_{0}\in M_{0}$ . Hence $A_{0+}(x)=-\frac{(x,v_{+})}{q_{+}(v_{+})}v_{0}$ . The relation ( 8.9 ) implies $q_{0}(v_{0})+q_{+}(v_{+})=0$ , i.e. $v=(v_{0},v_{+})$ satisfies $q(v)=0$ , or $[v]\in Q(q)$ . Note that $[v]$ is exactly the image of $C$ , i.e., $j(A,B)=[v]$ .
+
+Using ( 8.10 ) and ( 8.11 ) we get $B_{00}=R_{[v_{0}]}$ and $A^{-1}_{00}B_{+0}(x)=\frac{(x,v_{0})}{q_{0}(v_{0})}v_{+}$ . Therefore $[v]$ determines $B_{00},B_{+0},A_{0+}$ and $A^{-1}_{++}B_{++}$ . Since $U(F_{*})\times P(F^{*})\hookrightarrow\textup{O}(M_{+},q_{+})$ is an open embedding, $[v]$ also uniquely determines $A_{++}\in U(F^{*})$ and $B_{++}\in P(F^{*})$ , and $j$ is also an open embedding. ∎
+
+As in Proposition 6.5 , for $1\leq i\leq\ell$ , we define $q_{[i,m-i]}$ to be the restriction of $q$ to $M_{i}\oplus\cdots\oplus M_{m-i}$ and extended by zero to $M$ (so that $q_{+}=q_{[1,m-1]}$ ).
+
+Recall that the group $G=\textup{SO}(M\otimes K,q^{\prime}_{K})$ is of type $B_{n},D_{n}$ or ${\vphantom{D}}^{2}{D}_{n}$ .
+
+Under the open embedding $j:\mathfrak{G}_{\lambda}\hookrightarrow Q(q)$ , $\mathfrak{G}_{\lambda}$ is the complement of the union of the divisors defined by $q_{\ell}=0,q_{[\ell-1,\ell+1]}=0,\cdots,q_{[1,m-1]}=0$ . The morphism $(f^{\prime},f^{\prime\prime}):Q(q)\supset\mathfrak{G}_{\lambda}\to\widetilde{L}^{\textup{ab}}_{m}\times V_{m}$ is given by
+
+Here we write $v=(v_{0},\cdots,v_{m-1})$ under the decomposition ( 8.1 ).
+
+The local system $\textup{Kl}^{\textup{St}}_{\widehat{G},{\mathbf{P}}_{m}}(\chi)$ attached to the standard representation of $\widehat{G}=\textup{Sp}_{2n}$ or $\textup{SO}_{2n}$ , the admissible parahoric subgroup ${\mathbf{P}}_{m}$ and the multiplicative character $\chi=(\chi_{0},\cdots,\chi_{\ell})$ (where $\chi_{0}$ has order two) is given by (the restriction to $V^{*,\textup{st}}_{m}$ of) the Fourier transform of the complex $f^{\prime\prime}_{!}f^{\prime*}\mathcal{L}_{\chi}[\dim M-2](\frac{\dim M-2}{2})$ .
+
+(1) In the proof of Lemma 8.5 we have shown that if $j(A,B)=[v]$ and $v=(v_{0},v_{+})$ , then $A^{-1}_{++}B_{++}=R_{[v_{+}]},B_{00}=R_{[v_{0}]}$ and $A_{0+}(x)=-\frac{(x,v_{+})}{q_{+}(v_{+})}v_{0}$ . In particular, $\det(B_{00})=-1$ , which gives the first entry of $f^{\prime}(A,B)$ given in ( 8.12 ).
+
+It remains to express $R_{[v_{+}]}$ as $A^{-1}_{++}B_{++}$ for $A\in U(F_{*})$ and $B\in P(F^{*})$ . The procedure is the same as in the proof of Proposition 6.5 . This gives all of ( 8.12 ) and ( 8.13 ) but the first entry of ( 8.13 ). The first entry of $f^{\prime\prime}(A,B)$ is $A_{0,1}$ , which is the first block of $A_{0+}=-\frac{(-,v_{+})}{q_{+}(v_{+})}v_{0}$ .
+
+(2) We only need to apply Proposition 3.9 to the standard representation $V_{\lambda}$ of $\widehat{G}$ ; note that $\textup{IC}_{\lambda}=\overline{\mathbb{Q}}_{\ell}[\dim M-2](\frac{\dim M-2}{2})$ in this case. ∎
+
+Similar to Corollary 6.6 , we have
+
+Let $\phi=(\phi_{0},\phi_{1},\cdots,\phi_{m-1})\in V^{*,\textup{st}}_{m}(k)$ be a stable functional. Recall that $\mathfrak{G}_{\lambda}$ in this case is $Q(q)-\cup_{i=1}^{\ell}Q(q_{[i,m-i]})$ . Let $f_{\phi}:\widetilde{X}^{\circ}\times\mathfrak{G}_{\lambda}\to\mathbb{A}^{1}$ be given by $f_{\phi}(x,[v])=-\frac{(\phi_{0}v_{0},v_{m-1})}{q_{[1,m-1]}(v)}x-\sum_{i=1}^{\ell-1}\frac{(\phi_{i}v_{i},v_{m-i-1})}{q_{[i+1,m-i-1]}(v)}.$ Let $\pi:\widetilde{X}^{\circ}\times\mathfrak{G}_{\lambda}\to\widetilde{X}^{\circ}$ be the projection. Then we have an isomorphism over $\widetilde{X}^{\circ}$
+
+8.1. Linear algebra
+
+Assume $\textup{char}(k)\neq 2$ . Let $(M,q)$ be a quadratic space of dimension $2n$ or $2n+1$ over $k$ . Let $(\cdot,\cdot):M\times M\to k$ be the associated symmetric bilinear form $(x,y)=q(x+y)-q(x)-q(y)$ . The regular elliptic numbers of $m$ of the root systems of type $B_{n},D_{n}$ and ${\vphantom{D}}^{2}{D}_{n}$ are in bijection with • Type $B_{n}$ ( $\dim M=2n+1$ ): divisors $d|n$ (corresponding $m=2n/d$ ); • Type $D_{n}$ ( $\dim M=2n$ ): even divisors $d|n$ (corresponding $m=2n/d$ ) or odd divisors $d|n-1$ (corresponding $m=2(n-1)/d$ ); • Type ${\vphantom{D}}^{2}{D}_{n}$ ( $\dim M=2n$ ): odd divisors $d|n$ (corresponding $m=2n/d$ ) or even divisors $d|n-1$ (corresponding $m=2(n-1)/d$ ). We write $m=2\ell$ . Fix a decomposition 
+ 
+ (8.1)  $M=M_{0}\oplus M_{1}\oplus\cdots M_{\ell-1}\oplus M_{\ell}\oplus M_{\ell+1}\oplus\cdots\oplus M_{m-1}$ 
+ where $\dim M_{i}=d$ for $i=1,\cdots,\ell-1,\ell+1,\cdots,m-1$ , $\dim M_{0}$ and $\dim M_{\ell}$ are either $d$ or $d+1$ , and we make sure that when $\dim M=2n+1$ , $\dim M_{0}$ is even. We see that • Type $B_{n}$ : $\dim M_{0}$ is even and $\dim M_{\ell}$ is odd; • Type $D_{n}$ : $\dim M_{0}=\dim M_{\ell}$ is even; • Type ${\vphantom{D}}^{2}{D}_{n}$ : $\dim M_{0}=\dim M_{\ell}$ is odd. The decomposition ( 8.1 ) should satisfy $(M_{i},M_{j})=0$ unless $i+j\equiv 0\mod m$ . The restriction of $q$ to $M_{0}$ and $M_{\ell}$ are denoted by $q_{0}$ and $q_{\ell}$ . The pairing $(\cdot,\cdot)$ induce an isomorphism $M_{i}^{*}\cong M_{m-i}$ .
+
+Let $M_{+}=\oplus_{i>0}M_{i}$ , then $M=M_{0}\oplus M_{+}$ and correspondingly $q=q_{0}\oplus q_{+}$ . We use $q_{0,K}$ and $q_{+,K}$ to denote their $K$ -linear extension to $M_{0}\otimes K$ and $M_{+}\otimes K$ respectively. Define a new quadratic form $q^{\prime}_{K}$ on $M\otimes K$ by 
+ 
+ (8.2)  $q^{\prime}_{K}=\varpi q_{0,K}\oplus q_{+,K}.$ 
+ Let $G=\textup{SO}(M\otimes K,q^{\prime}_{K})$ . We have • When $\dim M_{0}$ is even, choosing a maximal isotropic decomposition $M_{0}=M_{0}^{+}\oplus M_{0}^{-}$ gives a self-dual lattice $M_{0}^{+}\otimes\mathcal{O}_{K}\oplus M_{0}^{-}\otimes\varpi^{-1}\mathcal{O}_{K}\oplus M_{+}\otimes\mathcal{O}_{K}\subset M\otimes K$ . Therefore $G$ is a split orthogonal group. • When $\dim M_{0}$ is odd, $G$ is a quasi-split orthogonal group of type ${\vphantom{D}}^{2}{D}_{n}$ .
+
+Let $\widetilde{{\mathbf{P}}}_{m}\subset G(K)$ be the stabilizer of the lattice chain $\Lambda_{m-1}\supset\Lambda_{m-1}\supset\cdots\supset\Lambda_{0}$ under $G(K)$ , where 
+ 
+ $\Lambda_{i}=\sum_{0\leq j\leq i}M_{j}\otimes\mathcal{O}_{K}+\sum_{i<j\leq m-1}M_{j}\otimes\varpi\mathcal{O}_{K}.$ 
+ Its reductive quotient $\widetilde{L}_{m}$ is the subgroup of $\textup{O}(M_{0},q_{0})\times\prod_{i=1}^{\ell-1}\textup{GL}(M_{i})\times\textup{O}(M_{\ell},q_{\ell})$ of index two, where the factor $\textup{GL}(M_{i})$ acts on $M_{i}$ by the standard representation and on $M_{m-i}=M_{i}^{*}$ by the dual of the standard representation. We have 
+ 
+ (8.3)  $\widetilde{L}^{\textup{ab}}_{m}\cong\{\pm 1\}\times\prod_{i=1}^{\ell-1}\mathbb{G}_{m}$ 
+ by taking determinants (for elements in $\widetilde{L}_{m}$ , the determinant of the last factor $\textup{O}(M_{\ell},q_{\ell})$ is the same as the first one $\textup{O}(M_{0},q_{0})$ ). The subgroup ${\mathbf{P}}_{m}\subset\widetilde{{\mathbf{P}}}_{m}$ , defined as the kernel of $\widetilde{{\mathbf{P}}}_{m}\to\widetilde{L}_{m}\to\widetilde{L}^{\textup{ab}}_{m}\twoheadrightarrow\{\pm 1\}$ , is an admissible parahoric subgroup of $G(K)$ with $m({\mathbf{P}}_{m})=m$ . The vector space $V_{m}:=V_{{\mathbf{P}}_{m}}$ is 
+ 
+ (8.4)  $V_{m}=\textup{Hom}(M_{1},M_{0})\oplus\textup{Hom}(M_{2},M_{1})\oplus\cdots\oplus\textup{Hom}(M_{\ell},M_{\ell-1}).$ 
+ Again, it is more natural to view $V_{m}$ as $\tau$ -invariant cyclic quivers 
+ 
+ (8.5)  $\textstyle{M_{1}\ignorespaces\ignorespaces\ignorespaces\ignorespaces}$ $\scriptstyle{\psi_{0}}$ $\textstyle{M_{2}\ignorespaces\ignorespaces\ignorespaces\ignorespaces}$ $\scriptstyle{\psi_{1}}$ $\textstyle{\cdots\ignorespaces\ignorespaces\ignorespaces\ignorespaces}$ $\textstyle{M_{\ell-1}\ignorespaces\ignorespaces\ignorespaces\ignorespaces}$ $\scriptstyle{\psi_{\ell-2}}$ $\textstyle{M_{0}\ignorespaces\ignorespaces\ignorespaces\ignorespaces}$ $\scriptstyle{\psi_{m-1}}$ $\textstyle{M_{\ell}\ignorespaces\ignorespaces\ignorespaces\ignorespaces}$ $\scriptstyle{\psi_{\ell-1}}$ $\textstyle{M_{m-1}\ignorespaces\ignorespaces\ignorespaces\ignorespaces}$ $\scriptstyle{\psi_{m-2}}$ $\textstyle{M_{m-2}\ignorespaces\ignorespaces\ignorespaces\ignorespaces}$ $\textstyle{\cdots\ignorespaces\ignorespaces\ignorespaces\ignorespaces}$ $\scriptstyle{\psi_{\ell+1}}$ $\textstyle{M_{\ell+1}\ignorespaces\ignorespaces\ignorespaces\ignorespaces}$ $\scriptstyle{\psi_{\ell}}$ 
+ where $\tau$ sends $\{\psi_{i}:M_{i+1}\to M_{i}\}$ to $\{-\psi_{m-1-i}^{*}:M_{i+1}=M_{m-1-i}^{*}\to M_{m-i}^{*}=M_{i}\}$ (indices are understood modulo $m$ ).
+
+When $m=2$ , the quiver degenerates to a pair of maps 
+ 
+ $\textstyle{M_{0}\ignorespaces\ignorespaces\ignorespaces\ignorespaces}$ $\scriptstyle{\psi_{1}}$ $\textstyle{M_{1}\ignorespaces\ignorespaces\ignorespaces\ignorespaces}$ $\scriptstyle{\psi_{0}}$ 
+ such that $\psi_{1}=-\psi_{0}^{*}$ .
+
+8.2. Stable locus
+
+The dual space $V^{*}_{m}$ is the space of $\tau$ -invariant cyclic quivers similar to ( 8.5 ), except that all the arrows are reversed. Let $\phi_{i}:M_{i}\to M_{i+1}$ be the arrows. Then $\phi=(\phi_{0},\cdots,\phi_{m-1})\in V^{*}_{m}$ is stable if and only if • All the maps $\phi_{i}$ have the maximal possible rank; • We have two quadratic forms on $M_{0}$ : $q_{0}$ and the pullback of $q_{\ell}$ to $M_{0}$ via the map $\phi_{\ell-1}\cdots\phi_{0}:M_{0}\to M_{\ell}$ . They are in general position in the sense explained in § 6.2 .
+
+8.3. The moduli stack
+
+We make a remark about the moduli stack $\textup{Bun}_{G}(\widetilde{{\mathbf{P}}}_{0},{\mathbf{P}}^{+}_{\infty})$ . It classifies the following data (1) A vector bundle $\mathcal{E}$ over $X=\mathbb{P}^{1}$ of rank equal to $\dim M$ with a perfect symmetric bilinear pairing on $\mathcal{E}|_{X^{\circ}}$ (into $\mathcal{O}_{X^{\circ}}$ ), such that the corresponding rational map $\iota:\mathcal{E}\dashrightarrow\mathcal{E}^{\vee}$ has simple pole at $0$ whose residue has rank $\dim M_{0}$ and simple zero at $\infty$ . (2) A filtration $\mathcal{E}(-\{\infty\})=F_{-1}\mathcal{E}\subset F_{0}\mathcal{E}\subset F_{1}\mathcal{E}\subset\cdots F_{m-1}\mathcal{E}=\mathcal{E}$ together with isomorphisms $\textup{Gr}^{F}_{i}\mathcal{E}\cong M_{i}$ . Extend this filtration by letting $F_{i+m}\mathcal{E}:=F_{i}\mathcal{E}(\{\infty\})$ . Then we require that $F_{i}\mathcal{E}$ and $F_{2m-1-i}\mathcal{E}$ are in perfect pairing around $\infty$ under the quadratic form on $\mathcal{E}$ , such that the induced pairing between $M_{i}$ and $M_{m-i}$ is the same as the one fixed in § 8.1 . (3) A filtration $\mathcal{E}(-\{0\})=F^{m}\mathcal{E}\subset F^{m-1}\mathcal{E}\subset\cdots\subset F^{1}\mathcal{E}\subset F^{0}\mathcal{E}=\mathcal{E}$ such that $\textup{Gr}_{F}^{i}\mathcal{E}$ has dimension $\dim M_{i}$ . Extend this filtration by letting $F^{i+m}\mathcal{E}:=F^{i}\mathcal{E}(-\{0\})$ . Then we require that $F^{i}\mathcal{E}$ and $F^{1-i}\mathcal{E}$ are in perfect pairing into around $0$ under the quadratic form on $\mathcal{E}$ . (4) A trivialization of $\delta:\mathcal{O}_{X}\cong\det\mathcal{E}$ such that $\delta^{\vee}\circ\det(\iota)\circ\delta=t^{-\dim M_{0}}\in k[t,t^{-1}]=\textup{Aut}_{X^{\circ}}(\mathcal{O}_{X^{\circ}})$ (which is unique up to a sign).
+
+8.4. The scheme $\mathfrak{G}_{\lambda}$
+
+Let $\lambda\in\mathbb{X}_{*}(T)$ be the dominant minuscule coweight such that $V_{\lambda}$ is the standard representation of the dual group $\widehat{G}=\textup{Sp}_{2n}$ or $\textup{SO}_{2n}$ . We shall describe the scheme $\mathfrak{G}_{\lambda}$ and the map $(f^{\prime},f^{\prime\prime}):\mathfrak{G}_{\lambda}\to\widetilde{L}^{\textup{ab}}_{m}\times V_{m}$ .
+
+Let $\mathcal{E}_{+}=M_{+}\oplus\mathcal{O}_{X}$ and $\mathcal{E}_{0}=M_{0}\otimes\mathcal{O}_{X}$ . Let $q_{0,\mathcal{E}}$ and $q_{+,\mathcal{E}}$ denote the $\mathcal{O}_{X}$ -linear extension of $q_{0}$ and $q_{+}$ to $\mathcal{E}_{0}$ and $\mathcal{E}_{+}$ . Define a new rational quadratic form on the trivial vector bundle $\mathcal{E}=M\otimes\mathcal{O}_{X}=\mathcal{E}_{0}\oplus\mathcal{E}_{+}$ by 
+ 
+ (8.6)  $q_{\mathcal{E}}=t^{-1}q_{0,\mathcal{E}}\oplus q_{+,\mathcal{E}}.$ 
+ Then $(\mathcal{E},q_{\mathcal{E}})$ satisfies the condition in § 8.3 (1). The decomposition ( 8.1 ) gives the filtrations required in § 8.3 (2)(3). Fixing a trivialization of the line $\det M_{0}\otimes\det M_{\ell}$ (which is the same as $\det M$ ), then we get the data required in § 8.3 (4). We thus get a point $(\mathcal{E},q_{\mathcal{E}},F_{*},F^{*},\cdots)\in\textup{Bun}_{G}(\widetilde{{\mathbf{P}}}_{0},{\mathbf{P}}_{\infty}^{+})(k)$ . This is the unique point of this moduli stack with trivial automorphism group.
+
+The group ind-scheme $\mathfrak{G}$ is the group of orthogonal automorphisms of $\mathcal{E}|_{X-\{1\}}$ preserving all the auxiliary data specified in § 8.3 . The subscheme $\mathfrak{G}_{\lambda}$ consists of $g\in\mathfrak{G}\subset G(F)$ whose entries have at most simple poles at $t=1$ , and $\textup{Res}_{t=1}g$ has rank one. Therefore any element in $\mathfrak{G}_{\lambda}$ can be uniquely written as 
+ 
+ $g=\frac{t}{t-1}A-\frac{1}{t-1}B$ 
+ for $A,B\in\textup{GL}(M)$ .
+
+(1) The scheme $\mathfrak{G}_{\lambda}$ classifies pairs $(A,B)\in\textup{GL}(M)\times\textup{GL}(M)$ of block form 
+ 
+ (8.7)  $A=\left(\begin{array}[]{cc}I&A_{0+}\\
+0&A_{++}\end{array}\right);B=\left(\begin{array}[]{cc}B_{00}&0\\
+B_{+0}&B_{++}\end{array}\right)$ 
+ under the decomposition $M=M_{0}\oplus M_{+}$ and satisfying • $A_{++},B_{++}\in\textup{O}(M_{+},q_{+}),B_{00}\in\textup{O}(M_{0},q_{0})$ and 
+ 
+ (8.8)  $\displaystyle(x,B_{00}x)=2q_{0}(x)+q_{+}(B_{+0}x);$ 
+ 
+ (8.9)  $\displaystyle(A_{++}y,B_{++}y)=q_{0}(A_{0+}y)+2q_{+}(y);$ 
+ 
+ (8.10)  $\displaystyle(x,A_{0+}y)=(B_{+0}x,A_{++}y);$ 
+ 
+ (8.11)  $\displaystyle(B_{00}x,A_{0+}y)=(B_{+0}x,B_{++}y)$ 
+ for all $x\in M_{0}$ and $y\in M_{+}$ . • $A_{++}$ lies in the unipotent radical $U(F_{*})$ of the parabolic $P(F_{*})\subset\textup{SO}(M_{+},q_{+})$ preserving the filtration $F_{*}$ of $M_{+}$ ; $B_{++}$ lies in the opposite parabolic $P(F^{*})\subset\textup{O}(M_{+},q_{+})$ preserving the filtration $F^{*}$ of $M_{+}$ ; • $A-B$ has rank one. (2) The morphism $(f^{\prime},f^{\prime\prime}):\mathfrak{G}_{\lambda}\to\widetilde{L}^{\textup{ab}}_{m}\times V_{m}$ is given by 
+ 
+ $\displaystyle f^{\prime}(A,B)$ $\displaystyle=$ $\displaystyle(\det(B_{0,0}),\cdots,\det(B_{\ell,\ell}));$ 
+ 
+ $\displaystyle f^{\prime\prime}(A,B)$ $\displaystyle=$ $\displaystyle(A_{0,1},\cdots,A_{\ell-1,\ell})$ 
+ in the block presentation of $A,B$ under the decomposition ( 8.1 ). (3) Consider the morphism $j:\mathfrak{G}_{\lambda}\to\mathbb{P}(M)$ sending $(A,B)\in\mathfrak{G}_{\lambda}$ to the line in $M$ that is the image of the rank one endomorphism $C=I-A^{-1}B$ . Then the image of $j$ is contained in the quadric $Q(q)$ defined by $q=0$ , and the resulting map $j:\mathfrak{G}_{\lambda}\to Q(q)$ is an open embedding.
+
+(1) The fact that $g$ preserves the quadratic form $q_{\mathcal{E}}$ in ( 8.6 ) is equivalent to the conditions in the first bulleted point. The rest of (1) and (2) are similar to their unitary or symplectic counterparts.
+
+(3) Write $C=I-A^{-1}B$ in the block form 
+ 
+ $C=\left(\begin{array}[]{cc}I-B_{00}+A_{0+}A^{-1}_{++}B_{+0}&A_{0+}A_{++}^{-1}B_{++}\\
+-A_{++}^{-1}B_{+0}&I-A^{-1}_{++}B_{++}\end{array}\right).$ 
+ Since $I-A^{-1}_{++}B_{++}$ has rank one (it is easy to show that it is nonzero) and $A^{-1}_{++}B_{++}\in\textup{O}(M_{+},q_{+})$ , we must have $A^{-1}_{++}B_{++}=R_{[v_{+}]}$ (the orthogonal reflection in the direction of $v_{+}$ ) for some nonzero vector $v_{+}\in M_{+}$ . In other words, $I-A^{-1}_{++}B_{++}=\frac{(-,v_{+})}{q_{+}(v_{+})}v_{+}$ . Since $C$ has rank one, we must have $A_{0+}A_{++}^{-1}B_{++}=\frac{(-,v_{+})}{q_{+}(v_{+})}v_{0}$ for some vector $v_{0}\in M_{0}$ . Hence $A_{0+}(x)=-\frac{(x,v_{+})}{q_{+}(v_{+})}v_{0}$ . The relation ( 8.9 ) implies $q_{0}(v_{0})+q_{+}(v_{+})=0$ , i.e. $v=(v_{0},v_{+})$ satisfies $q(v)=0$ , or $[v]\in Q(q)$ . Note that $[v]$ is exactly the image of $C$ , i.e., $j(A,B)=[v]$ .
+
+Using ( 8.10 ) and ( 8.11 ) we get $B_{00}=R_{[v_{0}]}$ and $A^{-1}_{00}B_{+0}(x)=\frac{(x,v_{0})}{q_{0}(v_{0})}v_{+}$ . Therefore $[v]$ determines $B_{00},B_{+0},A_{0+}$ and $A^{-1}_{++}B_{++}$ . Since $U(F_{*})\times P(F^{*})\hookrightarrow\textup{O}(M_{+},q_{+})$ is an open embedding, $[v]$ also uniquely determines $A_{++}\in U(F^{*})$ and $B_{++}\in P(F^{*})$ , and $j$ is also an open embedding. ∎
+
+As in Proposition 6.5 , for $1\leq i\leq\ell$ , we define $q_{[i,m-i]}$ to be the restriction of $q$ to $M_{i}\oplus\cdots\oplus M_{m-i}$ and extended by zero to $M$ (so that $q_{+}=q_{[1,m-1]}$ ).
+
+Recall that the group $G=\textup{SO}(M\otimes K,q^{\prime}_{K})$ is of type $B_{n},D_{n}$ or ${\vphantom{D}}^{2}{D}_{n}$ . (1) Under the open embedding $j:\mathfrak{G}_{\lambda}\hookrightarrow Q(q)$ , $\mathfrak{G}_{\lambda}$ is the complement of the union of the divisors defined by $q_{\ell}=0,q_{[\ell-1,\ell+1]}=0,\cdots,q_{[1,m-1]}=0$ . The morphism $(f^{\prime},f^{\prime\prime}):Q(q)\supset\mathfrak{G}_{\lambda}\to\widetilde{L}^{\textup{ab}}_{m}\times V_{m}$ is given by 
+ 
+ (8.12)  $\displaystyle f^{\prime}([v])$ $\displaystyle=$ $\displaystyle(-1,\frac{q_{[1,m-1]}(v)}{q_{[2,m-2]}(v)},\frac{q_{[2,m-2]}(v)}{q_{[3,m-3]}(v)},\cdots,\frac{q_{[\ell-1,\ell+1]}(v)}{q_{\ell}(v)})$ 
+ 
+ (8.13)  $\displaystyle f^{\prime\prime}([v])$ $\displaystyle=$ $\displaystyle(-\frac{(-,v_{m-1})}{q_{[1,m-1]}(v)}v_{0},-\frac{(-,v_{m-2})}{q_{[2,m-2]}(v)}v_{1},\cdots,-\frac{(-,v_{\ell})}{q_{\ell}(v)}v_{\ell-1}).$ 
+ Here we write $v=(v_{0},\cdots,v_{m-1})$ under the decomposition ( 8.1 ). (2) The local system $\textup{Kl}^{\textup{St}}_{\widehat{G},{\mathbf{P}}_{m}}(\chi)$ attached to the standard representation of $\widehat{G}=\textup{Sp}_{2n}$ or $\textup{SO}_{2n}$ , the admissible parahoric subgroup ${\mathbf{P}}_{m}$ and the multiplicative character $\chi=(\chi_{0},\cdots,\chi_{\ell})$ (where $\chi_{0}$ has order two) is given by (the restriction to $V^{*,\textup{st}}_{m}$ of) the Fourier transform of the complex $f^{\prime\prime}_{!}f^{\prime*}\mathcal{L}_{\chi}[\dim M-2](\frac{\dim M-2}{2})$ .
+
+(1) In the proof of Lemma 8.5 we have shown that if $j(A,B)=[v]$ and $v=(v_{0},v_{+})$ , then $A^{-1}_{++}B_{++}=R_{[v_{+}]},B_{00}=R_{[v_{0}]}$ and $A_{0+}(x)=-\frac{(x,v_{+})}{q_{+}(v_{+})}v_{0}$ . In particular, $\det(B_{00})=-1$ , which gives the first entry of $f^{\prime}(A,B)$ given in ( 8.12 ).
+
+It remains to express $R_{[v_{+}]}$ as $A^{-1}_{++}B_{++}$ for $A\in U(F_{*})$ and $B\in P(F^{*})$ . The procedure is the same as in the proof of Proposition 6.5 . This gives all of ( 8.12 ) and ( 8.13 ) but the first entry of ( 8.13 ). The first entry of $f^{\prime\prime}(A,B)$ is $A_{0,1}$ , which is the first block of $A_{0+}=-\frac{(-,v_{+})}{q_{+}(v_{+})}v_{0}$ .
+
+(2) We only need to apply Proposition 3.9 to the standard representation $V_{\lambda}$ of $\widehat{G}$ ; note that $\textup{IC}_{\lambda}=\overline{\mathbb{Q}}_{\ell}[\dim M-2](\frac{\dim M-2}{2})$ in this case. ∎
+
+Similar to Corollary 6.6 , we have
+
+Let $\phi=(\phi_{0},\phi_{1},\cdots,\phi_{m-1})\in V^{*,\textup{st}}_{m}(k)$ be a stable functional. Recall that $\mathfrak{G}_{\lambda}$ in this case is $Q(q)-\cup_{i=1}^{\ell}Q(q_{[i,m-i]})$ . Let $f_{\phi}:\widetilde{X}^{\circ}\times\mathfrak{G}_{\lambda}\to\mathbb{A}^{1}$ be given by 
+ 
+ $f_{\phi}(x,[v])=-\frac{(\phi_{0}v_{0},v_{m-1})}{q_{[1,m-1]}(v)}x-\sum_{i=1}^{\ell-1}\frac{(\phi_{i}v_{i},v_{m-i-1})}{q_{[i+1,m-i-1]}(v)}.$ 
+ Let $\pi:\widetilde{X}^{\circ}\times\mathfrak{G}_{\lambda}\to\widetilde{X}^{\circ}$ be the projection. Then we have an isomorphism over $\widetilde{X}^{\circ}$ 
+ 
+ $\textup{Kl}^{\textup{St}}_{\widehat{G},m}(1,\phi)\cong\pi_{!}f_{\phi}^{*}\textup{AS}_{\psi}[\dim M-2]\left(\frac{\dim M-2}{2}\right).$ 
+
+
+9. Addendum to [21]
+
+The Conjectures 5.10, 5.11 and 5.13 of [21] are true. In particular, the local systems constructed in the main theorem of [21] are cohomologically rigid.
+
+In fact, [21] can be proved in the same way as Theorem 4.7 . A proof of [21] will follow from results in the forthcoming work [22] . Finally, by [21] , [21] follows from the other two conjectures mentioned above.
+
+Acknowledgements The author thanks B. Gross and J-K. Yu for inspiring conversations.
+
+References
+
+[1] R.Bezrukavnikov, On tensor categories attached to cells in affine Weyl groups. InRepresentation theory of algebraic groups and quantum groups, 69–90, Adv. Stud. Pure Math., 40, Math. Soc. Japan, Tokyo, 2004.
+[2] R.Bezrukavnikov, M.Finkelberg and V.Ostrik, On tensor categories attached to cells in affine Weyl groups. III. Israel J. Math. 170 (2009), 207–234.
+[3] R.W.Carter, Finite groups of Lie type. Conjugacy classes and complex characters. Pure and Applied Mathematics (New York). A Wiley-Interscience Publication. John Wiley & Sons, Inc., New York, 1985. xii+544 pp.
+[4] P.Deligne, J.S.Milne, Tannakian categories. InHodge cycles, motives, and Shimura varieties.Lecture Notes in Mathematics, 900. Springer-Verlag, Berlin-New York, 1982.
+[5] D.Gaitsgory, On de Jong s conjecture. Israel Journal of Math. 157 (2007), 155–191.
+[6] G.Faltings, Algebraic loop groups and moduli spaces of bundles. J. Eur. Math. Soc. 5 (2003), 41–68.
+[7] E.Frenkel and B.Gross, A rigid irregular connection on the projective line. Ann. of Math. (2) 170 (2009), no. 3, 1469–1512.
+[8] B.Gross, P.Levy, M.Reeder and J-K.Yu, Gradings of positive rank on simple Lie algebras, Transformation Groups, 17, No. 4, (2012), 1123–1190.
+[9] B.Gross and M.Reeder, Arithmetic invariants of discrete Langlands parameters, Duke Math. Journal, 154, (2010), 431–508.
+[10] J.Heinloth, B-C. Ngô and Z.Yun, Kloosterman sheaves for reductive groups, Ann. of Math. (2) 177 (2013), no. 1, 241–310.
+[11] N.M.Katz,Gauss sums, Kloosterman sums, and monodromy groups.Annals of Mathematics Studies, 116. Princeton University Press, Princeton, NJ, 1988.
+[12] G.Lusztig, N.Spaltenstein, Induced unipotent classes. J. London Math. Soc. (2) 19 (1979), no. 1, 41–52.
+[13] G.Lusztig, A class of irreducible representations of a Weyl group. Proc. Nederl. Akad. series A 82 (1979), 323-335.
+[14] G.Lusztig, Cells in affine Weyl groups I–IV. I:Algebraic groups and related topics(Kyoto/Nagoya, 1983), 255–287, Adv. Stud. Pure Math., 6, North-Holland, Amsterdam, 1985. II: J. Algebra 109 (1987), no. 2, 536–548. III: J. Fac. Sci. Univ. Tokyo Sect. IA Math. 34 (1987), no. 2, 223–243. IV. J. Fac. Sci. Univ. Tokyo Sect. IA Math. 36 (1989), no. 2, 297–328.
+[15] G.Lusztig, From conjugacy classes in the Weyl group to unipotent classes. Represent. Theory 15 (2011), 494–530.
+[16] G.Lusztig, Unipotent classes and special Weyl group representations. J. Algebra 321 (2009), no. 11, 3418–3449.
+[17] I.G.Macdonald, Some irreducible representations of Weyl groups. Bull. London Math. Soc. 4 (1972), 148–150.
+[18] M.Reeder and J-K.Yu, Epipelagic representations and invariant theory, Journal of the AMS (electronically published on August 5, 2013).
+[19] T.A.Springer, Regular elements of finite reflection groups. Invent. Math. 25 (1974), 159–198.
+[20] Z.Yun, Global Springer theory. Adv. Math. 228 (2011), no. 1, 266–328.
+[21] Z.Yun, Motives with exceptional Galois groups and the inverse Galois problem. Invent. Math. (electronically published in 2013)
+[22] Z.Yun and X.Zhu, A monodromic geometric Satake equivalence, in preparation.

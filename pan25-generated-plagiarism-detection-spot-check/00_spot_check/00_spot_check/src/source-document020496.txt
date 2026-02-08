@@ -1,0 +1,588 @@
+Open-loop Deterministic Density Control of Marked Jump Diffusions
+
+By Kaivlaya Bakshi and Evangelos A. Theodorou
+
+Abstract
+
+The standard practice in modeling dynamics and optimal control of a large population, ensemble, multi-agent system represented by it’s continuum density, is to model individual decision making using local feedback information. In comparison to a closed-loop optimal control scheme, an open-loop strategy, in which a centralized controller broadcasts identical control signals to the ensemble of agents, mitigates the computational and infrastructure requirements for such systems. This work considers the open-loop, deterministic and optimal control synthesis for the density control of agents governed by marked jump diffusion stochastic diffusion equations. The density evolves according to a forward-in-time Chapman-Kolmogorov partial integro-differential equation and the necessary optimality conditions are obtained using the infinite dimensional minimum principle (IDMP). We establish the relationship between the IDMP and the dynamic programming principle as well as the IDMP and stochastic dynamic programming for the synthesized controller. Using the linear Feynman-Kac lemma, a sampling-based algorithm to compute the control is presented and demonstrated for agent dynamics with non-affine and nonlinear drift as well as noise terms.
+
+1 Introduction
+
+Multi-agent systems consisting of large populations of identical agents with continuous time stochastic dynamics are used to model macro-economic systems, swarms in robotics and biology, vehicles in traffic and neuronal activity in neuroscience. In the optimal control theory, approximating the system by a continuum density of the agents is a practical approach which makes the associated optimal control problem (OCP) mathematically tractable. Research topics treating the control of a distribution of agents to satisfy certain optimality and/or stability criterion fall into the category of density control. The standard idea is to model individual decision making as closed-loop controls by using individual local state-feedback. Since the individual states of agents are stochastic owing to random disturbances, the control actions are stochastic as well. Thus, it is possible to obtain a tractable mathematical model of a large population of agents that interact with each other in a decentralized, non-cooperative and closed-loop control setting. This framework corresponds to the stochastic optimal control theory [1] in the (standard) case wherein the agents do not interact with each other and to the mean field game (MFG) theory [2] in the (non-standard) case, wherein an agent’s dynamics or control actions explicitly depend on the state of the other agents.
+
+However, the assumption of local feedback control either (a) requires individual agents to compute the control locally in time and space (in the decentralized case) or (b) requires the centralized controller to transmit the unique optimal control signal to the respective individual (in the centralized case). The assumption of an open-loop deterministic control implies that the centralized controller can broadcast (identical) feedforward control signals or feedback gains to be used by all the agents simultaneously, thus simplifying the loop besides mitigating design complexity and infrastructure requirements of the individual agent ( [3] , [4] ). Finally, since the application of deterministic state-parameterized gains will in general result in stochastic control actions for each individual although the optimization is posed on deterministic parameters, thus providing implicit feedback.
+
+Further, with the exception of the linear-quadratic-Gaussian (LQG) regime, computation of the local feedback controls even for low dimensional agent dynamics is a non-trivial task. Moreover, if the agent dynamics are nonlinear in the state or controls or are excited by non-Gaussian noise, the numerical solution curse of dimensionality [5] leads to intractability. Specifically, in the latter case of non-Gaussian excitation, the strategy of local (in space) linear-quadratic approximation [6] of the dynamics and cost functions cannot produce a scalable LQG-like algorithm. This is because in the non-Gaussian case, the optimality conditions are represented by the forward-in-time linear Fokker Planck (FP) PDE governing the density evolution and the backward-in-time semilinear Hamilton-Jacobi-Bellman (HJB) PDE governing the value equation which are coupled due to the appearance of the value function in the FP equation. The MFG case is further complicated due to the fully coupled nature of the HJB-FP system ( [7] , [8] , [9] ). The first [10] and second ( [11] , [12] ) order forward-backward SDE (FBSDE) [1] framework has been applied to obtain algorithms for optimal control of dynamics with nonlinear drift and state multiplicative noise, but not in the case of control multiplicative Gaussian or the general case of non-Gaussian excitation [13] .
+
+The main contribution of our work is the open-loop deterministic optimal control synthesis for systems with underlying non-Gaussian Q-marked Markov jump diffusion (QMJD) agent dynamics, where the drift and volatility terms are nonlinear in the state and controls. Such processes are used to model ecological population, financial and manufacturing processes ( [14] [15] ). Prior works ( [16] , [17] , [18] ) on this topic are limited to systems with Gaussian noise. We formulate the associated OCP (section 2.1 ) and apply the infinite dimensional minimum principle (IDMP) to obtain the first order optimality conditions (section 3 ). Prior works applying the minimum principle for the OCP of open-loop deterministic density control were limited to the case of systems with Gaussian noise ( [19] , [20] , [21] , [22] ). We also mention the works ( [23] , [24] ) which state a generalized formulation of the IDMP for the considered density control problem but do not obtain the optimality system for the case of Q-MJD processes which are the mainstay of our work.
+
+The second contribution of our work is a sampling-based algorithm (section 5 ) which iteratively samples the uncontrolled dynamics to compute the control by evaluating the IDMP co-state over the state space. This approach has the key advantage of being able to benefit from naïve parallelization [25] compared to the schemes in [17] and [18] which cannot be parallelized. The algorithm is demonstrated for density control of agents with nonlinear dynamics and non-Gaussian excitation by optimizing feedforward as well as state dependent (linear) control gains.
+
+The third contribution of our work is to show the relationship between the IDMP and Dynamic Programming Priciple (DPP) applicable to the open-loop OCP of the density of Q-MJD processes (section 4 ). The relationship between the MP and DPP has attracted a lot of interested in the past and is well known in the deterministic case [26] . In the case of individual stochastic agents, the relationship of stochastic MP with DPP has been explored using the FBSDE formalism ( [27] , [26] , [28] , [29] ) for systems with Gaussian and non-Gaussian ( [30] . [31] , [32] , [33] ) excitation. The IDMP-DPP relationship associated with the topic of the density control problem considered in this work has been addressed for the less general case of agents excited by Gaussian noise in the previous work [17] . Our presentation is more general since it addressed the case of agents obeying Q-MJD processes. Additionally we comment on the relationship of the IDMP with stochastic dynamic programming.
+
+2 Problem Formulation
+
+In this section we provide assumptions and conditions related to existence and uniqueness of solutions to a general class of controlled QMJD processes. Two theorems describing the forward and backward Chapman-Kolmogorov PIDEs corresponding to evolution of the PDF representing QMJD processes are stated. The proofs of these theorems are given in the appendices.
+
+2.1 Definitions
+
+Let $(\Omega,{\cal B},\{{\cal B}_{t}\}_{t\geq 0},\mathbb{P})$ be a filtered probability space and $({\bf x}_{t})_{t\geq 0}$ a process which is progressively measurable with respect to it. We follow [34] and define this process over $\mathbb{R}^{n_{x}}$ described by 
+ 
+ $\displaystyle{\mathrm{d}}{\bf x}_{t}=$ $\displaystyle{\bf F}(t,{\bf x}_{t},{\bf u}(t)){\mathrm{d}}t+{\bf B}(t,{\bf x}_{t},{\bf u}(t)){\mathrm{d}}{\bf w}_{t}+{\bf H}(t,{\bf x}_{t},{\bf Q}){\mathrm{d}}{\bf P}(t,{\bf x}_{t};t,{\bf Q})$ 
+ 
+ $\displaystyle=$ $\displaystyle{\bf F}(t,{\bf x}_{t},{\bf u}(t)){\mathrm{d}}t+{\bf B}(t,{\bf x}_{t},{\bf u}(t)){\mathrm{d}}{\bf w}_{t}+\int_{D_{\bf Q}}{\bf H}(t,{\bf x}_{t},{\bf q}){\cal P}(t,{\bf x}_{t};{\mathrm{d}}t,{\mathrm{d}}{\bf q}),$  (1) 
+ where ${\bf x}_{t}\in\mathbb{R}^{n_{x}}$ , ${\bf u}(t)\in D_{\bf u}\subseteq\mathbb{R}^{n_{u}}$ , ${\bf w}_{t}\in\mathbb{R}^{n_{w}}$ , ${\bf Q}\in D_{\bf Q}\subset\mathbb{R}^{n_{p}}$ , ${\bf P}\in\mathbb{R}^{n_{p}}$ , ${\bf F}:[0,T]\times\mathbb{R}^{n_{x}}\times\mathbb{R}^{n_{u}}\rightarrow\mathbb{R}^{n_{x}}$ , ${\bf B}:[0,T]\times\mathbb{R}^{n_{x}}\times\mathbb{R}^{n_{u}}\rightarrow\mathbb{R}^{n_{x}\times n_{w}}$ , ${\bf H}:[0,T]\times\mathbb{R}^{n_{x}}\times D_{Q}\rightarrow\mathbb{R}^{n_{x}\times n_{p}}$ . The process ${\bf w}_{t}$ is the standard Brownian motion. We denote by ${\bf H}(t,{\bf x}_{t},{\bf q})={\bf H}(t,{\bf x}_{t^{-}},{\bf q})$ in the above expressions so that $\Pi(t,{\bf x}_{t})={\bf H}(t,{\bf x}_{t},{\bf Q}){\mathrm{d}}{\bf P}(t,{\bf x}_{t};t,{\bf Q})=\int\limits_{0}^{t}\int\limits_{D_{\bf Q}}{\bf H}(t,{\bf x}_{t},{\bf q}){\cal P}(t,{\bf x}_{t};{\mathrm{d}}t,{\mathrm{d}}{\bf q})$ under the zero-one law, is the doubly stochastic Poisson process [35] . Processes ${\bf x}_{t}$ , ${\bf w}_{t}$ , ${\bf P}_{t}$ and functions on these processes are adapted to the considered filtration such that there exists a unique solution to this SDE given ${\bf x}_{0}={\bf z}\in\mathbb{R}^{n_{x}}$ . The conditions for the existence and uniqueness of the solutions are provided in this subsection. Writing in matrix notation, vectors ${\cal P}=[{\cal P}_{j}]$ and ${\bf P}=[P_{j}]$ are such that $\{{\cal P}_{j}\}_{1\leq j\leq n_{p}}$ are independent Poisson random measures and ${\bf Q}$ is the mark vector with marks $\{Q_{j}\}_{1\leq j\leq n_{p}}$ such that $Q_{j}\in D_{Q_{j}}\subset\mathbb{R}$ , are independently distributed random variables independent of $P_{j}$ . In this notation realizations of the mark random vector ${\bf Q}$ in the Poisson random measure formulation are denoted by ${\bf q}$ . The advantage of this notation is that the mark vector has a deterministic representation. We notice that the processes $P_{j}$ conditioned on ${\bf x}_{t}={\bf x}$ are Poisson distributed. We now assume that there exists the mark density function ${\mathrm{p}}_{Q_{j}}$ corresponding to the mean measure $\nu_{j}$ of the Poisson random measure ${\cal P}_{j}$ so that $\mathbb{E}[{\cal P}_{j\omega}(t,{\bf x}_{t};{\mathrm{d}}t,{\mathrm{d}}q_{j})|{\bf x}_{t}={\bf x}]=\nu_{j}({\mathrm{d}}q_{j})={\mathrm{p}}_{Q_{j}}(t,q_{j};t,{\bf x})\lambda_{j}(t,q_{j};t,{\bf x}){\mathrm{d}}q_{j}{\mathrm{d}}t$ where $\lambda_{j}\in\mathbb{R}$ is called the jump rate for the doubly stochastic Poisson process $P_{j}$ . Since $\int_{D_{Q_{j}}}{\mathrm{p}}_{Q_{j}}(t,q_{j};t,{\bf x}){\mathrm{d}}q_{j}=1$ it is observed, writing in matrix vector notation, that 
+ 
+ $\displaystyle\mathbb{E}[{\mathrm{d}}{\bf P}(t,{\bf Q};t,{\bf x}_{t})|{\bf x}_{t}={\bf x}]=[\mathbb{E}[{\mathrm{d}}P_{j}(t,Q_{j};t,{\bf x}_{t})]|{\bf x}_{t}={\bf x}]=$ 
+ 
+ $\displaystyle[\mathbb{E}[\int\limits_{D_{Q_{j}}}{\cal P}_{j}({\mathrm{d}}t,{\mathrm{d}}q_{j};t,{\bf x}_{t})|{\bf x}_{t}={\bf x}]]=[\mathbb{E}_{{\mathrm{p}}_{Q_{j}}}[\lambda_{j}(t,Q_{j};t,{\bf x}){\mathrm{d}}t]].$ 
+ Consequently for the case of mark independent jump rates $\lambda_{j}$ we would have $\mathbb{E}[{\mathrm{d}}{\bf P}(t,{\bf x}_{t};t,{\bf Q})|{\bf x}_{t}={\bf x}]=[\lambda_{j}(t,{\bf x}){\mathrm{d}}t]={\mbox{\boldmath$\lambda$}}(t,{\bf x}){\mathrm{d}}t$ which recovers the same result as in the simple Markov jump diffusions process. We denote by ${\bf h}_{j}:[0,T]\times\mathbb{R}^{n_{x}}\times D_{Q_{j}}\rightarrow\mathbb{R}^{n_{x}}$ the $j^{th}$ column vector of the matrix ${\bf H}(t,{\bf x}_{t},{\bf Q})=[h_{i,j}(t,{\bf x}_{t},Q_{j})]$ as well as ${\mbox{\boldmath$\Sigma$}}={\bf B}{\bf B}^{\mathrm{T}}$ and assume $h_{i,j}(t,{\bf x}_{t},{\bf Q})={\bf h}_{i,j}(t,{\bf x}_{t},Q_{j})$ . The process ${\bf x}_{t}$ is referred to as the state variable and ${\cal V}[t,T]\ni{\bf u}:[t,T]\rightarrow\mathbb{R}^{n_{u}}$ as the control variable where ${\cal V}[t,T]\triangleq\{{\bf u}(s)\in D_{\bf u}|t\leq s\}$ fora ll $t\in[0,T]$ is the class of optimal controls. Here the symbol $\triangleq$ implies definition. We comment on this class of controls later in section 2.3 .
+
+Let us make the following assumptions for the above defined controlled stochastic process: (S1) there exists a constant $C_{1}<\infty$ such that for all $t\in[0,T]$ , for all ${\bf x}\in\mathbb{R}^{n_{x}},{\bf u}\in D_{\bf u}$ 
+ 
+ $\displaystyle||{\bf B}(t,{\bf x},{\bf u})||^{2}+|{\bf F}(t,{\bf x},{\bf u})|^{2}+\sum\limits_{k=1}^{n_{p}}\int_{D_{Q_{j}}}|{\bf h}_{j}(t,{\bf x})|^{2}\nu_{j}({\mathrm{d}}q_{j})\leq C_{1}(1+|{\bf x}|^{2}+|{\bf u}|^{2})$ (S2) there exists a constant $C_{2}<\infty$ such that for all $t\in[0,T]$ , for all ${\bf x},\hat{{\bf x}}\in\mathbb{R}^{n_{x}}\;\text{and}\;{\bf u},\hat{{\bf u}}\in\mathbb{R}^{n_{u}}$ 
+ 
+ $\displaystyle||{\bf B}(t,{\bf x},{\bf u})-{\bf B}(t,\hat{{\bf x}},\hat{{\bf u}})||^{2}+|{\bf F}(t,{\bf x},{\bf u})-{\bf F}(t,\hat{{\bf x}},\hat{{\bf u}})|^{2}$ 
+ 
+ $\displaystyle+\sum\limits_{j=1}^{n_{p}}\int_{D_{Q_{j}}}|{\bf h}_{j}(t,{\bf x},q_{j})-{\bf h}_{j}(t,\hat{{\bf x}},q_{j})|^{2}\nu_{j}({\mathrm{d}}q_{j})\leq C_{2}(|{\bf x}-\hat{{\bf x}}|^{2}+|{\bf u}-\hat{{\bf u}}|^{2})$ (S3) $F_{i}(t,{\bf x},{\bf u})$ is once continuously differentiable w.r.t. ${\bf x}$ for all $i$ (S4) $\Sigma_{ij}(t,{\bf x},{\bf u})$ is twice continuously differentiable w.r.t. ${\bf x}$ for all $i,j$ (S5) ${\bf h}_{j}:[0,T]\times\mathbb{R}^{n_{x}}\times D_{Q_{j}}\rightarrow\mathbb{R}^{n_{x}}$ is a bijection from $\mathbb{R}^{n_{x}}$ to $\mathbb{R}^{n_{x}}$ , for all $t\in[0,T]$ , for all $q_{j}\in D_{Q_{j}}$ and ${\bf h}_{j}(t,{\bf x},q_{j})={\bf\eta}_{j}(t,{\mbox{\boldmath$\xi$}}_{j},q_{j})$ , $I-{\bf\eta}_{j{\mbox{\boldmath$\xi$}}_{j}}(t,{\mbox{\boldmath$\xi$}}_{j},q_{j})\neq\mathbf{0}$ for all $(t,{\mbox{\boldmath$\xi$}}_{j})$ where ${\mbox{\boldmath$\xi$}}_{j}={\bf x}+{\bf h}_{j}(t,{\bf x},q_{j})$ (S6) $F_{i}(t,{\bf x},{\bf u})$ , $\Sigma_{ij}(t,{\bf x},{\bf u})$ is once continuously differentiable w.r.t. ${\bf u}\in D_{\bf u}$ for all $i$ Under the assumptions (S1), (S2), it is well known (pp 10, theorem 1.19) [34] that ( 1 ) admits a unique cádlág adapted integrable solution ${\bf x}_{t}$ for all $\in[0,T]$ given ${\bf x}_{0}={\bf z}\in\mathbb{R}^{n_{x}}$ . The controlled stochastic process represented by the SDE ( 1 ) is variously called as the marked, compound or doubly stochastic jump diffusion process. Assumptions (S3) through (S5) are typical differentiability assumptions for the existence of the forward and backward Chapman-Kolmogorov operators and corresponding PIDEs.
+
+Assuming (S5) we define the forward Chapman-Kolmogorov operator that corresponds to QMJD process ( 1 ), denoted by ${\cal F}^{\bf u}_{\text{MJD}}(\cdot)$ acting on a function $(\cdot):[0,T]\times\mathbb{R}^{n_{x}}\rightarrow\mathbb{R}$ , given the control ${\bf u}$ , when it exists, as 
+ 
+ $\displaystyle{\cal F}^{\bf u}_{\text{\tiny MJD}}\;(\cdot)(t,{\bf x})=$ $\displaystyle\sum\limits_{i=1}^{n_{x}}-\frac{\partial}{\partial x_{i}}((\cdot)(t,{\bf x})F_{i}(t,{\bf x},{\bf u}))+\frac{1}{2}\sum\limits_{i,j=1}^{n_{x}}\frac{\partial^{2}}{\partial x_{i}\partial x_{j}}(\Sigma_{ij}(t,{\bf x},{\bf u})(\cdot)(t,{\bf x}))$ 
+ 
+ $\displaystyle+\sum\limits_{j=1}^{n_{p}}\int\limits_{D_{Q_{j}}}\bigg{(}(\cdot)(t,{\bf x}-{\bf\eta}_{j}(t,{\bf x},q_{j}))|I-{\bf\eta}_{j{\bf x}}(t,{\bf x},q_{j})|-(\cdot)(t,{\bf x})\bigg{)}{\mathrm{p}}_{Q_{j}}\lambda_{j}(t,{\bf x};t,q_{j}){\mathrm{d}}q_{j}.$  (2) 
+
+
+We define the backward Chapman-Kolmogorov operator that corresponds to QMJD process ( 1 ), denoted by $\mathcal{F}^{\dagger\;{\bf u}}_{\text{\tiny QMJD}}(\cdot)$ acting on a function $(\cdot):[0,T]\times\mathbb{R}^{n_{x}}\rightarrow\mathbb{R}$ , given the control ${\bf u}$ , when it exists, as 
+ 
+ $\displaystyle\mathcal{F}^{\dagger\;{\bf u}}_{\text{\tiny MJD}}(\cdot)(t,{\bf x})=$ $\displaystyle\sum\limits_{i=1}^{n_{x}}F_{i}(t,{\bf x},{\bf u})\frac{\partial(\cdot)}{\partial x_{i}}+\frac{1}{2}\sum\limits_{i,j=1}^{n_{x}}[{\mbox{\boldmath$\Sigma$}}(t,{\bf x},{\bf u})]_{ij}\frac{\partial^{2}(\cdot)}{\partial x_{i}\partial x_{j}}+{\mathrm{d}}_{\text{jump}}(\cdot),$  (3) 
+ where $\text{Jump}_{j}(\cdot)(t,{\bf x},q_{j})\triangleq(\cdot)(t,{\bf x}+{\bf h}_{i,j}(t,{\bf x},q_{j}))-(\cdot)(t,{\bf x})$ and 
+ 
+ $\displaystyle{\mathrm{d}}_{\text{jump}}(\cdot)(t,{\bf x})\triangleq\sum\limits_{j=1}^{n_{p}}\int\limits_{D_{Q_{j}}}\text{Jump}_{j}(\cdot)(t,{\bf x},q_{j}){\mathrm{p}}_{Q_{j}}\lambda_{j}(t,q_{j};t,{\bf x}){\mathrm{d}}q_{j}.$ 
+
+
+2.2 Forward and Backward Chapman-Komogorov PIDEs
+
+We do not discuss the existence and uniqueness of solutions to the forward Chapman-Kolmogorov PIDE here. Instead we refer the interested reader to [36] for properties of continuous solutions to the forward Chapman-Kolmogorov PIDEs. Instead we follow the approach of [37] which only derives the forward PIDE that the PDF should satisfy given that the PDF exists and has certain smoothness. Derivations of the forward Chapman-Kolmogorov PIDE is a well explored topic for the case of spontaneous and forced jumps [37] , [38] , [39] . An explicit derivation in case of simple jump diffusions, called the differential Chapman-Kolmogorov PIDE can be seen in (pp 51, equation 3.4.22) [38] .
+
+In this work we follow the approach of Hanson [15] . Here we give complete proof of the second part of the result stated (pp 203-204, Theorem 7.7) [15] in theorem 1 below. This is the multidimensional version of the more detailed one dimensional result (pp 199-202, Theorem 7.5) [15] . Theorem 1 states the additional smoothness conditions for the PDF besides (S1), (S2), (S3), (S4), (S5) under which the forward Chapman-Kolmogorov equation is satisfied by the PDF of multidimensional QMJD processes ( 1 ). Theorem 2 shows how the backward and forward Chapman-Kolmogorov operators are formal adjoints of each other under certain conditions. Proofs are presented in the appendix 7 for completeness. Define $\mathcal{L}^{2}$ inner product of functions $f_{1},f_{2}$ 
+ 
+ $\bigg{<}f_{1},f_{2}\bigg{>}=\int f_{1}({\bf x})f_{2}({\bf x}){\mathrm{d}}{\bf x}.$  (4) 
+
+
+Consider the QMJD process in ( 1 ) such that assumptions (S1), (S2), (S3) and (S4) in section 2.1 are true. Let there exist ${\mathrm{p}}(t,{\bf x}|\tau,{\bf y}_{\tau})$ , the transition probability density of the state ${\bf x}_{t}$ for all $t\in[0,T]$ written in short as ${\mathrm{p}}(t,{\bf x})$ . If (S5) is true, (T1) there exists $v:\mathbb{R}^{n_{x}}\rightarrow\mathbb{R}$ a bounded arbitrary test function which is twice differentiable w.r.t. ${\bf x}$ such that for ${\bf u}\in D_{\bf u}$ the conjunct below vanishes 
+ 
+ $\displaystyle\sum\limits_{i,j=1}^{n_{x}}\int\limits_{\mathbb{R}^{n_{x}}}\frac{\partial}{\partial x_{i}}\Bigg{(}F_{i}(t,{\bf x},{\bf u}){\mathrm{p}}(t,{\bf x})v({\bf x})$ $\displaystyle-\frac{1}{2}\frac{\partial}{\partial x_{j}}\Big{(}\Sigma_{ij}(t,{\bf x},{\bf u}){\mathrm{p}}(t,{\bf x})\Big{)}v({\bf x})$ 
+ 
+ $\displaystyle\qquad\qquad+\frac{1}{2}\Sigma_{ij}(t,{\bf x},{\bf u}){\mathrm{p}}(t,{\bf x})\frac{\partial}{\partial x_{j}}v({\bf x})\Bigg{)}{\mathrm{d}}{\bf x}=0,$ (T2) ${\mathrm{p}}(t,{\bf x})$ is once continuously differentiable w.r.t. $t$ , $({\mathrm{p}}F_{i})(t,{\bf x},{\bf u})$ is once continuously differentiable w.r.t. ${\bf x}$ for all $i$ , $(\Sigma_{ij}{\mathrm{p}})(t,{\bf x},{\bf u})$ is twice continuously differentiable w.r.t. ${\bf x}$ for all $i,j$ , ${\bf u}\in D_{\bf u}$ , then ${\mathrm{p}}(t,{\bf x})$ satisfies the forward Chapman-Kolmogorov PIDE 
+ 
+ $\displaystyle\frac{\partial{\mathrm{p}}(t,{\bf x})}{\partial t}=\mathcal{F}^{{\bf u}}_{\text{\tiny MJD}}\;{\mathrm{p}}(t,{\bf x}).$  (6) 
+ in the weak sense. Further, given ${\bf x}_{t_{0}}={\bf x}_{0}$ , the PDF ${\mathrm{p}}(t_{0},{\bf x})$ satisfies the delta function initial condition 
+ 
+ $\lim\limits_{t\downarrow t_{0}}{\mathrm{p}}(t,{\bf x})=\delta({\bf x}-{\bf x}_{0}).$  (7) 
+
+
+Consider the QMJD process in ( 1 ) such that assumptions (S1) through (S5) in subsection 2.1 are true. We assume that conditions (T1) and (T2) stated in theorem 1 are true. If (T3) $\pi:[0,T]\times\mathbb{R}^{n_{x}}\rightarrow\mathbb{R}$ is a bounded function which is twice differentiable w.r.t. ${\bf x}$ and once continuously differentiable w.r.t. $t$ such that $\forall{\bf u}\in D_{\bf u}$ 
+ 
+ $\displaystyle\sum\limits_{i,j=1}^{n_{x}}\int\limits_{\mathbb{R}^{n_{x}}}\frac{\partial}{\partial x_{i}}\Bigg{(}F_{i}(t,{\bf x},{\bf u}){\mathrm{p}}(t,{\bf x})\pi(t,{\bf x})$ $\displaystyle-\frac{1}{2}\frac{\partial}{\partial x_{j}}\Big{(}\Sigma_{ij}(t,{\bf x},{\bf u}){\mathrm{p}}(t,{\bf x})\Big{)}\pi(t,{\bf x})$ 
+ 
+ $\displaystyle\qquad+\frac{1}{2}\Sigma_{ij}(t,{\bf x},{\bf u}){\mathrm{p}}(t,{\bf x})\frac{\partial}{\partial x_{j}}\pi(t,{\bf x})\Bigg{)}{\mathrm{d}}{\bf x}=0,$ (T4) the left and right hand sides of equation ( 9 ) are bounded, then for all ${\bf u}\in D_{\bf u}$ $\pi(t,{\bf x})$ satisfies the Green’s identity [40] for all ${\bf u}\in D_{\bf u}$ 
+ 
+ $\bigg{<}\pi(t,{\bf x}),\mathcal{F}^{{\bf u}}_{\text{\tiny MJD}}{\mathrm{p}}(t,{\bf x})\bigg{>}=\bigg{<}{\mathrm{p}}(t,{\bf x}),\mathcal{F}^{\dagger\;{\bf u}}_{\text{\tiny MJD}}\pi(t,{\bf x})\bigg{>}.$  (9) 
+ We then call $\pi$ the adjoint function to the PDF ${\mathrm{p}}$ so that $\mathcal{F}^{\dagger\;{\bf u}}_{\text{\tiny MJD}}(\cdot)$ is the adjoint operator of $\mathcal{F}^{\bf u}_{\text{\tiny MJD}}(\cdot)$ .
+
+2.3 Problem Statement
+
+Using the inner product definition ( 4 ), we may define the cost functional, when it exists, as 
+ 
+ $\displaystyle J\left(t;{\mathrm{p}},{\bf u}\right)=\Phi(T;{\mathrm{p}}(T,{\bf x}))+\int\limits_{t}^{T}\mathcal{L}(s,{\bf u}(s);{\mathrm{p}}(s,{\bf x}))\;{\mathrm{d}}t,$  (10) 
+ where $\Phi(T;{\mathrm{p}}(T,{\bf x}))$ is called the expected terminal cost functional, $\mathcal{L}(t,{\bf u}(t);{\mathrm{p}}(t,{\bf x}))$ is called the expected running cost functional and $t\in[0,T)$ . Define 
+ 
+ $\displaystyle\Phi(T;{\mathrm{p}}(T,{\bf x}))=\bigg{<}\phi(T,{\bf x}),{\mathrm{p}}(T,{\bf x})\bigg{>}\;\text{and}\;\mathcal{L}(s,{\bf u}(s);{\mathrm{p}}(s,{\bf x}))=\bigg{<}\ell(s,{\bf x},{\bf u}(s)),{\mathrm{p}}(s,{\bf x})\bigg{>},$  (11) 
+ wherein $\phi:[0,T]\times\mathbb{R}^{n_{x}}\to\mathbb{R}$ is called the terminal cost function and $\ell:[0,T]\times\mathbb{R}^{n_{x}}\times\mathbb{R}^{n_{u}}\to\mathbb{R}$ the running cost function. The choice of these functions as well as the class of admissible control functions ${\cal V}[t,T]$ is restricted such that the $\phi$ and $\ell$ are integrable at all times $t\in[0,T]$ . The infinite dimensional optimal control problem for the QMJD processes ( 1 ) is then stated as 
+ 
+ $\displaystyle\underset{{\bf u}\in{\cal V}[t,T]}{\text{min}}J\left(t;{\mathrm{p}},{\bf u}\right),$  (12) 
+ subject to the dynamics 
+ 
+ $\frac{\partial{\mathrm{p}}(s,{\bf x})}{\partial s}=\mathcal{F}^{{\bf u}(s)}_{\text{\tiny MJD}}{\mathrm{p}}(s,{\bf x}),\;{\mathrm{p}}(t,{\bf x})={\mathrm{p}}_{0}({\bf x}).$  (13) 
+ Henceforth the stochastic control problem ( 12 ) subject to the dynamics ( 13 ), is referred to simply as problem ( 12 ). Put in words, the problem undertaken is to find a deterministic open loop optimal control for all $s\in[t,T]$ to minimize the cost ( 10 ) over $[t,T]$ given the PDE dynamics for ${\mathrm{p}}(s,{\bf x})$ . The solution is a broadcast controller for all the stochastic ensembles governed by ( 1 ) which solves the problem ( 12 ).
+
+3 Infinite Dimensional Minimum Principle for Q-marked Jump Diffusions
+
+This section contains a detailed application of the IDMP as applied to the SOC problem 12 . First a Hamiltonian functional for the IDMP is defined. We then derive the Euler-Lagrange equations representing the necessary optimality conditions for the formulated problem. We conclude by defining an infinite dimensional optimal control for PIDE control of QMJD processes.
+
+We define the Hamiltonian functional for the infinite dimensional MP given the control ${\bf u}$ , when it exists, by 
+ 
+ ${\cal H}\big{(}s,{\bf u};{\mathrm{p}}(s,{\bf x}),\pi(s,{\bf x})\big{)}=\bigg{<}\ell(s,{\bf x},{\bf u}),{\mathrm{p}}(s,{\bf x})\bigg{>}+\bigg{<}\mathcal{F}^{\dagger\;{\bf u}}_{\text{\tiny MJD}}\pi(s,{\bf x}),{\mathrm{p}}(s,{\bf x})\bigg{>},$  (14) 
+ where $\pi:[0,T]\times\mathbb{R}^{n_{x}}\rightarrow\mathbb{R}$ is called the IDMP costate function, $\ell$ is the running cost function and ${\mathrm{p}}$ is the probability density function representing the MJD process ( 1 ).
+
+( Infinite Dimensional Minimum Principle )  Consider the Markov Jump Diffusion Process in ( 1 ) such that assumptions (S1), (S2), (S3), (S4), (S5), (S6) in section 2.1 are true. We assume that conditions (T1) and (T2) stated in the theorem 1 hold true. and that the running cost $\ell$ is once continuously differentiable w.r.t. ${\bf u}$ . Furthermore we assume that there exists a function $\pi$ called the IDMP costate function such that the Hamiltonian functional for the infinite dimensional MP, ${\cal H}\big{(}s;{\bf u}(s),{\mathrm{p}}(s,{\bf x}),\pi(s,{\bf x})\big{)}$ , exists for this choice and is Frechet differentiable w.r.t. ${\bf u}$ . If the IDMP costate function $\pi$ satisfies conditions (T3) and (T4) stated in theorem 2 then the necessary conditions for optimality on the domain $[t,T]$ for the infinite dimensional optimal control problem ( 12 ) subject to the dynamics of the forward Chapman-Kolmogorov PIDE ( 13 ), are the Euler-Lagrange equations and terminal condition: 
+ 
+ $\displaystyle{\cal H}_{{\bf u}}(s,{\bf u}(s);{\mathrm{p}}(s,{\bf x}),\pi(s,{\bf x}))=0$  (15) 
+ 
+ $\displaystyle-\frac{\partial\pi(s,{\bf x})}{\partial s}=\ell(s,{\bf x},{\bf u}(s))+\mathcal{F}^{\dagger\;{\bf u}(s)}_{\text{\tiny MJD}}\pi(s,{\bf x})$  (16) 
+ 
+ $\displaystyle\pi(T,{\bf x})=\phi(T,{\bf x}).$  (17) 
+ Further the Frechet derivative of the Hamiltonian functional ${\cal H}$ w.r.t. ${\bf u}$ can be specified as 
+ 
+ $\displaystyle{\cal H}_{\bf u}(s,{\bf u}(s);{\mathrm{p}}(s,{\bf x}),\pi(s,{\bf x}))$ 
+ 
+ $\displaystyle=\bigg{<}\ell_{\bf u}(s,{\bf x},{\bf u})+\sum\limits_{i=1}^{n_{x}}\frac{\partial F_{i}}{\partial{\bf u}}(s,{\bf x},{\bf u}(t))\frac{\partial\pi(s,{\bf x})}{\partial x_{i}}+\frac{1}{2}\sum\limits_{i,j=1}^{n_{x}}\frac{\partial}{\partial{\bf u}}\bigg{(}\frac{\partial^{2}(\Sigma(s,{\bf x},{\bf u}(s))_{ij}\pi(s,{\bf x}))}{\partial x_{i}\partial x_{j}}\bigg{)},{\mathrm{p}}(s,{\bf x})\bigg{>}.$  (18) 
+
+
+Slight abuse of notation is employed in this proof by neglecting to write function arguments for brevity. In the spirit of applying the infinite dimensional minimum principle we append the dynamics into the cost by introducing the Lagrange multiplier or IDMP costate. We write the auxiliary cost functional 
+ 
+ $\displaystyle J^{\star}\left(t;{\mathrm{p}},{\bf u}\right)=\bigg{<}\phi(T,{\bf x}),{\mathrm{p}}(T,{\bf x})\bigg{>}+\int\limits_{t}^{T}\;\bigg{[}\bigg{<}\ell,{\mathrm{p}}\bigg{>}+\bigg{<}\pi,\bigg{(}\mathcal{F}^{{\bf u}}_{\text{\tiny MJD}}{\mathrm{p}}-\frac{\partial{\mathrm{p}}}{\partial s}\bigg{)}\bigg{>}\bigg{]}\;{\mathrm{d}}s$ 
+ 
+ $\displaystyle=$ $\displaystyle\bigg{<}\phi(T,{\bf x}),{\mathrm{p}}(T,{\bf x})\bigg{>}+\int\limits_{t}^{T}\bigg{[}\;\bigg{<}\ell,{\mathrm{p}}\bigg{>}+\bigg{<}{\mathrm{p}},\mathcal{F}^{\tiny\dagger\;{\bf u}}_{\text{\tiny MJD}}\pi\bigg{>}-\bigg{<}\pi,\frac{\partial{\mathrm{p}}}{\partial s}\bigg{>}\bigg{]}\;{\mathrm{d}}s,$  (19) 
+ since $\mathcal{F}^{\dagger\;{\bf u}}_{\text{\tiny MJD}}(\cdot)$ satisfies $\big{<}\pi,\mathcal{F}^{\bf u}_{\text{\tiny MJD}}{\mathrm{p}}\big{>}=\big{<}{\mathrm{p}},\mathcal{F}^{\dagger\;{\bf u}}_{\text{\tiny MJD}}\pi\big{>}$ since necessary conditions for theorem 2 are assumed to be true here. We then have 
+ 
+ $\displaystyle J^{\star}\left(t;{\mathrm{p}},{\bf u}\right)$ $\displaystyle=\bigg{<}\phi(T,{\bf x}),{\mathrm{p}}(T,{\bf x})\bigg{>}+\int\limits_{t}^{T}\bigg{[}\bigg{<}\ell+\mathcal{F}^{\dagger\;{\bf u}}_{\text{\tiny MJD}}\pi,{\mathrm{p}}\bigg{>}-\bigg{<}\pi,\frac{\partial{\mathrm{p}}}{\partial s}\bigg{>}\bigg{]}{\mathrm{d}}s$ 
+ 
+ $\displaystyle=\bigg{<}\phi(T,{\bf x}),{\mathrm{p}}(T,{\bf x})\bigg{>}+\int\limits_{t}^{T}\bigg{[}{\cal H}(s,{\bf u};{\mathrm{p}},\pi)-\bigg{<}\pi,\frac{\partial{\mathrm{p}}}{\partial s}\bigg{>}\bigg{]}{\mathrm{d}}s,$  (20) 
+ from the definition of Hamiltonian for IDMP ( 14 ). As the Hamiltonian functional is Frechet differentiable, 
+ 
+ $\displaystyle J^{\star}\left(t;{\mathrm{p}}+\delta{\mathrm{p}},{\bf u}+\delta{\bf u}\right)=\bigg{<}\phi(T,{\bf x}),{\mathrm{p}}(T,{\bf x})+\delta{\mathrm{p}}(T,{\bf x})\bigg{>}$ 
+ 
+ $\displaystyle+\int\limits_{t}^{T}\;\bigg{[}\bigg{<}\ell+\mathcal{F}^{\dagger\;{\bf u}}_{\text{\tiny MJD}}\pi+(\ell_{{\bf u}}+(\mathcal{F}^{\dagger\;{\bf u}}_{\text{\tiny MJD}}\pi)_{{\bf u}})^{\mathrm{T}}\delta{\bf u},{\mathrm{p}}+\delta{\mathrm{p}}\bigg{>}-\bigg{<}\pi,\frac{\partial}{\partial s}({\mathrm{p}}+\delta{\mathrm{p}})\bigg{>}\bigg{]}\;{\mathrm{d}}s,$  (21) 
+ on neglecting higher order terms of the variations of ${\mathrm{p}}$ and ${\bf u}$ so that 
+ 
+ $\displaystyle J^{\star}\left(t;{\mathrm{p}}+\delta{\mathrm{p}},{\bf u}+\delta{\bf u}\right)=J^{\star}\left({\mathrm{p}},{\bf u}\right)+\int\limits_{t}^{T}\;\bigg{[}\bigg{<}\ell+\mathcal{F}^{\dagger\;{\bf u}}_{\text{\tiny MJD}}\pi,\delta{\mathrm{p}}\bigg{>}+\bigg{<}\bigg{(}\ell+\mathcal{F}^{\dagger\;{\bf u}}_{\text{\tiny MJD}}\pi\bigg{)}_{{\bf u}}^{\mathrm{T}}\delta{\bf u},{\mathrm{p}}\bigg{>}\bigg{]}\;{\mathrm{d}}s,$  (22) 
+ on neglecting higher order mixed variational terms of ${\mathrm{p}}$ and ${\bf u}$ . Therefore the first order variation of the auxiliary cost functional $J^{\star}$ with respect to the functions ${\mathrm{p}}(s,{\bf x})$ , ${\bf u}(s)$ is given by 
+ 
+ $\displaystyle\delta J^{\star}\left(t;{\mathrm{p}},{\bf u}\right)=\bigg{<}\phi(T,{\bf x}),\delta{\mathrm{p}}(T,{\bf x})\bigg{>}+\int\limits_{t}^{T}\bigg{[}\;\bigg{<}\ell+\mathcal{F}^{\dagger\;{\bf u}}_{\text{\tiny MJD}}\pi,\delta{\mathrm{p}}\bigg{>}$ 
+ 
+ $\displaystyle+\bigg{<}\bigg{(}\ell_{{\bf u}}+(\mathcal{F}^{\dagger\;{\bf u}}_{\text{\tiny MJD}}\pi)_{{\bf u}}\bigg{)}^{\mathrm{T}}\;\delta{\bf u},{\mathrm{p}}\bigg{>}-\bigg{<}\pi,\frac{\partial}{\partial s}(\delta{\mathrm{p}})\bigg{>}\bigg{]}\;{\mathrm{d}}t.$  (23) 
+ Equations $\eqref{Hamiltonian_IDMP}$ , $\eqref{5.8}$ under assumption of Frechet differentiability of the Hamiltonian functional imply 
+ 
+ $\displaystyle\bigg{<}\bigg{(}\ell+\mathcal{F}^{\dagger\;{\bf u}}_{\text{\tiny MJD}}\pi\bigg{)}_{{\bf u}}^{\mathrm{T}}\delta{\bf u},{\mathrm{p}}\bigg{>}$ $\displaystyle=\bigg{<}\bigg{(}\ell+\mathcal{F}^{\dagger\;{\bf u}}_{\text{\tiny MJD}}\bigg{)}_{{\bf u}}^{\mathrm{T}},{\mathrm{p}}\bigg{>}\delta{\bf u}(s)={\cal H}^{{\mathrm{T}}}_{\bf u}(s,{\bf u};{\mathrm{p}},\pi)\;\delta{\bf u}(s).$  (24) 
+ The last term inside the integral in the RHS of $\eqref{5.12}$ can now be integrated by parts over the time $t$ . Changing the order of integration is permitted since conditions of Fubini’s theorem [41] , namely the relevant continuous differentiability conditions are satisfied. Therefore 
+ 
+ $\displaystyle\int\limits_{t}^{T}\int\limits_{\mathbb{R}^{n_{x}}}\pi(s,{\bf x})\frac{\partial\delta{\mathrm{p}}}{\partial t}(s,{\bf x})\;{\mathrm{d}}{\bf x}\;{\mathrm{d}}s=\int\limits_{\mathbb{R}^{n_{x}}}\int\limits_{t}^{T}\pi(s,{\bf x})\frac{\partial\delta{\mathrm{p}}}{\partial s}(s,{\bf x})\;{\mathrm{d}}s\;{\mathrm{d}}{\bf x}$ 
+ 
+ $\displaystyle=\bigg{<}\pi(T,{\bf x}),{\delta{\mathrm{p}}(T,{\bf x})}\bigg{>}-\bigg{<}\pi(t,{\bf x}),{\delta{\mathrm{p}}(t,{\bf x})}\bigg{>}-\int\limits_{t}^{T}\;\bigg{<}\frac{\partial\pi(s,{\bf x})}{\partial s},\delta{\mathrm{p}}(s,{\bf x})\bigg{>}\;{\mathrm{d}}s,$  (25) 
+ where we note that $\delta{\mathrm{p}}(t,{\bf x})$ , $\delta{\mathrm{p}}(T,{\bf x})$ are the values of the first variation functions of ${\mathrm{p}}(s,{\bf x})$ at the fixed time boundaries namely $s=t$ and $s=T$ . Here $\delta{\mathrm{p}}(t,{\bf x})=\delta{\mathrm{p}}(s,{\bf x})\Big{|}_{s=t}-\frac{\partial{\mathrm{p}}}{\partial s}(s,{\bf x})\Big{|}_{s=t}\delta(t)$ and $\delta{\mathrm{p}}(T,{\bf x})=\delta{\mathrm{p}}(s,{\bf x})\Big{|}_{s=T}-\frac{\partial{\mathrm{p}}}{\partial s}(s,{\bf x})\Big{|}_{s=T}\delta(T)$ , where $\delta{\mathrm{p}}(s,{\bf x})|_{s}$ denotes the variation of ${\mathrm{p}}(s,{\bf x})$ at time time $s$ . We also know that the variation of ${\mathrm{p}}$ at $s=t$ is zero or $\delta{\mathrm{p}}|_{s=t}=0$ since the distribution ${\mathrm{p}}$ at the boundary $s=t$ or at the initial instant of time is known to be ${\mathrm{p}}_{0}({\bf x})$ and that $\delta T=0$ since we assume a fixed time boundary. Therefore equations $\eqref{5.12},\eqref{5.13},\eqref{5.14}$ imply 
+ 
+ $\displaystyle\delta J^{\star}\left(t;{\mathrm{p}},{\bf u}\right)=\bigg{<}(\phi(s,{\bf x})\big{|}_{T}-\pi(s,{\bf x})\big{|}_{T}),\delta{\mathrm{p}}(s,{\bf x})|_{T}\bigg{>}$ 
+ 
+ $\displaystyle+\int\limits_{t}^{T}\;\bigg{[}\bigg{<}\ell(s,{\bf x},{\bf u})+\mathcal{F}^{\dagger\;{\bf u}(s)}_{\text{\tiny MJD}}\pi(s,{\bf x})+\frac{\partial}{\partial s}\pi(s,{\bf x}),\delta{\mathrm{p}}(s,{\bf x})\bigg{>}\bigg{]}\;{\mathrm{d}}s$ 
+ 
+ $\displaystyle+\int\limits_{t}^{T}\;{\cal H}^{{\mathrm{T}}}_{\bf u}(s,{\bf u}(s);{\mathrm{p}}(s,{\bf x}),\pi(s,{\bf x}))\delta{\bf u}(s)\;{\mathrm{d}}s,$  (26) 
+ because $\delta{\mathrm{p}}(t,{\bf x})=0$ as explained earlier in comments on equation ( 25 ). The variations $\delta{\mathrm{p}}(s,{\bf x})|_{T}$ , $\delta{\bf u}(s)$ and $\delta{\mathrm{p}}(s,{\bf x})$ which appear in the above equation are arbitrary and are non zero, so that the three terms above are independent of each other. Therefore, by using the Fundamental Lemma of the Calculus of Variations, with the usual mild conditions [42] and equation ( 26 ), we have that $\delta J^{\star}\left(t;{\mathrm{p}},{\bf u}\right)=0$ implies equations ( 15 ) ( 16 ), ( 17 ). These are the conditions for minimizing $J\big{(}t;{\mathrm{p}},{\bf u}\big{)}$ using ${\bf u}$ subject to the governing dynamics of the Kolmogorov Feller PDE. Explicit formulation of ${\cal H}_{\bf u}$ can be obtained due to partial differentiatiability conditions w.r.t. ${\bf u}$ as given by ( 18 ). recalling that ${\mathrm{d}}_{\text{jump}}\pi({\bf x},t)$ does not have explicit dependence on ${\bf u}$ . ∎
+
+Consider the necessary conditions for the solution of the optimal control problem ( 12 ). If there exists an admissible control ${\bf u}^{*}(t)$ and a corresponding IDMP costate function $\pi^{*}(t,{\bf x})$ , such that the Euler-Lagrange equations ( 15 ), ( 16 ), ( 17 ) are satisfied at time $t$ , then they are called an infinite dimensional optimal control policy and the corresponding optimal IDMP costate function at time $t$ . The PDF for ${\mathrm{p}}^{*}(t,{\bf x})$ denotes the the corresponding optimal PDF satisfying the forward Chapman-Kolmogorov PIDE ( 6 ) under the optimal control.
+
+4 Relationship with Dynamic Programming Principle
+
+Under certain conditions, Dynkin’s formula [15] formula for the backward costate PIDE ( 16 ) governing the optimal costate function gives
+
+Applying the iterated expectations property of conditional expectations (details in Section 5 ) we have $\pi^{*}(t,{\bf x})=\mathbb{E}\big{[}\ell(t,{\bf x},{\bf u}_{t}){\mathrm{d}}t+\pi^{*}(t+{\mathrm{d}}t,{\bf x}_{t+{\mathrm{d}}t})\big{|}{\bf x}_{t}={\bf x}\big{]}.$ This expression of the optimal costate indicates a relationship of this function with the SDP principle [1] . We investigate this relationship in the next subsection. It is well known that SDP can be applied to the stochastic problem ( 12 ) only when the initial state is known with probability one. It is natural to then investigate, the relationship between a version of the DPP for non degenerate initial distributions and the IDMP optimality system. This is the topic of subsection 4.3 . For brevity we abuse our notation by curtailing the expression of dependent variables whenever necessary in this section.
+
+We recall the Hailton Jacobi Bellman (HJB) control theory for QMJD processes here. The optimality system stated will be referred to in the next subsection to see its similarity with a form of the costate PIDE. Consider the QMJD process in ( 1 ). The value function is defined as the optimal cost to go at any point of time. We assume that the running and terminal cost functions are chosen such that they lead to a cost which is integrable at all instants of time. The value function may then be written as
+
+We define the HJB Hamiltonian operator for the HJB PIDE corresponding to the QMJD process ( 1 ), when it exists, by
+
+where $v:[0,T]\times\mathbb{R}^{n_{x}}\rightarrow\mathbb{R}$ is the value function and $\ell$ is the running cost function.
+
+Theorem 6.3 (pp 177) in [15] states that if (A1) the decomposition rules (pp 172, Rules 6.1) [15] hold, (A2) there exists a value function $v$ such that $v\in C^{1,2}([0,T]\times\mathbb{R}^{n_{x}})$ , (A3) there exists an optimal control, called the HJB optimal control, given by ${\bf u}_{\text{\tiny HJB}}^{*}(t,{\bf x})=\underset{{\bf u}\in D_{\bf u}}{\operatornamewithlimits{argmin}}\;{\cal H}^{\text{\tiny HJB}}(t,{\bf x},{\bf u},v)\;\text{ for all }(t,{\bf x})\in[0,T]\times\mathbb{R}^{n_{x}},$ then $v$ satisfies HJB equation for QMJD processes for all $(t,{\bf x})\in[0,T]\times\mathbb{R}^{n_{x}}$
+
+Under the optimal control, Euler-Lagrange equations ( 15 ), ( 16 ), can be stated in a concise form ( 34 ), ( 35 ). This result provides the time rate of change of the optimal costate function integrated over the optimal PDF trajectory, assuming that the IDMP optimality conditions are satisfied. We call equation ( 34 ) with terminal condition ( 35 ) as the generalized optimal costate equation. A remark at the end of this section describes the similarities and differences in the governing optimality systems obtained using IDMP and SDP under an additional assumption on problem ( 12 ).
+
+Let ${\bf u}^{*}\in{\cal V}[t,T]$ , $\pi^{*},{\mathrm{p}}^{*}\in C_{c}^{1,2}([t,T]\times\mathbb{R}^{n_{x}})$ be the infinite dimensional optimal control, optimal costate function and the corresponding optimal PDF for the problem ( 12 ). If
+
+there exist unique ${\bf u}^{*}\in{\cal V}[t,T]$ , $\pi^{*}\in C_{c}^{1,2}([t,T]\times\mathbb{R}^{n_{x}})$ satisfying the Euler-Lagrange equations ( 15 ), ( 16 ), ( 17 ) for all $s\in[t,T]\times\mathbb{R}^{n_{x}}$ and ${\mathrm{p}}^{*}\in C_{c}^{1,2}([t,T]\times\mathbb{R}^{n_{x}})$ satisfies ( 6 ) under ${\bf u}^{*}:[t,T]$
+
+${\cal H}(s,{\bf u};{\mathrm{p}},\pi^{*})$ is convex and continuously differentiable w.r.t. ${\bf u}$ on $[t,T]\times D_{\bf u}$
+
+then for all $s\in[t,T]$ $-\left<\frac{\partial\pi^{*}}{\partial s}(s),{\mathrm{p}}^{*}(s)\right>=\underset{{\bf u}\in D_{\bf u}}{\min}{\cal H}(s,{\bf u};{\mathrm{p}}^{*},\pi^{*})=\underset{{\bf u}\in D_{\bf u}}{\min}\big{<}\ell(s,{\bf u})+\mathcal{F}^{\dagger\;{\bf u}}_{\text{\tiny MJD}}\;\pi^{*}(s),{\mathrm{p}}^{*}(s)\big{>}.$
+
+Let ${\bf u}^{*}\in D_{\bf u}$ such that ${\cal H}_{\bf u}(s,{\bf u}^{*};{\mathrm{p}},\pi^{*})=\mathbf{0}$ where $s\in[0,T]$ . Conditions (L1) and (L2) then imply that ${\bf u}^{*}(s)=\underset{{\bf u}\in D_{\bf u}}{\min}{\cal H}(s,{\bf u};{\mathrm{p}}^{*},\pi^{*}),$ so that we may write
+
+Therefore the Euler-Lagrange equations ( 16 ) and ( 37 ) give us
+
+The terminal condition ( 35 ) is true because the optimal costate satisfies the terminal condition ( 17 ). ∎
+
+Remark: It is well known that application of SDP for the SOC problem ( 12 ), is restricted to the case when the initial distribution is specified ${\mathrm{p}}(t,{\bf x})=\delta({\bf x}-{\bf y})$ where ${\bf y}\in\mathbb{R}^{n_{x}}$ . Applying this condition for the generalized optimal costate equation would derive $-\frac{\partial\pi^{*}}{\partial s}(t,{\bf y})=\underset{{\bf u}\in D_{\bf u}}{\min}{\cal H}(t,{\bf u};\delta({\bf x}-{\bf y}),\pi^{*}(t,{\bf x})).$ From the definitions of the HJB Hamiltonian operator ( 30 ) and Hamiltonian functional ( 14 ), it is observed that if ${\mathrm{p}}(t,{\bf x})=\delta({\bf x}-{\bf y})$ then they are related for all ${\bf u},v$ at the initial time instant by Equations ( 40 ), ( 32 ) then imply We can therefore see that the optimal costate PIDE and HJB PIDE are idential at the initial time instant given ${\mathrm{p}}(t,{\bf x})=\delta({\bf x}-{\bf y})$ . However, in general, the equations satisfied by the optimal costate ( 34 ) and value function ( 32 ) are distinct at all other time instants since Equation ( 40 ) is true only at the initial time instant. Observe, additionally, that the terminal conditions ( 35 ), ( 33 ) are not equal because, ${\mathrm{p}}(T)$ is in general, not degenerate. The optimal control generated by IDMP, ${\bf u}^{*}(s)={\operatornamewithlimits{argmin}}_{{\bf u}\in D_{\bf u}}{\cal H}(s,{\bf u};{\mathrm{p}}^{*},\pi^{*})$ , is therefore distinct from the one generated by SDP, ${\bf u}_{\text{\tiny HJB}}^{*}(s,{\bf y})={\operatornamewithlimits{argmin}}_{{\bf u}\in D_{\bf u}}\;{\cal H}^{\text{\tiny pseudo}}(s,{\bf y},{\bf u},v(t,{\bf y}))$ , at all time instants including the initial instant. In addition, we recall that the IDMP control is an open loop control which depends only implicitly on the PDF at any time instant, while the SDP control is explicitly a closed loop control.
+
+Based on Lemma 1 we now quantitatively establish the relationship between the IDMP and a DPP satisfied by the infinite dimensional value function. First we construct the DPP satisfied by such an infinite dimensional version of the value function for PIDE control of QMJD processes. Then we show how the infinite dimensional value function is related to the optimal costate function along the optimal PDF trajectory. A precise expression of this relationship has not been stated clear way in preexisting works, as far as known to the authors. Assuming sufficient smoothness of the costate function and PDF and that IDMP optimality conditions are satisfied, the relationship between IDMP and DPP is stated explicitly in what follows.
+
+We define the infinite dimensional value function at $t\in[0,T)$ for the problem ( 12 ) if it exists and is finite, as $V(t;{\mathrm{p}}(t))=\underset{{\bf u}\in{\cal V}[t,T]}{\min}\;J(t;{\mathrm{p}},{\bf u})$
+
+Let there exist a unique finite valued value function defined in ( 42 ) for the problem ( 12 ) under the dynamics ( 13 ). Then for all $s\geq t$ $V(t;{\mathrm{p}}(t))=\underset{{\bf u}\in{\cal V}[t,T]}{\min}\bigg{\{}\int\limits_{t}^{s}\big{<}\ell(\tau,{\bf u}),{\mathrm{p}}(\tau)\big{>}{\mathrm{d}}\tau+V(s;{\mathrm{p}}(s))\bigg{\}}.$
+
+We have for all $\epsilon>0$ there exists ${\bf u}_{\epsilon}\in{\cal V}[t,T]$ such that
+
+so that the following minimum on the right hand side satisfies the inequality $V(t;{\mathrm{p}}(t))+\epsilon\geq\underset{{\bf u}\in{\cal V}[t,T]}{\min}\bigg{\{}\int\limits_{t}^{s}\big{<}\ell(\tau,{\bf u}),{\mathrm{p}}(\tau)\big{>}{\mathrm{d}}\tau+V(s;{\mathrm{p}})\bigg{\}}.$ Now given $\epsilon>0$ and ${\bf u}_{\epsilon}\in{\cal V}[t,T]$ , we can choose ${\bf u}(\tau)={\bf u}_{\epsilon}(\tau)$ when $\tau\in[t,s]$ such that $V(s;{\mathrm{p}}(s))+\epsilon\geq J(s;{\mathrm{p}},{\bf u}_{\epsilon})$ . From Equation ( 42 ) of Definition 6 it can be seen that for all ${\bf u}_{\epsilon}\in{\cal V}[t,T]$ , $\epsilon>0$ ,
+
+Since this inequality is true for all ${\bf u}_{\epsilon}\in{\cal V}[t,T]$ , we may take the minimum over all such ${\bf u}_{\epsilon}$
+
+where we have replaced the symbol ${\bf u}_{\epsilon}$ with ${\bf u}$ in the last equality. Combining equations ( 46 ), ( 48 ) implies $V(t;{\mathrm{p}}(t))-\epsilon\leq\underset{{\bf u}\in{\cal V}[t,T]}{\min}\bigg{\{}\int\limits_{t}^{s}\big{<}\ell(\tau,{\bf u}),{\mathrm{p}}(\tau)\big{>}{\mathrm{d}}\tau+V(s;{\mathrm{p}})\bigg{\}}\leq V(t;{\mathrm{p}}(t))+\epsilon.$ for all $\epsilon>0$ . Under the limit $\epsilon\rightarrow 0$ the desired result is obtained. ∎
+
+The following theorem quantitatively states the relationship between the infinite dimensional value function and the optimal costate function under the assumption that problem ( 12 ) has a unique solution.
+
+Let ${\bf u}^{*}\in{\cal V}[t,T]$ , $\pi^{*},{\mathrm{p}}^{*}\in C_{c}^{1,2}([t,T]\times\mathbb{R}^{n_{x}})$ be the unique infinite dimensional optimal control, optimal costate function and corresponding PDF for the problem ( 12 ). If (L1) and (L2) are true and
+
+there exists a unique finite valued value function defined in ( 42 ) for the problem ( 12 )
+
+then for all $s\in[t,T]$ $V(s;{\mathrm{p}}^{*}(s))=\big{<}\pi^{*}(s),{\mathrm{p}}^{*}(s)\big{>}.$
+
+Dynkin’s formula for the jump diffusion process ( 1 ) can be applied to $\pi^{*}(s,{\bf x})\in C_{c}^{1,2}([t,T]\times\mathbb{R}^{n_{x}})$ which satisfies ( 16 ), ( 17 ) by following Theorem 7.1, chapter 7 in [15] to obtain $\pi^{*}(s,{\bf x})=\mathbb{E}\left[\int\limits_{s}^{T}\ell(\tau,{\bf x}_{\tau},{\bf u}^{*}(\tau)){\mathrm{d}}\tau+\phi(T,{\bf x}_{T})\big{|}{\bf x}_{s}={\bf x}\right]$ where the expectations are under the optimal PDF governed by ( 13 ) under the control ${\bf u}^{*}(\tau)\in{\cal V}[s,T]$ is ${\mathrm{p}}^{*}(\tau):[s,T]$ . The law of iterated expectations implies for all $t\leq s\leq\hat{s}\leq T$
+
+Using the law of total expectation we have
+
+Due to the fact that the optimal control ${\bf u}^{*}\in{\cal V}[t,T]$ solving the problem ( 12 ) is unique and (T5), we can write the following result from Theorem 4 . Note again that we denote the optimal PDF ${\mathrm{p}}^{*}(\tau):[s,T]$ evolving under the optimal control ${\bf u}^{*}\in{\cal V}[s,T]$ .
+
+Recall the terminal conditions for the value function ( 43 ) and for optimal costate function ( 17 ) implies for all ${\mathrm{p}}(T)$ satisfying the conditions (T1) through (T4) $V(T;{\mathrm{p}}(T))=\big{<}\pi^{*}(T),{\mathrm{p}}(T)\big{>}=\big{<}\phi(T),{\mathrm{p}}(T)\big{>}$ which is true for ${\mathrm{p}}^{*}(T)$ as well. Let us choose $\hat{s}=T$ in equation ( 48 ), ( 53 ). Observing that equations ( 53 ), ( 54 ) are identical and the value function is unique due to (T5), we can prove easily using equation ( 55 ) that $V(s;{\mathrm{p}}^{*}(s))=\big{<}\pi^{*}(s),{\mathrm{p}}^{*}(s)\big{>}$ along the optimal PDF trajectory ${\mathrm{p}}^{*}(s):[s,T]$ under the control ${\bf u}^{*}\in{\cal V}[s,T]$ . ∎
+
+Stated in words, we have proved that the infinite dimensional value function is equal to the $\mathcal{L}^{2}$ product of optimal costate function with the optimal PDF along the optimal trajectory. Note that this relationship was proved using the mechanism of the linear Feynman-Kac lemma, which motivated our investigation.
+
+4.1 Linear Feynman-Kac lemma and the SDP connection
+
+Under certain conditions, Dynkin’s formula [15] formula for the backward costate PIDE ( 16 ) governing the optimal costate function gives 
+ 
+ $\displaystyle\pi^{*}(t,{\bf x})$ $\displaystyle=\mathbb{E}\Big{[}\phi(T,{\bf x}_{T})+\int_{t}^{T}\ell(s,{\bf x}_{s},{\bf u}^{*}(s)){\mathrm{d}}t|{\bf x}_{t}={\bf x}\Big{]}.$  (27) 
+ Applying the iterated expectations property of conditional expectations (details in Section 5 ) we have 
+ 
+ $\pi^{*}(t,{\bf x})=\mathbb{E}\big{[}\ell(t,{\bf x},{\bf u}_{t}){\mathrm{d}}t+\pi^{*}(t+{\mathrm{d}}t,{\bf x}_{t+{\mathrm{d}}t})\big{|}{\bf x}_{t}={\bf x}\big{]}.$  (28) 
+ This expression of the optimal costate indicates a relationship of this function with the SDP principle [1] . We investigate this relationship in the next subsection. It is well known that SDP can be applied to the stochastic problem ( 12 ) only when the initial state is known with probability one. It is natural to then investigate, the relationship between a version of the DPP for non degenerate initial distributions and the IDMP optimality system. This is the topic of subsection 4.3 . For brevity we abuse our notation by curtailing the expression of dependent variables whenever necessary in this section.
+
+4.2 Connection between IDMP and SDP
+
+We recall the Hailton Jacobi Bellman (HJB) control theory for QMJD processes here. The optimality system stated will be referred to in the next subsection to see its similarity with a form of the costate PIDE. Consider the QMJD process in ( 1 ). The value function is defined as the optimal cost to go at any point of time. We assume that the running and terminal cost functions are chosen such that they lead to a cost which is integrable at all instants of time. The value function may then be written as
+
+We define the HJB Hamiltonian operator for the HJB PIDE corresponding to the QMJD process ( 1 ), when it exists, by
+
+where $v:[0,T]\times\mathbb{R}^{n_{x}}\rightarrow\mathbb{R}$ is the value function and $\ell$ is the running cost function.
+
+Theorem 6.3 (pp 177) in [15] states that if (A1) the decomposition rules (pp 172, Rules 6.1) [15] hold, (A2) there exists a value function $v$ such that $v\in C^{1,2}([0,T]\times\mathbb{R}^{n_{x}})$ , (A3) there exists an optimal control, called the HJB optimal control, given by ${\bf u}_{\text{\tiny HJB}}^{*}(t,{\bf x})=\underset{{\bf u}\in D_{\bf u}}{\operatornamewithlimits{argmin}}\;{\cal H}^{\text{\tiny HJB}}(t,{\bf x},{\bf u},v)\;\text{ for all }(t,{\bf x})\in[0,T]\times\mathbb{R}^{n_{x}},$ then $v$ satisfies HJB equation for QMJD processes for all $(t,{\bf x})\in[0,T]\times\mathbb{R}^{n_{x}}$
+
+Under the optimal control, Euler-Lagrange equations ( 15 ), ( 16 ), can be stated in a concise form ( 34 ), ( 35 ). This result provides the time rate of change of the optimal costate function integrated over the optimal PDF trajectory, assuming that the IDMP optimality conditions are satisfied. We call equation ( 34 ) with terminal condition ( 35 ) as the generalized optimal costate equation. A remark at the end of this section describes the similarities and differences in the governing optimality systems obtained using IDMP and SDP under an additional assumption on problem ( 12 ).
+
+Let ${\bf u}^{*}\in{\cal V}[t,T]$ , $\pi^{*},{\mathrm{p}}^{*}\in C_{c}^{1,2}([t,T]\times\mathbb{R}^{n_{x}})$ be the infinite dimensional optimal control, optimal costate function and the corresponding optimal PDF for the problem ( 12 ). If
+
+there exist unique ${\bf u}^{*}\in{\cal V}[t,T]$ , $\pi^{*}\in C_{c}^{1,2}([t,T]\times\mathbb{R}^{n_{x}})$ satisfying the Euler-Lagrange equations ( 15 ), ( 16 ), ( 17 ) for all $s\in[t,T]\times\mathbb{R}^{n_{x}}$ and ${\mathrm{p}}^{*}\in C_{c}^{1,2}([t,T]\times\mathbb{R}^{n_{x}})$ satisfies ( 6 ) under ${\bf u}^{*}:[t,T]$
+
+${\cal H}(s,{\bf u};{\mathrm{p}},\pi^{*})$ is convex and continuously differentiable w.r.t. ${\bf u}$ on $[t,T]\times D_{\bf u}$
+
+then for all $s\in[t,T]$ $-\left<\frac{\partial\pi^{*}}{\partial s}(s),{\mathrm{p}}^{*}(s)\right>=\underset{{\bf u}\in D_{\bf u}}{\min}{\cal H}(s,{\bf u};{\mathrm{p}}^{*},\pi^{*})=\underset{{\bf u}\in D_{\bf u}}{\min}\big{<}\ell(s,{\bf u})+\mathcal{F}^{\dagger\;{\bf u}}_{\text{\tiny MJD}}\;\pi^{*}(s),{\mathrm{p}}^{*}(s)\big{>}.$
+
+Let ${\bf u}^{*}\in D_{\bf u}$ such that ${\cal H}_{\bf u}(s,{\bf u}^{*};{\mathrm{p}},\pi^{*})=\mathbf{0}$ where $s\in[0,T]$ . Conditions (L1) and (L2) then imply that ${\bf u}^{*}(s)=\underset{{\bf u}\in D_{\bf u}}{\min}{\cal H}(s,{\bf u};{\mathrm{p}}^{*},\pi^{*}),$ so that we may write
+
+Therefore the Euler-Lagrange equations ( 16 ) and ( 37 ) give us
+
+The terminal condition ( 35 ) is true because the optimal costate satisfies the terminal condition ( 17 ). ∎
+
+Remark: It is well known that application of SDP for the SOC problem ( 12 ), is restricted to the case when the initial distribution is specified ${\mathrm{p}}(t,{\bf x})=\delta({\bf x}-{\bf y})$ where ${\bf y}\in\mathbb{R}^{n_{x}}$ . Applying this condition for the generalized optimal costate equation would derive $-\frac{\partial\pi^{*}}{\partial s}(t,{\bf y})=\underset{{\bf u}\in D_{\bf u}}{\min}{\cal H}(t,{\bf u};\delta({\bf x}-{\bf y}),\pi^{*}(t,{\bf x})).$ From the definitions of the HJB Hamiltonian operator ( 30 ) and Hamiltonian functional ( 14 ), it is observed that if ${\mathrm{p}}(t,{\bf x})=\delta({\bf x}-{\bf y})$ then they are related for all ${\bf u},v$ at the initial time instant by Equations ( 40 ), ( 32 ) then imply We can therefore see that the optimal costate PIDE and HJB PIDE are idential at the initial time instant given ${\mathrm{p}}(t,{\bf x})=\delta({\bf x}-{\bf y})$ . However, in general, the equations satisfied by the optimal costate ( 34 ) and value function ( 32 ) are distinct at all other time instants since Equation ( 40 ) is true only at the initial time instant. Observe, additionally, that the terminal conditions ( 35 ), ( 33 ) are not equal because, ${\mathrm{p}}(T)$ is in general, not degenerate. The optimal control generated by IDMP, ${\bf u}^{*}(s)={\operatornamewithlimits{argmin}}_{{\bf u}\in D_{\bf u}}{\cal H}(s,{\bf u};{\mathrm{p}}^{*},\pi^{*})$ , is therefore distinct from the one generated by SDP, ${\bf u}_{\text{\tiny HJB}}^{*}(s,{\bf y})={\operatornamewithlimits{argmin}}_{{\bf u}\in D_{\bf u}}\;{\cal H}^{\text{\tiny pseudo}}(s,{\bf y},{\bf u},v(t,{\bf y}))$ , at all time instants including the initial instant. In addition, we recall that the IDMP control is an open loop control which depends only implicitly on the PDF at any time instant, while the SDP control is explicitly a closed loop control.
+
+4.2.1 HJB theory for control of Q-marked Jump Diffusion SDEs
+
+We recall the Hailton Jacobi Bellman (HJB) control theory for QMJD processes here. The optimality system stated will be referred to in the next subsection to see its similarity with a form of the costate PIDE. Consider the QMJD process in ( 1 ). The value function is defined as the optimal cost to go at any point of time. We assume that the running and terminal cost functions are chosen such that they lead to a cost which is integrable at all instants of time. The value function may then be written as 
+ 
+ $\displaystyle v(t,{\bf x})=\underset{{\bf u}}{\min}\;\mathbb{E}\left[\phi(T,{\bf x}_{T})+\int\limits_{t}^{T}\ell(t,{\bf x}_{t},{\bf u}_{t})\;{\mathrm{d}}t\Bigg{|}{\bf x}_{t}={\bf x}\right].$  (29) 
+
+
+We define the HJB Hamiltonian operator for the HJB PIDE corresponding to the QMJD process ( 1 ), when it exists, by 
+ 
+ $\displaystyle{\cal H}^{{\text{\tiny HJB}}}\big{(}t,{\bf x},{\bf u},v(t,{\bf x}))\triangleq$ $\displaystyle\;\ell(t,{\bf x},{\bf u})+v_{\bf x}^{\mathrm{T}}(t,{\bf x}){\bf F}(t,{\bf x},{\bf u})+\frac{1}{2}{\mathrm{tr}}({\mbox{\boldmath$\Sigma$}}v_{{\bf x}{\bf x}})(t,{\bf x},{\bf u})+{\mathrm{d}}_{\text{jump}}v(t,{\bf x})$  (30) 
+ where $v:[0,T]\times\mathbb{R}^{n_{x}}\rightarrow\mathbb{R}$ is the value function and $\ell$ is the running cost function.
+
+Theorem 6.3 (pp 177) in [15] states that if (A1) the decomposition rules (pp 172, Rules 6.1) [15] hold, (A2) there exists a value function $v$ such that $v\in C^{1,2}([0,T]\times\mathbb{R}^{n_{x}})$ , (A3) there exists an optimal control, called the HJB optimal control, given by 
+ 
+ ${\bf u}_{\text{\tiny HJB}}^{*}(t,{\bf x})=\underset{{\bf u}\in D_{\bf u}}{\operatornamewithlimits{argmin}}\;{\cal H}^{\text{\tiny HJB}}(t,{\bf x},{\bf u},v)\;\text{ for all }(t,{\bf x})\in[0,T]\times\mathbb{R}^{n_{x}},$  (31) 
+ then $v$ satisfies HJB equation for QMJD processes for all $(t,{\bf x})\in[0,T]\times\mathbb{R}^{n_{x}}$ 
+ 
+ $\displaystyle-v_{t}(t,{\bf x})=$ $\displaystyle\underset{{\bf u}\in D_{\bf u}}{\min}\;{\cal H}^{\text{\tiny\text{HJB}}}(t,{\bf x},{\bf u},v(t,{\bf x}))$  (32) 
+ 
+ $\displaystyle v(T,{\bf x})=$ $\displaystyle\phi(T,{\bf x}).$  (33) 
+
+
+4.2.2 Generalized Optimal Costate equation and Relationship with HJB PDE
+
+Under the optimal control, Euler-Lagrange equations ( 15 ), ( 16 ), can be stated in a concise form ( 34 ), ( 35 ). This result provides the time rate of change of the optimal costate function integrated over the optimal PDF trajectory, assuming that the IDMP optimality conditions are satisfied. We call equation ( 34 ) with terminal condition ( 35 ) as the generalized optimal costate equation. A remark at the end of this section describes the similarities and differences in the governing optimality systems obtained using IDMP and SDP under an additional assumption on problem ( 12 ).
+
+Let ${\bf u}^{*}\in{\cal V}[t,T]$ , $\pi^{*},{\mathrm{p}}^{*}\in C_{c}^{1,2}([t,T]\times\mathbb{R}^{n_{x}})$ be the infinite dimensional optimal control, optimal costate function and the corresponding optimal PDF for the problem ( 12 ). If (L1) there exist unique ${\bf u}^{*}\in{\cal V}[t,T]$ , $\pi^{*}\in C_{c}^{1,2}([t,T]\times\mathbb{R}^{n_{x}})$ satisfying the Euler-Lagrange equations ( 15 ), ( 16 ), ( 17 ) for all $s\in[t,T]\times\mathbb{R}^{n_{x}}$ and ${\mathrm{p}}^{*}\in C_{c}^{1,2}([t,T]\times\mathbb{R}^{n_{x}})$ satisfies ( 6 ) under ${\bf u}^{*}:[t,T]$ (L2) ${\cal H}(s,{\bf u};{\mathrm{p}},\pi^{*})$ is convex and continuously differentiable w.r.t. ${\bf u}$ on $[t,T]\times D_{\bf u}$ then for all $s\in[t,T]$ 
+ 
+ $-\left<\frac{\partial\pi^{*}}{\partial s}(s),{\mathrm{p}}^{*}(s)\right>=\underset{{\bf u}\in D_{\bf u}}{\min}{\cal H}(s,{\bf u};{\mathrm{p}}^{*},\pi^{*})=\underset{{\bf u}\in D_{\bf u}}{\min}\big{<}\ell(s,{\bf u})+\mathcal{F}^{\dagger\;{\bf u}}_{\text{\tiny MJD}}\;\pi^{*}(s),{\mathrm{p}}^{*}(s)\big{>}.$  (34) 
+ 
+ 
+ $\text{and}\;\big{<}\pi^{*}(T),{\mathrm{p}}^{*}(T)\big{>}=\big{<}\phi(T),{\mathrm{p}}^{*}(T)\big{>}.$  (35) 
+
+
+Let ${\bf u}^{*}\in D_{\bf u}$ such that ${\cal H}_{\bf u}(s,{\bf u}^{*};{\mathrm{p}},\pi^{*})=\mathbf{0}$ where $s\in[0,T]$ . Conditions (L1) and (L2) then imply that 
+ 
+ ${\bf u}^{*}(s)=\underset{{\bf u}\in D_{\bf u}}{\min}{\cal H}(s,{\bf u};{\mathrm{p}}^{*},\pi^{*}),$  (36) 
+ so that we may write 
+ 
+ $\displaystyle{\cal H}(s,{\bf u}^{*};{\mathrm{p}}^{*},\pi^{*})=\underset{{\bf u}\in D_{\bf u}}{\min}{\cal H}(s,{\bf u};{\mathrm{p}}^{*},\pi^{*})$ 
+ 
+ $\displaystyle=\underset{{\bf u}\in D_{\bf u}}{\min}\big{<}\ell(s,{\bf u})+\mathcal{F}^{\dagger\;{\bf u}}_{\text{\tiny MJD}}\;\pi^{*}(s),{\mathrm{p}}(s)\big{>}=\big{<}\ell(s,{\bf u}^{*})+\mathcal{F}^{\dagger\;{\bf u}^{*}}_{\text{\tiny MJD}}\;\pi^{*}(s),{\mathrm{p}}^{*}(s)\big{>}.$  (37) 
+ Therefore the Euler-Lagrange equations ( 16 ) and ( 37 ) give us 
+ 
+ $\displaystyle-\left<\frac{\partial\pi^{*}}{\partial s}(s),{\mathrm{p}}^{*}(s)\right>=\big{<}\ell(s,{\bf u}^{*})+\mathcal{F}^{\dagger\;{\bf u}^{*}}_{\text{\tiny MJD}}\;\pi^{*}(s),{\mathrm{p}}^{*}(s)\big{>}$ 
+ 
+ $\displaystyle=\underset{{\bf u}\in D_{\bf u}}{\min}{\cal H}(s,{\bf u};{\mathrm{p}}^{*},\pi^{*})=\underset{{\bf u}\in D_{\bf u}}{\min}\big{<}\ell(s,{\bf u})+\mathcal{F}^{\dagger\;{\bf u}}_{\text{\tiny MJD}}\;\pi^{*}(s),{\mathrm{p}}^{*}(s)\big{>}.$  (38) 
+ The terminal condition ( 35 ) is true because the optimal costate satisfies the terminal condition ( 17 ). ∎
+
+Remark: It is well known that application of SDP for the SOC problem ( 12 ), is restricted to the case when the initial distribution is specified ${\mathrm{p}}(t,{\bf x})=\delta({\bf x}-{\bf y})$ where ${\bf y}\in\mathbb{R}^{n_{x}}$ . Applying this condition for the generalized optimal costate equation would derive 
+ 
+ $-\frac{\partial\pi^{*}}{\partial s}(t,{\bf y})=\underset{{\bf u}\in D_{\bf u}}{\min}{\cal H}(t,{\bf u};\delta({\bf x}-{\bf y}),\pi^{*}(t,{\bf x})).$  (39) 
+ From the definitions of the HJB Hamiltonian operator ( 30 ) and Hamiltonian functional ( 14 ), it is observed that if ${\mathrm{p}}(t,{\bf x})=\delta({\bf x}-{\bf y})$ then they are related for all ${\bf u},v$ at the initial time instant by 
+ 
+ ${\cal H}(t,{\bf u};\delta(t,{\bf x}-{\bf y}),v)={\cal H}^{\text{\tiny HJB}}(t,{\bf y},{\bf u},v(t,{\bf y})).$  (40) 
+ Equations ( 40 ), ( 32 ) then imply 
+ 
+ $-\frac{\partial v}{\partial s}(t,{\bf y})=\underset{{\bf u}\in D_{\bf u}}{\min}{\cal H}(t,{\bf u};{\mathrm{p}}(t,{\bf x}),v).$  (41) 
+ We can therefore see that the optimal costate PIDE and HJB PIDE are idential at the initial time instant given ${\mathrm{p}}(t,{\bf x})=\delta({\bf x}-{\bf y})$ . However, in general, the equations satisfied by the optimal costate ( 34 ) and value function ( 32 ) are distinct at all other time instants since Equation ( 40 ) is true only at the initial time instant. Observe, additionally, that the terminal conditions ( 35 ), ( 33 ) are not equal because, ${\mathrm{p}}(T)$ is in general, not degenerate. The optimal control generated by IDMP, ${\bf u}^{*}(s)={\operatornamewithlimits{argmin}}_{{\bf u}\in D_{\bf u}}{\cal H}(s,{\bf u};{\mathrm{p}}^{*},\pi^{*})$ , is therefore distinct from the one generated by SDP, ${\bf u}_{\text{\tiny HJB}}^{*}(s,{\bf y})={\operatornamewithlimits{argmin}}_{{\bf u}\in D_{\bf u}}\;{\cal H}^{\text{\tiny pseudo}}(s,{\bf y},{\bf u},v(t,{\bf y}))$ , at all time instants including the initial instant. In addition, we recall that the IDMP control is an open loop control which depends only implicitly on the PDF at any time instant, while the SDP control is explicitly a closed loop control.
+
+4.3 DPP for the Infinite Dimensional Value function and Relationship with IDMP
+
+Based on Lemma 1 we now quantitatively establish the relationship between the IDMP and a DPP satisfied by the infinite dimensional value function. First we construct the DPP satisfied by such an infinite dimensional version of the value function for PIDE control of QMJD processes. Then we show how the infinite dimensional value function is related to the optimal costate function along the optimal PDF trajectory. A precise expression of this relationship has not been stated clear way in preexisting works, as far as known to the authors. Assuming sufficient smoothness of the costate function and PDF and that IDMP optimality conditions are satisfied, the relationship between IDMP and DPP is stated explicitly in what follows.
+
+We define the infinite dimensional value function at $t\in[0,T)$ for the problem ( 12 ) if it exists and is finite, as 
+ 
+ $V(t;{\mathrm{p}}(t))=\underset{{\bf u}\in{\cal V}[t,T]}{\min}\;J(t;{\mathrm{p}},{\bf u})$  (42) 
+ 
+ 
+ $\text{and}\;V(T;{\mathrm{p}}(T))=\big{<}\phi(T),{\mathrm{p}}(T)\big{>}.$  (43) 
+
+
+Let there exist a unique finite valued value function defined in ( 42 ) for the problem ( 12 ) under the dynamics ( 13 ). Then for all $s\geq t$ 
+ 
+ $V(t;{\mathrm{p}}(t))=\underset{{\bf u}\in{\cal V}[t,T]}{\min}\bigg{\{}\int\limits_{t}^{s}\big{<}\ell(\tau,{\bf u}),{\mathrm{p}}(\tau)\big{>}{\mathrm{d}}\tau+V(s;{\mathrm{p}}(s))\bigg{\}}.$  (44) 
+
+
+We have for all $\epsilon>0$ there exists ${\bf u}_{\epsilon}\in{\cal V}[t,T]$ such that 
+ 
+ $\displaystyle V(t;{\mathrm{p}}(t))+\epsilon\geq J(t;{\mathrm{p}},{\bf u}_{\epsilon})=\int\limits_{t}^{s}\big{<}\ell(\tau,{\bf u}_{\epsilon}),{\mathrm{p}}(\tau)\big{>}{\mathrm{d}}\tau+J(s;{\mathrm{p}},{\bf u}_{\epsilon})\geq\int\limits_{t}^{s}\big{<}\ell(\tau,{\bf u}_{\epsilon}),{\mathrm{p}}(\tau)\big{>}{\mathrm{d}}\tau+V(s;{\mathrm{p}})$  (45) 
+ so that the following minimum on the right hand side satisfies the inequality 
+ 
+ $V(t;{\mathrm{p}}(t))+\epsilon\geq\underset{{\bf u}\in{\cal V}[t,T]}{\min}\bigg{\{}\int\limits_{t}^{s}\big{<}\ell(\tau,{\bf u}),{\mathrm{p}}(\tau)\big{>}{\mathrm{d}}\tau+V(s;{\mathrm{p}})\bigg{\}}.$  (46) 
+ Now given $\epsilon>0$ and ${\bf u}_{\epsilon}\in{\cal V}[t,T]$ , we can choose ${\bf u}(\tau)={\bf u}_{\epsilon}(\tau)$ when $\tau\in[t,s]$ such that $V(s;{\mathrm{p}}(s))+\epsilon\geq J(s;{\mathrm{p}},{\bf u}_{\epsilon})$ . From Equation ( 42 ) of Definition 6 it can be seen that for all ${\bf u}_{\epsilon}\in{\cal V}[t,T]$ , $\epsilon>0$ , 
+ 
+ $\displaystyle V(t;{\mathrm{p}}(t))+\epsilon\leq J(t;{\mathrm{p}},{\bf u})=\int\limits_{t}^{s}\big{<}\ell(\tau,{\bf u}),{\mathrm{p}}(\tau)\big{>}{\mathrm{d}}\tau+J(s;{\bf u},{\mathrm{p}})\leq\int\limits_{t}^{s}\big{<}\ell(\tau,{\bf u}_{\epsilon}),{\mathrm{p}}(\tau)\big{>}{\mathrm{d}}\tau+V(s;{\mathrm{p}}(s))+\epsilon.$  (47) 
+ Since this inequality is true for all ${\bf u}_{\epsilon}\in{\cal V}[t,T]$ , we may take the minimum over all such ${\bf u}_{\epsilon}$ 
+ 
+ $\displaystyle V(t;{\mathrm{p}}(t))\leq$ $\displaystyle J(t;{\bf u},{\mathrm{p}})\leq\underset{{\bf u}_{\epsilon}\in{\cal V}[t,T]}{\min}\bigg{\{}\int\limits_{t}^{s}\big{<}\ell(\tau,{\bf u}_{\epsilon}),{\mathrm{p}}(\tau)\big{>}{\mathrm{d}}\tau+V(s;{\mathrm{p}})\bigg{\}}$ 
+ 
+ $\displaystyle\leq$ $\displaystyle\underset{{\bf u}\in{\cal V}[t,T]}{\min}\bigg{\{}\int\limits_{t}^{s}\big{<}\ell(\tau,{\bf u}),{\mathrm{p}}(\tau)\big{>}{\mathrm{d}}\tau+V(s;{\mathrm{p}})\bigg{\}}+\epsilon.$  (48) 
+ where we have replaced the symbol ${\bf u}_{\epsilon}$ with ${\bf u}$ in the last equality. Combining equations ( 46 ), ( 48 ) implies 
+ 
+ $V(t;{\mathrm{p}}(t))-\epsilon\leq\underset{{\bf u}\in{\cal V}[t,T]}{\min}\bigg{\{}\int\limits_{t}^{s}\big{<}\ell(\tau,{\bf u}),{\mathrm{p}}(\tau)\big{>}{\mathrm{d}}\tau+V(s;{\mathrm{p}})\bigg{\}}\leq V(t;{\mathrm{p}}(t))+\epsilon.$  (49) 
+ for all $\epsilon>0$ . Under the limit $\epsilon\rightarrow 0$ the desired result is obtained. ∎
+
+The following theorem quantitatively states the relationship between the infinite dimensional value function and the optimal costate function under the assumption that problem ( 12 ) has a unique solution.
+
+Let ${\bf u}^{*}\in{\cal V}[t,T]$ , $\pi^{*},{\mathrm{p}}^{*}\in C_{c}^{1,2}([t,T]\times\mathbb{R}^{n_{x}})$ be the unique infinite dimensional optimal control, optimal costate function and corresponding PDF for the problem ( 12 ). If (L1) and (L2) are true and (T5) there exists a unique finite valued value function defined in ( 42 ) for the problem ( 12 ) then for all $s\in[t,T]$ 
+ 
+ $V(s;{\mathrm{p}}^{*}(s))=\big{<}\pi^{*}(s),{\mathrm{p}}^{*}(s)\big{>}.$  (50) 
+
+
+Dynkin’s formula for the jump diffusion process ( 1 ) can be applied to $\pi^{*}(s,{\bf x})\in C_{c}^{1,2}([t,T]\times\mathbb{R}^{n_{x}})$ which satisfies ( 16 ), ( 17 ) by following Theorem 7.1, chapter 7 in [15] to obtain 
+ 
+ $\pi^{*}(s,{\bf x})=\mathbb{E}\left[\int\limits_{s}^{T}\ell(\tau,{\bf x}_{\tau},{\bf u}^{*}(\tau)){\mathrm{d}}\tau+\phi(T,{\bf x}_{T})\big{|}{\bf x}_{s}={\bf x}\right]$  (51) 
+ where the expectations are under the optimal PDF governed by ( 13 ) under the control ${\bf u}^{*}(\tau)\in{\cal V}[s,T]$ is ${\mathrm{p}}^{*}(\tau):[s,T]$ . The law of iterated expectations implies for all $t\leq s\leq\hat{s}\leq T$ 
+ 
+ $\displaystyle\pi^{*}(s,{\bf x})=$ $\displaystyle\;\mathbb{E}\bigg{[}\;\mathbb{E}\bigg{[}\int\limits_{s}^{\hat{s}}\ell(\tau,{\bf x}_{\tau},{\bf u}^{*}(\tau)){\mathrm{d}}\tau+\int\limits_{\hat{s}}^{T}\ell(\tau,{\bf x}_{\tau},{\bf u}^{*}(\tau)){\mathrm{d}}\tau+\phi(T,{\bf x}_{T})\bigg{|}{\bf x}_{\hat{s}}\bigg{]}\;\bigg{|}{\bf x}_{s}={\bf x}\bigg{]}$ 
+ 
+ $\displaystyle=$ $\displaystyle\;\mathbb{E}\bigg{[}\int\limits_{s}^{\hat{s}}\ell(\tau,{\bf x}_{\tau},{\bf u}^{*}(\tau)){\mathrm{d}}\tau+\mathbb{E}\bigg{[}\int\limits_{\hat{s}}^{T}\ell(\tau,{\bf x}_{\tau},{\bf u}^{*}(\tau)){\mathrm{d}}\tau+\phi(T,{\bf x}_{T})\bigg{|}{\bf x}_{\hat{s}}\bigg{]}\;\bigg{|}{\bf x}_{s}={\bf x}\bigg{]}$ 
+ 
+ $\displaystyle=$ $\displaystyle\;\mathbb{E}\bigg{[}\int\limits_{s}^{\hat{s}}\ell(\tau,{\bf x}_{\tau},{\bf u}^{*}(\tau)){\mathrm{d}}\tau+\pi^{*}(\hat{s},{\bf x}_{\hat{s}})\bigg{|}{\bf x}_{s}={\bf x}\bigg{]}.$  (52) 
+ Using the law of total expectation we have 
+ 
+ $\displaystyle\big{<}\pi^{*}(s),{\mathrm{p}}^{*}(s)\big{>}=\mathbb{E}\left[\;\int\limits_{s}^{\hat{s}}\mathbb{E}\big{[}\ell(\tau,{\bf x}_{\tau},{\bf u}^{*}(\tau)){\mathrm{d}}\tau+\pi^{*}(\hat{s},{\bf x}_{\hat{s}})\big{|}{\bf x}_{s}={\bf x}\big{]}\right]$ 
+ 
+ $\displaystyle=\mathbb{E}\bigg{[}\int\limits_{s}^{\hat{s}}\ell(\tau,{\bf x}_{\tau},{\bf u}^{*}(\tau)){\mathrm{d}}\tau\bigg{]}+\mathbb{E}\bigg{[}\pi^{*}(\hat{s},{\bf x}_{\hat{s}})\bigg{]}=\int\limits_{s}^{\hat{s}}\big{<}\ell(\tau,{\bf u}^{*}(\tau)),{\mathrm{p}}({\tau}))\big{>}{\mathrm{d}}\tau+\big{<}\pi^{*}(\hat{s}),{\mathrm{p}}({\hat{s}})\big{>}.$  (53) 
+ Due to the fact that the optimal control ${\bf u}^{*}\in{\cal V}[t,T]$ solving the problem ( 12 ) is unique and (T5), we can write the following result from Theorem 4 . Note again that we denote the optimal PDF ${\mathrm{p}}^{*}(\tau):[s,T]$ evolving under the optimal control ${\bf u}^{*}\in{\cal V}[s,T]$ . 
+ 
+ $\displaystyle V(s;{\mathrm{p}}(s))=$ $\displaystyle\underset{{\bf u}\in{\cal V}[t,T]}{\min}\left\{\int\limits_{s}^{\hat{s}}\big{<}\ell(\tau,{\bf u}),{\mathrm{p}}(\tau)\big{>}{\mathrm{d}}\tau+V(\hat{s};{\mathrm{p}}(\hat{s}))\right\}=\int\limits_{s}^{\hat{s}}\big{<}\ell(\tau,{\bf u}^{*}),{\mathrm{p}}^{*}(\tau)\big{>}{\mathrm{d}}\tau+V(\hat{s};{\mathrm{p}}^{*}(\hat{s}))$  (54) 
+ Recall the terminal conditions for the value function ( 43 ) and for optimal costate function ( 17 ) implies for all ${\mathrm{p}}(T)$ satisfying the conditions (T1) through (T4) 
+ 
+ $V(T;{\mathrm{p}}(T))=\big{<}\pi^{*}(T),{\mathrm{p}}(T)\big{>}=\big{<}\phi(T),{\mathrm{p}}(T)\big{>}$  (55) 
+ which is true for ${\mathrm{p}}^{*}(T)$ as well. Let us choose $\hat{s}=T$ in equation ( 48 ), ( 53 ). Observing that equations ( 53 ), ( 54 ) are identical and the value function is unique due to (T5), we can prove easily using equation ( 55 ) that $V(s;{\mathrm{p}}^{*}(s))=\big{<}\pi^{*}(s),{\mathrm{p}}^{*}(s)\big{>}$ along the optimal PDF trajectory ${\mathrm{p}}^{*}(s):[s,T]$ under the control ${\bf u}^{*}\in{\cal V}[s,T]$ . ∎
+
+Stated in words, we have proved that the infinite dimensional value function is equal to the $\mathcal{L}^{2}$ product of optimal costate function with the optimal PDF along the optimal trajectory. Note that this relationship was proved using the mechanism of the linear Feynman-Kac lemma, which motivated our investigation.
+
+5 Sampling based algorithm for PDF Control of QMJD processes
+
+Using the Feynman-Kac formula ( 27 ) directly, to compute the costate or optimal costate by forward sampling would be computationally prohibitive. Direct application would require generating samples over the entire time horizon starting from each space time grid point. Instead, we use an iteratively backpropagated costate (IBC) algorithm [43] , the key ingredient for which is derived below. By Dynkin’s formula, Theorem 7.1, chapter 7 of [15] for QMJD process ( 1 ), applied to $\pi(t,{\bf x})\in C_{c}^{1,2}([0,T]\times\mathbb{R}^{n_{x}})$ which satisfies ( 16 ), ( 17 ) under arbitrary control ${\bf u}(s)\in{\cal V}[t,T]$ 
+ 
+ $\pi(t,{\bf x})=\mathbb{E}\left[\int\limits_{t}^{T}\ell(s,{\bf x}_{s},{\bf u}(s)){\mathrm{d}}s+\phi(T,{\bf x}_{T})\big{|}{\bf x}_{t}={\bf x}\right].$  (56) 
+ The law of iterated expectations implies 
+ 
+ $\displaystyle\pi(t,{\bf x})=$ $\displaystyle\;\mathbb{E}\bigg{[}\;\mathbb{E}\bigg{[}\ell(t,{\bf x}_{t},{\bf u}(t)){\mathrm{d}}t+\int\limits_{t+{\mathrm{d}}t}^{T}\ell(s,{\bf x}_{s},{\bf u}(s)){\mathrm{d}}s+\phi(T,{\bf x}_{T})\bigg{|}{\bf x}_{t+{\mathrm{d}}t}\bigg{]}\;\bigg{|}{\bf x}_{t}={\bf x}\bigg{]}$ 
+ 
+ $\displaystyle=$ $\displaystyle\;\mathbb{E}\bigg{[}\ell(t,{\bf x}_{t},{\bf u}(t))\bigg{]}{\mathrm{d}}t+\mathbb{E}\bigg{[}\int\limits_{t+{\mathrm{d}}t}^{T}\ell(s,{\bf x}_{s},{\bf u}(s)){\mathrm{d}}s+\phi(T,{\bf x}_{T})\bigg{|}{\bf x}_{t+{\mathrm{d}}t}\bigg{]}\;\bigg{|}{\bf x}_{t}={\bf x}\bigg{]}$ 
+ 
+ $\displaystyle=$ $\displaystyle\;\mathbb{E}\bigg{[}\ell(t,{\bf x}_{t},{\bf u}(t)){\mathrm{d}}t+\pi^{*}(t+{\mathrm{d}}t,{\bf x}_{t+{\mathrm{d}}t})\bigg{|}{\bf x}_{t}={\bf x}\bigg{]}.$  (57) 
+
+
+We denote the temporal grid indexed as $[t_{0},t_{N}]=[0,T]$ . We have dropped the conditional expectation notation for brevity in the following pseudo code and pick a small number $\epsilon>0$ .
+
+Example Problem: We demonstrate our algorithm for open loop control of ensembles with dynamics ( 1 ) with linear drift term, nonlinear diffusion coefficient and constant jump rate parameter 
+ 
+ $\displaystyle{\mathrm{d}}x_{t}=$ $\displaystyle(-\alpha x_{t}+u(t){\mathrm{d}}t+\zeta\sqrt{\frac{(\kappa-x_{t})^{2}}{2}+u(t)^{2}}{\mathrm{d}}w_{t}$ 
+ 
+ $\displaystyle+h(x_{t},Q){\mathrm{d}}P_{t},$  (58) 
+ where $h(x_{t},Q)=0.5\cdot Q\cdot x_{t}$ with constant jump rate $\lambda=1$ and mark density of $\textit{unif}([0,1])$ . The initial condition is assumed to be a normal distribution. The state space is specified by the constraints $x(t)\in[-3,3]$ while the control is constrained by $u(t)\in[-3,3]$ . Further two obstructions are modeled by the state constraints $x(t)\in[-2,-1]\;\text{at}\;t=1$ and $x(t)\in[0.5,2]\;\text{at}\;t=2$ . The process is defined to terminate on reaching any of the above boundaries. The values of the constants used are $\kappa=3$ , $\alpha=0.5$ , terminal time $T=3$ and $\zeta=0.1$ . The task is to reach the target $x_{goal}(T)=0$ .
+
+In this example we choose the running and terminal cost functions as $\ell(u)=\frac{R}{2}u^{2}$ , $\phi(x)=Q_{f}(x-x_{goal})^{2}$ , and a trajectory termination penalty of $\Xi-\tau$ where $\tau\in[0,T]$ is the stopping time of a trajectory colliding with a boundary or obstacle. Let $R=2\times 10^{-4}$ , $Q_{f}=\frac{4}{9}$ , $\zeta=0.1$ and $\Xi=7$ . The temporal discretization $\{t_{i}\}_{0\leq i\leq N}$ is chosen to satisfy $\lambda\cdot(t_{i}-t_{i-1})<<1$ the zero one law [15] allowing our use of the derived form of the PIDEs. Since we generate an open loop policy, we adopt the strategy of generating an implicity feedback policy. We do this by assuming $u(t)=u_{1}(t)+xu_{2}(t)$ and treating ${\bf u}(t)=[u_{1}(t)\;u_{2}(t)]^{\mathrm{T}}$ as the control we compute. This state parameterized policy results in a lower state dependent cost seen in Subfigure (1d). Trajectories are sampled in two steps in our algorithm. We sample single time step trajectories inside the costate computation loops at each spatio temporal grid point. We need full time horizon samples to compute the control gradient of the Hamiltonian at each control update iteration. Let $x_{k}(t)$ be the $k^{th}$ sample of trajectories at time $t$ for either case and $\mathbf{1}_{k}=\mathbf{1}_{\{\Xi_{k}<T\}}$ which indicates whether the sample was terminated by collision. Theorem 3 , Eq. ( 28 ) imply 
+ 
+ $\displaystyle\pi(x,t)=\frac{1}{K}\sum\limits_{k=1}^{K}\left[\phi(x_{k}(T))+\int\limits_{t}^{T}\ell(x_{k}(s),u_{s}){\mathrm{d}}s\right](1-\mathbf{1}_{k})+\frac{1}{K}\sum\limits_{k=1}^{K}\left[(\Xi_{k}-\tau)+\int\limits_{t}^{\tau}\ell(x_{k}(s),u_{s}){\mathrm{d}}s\right]\mathbf{1}_{k},$ 
+ 
+ 
+ ${\cal H}_{\bf u}(s,{\bf u}(s);{\mathrm{p}},\pi)=\begin{bmatrix}Ru_{1}(t)+\pi_{x}+\xi^{2}u_{1}(t)\pi_{xx}\\
+Ru_{2}(t)+\pi_{x}+\xi^{2}u_{2}(t)\pi_{xx}\end{bmatrix}.$  (59) 
+
+
+Results: Optimal costate function, a set of optimally controlled trajectories and the cost per iteration depicting convergence for ${\mathrm{p}}_{Q}=\textit{unif}(0,1)$ and ${\mathrm{p}}_{0}={\cal N}(-1,\frac{1}{2})$ are illustrated in Subfigures (1a), (1b, (1c). Converged costs are compared in Subfigure (1c) with different initial conditions. The cost is lower for initial condition ${\cal N}(-1,\frac{1}{2})$ since far lower number of optimally controlled trajectories end up colliding with the first obastacle depicted in the optimal trajectory sample in Subfigure (1b). We compare converged costs for simple jump diffusion $Q\sim\delta(1)$ with initial condition ${\mathrm{p}}_{0}=\delta(0)$ , when using the state parameterized policy and non parameterized control in Subfigure (1d). This shows the benefit of the implicit feedback provided by the state parameterized policy.
+
+6 Conclusions
+
+The open-loop deterministic formulation of the OCP results in a forward sampling-based algorithm to calculate the control by evaluating the co-state on the state space. This algorithm has the advantage of being naïvely parallelizable (applicable to density control of Q-MJD processes), an advantage prior algorithms (applicable to density control of diffusions) do not have. The algorithm is demonstrated in controlling a nonlinear stochastic process using feedforward controls as well as (linear) state-parameterized control. We show the IDMP-DPP relationship for the corresponding density control problem.
+
+7 Appendix
+
+of theorem 1 We permit abuse of notation in this proof by neglecting to write argument dependencies o functions for brevity when necessary in this proof. Further we denote partial derivatives as $\frac{\partial f}{\partial{\bf v}}=f_{\bf v}$ if needed. This proof is a stepwise analogous extension to the multidimensional case of the proof for the one dimensional case (pp 199-203, Theorem 7.5) [15] . It follows easily by differentiating the well known multidimensional Dynkin’s formula (pp 203, Equation 7.32) [15] for the function $v$ and using two integration by parts steps to move the spatial derivatives operating on $v$ to ${\mathrm{p}}$ . Differentiation of the Dynkin’s formula for $u(t,{\bf x})=\mathbb{E}[v({\bf x}_{t})|{\bf x}_{t_{0}}={\bf x}]$ yields 
+ 
+ $\frac{\partial}{\partial t}u(t,{\bf x})=\mathbb{E}\left[\frac{\partial}{\partial t}\int\limits_{t_{0}}^{t}\mathcal{F}^{\dagger\;{\bf u}}_{\text{\tiny MJD}}v({\bf x}_{s}){\mathrm{d}}{\bf s}|{\bf x}_{t_{0}}={\bf x}\right]=\int\limits_{\mathbb{R}^{n_{x}}}\mathcal{F}^{\dagger\;{\bf u}}_{\text{\tiny MJD}}v({\bf x}){\mathrm{p}}(t,{\bf x}){\mathrm{d}}{\bf x}$  (60) 
+ where $\mathcal{F}^{\dagger\;{\bf u}}_{\text{\tiny MJD}}$ is the backward operator defined in the previous subsection 2.1 . Note that $u(t,{\bf x})=\mathbb{E}[v({\bf x}_{t})|{\bf x}_{t_{0}}={\bf x}]$ implies that when using the PDF representation of the expectation we have 
+ 
+ $\frac{\partial}{\partial t}u(t,{\bf x})=\int_{\mathbb{R}^{n_{x}}}v({\bf x})\frac{\partial}{\partial t}{\mathrm{p}}(t,{\bf x}){\mathrm{d}}{\bf x}.$  (61) 
+ The Dynkin formula ( 60 ) and the definition of the backward operator imply 
+ 
+ $\displaystyle\frac{\partial}{\partial t}u(t,{\bf x})=\int\limits_{\mathbb{R}^{n_{x}}}\left(\sum\limits_{i=1}^{n_{x}}F_{i}v_{x_{i}}+\frac{1}{2}\sum\limits_{i,j=1}^{n_{x}}\Sigma_{ij}v_{x_{j}x_{i}}+{\mathrm{d}}_{\text{jump}}v\right){\mathrm{p}}{\mathrm{d}}{\bf x}.$  (62) 
+ Let us at first focus on the diffusion terms without the jump term in the above expression ( 62 ). We use integration by parts for integration w.r.t. $x_{i}$ in step one, and $x_{j}$ in step two for terms from the backward operator in ( 60 ) to move the spatial derivatives to the PDF using condition (T2). Using this idea along with Fubini’s theorem [41] we get 
+ 
+ $\displaystyle\int\limits_{\mathbb{R}^{n_{x}}}\sum\limits_{i=1}^{n_{x}}\left(F_{i}v_{x_{i}}+\frac{1}{2}\sum\limits_{j=1}^{n_{x}}\Sigma_{ij}v_{x_{j}x_{i}}\right){\mathrm{p}}{\mathrm{d}}{\bf x}=\underbrace{\int\limits_{\mathbb{R}}...\int\limits_{\mathbb{R}}}_{(n_{x}-1)\text{times}}\Bigg{[}\sum\limits_{i=1}^{n_{x}}\bigg{\{}\int\limits_{\mathbb{R}}\bigg{(}-\frac{\partial(F_{i}{\mathrm{p}})}{\partial x_{i}}\;v-\frac{1}{2}\sum\limits_{j=1}^{n_{x}}\frac{\partial(\Sigma_{ij}{\mathrm{p}})}{\partial x_{i}}\;v_{x_{j}}\bigg{)}{\mathrm{d}}x_{i}$ 
+ 
+ $\displaystyle\qquad\qquad\qquad\qquad\qquad\qquad\qquad+\int\limits_{\mathbb{R}}\frac{\partial}{\partial x_{i}}\bigg{(}F_{i}{\mathrm{p}}v+\frac{1}{2}\sum\limits_{j=1}^{n_{x}}\Sigma_{ij}{\mathrm{p}}v_{x_{j}}\bigg{)}{\mathrm{d}}x_{i}\bigg{\}}\Bigg{]}{\mathrm{d}}x_{1}...{\mathrm{d}}x_{i-1}{\mathrm{d}}x_{i+1}...{\mathrm{d}}x_{n_{x}}$ 
+ 
+ 
+ $\displaystyle=\int\limits_{\mathbb{R}^{n_{x}}}\sum\limits_{i=1}^{n_{x}}-\frac{\partial(F_{i}{\mathrm{p}})}{\partial x_{i}}\;v\;{\mathrm{d}}{\bf x}+\int\limits_{\mathbb{R}^{n_{x}}}\frac{\partial}{\partial x_{i}}\bigg{(}F_{i}{\mathrm{p}}v+\frac{1}{2}\sum\limits_{j=1}^{n_{x}}\Sigma_{ij}{\mathrm{p}}v_{x_{j}}\bigg{)}{\mathrm{d}}{\bf x}+\underbrace{\int\limits_{\mathbb{R}}...\int\limits_{\mathbb{R}}}_{(n_{x}-1)\text{times}}\Bigg{[}\frac{1}{2}\sum\limits_{i,j=1}^{n_{x}}\int\limits_{\mathbb{R}}\bigg{(}\frac{\partial^{2}}{\partial x_{i}x_{j}}(\Sigma_{ij}{\mathrm{p}})v\bigg{)}{\mathrm{d}}x_{j}$ 
+ 
+ $\displaystyle\qquad\qquad\qquad\quad-\frac{1}{2}\sum\limits_{i,j=1}^{n_{x}}\int\limits_{\mathbb{R}}\bigg{(}\frac{\partial}{\partial x_{j}}\bigg{(}\frac{\partial(\Sigma_{ij}{\mathrm{p}})}{\partial x_{i}}v\bigg{)}\bigg{)}{\mathrm{d}}x_{j}\Bigg{]}{\mathrm{d}}x_{1}...{\mathrm{d}}x_{j-1}{\mathrm{d}}x_{j+1}...{\mathrm{d}}x_{n_{x}}$ 
+ 
+ $\displaystyle=\sum\limits_{i,j=1}^{n_{x}}\int\limits_{\mathbb{R}^{n_{x}}}-\frac{\partial(F_{i}{\mathrm{p}})}{\partial x_{i}}\;v+\frac{1}{2}\bigg{(}\frac{\partial^{2}(\Sigma_{ij}{\mathrm{p}})}{\partial x_{i}x_{j}}\;v\bigg{)}{\mathrm{d}}{\bf x}+\sum\limits_{i,j=1}^{n_{x}}\int\limits_{\mathbb{R}^{n_{x}}}\frac{\partial}{\partial x_{i}}\bigg{(}F_{i}{\mathrm{p}}v+\frac{1}{2}\Sigma_{ij}{\mathrm{p}}v_{x_{j}}-\frac{1}{2}\frac{\partial(\Sigma_{ij}{\mathrm{p}})}{\partial x_{j}}\;v\bigg{)}{\mathrm{d}}{\bf x},$  (63) 
+ the last part of which can easily be identified as the conjunct in condition (T1). Let us now focus on the jump term in the expression ( 62 ) which is 
+ 
+ $\int\limits_{\mathbb{R}^{n_{x}}}{\mathrm{d}}_{\text{jump}}v({\bf x}){\mathrm{p}}(t,{\bf x}){\mathrm{d}}{\bf x}=\int\limits_{\mathbb{R}^{n_{x}}}\sum\limits_{j=1}^{n_{p}}\int\limits_{D_{Q_{j}}}\bigg{(}\Big{[}v({\bf x}+{\bf h}_{j}(t,{\bf x},q_{j}))-v({\bf x})\Big{]}{\mathrm{p}}_{Q_{j}}\lambda_{j}(t,q_{j};t,{\bf x}){\mathrm{d}}q_{j}\bigg{)}{\mathrm{p}}(t,{\bf x}){\mathrm{d}}{\bf x}.$  (64) 
+ Consider the terms in the first summation on the right hand side of this equation. Change the variable of integration to ${\mbox{\boldmath$\xi$}}_{j}$ using the Change of Variables theorem [44] where ${\mbox{\boldmath$\xi$}}_{j}={\bf x}+{\bf h}_{j}(t,{\bf x},q_{j})={\bf x}+{\bf\eta}_{j}(t,{\mbox{\boldmath$\xi$}}_{j},q_{j})$ in the first step, wherein ${\bf h}_{j}$ is assumed invertible w.r.t. ${\mbox{\boldmath$\xi$}}_{j}$ . This inverse mapping exists since we assumed ${\bf h}_{j}$ is a bijection from $\mathbb{R}^{n_{x}}$ to $\mathbb{R}^{n_{x}}$ . We note that transformed domain of integration is again $\mathbb{R}^{n_{x}}$ . In the second step we change the dummy variable of integration back to ${\bf x}$ . We therefore have for all $j,\;1\leq j\leq n_{p}$ that 
+ 
+ $\displaystyle\int\limits_{\mathbb{R}^{n_{x}}}\int\limits_{D_{Q_{j}}}\bigg{(}v({\bf x}+{\bf h}_{j}(t,{\bf x},q_{j}))(p_{Q_{j}}\lambda_{j})(t,q_{j};t,{\bf x}){\mathrm{d}}q_{j}\bigg{)}{\mathrm{p}}(t,{\bf x}){\mathrm{d}}{\bf x}$ 
+ 
+ $\displaystyle=\int\limits_{\mathbb{R}^{n_{x}}}\int\limits_{D_{Q_{j}}}\bigg{(}v({\mbox{\boldmath$\xi$}}_{j})(p_{Q_{j}}\lambda_{j})(t,q_{j};t,{\mbox{\boldmath$\xi$}}_{j}-{\bf\eta}_{j}(t,{\mbox{\boldmath$\xi$}}_{j},q_{j})){\mathrm{p}}(t,{\mbox{\boldmath$\xi$}}_{j}-{\bf\eta}_{j}(t,{\mbox{\boldmath$\xi$}}_{j},q_{j}))\bigg{)}{\mathrm{d}}q_{j}|I-{\bf\eta}_{j{\mbox{\boldmath$\xi$}}_{j}}(t,{\mbox{\boldmath$\xi$}}_{j},q_{j})|{\mathrm{d}}{\mbox{\boldmath$\xi$}}_{j}$ 
+ 
+ $\displaystyle=\int\limits_{\mathbb{R}^{n_{x}}}\int\limits_{D_{Q_{j}}}\bigg{(}v({\bf x}){\mathrm{p}}(t,{\bf x}-{\bf\eta}_{j}(t,{\bf x},q_{j}))(p_{Q_{j}}\lambda_{j})(t,q_{j};t,{\bf x}-{\bf\eta}_{j}(t,{\bf x},q_{j}))\bigg{)}{\mathrm{d}}q_{j}|I-{\bf\eta}_{j{\bf x}}(t,{\bf x},q_{j})|{\mathrm{d}}{\bf x}.$  (65) 
+ Equations ( 62 ), ( 63 ), ( 64 ), ( 65 ) and (T1) then imply 
+ 
+ $\displaystyle\frac{\partial}{\partial t}u(t,{\bf x})=\int\limits_{\mathbb{R}^{n_{x}}}\big{(}\sum\limits_{i=1}^{n_{x}}F_{i}v_{x_{i}}+\sum\limits_{i,j=1}^{n_{x}}\Sigma_{ij}v_{x_{j}x_{i}}+{\mathrm{d}}_{\text{jump}}v\big{)}{\mathrm{p}}\;{\mathrm{d}}{\bf x}=\sum\limits_{i,j=1}^{n_{x}}\int\limits_{\mathbb{R}^{n_{x}}}\bigg{[}-\frac{\partial}{\partial x_{i}}(F_{i}{\mathrm{p}})v+\frac{1}{2}\frac{\partial^{2}}{\partial x_{i}x_{j}}(\Sigma_{ij}{\mathrm{p}})v\bigg{]}{\mathrm{d}}{\bf x}$ 
+ 
+ $\displaystyle+\sum\limits_{j=1}^{n_{p}}\int\limits_{\mathbb{R}^{n_{x}}}\bigg{[}\int\limits_{D_{Q_{j}}}\bigg{(}{\mathrm{p}}(t,{\bf x}-\eta_{j})|I-\eta_{j{\bf x}}|-{\mathrm{p}}(t,{\bf x})\bigg{)}(p_{Q_{j}}\lambda_{j})(t,q_{j};t,{\bf x}-{\bf\eta}_{j}(t,{\bf x},q_{j}))\bigg{)}{\mathrm{d}}q_{j}\bigg{]}v({\bf x}){\mathrm{d}}{\bf x}.$  (66) 
+ Equations ( 61 ), ( 66 ) and definition of forward Chapman-Kolmogorov operator in subsection 2.1 imply 
+ 
+ $\displaystyle\frac{\partial}{\partial t}u(t,{\bf x})=\int\limits_{\mathbb{R}^{n_{x}}}\bigg{[}\sum\limits_{i,j=1}^{n_{x}}\bigg{(}-\frac{\partial}{\partial x_{i}}(F_{i}{\mathrm{p}})+\frac{1}{2}\frac{\partial^{2}}{\partial x_{i}x_{j}}(\Sigma_{ij}{\mathrm{p}})$ 
+ 
+ $\displaystyle+\sum\limits_{j=1}^{n_{p}}\int\limits_{D_{Q_{j}}}\Big{(}{\mathrm{p}}({\bf x}-\eta_{j}(t,{\bf x}))|I-\eta_{j{\bf x}}(t,{\bf x})|-{\mathrm{p}}(t,{\bf x})\Big{)}(p_{Q_{j}}\lambda_{j})(t,q_{j};t,{\bf x}-{\bf\eta}_{j}(t,{\bf x},q_{j})){\mathrm{d}}q_{j}\bigg{]}v({\bf x}){\mathrm{d}}{\bf x}$ 
+ 
+ $\displaystyle=\int\limits_{\mathbb{R}^{n_{x}}}\mathcal{F}^{{\bf u}}_{\text{\tiny MJD}}\;{\mathrm{p}}(t,{\bf x})\;v({\bf x}){\mathrm{d}}{\bf x}=\int_{\mathbb{R}^{n_{x}}}\frac{\partial}{\partial t}{\mathrm{p}}(t,{\bf x})v({\bf x}){\mathrm{d}}{\bf x}.$  (67) 
+ Using the calculus of variations argument (pp 201, proof of Theorem 7.5) [15] , [45] since the function $v$ is any arbitrary function with assumed boundedness and smoothness properties, ${\mathrm{p}}(t,{\bf x})$ satisfies equation ( 6 ) in the weak sense. Notice that the Dynkin formula ( 60 ) and equation ( 67 ) imply 
+ 
+ $\displaystyle\frac{\partial}{\partial t}u(t,{\bf x})=\bigg{<}\mathcal{F}^{\dagger\;{\bf u}}_{\text{\tiny MJD}}v({\bf x}),{\mathrm{p}}(t,{\bf x})\bigg{>}=\bigg{<}\mathcal{F}^{{\bf u}}_{\text{\tiny MJD}}\;{\mathrm{p}}(t,{\bf x}),v({\bf x})\bigg{>}$  (68) 
+ which means that the backward operator $\mathcal{F}^{\dagger\;{\bf u}}_{\text{\tiny MJD}}$ is the formal adjoint operator of the forward operator $\mathcal{F}^{{\bf u}}_{\text{\tiny MJD}}$ . 
+ The delta initial condition to be proved is well known in the case that the jump term is absent, that is for the diffusion processes. However Poisson process ${\bf P}_{t}$ undergoes jumps which causes ${\bf x}_{t}$ to have discontinuous paths. However, considering that simple jump process has Poisson distribution, we see that a jump is unlikely in a small time interval ${\mathrm{d}}t$ from $\mathbb{P}({\mathrm{d}}{\bf P}_{t}=0)=\exp^{-\lambda(t){\mathrm{d}}t}\approxeq 1$ as ${\mathrm{d}}t\rightarrow 0$ proving equation ( 7 ). ∎
+
+of theorem 2 We use the process of liberation as in [40] to liberate ${\mathrm{p}}$ and obtain $\mathcal{F}^{\dagger\;{\bf u}}_{\text{ \tiny MJD}}$ . More precisely we start with the term $\pi(t,{\bf x})\mathcal{F}^{{\bf u}}_{\text{\tiny MJD}}{\mathrm{p}}(t,{\bf x})$ and manipulate it as follows 
+ 
+ $\displaystyle\pi$ $\displaystyle(t,{\bf x})\mathcal{F}^{{\bf u}}_{\text{\tiny MJD}}{\mathrm{p}}(t,{\bf x})=\sum\limits_{i=1}^{n_{x}}\left(-\pi({\bf x},t)\frac{\partial}{\partial x_{i}}(F_{i}(t,{\bf x},{\bf u}){\mathrm{p}}(t,{\bf x}))\right)+\frac{1}{2}\sum\limits_{i,j=1}^{n_{x}}\pi(t,{\bf x})\frac{\partial^{2}}{\partial x_{i}\partial x_{j}}([{\mbox{\boldmath$\Sigma$}}(t,{\bf x},{\bf u})]_{ij}{\mathrm{p}}({\bf x},t))$ 
+
+
+
+ 
+ $\displaystyle+\pi(t,{\bf x})\bigg{(}\sum\limits_{j=1}^{n_{p}}\int\limits_{D_{Q_{j}}}\Big{(}{\mathrm{p}}({\bf x}-\eta_{j}(t,{\bf x}))|I-\eta_{j{\bf x}}(t,{\bf x})|-{\mathrm{p}}(t,{\bf x})\Big{)}(p_{Q_{j}}\lambda_{j})(t,q_{j};t,{\bf x}-{\bf\eta}_{j}(t,{\bf x},q_{j})){\mathrm{d}}q_{j}\bigg{)}$ 
+
+
+
+ 
+ $\displaystyle=$ $\displaystyle\sum\limits_{i=1}^{n_{x}}\Big{[}-\frac{\partial}{\partial x_{i}}\bigg{(}\pi({\bf x},t)F_{i}(t,{\bf x},{\bf u}){\mathrm{p}}(t,{\bf x})\bigg{)}+{\mathrm{p}}(t,{\bf x})F_{i}(t,{\bf x},{\bf u}(t))\frac{\partial\pi(t,{\bf x})}{\partial x_{i}}\Big{]}$ 
+ 
+ 
+ $\displaystyle+\frac{1}{2}\sum\limits_{i,j=1}^{n_{x}}\bigg{[}\frac{\partial}{\partial x_{i}}\Big{(}\pi(t,{\bf x})\frac{\partial}{\partial x_{j}}([{\mbox{\boldmath$\Sigma$}}(t,{\bf x},{\bf u})]_{ij}{\mathrm{p}}(t,{\bf x}))\Big{)}-\frac{\partial}{\partial x_{i}}\Big{(}[{\mbox{\boldmath$\Sigma$}}(t,{\bf x},{\bf u})]_{ij}{\mathrm{p}}(t,{\bf x})\frac{\partial\pi(t,{\bf x})}{\partial x_{j}}\Big{)}$  (69) 
+
+
+
+ 
+ $\displaystyle{+{\mathrm{p}}(t,{\bf x})[{\mbox{\boldmath$\Sigma$}}(t,{\bf x},{\bf u})]_{ij}\frac{\partial^{2}\pi(t,{\bf x})}{\partial x_{i}\partial x_{j}}\bigg{]}-\sum\limits_{j=1}^{n_{p}}\int\limits_{D_{Q_{j}}}\pi(t,{\bf x}){\mathrm{p}}(t,{\bf x})(p_{Q_{j}}\lambda_{j})(t,q_{j};t,{\bf x}-{\bf\eta}_{j}(t,{\bf x},q_{j}))}{\mathrm{d}}q_{j}$ 
+ 
+ $\displaystyle+\sum\limits_{j=1}^{n_{p}}\int\limits_{D_{Q_{j}}}\pi(t,{\bf x}){\mathrm{p}}(t,{\bf x}-{\bf\eta}_{j})|I-{\bf\eta}_{j{\bf x}}|(p_{Q_{j}}\lambda_{j})(t,q_{j};t,{\bf x}-{\bf\eta}_{j}(t,{\bf x},q_{j})){\mathrm{d}}q_{j}.$  (70) 
+ Integrating equation ( 70 ) over $\mathbb{R}^{n_{x}}$ and using (T4) gives us 
+ 
+ $\displaystyle\bigg{<}\pi,\mathcal{F}^{{\bf u}}_{\text{\tiny MJD}}{\mathrm{p}}\bigg{>}=\int\limits_{\mathbb{R}^{n_{x}}}\bigg{(}\sum\limits_{i=1}^{n_{x}}{\mathrm{p}}(t,{\bf x})F_{i}(t,{\bf x},{\bf u})\frac{\partial\pi}{\partial x_{i}}+\frac{1}{2}\sum\limits_{i,j=1}^{n_{x}}{\mathrm{p}}(t,{\bf x})[{\mbox{\boldmath$\Sigma$}}(t,{\bf x},{\bf u})]_{ij}\frac{\partial^{2}\pi}{\partial x_{i}\partial x_{j}}$ 
+ 
+ $\displaystyle+\sum\limits_{j=1}^{n_{p}}\int\limits_{D_{Q_{j}}}\pi(t,{\bf x})\bigg{(}({\mathrm{p}}(t,{\bf x}-{\bf\eta}_{j})|I-{\bf\eta}_{j{\bf x}}|-{\mathrm{p}}(t,{\bf x}))(p_{Q_{j}}\lambda_{j})(t,q_{j};t,{\bf x}-{\bf\eta}_{j}(t,{\bf x},q_{j})){\mathrm{d}}q_{j}\bigg{)}\bigg{)}{\mathrm{d}}{\bf x}.$  (71) 
+ Considering the terms in the last summation of this equation, we change the dummy variable of integration from ${\bf x}$ to ${\mbox{\boldmath$\xi$}}_{j}$ in the first step. Then we choose ${\mbox{\boldmath$\xi$}}_{j}={\bf x}+{\bf h}_{j}(t,{\bf x},q_{j})={\bf x}+{\bf\eta}_{j}(t,{\mbox{\boldmath$\xi$}}_{j},q_{j})$ in the second step where ${\bf h}_{j}$ is assumed to be invertible w.r.t. ${\mbox{\boldmath$\xi$}}_{j}$ and change the variable of integration to ${\bf x}$ using the Change of Variables Theorem [44] . This inverse mapping exists since we assume ${\bf h}_{j}$ to be a bijection from $\mathbb{R}^{n_{x}}$ to $\mathbb{R}^{n_{x}}$ . Noting that transformed domain of integration is again $\mathbb{R}^{n_{x}}$ , we have that for all $1\leq j\leq n_{p}$ 
+ 
+ $\displaystyle\int\limits_{\mathbb{R}^{n_{x}}}\int\limits_{D_{Q_{j}}}\pi(t,{\bf x}){\mathrm{p}}(t,{\bf x}-{\bf\eta}_{j}(t,{\bf x},q_{j}))|I-{\bf\eta}_{j{\bf x}}(t,{\bf x},q_{j})|(p_{Q_{j}}\lambda_{j})(t,q_{j};t,{\bf x}-{\bf\eta}_{j}(t,{\bf x},q_{j})){\mathrm{d}}q_{j}{\mathrm{d}}{\bf x}$ 
+ 
+ $\displaystyle=\int\limits_{\mathbb{R}^{n_{x}}}\int\limits_{D_{Q_{j}}}\pi(t,{\mbox{\boldmath$\xi$}}_{j}){\mathrm{p}}(t,{\mbox{\boldmath$\xi$}}_{j}-{\bf\eta}_{j}(t,{\mbox{\boldmath$\xi$}}_{j},q_{j}))|I-{\bf\eta}_{j{\mbox{\boldmath$\xi$}}_{j}}(t,{\mbox{\boldmath$\xi$}}_{j},q_{j})|(p_{Q_{j}}\lambda_{j})(t,q_{j};t,{\mbox{\boldmath$\xi$}}_{j}-{\bf\eta}_{j}(t,{\mbox{\boldmath$\xi$}}_{j},q_{j})){\mathrm{d}}q_{j}{\mathrm{d}}{\bf x}$ 
+ 
+ $\displaystyle=\int\limits_{\mathbb{R}^{n_{x}}}\int\limits_{D_{Q_{j}}}{\mathrm{p}}(t,{\bf x})\;\pi(t,{\bf x}+{\bf h}_{j}(t,{\bf x},q_{j}))(p_{Q_{j}}\lambda_{j})(t,q_{j};t,{\bf x}){\mathrm{d}}q_{j}{\mathrm{d}}{\bf x}.$  (72) 
+ So that equations ( 71 ), ( 72 ) complete the proof as follows 
+ 
+ $\displaystyle\bigg{<}\pi,\mathcal{F}^{\bf u}_{\text{\tiny MJD}}{\mathrm{p}}\bigg{>}=\int\limits_{\mathbb{R}^{n_{x}}}\Bigg{[}\sum\limits_{i=1}^{n_{x}}F_{i}(t,{\bf x},{\bf u})\frac{\partial\pi(t,{\bf x})}{\partial x_{i}}+\frac{1}{2}\sum\limits_{i,j=1}^{n_{x}}[{\mbox{\boldmath$\Sigma$}}(t,{\bf x},{\bf u})]_{ij}\frac{\partial^{2}\pi(t,{\bf x})}{\partial x_{i}\partial x_{j}}$ 
+ 
+ $\displaystyle+\sum\limits_{j=1}^{n_{p}}\int\limits_{D_{Q_{j}}}\bigg{(}\pi(t,{\bf x}+{\bf h}_{j}(t,{\bf x},q_{j}))-\pi(t,{\bf x})\bigg{)}(p_{Q_{j}}\lambda_{j})(t,q_{j};t,{\bf x}){\mathrm{d}}q_{j}\Bigg{]}{\mathrm{p}}(t,{\bf x})\;{\mathrm{d}}{\bf x}=\bigg{<}{\mathrm{p}},\mathcal{F}^{\dagger\;{\bf u}}_{\text{MJD}}\pi\bigg{>}.$  (73) 
+
+
+∎
+
+Acknowledgements
+
+This research was supported under the ARO W911NF-16-1-0390 award.
+
+References
+
+[1] J. Yong and X. Zhou,Stochastic Controls: Hamiltonian Systems and HJB Equations. Springer, 1999.
+[2] M. Huang, P. E. Caines, and R. P. Malhame, “Large-population cost-coupled lqg problems with nonuniform agents: Individual-mass behavior and decentralized 949;-nash equilibria,”IEEE Transactions on Automatic Control, vol. 52, pp. 1560–1571, Sept 2007.
+[3] R. Brockett and N. Khaneja,On the Stochastic Control of Quantum Ensembles. In: System Theory by Djaferis T.E., Schick I.C. (eds), vol. 518 ofThe Springer International Series in Engineering and Computer Science, vol 518. Springer, Boston, MA, 2000.
+[4] D. Milutinović,Utilizing Stochastic Processes for Computing Distributions of Large Size Robot Population Optimal Centralized Control, vol. 83 ofSpringer Tracts in Advanced Robotics. Springer, Berlin, Heidelberg, 2013.
+[5] R. Bellman and R. Kalaba,Selected Papers On mathematical trends in Control Theory. Dover Publications, 1964.
+[6] E. Todorov, “Stochastic optimal control and estimation methods adapted to the noise characteristics of the sensorimotor system,”Neural computation, vol. 5, no. 17, pp. 1084–1108, 2005.
+[7] P. Grover, K. Bakshi, and E. A. Theodorou, “A mean-field game model for homogeneous flocking,”Chaos: An Interdisciplinary Journal of Nonlinear Science, vol. 28, no. 6, p. 061103, 2018.
+[8] K. Bakshi, P. Grover, and E. A. Theodorou, “On mean field games for agents with langevin dynamics,”Transactions on Control of Networked Systems, vol. 6, pp. 1451–1460, Feb 2019.
+[9] K. Bakshi, D. D. Fan, E. A. Theodorou, R. P. Malhame, and D. Castanon, “Schrdinger approach to optimal control of large-size populations,”IEEE Transactions on Automatic Control, pp. 1–1, 2020.
+[10] I. Exarchos and E. Theodorou, “Learning Optimal Control via forward and backward differential equations,” inAmerican Control Conference, 2016.
+[11] K. S. Bakshi, D. D. Fan, and E. A. Theodorou, “Stochastic control of systems with control multiplicative noise using second order fbsdes,” in2017 American Control Conference (ACC), pp. 424–431, May 2017.
+[12] Z. Wang, M. Pereira, I. E.  , and E. Theodorou, “Learning deep stochastic optimal control policies using forward-backward sdes,” inProceedings of Robotics: Science and Systems, (FreiburgimBreisgau, Germany), June 2019.
+[13] Y. Pan, E. Theodorou, and K. Bakshi, “Robust trajectory optimization: A cooperative stochastic game theoretic approach,” inProceedings of Robotics: Science and Systems, (Rome, Italy), July 2015.
+[14] H. Pham, “On some recent aspects of stochastic control and their applications,”Probability Surveys, vol. 2, pp. 506–549, 2005.
+[15] F. B. Hanson,Applied Stochastic Processes and Control for Jump-Diffusions: Modeling, Analysis and Computation. SIAM Books, 2007.
+[16] A. Palmer and D. Milutinovic, “A hamiltonian approach using partial differential equations for open-loop stochastic optimal control,” inAmerican Control Conference (ACC), 2011, pp. 2056–2061, June 2011.
+[17] M. Annunziato, A. Borzi, M. Magdziarz, and A. Weron, “A fractional fokker planck control framework for subdiffusion processes,”Optimal Control Applications and Methods, 2015.
+[18] B. Berret and F. Jean, “Efficient computation of optimal open-loop controls for stochastic systems,”Automatica, vol. 115, p. 108874, 2020.
+[19] H. Fattorini,Infinite Dimensional Optimization and Control Theory. Encyclopaedia of Mathematics and Its Applications, Cambridge: Cambridge University Press, 1999.
+[20] M. Krastanov, N. Ribarska, and T. Tsachev, “A pontryagin maximum principle for infinite dimensional problems,”SIAM Journal of Control Optimization, vol. 49, pp. 2155–2182, 2011.
+[21] D. Milutinovic, “Utilizing Stochastic Processes for Computing Distributions of Large Size Robot Population Optimal Centralized Control,” inProceedings of the 10 International Symposium on Distributed Autonomous Robotic Systems, Lausanne, Switzerland, 2010.
+[22] T. D. Sanger, “Distributed control of uncertain systems using superpositions of linear operators.,”Neural Computation, vol. 23, no. 8, pp. 1911–1934, 2011.
+[23] M. Nisio,Stochastic Control Theory: Dynamic Programming Principle. Springer, Dec. 2015.
+[24] G. Fabbri, F. Gozzi, and A. Swiech,Stochastic Optimal Control in Infinite Dimensions: Dynamic Programming and HJB Equations, vol. 37. Springer, Dec. 2016.
+[25] E. Theodorou,Iterative Path Integral Stochastic Optimal Control: Theory and Applications to Motor Control. PhD thesis, University of Southern California, Los Angeles, CA, USA, 2011.
+[26] X. Zhou, “A unified treatment of maximum principle and dynamic programming in stochastic controls,”Journal of Optimization Theory and Applications, vol. 65, pp. 363–373, 1990.
+[27] X. Zhou, “Maximum principle, dynamic programming and their connection in deterministic control,”Journal of Optimization Theory and Applications, vol. 65, pp. 363–373, 1990.
+[28] J. Ma and J. Yong,Forward-Backward Stochastic Differential Equations and Their Applications. No. no. 1702 in Forward-backward Stochastic Differential Equations and Their Applications, Springer, 1999.
+[29] H. Pham, “Feynman-Kac representation of fully nonlinear PDEs and applications,”Acta Mathematica Vietnamica, vol. 40, pp. 255–269, June 2015.
+[30] N. Framstad, B. Oksendal, and A. Sulem, “Sufficient stochastic maximum principle for the optimal control of jump diffusions and applications to finance,”Journal of Optimization Theory and Applications, vol. 121, pp. 77–98, 2004.
+[31] J. Shi, “Relationship between mp and dpp for the stochastic optimal control problem of jump diffusions,”Applied Mathematics and Optimization, vol. 63, pp. 151–189, 2011.
+[32] A. Deshpande, “Sufficient stochastic maximum principle for the optimal control of semi-markov modulated jump-diffusion with application to financial optimization,”http://arxiv.org/abs/1407.3256, vol. abs/1407.3256, 2014.
+[33] Ł. Delong,Backward Stochastic Differential Equations with Jumps and Their Actuarial and Financial Applications: BSDEs with Jumps. EAA Series, Springer London, 2013.
+[34] B. Oksendal and A. Sulem,Applied Stochastic Control of Jump Diffusions. Berlin ; New York: Springer, 3rd ed., 2009.
+[35] F. Hanson,Stochastic processes and control for jump diffusions. Notes, IISC, 2007.
+[36] M. Garroni and J. Menaldi,Green functions for second order parabolic intego-differential problems. Longman Scientific and Technical, 1992.
+[37] J. Bect, “A unifying formulation of fokker-planck-kolmogorov equation for general stochastic hybrid sytems,”Nonlinear Analysis: Hybrid Systems, vol. 4, pp. 357–370, 2010.
+[38] C. Gardiner,Handbook of Stochastic Methods: for Physics, Chemistry and the Natural Sciences. Spinger, 2004.
+[39] J. Hespanha, “A model for stochastic hybrid systems with application to communication networks,”Nonlinear Analysis, vol. 62, pp. 1353–1383, 2005.
+[40] D. Lanczos,Linear Differential Operators. Philadelphia, Pennsylvania: SIAM, 1961.
+[41] G. B. J. Thomas and R. L. Finney,Calculus and Analytic Geometry. Addison-Wesley, 1996.
+[42] R. Weinstock,Calculus of Variations with Applications to Physics and Engineering. Dover, 1952.
+[43] K. Bakshi and E. Theodorou, “Infinite dimensional control of doubly stochastic jump diffusions,” inProceedings of 2016 IEEE 55th Conference on Decision and Control (CDC), (Las Vegas, USA), pp. 1145–1152, Dec 2016.
+[44] H. Jeffreys and B. S. Jeffreys,Methods of Mathematical Physics. Cambridge University Press, 1988.
+[45] D. Kirk,Optimal Control Theory: An introduction. Mineola, NY: Prentice-Hall, 1970.

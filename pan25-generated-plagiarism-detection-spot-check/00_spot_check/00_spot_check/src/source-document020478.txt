@@ -1,0 +1,192 @@
+On a proper-time approach to localization
+
+By E. R. F. Taillebois and A. T. Avelar
+
+Abstract
+
+The causality issues concerning Hegerfeldt’s paradox and the localization of relativistic quantum systems are addressed through a proper-time formalism of single-particle operators. The proposed description does not depend on classical parameters connected to an external observer and results in a single-particle formalism in which localization is described by explicitly covariant four-vector operators associated with POVM measurements parametrized by the system’s proper-time. As a consequence, it is shown that physically acceptable states are necessarily associated with the existence of a temporal uncertainty and their proper-time evolution is not subject to the causality violation predicted by Hegerfeldt.
+
+Introduction - The introduction of relativistic effects in quantum information theory, an ongoing program that has its origins in the founding works of Czachor Czachor (1997) and Peres et al. Pereset al.(2002) , was responsible for attracting new attention to problems such as the proper definition of the concept of relativistic spin Czachor and Wilczewski (2003) and the causality issue concerning localization in relativistic quantum systems Terno (2014) . Both these problems are intimately connected, as it has long been known that different notions of localization lead to distinct concepts of relativistic spin Pryce (1948) . In addition, the localization problem may also affects certain predictions related to quantum information theory, since data-processing is typically performed in limited space-time intervals Palmeret al.(2012) .
+
+The first evidence concerning the incompatibility of localization and causality has its origins in Hegerfeldt’s well known theorem Hegerfeldt (1974) , which established the causality violation for initially strictly localized states with a well defined energy sign. Since this directly affects any attempt to describe a position detection in terms of self-adjoint (s.a.) operators in the context of relativistic quantum mechanics (RQM), the remaining alternative was the use of POVMs approaches to localization Terno (2014) . However, even those may be subject to causality issues, as Hegerfeldt’s theorem was later extended to states with an exponentially bounded decay Hegerfeldt (1985) .
+
+In this letter it is shown that, when a proper-time approach is applied to the description of a single-particle system in RQM, any physical acceptable state will present an inherent temporal uncertainty. Together with the requirement of covariance, this leads to a natural POVM description of localization with a proper-time evolution for which Hegerfeldt’s results do not apply. The investigated model is that of a free spinless particle of fixed mass $m$ , a choice justified by the need to adequately underpin the resulting notion of localization before considering any potential contribution from the introduction of internal degrees of freedom. Complete derivations and complementary discussions are presented in the companion paper Taillebois and Avelar (2020) .
+
+Starting from a classical description, the particle’s four-momentum $\Pi^{\mu}$ and angular momentum tensor $J^{\mu\nu}$ can be used to describe the system’s world line by means of the four coordinates
+
+with the particle’s proper-time $\tau$ acting as parameter. On the constant mass surface $\Pi^{\mu}\Pi_{\mu}+m^{2}=0$ , those quantities satisfy the relationship $Q^{\mu}(\tau)\Pi_{\mu}=-m\tau$ and the Poisson brackets
+
+which ensure that the coordinates in ( 1 ) form a four-vector quantity interpreted as the system’s four-position with explicit proper-time parameterization.
+
+The direct quantization of the quantities $Q^{\mu}(\tau)$ over a physical Hilbert space $\mathcal{H}_{phys}$ using only the correspondence principle as a guiding resource is not a simple task due to the Poisson brackets
+
+valid over the constant mass surface. However, using Dirac’s quantization approach Gitman and Tyutin (1990) and employing the so-called group averaging technique Marolf (1995a) , the quantization of those quantities can be achieved in an unambiguous way, resulting in the physical Hilbert space $\mathcal{H}_{phys}=\mathcal{H}_{phys}^{+}\oplus\mathcal{H}_{phys}^{-}=L^{2}(\mathbb{R}^{3},d\mu(\bm{\pi}))\oplus L^{2}(\mathbb{R}^{3},d\mu(\bm{\pi}))$ , with $d\mu(\bm{\pi})=md^{3}\pi/E_{\bm{\pi}}$ and $E_{\bm{\pi}}=\sqrt{\|\bm{\pi}\|^{2}+m^{2}}$ . Over this space, the symmetrized form of the quantities $Q^{\mu}(\tau)$ give rise to the acting rules
+
+while the momentum variables $\Pi^{\mu}$ and the angular momentum tensor $J^{\mu\nu}$ lead to the following operations:
+
+The operators $\hat{Q}^{\mu}_{phys}(\tau)$ are interpreted as the proper-time parameterized coordinates of the system’s four-position, the commutation relations
+
+ensuring the Lorentz four-vector character and the covariant aspect of the related localization concept. Besides ( 4 ), the additional commutation relations
+
+imply that the four-position components are non-commutative and, together with $\hat{J}^{\mu\nu}_{phys}$ , satisfy a deSitter-like algebra with fundamental length $1/m$ Snyder (1947) , the usual canonical behavior being recovered in the non-relativistic limit.
+
+Since $\check{\Pi}^{\mu}_{phys}$ corresponds to the direct sum of multiplicative operations, the s.a. character of the operator $\hat{\Pi}^{\mu}_{phys}$ can be immediately stated by assuming the natural domains $D_{\Pi_{\mu}}=\left\{\phi|\phi(\bm{\pi}),\sigma^{3}\left(E_{\bm{\pi}}\tensor{\eta}{{}^{\mu}_{0}}+\pi^{j}\tensor{\eta}{{}^{\mu}_{j}}\right)\phi(\bm{\pi})\in\mathcal{H}_{phys}\right\}$ . On the other hand, in the case of operators $\hat{Q}^{\mu}_{phys}(\tau)$ , it is necessary to calculate their so-called deficiency indices Gitmanet al.(2012) , since these will generally be unbounded operators.
+
+Self-adjoint extensions of $\hat{Q}^{0}_{phys}(\tau)$ - The operators $\hat{Q}^{0}_{phys}(\tau)$ , $\hat{J}^{12}_{phys}$ and $\|\hat{\mathbf{J}}_{phys}\|^{2}$ form a complete set of commuting observables (CSCO), the s.a. character of $\hat{J}^{12}_{phys}$ and $\|\hat{J}_{phys}\|^{2}$ being verifiable as in the usual non-relativistic scenario and leading to the same spectrum and corresponding eigenstates. On the other hand, for $\hat{Q}^{0}_{phys}(\tau)$ , the complete definition of the operator requires a detailed analysis of its deficiency indices and domain.
+
+Using spherical coordinates and adopting $C^{\infty}_{0}(\mathbb{R}^{3})\oplus C^{\infty}_{0}(\mathbb{R}^{3})$ as initial domain for the operator $\hat{Q}^{0}_{phys}(\tau)$ , the domain of the corresponding adjoint $\hat{Q}^{0*}_{phys}(\tau)$ is given by
+
+where $d\mu(r_{\pi})=\frac{mr_{\pi}^{2}}{E_{r_{\pi}}}dr_{\pi}$ and a.c. stands for "absolute continuous". Thus, solving $\check{Q}^{0}_{phys}(\tau)R^{t}_{\tau}(r_{\pi})=tR^{t}_{\tau}(r_{\pi})$ for $t=\pm i/m$ , it results that the operator $\hat{Q}^{0}_{phys}(\tau)$ has deficiency indices $\eta=(1,1)$ and an infinite number of s.a. extensions with a single parameter, since both solutions
+
+with $\xi=\pm$ , belong to $D_{\hat{Q}^{0}_{phys}(\tau)}^{*}$ . It is important to note that the projections of $\hat{Q}^{0}_{phys}(\tau)$ over the subspaces $\mathcal{H}_{phys}^{\pm}$ do not have s.a. extensions, since they have deficiency indexes given by $\eta=(1,0)$ (positive energy projection) and $\eta=(0,1)$ (negative energy projection). This implies that an eigenfunction of a s.a. extension of $\hat{Q}^{0}_{phys}(\tau)$ cannot have a well defined energy sign and, even more importantly, the nonexistence of single-particle s.a. extension for $\hat{Q}^{0}_{phys}(\tau)$ .
+
+To define the s.a. extensions of the symmetric operator $\hat{Q}^{0}_{phys}(\tau)$ it is necessary first to write its closure $\underline{\hat{Q}^{0}_{phys}(\tau)}$ . Using the sesquilinear form
+
+the closed operator $\underline{\hat{Q}^{0}_{phys}(\tau)}$ is given by the acting rule $\underline{\hat{Q}^{0}_{phys}(\tau)}\underline{\phi}=\hat{Q}^{0*}_{phys}(\tau)\underline{\phi}$ defined over the domain
+
+which implies the boundary condition $\lim_{r_{\pi}\rightarrow\infty}|\underline{\phi_{\xi}(r_{\pi})}|<\lim_{r_{\pi}\rightarrow\infty}\mathcal{O}(r_{\pi}^{-3/2})=0$ . Then, from the Main Theorem of s.a. extensions Gitmanet al.(2012) , the one-parameter family of s.a. extensions $\tensor{[}_{\varphi}]{\hat{Q}}{{}^{0}_{phys}}(\tau)$ , with parameter $\varphi\in(-\uppi,\uppi]$ , can be defined as
+
+which implies the boundary condition $\lim_{r_{\pi}\rightarrow\infty}\left[\phi_{\varphi;+}(r_{\pi})-e^{-i\varphi}\phi_{\varphi;-}(r_{\pi})\right]=0$ with a decay at infinity that must be bounded according to $|\phi_{\varphi;+}(r_{\pi})-e^{-i\varphi}\phi_{\varphi;-}(r_{\pi})|<\mathcal{O}(r_{\pi}^{-3/2})$ .
+
+The spectrum of the s.a. extension $\tensor{[}_{\varphi}]{\hat{Q}}{{}^{0}_{phys}}(\tau)$ does not have a discrete component since there exist no $R^{t}(r_{\pi};\tau)\in L^{2}(\mathbb{R}_{\geq 0},d\mu(r_{\pi}))\oplus L^{2}(\mathbb{R}_{\geq 0},d\mu(r_{\pi}))$ such that $\check{Q}^{0}_{phys}(\tau)R^{t}(r_{\pi};\tau)=tR^{t}(r_{\pi};\tau)$ for $t\in\mathbb{R}$ . However, since $(\tensor{[}_{\varphi}]{\hat{Q}}{{}^{0}_{phys}}(\tau)-t\hat{I})^{-1}$ exists and is unbounded for all $t\in\mathbb{R}$ , this s.a. extension has a continuous spectrum $t\in\mathbb{R}$ with a complete set of orthogonal eigenfunctions given by
+
+Thus, the complete set of generalized orthogonal eigenfunctions associated to the present CSCO is given by $\psi^{t,l,m_{z}}_{\varphi}(\bm{\pi};\tau)=Y^{l,m_{z}}(\Omega_{\pi})R^{t}_{\varphi}(r;\tau)$ , where $Y^{l,m_{z}}(\Omega_{\pi})$ are the spherical harmonics with $l\in\mathbb{N}_{0}$ and $-l\leq m_{z}\leq l$ .
+
+Self-adjoint extensions of $\hat{Q}^{3}_{phys}(\tau)$ - A CSCO for $\hat{Q}^{3}_{phys}(\tau)$ can be obtained using the operators $\hat{J}^{12}_{phys}$ and $\hat{O}_{phys}\equiv(\hat{J}_{phys}^{12})^{2}-(\hat{J}_{phys}^{01})^{2}-(\hat{J}_{phys}^{02})^{2}$ .
+
+Adopting the hyperbolic coordinates $\omega_{\pi}\in[0,\infty)$ , $\nu_{\pi}\in(-\uppi/2,\uppi/2)$ and $\varphi_{\uppi}\in[0,2\uppi)$ , related to the original Cartesian coordinates through $\pi^{1}=m\sinh(\omega_{\pi})\sec(\nu_{\pi})\cos(\varphi_{\pi})$ , $\pi^{2}=m\sinh(\omega_{\pi})\sec(\nu_{\pi})\sin(\varphi_{\pi})$ and $\pi^{3}=m\tan(\nu_{\pi})$ , the acting rule of $\hat{Q}^{3}_{phys}(\tau)$ may be written as
+
+Thus, starting with $C_{0}^{\infty}(-\uppi/2,\uppi/2)\oplus C_{0}^{\infty}(-\uppi/2,\uppi/2)$ as an initial domain for the definition of $\hat{Q}^{3}_{phys}(\tau)$ , the corresponding adjoint $\hat{Q}^{3*}_{phys}(\tau)$ is completely defined by its domain
+
+where $d\mu(\nu_{\pi})=\sec^{3}(\nu_{\pi})d\nu_{\pi}$ . Solving $\check{Q}^{3}_{phys}(\tau)\mathcal{V}^{z}_{\tau}(\nu_{\pi})=z\mathcal{V}^{z}_{\tau}(\nu_{\pi})$ for $z=\pm i/m$ , it results that all the solutions
+
+with $\xi=\pm$ , belong to $D^{*}_{\hat{Q}^{3}_{phys}(\tau)}$ . Thus, the operator $\hat{Q}^{3}_{phys}(\tau)$ has deficiency indices $\eta=(2,2)$ and an infinite number of s.a. extensions parameterized by four parameters $\varphi=\{\varphi_{n};\;n=1,2,3,4;\;\varphi_{n}\in(-\uppi,\uppi]\}$ . Unlike what was found for $\hat{Q}^{0}_{phys}(\tau)$ , the projections of $\hat{Q}^{3}_{phys}(\tau)$ over the subspaces $\mathcal{H}_{phys}^{\pm}$ also have s.a. extensions, since their deficiency indices are given by $\eta_{\pm}=(1,1)$ .
+
+The closure $\underline{\hat{Q}^{3}_{phys}(\tau)}$ is given by the acting rule $\underline{\hat{Q}^{3}_{phys}(\tau)}\underline{\phi}=\hat{Q}^{3*}_{phys}(\tau)\underline{\phi}$ defined over the domain
+
+the requirement $w_{*}\left(\underline{\phi},\mathcal{V}^{\pm i/m}_{(\xi);\tau}\right)=0$ being equivalent to the boundary condition
+
+with a decay bounded by $\mathcal{O}((\sec\nu_{\pi})^{-3/2})$ for $\nu_{\pi}\rightarrow\pm\uppi/2$ . Then, denoting by $\mathfrak{N}_{\mp i/m}$ the space spanned by $\mathcal{V}^{\pm i/m}_{(\xi);\tau}(\nu_{\pi})$ , the parameterized s.a. extensions of $\hat{Q}^{3}_{phys}(\tau)$ can be defined as
+
+where the isometric map $\hat{U}(\varphi)$ is given by
+
+with factors $U_{\xi^{\prime}\xi}(\varphi)$ forming an arbitrary $U(2)$ matrix:
+
+The general form of the $U(2)$ matrices allows s.a. extensions $\tensor{[}_{\varphi}]{\hat{Q}}{{}^{3}_{phys}}(\tau)$ that are not necessarily single-particle observables. However, single-particle s.a. extensions can be constructed using the direct sum of the s.a. extensions associated with the projections $\hat{Q}^{3,\pm}_{phys}(\tau)$ over the subspaces $\mathcal{H}_{phys}^{\pm}$ . These extensions correspond to the operators $\tensor{[}_{\varphi}]{\hat{Q}}{{}^{3}_{phys}}(\tau)$ with $\varphi_{2}=\varphi_{4}=0$ and, from now on, will be the extensions of interest.
+
+The well-defined energy sign s.a. extensions $\tensor{[}_{\varphi}]{\hat{Q}}{{}^{3,\xi}_{phys}}(\tau)$ , with $\xi=\pm$ , are given by the acting rule $\tensor{[}_{\varphi}]{\hat{Q}}{{}^{3,\xi}_{phys}}(\tau)\phi_{\varphi}=\hat{Q}^{3*,\xi}_{phys}(\tau)\phi_{\varphi}$ with domain $D_{\tensor{[}_{\varphi}]{\hat{Q}}{{}^{3,\xi}_{phys}}(\tau)}$ given by
+
+the imposed restriction leading to the boundary condition
+
+Thus, the domain $D_{\tensor{[}_{\varphi}]{\hat{Q}}{{}^{3}_{phys}}(\tau)}$ of a single-particle s.a. extension $\tensor{[}_{\varphi}]{\hat{Q}}{{}^{3}_{phys}}(\tau)$ will be given by $D_{\tensor{[}_{\varphi}]{\hat{Q}}{{}^{3,+}_{phys}}(\tau)}\oplus D_{\tensor{[}_{\varphi}]{\hat{Q}}{{}^{3,-}_{phys}}(\tau)}$ , its spectrum being fully defined through the spectra of the operators $\tensor{[}_{\varphi}]{\hat{Q}}{{}^{3,\pm}_{phys}}(\tau)$ .
+
+To formally obtain the spectra of operators $\tensor{[}_{\varphi}]{\hat{Q}}{{}^{3}_{phys}}(\tau)$ it is necessary to verify if the solutions
+
+of $\check{Q}^{3}_{phys}(\tau)\mathcal{V}^{z}_{(\xi);\tau}(\nu_{\pi})=z\mathcal{V}^{z}_{(\xi);\tau}(\nu_{\pi})$ belong to $D_{\tensor{[}_{\varphi}]{\hat{Q}}{{}^{3}_{phys}}(\tau)}$ . Since $\mathcal{V}^{z}_{(\xi);\tau}(\nu_{\pi})\in D^{*}_{\hat{Q}^{3}_{phys}(\tau)}$ , it remains to verify the consequences of the boundary condition ( 7 ). Applying ( 7 ) to $\mathcal{V}^{z}_{(\xi);\tau}(\nu_{\pi})$ implies that $\mathcal{V}^{z}_{(\xi);\tau}(\nu_{\pi})\in D_{\tensor{[}_{\varphi}]{\hat{Q}}{{}^{3}_{phys}}(\tau)}$ only for a discrete set of eigenvalues $z_{n}$ given by
+
+with $n\in\mathbb{Z}$ and $-\pi/2\leq\mathrm{arctan}(\alpha)\leq\pi/2$ . Thus, the complete set of orthogonal eigenfunctions of $\tensor{[}_{\varphi}]{\hat{Q}}{{}^{3}_{phys}}(\tau)$ is given by the solutions
+
+The discrete spectrum of the s.a. extensions $\tensor{[}_{\varphi}]{\hat{Q}}{{}^{3}_{phys}}(\tau)$ may seem unsatisfactory at first glance, since a continuous spectrum is expected for observables associated with the system’s position. However, continuity can be recovered when the set of all s.a. extensions $\tensor{[}_{\varphi}]{\hat{Q}}{{}^{3}_{phys}}(\tau)$ is taken into account, since $z_{\uppi}^{n}=\lim_{\varphi\rightarrow-\uppi}z^{n+1}_{\varphi}$ .
+
+To finish the description of the s.a. extensions of $\hat{Q}^{3}_{phys}(\tau)$ it is necessary to verify the properties of the others operators in its CSCO. Then, the complete set of generalized orthogonal eigenfunctions of the s.a. CSCO of $\tensor{[}_{\varphi}]{\hat{Q}}{{}^{3}_{phys}}(\tau)$ is given by the states
+
+where $\Gamma(\cdot)$ is the Gamma function, $P^{-|m_{z}|}_{-\frac{1}{2}+i\Lambda(\lambda)}(\cosh\omega_{\pi})$ are associated conical functions, $\Lambda(\lambda)=\sqrt{-\frac{1}{4}-\lambda}$ , $m_{z}\in\mathbb{Z}$ are the eigenvalues of the s.a. operator $\hat{J}^{12}_{phys}$ and $\lambda\in(-\infty,-\frac{1}{4}]$ are the values of the continuous spectrum of the s.a. extension of $\hat{O}_{phys}$ .
+
+The fact that $\hat{Q}^{3}_{phys}(\tau)$ has s.a. single-particle extensions suggests that the operators $\tensor{[}_{\varphi}]{\hat{Q}}{{}^{j}_{phys}}(\tau)$ should be interpreted as the observables associated with the system’s proper-time parameterized position. However, some considerations indicate that this interpretation should be refuted, starting with the fact that the discrete spectrum of these operators does not allow a continuous description of the system’s position by means of a single s.a. extension with fixed $\varphi$ parameter. A second problem is related to Hegerfeldt’s paradox. Since the operator $\tensor{[}_{\varphi}]{\hat{Q}}{{}^{3}_{phys}}(\tau)$ is s.a., its eigenstates describe strictly localized states on the z-axis and, therefore, are subject to the causality violation predicted by Hegerfeldt.
+
+Time and Position POVM - As stated earlier, the s.a. extensions of $\hat{Q}_{phys}^{0}(\tau)$ do not define single-particle observables, a result that leads to two important consequences: (a) the perfect temporal localization of a state is only possible outside the single-particle framework and (b) states with a well defined energy sign will necessarily have a temporal incertitude when described by a classical observer.
+
+In view of that, one may ask how a measurement associated to the operation $\check{Q}^{0}_{phys}(\tau)$ may be accommodated in a single-particle framework. To do so, it is necessary to observe that the projections $\hat{Q}^{0,\pm}_{phys}(\tau)$ of $\hat{Q}^{0}_{phys}(\tau)$ over the subspaces $\mathcal{H}_{phys}^{\pm}$ are essentially maximally symmetrical Gitmanet al.(2012) and, therefore, their closures lead to maximally symmetrical operators $\underline{\hat{Q}^{0;\pm}_{phys}(\tau)}$ that can be associated with POVMs Egusquizaet al.(2008) . Thus, although a single-particle interpretation cannot be associated to the s.a. extensions $\tensor{[}_{\varphi}]{\hat{Q}}{{}^{0}_{phys}}(\tau)$ , the same is not true for the maximally symmetrical operators $\underline{\hat{Q}^{0;\pm}_{phys}(\tau)}$ . Therefore, the implementation of the time operator in the proper-time single-particle formalism must be given by a POVM rather than a s.a. operator. In addition, since the domain boundary conditions of $\underline{\hat{Q}^{0}_{phys}(\tau)}$ do not mix components associated with distinct energy signs, one has that $\underline{\hat{Q}^{0}_{phys}(\tau)}=\underline{\hat{Q}^{0;+}_{phys}(\tau)}\oplus\underline{\hat{Q}^{0;-}_{phys}(\tau)}$ and the domain properties of the operators $\underline{\hat{Q}^{0;\pm}_{phys}(\tau)}$ coincide with those obtained earlier for $\underline{\hat{Q}^{0}_{phys}(\tau)}$ .
+
+The set of positive operators $\{\hat{E}_{\tau;\pm}(t)\}$ associated with the POVM defined by $\underline{\hat{Q}^{0;\pm}_{phys}(\tau)}$ can be obtained using Naimark’s theorem Buschet al.(1995) and is given by
+
+with
+
+Thus, the probability of finding the system in a time interval $[t_{1},t_{2}]$ for a state described by a density matrix $\rho$ is given by $P_{[t_{1},t_{2}]}=\int_{t_{1}}^{t_{2}}dt\mathrm{Tr}(\rho\hat{E}_{\tau;\pm}(t))$ , while the completeness relation in $\mathcal{H}_{phys}^{\pm}$ associated with the elements $\hat{E}_{\pm}(t)$ is written as $\int_{-\infty}^{\infty}dt\hat{E}_{\tau;\pm}(t)=\hat{I}^{\pm}_{phys}$ . It is important to note that the elements $\hat{E}_{\tau;\pm}(t)$ for different values of $t$ are not orthogonal, since
+
+where $\mathrm{P.V.}$ indicates the principal value and $\Delta t\equiv t-t^{\prime}$ . Thus, the strict temporal localization is not possible in the proper-time single-particle formalism and physically acceptable states will necessarily present a temporal uncertainty.
+
+To verify how the imposition of the single-particle character over the $\check{Q}^{0}_{phys}(\tau)$ operation influences the system’s spacial localization, the covariance of the quantities $\hat{Q}^{\mu}_{phys}(\tau)$ , which follows from the commutation relations ( 4 ), needs to be taken into account. Denoting by $\hat{U}(\Lambda)$ the unitary representations Tung (1985) of the Lorentz group generators $\hat{J}^{\mu\nu}_{phys}$ and assuming a pure z-axis boost $\Lambda$ , the relations in ( 4 ) imply that
+
+Since the domain of $\hat{Q}^{3}_{phys}(\tau)$ cannot change from one reference frame to another, relationship ( 9 ) implies that one must have $D_{\hat{Q}^{3}_{phys}(\tau)}=D_{\hat{Q}^{0}_{phys}(\tau)}\cap D_{\hat{Q}^{3}_{phys}(\tau)}$ in order to respect the finite Lorentz covariance. However, assuming that in subspace $\mathcal{H}_{phys}^{\xi}$ the time operator is given by $\underline{\hat{Q}^{0,\xi}_{phys}(\tau)}$ , there are states in $D_{\tensor{[}_{\varphi}]{\hat{Q}}{{}^{3,\xi}_{phys}}(\tau)}$ that will not belong to $D_{\underline{\hat{Q}^{0,\xi}_{phys}(\tau)}}$ , since the boundary condition ( 7 ) imposed by $D_{\tensor{[}_{\varphi}]{\hat{Q}}{{}^{3,\xi}_{phys}}(\tau)}$ admits states that don’t cancel out faster than $r_{\pi}^{-3/2}$ for $\nu_{\pi}\rightarrow\pm\uppi/2$ , as is the case for the eigenstates ( 8 ). Thus, the single-particle character together with finite Lorentz covariance rules out the possibility to use the s.a. extensions of $\hat{Q}_{phys}^{j}(\tau)$ as position operators.
+
+To overcome the above problem, one can adopt $\underline{\hat{Q}^{j,\pm}_{phys}(\tau)}$ as definitions of the single-particle position operator in each $\mathcal{H}_{phys}^{\pm}$ subspace, since the boundary conditions of these operators agree with those of $\underline{\hat{Q}^{0,\pm}_{phys}(\tau)}$ . However, since $\underline{\hat{Q}^{j,\pm}_{phys}(\tau)}$ is symmetrical but not s.a., such a choice will imply in a concept of localization that cannot be associated with a projective measurement. In order to define a POVM associated with $\underline{\hat{Q}^{3,\xi}_{phys}(\tau)}$ , one observe that the eigenstates $\mathcal{V}^{z^{n}_{\varphi}}_{\tau;\xi}(\tau)$ of $\tensor{[}_{\varphi}]{\hat{Q}}{{}^{3,\xi}_{phys}}(\tau)$ also serve as an improper basis for $D_{\underline{\hat{Q}^{3,\xi}_{phys}(\tau)}}$ , since $D_{\underline{\hat{Q}^{3,\xi}_{phys}(\tau)}}\subset D_{\tensor{[}_{\varphi}]{\hat{Q}}{{}^{3,\xi}_{phys}}(\tau)}$ and $\mathcal{V}^{z^{n}_{\varphi}}_{\tau;\xi}(\tau)\notin D_{\underline{\hat{Q}^{3,\xi}_{phys}(\tau)}}$ .
+
+Using the improper basis of states $\psi^{z^{n}_{\varphi},\lambda,m_{z}}_{\tau;\xi}(\bm{\pi})$ , the operator $\underline{\hat{Q}^{3,\xi}_{phys}(\tau)}$ can be written as
+
+Since $D_{\underline{\hat{Q}^{3,\xi}_{phys}(\tau)}}\subset D_{\tensor{[}_{\varphi}]{\hat{Q}}{{}^{3,\xi}_{phys}}(\tau)}$ for all $\varphi\in(-\uppi,\uppi]$ , the above decomposition can be done using the basis of eigenstate of any of the s.a. extensions $\tensor{[}_{\varphi}]{\hat{Q}}{{}^{3,\xi}_{phys}}(\tau)$ and, therefore, an integration in $z^{0}_{\varphi}\in[-1/m,1/m]$ allows to rewrite $\underline{\hat{Q}^{3,\xi}_{phys}(\tau)}$ as
+
+where $\psi^{z,\lambda,m_{z}}_{\tau;\xi}(\bm{\pi})$ is given by the $\xi$ -component of ( 8 ) with $z_{\varphi}^{n}$ replaced by $z\in\mathbb{R}$ . This continuous description of the spacial position is non-orthogonal, since
+
+However, the non-orthogonality decays with $[m(z^{\prime}-z)]^{-1}$ , i.e. it decreases with the inverse of the number of Compton wavelengths separating $z^{\prime}$ from $z$ , being relevant only for small values of $\Delta z$ .
+
+The above results, along with the fact that the identity $\hat{I}^{\xi}_{phys}$ in $\mathcal{H}^{\xi}_{phys}$ can be written as
+
+allows to introduce a POVM associated with the operator $\underline{\hat{Q}^{3,\xi}_{phys}(\tau)}$ , the positive operators $\{\hat{E}_{\tau;\xi}(z)\}$ associated with that POVM being given by
+
+These operators satisfy $\int_{\mathbb{R}}dz\hat{E}_{\tau;\xi}(z)=\hat{I}^{\xi}_{phys}$ and the probability $P_{[z_{1},z_{2}]}(\tau)$ of finding a state of density matrix $\rho$ in a spatial range $[z_{1},z_{2}]$ for a proper-time $\tau$ is given by $P_{[z_{1},z_{2}]}(\tau)=\int_{z_{1}}^{z_{2}}dz\mathrm{Tr}\left(\rho\hat{E}_{\tau;\pm}(z)\right)$ .
+
+Hegerfeldt’s theorem and the POVM approach - To conclude the description of the system’s localization in terms of $\underline{\hat{Q}^{3,\xi}_{phys}(\tau)}$ it is necessary to verify that the POVM given in ( 12 ) is not subject to the causality issues related to Hegerfeldt’s paradox Hegerfeldt (1974) . Since those results assert the causality violation for strictly localized states as well as exponentially bounded states, it must be verified that such states are not allowed by the domain $D_{\underline{\hat{Q}^{3,\pm}_{phys}(\tau)}}$ .
+
+For the proof of the nonexistence of strictly localized states, suppose that the state
+
+is strictly localized at $\tau=0$ . Due to the non-orthogonality given in ( 11 ), the strictly localization condition consists in supposing that the probability amplitude
+
+has a compact support in an interval $\Delta z\subset\mathbb{R}$ .
+
+The compact support of $p_{0}(z^{\prime})$ implies that its Fourier
+
+must be analytic in $\mathbb{R}$ . Making the change of variables given by $u=m\uppi z$ , the Fourier ( 13 ) may be rewritten as
+
+where $\mathrm{rect}(k)$ is a rectangular function and $\mathcal{F}_{\Omega}(k)=(2\uppi)^{-1/2}\int_{\mathbb{R}}du\Omega(u)e^{-iku}$ .
+
+To verify the conditions imposed by $D_{\underline{Q^{3;+}_{phys}(0)}}$ , the state $\ket{\psi}$ must be written in momentum basis. In this basis
+
+where $A_{0}$ is a $\omega_{\pi}$ -dependent factor and $k=\nu_{\pi}/\uppi$ . From the conditions in the domain $D_{\underline{Q^{3;+}_{phys}(0)}}$ it results that $\mathcal{F}_{\Omega}(k)$ must be zero for $k=\pm 1/2$ and must belong to $L^{2}((-1/2,1/2),dk)$ , besides being differentiable.
+
+The properties obtained for $\mathcal{F}_{\Omega}(k)$ imply that the Fourier $\mathcal{F}_{p_{0}}(k)$ must be differentiable and have compact support in $[-1/2,1/2]\subset\mathbb{R}$ , since $\mathcal{F}_{p_{0}}(k)\propto\mathrm{rect}(k)\mathcal{F}_{\Omega}(k)$ . Therefore, the function $\mathcal{F}_{p_{0}}(k)$ cannot be analytic in $\mathbb{R}$ and $p_{0}(z^{\prime})$ cannot have compact support, which demonstrates the nonexistence of strictly localized states with respect to the localization definition associated to $\underline{\hat{Q}^{3,\xi}_{phys}(\tau)}$ .
+
+The proof of the nonexistence of states that are compatible with $\underline{\hat{Q}^{3,\xi}_{phys}(\tau)}$ and have a probability amplitude $p_{0}(z^{\prime})$ with tails bounded by an exponential decay $e^{-A|z|}$ follows the same reasoning presented above. In this case, the exponential behavior of the tails of $p_{0}(z^{\prime})$ would imply the analyticity of the Fourier $\mathcal{F}_{p_{0}}(k)$ for $|\mathrm{Im}(k)|<A$ . However, the domain $D_{\underline{Q^{3;+}_{phys}(0)}}$ implies that over $\mathbb{R}$ the function $\mathcal{F}_{p_{0}}(k)$ must have compact support in $[-1/2,1/2]$ and, therefore, the condition of analyticity in $|\mathrm{Im}(k)|<A$ cannot be satisfied, leading to the conclusion of the nonexistence of states with bounded exponential decay.
+
+Additional remarks - The proper-time parameterization has a fundamental character since it does not depend on the properties of an external observer and, therefore, corresponds to an intrinsic approach to the problem of localization in RQM. Physically, this approach amounts to state that the system’s time would be observed as classical only if it were possible to define an observer from a comoving quantum frame as those proposed in Giacominiet al.(2019b) .
+
+The impossibility of defining strictly localized states in a single-particle approach is in agreement with the idea that such localization would involve energies that would lead to a regime in which the phenomena of creation and annihilation of particles could no longer be disregarded. As obtained in ( 11 ), the distance between two orthogonal position in the z-axis is at least of two Compton wavelength, a range that is in agreement with what is expected from a regime with fixed number of particles as RQM.
+
+It is worth emphasizing that the reported results lead to a new path to address the issue of localization in the context of RQM, further potential questions to be investigated including the proper definition of the relativistic spin operator, the connection with the quantum comoving frames proposed in Giacominiet al.(2019b) and the relation between the proposed POVMs and the usual measurements parameterized by quantities of the classical observer.
+
+Acknowledgments - The authors are thankful for the support provided by Brazilian agencies CAPES (PROCAD2013), CNPq (#459339/2014-1, #312723/2018-0), FAPEG (PRONEX #201710267000503, PRONEM #201710267000540) and the Instituto Nacional de Ciência e Tecnologia - Informação Quântica (INCT-IQ).
+
+References
+
+Czachor (1997) M. Czachor, Phys. Rev. A55, 72 (1997).
+Pereset al.(2002) A. Peres, P. F. Scudo, and D. R. Terno, Phys. Rev. Lett.88, 230402 (2002).
+Czachor and Wilczewski (2003) M. Czachor and M. Wilczewski, Phys. Rev. A68, 010302(R) (2003).
+Peres and Terno (2004) A. Peres and D. R. Terno, Rev. Mod. Phys.76, 93 (2004).
+Saldanha and Vedral (2012) P. L. Saldanha and V. Vedral, Phys. Rev. A85, 062101 (2012).
+Taillebois and Avelar (2013) E. R. F. Taillebois and A. T. Avelar,Phys. Rev. A88, 060302(R) (2013).
+Palmeret al.(2013) M. C. Palmer, M. Takahashi, and H. F. Westman, Ann. Phys.336, 505 (2013).
+Giacominiet al.(2019a) F. Giacomini, E. Castro-Ruiz, and v. Brukner, Phys. Rev. Lett. , 090404 (2019a).
+Taillebois and Avelar (2020) E. R. F. Taillebois and A. T. Avelar, arXiv e-prints , arXiv:2008.01308 (2020),arXiv:2008.01308 [quant-ph].
+Terno (2014) D. Terno, Phys. Rev. A89, 042111 (2014).
+Céleriet al.(2016) L. C. Céleri, V. Kiosses, and D. R. Terno, Phys. Rev. A94, 062115 (2016).
+Silvaet al.(2019) T. L. Silva, E. R. F. Taillebois, R. M. Gomes, S. P. Walborn, and A. T. Avelar, Phys. Rev. A , 022332 (2019).
+Pryce (1948) M. H. L. Pryce, Proc. R. Soc. Lond. A195, 62 (1948).
+Fleming (1965) G. N. Fleming, Phys. Rev.137, B 188 (1965).
+Palmeret al.(2012) M. C. Palmer, M. Takahashi, and H. F. Westman, Ann. Phys.327, 1078 (2012).
+Cabanet al.(2014) P. Caban, J. Rembieliński, P. Rybka, K. A. Smoliński, and P. Witas, Phys. Rev. A89, 032107 (2014).
+Hegerfeldt (1974) G. C. Hegerfeldt, Phys. Rev. D10, 3320 (1974).
+Hegerfeldt and Ruijsenaars (1980) G. C. Hegerfeldt and S. N. M. Ruijsenaars, Phys. Rev. D22, 377 (1980).
+Hegerfeldt (1985) G. C. Hegerfeldt, Phys. Rev. Lett.54, 2395 (1985).
+Taillebois and Avelar (2020) E. R. F. Taillebois and A. T. Avelar (2020), manuscript submitted to Physical Review A as a joint submission.
+Gitman and Tyutin (1990) D. M. Gitman and I. V. Tyutin,Quantization of Fields with constraints(Springer-Verlag, 1990).
+Marolf (1995a) D. Marolf, Class. Quantum Grav.12, 1441 (1995a).
+Marolf (1995b) D. Marolf, Class. Quantum Grav.12, 1199 (1995b).
+Ashtekaret al.(1995) A. Ashtekar, J. Lewandowski, D. Marolf, J. Mourão, and T. Thiemann, J. Math. Phys.36(1995).
+Louko (2006) J. Louko, Journal of Physics: Conference Series332, 142 (2006).
+Snyder (1947) H. S. Snyder, Phys. Rev.71, 38 (1947).
+Aldrovandi and Pereira (2016) R. Aldrovandi and J. G. Pereira,An Introduction to Geometrical Physics, 2nd ed. (World Scientific Publishing Co. Pte. Ltd., 2016).
+Gitmanet al.(2012) D. M. Gitman, I. V. Tyutin, and B. L. Voronov,Self-adjoint extensions in quantum mechanics(Springer, 2012).
+Egusquizaet al.(2008) I. L. Egusquiza, J. G. Muga, and A. D. Baute, Lect. Notes Phys.734, 305 (2008).
+Buschet al.(1995) P. Busch, M. Grabowski, and P. J. Lahti,Operational Quantum Physics(Springer-Verlag Berlin Heidelberg New York, 1995).
+Tung (1985) W.-K. Tung,Group Theory in Physics - An Introduction(World Scientific Publishing Co. Pte. Ltd., 1985).
+Giacominiet al.(2019b) F. Giacomini, E. Castro-Ruiz, and v. Brukner, Nat. Commnun. , 494 (2019b).

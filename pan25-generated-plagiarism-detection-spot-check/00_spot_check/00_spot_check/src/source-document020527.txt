@@ -1,0 +1,287 @@
+The cubic nonlinear Dirac equation
+
+By Federico Cacciafesta
+
+Abstract
+
+We present some results obtained in collaboration with prof. Piero D’Ancona concerning global existence for the 3D cubic non linear massless Dirac equation with a potential for small initial data in $H^{1}$ with slight additional assumptions. The new crucial tool is given by the proof of some refined endpoint Strichartz estimates.
+
+1. Introduction
+
+We consider the 3D massless Dirac equation perturbed with a small potential $V$ 
+ 
+ (1.1)  $\begin{cases}iu_{t}+\mathcal{D}u+Vu=P_{3}(u)\qquad u:\mathbb{R}_{t}\times\mathbb{R}_{x}^{3}\rightarrow\mathbb{C}^{4}\\
+u(0)=f(x)\in H^{s},\end{cases}$ 
+ where the Dirac operator is defined as 
+ 
+ $\mathcal{D}=1/i\displaystyle\sum_{k=1}^{3}\alpha_{k}\partial_{k}=-i(\alpha\cdot\nabla)$ 
+ with 
+ 
+ $\alpha_{1}=\left(\begin{array}[]{cccc}0&0&0&1\\
+0&0&1&0\\
+0&1&0&0\\
+1&0&0&0\end{array}\right),\quad\alpha_{2}=\left(\begin{array}[]{cccc}0&0&0&-i\\
+0&0&i&0\\
+0&-i&0&0\\
+i&0&0&0\end{array}\right),\quad\alpha_{3}=\left(\begin{array}[]{cccc}0&0&1&0\\
+0&0&0&-1\\
+1&0&0&0\\
+0&-1&0&0\end{array}\right),$ 
+ the nonlinear term $P_{3}(u)\cong|u|^{3}$ and $V$ is a $4\times 4$ hermitian matrix. Notice that 
+ 
+ (1.2)  $\alpha_{j}\alpha_{k}+\alpha_{k}\alpha_{j}=2\delta_{jk}\mathbb{1},\quad j,k=1,2,3;$ 
+ The unperturbed nonlinear Dirac equation is important in relativistic quantum mechanics, and was studied in a number of works (see e.g. [13] , [3] , [12] , [11] , [4] , [10] , [9] ). In particular, it is well known that the cubic nonlinearity is critical \footnote{ 1 The general framework when dealing with low regularity well posedness for nonlinear dispersive equations is to be thought as follows: the scaling of the operator, the functional setting and the structure of the nonlinearity yield a threshold regularity such that if the initial data has more regularity than this (i.e. is subcritical ) it is possible to prove global wellposedness with standard contraction arguments. If the initial data is instead supercritical then we have various degrees of illposedness, while the critical case is typically harder and many different things can happen.} for solvability in the energy space $\dot{H}^{1}$ ; global existence in $\dot{H}^{1}$ is still an open problem even for small initial data, while the case of subcritical spaces $\dot{H}^{s}$ , $s>1$ was settled in the positive in [4] , [10] . The standard tool when proving global wellposedness for general dispersive equations in a low regularity setting, at least in the subcritical case, relies on some space-time estimates ( Strichartz estimates ) that allow the application of the classical fixed point method on some suitable functional space; the critical case may be corresponding to the endpoint estimate and thus may require a different approach.
+
+To begin with, let us give a look to the free homogeneous case. Notice that property ( 1.2 ) yields $\mathcal{D}^{2}=-I_{4}\Delta$ , so that 
+ 
+ (1.3)  $(i\partial_{t}-\mathcal{D})(i\partial_{t}+\mathcal{D})u=-\square u.$ 
+ This means that every solution to the free Dirac equation is a solution to a vectorial wave equation with suitable initial conditions. Despite the rich structure of $\mathcal{D}$ it is thus easy, relying on the well known theory for the free wave equation, to write the Dirac linear propagator as 
+ 
+ (1.4)  $e^{it\mathcal{D}}f=\cos(t|D|)f+i\frac{\sin(t|D|)}{|D|}\mathcal{D}f.$ 
+ and the Strichartz estimates 
+ 
+ (1.5)  $\|e^{it\mathcal{D}}f\|_{L^{p}_{t}\dot{H}_{q}^{\frac{1}{q}-\frac{1}{p}-\frac{1}{2}}}\lesssim\|f\|_{L^{2}}$ 
+ that hold for every couple $(p,q)$ such that 
+ 
+ $\frac{2}{p}+\frac{2}{q}=1,\quad 2\leq p\leq\infty,\qquad\infty>q\geq 2.$ 
+ We recall that estimates ( 1.5 ) capture two different informations: 
+ 
+ Locally in time they describe a type of smoothing effect, reflected in a gain of integrability with respect to some suitable norm. 
+ 
+ Globally in time they describe a decay effect, meaning that some spacial norm of a solution must decay to zero as $t\rightarrow\infty$ , at least in some $L^{p}$ time-averaged sense. 
+ 
+ The choice of the couple $(p,q)=(2,\infty)$ yields the so called endpoint estimate 
+ 
+ (1.6)  $\|e^{it\mathcal{D}}f\|_{L^{2}_{t}L^{\infty}_{x}}\lesssim\|f\|_{\dot{H}^{1}}$ 
+ that is known to fail, as the corresponding one for the 3D wave flow (see [8] ). If ( 1.6 ) were true one could prove global wellposedness for problem ( 1.1 ) (at least for $V=0$ ) with standard methods. Considering the solution map 
+ 
+ $v\mapsto\Phi(v)=e^{it\mathcal{D}}f+i\int_{0}^{t}e^{i(t-t^{\prime})\mathcal{D}}P_{3}(v(t^{\prime}))dt^{\prime}$ 
+ one would have indeed 
+ 
+ $\left\|\int_{0}^{t}e^{i(t-t^{\prime})\mathcal{D}}v(t^{\prime})^{3}dt\right\|_{L^{2}L^{\infty}}\lesssim\int_{-\infty}^{+\infty}\|e^{it\mathcal{D}}e^{-it^{\prime}\mathcal{D}}P_{3}(v(t^{\prime}))\|_{L^{2}L^{\infty}}dt^{\prime}\lesssim\|v^{3}\|_{L^{1}H^{1}}$ 
+ that in conjuction with the conservation of $H^{1}$ norm would imply 
+ 
+ $\|\Phi(v)\|_{L^{\infty}_{t}H^{1}_{x}}+\|\Phi(v)\|_{L^{2}_{t}L^{\infty}_{x}}\lesssim\|f\|_{H^{1}}+\|v\|_{L^{\infty}H^{1}}\|v\|_{L^{2}L^{\infty}}^{2}.$ 
+ In other words, a contraction argument in the norm $\|\cdot\|_{L^{2}L^{\infty}}+\|\cdot\|_{L^{\infty}H^{1}}$ would be enough to prove global existence of small $H^{1}$ solutions to ( 1.1 ).
+
+The failure of estimate ( 1.6 ) prevents us from the application of this machinery. Our aim here will thus be to provide some ”weak endpoint” estimates, i.e. some suitable refinements of estimate ( 1.6 ) in view of obtaining global wellposedness for problem ( 1.1 ) in the critical case with some slight additional hypothesis on the initial data.
+
+We shall here present two approaches to the problem, that in both cases will prove, at least, global existence for problem ( 1.1 ) for radial $H^{1}$ initial data.
+
+2. An ”algebraic” approach
+
+In [8] the authors noticed that the endpoint estimate for the 3D wave flow can be recovered if the initial data are assumed to be radial. As it can be easily seen indeed, for a radial $f$ we have, for all $x$ , 
+ 
+ $\frac{\sin(t|D|)}{|D|}f=\frac{c}{|x|}\int^{|x|+t}_{||x|-t|}sf(s)ds\lesssim M(g)(t)$ 
+ where $M(g)$ is the Hardy maximal function of the function $g(s)=sf(s)$ , so that 
+ 
+ $\left\|\frac{\sin(t|D|)}{|D|}\right\|_{L^{\infty}_{x}}\lesssim M(g)(t)$ 
+ and thus by a standard maximal estimate 
+ 
+ $\left\|\frac{\sin(t|D|)}{|D|}\right\|_{L^{2}_{t}L^{\infty}_{x}}\lesssim\|g\|_{L^{2}(\mathbb{R}}=\|sf(s)\|_{L^{2}_{s}(\mathbb{R}}\cong\|f\|_{L^{2}(\mathbb{R}^{3})}$ 
+ (analogous arguments hold in dimension $n\geq 3$ , see [5] ). This remark suggests the chance of slightly improving the range of admissible exponents when requiring some additional structure on the initial data. Even if the Dirac operator does not preserve the radiality of functions, we are indeed able to prove the following
+
+Let $n=3$ ad let $f$ belong to the space 
+ 
+ (2.1)  $\mathcal{\dot{H}}^{1}=\{f_{1}+\mathcal{D}f_{2},\;f_{1}\in\dot{H}^{1}(\mathbb{R}^{3}),\;f_{2}\in\dot{H}^{2}(\mathbb{R}^{3}),\;f_{1},f_{2}\;\rm{radial}\}.$ 
+ Then the following endpoint Strichartz estimate holds: 
+ 
+ (2.2)  $\|e^{it\mathcal{D}}f\|_{L^{2}_{t}L^{\infty}_{x}}\lesssim\|f\|_{\dot{H}^{1}}.$ 
+
+
+Our proof of this result, already contained in [9] and mainly relying on Fourier transform in radial coordinates, takes the remarkable advantage of being adaptable also to handle the non homogenous term. With minor modifications we are in fact able to prove the following mixed Strichartz-smoothing estimate
+
+Let $n=3$ and assume $F(t,x)$ has the structure 
+ 
+ (2.3)  $F(t,x)=F_{1}(|x|)\mathbb{I}_{4}+i(\alpha\cdot\hat{x})F_{2}(|x|).$ 
+ Then the following estimate holds 
+ 
+ (2.4)  $\displaystyle\left\|\int_{0}^{t}e^{i(t-s)\mathcal{D}}F(s)\>ds\right\|_{L^{2}_{t}L^{\infty}_{x}}\lesssim\|\langle x\rangle^{\frac{1}{2}+}|D|F\|_{L^{2}_{t}L^{2}_{x}}.$ 
+
+
+This result is crucial in view of obtaining endpoint Strichartz estimates for the potential-perturbed Dirac flow, and to keep the loss of derivatives less or equal than 1. Propositions 2.1 and 2.2 yield in fact the following Theorem, a proof of which will be also sketched.
+
+Let $V(x)$ be a $4\times 4$ matrix of the form 
+ 
+ (2.5)  $V(x)=V_{1}(|x|)\mathbb{I}_{4}+i\beta(\alpha\cdot\hat{x})V_{2}(|x|),\qquad V_{1},V_{2}:\mathbb{R}^{+}\to\mathbb{R}.$ 
+ Assume that for some $\sigma>1$ and some sufficiently small $\delta>0$ 
+ 
+ (2.6)  $|V(x)|\leq\frac{\delta}{\langle x\rangle^{1/2+}w_{\sigma}^{1/2}},\quad|\nabla V(x)|\leq\frac{\delta}{\langle x\rangle^{1/2+}w_{\sigma}^{1/2}},$ 
+ with $w_{\sigma}(x)^{1/2}=|x|(1+|\log|x||)^{\sigma}$ . 
+ Then the following endpoint Strichartz estimate 
+ 
+ (2.7)  $\|e^{it(\mathcal{D}+V)}f\|_{L^{2}_{t}L^{\infty}_{x}}\lesssim\|f\|_{H^{1}}$ 
+ holds for all initial data $f\in\mathcal{\dot{H}}^{1}\cap H^{1}$ .
+
+By Duhamel’s formula we write the integral form 
+ 
+ $u=e^{it(\mathcal{D}+V)}f=e^{it\mathcal{D}}f+i\int_{0}^{t}e^{i(t-s)\mathcal{D}}(Vu)ds$ 
+ so that we have 
+ 
+ $\|u\|_{L^{2}_{t}L^{\infty}_{x}}=\|e^{it(\mathcal{D}+V)}f\|_{L^{2}_{t}L^{\infty}_{x}}$ 
+ 
+ 
+ $\leq\left\|e^{it\mathcal{D}}f\right\|_{L^{2}_{t}L^{\infty}_{x}}+\left\|\int_{0}^{t}e^{i(t-s)\mathcal{D}}(V(s)e^{is(\mathcal{D}+V)}f)ds\right\|_{L^{2}_{t}L^{\infty}_{x}}$ 
+ Applying Propositions 2.1 and 2.2 we can continue estimating with 
+ 
+ $\lesssim\|f\|_{\dot{H}^{1}}+\|\langle x\rangle^{\frac{1}{2}+}|D|(Vu)\|_{L^{2}_{t}L^{2}_{x}}.$ 
+ From the $L^{2}$ boundedness of the Riesz operator $|D|^{-1}\nabla$ we have 
+ 
+ $\lesssim\|f\|_{\dot{H}^{1}}+\|\langle x\rangle^{\frac{1}{2}+}(\nabla V)u\|_{L^{2}_{t}L^{2}_{x}}+\|\langle x\rangle^{\frac{1}{2}+}V(\nabla u)\|_{L^{2}_{t}L^{2}_{x}}.$ 
+ To conclude we need the following smoothing estimates (the first of which is proved in D’Ancona-Fanelli ’08, the second directly follows), which hold with more general assumptions on the potential $V$ : • $\|w_{\sigma}^{-1/2}e^{it(\mathcal{D}+V)}f\|_{L^{2}_{t}L^{2}_{x}}\lesssim\|f\|_{L^{2}}$ , • $\|w_{\sigma}^{-1/2}\nabla e^{it(\mathcal{D}+V)}f\|_{L^{2}_{t}L^{2}_{x}}\lesssim\|f\|_{\dot{H}^{1}}.$ Thus multiplying and dividing by 
+ 
+ $w_{\sigma}(x)^{1/2}=|x|(1+|\log|x||)^{\sigma}$ 
+ in the smoothing terms yields • $\|\langle x\rangle^{\frac{1}{2}+}(\nabla V)u\|_{L^{2}_{t}L^{2}_{x}}\lesssim\|\langle x\rangle^{1/2+}w_{\sigma}^{1/2}\nabla V\|_{L^{\infty}}\cdot\|w_{\sigma}^{-1/2}u\|_{L^{2}_{t}L^{2}_{x}}$ 
+ 
+ $\lesssim\|f\|_{L^{2}},$ • $\|\langle x\rangle^{\frac{1}{2}+}V(\nabla u)\|_{L^{2}_{t}L^{2}_{x}}\lesssim\|\langle x\rangle^{1/2+}w_{\sigma}^{1/2}V\|_{L^{\infty}}\cdot\|w_{\sigma}^{-1/2}\nabla u\|_{L^{2}_{t}L^{2}_{x}}$ 
+ 
+ $\lesssim\|f\|_{\dot{H}^{1}}$ and this concludes the proof. ∎
+
+Notice that hypothesis ( 2.6 ), that is needed in view of applying proposition 2.2 , is fairly natural: the structure required describes in fact electric potentials and particles with anomalous magnetic momentum.
+
+It would be now tempting to apply this result to prove global existence for problem ( 1.1 ) for small initial data in $\mathcal{\dot{H}}^{1}\cap H^{1}$ with standard fixed-point techniques; since such a method is iterative, what we would need is that class to be invariant under the action of the cubic non linearity $P_{3}(u)$ , but this fact is unfortunately not true even with the simplest choice $P_{3}(u)=\langle\beta u,u\rangle u$ .
+
+Our next step will thus be to show the existence of some proper subspace of the set $\mathcal{\dot{H}}^{1}\cap H^{1}$ on which the following conditions are satisfied: • The operator $\mathcal{D}+V$ is well-defined and selfadjoint, • The action of $P_{3}(u)$ is invariant.
+
+The classical theory of partial wave subspaces (see [15] ) allows in fact, analyzing the structure of the Dirac operator in radial coordinates and using spherical harmonics, to decompose the space $L^{2}(\mathbb{R}^{3})^{4}$ in a direct sum of Hilbert spaces that are left invariant under the action of the potential perturbed Dirac operator. Moreover, an explicit insight of these spaces shows that ”some of them” are left invariant by the action of the standard cubic non linearity as well. We collect all this results in the following proposition, referring to [15] and [1] for notation, details of the statement and a proof.
+
+There exists a family of 2-dimensional Hilbert spaces $\mathcal{H}_{m_{j},k_{j}}$ (the ”partial wave subspaces”) such that 
+ 
+ $L^{2}(\mathbb{R}^{3})^{4}\cong\bigoplus L^{2}((0,\infty),dr)\otimes\mathcal{H}_{m_{j},k_{j}}$ 
+ and the operator $\mathcal{D}+V$ , with $V$ of the form ( 2.5 ) acts and is self-adjoint on such spaces.
+
+Moreover for $j=1/2$ the spaces $\mathcal{H}_{m_{1/2},k_{1/2}}$ are left invariant also by the action of the cubic nonlinearity $P_{3}(u)=\langle\beta u,u\rangle u$ .
+
+Each of these partial wave subspaces has a basis $\{\Phi_{m_{j},k_{j}}^{+},\Phi_{m_{j},k_{j}}^{-}\}$ , that can be explicitly written using Legendre polynomials, satisfying the property that 
+ 
+ $\mathcal{D}\Phi_{m_{j},k_{j}}^{\pm}=\mp\Phi_{m_{j},k_{j}}^{\mp}.$ 
+ The action of the operator $\mathcal{D}+V$ can thus be easily represented in coordinates with respect to such basis, and in this contest is commonly referred to as the radial Dirac operator .
+
+The second part of the statement is justified by the fact that for $j=1/2$ it is easy to evaluate the action of $P_{3}$ on the functions $\Phi_{m_{j},k_{j}}^{+}$ , $\Phi_{m_{j},k_{j}}^{-}$ , that in this particular case have a fairly simple structure. To give a clearer picture of the situation, consider a.e. the triple \footnote{ 2 Notice that for a fixed $j=\frac{1}{2},\frac{3}{2},...$ there will be $4j+2$ possible choices of $m_{j}$ , $k_{j}$ . More precisely the range is $m_{j}=-j,-j+1,\dots,+j$ and $k_{j}=-(j+1/2),+(j+1/2)$ .} $(j,m_{j},k_{j})=(1/2,1/2,1)$ ; then we have 
+ 
+ $\Phi^{+}_{1/2,1}=\left(\begin{array}[]{cc}\displaystyle\frac{i}{2\sqrt{\pi}}\cos\theta\\
+\displaystyle\frac{i}{2\sqrt{\pi}}e^{i\phi}\sin\theta\\
+0\\
+0\end{array}\right)\qquad\Phi^{-}_{1/2,1}=\left(\begin{array}[]{cc}0\\
+0\\
+\displaystyle\frac{1}{2\sqrt{\pi}}\\
+0\end{array}\right).$ 
+ As it is easily seen, this yields the fact that for a generic function $u\in L^{2}((0,\infty),dr)\otimes\mathcal{H}_{1/2,1}$ that will thus be written as 
+ 
+ $u(r,\theta,\phi)=u^{+}(r)\Phi^{+}_{1/2,1}(\theta,\phi)+u^{-}(r)\Phi^{-}_{1/2,1}(\theta,\phi)$ 
+ for some radial functions $u^{+}$ , $u^{-}$ , the nonlinear term reads as 
+ 
+ $\displaystyle\langle\beta u,u\rangle$ $\displaystyle=$ $\displaystyle\displaystyle-\frac{1}{4\pi}\cos^{2}\theta\>u^{+}(r)^{2}-\frac{1}{4\pi}\sin^{2}\theta\>u^{+}(r)^{2}-\frac{1}{4\pi}u^{-}(r)^{2}=$ 
+ $\displaystyle=$ $\displaystyle\displaystyle-\frac{1}{4\pi}\left(u^{+}(r)^{2}+u^{-}(r)^{2}\right),$ 
+ and so has no angular component. This proves that the action of the standard cubic nonlinearity is invariant on the space $\mathcal{H}_{1/2,1}$ .
+
+This last remark provides the final tool we needed to state our global existence result, that now can be proved with completely standard techniques.
+
+Let $P_{3}(u)=\langle\beta u,u\rangle u$ and the potential $V$ satisfying ( 2.5 )- ( 2.6 ). Then for every initial data $f\in\dot{H}^{1}((0,\infty),dr)\otimes\mathcal{H}_{m_{1/2},k_{1/2}}$ , with sufficiently small $\dot{H}^{1}$ norm, there exists a unique global solution $u(t,x)$ to problem ( 1.1 ) in the class $C_{t}(\mathbb{R},\dot{H}^{1})\cap L^{2}_{t}(\mathbb{R},L^{\infty}).$
+
+3. Angular regularity estimates
+
+In recent years many papers (see e.g. [14] , [6] , [7] , [9] and references therein) have been devoted to the improvement of Strichartz estimates using angular regularity. In particular in [9] it is proved the following estimate for the wave propagator 
+ 
+ (3.1)  $n=3,\qquad\|e^{it|D|}f\|_{L^{2}_{t}L^{\infty}_{r}L^{p}_{\omega}}\lesssim\sqrt{p}\cdot\||D|f\|_{L^{2}},\qquad\forall p<\infty$ 
+ where we are using the natural notation 
+ 
+ $\|f\|_{L^{a}_{r}L^{b}_{\omega}}=\left(\int_{0}^{\infty}\|f(r\ \cdot\ )\|_{L^{b}(\mathbb{S}^{n-1})}^{a}r^{n-1}dr\right)^{\frac{1}{a}}$ 
+ and 
+ 
+ $\|f\|_{L^{\infty}_{r}L^{b}_{\omega}}=\sup_{r\geq 0}\|f(r\ \cdot\ )\|_{L^{b}(\mathbb{S}^{n-1})}.$ 
+ Notice that the norm at the left hand side distinguishes between the integrability in the radial and tangential directions. Using estimate ( 3.1 ), Machihara et al. were able to prove global well posedness for problem ( 1.1 ) with $V=0$ for small $\dot{H}^{1}$ -norm data with slight additional angular regularity, and in particular for all radial $\dot{H}^{1}$ data. This is especially interesting since, as pointed out in the introduction, radial data do not correspond to radial solution for the Dirac equation (due to the fact that the operator $\mathcal{D}$ does not commute with rotations of $\mathbb{R}^{3}$ ).
+
+Estimate ( 3.1 ) gives a bound for the standard $L^{2}L^{\infty}$ norm via Sobolev embedding on the unit sphere $\mathbb{S}^{2}$ 
+ 
+ (3.2)  $\|e^{it|D|}f\|_{L^{2}L^{\infty}}\lesssim\|\Lambda^{\epsilon}_{\omega}e^{it|D|}f\|_{L^{2}L^{\infty}_{r}L^{p}_{\omega}}\lesssim\||D|\Lambda^{\epsilon}_{\omega}f\|_{L^{2}},\qquad p>\frac{2}{\epsilon}$ 
+ where the angular derivative operator $\Lambda_{\omega}^{s}$ is defined in terms of the Laplace-Beltrami operator on $\mathbb{S}^{n-1}$ as $\Lambda^{s}_{\omega}=(1-\Delta_{\mathbb{S}^{n-1}})^{s/2}$ .
+
+Our main goal here is to extend this group of results to the Dirac equation perturbed with a small potential $V(x)$ . We consider first the linear equation 
+ 
+ (3.3)  $iu_{t}=\mathcal{D}u+V(x)u+F(t,x).$ 
+ The perturbative term $Vu$ can not be handled using the inhomogeneous version of ( 3.1 ) because of the loss of derivatives. Instead, we shall need to prove new mixed Strichartz-smoothing estimates.
+
+We collect in the following Theorem the Strichartz estimates we are able to prove both for the wave and Dirac equations (see [2] ).
+
+Let $n\geq 3$ and 
+ 
+ (3.4)  $\sigma_{n}=\begin{cases}0\quad\text{if $n=3$}\\
+1-\frac{n}{2}\quad\text{if $n\geq 4$}.\end{cases}$ 
+ Then for every $s\geq 0$ the following estimates for the free wave equation hold 
+ 
+ (3.5)  $\|\Lambda^{s}_{\omega}e^{it|D|}f\|_{L^{2}_{t}L^{\infty}_{r}L^{2}_{\omega}}\lesssim\|\Lambda^{s+\sigma_{n}}_{\omega}f\|_{\dot{H}^{\frac{n-1}{2}}};$ 
+ 
+ 
+ (3.6)  $\left\|\Lambda^{s}_{\omega}\int_{0}^{t}e^{i(t-s)|D|}F(s,x)ds\right\|_{L^{2}_{t}L^{\infty}_{r}L^{2}_{\omega}}\lesssim\|\langle x\rangle^{\frac{1}{2}+}|D|^{\frac{n-1}{2}}\Lambda_{\omega}^{s+\sigma_{n}}F\|_{L^{2}_{t}L^{2}_{x}}.$ 
+ The corresponding estimates for the 3D free Dirac equation are 
+ 
+ (3.7)  $\|\Lambda_{\omega}^{s}e^{it\mathcal{D}}f\|_{L^{2}_{t}L^{\infty}_{r}L^{2}_{\omega}}\lesssim\|\Lambda_{\omega}^{s}f\|_{\dot{H}^{1}},$ 
+
+
+
+ 
+ (3.8)  $\left\|\Lambda_{\omega}^{s}\int_{0}^{t}e^{i(t-t^{\prime})\mathcal{D}}F(t^{\prime},x)dt^{\prime}\right\|_{L^{2}_{t}L^{\infty}_{r}L^{2}_{\omega}}\lesssim\|\langle x\rangle^{\frac{1}{2}+}|D|\Lambda_{\omega}^{s}F\|_{L^{2}_{t}L^{2}_{x}}.$ 
+
+
+As a byproduct of our proof we have thus obtained the following endpoint estimates for the wave flow with gain of angular regularity: 
+ 
+ (3.9)  $n\geq 3,\qquad\|e^{it|D|}f\|_{L^{2}_{t}L^{\infty}_{r}L^{2}_{\omega}}\lesssim\|\Lambda^{\sigma_{n}}_{\omega}f\|_{\dot{H}^{\frac{n-1}{2}}}$ 
+ where $\sigma_{n}$ is as in ( 3.4 ). Although this was not the main purpose here, it is interesting to compare ( 3.9 ) with known results. In dimension $n=3$ , estimate ( 3.9 ) is just a special case of Theorem 1.1-III in [9] where ( 3.9 ) is proved with $\sigma_{3}=-\frac{3}{4}$ ; it is not known if this value is sharp, however in the same paper it is proved that the estimate is false for $\sigma_{3}<-\frac{5}{6}$ . On the other hand, to our knowledge, estimate ( 3.9 ) for $n\geq 4$ and ( 3.6 ) for $n\geq 3$ are new. The literature on these kind of estimates is extensive and we refer to [6] , and the references therein for further information.
+
+The next step is to prove suitable smoothing estimates for the Dirac equation with potential. By a perturbative argument we obtain the following endpoint estimates for the linear flows:
+
+Assume that the hermitian matrix $V(x)$ satisfies, for $\delta$ sufficiently small, $C$ arbitrary and $\sigma>1$ , with $v(x)=|x|^{\frac{1}{2}}|\log|x||^{\frac{1}{2}+}+|x|^{1+}$ , 
+ 
+ (3.10)  $|V(x)|\leq\frac{\delta}{v(x)},\qquad|\nabla V(x)|\leq\frac{C}{v(x)}.$ 
+ Then the perturbed Dirac flow satisfies the endpoint Strichartz estimate 
+ 
+ (3.11)  $\|e^{it(\mathcal{D}+V)}f\|_{L^{2}_{t}L^{\infty}_{r}L^{2}_{\omega}}\lesssim\|f\|_{H^{1}}.$ 
+ If the potential satisfies the stronger assumptions: for some $s>1$ , 
+ 
+ (3.12)  $\|\Lambda_{\omega}^{s}V(|x|\ \cdot\ )\|_{L^{2}(\mathbb{S}^{2})}\leq\frac{\delta}{v(x)},\qquad\|\Lambda_{\omega}^{s}\nabla V(|x|\ \cdot\ )\|_{L^{2}(\mathbb{S}^{2})}\leq\frac{C}{v(x)},$ 
+ then we have the endpoint estimate with angular regularity 
+ 
+ (3.13)  $\|\Lambda^{s}_{\omega}e^{it(\mathcal{D}+V)}f\|_{L^{2}_{t}L^{\infty}_{r}L^{2}_{\omega}}\lesssim\|\Lambda^{s}_{\omega}f\|_{H^{1}}$ 
+ and the energy estimate with angular regularity 
+ 
+ (3.14)  $\|\Lambda^{s}_{\omega}e^{it(\mathcal{D}+V)}f\|_{L^{\infty}_{t}H^{1}}\lesssim\|\Lambda^{s}_{\omega}f\|_{H^{1}}$ 
+
+
+Notice the difference in the assumptions on $V$ between Theorems 2.3 and 3.2 : the hypothesis on structure ( 2.5 ) here is substituted by ( 3.12 ) which ensures some minimal angular regularity needed.
+
+We can finally apply Theorem 3.2 to the nonlinear equation ( 1.1 ) to obtain:
+
+Consider the perturbed Dirac system ( 1.1 ), where the $4\times 4$ matrix valued potential $V(x)$ is hermitian and satisfies assumptions ( 3.12 ). Let $P_{3}(u,\overline{u})$ be a $\mathbb{C}^{4}$ -valued homogeneous cubic polynomial. Then for any $s>1$ there exists $\epsilon_{0}$ such that for all initial data satisfying 
+ 
+ (3.15)  $\|\Lambda_{\omega}^{s}f\|_{H^{1}}<\epsilon_{0}$ 
+ the Cauchy problem ( 1.1 ) admits a unique global solution $u\in CH^{1}\cap L^{2}L^{\infty}$ with $\Lambda^{s}_{\omega}u\in L^{\infty}H^{1}$ .
+
+In particular, problem ( 1.1 ) has a global unique solution for all radial data with sufficiently small $H^{1}$ norm.
+
+It is clear that our methods can also be applied to nonlinear wave equations perturbed with potentials, and allow to prove global well posedness for some types of critical nonlinearities.
+
+We did not strive for the sharpest condition on the potential $V$ , which can be improved at the price of additional technicalities which we prefer to skip here. Moreover, differently from the previous chapter in which the structure of the non linear term was essential, the result can be extended to more general cubic nonlinearities $|P_{3}(u)|\sim|u|^{3}$ .
+
+Notice that we need an angular regularity $s>1$ on the data, higher than the $s>0$ assumed in the result of [9] . It is possible to relax our assumptions to $s>0$ ; the only additional tool we would need to prove is a Moser-type product estimate 
+ 
+ $\|\Lambda^{s}_{\omega}(uv)\|_{L^{2}_{\omega}}\lesssim\|u\|_{L^{\infty}_{\omega}}\|\Lambda^{s}_{\omega}v\|_{L^{2}_{\omega}}+\|\Lambda^{s}_{\omega}u\|_{L^{2}_{\omega}}\|v\|_{L^{\infty}_{\omega}},\qquad s>0$ 
+ and an analogous one for $\Lambda^{s}_{\omega}|D|(uv)$ . This would require a fair amount of calculus on the sphere $\mathbb{S}^{2}$ , and here we preferred to use the conceptually much simpler algebra property of $H^{s}(\mathbb{S}^{n-1})$ for $s>\frac{n-1}{2}$ .
+
+References
+
+[1] Federico Cacciafesta. Global small solutions to the critical radial Dirac equation with potential. Nonlinear Analysis, 74 (2011), pp. 6060-6073.
+[2] Federico Cacciafesta and Piero D’Ancona. Endpoint estimates and global existence for the nonlinear Dirac equation with a potential. http://arxiv.org/abs/1103.4014.
+[3] João-Paulo Dias and Mário Figueira. Global existence of solutions with small initial data inHssuperscript𝐻𝑠H^{s}for the massive nonlinear Dirac equations in three space dimensions. Boll. Un. Mat. Ital. B (7), 1(3):861–874, 1987.
+[4] Miguel Escobedo and Luis Vega. A semilinear Dirac equation inHs​(𝐑3)superscript𝐻𝑠superscript𝐑3H^{s}({\bf R}^{3})fors>1𝑠1s>1. SIAM J. Math. Anal., 28(2):338–362, 1997.
+[5] Daoyuan Fang and Chengbo Wang. Some remarks on Strichartz estimates for homogeneous wave equation. Nonlinear Anal., 65(3):697–706, 2006.
+[6] Daoyuan Fang and Chengbo Wang. Weighted Strichartz estimates with angular regularity and their applications. 2008.
+[7] Chengbo Wang Jin-Cheng Jiang and Xin Yu. Generalized and weighted strichartz estimates. 2010.
+[8] Sergiu Klainerman and Matei Machedon. Space-time estimates for null forms and the local existence theorem. Comm. Pure Appl. Math., 46(9):1221–1268, 1993.
+[9] Shuji Machihara, Makoto Nakamura, Kenji Nakanishi, and Tohru Ozawa. Endpoint Strichartz estimates and global solutions for the nonlinear Dirac equation. J. Funct. Anal., 219(1):1–20, 2005.
+[10] Shuji Machihara, Makoto Nakamura, and Tohru Ozawa. Small global solutions for nonlinear Dirac equations. Differential Integral Equations, 17(5-6):623–636, 2004.
+[11] Yves Moreau. Existence de solutions avec petite donnée initiale dansH2superscript𝐻2H^{2}pour une équation de Dirac non linéaire. Portugal. Math., 46(suppl.):553–565, 1989. Workshop on Hyperbolic Systems and Mathematical Physics (Lisbon, 1988).
+[12] Branko Najman. The nonrelativistic limit of the nonlinear Dirac equation. Ann. Inst. H. Poincaré Anal. Non Linéaire, 9(1):3–12, 1992.
+[13] Michael Reed. Abstract non-linear wave equations. Lecture Notes in Mathematics, Vol. 507. Springer-Verlag, Berlin, 1976.
+[14] Jacob Sterbenz Angular regularity and Strichartz estimates for the wave equation. Int. Math. Res. Not.2005, no. 4, 187 231.
+[15] Bernd Thaller. The Dirac equation. Texts and Monographs in Physics. Springer-Verlag, Berlin, 1992.

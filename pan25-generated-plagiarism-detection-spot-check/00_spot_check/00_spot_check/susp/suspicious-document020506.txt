@@ -1,0 +1,667 @@
+Effects of heterogeneous opinion interactions in many-agent systems for epidemic dynamics
+
+By Sabrina Bonandin and Mattia Zanella
+
+Abstract
+
+In this work we define a kinetic model for understanding the impact of heterogeneous opinion formation dynamics on epidemics. The considered many-agent system is characterized by nonsymmetric interactions which define a coupled system of kinetic equations for the evolution of the opinion density in each compartment. In the quasi-invariant limit we may show positivity and uniqueness of the solution of the problem together with its convergence towards an equilibrium distribution exhibiting bimodal shape. The tendency of the system towards opinion clusters is further analyzed by means of numerical methods, which confirm the consistency of the kinetic model with its moment system whose evolution is approximated in several regimes of parameters.
+
+Keywords: kinetic equations; mathematical epidemiology; opinion dynamics; collective phenomena; many-agent systems
+
+Mathematics Subject Classification: 35Q84; 82B21; 91D10; 94A17
+
+1 Introduction
+
+The mathematical modelling for the spread of infectious diseases trace back to the pioneering works of D. Bernoulli and have been increasingly made more sophisticated over the centuries. Amongst the most influential approaches to mathematical epidemiology, the Kermack-McKendrick SIR model dates back to the first half of the 20th century [27] . In general terms, compartmental modelling relies on the subdivision of the population into epidemiologically relevant groups, where each group represents a stage of progression with respect to the transmission dynamics [26] . More recently, several extensions of the SIR-type model have been proposed to incorporate behavioural aspects into these model, see [5] and the references therein. However, a complete understanding of the multiscale features of epidemic dynamics should take into account the heterogeneous scales driving the infection dynamics. In this direction, kinetic equations for collective phenomena are capable to link the microscopic scale of agents with the macroscopic scale of observable data. In particular, suitable transition rates have been determined in relation to emerging social dynamics [15] , together with the definition of possible control strategies [16] .
+
+The study of kinetic models for large interacting systems has garnered significant attention in recent years [6]. Among these, the phenomenon of opinion formation has emerged as a notable area of focus, frequently modeled using statistical mechanics [15]. Classical kinetic theory has provided a robust theoretical framework for investigating the emergent properties of opinion formation through mathematical models [20].
+
+The study introduces a novel kinetic framework to explore the interplay between opinion dynamics and the progression of infectious diseases. Observations from recent pandemics suggest that vaccine reluctance manifests through distinct phases and exhibits spatiotemporal heterogeneity, likely influenced by varying social characteristics among populations. The identification of recurring patterns in societal responses to public health crises underscores the potential for modeling these phenomena mathematically. Specifically, the proposed approach integrates a kinetic compartmental model, traditionally used to simulate disease transmission, with a dynamic representation of individual attitudes, particularly in the presence of influential figures. This coupled model enables the forecasting of population-wide adherence to vaccination efforts as an outbreak unfolds and provides insights into optimal strategies for enhancing immunization rates. Computational simulations validate the model's capability to capture various aspects of epidemic spread.
+
+In this work, we concentrate on a kinetic compartmental model to investigate the emergence of collective structures triggered by nonsymmetric interactions between agents in different compartments. In this direction we expand the results in [39] taking advantage of the kinetic epidemic setting developed in [15] . We derive new macroscopic equations encapsulating the effects of opinion phenomena in epidemic dynamics at the level of observable quantities. In particular, we show that the emergence of opinion clusters in the form of bimodal Beta distributions can be ignited by the coupled action of opinion and epidemic dynamics. Furthermore, we will provide proofs of positivity and uniqueness of the solution for a surrogate Fokker-Planck-type model.
+
+The remainder of this paper is structured as follows. Section 2 presents a kinetic compartment model that integrates epidemic and opinion dynamics under vaccination. Section 3 examines the influence of leader-follower interactions, with detailed properties discussed in Section 3.2. Finally, Section 4 provides numerical experiments based on the proposed framework to illuminate the connections between behavioral factors impacting vaccination campaigns.
+
+2 The kinetic model
+
+In this section, we introduce a kinetic compartmental model suitable to describe the evolution of opinion of individuals on protective measures in a multi-agent system under the spread of an infectious disease.
+
+In this section, we examine the scenario where the social variable is expressed as the personal opinions of individuals [66]. For generality, we utilize a SEIRV compartmental framework to model the population, categorizing agents into the following states: susceptible (S) agents capable of contracting the disease; infectious (I) agents responsible for disease transmission; exposed (E) agents who have been infected but are not yet contagious; vaccinated (V) agents who are immune due to vaccination; and removed (R) agents who no longer contribute to disease spread. Each agent is assigned an opinion variable \( w \in \mathcal{I} \), which varies continuously within the interval \( \mathcal{I} = [-1, 1] \). Here, \( -1 \) and \( +1 \) represent opposing beliefs regarding protective measures. Specifically, \( w = -1 \) corresponds to agents who do not believe in the necessity of protective behaviors (e.g., mask-wearing or limiting social interactions), while \( w = 1 \) corresponds to agents who fully endorse such protective measures. Additionally, it is assumed that agents with higher protective behavior are less likely to become infected.
+
+We denote by $f_{H}=f_{H}(w,t):[-1,1]\times\mathbb{R}_{+}\to\mathbb{R}_{+}$ the distribution of opinions at time $t\geq 0$ of agents in the compartment $H\in\mathcal{C}=\{S,E,I,R\}$ such that $f_{H}(w,t)dw$ represents the fraction of agents with opinion in $[w,w+dw]$ at time $t\geq 0$ in the compartment $H$ . Without lost of generality thanks to the conservation of the total population size, we impose that 
+ 
+ $\sum_{H\in\mathcal{C}}f_{H}(w,t)=f(w,t),\quad\int_{\mathcal{I}}f(w,t)dw=1.$  (1) 
+
+
+For each time $t\geq 0$ , we define the mass fraction of agents in $H\in\mathcal{C}$ and their moment of order $r>0$ to be the quantities 
+ 
+ $\rho_{H}(t)=\int_{\mathcal{I}}f_{H}(w,t)dw,\quad\rho_{H}(t)m_{r,H}(t)=\int_{\mathcal{I}}w^{r}f_{H}(w,t)dw,$ 
+ respectively. In the following, to simplify notations, we will use $m_{1,H}(t)=m_{H}(t)$ for the (local) mean opinion at time $t\geq 0$ in class $H$ .
+
+Building upon the framework outlined in Section 2, we define $f_{J}(w,t)$ as the opinion distribution at time $t\geq 0$ for agents within compartment $J\in\mathcal{C}=\{S,E,I,R,V\}$. The coupled dynamics of opinion evolution and disease propagation are described by the explicit form of the kinetic system (2.2), as presented in Ref. [66], given by:
+
+\begin{split}
+\frac{\partial f_{S}(w,t)}{\partial t} &= -K_{T}(f_{S},f_{I})(w,t) - K_{V}(f_{S}) + \dfrac{1}{\tau}Q_{S}(f_{S})(w,t), \\
+\frac{\partial f_{E}(w,t)}{\partial t} &= K_{T}(f_{S},f_{I})(w,t) - \sigma_{E}f_{E}(w,t) + \dfrac{1}{\tau}Q_{E}(f_{E})(w,t), \\
+\frac{\partial f_{I}(w,t)}{\partial t} &= \sigma_{E}f_{E}(w,t) - \gamma_{I}f_{I}(w,t) + \dfrac{1}{\tau}Q_{I}(f_{I})(w,t), \\
+\frac{\partial f_{R}(w,t)}{\partial t} &= \gamma_{I}f_{I}(w,t) + \dfrac{1}{\tau}Q_{R}(f_{R})(w,t), \\
+\frac{\partial f_{V}(w,t)}{\partial t} &= K_{V}(f_{S}) + \dfrac{1}{\tau}Q_{V}(f_{V})(w,t),
+\end{split}
+
+In the above system (2.3), the parameter $\tau>0$ represents the relaxation time, while $Q_{J}(\cdot)$ denotes the kinetic operator capturing the change in opinions among agents in compartment $J\in\mathcal{C}$. The detailed structure of these operators will be elaborated in Section 2.2. The parameter $\sigma_{E}>0$ corresponds to the mean latent period of the infection ($1/\sigma_{E}$), and $\gamma_{I}>0$ relates to the mean infectious period ($1/\gamma_{I}$), as established in [23].
+
+We are prepared to integrate the dynamics of disease transmission with the opinion dissemination framework. The comprehensive kinetic epidemic system is expressed as:
+
+(3.24)  
+\[
+\begin{split}
+\frac{\partial f_{S}}{\partial t} &= -K_{T}(f_{S},f_{I}) - K_{V}(f_{S}) + \frac{1}{\tau}Q_{S}(f_{S},f_{L}), \\
+\frac{\partial f_{E}}{\partial t} &= K_{T}(f_{S},f_{I}) - \sigma_{E}f_{E} + \frac{1}{\tau}Q_{E}(f_{E},f_{L}), \\
+\frac{\partial f_{I}}{\partial t} &= \sigma_{E}f_{E} - \gamma_{I}f_{I} + \frac{1}{\tau}Q_{I}(f_{I},f_{L}), \\
+\frac{\partial f_{R}}{\partial t} &= \gamma_{I}f_{I} + \frac{1}{\tau}Q_{R}(f_{R},f_{L}), \\
+\frac{\partial f_{V}}{\partial t} &= K_{V}(f_{S}) + \frac{1}{\tau}Q_{V}(f_{V},f_{L}),
+\end{split}
+\]  
+
+where \(\tau > 0\) represents a relaxation coefficient. The Fokker-Planck operators \(Q_{J}(\cdot,\cdot)\), for \(J \in \mathcal{C} = \{S,E,I,R,V\}\), are defined by equations (3.20)-(3.22) and encapsulate the leader-follower interactions. Similar to system (2.3), the parameter \(\sigma_{E} > 0\) is associated with the mean latent period, specifically \(1/\sigma_{E}\), and \(\gamma_{I} > 0\) corresponds to the mean infectious period, where \(1/\gamma_{I}\) is referenced from [23]. In equation (3.24), the disease transmission is dictated by the local incidence rate \(K_{T}(f_{S},f_{I})\), as outlined in (2.4), while the vaccination response among susceptible individuals is captured by the operator \(K_{V}(f_{S})\), detailed in (2.6).
+
+2.1 A kinetic model for opinion formation dynamics
+
+Coherently with the modeling approach of [39] , we let the opinion dynamics in kinetic compartmental system ( 2 ) be described by the kinetic model of continuous opinion formation introduced in [36] . The model is based on binary interactions (hence, the mathematical methods we use are close to those used in the context of kinetic theory of granular gases [7] ) and assumes that the formation of opinion is made up of two distinct processes: the compromise process, that reflects the human tendency to settle conflicts, and the diffusion process, that comprises all the unpredictable opinion deviations that an agent might have in response to global access to information.
+
+We recall that the news of the model we are proposing (compared to the one of [39] ) is that exchange of opinion on protective measures occurs between agents of any compartment. Hence, we consider now two agents, one belonging to compartment $H$ , endowed with opinion $w$ , and one to compartment $J$ , endowed with opinion $w_{*}$ . The post-interaction opinion pair $(w^{\prime},w^{\prime}_{*})\in\mathcal{I}^{2}$ of two interacting agents is given by 
+ 
+ $\begin{cases}w^{\prime}=w+P(w,w_{*})(\gamma_{J}w_{*}-\gamma_{H}w)+\eta_{H}D(|w|)\\
+w^{\prime}_{*}=w_{*}+P(w,w_{*})(\gamma_{H}w-\gamma_{J}w_{*})w+\eta_{J}D(|w_{*}|)\end{cases}$  (7) 
+ where $P(\cdot,\cdot)$ is the interaction function and $P(\cdot,\cdot)\in[0,1]$ , $\gamma_{H},\gamma_{J}\in(0,1)$ are compartment-dependent compromise propensities, and $\eta_{H},\eta_{J}$ are iid random variables such that $\left\langle\eta_{H}\right\rangle=\left\langle\eta_{J}\right\rangle=0$ and variance $\left\langle\eta_{H}^{2}\right\rangle=\left\langle\eta_{J}^{2}\right\rangle=\sigma^{2}>0$ . At last, the local relevance of the diffusion is given by $D(w)\geq 0$ . We have 
+ 
+ $\begin{split}\left\langle w^{\prime}-w\right\rangle=-P(w,w_{*})(\gamma_{H}w-\gamma_{J}w_{*})\\
+\left\langle w_{*}^{\prime}-w_{*}\right\rangle=-P(w,w_{*})(\gamma_{J}w_{*}-\gamma_{H}w)\end{split}$  (8) 
+ therefore if $\gamma_{J}w_{*}>\gamma_{H}w$ from the first equation in ( 8 ) we have $\left\langle w^{\prime}-w\right\rangle>0$ implying in average that $\left\langle w^{\prime}\right\rangle>w$ . At the same time, from the second equation we get $\left\langle w_{*}^{\prime}-w_{*}\right\rangle<0$ , implying in average that $\left\langle w_{*}^{\prime}\right\rangle<w_{*}$ . We remark that the assumptions made on $\gamma_{H},\gamma_{J},\eta_{H},\eta_{J},P,D$ are not sufficient to guarantee that $w^{\prime},w^{\prime}_{*}\in\mathcal{I}$ unless $\eta_{H}\equiv\eta_{J}\equiv 0$ . A sufficient condition to guarantee that $(w^{\prime},w^{\prime}_{*})\in\mathcal{I}^{2}$ is that two constants $c_{H},c_{J}>0$ exist such that 
+ 
+ $|\eta_{H}|\leq c(1-\gamma_{H}),\qquad|\eta_{J}|\leq c(1-\gamma_{J}),$ 
+ and 
+ 
+ $c_{H}D(|w|)\leq 1-|w|,\qquad c_{J}D(|w|)\leq 1-|w|,$ 
+ for any $w\in[-1,1]$ . We point the interested reader to [36] for a detailed proof.
+
+To analyze such interactions, we examine a leader-follower framework where agents from compartment $J\in\mathcal{C}$ engage with opinion leaders. Starting with an initial opinion pair $(w,w_{*})$, the interaction yields a post-interaction pair $(w^{\prime\prime},w_{*}^{\prime\prime})$, governed by the anisotropic binary interaction scheme 
+
+(3.18)  $\begin{split}w^{\prime\prime}&=w+\lambda_{L}G(w,w_{*})(w_{*}-w)+D(w)\eta_{L},\\
+w^{\prime\prime}_{*}&=w_{*},\end{split}$ 
+where $\lambda_{L}\in(0,1)$, $\langle\eta_{L}\rangle=\sigma_{L}^{2}$, and $G(\cdot,\cdot)\in[0,1]$ represents the interaction function quantifying the influence of leaders on vaccine hesitancy. The diffusion term $D(\cdot)$, as defined in (3.18), retains the same local significance as in (2.10). Additionally, for each $J\in\mathcal{C}$, we impose the condition $\lambda_{J}+\lambda_{L}=1$. This constraint implies that $\lambda_{J}$ and $\lambda_{L}$ dictate the proportion of opinion change resulting from interactions with the general population and leaders, respectively.
+
+The terms related to the compromise propensity in the microscopic interactions proposed by [36] are both governed by the same constant $\gamma$ . This, in particular, implies that $\gamma$ is a shared compromise propensity. In the compartmental extension of the opinion formation model, we assume that each agent of a compartment shares the same compromise propensity.
+
+2.2 Evolution of observable quantities
+
+ The changes in opinion are driven by interactions with a static background distribution, which captures the average societal opinion. The evolution of the opinion density is governed by a Fokker–Planck equation, which combines the effects of compromise and self-thinking. The drift term represents the tendency of agents to align with the background average opinion, while the diffusion term captures the spreading of opinions due to individual self-thinking. The balance between these terms determines whether the dynamics are compromise-dominated or self-thinking-dominated.
+
+Let \( p \geq 2 \) and consider multiplying each equation in the kinetic system (2.3) by \( f_J^{p-1} \) for the corresponding index \( J \in \mathcal{C} \). Upon integrating with respect to \( w \), we derive the following system:
+
+\[
+\frac{1}{p}\frac{\mathrm{d}}{\mathrm{d}t}\|f_S\|_{L^{p}(\mathcal{I})}^{p} = -\int_{-1}^{1}\left(K_T(f_S,f_I) + K_V(f_S)\right)f_S^{p-1}\mathrm{d}w + \frac{1}{\tau}\int_{-1}^{1}Q_S(f_S,f_L)f_S^{p-1}\mathrm{d}w,
+\]
+
+\[
+\frac{1}{p}\frac{\mathrm{d}}{\mathrm{d}t}\|f_E\|_{L^{p}(\mathcal{I})}^{p} = \int_{-1}^{1}K_T(f_S,f_I)f_E^{p-1}\mathrm{d}w - \sigma_E\|f_E\|_{L^{p}(\mathcal{I})}^{p} + \frac{1}{\tau}\int_{-1}^{1}Q_E(f_E,f_L)f_E^{p-1}\mathrm{d}w,
+\]
+
+\[
+\frac{1}{p}\frac{\mathrm{d}}{\mathrm{d}t}\|f_I\|_{L^{p}(\mathcal{I})}^{p} = \sigma_E\int_{-1}^{1}f_Ef_I^{p-1}\mathrm{d}w - \gamma_I\|f_I\|_{L^{p}(\mathcal{I})}^{p} + \frac{1}{\tau}\int_{-1}^{1}Q_I(f_I,f_L)f_I^{p-1}\mathrm{d}w,
+\]
+
+\[
+\frac{1}{p}\frac{\mathrm{d}}{\mathrm{d}t}\|f_R\|_{L^{p}(\mathcal{I})}^{p} = \gamma_I\int_{-1}^{1}f_If_R^{p-1}\mathrm{d}w + \frac{1}{\tau}\int_{-1}^{1}Q_R(f_R,f_L)f_R^{p-1}\mathrm{d}w,
+\]
+
+\[
+\frac{1}{p}\frac{\mathrm{d}}{\mathrm{d}t}\|f_V\|_{L^{p}(\mathcal{I})}^{p} = \int_{-1}^{1}K_V(f_S)f_V^{p-1}\mathrm{d}w + \frac{1}{\tau}\int_{-1}^{1}Q_V(f_V,f_L)f_V^{p-1}\mathrm{d}w.
+\]
+
+To address the terms involving \( K_T \) and \( K_V \), we first consider those in the first equation:
+
+\[
+-\int_{-1}^{1}\left(K_T(f_S,f_I) + K_V(f_S)\right)f_S^{p-1}\mathrm{d}w \leq \left(\|\kappa_T\|_{L^{\infty}(\mathcal{I}\times\mathcal{I})}\|f_I\|_{L^{1}(\mathcal{I})} + \|\kappa_V\|_{L^{\infty}(\mathcal{I})}\right)\|f_S\|_{L^{p}(\mathcal{I})}^{p}.
+\]
+
+For the analogous terms in the equations governing \( f_E \) and \( f_V \), applying Hölder's and Young's inequalities with exponents \( p \) and \( \frac{p}{p-1} \) yields:
+
+\[
+\int_{-1}^{1}K_T(f_S,f_I)f_E^{p-1}\mathrm{d}w \leq \|\kappa_T\|_{L^{\infty}(\mathcal{I}\times\mathcal{I})}\|f_I\|_{L^{1}(\mathcal{I})}\left(\frac{1}{p}\|f_S\|_{L^{p}(\mathcal{I})}^{p} + \frac{p-1}{p}\|f_E\|_{L^{p}(\mathcal{I})}^{p}\right),
+\]
+
+\[
+\int_{-1}^{1}K_V(f_S)f_V^{p-1}\mathrm{d}w \leq \|\kappa_V\|_{L^{\infty}(\mathcal{I})}\left(\frac{1}{p}\|f_S\|_{L^{p}(\mathcal{I})}^{p} + \frac{p-1}{p}\|f_V\|_{L^{p}(\mathcal{I})}^{p}\right).
+\]
+
+A comparable approach can be applied to handle the mixed product terms in the evolution equations for \( f_I \) and \( f_R \).
+
+Let \( f_L(w) \) represent the leader's opinion density function, with \( m_L = \int_{-1}^{1} w f_L(w) \, dw \) denoting its mean value. In the context of an epidemic and a vaccination effort, the evolution of individuals is modeled by the vector-distribution function \( (f_J(w,t))_{J \in \mathcal{C}} \), which interacts with the leader's distribution \( f_L(w) \) through Boltzmann-like equations. These equations, expressed in weak form for any \( J \in \mathcal{C} \), are given by:
+
+\[
+\frac{d}{dt} \int_{\mathcal{I}} \varphi(w) f_J(w,t) \, dw = \frac{1}{\tau} \int_{\mathcal{I} \times \mathcal{I}} \big{\langle} \varphi(w') - \varphi(w) \big{\rangle} f_J(w,t) g(z) \, dw dz
+\]
+\[
++ \frac{1}{\tau} \int_{\mathcal{I} \times \mathcal{I}} \big{\langle} \varphi(w'') - \varphi(w) \big{\rangle} f_L(w_*) f_J(w,t) \, dw_* dw,
+\]
+for any smooth function \( \varphi(w) \), where \( w' \) and \( w'' \) are defined in (2.10) and (3.18), respectively. Under the quasi-invariant opinion limit, as described in Section 2.2, and assuming \( \lambda_J + \lambda_L = 1 \), the evolution of \( (f_J(w,t))_{J \in \mathcal{C}} \) is governed by the following system of Fokker–Planck equations:
+
+\[
+\frac{\partial f_J(w,t)}{\partial t} = Q_J(f_J, f_L)(w,t) = \frac{\sigma_J^2 + \sigma_L^2}{2} \frac{\partial^2}{\partial w^2} \left( (1 - w^2) f_J(w,t) \right)
+\]
+\[
++ \frac{\partial}{\partial w} \left( \left( \lambda_J (w - \mu(\rho_I)) + \lambda_L \mathcal{L}[f_L](w,t) \right) f_J(w,t) \right),
+\]
+where the linear operator \( \mathcal{L} \) captures leader interactions via the function \( G \) and has the explicit form:
+
+\[
+\mathcal{L}[f_L](w) = \int_{\mathcal{I}} G(w, w_*) (w - w_*) f_L(w_*) \, dw_*.
+\]
+The operators \( Q_J \), for \( J \in \mathcal{C} \), are subject to the additional boundary conditions:
+
+\[
+\left( \lambda_J (w - \mu(\rho_I)) + \lambda_L \mathcal{L}[f_L](w) \right) f_J(w,t) + \frac{\sigma_J^2 + \sigma_L^2}{2} \frac{\partial}{\partial w} \left( (1 - w^2) f_J(w,t) \right) \Big|_{w = \pm 1} = 0,
+\]
+\[
+(1 - w^2) f_J(w,t) \Big|_{w = \pm 1} = 0.
+\]
+In the general case, the drift term of the Fokker–Planck equations accounts for both opinion changes due to the epidemic and the influence of leaders promoting protective behaviors, thereby increasing vaccination rates. Notably, the nonlinear nature of \( \mathcal{L}[f_L] \) complicates the derivation of the equilibrium distribution. However, under the assumption that leaders interact with the entire population (\( \Delta = 2 \) in (3.19)), with \( G(\cdot, \cdot) \equiv 1 \), the equilibrium distribution simplifies to:
+
+\[
+f_J^\infty(w) = C_J (1 - w)^{-1 + \frac{1 - (\lambda_J \mu(\rho_I) + \lambda_L m_L)}{\sigma^2}} (1 + w)^{-1 + \frac{1 + (\lambda_J \mu(\rho_I) + \lambda_L m_L)}{\sigma^2}},
+\]
+where \( \sigma^2 = \sigma_J^2 + \sigma_L^2 \) and \( C_J = C_J(\mu(\rho_I), m_L, \lambda_J, \lambda_L, \sigma^2) > 0 \) is a normalization constant. The first moment's evolution, derived from (3.20), is:
+
+\[
+\frac{dm_J(t)}{dt} = -\frac{1}{\rho_J} \int_{\mathcal{I}} (w - (\lambda_J \mu(\rho_I) + \lambda_L m_L)) f_J(w,t) \, dw,
+\]
+leading to \( m_J(t) \to \lambda_J \mu(\rho_I) + \lambda_L m_L \) as \( t \to +\infty \). Additionally, the energy evolution is given by:
+
+\[
+\frac{dE_J(t)}{dt} = -(2 + \sigma^2) E_J(t) + 2 (\lambda_J \mu(\rho_I) + \lambda_L m_L) m_J(t) + \sigma^2.
+\]
+Consequently, if \( \sigma^2 \equiv 0 \), the variance of the random variable \( X \sim f_J(w,t)/\rho_J \) approaches zero as \( t \to +\infty \).
+
+3 Derivation of a reduced complexity Fokker-Planck model
+
+This section investigates the key properties of the kinetic epidemic model (3.24), where the Fokker–Planck operators \( Q_J \) are defined in (3.20). Herein, we focus on the case where \( G \equiv 1 \), such that the operators \( Q_J \), \( J \in \mathcal{C} = \{S, E, I, R, V\} \), are expressed as:
+
+\[
+Q_J(f_J, f_L)(w, t) = \frac{\sigma^2}{2} \frac{\partial^2}{\partial w^2}\left((1 - w^2)f_J(w, t)\right) + \frac{\partial}{\partial w}\left((w - m(t))f_J(w, t)\right),
+\]
+
+where \( m(t) = \lambda_J \mu(\rho_I) + \lambda_L m_L \). The system is complemented with no-flux boundary conditions. The local equilibrium distributions for (3.25) are given by:
+
+\[
+f^{\mathrm{eq}}_J(w, t) = C_J(t)(1 - w)^{-1 + \frac{1 - m(t)}{\sigma^2}}(1 + w)^{-1 + \frac{1 + m(t)}{\sigma^2}},
+\]
+
+with \( C_J(t) > 0 \) chosen to normalize the distribution. This analysis is essential for studying the evolution described by (3.24).
+
+Let $\epsilon>0$ be a scaling coefficient. We introduce the following scaling 
+ 
+ $\gamma_{J}\to\epsilon\gamma_{J},\quad\sigma^{2}_{J}\to\epsilon\sigma^{2}_{J}$  (12) 
+ and, in the time scale $\xi=\epsilon t$ , we introduce the corresponding scaled distributions 
+ 
+ $g_{H}(w,\xi)=f_{H}(w,t)=f_{H}\left(w,\xi/\epsilon\right),\quad H\in\mathcal{C}.$ 
+ In the following we will indicate with $\rho_{H}m_{H}(\xi)=\int_{\mathcal{I}}wg_{H}(w,\xi)dw$ . Rewriting the weak formulation ( 10 ) of the opinion kinetic equation ( 9 ) for the scaled function, we get 
+ 
+ $\epsilon\frac{d}{d\xi}\int_{\mathcal{I}}\phi(w)g_{H}(w,\xi)dw=\sum_{J\in\mathcal{C}}\int_{\mathcal{I}^{2}}\left\langle\phi(w^{\prime})-\phi(w)\right\rangle g_{H}(w,\xi)g_{J}(w_{*},\xi)dwdw_{*}.$  (13) 
+ Letting $\epsilon\to 0^{+}$ , we can introduce a Taylor expansion of $\phi$ around $w$ 
+ 
+ $\langle\phi(w^{\prime})-\phi(w)\rangle=\langle w^{\prime}-w\rangle\dfrac{d}{dw}\phi(w)+\frac{1}{2}\langle(w^{\prime}-w)^{2}\rangle\dfrac{d^{2}}{dw^{2}}\phi(w)+\frac{1}{6}\langle(w^{\prime}-w)^{3}\rangle\dfrac{d^{3}}{dw^{3}}\phi(\bar{w})$ 
+ where $\bar{w}\in(\min(w,w^{\prime}),\max(w,w^{\prime}))$ and 
+ 
+ $\displaystyle\langle w^{\prime}-w\rangle$ $\displaystyle=\epsilon P(w,w_{*})(-\gamma_{H}w+\gamma_{J}w_{*})$ 
+ 
+ $\displaystyle\langle(w^{\prime}-w)^{2}\rangle$ $\displaystyle=\epsilon^{2}P^{2}(w,w_{*})(\gamma_{H}^{2}w^{2}+\gamma_{J}^{2}w^{2}_{*}-2\gamma_{H}\gamma_{J}ww_{*})+\epsilon\sigma^{2}D^{2}(|w|).$ 
+ Plugging these terms in ( 13 ) we get 
+ 
+ $\begin{split}&\epsilon\dfrac{d}{d\xi}\int_{\mathcal{I}}\phi(w)g_{H}(w,\xi)dw\\
+&=\epsilon\sum_{J\in\mathcal{C}}\int_{\mathcal{I}^{2}}\phi^{\prime}(w)P(w,w_{*})(-\gamma_{H}w+\gamma_{J}w_{*})g_{H}(w,\xi)g_{J}(w_{*},\xi)dwdw_{*}\\
+&\quad+\frac{1}{2}\sum_{J\in\mathcal{C}}\int_{\mathcal{I}^{2}}\phi^{\prime\prime}(w)\langle(w^{\prime}-w)^{2}\rangle g_{H}(w,\xi)g_{J}(w_{*},\xi)dwdw_{*}\\
+&\quad+\sum_{J\in\mathcal{C}}R_{\epsilon}(g_{H},g_{J})(\xi),\end{split}$  (14) 
+ and 
+ 
+ $R_{\epsilon}(g_{H},g_{J})(\xi)=\frac{1}{6}\int_{\mathcal{I}^{2}}\langle(w^{\prime}-w)^{3}\rangle\phi^{\prime\prime\prime}(\bar{w})g_{H}(w)g_{J}(w_{*})dwdw_{*}.$ 
+ Hence, we may observe that for each $J\in\mathcal{C}$ , the reminder term is such that 
+ 
+ $\dfrac{1}{\epsilon}|R_{\epsilon}(g_{H},g_{J})|\to 0,$ 
+ for $\epsilon\to 0^{+}$ since $\left\langle\eta_{J}^{3}\right\rangle<+\infty$ for all $J\in\mathcal{C}$ . Therefore, in the quasi-invariant scaling, letting $\epsilon\to 0^{+}$ in ( 14 ), we get 
+ 
+ $\begin{split}&\frac{d}{d\xi}\int_{\mathcal{I}}\phi(w)g_{H}(w,\xi)dw\\
+&=\int_{\mathcal{I}}\left\{\phi^{\prime}\int_{\mathcal{I}}P(w,w_{*})\sum_{J\in\mathcal{C}}\left(\gamma_{J}w_{*}-\gamma_{H}w\right)g_{J}(w_{*})dw_{*}+\phi^{\prime\prime}\frac{\sigma^{2}}{2}D^{2}(w)\right\}g_{H}(w)dw\end{split}$  (15) 
+ Integrating back by parts, in view of the smoothness of $\phi$ , we obtain the surrogate Fokker-Planck operator 
+ 
+ $\partial_{\xi}g_{H}(w,\xi)=\bar{Q}_{H}(g_{H})(w,\xi)$  (16) 
+ where 
+ 
+ $\begin{split}&\bar{Q}_{H}(g_{H})(w,\xi)=\frac{\sigma^{2}}{2}\partial^{2}_{w}\left(D^{2}(|w|)g_{H}(w,\xi)\right)\\
+&\quad+\partial_{w}\left(\left(\int_{\mathcal{I}}P(w,w_{*})\sum_{J\in\mathcal{C}}\left(\gamma_{H}w-\gamma_{J}w_{*}\right)g_{J}(w_{*},\xi)dw_{*}\right)g_{H}(w,\xi)\right)\end{split}$ 
+ complemented with the no-flux boundary conditions 
+ 
+ $\begin{split}{\left.\kern-1.2pt\left(\int_{\mathcal{I}}P(w,w_{*})\sum_{J\in\mathcal{C}}\left(\gamma_{H}w-\gamma_{J}w_{*}\right)g_{J}(w_{*},\xi)dw_{*}\right)g_{H}(w,\xi)\mathchoice{\vphantom{\big{|}}}{}{}{}\right|_{w=\pm 1}}\\
++{\left.\kern-1.2pt\frac{\sigma^{2}}{2}\partial_{w}((D^{2}(|w|)g_{H}(w,\xi))\mathchoice{\vphantom{\big{|}}}{}{}{}\right|_{w=\pm 1}}=0\\
+{\left.\kern-1.2ptD^{2}(|w|)g_{H}(w,\xi)\mathchoice{\vphantom{\big{|}}}{}{}{}\right|_{w=\pm 1}}=0\end{split}$  (17) 
+ for any $\xi\geq 0$ . We observe that these conditions express a balance between the so-called advective and diffusive fluxes on the boundaries $w=\pm 1$ .
+
+We aim to establish $L^{1}$-uniqueness of the solutions. To proceed, we define the mass fractions of infected individuals for the two solutions as $\rho_{I}^{f}(t)=\int_{-1}^{1}f_{I}(w,t)\mathrm{d}w$ and $\rho_{I}^{g}(t)=\int_{-1}^{1}g_{I}(w,t)\mathrm{d}w$. Given that $\rho_{I}^{f}(t)=\rho_{I}^{g}(t)$ for any $t>0$ by assumption, it follows that $\mu_{I}^{f}(t)=\mu_{I}^{g}(t)$ for any $t>0$, where $\mu_{I}^{f}(t)=\mu(\rho_{I}^{f}(t))$ and $\mu_{I}^{g}(t)=\mu(\rho_{I}^{g}(t))$. This allows us to linearize the drift term in the Fokker–Planck operators, ensuring that the differences $f_{J}(w,t)-g_{J}(w,t)$, $J\in\mathcal{C}$, satisfy the system 
+
+(3.32)  $\begin{split}\frac{\partial(f_{S}-g_{S})}{\partial t}&=-\big{(}K_{T}(f_{S},f_{I})-K_{T}(g_{S},g_{I})\big{)}-K_{V}(f_{S}-g_{S})+\dfrac{1}{\tau}Q_{S}(f_{S}-g_{S}),\\
+\frac{\partial(f_{E}-g_{E})}{\partial t}&=K_{T}(f_{S},f_{I})-K_{T}(g_{S},g_{I})-\sigma_{E}(f_{E}-g_{E})+\dfrac{1}{\tau}Q_{E}(f_{E}-g_{E}),\\
+\frac{\partial(f_{I}-g_{I})}{\partial t}\ &=\sigma_{E}(f_{E}-g_{E})-\gamma_{I}(f_{I}-g_{I})+\dfrac{1}{\tau}Q_{I}(f_{I}-g_{I}),\\
+\frac{\partial(f_{R}-g_{R})}{\partial t}&=\gamma_{I}(f_{I}-g_{I})+\dfrac{1}{\tau}Q_{R}(f_{R}-g_{R}),\\[5.69054pt]
+\frac{\partial(f_{V}-g_{V})}{\partial t}&=K_{V}(f_{S}-g_{S})+\dfrac{1}{\tau}Q_{V}(f_{V}-g_{V}).\end{split}$ 
+
+Here, we have omitted the explicit dependence of the operators $Q_{J}$ on $f_{L}$ for clarity, as the static distribution of leaders remains identical for both systems $(f_{J})_{J\in\mathcal{C}}$ and $(g_{J})_{J\in\mathcal{C}}$.
+
+3.1 Properties of the model
+
+We consider the kinetic compartmental model with opinion formation term given by the derived Fokker-Planck model ( 16 ) and where the local incidence rate is given either by ( 5 ) or by ( 6 ). Without loss of generality, in the following, we restore the time variable $t\geq 0$ . We get 
+ 
+ $\begin{cases}\partial_{t}g_{S}(w,t)=-K(g_{S},g_{I})(w,t)+\dfrac{1}{\tau}\bar{Q}_{S}(g_{S})(w,t)\\
+\partial_{t}g_{E}(w,t)=K(g_{S},g_{I})(w,t)-\nu_{E}g_{E}(w,t)+\dfrac{1}{\tau}\bar{Q}_{E}(g_{E})(w,t)\\
+\partial_{t}g_{I}(w,t)=\nu_{E}g_{E}(w,t)-\nu_{I}g_{I}(w,t)+\dfrac{1}{\tau}\bar{Q}_{I}(g_{I})(w,t)\\
+\partial_{t}g_{R}(w,t)=\nu_{I}g_{I}(w,t)+\dfrac{1}{\tau}\bar{Q}_{R}(g_{R})(w,t)\end{cases}$  (19) 
+ In this subsection we prove the positivity and the uniqueness of the solution to ( 19 ) with no-flux boundary conditions ( 17 ), given positive $g_{H}(w,0)=g^{0}_{H}\in L^{1}(\mathcal{I})$ , for all $H\in\mathcal{C}$ .
+
+Positivity of the solution to ( 19 ).
+
+In order to prove the positivity of the solution, we adopt a time-splitting strategy by isolating the opinion dynamics and the epidemiological one. Hence, the first problem is obtained by 
+ 
+ $\begin{cases}\partial_{t}g_{H}(w,t)=\bar{Q}_{H}(g_{H})(w,t)\\
+\textnormal{No-flux boundary conditions \eqref{eq:BC_FP_opinion}},\end{cases}$  (20) 
+ for all $H\in\mathcal{C}$ , while the second one by 
+ 
+ $\begin{cases}\partial_{t}g_{S}(w,t)=-K(g_{S},g_{I})(w,t)\\
+\partial_{t}g_{E}(w,t)=K(g_{S},g_{I})(w,t)\\
+\partial_{t}g_{I}(w,t)=\nu_{E}g_{E}(w,t)-\nu_{I}g_{I}(w,t)\\
+\partial_{t}g_{R}(w,t)=\nu_{I}g_{I}(w,t)\\
+g_{H}(w,0)=g^{0}_{H}(w)\quad\>H\in\mathcal{C}.\end{cases}$  (21) 
+
+
+We begin by proving the positivity of the solution to ( 20 ). We exploit the arguments of [9] and [20] and derive it as a corollary of the theorem that follows.
+
+Let $g_{H}(w,t)$ be a solution of ( 20 ). If $g^{0}_{H}\in L^{1}(\mathcal{I})$ , then $\int_{\mathcal{I}}|g_{H}(w,t)|dw=\|g_{H}(\cdot,t)\|_{L^{1}(\mathcal{I})}$ is non increasing for any $t\geq 0$ .
+
+Let $\epsilon>0$ . We denote by $\text{sign}_{\epsilon}(g_{H})$ a regularized increasing approximation of the sign function (e.g., a sigmoid, such as the hyperbolic tangent) and by $|g_{H}|_{\epsilon}$ the regularized approximation of $|g_{H}|$ via the primitive of $\text{sign}_{\epsilon}(g_{H})$ . 
+ Given weak formulation ( 15 ), we introduce for $w\in\mathcal{I}$ 
+ 
+ $A(w,t)=\sum_{J\in\mathcal{C}}\int_{\mathcal{I}}P(w,w_{*})\left(\gamma_{J}w_{*}-\gamma_{H}w\right)g_{J}(w_{*})dw_{*},\quad B(w)=\frac{\lambda}{2}D^{2}(|w|).$ 
+ Hence, we obtain 
+ 
+ $\frac{d}{dt}\int_{\mathcal{I}}\phi(w)g_{H}(w,t)dw=\int_{\mathcal{I}}\left[A(w,t)\phi^{\prime}(w)+B(w)\phi^{\prime\prime}(w)\right]g_{H}(w,t)dw.$ 
+ Hence, if we choose $\phi(w)=\text{sign}_{\epsilon}(g_{H})$ in the above equation and avoiding the dependence on $w\in\mathcal{I}$ , and $t\geq 0$ , we have 
+ 
+ $\frac{d}{dt}\int_{\mathcal{I}}\text{sign}_{\epsilon}(g_{H})g_{H}\;dw=\int_{\mathcal{I}}\left[A\;\partial_{w}(\text{sign}_{\epsilon}(g_{H}))+B\;\partial_{w}^{2}(\text{sign}_{\epsilon}(g_{H}))\right]g_{H}\;dw.$ 
+ We have 
+ 
+ $\begin{split}&\frac{d}{dt}\int_{\mathcal{I}}|g_{H}|_{\epsilon}\;dw=\\
+&\quad\int_{\mathcal{I}}Ag_{H}\;\text{sign}^{\prime}_{\epsilon}(g_{H})\;\partial_{w}g_{H}\;dw+\int_{\mathcal{I}}Bg_{H}\;\partial_{w}[\text{sign}^{\prime}_{\epsilon}(g_{H})\;\partial_{w}g_{H}]\;dw=\\
+&\quad\int_{\mathcal{I}}Ag_{H}\;\text{sign}^{\prime}_{\epsilon}(g_{H})\;\partial_{w}g_{H}\;dw+{\left.\kern-1.2pt\left[Bg_{H}\;\text{sign}^{\prime}_{\epsilon}(g_{H})\;\partial_{w}g_{H}\right]\mathchoice{\vphantom{\big{|}}}{}{}{}\right|_{w=\pm 1}}=\\
+&\quad-\int_{\mathcal{I}}\partial_{w}[Bf]\;\text{sign}^{\prime}_{\epsilon}(g_{H})\;\partial_{w}g_{H}\;dw=\\
+&\quad\int_{\mathcal{I}}Ag_{H}\;\text{sign}^{\prime}_{\epsilon}(g_{H})\;\partial_{w}g_{H}\;dw-\int_{\mathcal{I}}\partial_{w}B\;g_{H}\;\text{sign}^{\prime}_{\epsilon}(g_{H})\;\partial_{w}g_{H}\;dw\\
+&\quad-\int_{\mathcal{I}}B\;g_{H}\;\text{sign}^{\prime}_{\epsilon}(g_{H})\;(\partial_{w}g_{H})^{2}\;dw\end{split}$ 
+ where we integrated by parts the second addend of the first equation and we used that ${\left.\kern-1.2pt\left[Bg_{H}\;\text{sign}^{\prime}_{\epsilon}(g_{H})\;\partial_{w}g_{H}\right]\mathchoice{\vphantom{\big{|}}}{}{}{}\right|_{w=\pm 1}}$ is vanishing in view of the second no-flux boundary condition in ( 17 ). Observing that $\partial_{w}[g_{H}\;\text{sign}_{\epsilon}(g_{H})-|g_{H}|_{\epsilon}]=g_{H}\;\text{sign}^{\prime}_{\epsilon}(g_{H})\;\partial_{w}g_{H}$ , the weak formulation finally reads 
+ 
+ $\begin{split}\frac{d}{dt}\int_{\mathcal{I}}|g_{H}|_{\epsilon}\;dw=\int_{\mathcal{I}}(A-\partial_{w}B)\partial_{w}[g_{H}\;\text{sign}_{\epsilon}(g_{H})-|g_{H}|_{\epsilon}]\;dw\\
+-\int_{\mathcal{I}}B\;g_{H}\;\text{sign}^{\prime}_{\epsilon}(g_{H})\;(\partial_{w}g_{H})^{2}\;dw.\end{split}$ 
+ Integrating by parts the first addend of the right-hand side and using the first no-flux boundary conditions in ( 17 ), we have that 
+ 
+ $\begin{split}\frac{d}{d\xi}\int_{\mathcal{I}}|g_{H}|_{\epsilon}\;dw=\int_{\mathcal{I}}\partial_{w}(A-\partial_{w}B)\;[g_{H}\;\text{sign}_{\epsilon}(g_{H})-|g_{H}|_{\epsilon}]\;dw\\
+-\int_{\mathcal{I}}B\;g_{H}\;\text{sign}^{\prime}_{\epsilon}(g_{H})\;(\partial_{w}g_{H})^{2}\;dw.\end{split}$ 
+ Therefore, in the limit $\epsilon\to 0^{+}$ we obtain 
+ 
+ $\frac{d}{dt}\int_{\mathcal{I}}|g_{H}(w,t)|\;dw=\frac{d}{dt}\|g_{H}(\cdot,t)\|_{L^{1}(\mathcal{I})}\leq 0.$ 
+
+
+∎
+
+Let $(f_{J})_{J\in\mathcal{C}}$ and $(g_{J})_{J\in\mathcal{C}}$ denote two solutions of the kinetic system defined by equation (3.24), where $Q_{J}$ is given by (3.25) and $K_{T}$, $K_{V}$ are defined by (2.4) and (2.6), respectively. Here, $\kappa_{T}\in L^{\infty}(\mathcal{I}\times\mathcal{I})$ and $\kappa_{V}\in L^{\infty}(\mathcal{I})$. Assume that $f_{I}$ and $g_{I}$ satisfy
+
+$$
+\int_{-1}^{1}f_{I}(w,t)\,\mathrm{d}w = \int_{-1}^{1}g_{I}(w,t)\,\mathrm{d}w \quad \forall t > 0,
+$$
+
+and that the initial conditions are $f_{J}(w,0) = f_{J}^{\mathrm{in}}(w) \in L^{1}(\mathcal{I})$ and $g_{J}(w,0) = g_{J}^{\mathrm{in}}(w) \in L^{1}(\mathcal{I})$ for any $J \in \mathcal{C}$. If $f_{J}^{\mathrm{in}}(w) = g_{J}^{\mathrm{in}}(w)$ for almost every $w \in \mathcal{I}$, then it follows that $f_{J}(w,t) = g_{J}(w,t)$ for almost every $w \in \mathcal{I}$ and for all $t > 0$.
+
+We aim to establish an $L^1$ comparison principle for the differences $f_J - g_J$ to eliminate the Fokker–Planck operators. This is achieved by introducing a regularized approximation of the sign function, $\mathrm{sign}_\varepsilon(x)$ for $x \in \mathbb{R}$, and defining a regularization $|f_J - g_J|_\varepsilon$ of $|f_J - g_J|$ for each $J \in \mathcal{C}$. By multiplying each equation in (3.32) by the corresponding $\mathrm{sign}_\varepsilon(f_J - g_J)$ and integrating over $w$, and following the steps from the proof of Lemma 1, we take the limit as $\varepsilon \to 0$ to obtain the initial estimate:
+
+\[
+\begin{split}
+\frac{\mathrm{d}}{\mathrm{d}t}\|f_S - g_S\|_{L^1(\mathcal{I})} &\leq \int_{-1}^{1} \big|K_T(f_S, f_I) - K_T(g_S, g_I)\big| \, \mathrm{d}w + \int_{-1}^{1} \big|K_V(f_S - g_S)\big| \, \mathrm{d}w, \\
+\frac{\mathrm{d}}{\mathrm{d}t}\|f_E - g_E\|_{L^1(\mathcal{I})} &\leq \int_{-1}^{1} \big|K_T(f_S, f_I) - K_T(g_S, g_I)\big| \, \mathrm{d}w + \sigma_E \|f_E - g_E\|_{L^1(\mathcal{I})}, \\
+\frac{\mathrm{d}}{\mathrm{d}t}\|f_I - g_I\|_{L^1(\mathcal{I})} &\leq \sigma_E \|f_E - g_E\|_{L^1(\mathcal{I})} + \gamma_I \|f_I - g_I\|_{L^1(\mathcal{I})}, \\
+\frac{\mathrm{d}}{\mathrm{d}t}\|f_R - g_R\|_{L^1(\mathcal{I})} &\leq \gamma_I \|f_I - g_I\|_{L^1(\mathcal{I})}, \\
+\frac{\mathrm{d}}{\mathrm{d}t}\|f_V - g_V\|_{L^1(\mathcal{I})} &\leq \int_{-1}^{1} \big|K_V(f_S - g_S)\big| \, \mathrm{d}w.
+\end{split}
+\]
+
+To complete the proof, we must bound the integral terms involving the operators $K_T$ and $K_V$. Given that $\kappa_T \in L^\infty(\mathcal{I} \times \mathcal{I})$ and $\kappa_V \in L^\infty(\mathcal{I})$ by assumption, we derive the estimate:
+
+\[
+\int_{-1}^{1} \big|K(f_S, f_I) - K(g_S, g_I)\big| \, \mathrm{d}w \leq \|\kappa_T\|_{L^\infty(\mathcal{I} \times \mathcal{I})} \left( \|f_I\|_{L^1(\mathcal{I})} \|f_S - g_S\|_{L^1(\mathcal{I})} + \|g_S\|_{L^1(\mathcal{I})} \|f_I - g_I\|_{L^1(\mathcal{I})} \right),
+\]
+
+and the bound:
+
+\[
+\int_{-1}^{1} \big|K_V(f_S - g_S)\big| \, \mathrm{d}w \leq \|\kappa_V\|_{L^\infty(\mathcal{I})} \|f_S - g_S\|_{L^1(\mathcal{I})}.
+\]
+
+Substituting these into the system's bound, we deduce that:
+
+\[
+\frac{\mathrm{d}}{\mathrm{d}t} \sum_{J \in \mathcal{C}} \|f_J - g_J\|_{L^1(\mathcal{I})} \leq C \sum_{J \in \mathcal{C}} \|f_J - g_J\|_{L^1(\mathcal{I})},
+\]
+
+where $C = C\big(\sigma_E, \gamma_I, \|\kappa_T\|_{L^\infty(\mathcal{I} \times \mathcal{I})}, \|\kappa_V\|_{L^\infty(\mathcal{I})}, \|f_I\|_{L^1(\mathcal{I})}, \|g_S\|_{L^1(\mathcal{I})}\big)$. Applying Grönwall's lemma, we establish uniqueness since $f_J$ and $g_J$ are initially equal.
+
+Let \((f_{J})_{J\in\mathcal{C}}\) be a solution to the kinetic system defined by (3.24), where \(Q_{J}\) is specified by (3.25). Suppose that \(f_{J}^{\mathrm{in}}(w)\) belongs to \(L^{1}(\mathcal{I})\) for all \(J\in\mathcal{C}\). Then, for each \(J\in\mathcal{C}\), if the initial condition satisfies \(f_{J}(w,0) = f_{J}^{\mathrm{in}}(w) \geq 0\) for all \(w\in\mathcal{I}\), it follows that \(f_{J}(w,t) \geq 0\) for almost every \(w\in\mathcal{I}\) and for all \(t > 0\).
+
+The result follows from the proof presented in [9] and from Proposition 3.2.1 . ∎
+
+Now can prove the positivity of the solution to ( 21 ) by distinguishing the scenarios in which $\alpha=0$ and $\alpha=1$ (and, thus, when $K(f_{S},f_{I})$ is of form ( 5 ) and ( 6 ) respectively).
+
+The regularity of solutions is another critical consideration, specifically whether the solutions inherit certain regularity properties from the initial conditions. To begin, $L^{1}$ regularity is straightforward to establish, as it follows directly from the nonnegativity result demonstrated in the previous section and the inherent conservation of mass within the model. Suppose $f_{J}^{\mathrm{in}} \in L^{1}(\mathcal{I})$ for all $J \in \mathcal{C}$. Given that $f_{J}(w,t) \geq 0$ for almost every $w \in \mathcal{I}$ and all $t > 0$, it follows that $\|f_{J}\|_{L^{1}(\mathcal{I})} = \int_{-1}^{1} f_{J}(w,t) \, dw$ for any $t > 0$. By summing the four equations of the kinetic system (3.24) with $Q_{J}$ defined by (3.25) and integrating over $\mathcal{I}$ in $w$, we find that for all $t > 0$,
+
+$$
+\sum_{J \in \mathcal{C}} \|f_{J}\|_{L^{1}(\mathcal{I})} = \sum_{J \in \mathcal{C}} \|f_{J}^{\mathrm{in}}\|_{L^{1}(\mathcal{I})},
+$$
+
+since the Fokker–Planck operators $Q_{J}$ are mass-preserving. Consequently, $f_{J} \in L^{1}(\mathcal{I})$ for all $J \in \mathcal{C}$ and any $t > 0$.
+
+From this lemma, we derive the nonnegativity of solutions for the Cauchy problem, focusing solely on the Fokker–Planck operators, as demonstrated in the subsequent proof.
+
+Nonnegativity of solutions is addressed by demonstrating that solutions to equation (3.24), originating from a nonnegative initial condition, retain nonnegativity throughout their evolution. To achieve this, we employ a strategic decomposition of the system into two distinct components: the epidemic dynamics and the opinion formation dynamics. Each component is analyzed for its inherent nonnegativity-preserving characteristics. Drawing inspiration from the methodologies presented in [14], we establish a framework to handle the operator \( Q_J \), which necessitates an intermediate result. This result, pivotal not only for preserving nonnegativity but also for ensuring solution uniqueness, is grounded in an \( L^1 \) comparison principle applicable to solutions of the associated Fokker-Planck equations. The subsequent analysis is structured as follows:
+
+Let $g_{H}$ , $H\in\mathcal{C}$ be a solution of ( 19 ). If $g^{0}_{H}\in L^{1}(\mathcal{I})$ and $g^{0}_{H}(w)\geq 0$ , then $g_{H}(w,\xi)\geq 0$ for any $w\in\mathcal{I},\xi\geq 0$ .
+
+We can discretize equation ( 19 ) through a classical splitting method [35] in time. We briefly recall the splitting strategy. For any given time $T>0$ and $n\in\mathbb{N}$ , we introduce a time discretization $t^{k}=k\Delta t$ , $k\in[0,n]$ with $\Delta t=T/n>0$ . Then we proceed by solving two separate problems in each time step as follows: • At time $t=0$ we consider $g_{H}(w,0)=g_{H}^{0}(w)\geq 0$ , $g_{H}^{0}\in H^{1}(\mathbb{R})$ , for all $H\in\mathcal{C}$ . • For $t\in[t^{k},t^{k+1}]$ we solve the Fokker-Planck step 
+ 
+ $\begin{split}\partial_{t}g_{H}(w,t)&=\bar{Q}_{H}(g_{H})(w,t),\\
+g_{H}(w,t^{k})&=g_{H}^{k}(w)\end{split}$ 
+ for all $H\in\mathcal{C}$ . • The solution of the Fokker-Planck step at time $t^{k+1}$ is assumed as the initial value for the epidemiological step in the same time interval $t\in[t^{k},t^{k+1}]$ . • For $t\in[t^{k},t^{k+1}]$ the epidemiological step is subsequently solved by considering ( 21 ). The method generates an approximation $g_{H,n}(w,t)$ of the solution to ( 19 ), for which properties can be easily derived by resorting to the properties of the Fokker-Planck and epidemiological steps, which are solved in sequence. Hence, positivity is an immediate consequence in view of the positivity of both operators involved in the splitting strategy. ∎
+
+Uniqueness of the solution to ( 19 )
+
+Combining all the derived bounds for the terms in (3.31), we establish that
+
+$\frac{\mathrm{d}}{\mathrm{d}t}\sum_{J\in\mathcal{C}}\|f_{J}\|_{L^{p}(\mathcal{I})}^{p}\leq C\sum_{J\in\mathcal{C}}\|f_{J}\|_{L^{p}(\mathcal{I})}^{p},$
+
+where the constant $C$ is given by $C\big{(}p,\sigma_{E},\gamma_{I},|1-\sigma^{2}|,\|\kappa_{T}\|_{L^{\infty}(\mathcal{I}\times\mathcal{I})},\|\kappa_{V}\|_{L^{\infty}(\mathcal{I})},\|f_{I}\|_{L^{1}(\mathcal{I})}\big{)}$. The regularity estimate is then obtained by applying Grönwall’s Lemma.
+
+Let \( p \in [2, +\infty) \) and consider a solution \( (f_J)_{J \in \mathcal{C}} \) to the kinetic system (3.24), where the operators \( Q_J \) are defined by (3.25), and the operators \( K_T \) and \( K_V \) are given by (2.4) and (2.6), respectively. Here, \( \kappa_T \in L^\infty(\mathcal{I} \times \mathcal{I}) \) and \( \kappa_V \in L^\infty(\mathcal{I}) \). Additionally, for each \( J \in \mathcal{C} \), the operators \( Q_J \) satisfy the no-flux boundary conditions:
+
+\[
+\left( (1 - \sigma^2)w - m(t) \right) f_J(w, t) \Big|_{w = \pm 1} = 0,
+\]
+\[
+(1 - w^2) \frac{\partial}{\partial w} f_J(w, t) \Big|_{w = \pm 1} = 0
+\]
+
+for all \( t > 0 \). If the initial data \( f_J^{\mathrm{in}} \in L^p(\mathcal{I}) \) for each \( J \in \mathcal{C} \), then the regularity is preserved over time, meaning \( f_J \in L^p(\mathcal{I}) \) for all \( J \in \mathcal{C} \) and \( t > 0 \).
+
+To achieve greater regularity, it is essential to employ appropriate integration by parts techniques when handling the operators $Q_{J}$, as they present a more complex challenge compared to the operators $K_{T}$ and $K_{V}$, which are more straightforward due to their $L^{1}$ regularity. A key issue arises from the fact that the diffusion component of the Fokker–Planck operator lacks a self-adjoint structure. To address this, we express $Q_{J}$, for any $J\in\mathcal{C}$, in the form
+
+$Q_{J}(f_{J},f_{L})(w,t)=\frac{\sigma^{2}}{2}\frac{\partial}{\partial w}\left((1-w^{2})\frac{\partial}{\partial w}f_{J}(w,t)\right)+\frac{\partial}{\partial w}\Big{(}\big{(}(1-\sigma^{2})w-m(t)\big{)}f_{J}(w,t)\Big{)},$
+
+which introduces an enhanced drift term and renders the diffusion part more tractable. However, this modification necessitates the imposition of additional boundary conditions, as detailed in the subsequent result.
+
+4 Evolution of the moment system for the opinion-based SEIR model
+
+As remarked in Section 3 , the drift term in surrogate Fokker-Planck equation ( 16 ) depends on time. This makes the mathematical analysis of the corresponding four-equation system in ( 19 ) more challenging. As we’re interested in drawing conclusions on the macroscopic epidemic trends resulting from the model, in this section, we derive the system for the evolution of the mass fractions and local mean opinions and explain how these can be used to prove that ( 19 ) possesses an explicitly computable steady state. From now on, we restrict to the scenario of constant interaction forces $P\equiv 1$ , so that in particular the total mean opinion of the model is conserved as proven in Subsection 2.2 .
+
+Let us consider first the case $\alpha=0$ . Then, $\kappa(w,w_{*})\equiv\beta$ and the local incidence rate $K(f_{S},f_{I})(w,t)$ is of form ( 5 ). Kinetic compartmental system ( 2 ) reduces to 
+ 
+ $\begin{dcases}\partial_{t}f_{S}=-\beta f_{S}\rho_{I}+\dfrac{1}{\tau}\sum_{J\in\{S,E,I,R\}}Q_{SJ}(f_{S},f_{J})\\
+\partial_{t}f_{E}=\beta f_{S}\rho_{I}-\nu_{E}f_{E}+\dfrac{1}{\tau}\sum_{J\in\{S,E,I,R\}}Q_{EJ}(f_{E},f_{J})\\
+\partial_{t}f_{I}=\nu_{E}f_{E}-\nu_{I}f_{I}+\dfrac{1}{\tau}\sum_{J\in\{S,E,I,R\}}Q_{IJ}(f_{I},f_{J})\\
+\partial_{t}f_{R}=\nu_{I}f_{I}+\dfrac{1}{\tau}\sum_{J\in\{S,E,I,R\}}Q_{RJ}(f_{R},f_{J}).\\
+\end{dcases}$  (22) 
+ Integrating system ( 22 ) with respect to $w\in\mathcal{I}$ we get 
+ 
+ $\begin{dcases}\frac{d}{dt}\rho_{S}(t)=-\beta\rho_{S}(t)\rho_{I}(t)\\
+\frac{d}{dt}\rho_{E}(t)=\beta\rho_{S}(t)\rho_{I}(t)-\nu_{E}\rho_{E}(t)\\
+\frac{d}{dt}\rho_{I}(t)=\nu_{E}\rho_{E}(t)-\nu_{I}\rho_{I}(t)\\
+\frac{d}{dt}\rho_{R}(t)=\nu_{I}\rho_{I}(t)\\
+\end{dcases}$  (23) 
+ which is the classical $SEIR$ compartmental model. Multiplying system ( 22 ) by $w$ and integrating with respect to the $w$ variable, we obtain the system for the evolution of the mean opinions 
+ 
+ $\begin{dcases}\frac{d}{dt}(\rho_{S}m_{S})=-\beta\rho_{I}\rho_{S}m_{S}+\dfrac{\rho_{S}}{\tau}(M(t)-\gamma_{S}m_{S}(t))\\
+\frac{d}{dt}(\rho_{E}m_{E})=\beta\rho_{I}\rho_{S}m_{S}-\nu_{E}\rho_{E}m_{E}+\dfrac{\rho_{E}}{\tau}(M(t)-\gamma_{E}m_{E}(t))\\
+\frac{d}{dt}(\rho_{I}m_{I})=\nu_{E}\rho_{E}m_{E}-\nu_{I}\rho_{I}m_{I}+\dfrac{\rho_{I}}{\tau}(M(t)-\gamma_{I}m_{I}(t))\\
+\frac{d}{dt}(\rho_{R}m_{R})=\nu_{I}\rho_{I}m_{I}(t)+\dfrac{\rho_{R}}{\tau}(M(t)-\gamma_{R}m_{R}(t))\end{dcases}$  (24) 
+ where we recall that $M$ is given by ( 11 ).
+
+We denote the local incidence rate that governs the transmission dynamics as $K_{T}(\cdot,\cdot)$. This operator is expressed in equation (2.4) and encapsulates the infection transmission mechanism in terms of the opinion variable $w$. Specifically, equation (2.4) defines the operator as:
+
+\[
+K_{T}(f_{S},f_{I})(w,t) = f_{S}(w,t) \int_{\mathcal{I}} \kappa_{T}(w,w_{*}) f_{I}(w_{*},t) dw_{*}.
+\]
+
+Here, $\kappa_{T}(w,w_{*})$ represents a nonnegative, decreasing function that quantifies the influence of protective behaviors on interactions between susceptible and infectious agents. A notable example of this function is given by equation (2.5):
+
+\[
+\kappa_{T}(w,w_{*}) = \dfrac{\beta_{T}}{4^{\alpha_{T}}} (1-w)^{\alpha_{T}} (1-w_{*})^{\alpha_{T}},
+\]
+
+where $\beta_{T} > 0$ signifies the baseline transmission rate of the epidemic, and $\alpha_{T} > 0$ is a parameter tied to the effectiveness of protective measures. Consequently, the local incidence rate—and thus the disease evolution—is entirely contingent on the collective opinions of agents regarding protective behaviors. In Figure 2.1, the function $\kappa_{T}(\cdot,\cdot)$ in the specific form of equation (2.5) is illustrated for various values of $\alpha_{T} > 0$.
+
+The evolution of the first-order moment $m_{J}(t):=m_{1,J}(t)$ is derived from equation (2.16):
+
+\[
+\begin{split}
+&\dfrac{\mathrm{d}m_{J}(t)}{\mathrm{d}t} = \frac{1}{\rho_{J}} \dfrac{\mathrm{d}}{\mathrm{d}t} \int_{\mathcal{I}} w f_{J}(w,t) \mathrm{d}w \\
+&= \frac{1}{\rho_{J}} \int_{\mathcal{I}} w \dfrac{\partial}{\partial w} \left( (w - \mu(\rho_{I})) f_{J}(w,t) \right) \mathrm{d}w + \frac{1}{\rho_{J}} \dfrac{\nu_{J}}{2} \int_{\mathcal{I}} w \dfrac{\partial^{2}}{\partial w^{2}} \left( (1 - w^{2}) f_{J}(w,t) \right) \mathrm{d}w \\
+&= -(m_{J}(t) - \mu(\rho_{I})),
+\end{split}
+\]
+
+thereby establishing that $m_{J}(t) \to \mu(\rho_{I})$ as $t \to +\infty$ in the context of equation (2.16). Similarly, the evolution of the energy $E_{J}(t):=m_{2,J}(t)$ is expressed as:
+
+\[
+\begin{split}
+&\dfrac{\mathrm{d}E_{J}(t)}{\mathrm{d}t} = \frac{1}{\rho_{J}} \dfrac{\mathrm{d}}{\mathrm{d}t} \int_{\mathcal{I}} w^{2} f_{J}(w,t) \mathrm{d}w \\
+&= \frac{1}{\rho_{J}} \int_{\mathcal{I}} w^{2} \dfrac{\partial}{\partial w} \left( (w - \mu(\rho_{I})) f_{J}(w,t) \right) \mathrm{d}w + \frac{1}{\rho_{J}} \dfrac{\nu_{J}}{2} \int_{\mathcal{I}} w^{2} \dfrac{\partial^{2}}{\partial w^{2}} \left( (1 - w^{2}) f_{J}(w,t) \right) \mathrm{d}w \\
+&= -(2 + \nu_{J}) E_{J}(t) + 2 \mu(\rho_{I}) m_{J}(t) + \nu_{J}.
+\end{split}
+\]
+
+In the absence of fluctuations, where $\sigma_{J}^{2} \equiv 0$ and $\nu_{J} \equiv 0$, it follows that $E_{J}(t) \to \mu^{2}(\rho_{I})$ as $t \to +\infty$. Consequently, for a random variable $X \sim f_{J}(w,t)/\rho_{J}$, the variance satisfies
+
+\[
+\textrm{Var}[X] = \frac{1}{\rho_{J}} \int_{\mathcal{I}} (w - \mu(\rho_{I}))^{2} f_{J}(w,t) \mathrm{d}w \to 0
+\]
+
+as $t \to +\infty$.
+
+4.1 Stationary solutions in an explicitly solvable case
+
+We consider the kinetic compartmental model ( 22 ) where the thermalization operators are now of Fokker-Planck-type. We have 
+ 
+ $\begin{dcases}\partial_{t}g_{S}=-\beta g_{S}\rho_{I}+\dfrac{1}{\tau}\bar{Q}_{S}(g_{S})\\
+\partial_{t}g_{E}=\beta g_{S}{\rho}_{I}-\nu_{E}g_{E}+\dfrac{1}{\tau}\bar{Q}_{E}(g_{E})\\
+\partial_{t}g_{I}=\nu_{E}g_{E}-\nu_{I}g_{I}+\dfrac{1}{\tau}\bar{Q}_{I}(g_{I})\\
+\partial_{t}g_{R}=\nu_{I}g_{I}+\dfrac{1}{\tau}\bar{Q}_{R}(g_{R}).\\
+\end{dcases}$  (28) 
+ Since $\alpha=0$ and the system for the evolution of the mass fractions corresponds to the classical $SEIR$ compartmental model, we can use standard results on the large time behaviour of the solution to such model (see for instance [2] ). In particular, 
+ 
+ $\lim_{t\to\infty}\rho_{S}(t)=\rho_{S}^{\infty}>0,\;\lim_{t\to\infty}\rho_{E}(t)=\;\lim_{t\to\infty}\rho_{I}(t)=0,\;\lim_{t\to\infty}\rho_{R}(t)=\rho_{R}^{\infty}>0$  (29) 
+ where $\rho_{S}^{\infty}+\rho_{R}^{\infty}=1$ . Then, merging the fact that the mass fractions of the exposed and the infected vanish for large times with the evolution of the local mean opinions given by ( 24 ), in the limit $t\to+\infty$ we get 
+ 
+ $\begin{split}\rho_{S}(t)m_{S}(t)\to\rho_{S}^{\infty}m_{S}^{\infty},\\
+\rho_{E}(t)m_{E}(t)\to 0,\\
+\rho_{I}(t)m_{I}(t)\to 0,\\
+\rho_{R}(t)m_{R}(t)\to\rho_{R}^{\infty}m_{R}^{\infty}\end{split}$ 
+ with the asymptotic mean opinions $m_{S}^{\infty},m_{R}^{\infty}$ satisfying 
+ 
+ $2M^{\infty}-\gamma_{S}m_{S}^{\infty}-\gamma_{R}m_{R}^{\infty}=0$ 
+ where $M^{\infty}=\gamma_{S}\rho_{S}^{\infty}m_{S}^{\infty}+\gamma_{R}\rho_{R}^{\infty}m_{R}^{\infty}$ . Therefore, we have 
+ 
+ $\gamma_{S}m_{S}^{\infty}=\gamma_{R}m_{R}^{\infty}.$  (30) 
+ Furthermore, we know from Subsection 2.2 that the total mean opinion $m=\sum_{J}\rho_{J}m_{J}$ is conserved by the model. This, in particular, implies that 
+ 
+ $\rho_{S}^{\infty}m_{S}^{\infty}+\rho_{R}^{\infty}m_{R}^{\infty}=m.$ 
+ Hence, we are able to write $m_{S}^{\infty},m_{R}^{\infty}$ as 
+ 
+ $m_{S}^{\infty}=\frac{\gamma_{R}}{\gamma_{R}\rho_{S}^{\infty}+\gamma_{S}\rho_{R}^{\infty}}m,\quad m_{R}^{\infty}=\frac{\gamma_{S}}{\gamma_{R}\rho_{S}^{\infty}+\gamma_{S}\rho_{R}^{\infty}}m.$  (31) 
+ We remark that, once the kinetic compartmental model is complemented with initial conditions, $m,\rho_{S}^{\infty},\rho_{R}^{\infty}$ are quantities that are explicitly computable and, thanks to equation ( 31 ), so are $m_{S}^{\infty},m_{R}^{\infty}$ .
+
+Finally, for the Fokker-Planck operator with constant interaction $P\equiv 1$ ( 18 ) we get in the limit $\tau\to 0^{+}$ that the system reaches a steady state distribution $g^{\infty}(w)=g^{\infty}_{S}(w)+g^{\infty}_{R}(w)$ where $g^{\infty}_{H}(w)$ , $H\in\{S,R\}$ are determined for any $w\in\mathcal{I}$ as the solutions of the following system of differential equations 
+ 
+ $\displaystyle(\gamma_{S}w-\gamma_{S}m^{\infty}_{S})g^{\infty}_{S}(w)+\frac{\sigma^{2}}{2}\partial_{w}[D^{2}(|w|)g^{\infty}_{S}(w)]=0,$ 
+ 
+ $\displaystyle(\gamma_{R}w-\gamma_{R}m^{\infty}_{R})g^{\infty}_{R}(w)+\frac{\sigma^{2}}{2}\partial_{w}[D^{2}(|w|)g^{\infty}_{R}(w)]=0.$ 
+ Hence, proceeding as in [39] , in the relevant case $D(w)=\sqrt{1-w^{2}}$ , the distributions $g^{\infty}_{S}(w)$ and $g^{\infty}_{R}(w)$ are explicitly computable having the form 
+ 
+ $g^{\infty}_{H}(w)=\rho_{H}^{\infty}\dfrac{(1-w)^{-1+\frac{1-m^{\infty}_{H}}{\lambda_{H}}}(1+w)^{-1+\frac{1+m^{\infty}_{H}}{\lambda_{H}}}}{\textrm{B}((1-m_{H}^{\infty})/\lambda_{H},(1+m_{H}^{\infty})/\lambda_{H})},$  (32) 
+ where $\textrm{B}(\cdot,\cdot)$ is the Beta function, $m_{H}^{\infty}$ is defined in ( 31 ) and where we indicated with $\lambda_{H}=\sigma^{2}/\gamma_{H}$ , $H\in\{S,R\}$ . For other choices of the diffusion function $D(|w|)$ we refer to [36] for a review. We may observe that $g_{H}^{\infty}(w)/\rho_{H}$ defined in ( 32 ) is a Beta probability density. Furthermore, we may observe that the global steady state distribution $g^{\infty}(w)$ may exhibit a bimodal shape.
+
+As argued in [36] a Beta distribution has a peak in $\mathcal{I}$ when $\lambda=\sigma^{2}/\gamma<1-|m|$ and in correspondence to the point 
+ 
+ $\bar{w}=\frac{m}{1-\lambda}.$ 
+ Therefore, we expect to observe a bimodal shape for $g^{\infty}$ if both $\lambda_{S}<1-|m^{\infty}_{S}|$ and $\lambda_{R}<1-|m_{R}^{\infty}|$ or, equivalently, if $\sigma^{2}/\gamma_{S}<1-|m^{\infty}_{S}|$ and $\sigma^{2}/\gamma_{R}<1-|m_{R}^{\infty}|$ . In addition, we recall that $\gamma_{S},\gamma_{R},m^{\infty}_{S},m^{\infty}_{R}$ are linked by relation ( 30 ). All in all, the five parameters $\sigma^{2},\gamma_{S},\gamma_{R},m^{\infty}_{S},m^{\infty}_{R}$ shall satisfy 
+ 
+ $\begin{dcases}\frac{\sigma^{2}}{\gamma_{S}}<1-|m_{S}^{\infty}|\\
+\frac{\sigma^{2}}{\gamma_{R}}<1-|m_{R}^{\infty}|\\
+\gamma_{S}m_{S}^{\infty}=\gamma_{R}m_{R}^{\infty}\quad\text{with $m_{S}^{\infty}m_{R}^{\infty}>0$}\end{dcases}$  (33) 
+ where the constraint on the product $m_{S}^{\infty}m_{R}^{\infty}$ comes from the fact that $\sigma^{2},\gamma_{S},\gamma_{R}>0$ by their definition. In the top row of Figure 1 we give two sets of parameters that satisfy the above conditions and for which we see a bimodal shape. It is interesting to observe that multi-modal distributions are obtained through Beta densities, at variance with [14] where multi-modal distributions were obtained through Gamma ones.
+
+Clearly, if either $g^{\infty}_{S}$ or $g^{\infty}_{R}$ reveal opinion polarization of a society, then the global steady state has only one maximum in the interval $\mathcal{I}$ , as shown, for instance, in the bottom-left corner of Figure 1 . Finally, a question that arises spontaneous at this point is whether the existence of a maximum for both $g^{\infty}_{S}$ and $g^{\infty}_{R}$ implies a bimodal shape for $g^{\infty}$ . The answer is negative and a counterexample is presented in the bottom-right corner of Figure 1 .
+
+The Fokker-Planck-type system ( 28 ) that we obtained is capable to exhibit the formation of asymptotic opinion clusters even in the case of constant interactions. In opinion-formation phenomena possible ways to observe the emergence of clusters is typically based on the adoption of bounded-confidence-type interactions functions, see [25] and [4] together with the references therein.
+
+In this section, we restricted ourselves to the scenario in which $\alpha=0$ . Indeed, as remarked in the first part of the section, this simplified assumption allows us to obtain a $SEIR$ model for the evolution of the local mass fractions and, thus, to use the classical results on the behaviour of its solution for large times. However, we remark that an open question regards the formation of opinion clusters for $\alpha>0$ .
+
+5 Numerical results
+
+ The theoretical investigation of this problem is challenging since the system ( 3.24 ) is no longer a gradient flow with respect to the Wasserstein distance. Indeed, the presence of the diffusive term complicates the analysis. Additionally, the role of $\alpha$ in the dynamics is not straightforward, as it affects both the interaction rates and the diffusion coefficients. To better understand the behavior of the system, one could consider specific test cases or numerical simulations to observe the formation of clusters for different values of $\alpha$ and $\beta$ .
+
+A second-order splitting strategy is employed to approximate the system of kinetic equations by separately addressing the Fokker–Planck opinion formation process and the epidemiological operators. To achieve this, we discretize the time interval $[0,T]$ using a time step $\Delta t>0$, where $t^{n}=n\Delta t$, and denote $f_{J}^{n}$ as the approximation of $f_{J}(w,t^{n})$ for $J\in\mathcal{C}$, $w\in\mathcal{I}$, and $0\leq n\leq N_{t}$ with $N_{t}\Delta t=T$. The splitting strategy involves two steps: the opinion formation step, defined as $f_{J}^{*}=\mathcal{O}_{\Delta t}(f_{J}^{n})$, which satisfies the system
+
+\[
+\begin{cases}
+\frac{\partial}{\partial t}f_{J}^{*}(w)=\frac{1}{\tau}Q_{J}(f_{J}^{*}(w),f_{L}(w)), \\
+f_{J}^{*}(w,0)=f_{J}^{n}(w),\quad J\in\mathcal{C},
+\end{cases}
+\]
+
+and the epidemiological step, defined as $f^{**}_{J}=\mathcal{E}_{\Delta t}(f_{J}^{**})$, governed by the system
+
+\[
+\begin{cases}
+\frac{\partial}{\partial t}f_{S}^{**}(w)=-\frac{\beta_{T}}{4}(1-w)f_{S}^{**}(w)(1-m_{I}^{**})\rho_{I}^{**}-\frac{\beta_{V}}{2}(1+w)f_{S}^{**}(w), \\
+\frac{\partial}{\partial t}f_{E}^{**}(w)=\frac{\beta_{T}}{4}(1-w)f_{S}^{**}(w)(1-m_{I}^{**})\rho_{I}^{**}-\sigma_{E}f_{E}^{**}(w), \\
+\frac{\partial}{\partial t}f_{I}^{**}(w)=\sigma_{E}f_{E}^{**}(w)-\gamma_{I}f_{I}^{**}(w), \\
+\frac{\partial}{\partial t}f_{R}^{**}(w)=\gamma_{I}f_{I}^{**}(w), \\
+\frac{\partial}{\partial t}f_{V}^{**}(w)=\frac{\beta_{V}}{2}(1+w)f_{S}^{**}(w), \\
+f_{J}^{**}(w,0)=f_{J}^{*}(w,\Delta t),\quad J\in\mathcal{C}.
+\end{cases}
+\]
+
+The operators $Q_{J}(\cdot,\cdot)$ are defined in (3.20) and are subject to no-flux boundary conditions. The approximated solution at time $t^{n+1}$ is obtained by combining the two steps. For a first-order splitting strategy, we have
+
+\[
+f^{n+1}_{J}(w)=\mathcal{E}_{\Delta t}(\mathcal{O}_{\Delta t}(f_{J}^{n}(w))),
+\]
+
+while the second-order Strang splitting method is given by
+
+\[
+f^{n+1}_{J}(w)=\mathcal{E}_{\Delta t/2}(\mathcal{O}_{\Delta t}(\mathcal{E}_{\Delta t/2}(f_{J}^{n}(w)))),
+\]
+
+for any $J\in\mathcal{C}$. The opinion consensus step is solved using a semi-implicit structure preserving scheme (SP) for Fokker–Planck-type equations, as described in Ref. [48]. The epidemiological step, on the other hand, is integrated numerically using a RK4 method.
+
+5.1 Test 1. Consistency between the kinetic model and the moment system
+
+We analyze the scenarios where $\Delta$ is set to $\frac{3}{2}$ and $\frac{1}{2}$. The distribution of leaders' opinions, denoted by $f_{L}(w)$, is defined as per equation (4.34). Additionally, we examine the initial condition given by equation (4.37):
+
+$$
+f_{J}(w,0)=\rho_{J}(0)\dfrac{1}{2}\chi_{[-1,1]}(w),\qquad J\in\{S,E,I,R,V\},
+$$
+
+where $\rho_{J}(0)=10^{-3}$ for $J\in\{E,I,R\}$, $\rho_{V}(0)=0$, and $\rho_{S}(0)=1-\rho_{E}(0)-\rho_{I}(0)-\rho_{R}(0)$. Our focus is on two specific values of $\lambda_{L}$: 0.2 and 0.3.
+
+We consider also the initial distributions 
+ 
+ $\begin{split}f_{S}(w,0)=\rho_{S}(0)h_{0}(w),\qquad f_{E}(w,0)=\rho_{E}(0)h_{0}(w),\\
+f_{I}(w,0)=\rho_{I}(0)h_{0}(w),\qquad f_{R}(w,0)=\rho_{R}(0)h_{0}(w),\end{split}$  (36) 
+ with $\rho_{E}(0)=\rho_{I}(0)=\rho_{R}(0)=0.05$ and $\rho_{S}(0)=1-\rho_{E}(0)-\rho_{I}(0)-\rho_{R}(0)$ . The defined initial conditions describe a society where all the agents share positive opinions towards the adoption of protective behaviour. We consider the same epidemiological parameters of the previous test and the same compromise propensities and diffusion constant. In Figure 3 we compare the evolution of the computed observable quantities obtained as $\int_{-1}^{1}w^{r}f_{J}(w,t)dw$ with $\rho_{J}(t)$ , $\rho_{J}m_{J}(t)$ defined in the moment system ( 23 )-( 24 ) with the two sets of initial conditions. We may observe good agreement between the approximated evolution of observable quantities and the moment system. At the epidemiological level we may observe that, due to the hypothesis $\alpha=0$ which neglects opinion effects in transition between compartmens, the evolution of mass fractions $\rho_{J}(t)$ do not change in view of the two considered initial conditions. Anyway, thanks to the proposed kinetic approach we may obtain details on the evolution of mean opinions in each compartment.
+
+5.2 Test 2: Opinion-dependent incidence rate
+
+In this test we investigate the influence of the initial conditions in a kinetic compartmental model with opinion-dependent local incidence rate of the form ( 6 ). In particular, consider $\kappa(w,w_{*})$ in ( 4 ) with $\alpha=1$ and we integrate the kinetic model ( 25 ) on the time frame $[0,100]$ , $\Delta t=10^{-1}$ by considering a positively skewed population, synthesized in the following initial condition 
+ 
+ $\begin{split}\textrm{(IC1):}\quad&f_{S}(w,0)=\rho_{S}(0)h_{1}(w),\qquad f_{E}(w,0)=\rho_{E}(0)h_{1}(w),\\
+&f_{I}(w,0)=\rho_{I}(0)h_{1}(w),\qquad f_{R}(w,0)=\rho_{R}(0)h_{1}(w),\end{split}$ 
+ with a negatively skewed population, obtained by considering the following initial condition 
+ 
+ $\begin{split}\textrm{(IC2):}\quad&f_{S}(w,0)=\rho_{S}(0)g_{1}(w),\qquad f_{E}(w,0)=\rho_{E}(0)g_{1}(w),\\
+&f_{I}(w,0)=\rho_{I}(0)h_{1}(w),\qquad f_{R}(w,0)=\rho_{R}(0)h_{1}(w).\end{split}$ 
+ where 
+ 
+ $g_{1}(w)\begin{cases}2&w\in[-\frac{1}{2},-1]\\
+0&\textrm{elsewhere}\end{cases},\qquad h_{1}(w)\begin{cases}2&w\in[\frac{1}{2},1]\\
+0&\textrm{elsewhere}.\end{cases}$ 
+ In both cases we fixed $\rho_{E}(0)=\rho_{I}(0)=\rho_{R}(0)=0.05$ and $\rho_{S}(0)=1-\rho_{E}(0)-\rho_{I}(0)-\rho_{R}(0)$ . In Figure 4 we depict the evolution of kinetic mass and momentum obtained from ( 25 ) with respectively initial conditions (IC1) or (IC2) . We can observe that, at variance with what we obtained in Section 5.1 , an opinion-dependent incidence rate effectively quantifies the impact of opinion-type dynamics on the epidemic evolution. Indeed, in the case IC1 , where the agents’ opinions tends to align towards protective behaviours, the transmission dynamics become sensitive to the introduced social dynamics.
+
+5.3 Test 3. Impact of opinion clusters on the epidemic dynamics
+
+In this test we focus on the effects of the asymptotic formation of opinion clusters as discussed in Section 4.1 . We consider the epidemiological parameters defined in the previous tests, $\beta=0.3$ , $\nu_{I}=1/12$ , $\nu_{E}=1/2$ . Furthermore we fix as initial conditions the one defined in ( 35 ) with $\rho_{E}(0)=\rho_{I}(0)=\rho_{R}(0)=0.05$ and $\rho_{S}(0)=1-\rho_{E}(0)-\rho_{I}(0)-\rho_{R}(0)$ . The opinion formation dynamics is solved through a semi-implicit SP scheme over an uniform grid for $[-1,1]$ composed by $N_{w}=501$ gridpoints and a time discretization of the time horizon $[0,100]$ obtained with $\Delta t=10^{-1}$ . The parameters characterizing the opinion dynamics are $\gamma_{S}=\gamma_{E}=0.8$ , $\gamma_{I}=\gamma_{R}=0.2$ such that the susceptible and the exposed populations, which are initially skewed towards negative opinions, weights more opinions of other compartments as in ( 7 ). Furthermore we consider a diffusion $\sigma^{2}=10^{-3}$ . We remark that these choices are coherent with the ones adopted to obtain Figure 1 $(b)$ .
+
+In Figure 5 we present the evolution of the total density $f(w,t)=\sum_{J\in\mathcal{C}}f_{J}(w,t)$ for several choices of the parameter $\alpha\geq 0$ in the local incidence rate expressed by ( 4 ). In the regime $\alpha=0$ , as highlighted in Section 4.1 , we detect the formation of clusters. We may observe how opinion clusters appear also in regimes $\alpha>0$ and may lead to stationary profiles of different nature with respect to the one obtained with $\alpha=0$ . The emergence of opinion clusters can be therefore obtained in more general regimes where the transmission dynamics depends on the behaviour of infected agents.
+
+As discussed in the case of explicitly solvable stationary solution, the value of the diffusion $\sigma^{2}>0$ is of great importance to determine the emergence of opinion clusters and of polarization. The impact of the steady state on the epidemic dynamics is studied in Figure 6 where we integrate ( 19 ) over the time integral $[0,T]$ , $T=200$ , for several values of the diffusion constant $\sigma^{2}\in[10^{-4},0.2]$ and we consider the large-time mass of recovered individuals $\rho_{R}(T)=\int_{\mathcal{I}}f_{R}(w,T)dw$ for several values of $\alpha=0,1,2$ . As before, we fixed the compromise parameters $\gamma_{S}=\gamma_{E}=0.8$ , $\gamma_{I}=\gamma_{R}=0.2$ . We may observe how, under the aforementioned conditions, large values of the diffusion parameters trigger a higher number of recovered individuals. This is due to the emergence of polarization in the society which is driven towards negative opinions under the considered initial condition.
+
+Conclusion
+
+In this study, we have examined the evolution of a population's vaccine hesitancy distribution under the influence of disease spread, utilizing a classical compartmental model [23]. Building on the insights from Refs. [24], our analysis considers a bidirectional interplay between disease dynamics and hesitancy levels. Specifically, the presence of disease transmission is posited to reduce hesitancy due to heightened perceived risks of infection [27] and the potential impact of a pro-vaccination campaign, which we characterize through the influence of opinion leaders [28]. Conversely, periods of reduced epidemic activity are associated with an increase in hesitancy, which we model by adjusting compartmental vaccination rates based on the number of infected individuals.
+
+Acknowledgments
+
+This work has been written within the activities of GNFM group of INdAM (National Institute of High Mathematics). MZ acknowledges the support of MUR-PRIN2020 Project No.2020JLWP23 (Integrated Mathematical Approaches to Socio-Epidemiological Dynamics). This work has been supported by the National Centre for HPC, Big Data and Quantum Computing (CN00000013).
+
+References
+
+[1] G. Albi, G. Bertaglia, W. Boscheri, G. Dimarco, L. Pareschi, G. Toscani, and M. Zanella. Kinetic modelling of epidemic dynamics: social contacts, control with uncertain data, and multiscale spatial dynamics. InPredicting Pandemics in a Globally Connected World, Volume 1, pages 43–108. Springer, 2022.
+[2] F. Brauer, C. Castillo-Chavez, and Z. Feng.Mathematical Models in Epidemiology, vol. 32. Springer, 2019.
+[3] A. Bondesan, G. Toscani, M. Zanella. Kinetic compartmental models driven by opinion dynamics: vaccine hesitancy and social influence. PreprintarXiv:2310.19601, 2023.
+[4] D. Borra, T. Lorenzi. Asymptotic analysis of continuous opinion dynamics models under bounded confidence.Commun. Pure Appl. Anal.,12(3):1487–1499, 2013.
+[5] B. Buonomo, R. Della Marca. Effects of information-induced behavioural changes during the COVID-19 lockdowns: the case of Italy.R. Soc. Open Sci.,7(10):201635, 2020.
+[6] B. Buonomo, R. Della Marca, A. D’Onofrio, and M. Groppi. A behavioural modeling approach to assess the impact of COVID-19 vaccine hesitancy.J. Theoret. Biol.,534(2022): 110973.
+[7] C. Cercignani, R. Illner, and M. Pulvirenti.The Mathematical Theory of Dilute Gases, volume 106. Springer Science & Business Media, 2013.
+[8] J. A. Carrillo, M. Fornasier, G. Toscani, and F. Vecil. Particle, kinetic, and hy- drodynamic models of swarming. In: G. Naldi, L. Pareschi, and G. Toscani (eds)Mathematical Modeling of Collective Behavior in Socio-Economic and Life Sciences, Modeling and Simulation in Science and Technology, Birkhäuser Boston, pp. 297–336, 2010.
+[9] J. A. Carrillo, J. Rosado, and F. Salvarani. 1d nonlinear Fokker– Planck equations for fermions and bosons.Appl. Math. Letters,21(2):148–154, 2008.
+[10] C. Castellano, S. Fortunato, and V. Loreto. Statistical physics of social dynamics.Rev. Mod. Phys.,81:591–646, 2009.
+[11] E. Cristiani, and A. Tosin. Reducing complexity of multiagent systems with symmetry breaking: an application to opinion dynamics with polls.Multiscale Model. Simul.,16(1):528–549, 2018.
+[12] R. Colombo, M. Garavello. Hyperbolic consensus games.Commun. Math. Sci.,17(4):1005–1024, 2019.
+[13] R. Della Marca, N. Loy, and M. Menale. Intransigent vs. volatile opinions in a kinetic epidemic model with imitation game dynamics.Math. Med. Biol.:dqac018, 2022.
+[14] G. Dimarco, L. Pareschi, G. Toscani, and M. Zanella. Wealth distribution under the spread of infectious diseases.Physical Review E,102(2):022303, 2020.
+[15] G. Dimarco, B. Perthame, G. Toscani, M. Zanella. Kinetic models for epidemic dynamics with social heterogeneity.J. Math. Biol.,83: 4, 2021.
+[16] G. Dimarco, G. Toscani, M. Zanella. Optimal control of epidemic spreading in the presence of social heterogeneity.Phil. Trans. R. Soc. A,380:20210160, 2022.
+[17] B. Düring, P. Markowich, J.-F. Pietschmann, and M.-T. Wolfram. Boltzmann and Fokker-Planck equations modeling opinion formation in the presence of strong leaders.Proc. R. Soc. A,465:3687–3708, 2009.
+[18] B. Düring, M.-T. Wolfram. Opinion dynamics: inhomogeneous Boltzmann-type equations modeling opinion leadership and political segregation.Proc. R. Soc. A,471:20150345/1-21, 2015.
+[19] D. Flocco, B. Palmer-Toy, R. Wang, H. Zhu, R. Sonthalia, J. Lin, A. L. Bertozzi, P. J. Bratingham. An analysis of COVID-19 knowledge graph construction and applications.IEEE International Conference on Big Data (Big Data), 2631–2640, 2021.
+[20] J. Franceschi, A. Medaglia, and M. Zanella. On the optimal control of kinetic epidemic models with uncertain social features.Optimal Control Applications and Methods, 2023.
+[21] J. Franceschi, L. Pareschi, E. Bellodi, M. Gavanelli, and M. Bresadola. Modeling opinion polarization on social media: Application to COVID-19 vaccination hesitancy in Italy.PLoS ONE,8:e0291993, 2023.
+[22] S. Funk, M. Salathé, and V. A. A. Jansen. Modelling the influence of human behaviour on the spread of infectious diseases: a review.J. R. Soc. Interface,7(50):1247–1256, 2010.
+[23] M. Gatto, E. Bertuzzo, L. Mari, S. Miccoli, L. Carraro, R. Casagrandi, and A. Rinaldo. Spread and dynamics of the COVID-19 epidemic in Italy: effect of emergency containment measures.PNAS,117(19):10484–10491, 2020.
+[24] S.-Y. Ha, and E. Tadmor. From particle to kinetic and hydrodynamic descriptions of flocking.Kinet. Relat. Models,1(3):415–435, 2008.
+[25] R. Hegselmann, and U. Krause. Opinion dynamics and bounded confidence: models, analysis, and simulation.J. Artif. Soc. Soc. Simulat.,5(3):1–33, 2002.
+[26] H. W. Hethcote. The mathematics of infectious diseases.SIAM Rev.,42(4):599–653, 2000.
+[27] W. O. Kermack, and A. G. McKendrick. A contribution to the mathematical theory of epidemics.Proc. R. Soc. A,115(772):700-721, 1927.
+[28] N. Kontorovsky, C. Giambiagi Ferrari, J.P. Pinasco and N. Saintier. Kinetic modeling of coupled epidemic and behavior dynamics: The social impact of public policies.Math. Mod. Meth. Appl. Sci.,32(10)2037–2076: 2022.
+[29] K. Sznajd-Weron, and J. Sznajd. Opinion evolution in closed community.Int. J. Mod. Phys. C,11(6):1157–1165, 2000.
+[30] L. Pareschi and G. Toscani.Interacting Multiagent Systems: Kinetic Equations and Monte Carlo Methods, volume 32. Springer, 2019.
+[31] L. Pareschi, G. Toscani, A. Tosin, and M. Zanella. Hydrodynamic models of preference formation in multi-agent societies.J. Nonlin. Sci.,29(6):2761–2796, 2019.
+[32] L. Pareschi, M. Zanella. Structure preserving schemes for nonlinear Fokker–Planck equations and applications.J. Sci. Comput.,74(3):1575–1600, 2018.
+[33] A. Perisic, and C. Bauch. Social contact networks and the free-rider problem in voluntary vaccination policy.PLoS Comput. Biol.,5:e1000280, 2009.
+[34] B. Piccoli, N. Pouradier Duteil, E. Trélat. Sparse control of Hegselamnn-Krause models: black hole and declustering.SIAM J. Contr. Optim.,57(4):2628–2659, 2019.
+[35] R. Temam. Sur la résolution exacte at aprochée d’un probléme hyperbolique non linéaire de T. Carleman.Arch. Ration. Mech. Anal.,35: 351–362, 1969.
+[36] G. Toscani. Kinetic models of opinion formation. Communications in Mathematical Sciences,4(3):481–496, 2006.
+[37] G. Toscani, A. Tosin, and M. Zanella. Opinion modeling on social media and marketing aspects.Phys. Rev. E,98(2):022315, 2018.
+[38] B. Tunçgenç, M. El Zein, J. Sulik, M. Newson, Y. Zhao, G. Dezecache, O. Deroy. Social influence matters: we follow pandemic guidelines most when our close circle does.Br. J. Psychol.,112(3):763–780, 2021.
+[39] M. Zanella. Kinetic models for epidemic dynamics in the presence of opinion polarization.Bullet. Math. Biol.,85(5):36, 2023.

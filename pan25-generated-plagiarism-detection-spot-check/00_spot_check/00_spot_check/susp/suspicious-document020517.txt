@@ -1,0 +1,661 @@
+A semisimple mod $p$ Langlands correspondence in families for $GL_{2}(\mathbb{Q}_{p})$
+
+By Cédric Pépin and Tobias Schmidt
+
+Abstract
+
+This is the sequel to [PS] . Let $F$ be any local field with residue characteristic $p>0$ , and $\mathcal{H}^{(1)}_{\overline{\mathbb{F}}_{p}}$ be the mod $p$ pro- $p$ -Iwahori Hecke algebra of $\mathbf{GL_{2}}(F)$ . In [PS] we have constructed a parametrization of the $\mathcal{H}^{(1)}_{\overline{\mathbb{F}}_{p}}$ -modules by certain $\widehat{\mathbf{GL_{2}}}(\overline{\mathbb{F}}_{p})$ -Satake parameters, together with an antispherical family of $\mathcal{H}^{(1)}_{\overline{\mathbb{F}}_{p}}$ -modules. Here we let $F=\mathbb{Q}_{p}$ (and $p\geq 5$ ) and construct a morphism from $\widehat{\mathbf{GL_{2}}}(\overline{\mathbb{F}}_{p})$ -Satake parameters to $\widehat{\mathbf{GL_{2}}}(\overline{\mathbb{F}}_{p})$ -Langlands parameters. As a result, we get a version in families of Breuil’s semisimple mod $p$ Langlands correspondence for $\mathbf{GL_{2}}(\mathbb{Q}_{p})$ and of Paškūnas’ parametrization of blocks of the category of mod $p$ locally admissible smooth representations of $\mathbf{GL_{2}}(\mathbb{Q}_{p})$ having a central character. The formulation of these results is possible thanks to the Emerton-Gee moduli space of semisimple $\widehat{\mathbf{GL_{2}}}(\overline{\mathbb{F}}_{p})$ -representations of the Galois group ${\rm Gal}(\overline{\mathbb{Q}}_{p}/\mathbb{Q}_{p})$ .
+
+Introduction
+
+Let $F$ be a local field with ring of integers $o_{F}$ and residue field $\mathbb{F}_{q}$ . We let $\mathbf{G}$ be the algebraic group $\mathbf{GL_{2}}$ over $F$ with diagonal torus $\mathbf{T}\subset\mathbf{G}$ . Set $G:=\mathbf{G}(F)$ . Let $\mathcal{H}^{(1)}_{\overline{\mathbb{F}}_{q}}$ be the pro- $p$ -Iwahori Hecke algebra of $G$ , with coefficients in an algebraic closure $\overline{\mathbb{F}}_{q}$ of $\mathbb{F}_{q}$ . Let $\widehat{\mathbf{G}}$ be the Langlands dual group of $\mathbf{G}$ over $\overline{\mathbb{F}}_{q}$ , with maximal torus $\widehat{\mathbf{T}}$ . In this sequel to [PS] , we continue to work at $\mathbf{q}=q=0$ . That is, we consider the special fibre at $\mathbf{q}=0$ of the Vinberg fibration $V_{\mathbf{\widehat{T}}}\stackrel{{\scriptstyle\mathbf{q}}}{{\rightarrow}}\mathbb{A}^{1}$ associated to $\widehat{\mathbf{T}}$ followed by base change to $\overline{\mathbb{F}}_{q}$ . This yields the ${\overline{\mathbb{F}}_{q}}$ -semigroup scheme
+
+
+ 
+ $V_{\mathbf{\widehat{T}},0}:=\operatorname{SingDiag}_{2\times 2}\times_{\overline{\mathbb{F}}_{q}}\mathbb{G}_{m},$ 
+ where $\operatorname{SingDiag}_{2\times 2}$ represents the semigroup of singular diagonal $2\times 2$ -matrices over $\overline{\mathbb{F}}_{q}$ , cf. [PS] . Let $\mathbb{T}^{\vee}$ be the finite abelian dual group of $\mathbb{T}=\mathbf{T}(\mathbb{F}_{q})$ and consider the extended semigroup 
+ 
+ $V^{(1)}_{\mathbf{\widehat{T}},0}:=\mathbb{T}^{\vee}\times V_{\mathbf{\widehat{T}},0}.$ 
+ It has a natural $W_{0}$ -action. In [PS] we established the mod $p$ pro- $p$ -Iwahori Satake isomorphism 
+ 
+ $\textstyle{\mathscr{S}^{(1)}_{\overline{\mathbb{F}}_{q}}:Z(\mathcal{H}^{(1)}_{\overline{\mathbb{F}}_{q}})\ignorespaces\ignorespaces\ignorespaces\ignorespaces}$ $\scriptstyle{\sim}$ $\textstyle{\mathcal{O}(V^{(1)}_{\mathbf{\widehat{T}},0}/W_{0})}$ 
+ identifying the center $Z(\mathcal{H}^{(1)}_{\overline{\mathbb{F}}_{q}})\subset\mathcal{H}^{(1)}_{\overline{\mathbb{F}}_{q}}$ with the ring of regular functions on the quotient $V^{(1)}_{\mathbf{\widehat{T}},0}/W_{0}$ . The resulting Satake equivalence $S$ identifies the category of $Z(\mathcal{H}^{(1)}_{\overline{\mathbb{F}}_{q}})$ -modules with the category of $\widehat{\mathbf{G}}$ -Satake parameters, i.e. the category of quasi-coherent sheaves on $V^{(1)}_{\mathbf{\widehat{T}},0}/W_{0}$ , cf. [PS] .
+
+The construction of the Galois representation $\rho_{\pi}:\textup{Gal}(F^{s}/F)\to{\vphantom{G}}^{L}{G}(\overline{\mathbb{Q}}_{\ell})$ associated with $\pi=\pi(\chi,\phi)$ under the Langlands correspondence is presented in Theorem 3.5 and Corollary 3.7. The Galois representation $\rho_{\pi}$ can also be interpreted as an $\ell$-adic ${\vphantom{G}}^{L}{G}$-local system $\textup{Kl}_{{\vphantom{G}}^{L}{G},{\mathbf{P}}}(\chi,\phi)$ over $\mathbb{P}^{1}-\{0,\infty\}$, where ${\vphantom{G}}^{L}{G}$ denotes the Langlands dual group of $G$. Additionally, a method for computing these ${\vphantom{G}}^{L}{G}$-local systems using the Fourier transform is provided (see Proposition 3.9).
+
+In this sequel to [PS] we construct, in the case $F=\mathbb{Q}_{p}$ and $p\geq 5$ , a morphism $L$ from the space of $\widehat{\mathbf{G}}$ -Satake parameters to the space of $\widehat{\mathbf{G}}$ -Langlands parameters, and prove that the push-forward $L_{*}S(\mathcal{M}^{(1)}_{\overline{\mathbb{F}}_{q}})$ interpolates the semisimple mod $p$ local Langlands correspondence $\rho\mapsto\pi(\rho)$ for the group $G$ .
+
+To be more precise, let $\zeta:Z(G)\rightarrow{\overline{\mathbb{F}}^{\times}_{q}}$ be a central character of $G$ . There is a natural fibration $\theta:V^{(1)}_{\mathbf{\widehat{T}},0}/W_{0}\rightarrow Z(G)^{\vee}$ where $Z(G)^{\vee}$ is the group scheme of characters of $Z(G)$ , and we put 
+ 
+ $(V^{(1)}_{\mathbf{\widehat{T}},0}/W_{0})_{\zeta}:=\theta^{-1}(\zeta).$ 
+
+
+We let from now on $F=\mathbb{Q}_{p}$ with $p\geq 5$ . As a space of $\widehat{\mathbf{G}}$ -Langlands parameters, we may then consider the Emerton-Gee moduli curve $X_{\zeta}$ , cf. [Em19] , parametrizing (isomorphism classes of) two-dimensional semisimple continuous Galois representations over $\overline{\mathbb{F}}_{p}$ with determinant $\omega\zeta$ : 
+ 
+ $X_{\zeta}(\overline{\mathbb{F}}_{p})\cong\big{\{}\text{semisimple continuous $\rho:{\rm Gal}(\overline{\mathbb{Q}}_{p}/\mathbb{Q}_{p})\rightarrow\mathbf{\widehat{G}}(\overline{\mathbb{F}}_{p})$\;
+with $\det\rho=\omega\zeta$}\big{\}}/\sim.$ 
+ Here $\omega$ is the mod $p$ cyclotomic character. The curve $X_{\zeta}$ is expected to be the underlying scheme of a ringed moduli space for the stack of étale $(\varphi,\Gamma)$ -modules $\mathcal{X}_{2}^{\det=\omega\zeta}$ appearing in [EG19] (see also [CEGS19] ). At the moment, it is unclear how to define a replacement for $X_{\zeta}$ when $F/\mathbb{Q}_{p}$ is a non trivial finite extension, and this is the reason why we have to restrict to the case $F=\mathbb{Q}_{p}$ (and $p\geq 5$ ) in our construction of the morphism $L$ . Our main result is the following (cf. Theorem 8.3.9 ).
+
+Theorem. Suppose $F=\mathbb{Q}_{p}$ with $p\geq 5$ . There exists a morphism of $\overline{\mathbb{F}}_{p}$ -schemes 
+ 
+ $L_{\zeta}:(V^{(1)}_{\mathbf{\widehat{T}},0}/W_{0})_{\zeta}\longrightarrow X_{\zeta}$ 
+ such that the quasi-coherent $\mathcal{O}_{X_{\zeta}}$ -module 
+ 
+ $L_{\zeta*}S(\mathcal{M}_{\overline{\mathbb{F}}_{p}}^{(1)})|_{(V^{(1)}_{\mathbf{\widehat{T}},0}/W_{0})_{\zeta}},$ 
+ equal to the push-forward along $L_{\zeta}$ of the restriction to $(V^{(1)}_{\mathbf{\widehat{T}},0}/W_{0})_{\zeta}\subset V^{(1)}_{\mathbf{\widehat{T}},0}/W_{0}$ of the Satake parameter $S(\mathcal{M}_{\overline{\mathbb{F}}_{p}}^{(1)})$ , interpolates the $I^{(1)}$ -invariants of the semisimple mod $p$ Langlands correspondence 
+ 
+ $\left.\begin{array}[]{lllll}X_{\zeta}(\overline{\mathbb{F}}_{p})&\longrightarrow&\operatorname{Mod}_{\zeta}^{\rm ladm}(\overline{\mathbb{F}}_{p}[G])&\longrightarrow&\operatorname{Mod}(\mathcal{H}^{(1)}_{\overline{\mathbb{F}}_{p}})\\
+x&\longmapsto&\pi(\rho_{x})&\longmapsto&\pi(\rho_{x})^{I^{(1)}},\end{array}\right.$ 
+ in the sense: for all $x\in X_{\zeta}(\overline{\mathbb{F}}_{p})$ , one has an isomorphism of $\mathcal{H}^{(1)}_{\overline{\mathbb{F}}_{p}}$ -modules
+
+
+ 
+ $\Big{(}\big{(}L_{\zeta*}S(\mathcal{M}_{\overline{\mathbb{F}}_{p}}^{(1)})|_{(V^{(1)}_{\mathbf{\widehat{T}},0}/W_{0})_{\zeta}}\big{)}\otimes_{\mathcal{O}_{X_{\zeta}}}k(x)\Big{)}^{\operatorname{ss}}=\Big{(}\mathcal{M}_{\overline{\mathbb{F}}_{p}}^{(1)}\otimes_{Z(\mathcal{H}^{(1)}_{\overline{\mathbb{F}}_{p}})}(\mathscr{S}_{\overline{\mathbb{F}}_{p}}^{(1)})^{-1}(\mathcal{O}_{L_{\zeta}^{-1}(x)})\Big{)}^{\operatorname{ss}}\cong\pi(\rho_{x})^{I^{(1)}}.$ 
+
+
+Here, $\operatorname{Mod}_{\zeta}^{\rm ladm}(\overline{\mathbb{F}}_{p}[G])$ denotes the category of locally admissible smooth $G$ -representations over $\overline{\mathbb{F}}_{p}$ with central character $\zeta$ . The group $I^{(1)}\subset G$ is the standard pro- $p$ Iwahori subgroup and $(\cdot)^{I^{(1)}}$ denotes the functor of $I^{(1)}$ -invariants.
+
+As a byproduct of our constructions, we also obtain a version in families of Paškūnas’ parametrization of the blocks of the category $\operatorname{Mod}_{\zeta}^{\rm ladm}(\overline{\mathbb{F}}_{p}[G])$ , cf. [Pas13] . See 8.6.3 for the precise statement.
+
+8 The theory at $\mathbf{q}=q=0$ : Semisimple Langlands correspondence
+
+We keep the notation from the introduction. In particular, $F$ denotes a local field with ring of integers $o_{F}$ and residue field $\mathbb{F}_{q}$ (we switch to $F=\mathbb{Q}_{p}$ starting from 8.2 ). We also let $k:=\overline{\mathbb{F}}_{q}$ .
+
+8.1 Mod $p$ Satake parameters with fixed central character
+
+Let $\omega:\mathbb{F}_{q}^{\times}\rightarrow k^{\times}$ be induced by the inclusion $\mathbb{F}_{q}\subset k$ . Then $(\mathbb{F}_{q}^{\times})^{\vee}=\langle\omega\rangle$ is a cyclic group of order $q-1$ . An element $\omega^{r}$ defines a non-regular character of $\mathbb{T}$ : 
+ 
+ $\omega^{r}(t_{1},t_{2}):=\omega^{r}(t_{1})\omega^{r}(t_{2})$ 
+ for all $(t_{1},t_{2})\in\mathbb{T}=\mathbb{F}_{q}^{\times}\times\mathbb{F}_{q}^{\times}$ . Composing with multiplication in $\mathbb{T}^{\vee}$ , we get an action of $(\mathbb{F}_{q}^{\times})^{\vee}$ on $\mathbb{T}^{\vee}$ , which factors on the quotient set $\mathbb{T}^{\vee}/W_{0}$ : 
+ 
+ $\mathbb{T}^{\vee}/W_{0}\times(\mathbb{F}_{q}^{\times})^{\vee}\longrightarrow\mathbb{T}^{\vee}/W_{0},\;(\gamma,\omega^{r})\mapsto\gamma\omega^{r}.$ 
+ If $\gamma\in\mathbb{T}^{\vee}/W_{0}$ is regular (non-regular), then $\gamma\omega^{r}$ is regular (non-regular).
+
+Restricting characters of $\mathbb{T}$ to the subgroup $\mathbb{F}_{q}^{\times}\simeq\{\operatorname{diag}(a,a):a\in\mathbb{F}_{q}^{\times}\}$ induces a homomorphism $\mathbb{T}^{\vee}\rightarrow(\mathbb{F}_{q}^{\times})^{\vee}$ which factors into a restriction map 
+ 
+ $\mathbb{T}^{\vee}/W_{0}\rightarrow(\mathbb{F}_{q}^{\times})^{\vee},\;\gamma\mapsto\gamma|_{\mathbb{F}_{q}^{\times}}.$ 
+ The relation to the $(\mathbb{F}_{q}^{\times})^{\vee}$ -action on the source $\mathbb{T}^{\vee}/W_{0}$ is given by the formula 
+ 
+ $(\gamma\omega^{r})|_{\mathbb{F}_{q}^{\times}}=\gamma|_{\mathbb{F}_{q}^{\times}}\;\omega^{2r}.$ 
+
+
+We describe the fibers of the restriction map $\gamma\mapsto\gamma|_{\mathbb{F}_{q}^{\times}}$ .
+
+The preservation of the symplectic form $\omega$ by the expression $g = \frac{t}{t-1}A - \frac{1}{t-1}B$ is equivalent to the conditions $A, B \in \textup{Sp}(M, \omega)$ and $\omega(Ax, By) + \omega(Bx, Ay) = 2\omega(x, y)$ for all $x, y \in M$. The latter condition is further equivalent to $\omega(Cx, y) + \omega(x, Cy) = 0$ for all $x, y \in M$. Notably, $g(0) = B$, $g(\infty) = A$, and $\textup{Res}_{t=1}g = A - B$, ensuring the remaining conditions hold.
+
+On the other hand, let $(\cdot)|_{\mathbb{F}_{q}^{\times}}^{-1}(\omega^{2r-1})$ be the fibre at a non-square element $\omega^{2r-1}$ . The action of $\omega^{-r}$ induces a bijection with the fibre $(\cdot)|_{\mathbb{F}_{q}^{\times}}^{-1}(\omega^{-1})$ . The fibre 
+ 
+ $(\cdot)|_{\mathbb{F}_{q}^{\times}}^{-1}(\omega^{-1})=\{1\otimes\omega^{-1},\omega\otimes\omega^{-2},...,\omega^{\frac{q-1}{2}-1}\otimes\omega^{-{\frac{q-1}{2}}}\}$ 
+ has cardinality $\frac{q-1}{2}$ and we have chosen a representative in $\mathbb{T}^{\vee}$ for each element in the fibre. All elements of the fibre are regular $W_{0}$ -orbits. Since the action of $\omega^{-r}$ preserves regular (non-regular) orbits, any fibre at a non-square element (there are $\frac{q-1}{2}$ such fibres) has the same structure.
+
+Note that $\frac{q-1}{2}(\frac{q+1}{2}+\frac{q-1}{2})=\frac{q^{2}-q}{2}$ is the cardinality of the set $\mathbb{T}^{\vee}/W_{0}$ .
+
+Recall the commutative $k$ -semigroup scheme 
+ 
+ $V^{(1)}_{\mathbf{\widehat{T}},0}=\mathbb{T}^{\vee}\times V_{\mathbf{\widehat{T}},0}=\mathbb{T}^{\vee}\times\operatorname{SingDiag}_{2\times 2}\times\mathbb{G}_{m}$ 
+ together with its $W_{0}$ -action, cf. [PS] : the natural action of $W_{0}$ on the factors $\mathbb{T}^{\vee}$ and $\operatorname{SingDiag}_{2\times 2}$ and the trivial one on $\mathbb{G}_{m}$ . There is a commuting action of the $k$ -group scheme 
+ 
+ $\mathcal{Z}^{\vee}:=(\mathbb{F}_{q}^{\times})^{\vee}\times\mathbb{G}_{m}$ 
+ on $V^{(1)}_{\mathbf{\widehat{T}},0}$ : the (constant finite diagonalizable) group $(\mathbb{F}_{q}^{\times})^{\vee}$ acts only on the factor $\mathbb{T}^{\vee}$ and in the way described in 8.1.1 ; an element $z_{0}\in\mathbb{G}_{m}$ acts trivially on $\mathbb{T}^{\vee}$ , by multiplication with the diagonal matrix $\operatorname{diag}(z_{0},z_{0})$ on $\operatorname{SingDiag}_{2\times 2}$ and by multiplication with the square $z_{0}^{2}$ on $\mathbb{G}_{m}$ . Therefore the quotient $V^{(1)}_{\mathbf{\widehat{T}},0}/W_{0}$ inherits a $\mathcal{Z}^{\vee}$ -action. Now, according to [PS] , one has the decomposition 
+ 
+ $V^{(1)}_{\mathbf{\widehat{T}},0}/W_{0}=\coprod_{\gamma\in(\mathbb{T}^{\vee}/W_{0})_{\operatorname{reg}}}V_{\mathbf{\widehat{T}},0}\coprod_{\gamma\in(\mathbb{T}^{\vee}/W_{0})_{\operatorname{non-reg}}}V_{\mathbf{\widehat{T}},0}/W_{0}.$ 
+ Then the $(\mathbb{F}_{q}^{\times})^{\vee}$ -action is by permutations on the index set $\mathbb{T}^{\vee}/W_{0}$ , i.e. on the set of connected components of $V^{(1)}_{\mathbf{\widehat{T}},0}/W_{0}$ ; as observed above, it preserves the subsets of regular and non-regular components. The $\mathbb{G}_{m}$ -action on $V^{(1)}_{\mathbf{\widehat{T}},0}/W_{0}$ preserves each connected component.
+
+Recall from [PS] the antispherical map 
+ 
+ $\textstyle{\operatorname{ASph}:(V^{(1)}_{\mathbf{\widehat{T}},0}/W_{0})(k)\ignorespaces\ignorespaces\ignorespaces\ignorespaces}$ $\textstyle{\{\textrm{left $\mathcal{H}^{(1)}_{\overline{\mathbb{F}}_{q}}$-modules}\}/\sim.}$ 
+ The modules in the image of this map are standard modules of length $1$ or $2$ , cf. [PS] and [PS] .
+
+
+
+Lemma. The map $\operatorname{ASph}$ is $\mathcal{Z}^{\vee}(k)$ -equivariant.
+
+Let $(\omega^{r},z_{0})\in\mathcal{Z}^{\vee}(k)$ . Let $v\in(V^{(1)}_{\mathbf{\widehat{T}},0}/W_{0})(k)$ and let its connected component be indexed by $\gamma\in\mathbb{T}^{\vee}/W_{0}$ . Suppose that $\gamma$ is regular, choose an ordering $\gamma=(\chi,\chi^{s})$ on the set $\gamma$ and standard coordinates. Then $\operatorname{ASph}(v)=\operatorname{ASph}^{\gamma}(v)$ is a simple two-dimensional standard $\mathcal{H}^{\gamma}_{\overline{\mathbb{F}}_{p}}$ -module, cf. [PS] , i.e. of the form $M(x,y,z_{2},\chi)$ [V04] . Then 
+ 
+ $\operatorname{ASph}(v.(\omega^{r},z_{0}))\simeq M(z_{0}x,z_{0}y,z_{0}^{2}z_{2},\chi.\omega^{r})\simeq\operatorname{ASph}(v).(\omega^{r},z_{0}).$ 
+ Suppose that $\gamma=\{\chi\}$ is non-regular and choose Steinberg coordinates. (a) If $v\in D(2)_{\gamma}(k)$ , then $\operatorname{ASph}(v)=\operatorname{ASph}^{\gamma}(2)(v)$ is a simple two-dimensional $\mathcal{H}^{\gamma}_{\overline{\mathbb{F}}_{p}}$ -module, cf. [PS] , i.e. of the form $M(z_{1},z_{2},\chi)$ [V04] . Then 
+ 
+ $\operatorname{ASph}(v.(\omega^{r},z_{0}))\simeq M(z_{0}z_{1},z_{0}^{2}z_{2},\chi.\omega^{r})\simeq\operatorname{ASph}(v).(\omega^{r},z_{0}).$ 
+ (b) If $v\in D(1)_{\gamma}(k)$ , then the semisimplified module $\operatorname{ASph}(v)^{\operatorname{ss}}$ is the direct sum of the two characters in the antispherical pair $\operatorname{ASph}^{\gamma}(1)(v)=\{(0,z_{1}),(-1,-z_{1})\}$ where $z_{2}=z^{2}_{1}$ . Similarly $\operatorname{ASph}(v.(\omega^{r},z_{0}))^{\operatorname{ss}}$ is the direct sum of the characters $\{(0,z_{0}z_{1}),(-1,-z_{0}z_{1})\}$ in the component $\gamma.\omega^{r}$ , and hence is isomorphic to $\operatorname{ASph}(v)^{\operatorname{ss}}.(\omega^{r},z_{0})$ . ∎
+
+Consider the morphism $\pi_{2}:\mathbb{G}_{m}^{\textup{rot}}\times\mathfrak{G}_{\lambda}\to\mathfrak{G}_{\lambda}=\mathbb{P}(M)-\cup Q_{i}$. The stalk of $\pi_{2,!}f_{\phi}^{*}\textup{AS}_{\psi}$ over $[v]$ is given by $f_{\leq\ell-1}^{*}\textup{AS}_{\psi}\otimes\textup{H}^{*}({\mathbb{G}_{m}^{\textup{rot}},T_{f_{\ell}([v])}^{*}\textup{AS}_{\psi}})$, where $T_{f_{\ell}([v])}$ denotes the map $\mathbb{G}_{m}\to\mathbb{A}^{1}$ induced by multiplication by $f_{\ell([v])}$. The cohomology $\textup{H}^{*}({\mathbb{G}_{m}^{\textup{rot}},T_{f_{\ell}([v])}^{*}\textup{AS}_{\psi}})$ equals $\textup{H}_{c}^{*}({\mathbb{G}_{m}})$ when $f_{\ell}([v])=0$ and $\overline{\mathbb{Q}}_{\ell}[-1]$ otherwise.
+
+Consequently, we derive the relation:
+
+$$
+(-1)^{n-1}\chi_{c}(\widetilde{X}^{\circ},\textup{Kl}^{\textup{St}}_{\widehat{G},{\mathbf{P}}_{m}}(1,\phi))=\chi_{c}(\pi_{2,!}f_{\phi}^{*}\textup{AS}_{\psi})=-\chi_{c}(U_{\ell},f_{\leq\ell-1}^{*}\textup{AS}_{\psi})+\chi_{c}(W_{\ell},f_{\leq\ell-1}^{*}\textup{AS}_{\psi}).
+$$
+
+Furthermore, for each $0\leq i\leq\ell-1$, the following hold:
+
+$$
+\chi_{c}(U_{i+1},f_{\leq i}^{*}\textup{AS}_{\psi})=\chi_{c}(U_{i},f_{\leq i-1}^{*}\textup{AS}_{\psi}),
+$$
+
+and
+
+$$
+\chi_{c}(W_{i+1},f_{\leq i}^{*}\textup{AS}_{\psi})=\chi_{c}(W_{i},f_{\leq i-1}^{*}\textup{AS}_{\psi}).
+$$
+
+
+ 
+ $\textstyle{V^{(1)}_{\mathbf{\widehat{T}},0}/W_{0}\ignorespaces\ignorespaces\ignorespaces\ignorespaces\ignorespaces\ignorespaces\ignorespaces\ignorespaces}$ $\scriptstyle{\operatorname{pr}_{\mathbb{T}^{\vee}/W_{0}}}$ $\scriptstyle{\operatorname{pr}_{\mathbb{G}_{m}}}$ $\textstyle{\mathbb{T}^{\vee}/W_{0}}$ $\textstyle{\mathbb{G}_{m}.}$ 
+ Then we may compose the map $\operatorname{pr}_{\mathbb{T}^{\vee}/W_{0}}$ with the restriction map $(\cdot)|_{\mathbb{F}^{\times}_{q}}:\mathbb{T}^{\vee}/W_{0}\rightarrow(\mathbb{F}_{q}^{\times})^{\vee}$ , set 
+ 
+ $\theta:=\big{(}(\cdot)|_{\mathbb{F}^{\times}_{q}}\circ\operatorname{pr}_{\mathbb{T}^{\vee}/W_{0}}\big{)}\times{\operatorname{pr}_{\mathbb{G}_{m}}}$ 
+ and view $V^{(1)}_{\mathbf{\widehat{T}},0}/W_{0}$ as fibered over the space $\mathcal{Z}^{\vee}$ : 
+ 
+ $\textstyle{V^{(1)}_{\mathbf{\widehat{T}},0}/W_{0}\ignorespaces\ignorespaces\ignorespaces\ignorespaces}$ $\scriptstyle{\theta}$ $\textstyle{\mathcal{Z}^{\vee}.}$ 
+ The relation to the $\mathcal{Z}^{\vee}$ -action on the source $V^{(1)}_{\mathbf{\widehat{T}},0}/W_{0}$ is given by the formula 
+ 
+ $\theta(x.(\omega^{r},z_{0}))=\theta(x)(\omega^{2r},z^{2}_{0})=\theta(x)(\omega^{r},z_{0})^{2}$ 
+ for $x\in V^{(1)}_{\mathbf{\widehat{T}},0}/W_{0}$ and $(\omega^{r},z_{0})\in\mathcal{Z}^{\vee}$ . This formula follows from the formula in 8.1.2 and the definition of the $\mathbb{G}_{m}$ -action in 8.1.3 .
+
+Definition. Let $\zeta\in\mathcal{Z}^{\vee}$ . The space of mod $p$ Satake parameters with central character $\zeta$ is the $k$ -scheme 
+ 
+ $(V^{(1)}_{\mathbf{\widehat{T}},0}/W_{0})_{\zeta}:=\theta^{-1}(\zeta).$ 
+
+
+Let $\widetilde{\Gamma}_{0}$ be defined as the intersection of $G(k[t,t^{-1}])$ and $\widetilde{{\mathbf{P}}}_{0}$. Within this context, $\widetilde{L}_{{\mathbf{P}}}$ is established as a subgroup of $\widetilde{\Gamma}_{0}$. We introduce $W_{{\mathbf{P}}}$, the Weyl group associated with $L_{{\mathbf{P}}}$, and identify it as a subgroup of the extended affine Weyl group $\widetilde{W}$ of $G(F_{\infty})$, with both constructions relative to $\SS$. Furthermore, $\widetilde{W}_{{\mathbf{P}}}$ is defined as the normalizer of $W_{{\mathbf{P}}}$ within $\widetilde{W}$, forming an extension of $\Omega_{{\mathbf{P}}}$ by $W_{{\mathbf{P}}}$.
+
+Lemma. Let $\zeta,\eta\in\mathcal{Z}^{\vee}$ . The action of $\eta$ on $V^{(1)}_{\mathbf{\widehat{T}},0}/W_{0}$ induces an isomorphism of $k$ -schemes $(V^{(1)}_{\mathbf{\widehat{T}},0}/W_{0})_{\zeta}\simeq(V^{(1)}_{\mathbf{\widehat{T}},0}/W_{0})_{\zeta\eta^{2}}$ .
+
+Follows from the last formula in 8.1.6 . ∎
+
+8.2 Mod $p$ Langlands parameters with fixed determinant for $F=\mathbb{Q}_{p}$
+
+Notation. In this section, we let $F=\mathbb{Q}_{p}$ with $p\geq 5$ . We fix an algebraic closure $\overline{\mathbb{Q}}_{p}$ and let ${\rm Gal}(\overline{\mathbb{Q}}_{p}/\mathbb{Q}_{p})$ be the absolute Galois group. We normalize local class field theory $\mathbb{Q}_{p}^{\times}\rightarrow{\rm Gal}(\overline{\mathbb{Q}}_{p}/\mathbb{Q}_{p})^{\rm ab}$ by sending $p$ to a geometric Frobenius. In this way, we identify the $k$ -valued smooth characters of ${\rm Gal}(\overline{\mathbb{Q}}_{p}/\mathbb{Q}_{p})$ and of $\mathbb{Q}_{p}^{\times}$ . Finally, $\omega:\mathbb{Q}_{p}^{\times}\rightarrow k^{\times}$ denotes the extension of the character $\omega:\mathbb{F}_{p}^{\times}\rightarrow k^{\times}$ to $\mathbb{Q}_{p}^{\times}$ satisfying $\omega(p)=1$ , and $\operatorname{unr}(x):\mathbb{Q}_{p}^{\times}\rightarrow k^{\times}$ denotes the character trivial on $\mathbb{F}_{p}^{\times}$ and sending $p$ to $x$ .
+
+As $\phi$ represents a stable point, the degenerate quadrics within the pencil, specifically $\phi - \lambda_i q$, take the form of projective cones over $(n-3)$-dimensional quadrics. Notably, all quadrics—whether degenerate or not—exhibit vanishing cohomology in odd degrees. Let $c_1$ denote the Chern class associated with the line bundle $\mathcal{O}_{\mathbb{P}(M)}(1)$, interpreted as a morphism $\overline{\mathbb{Q}}_{\ell}(-1) \to \mathbf{R}^{2}\widetilde{f}_{\phi,*}\overline{\mathbb{Q}}_{\ell}$. Raising $c_1$ to the $i$-th power induces a morphism 
+
+$c_1^i: \overline{\mathbb{Q}}_{\ell}(-i) \to \mathbf{R}^{2i}\widetilde{f}_{\phi,*}\overline{\mathbb{Q}}_{\ell.$
+
+The Iwahori subgroup $\mathbf{I}$ is always an admissible parahoric. It is associated with the twisted Coxeter number $h_{\sigma}$, where $L_{\mathbf{I}}$ corresponds to $\mathbb{T}^{\sigma,\circ}$, and $V_{\mathbf{I}}$ is the sum of the affine simple root spaces of $G$. For $\sigma \in \textup{Out}(\mathbb{G})$ corresponding to the opposition of the Dynkin diagram, $-1 \in \mathbb{W}\sigma$ is a regular elliptic element with $m=2$ as a regular elliptic number. The admissible parahoric ${\mathbf{P}}_{2}$ is maximal except in types $A_{1}$ and $C_{n}$, and its Levi quotient $L_{2}$ is isomorphic to $\mathbb{G}^{\theta,\circ}$, where $\theta$ is a Chevalley involution on $\mathbb{G}$. The space $V_{\mathbf{P}}$ is identified with the $(-1)$-eigenspace of $\theta$ on $\textup{Lie}\mathbb{G}$. In addition to $m=2$, there are other maximal admissible parahorics, including ${\vphantom{D}}^{3}{D}_{4}\ (m=3)$, $E_{6}\ (m=3)$, ${\vphantom{E}}^{2}{E}_{6}\ (m=4)$, $E_{8}\ (m=3,4,5)$, and $F_{4}\ (m=3)$. Furthermore, there are minimal admissible parahorics (excluding the Iwahori case) such as ${\vphantom{A}}^{2}{A}_{2}$, ${\vphantom{A}}^{2}{A}_{5}$, $C_{2}$, $D_{4}$, ${\vphantom{D}}^{3}{D}_{4}$, $E_{6}$, ${\vphantom{E}}^{2}{E}_{6}$, $E_{7}$, $E_{8}$, $F_{4}$, and $G_{2}$. These minimal parahorics correspond to the unique vertex in the affine Dynkin diagram $\widetilde{\textup{Dyn}}(G)$ with three or more incoming edges.
+
+The structure $\mathfrak{G}_{\leq\lambda}$ organizes pairs $(A,B)$ within the Cartesian product $\textup{Sp}(M,\omega)\times\textup{Sp}(M,\omega)$ that meet specific criteria. These include: $A$ being an element of the unipotent radical $U(F_{*})$ associated with the parabolic subgroup $P(F_{*})\subset\textup{Sp}(M,\omega)$, which preserves the filtration $F_{*}$ on $M$; $B$ belonging to the opposing parabolic subgroup $P(F^{*})\subset\textup{Sp}(M,\omega)$, which preserves the filtration $F^{*}$ on $M$; and the condition that the rank of $A-B$ does not exceed one. Furthermore, the endomorphism $C=I-A^{-1}B$ satisfies the relation $\omega(Cx,y)+\omega(x,Cy)=0$ for all $x,y\in M$. The mapping $(f^{\prime},f^{\prime\prime}):\mathfrak{G}_{\leq\lambda}\to\widetilde{L}^{\textup{ab}}_{m}\times V_{m}$ is defined by the components:
+
+\[
+\displaystyle f^{\prime}(A,B) = (\det(B_{1,1}),\cdots,\det(B_{\ell,\ell}));
+\]
+\[
+\displaystyle f^{\prime\prime}(A,B) = (-B_{m,1},A_{1,2},\cdots,A_{\ell,\ell+1}),
+\]
+
+where $A,B$ are expressed in block form relative to the decomposition (7.1). Additionally, the subscheme $\textup{Sym}^{2}(M)_{\leq 1}\subset\textup{Sym}^{2}(M)$ corresponds to symmetric pure 2-tensors of rank at most one. This subscheme can be identified with the set of endomorphisms $D$ of $M$ fulfilling $\omega(Dx,y)+\omega(x,Dy)=0$ and having rank at most one. Consequently, the morphism $j:\mathfrak{G}_{\leq\lambda}\to\textup{Sym}^{2}(M)_{\leq 1}$, defined by sending each $(A,B)\in\mathfrak{G}_{\leq\lambda}$ to $C=I-A^{-1}B$, constitutes an open embedding.
+
+Definition. The category of quasi-coherent modules on the Emerton-Gee moduli curve $X_{\zeta}$ will be called the category of mod $p$ Langlands parameters with determinant $\omega\zeta$ , and denoted by $\operatorname{LP}_{\mathbf{\widehat{G}},0,\omega\zeta}$ : 
+ 
+ $\operatorname{LP}_{\mathbf{\widehat{G}},0,\omega\zeta}:=\operatorname{QCoh}(X_{\zeta}).$ 
+
+
+8.3 A semisimple mod $p$ Langlands correspondence in families for $F=\mathbb{Q}_{p}$
+
+Let us consider $W$ to be a subgroup of $G$ , by sending $s$ to the matrix $\left(\begin{array}[]{cc}0&1\\
+1&0\end{array}\right)$ and by identifying the group $\Lambda$ with a subgroup of $T$ via $(1,0)\mapsto\operatorname{diag}(\varpi^{-1},1)$ and $(0,1)\mapsto\operatorname{diag}(1,\varpi^{-1})$ . We obtain for example (recall that $u=(1,0)s\in W$ )
+
+
+ 
+ $u=\left(\begin{array}[]{cc}0&\varpi^{-1}\\
+1&0\end{array}\right),\hskip 15.0ptu^{-1}=\left(\begin{array}[]{cc}0&1\\
+\varpi&0\end{array}\right),\hskip 15.0ptus=\left(\begin{array}[]{cc}\varpi^{-1}&0\\
+0&1\end{array}\right),\hskip 15.0ptsu=\left(\begin{array}[]{cc}1&0\\
+0&\varpi^{-1}\end{array}\right).$ 
+ Moreover, $u^{2}=\operatorname{diag}(\varpi^{-1},\varpi^{-1})$ . \footnote{ 2 Note that our element $u$ equals the element $u^{-1}$ in [Be11] , [Br07] and [V04] .} Since 
+ 
+ $\left(\begin{array}[]{cc}0&\varpi^{-1}\\
+1&0\end{array}\right)\left(\begin{array}[]{cc}a&b\\
+c&d\end{array}\right)\left(\begin{array}[]{cc}0&1\\
+\varpi&0\end{array}\right)=\left(\begin{array}[]{cc}d&\varpi^{-1}c\\
+\varpi b&a\end{array}\right)$ 
+ the element $u\in G$ normalizes the group $I^{(1)}$ .
+
+Let $\operatorname{Mod}^{\rm sm}(k[G])$ be the category of smooth $G$ -representations over $k$ . Taking $I^{(1)}$ -invariants yields a functor $\pi\mapsto\pi^{I^{(1)}}$ from $\operatorname{Mod}^{\rm sm}(k[G])$ to the category $\operatorname{Mod}(\mathcal{H}^{(1)}_{\overline{\mathbb{F}}_{q}})$ . If $F=\mathbb{Q}_{p}$ , it induces a bijection between the irreducible $G$ -representations and the irreducible $\mathcal{H}^{(1)}_{\overline{\mathbb{F}}_{p}}$ -modules, under which supersingular representations correspond to supersingular Hecke modules [V04] .
+
+For future reference, let us recall the $I^{(1)}$ -invariants for some classes of representations. If $\pi=\operatorname{Ind}_{B}^{G}(\chi)$ is a principal series representation with $\chi=\chi_{1}\otimes\chi_{2}$ , then $\pi^{I^{(1)}}$ is a standard module in the component $\gamma:=\{\chi|_{\mathbb{T}},\chi^{s}|_{\mathbb{T}}\}$ .
+
+In the regular case, one chooses the ordering $(\chi|_{\mathbb{T}},\chi^{s}|_{\mathbb{T}})$ on the set $\gamma$ and standard coordinates $x,y$ . Then 
+ 
+ $\operatorname{Ind}_{B}^{G}(\chi)^{I^{(1)}}=M(0,\chi(su),\chi(u^{2}),\chi|_{\mathbb{T}})=M(0,\chi_{2}(\varpi^{-1}),\chi_{1}(\varpi^{-1})\chi_{2}(\varpi^{-1}),\chi|_{\mathbb{T}})$ 
+ In the non-regular case, one has 
+ 
+ $\operatorname{Ind}_{B}^{G}(\chi)^{I^{(1)}}=M(\chi(su),\chi(u^{2}),\chi|_{\mathbb{T}})=M(\chi_{2}(\varpi^{-1}),\chi_{1}(\varpi^{-1})\chi_{2}(\varpi^{-1}),\chi|_{\mathbb{T}}).$ 
+ These standard modules are irreducible if and only if $\chi\neq\chi^{s}$ [V04] . \footnote{ 3 Our formulas differ from [V04] by $\chi(\cdot)\leftrightarrow\chi(\cdot)^{-1}$ , since we are working with left modules; also compare with the explicit calculation with right convolution given in [V04] .}
+
+Let $F=\mathbb{Q}_{p}$ . If $\pi=\pi(r,0,\eta)$ is a standard supersingular representation with parameter $r=0,...,p-1$ and central character $\eta:\mathbb{Q}_{p}^{\times}\rightarrow k^{\times}$ , then $\pi^{I^{(1)}}$ is a supersingular module in the component $\gamma=\{\chi,\chi^{s}\}$ represented by the character $\chi:=(\omega^{r}\otimes 1)\cdot(\eta|_{\mathbb{F}_{p}^{\times}})$ , cf. [Br07] . If $\pi$ is the trivial representation $\mathbbm{1}$ or the Steinberg representation St, then $\gamma=1$ and $\pi^{I^{(1)}}$ is the character $(0,1)$ or $(-1,-1)$ respectively.
+
+Let $a$ denote the length of the longest element in $W_{{\mathbf{P}}}$, which, by Lemma 4.5, is equivalent to $a(\underline{c})$. Consider the projection map $\pi:\textup{Fl}=L_{0}G/\mathbf{I}_{0}\to\textup{Fl}_{{\mathbf{P}}_{0}}=L_{0}G/{\mathbf{P}}_{0}$. Define $\mathcal{Q}$ as the category $\textup{Perv}(\mathbf{I}_{0}\backslash L_{0}G/\mathbf{I}_{0})$. Given that $\pi$ is a smooth morphism with relative dimension $a$, the functor $\pi^{\natural}:=\pi^{*}[a](a/2)$ induces an exact functor from $\mathcal{P}$ to $\mathcal{Q}$, which is also fully faithful (assuming a square root of $q=\#k$ exists, ensuring the half Tate twist is well-defined). Consequently, $\mathcal{P}$ can be identified with a full subcategory of $\mathcal{Q}$ via the functor $\pi^{\natural}$.
+
+We identify $F^{\times}$ with the center $Z(G)$ via $a\mapsto\operatorname{diag}(a,a)$ . A (smooth) character 
+ 
+ $\zeta:Z(G)=F^{\times}\longrightarrow k^{\times}$ 
+ is determined by its value $\zeta(\varpi^{-1})\in k^{\times}$ and its restriction $\zeta|_{o_{F}^{\times}}$ . Since the latter is trivial on the subgroup $1+\varpi o_{F}$ , we may view it as a character of $\mathbb{F}_{q}^{\times}$ ; we will write $\zeta|_{\mathbb{F}_{q}^{\times}}$ for this restriction in the following. Thus the group of characters of $Z(G)$ gets identified with the group of $k$ -points of the group scheme $\mathcal{Z}^{\vee}=(\mathbb{F}_{q}^{\times})^{\vee}\times\mathbb{G}_{m}$ : 
+ 
+ $Z(G)^{\vee}\stackrel{{\scriptstyle\sim}}{{\longrightarrow}}\mathcal{Z}^{\vee}(k),\;\zeta\mapsto(\zeta|_{\mathbb{F}_{q}^{\times}},\zeta(\varpi^{-1})).$ 
+
+
+Lemma. Suppose that $\pi\in\operatorname{Mod}^{\rm sm}(k[G])$ has a central character $\zeta:Z(G)\rightarrow k^{\times}$ . Then the Satake parameter $S(\pi^{I^{(1)}})$ of $\pi^{I^{(1)}}\in\operatorname{Mod}(\mathcal{H}^{(1)}_{\overline{\mathbb{F}}_{q}})$ has central character $\zeta$ , i.e. it is supported on the closed subscheme 
+ 
+ $(V^{(1)}_{\mathbf{\widehat{T}},0}/W_{0})_{(\zeta|_{\mathbb{F}^{\times}_{q}},\zeta(\varpi^{-1}))}\subset V^{(1)}_{\mathbf{\widehat{T}},0}/W_{0}.$ 
+
+
+If $M$ is any $\mathcal{H}^{(1)}_{\overline{\mathbb{F}}_{q}}$ -module, then 
+ 
+ $M=\bigoplus_{\gamma\in\mathbb{T}^{\vee}/W_{0}}\varepsilon_{\gamma}M=\bigoplus_{\gamma\in\mathbb{T}^{\vee}/W_{0}}\oplus_{\lambda\in\gamma}\varepsilon_{\lambda}M,$ 
+ and $\mathbb{T}\subset\overline{\mathbb{F}}_{q}[\mathbb{T}]\subset\mathcal{H}^{(1)}_{\overline{\mathbb{F}}_{q}}$ acts on $\varepsilon_{\lambda}M$ through the character $\lambda:\mathbb{T}\rightarrow\mathbb{F}_{q}^{\times}$ . Now if $M=\pi^{I^{(1)}}$ , then the $\mathbb{T}$ -action on $M$ is the factorization of the $\mathbf{T}(o_{F})$ -action on $\pi$ , cf. 8.3.3 . In particular, the restriction of the $\mathbb{T}$ -action along the diagonal inclusion $\mathbb{F}_{q}^{\times}\subset\mathbb{T}$ is the factorization of the action of the central subgroup $o^{\times}_{F}\subset Z(G)$ on $\pi$ , which is given by $\zeta|_{o^{\times}_{F}}$ by assumption. Hence 
+ 
+ $\varepsilon_{\gamma}M\neq 0\quad\Longrightarrow\quad\forall\lambda\in\gamma,\ \lambda|_{\mathbb{F}_{q}^{\times}}=\zeta|_{\mathbb{F}_{q}^{\times}}\ \textrm{i.e.}\ \gamma|_{\mathbb{F}_{q}^{\times}}=\zeta|_{\mathbb{F}_{q}^{\times}}.$ 
+ Moreover, the element $u^{2}=\operatorname{diag}(\varpi^{-1},\varpi^{-1})\in Z(G)$ acts on $\pi$ by multiplication by $\zeta(\varpi^{-1})$ by assumption. Therefore, by 8.3.3 , the Hecke operator $z_{2}:=U^{2}\in\mathcal{H}^{(1)}_{\overline{\mathbb{F}}_{q}}$ acts on $\pi^{I^{(1)}}$ by multiplication by $\zeta(\varpi^{-1})$ . Thus we have obtained that $S(\pi^{I^{(1)}})$ is supported on 
+ 
+ $\coprod_{\gamma\in(\mathbb{T}^{\vee}/W_{0})_{\operatorname{reg}},\gamma|_{\mathbb{F}^{\times}_{q}}=\zeta|_{\mathbb{F}^{\times}_{q}}}V_{\mathbf{\widehat{T}},0,\zeta(\varpi^{-1})}\coprod_{\gamma\in(\mathbb{T}^{\vee}/W_{0})_{\operatorname{non-reg}},\gamma|_{\mathbb{F}^{\times}_{q}}=\zeta|_{\mathbb{F}^{\times}_{q}}}V_{\mathbf{\widehat{T}},0,\zeta(\varpi^{-1})}/W_{0}=(V^{(1)}_{\mathbf{\widehat{T}},0}/W_{0})_{(\zeta|_{\mathbb{F}^{\times}_{q}},\zeta(\varpi^{-1}))}.$ 
+ ∎
+
+Next, recall the twisting action of the group $\mathcal{Z}^{\vee}(k)$ on the standard $\mathcal{H}^{(1)}_{\overline{\mathbb{F}}_{q}}$ -modules and their simple constituents 8.1.4 .
+
+Proposition. Let $\pi\in\operatorname{Mod}^{\rm ladm}(k[G])$ be irreducible or a reducible principal series representation. Let $\eta:F^{\times}\rightarrow k^{\times}$ be a character. Then 
+ 
+ $(\pi\otimes\eta)^{I^{(1)}}=\pi^{I^{(1)}}.(\eta|_{\mathbb{F}_{q}^{\times}},\eta(\varpi^{-1}))$ 
+ as $\mathcal{H}^{(1)}_{\overline{\mathbb{F}}_{q}}$ -modules.
+
+An irreducible locally admissible representation, being a finitely generated $k[G]$ -module, is admissible [Em10] . A principal series representation (irreducible or not) is always admissible [Em10] . The list of irreducible admissible smooth $G$ -representations is given in [H11b] . There are four families: principal series representations, supersingular representations, characters and twists of the Steinberg representation.
+
+We first suppose that $\pi$ is a principal series representation (irreducible or not), i.e. of the form $\operatorname{Ind}_{B}^{G}(\chi)$ with a character $\chi=\chi_{1}\otimes\chi_{2}$ . Then $\pi\otimes\eta\simeq\operatorname{Ind}_{B}^{G}(\chi_{1}\eta\otimes\chi_{2}\eta)$ . We use the results from 8.3.2 . The modules $\pi^{I^{(1)}}$ and $(\pi\otimes\eta)^{I^{(1)}}$ are standard modules in the components $\gamma:=\{\chi|_{\mathbb{T}},\chi^{s}|_{\mathbb{T}}\}$ and $\gamma(\eta|_{\mathbb{F}_{q}^{\times}})$ respectively. Suppose that $\gamma$ is regular. We choose the ordering $(\chi|_{\mathbb{T}},\chi^{s}|_{\mathbb{T}})$ and standard coordinates $x,y$ . Then 
+ 
+ $\operatorname{Ind}_{B}^{G}(\chi)^{I^{(1)}}=M(0,\chi_{2}(\varpi^{-1}),\chi_{1}(\varpi^{-1})\chi_{2}(\varpi^{-1}),\chi|_{\mathbb{T}})$ 
+ and 
+ 
+ $\operatorname{Ind}_{B}^{G}(\chi_{1}\eta\otimes\chi_{2}\eta)^{I^{(1)}}=M(0,\chi_{2}(\varpi^{-1})\eta(\varpi^{-1}),\chi_{1}(\varpi^{-1})\chi_{2}(\varpi^{-1})\eta(\varpi^{-2}),(\chi|_{\mathbb{T}}).(\eta|_{\mathbb{F}_{q}^{\times}})).$ 
+ This shows $(\pi\otimes\eta)^{I^{(1)}}=\pi^{I^{(1)}}.(\eta|_{\mathbb{F}_{q}^{\times}},\eta(\varpi^{-1}))$ in the regular case. Suppose that $\gamma$ is non-regular. Then 
+ 
+ $\operatorname{Ind}_{B}^{G}(\chi)^{I^{(1)}}=M(\chi_{2}(\varpi^{-1}),\chi_{1}(\varpi^{-1})\chi_{2}(\varpi^{-1}),\chi|_{\mathbb{T}})$ 
+ and 
+ 
+ $\operatorname{Ind}_{B}^{G}(\chi_{1}\eta\otimes\chi_{2}\eta)^{I^{(1)}}=M(\chi_{2}(\varpi^{-1})\eta(\varpi^{-1}),\chi_{1}(\varpi^{-1})\chi_{2}(\varpi^{-1})\eta(\varpi^{-2}),(\chi|_{\mathbb{T}}).(\eta|_{\mathbb{F}_{q}^{\times}})).$ 
+ This shows $(\pi\otimes\eta)^{I^{(1)}}=\pi^{I^{(1)}}.(\eta|_{\mathbb{F}_{q}^{\times}},\eta(\varpi^{-1}))$ in the non-regular case.
+
+We now treat the case where $\pi$ is a character or a twist of the Steinberg representation. Consider the exact sequence 
+ 
+ $1\rightarrow\mathbbm{1}\rightarrow\operatorname{Ind}_{B}^{G}(1)\rightarrow{\rm St}\rightarrow 1.$ 
+ According to [V04] the sequence of invariants 
+ 
+ $(S):1\rightarrow\mathbbm{1}^{I^{(1)}}\rightarrow\operatorname{Ind}_{B}^{G}(1)^{I^{(1)}}\rightarrow{\rm St}^{I^{(1)}}\rightarrow 1$ 
+ is still exact and $\mathbbm{1}^{I^{(1)}}$ resp. ${\rm St}^{I^{(1)}}$ is the trivial character $(0,1)$ resp. sign character $(-1,-1)$ in the Iwahori component $\gamma=1$ . Tensoring the first exact sequence with $\eta$ produces the exact sequence 
+ 
+ $1\rightarrow\eta\rightarrow\operatorname{Ind}_{B}^{G}(1)\otimes\eta\rightarrow{\rm St}\otimes\eta\rightarrow 1.$ 
+ Since the restriction $\eta|_{o_{F}^{\times}}$ is trivial on $1+\varpi o_{F}$ , one has $(\eta\circ\det)|_{I^{(1)}}=1$ and so, as a sequence of $k$ -vector spaces with $k$ -linear maps, the sequence of invariants 
+ 
+ $1\rightarrow\eta^{I^{(1)}}\rightarrow(\operatorname{Ind}_{B}^{G}(1)\otimes\eta)^{I^{(1)}}\rightarrow({\rm St}\otimes\eta)^{I^{(1)}}\rightarrow 1$ 
+ coincides with the sequence $(S)$ . It is therefore an exact sequence of $\mathcal{H}^{(1)}_{\overline{\mathbb{F}}_{q}}$ -modules, with outer terms being characters of $\mathcal{H}^{(1)}_{\overline{\mathbb{F}}_{q}}$ . From the discussion above, we deduce 
+ 
+ $(\operatorname{Ind}_{B}^{G}(1)\otimes\eta)^{I^{(1)}}=\operatorname{Ind}_{B}^{G}(1)^{I^{(1)}}.(\eta|_{\mathbb{F}_{q}^{\times}},\eta(\varpi)^{-1})=M(\eta(\varpi^{-1}),\eta(\varpi^{-2}),1.(\eta|_{\mathbb{F}_{q}^{\times}})).$ 
+ It follows then from [V04] that $\eta^{I^{(1)}}$ must be the trivial character $(0,\eta(\varpi^{-1}))$ in the component $1.(\eta|_{\mathbb{F}_{q}^{\times}})$ and $({\rm St}\otimes\eta)^{I^{(1)}}$ must be the sign character $(-1,-\eta(\varpi^{-1}))$ in the component $1.(\eta|_{\mathbb{F}_{q}^{\times}})$ . This implies 
+ 
+ $\eta^{I^{(1)}}=\mathbbm{1}^{I^{(1)}}.(\eta|_{\mathbb{F}_{q}^{\times}},\eta(\varpi)^{-1})\hskip 10.0pt\text{and}\hskip 10.0pt({\rm St}\otimes\eta)^{I^{(1)}}={\rm St}^{I^{(1)}}.(\eta|_{\mathbb{F}_{q}^{\times}},\eta(\varpi)^{-1}).$ 
+ This proves the claim in the cases $\pi=\mathbbm{1}$ or $\pi={\rm St}$ . If, more generally, $\pi=\eta^{\prime}$ is a general character of $G$ , then 
+ 
+ $(\pi\otimes\eta)^{I^{(1)}}=(\eta^{\prime}\eta)^{I^{(1)}}=\mathbbm{1}^{I^{(1)}}.((\eta^{\prime}\eta)|_{\mathbb{F}_{q}^{\times}},(\eta^{\prime}\eta)(\varpi)^{-1})=\pi^{I^{(1)}}.(\eta|_{\mathbb{F}_{q}^{\times}},\eta(\varpi)^{-1}).$ 
+ On the other hand, if $\pi={\rm St}\otimes\eta^{\prime}$ is a twist of Steinberg, then
+
+
+ 
+ $(\pi\otimes\eta)^{I^{(1)}}=({\rm St}\otimes(\eta^{\prime}\eta))^{I^{(1)}}={\rm St}^{I^{(1)}}.((\eta^{\prime}\eta)|_{\mathbb{F}_{q}^{\times}},(\eta^{\prime}\eta)(\varpi)^{-1})=\pi^{I^{(1)}}.(\eta|_{\mathbb{F}_{q}^{\times}},\eta(\varpi)^{-1}).$ 
+
+
+There exists a unique automorphic representation $\pi = \pi(\chi, \phi)$ of $G(\mathbb{A}_{F})$ that satisfies all the aforementioned conditions. Additionally, it holds that (1) $\pi$ is cuspidal and occurs with multiplicity one within the automorphic spectrum of $G$. (2) The eigenspaces $\pi_{0}^{(\widetilde{{\mathbf{P}}}_{0},\chi)}$ and $\pi_{\infty}^{({\mathbf{P}}_{\infty}^{+},\psi\phi)}$ are both one-dimensional.
+
+In this section, we consider the local field \( K = F_\infty \) associated with \( F \) at the infinite place. We begin by revisiting the construction of epipelagic representations of \( G(K) \) as outlined by Reeder and Yu in [18]. Subsequently, we demonstrate that these epipelagic representations can be interpreted as the local constituents at infinity of automorphic representations of \( G(\mathbb{A}_F) \).
+
+Let $F=\mathbb{Q}_{p}$ with $p\geq 5$ . Paškūnas’ parametrization $[\rho]\mapsto b_{[\rho]}$ is compatible with Breuil’s semisimple mod $p$ local Langlands correspondence 
+ 
+ $\rho\mapsto\pi(\rho)$ 
+ for the group $G$ [Br07] , in the sense that if $\rho$ has determinant $\omega\zeta$ , then the simple constituents of the $G$ -representation $\pi(\rho)$ lie in the block $b_{[\rho]}$ of $\operatorname{Mod}_{\zeta}^{\rm ladm}(k[G])$ .
+
+The correspondence and the parametrizations (for varying $\zeta$ ) commute with twists: for a character $\eta:\mathbb{Q}_{p}^{\times}\rightarrow k^{\times}$ , $\pi(\rho\otimes\eta)=\pi(\rho)\otimes\eta$ and $b_{[\rho]}\otimes\eta=b_{[\rho\otimes\eta]}$ .
+
+Theorem. Suppose $F=\mathbb{Q}_{p}$ with $p\geq 5$ . Fix a character $\zeta:Z(G)=\mathbb{Q}_{p}^{\times}\rightarrow k^{\times}$ , corresponding to a point $(\zeta|_{\mathbb{F}_{p}^{\times}},\zeta(p^{-1}))\in\mathcal{Z}^{\vee}(k)$ under the identification $\mathcal{Z}(G)^{\vee}\cong\mathcal{Z}^{\vee}(k)$ from 8.3.4 . Let $(V^{(1)}_{\mathbf{\widehat{T}},0}/W_{0})_{\zeta}$ be the space of mod $p$ Satake parameters with central character $\zeta$ and $X_{\zeta}$ be the moduli space of mod $p$ Langlands parameters with determinant $\omega\zeta$ .
+
+There exists a morphism of $k$ -schemes 
+ 
+ $L_{\zeta}:(V^{(1)}_{\mathbf{\widehat{T}},0}/W_{0})_{\zeta}\longrightarrow X_{\zeta}$ 
+ such that the quasi-coherent $\mathcal{O}_{X_{\zeta}}$ -module 
+ 
+ $L_{\zeta*}S(\mathcal{M}_{\overline{\mathbb{F}}_{p}}^{(1)})|_{(V^{(1)}_{\mathbf{\widehat{T}},0}/W_{0})_{\zeta}}$ 
+ equal to the push-forward along $L_{\zeta}$ of the restriction to $(V^{(1)}_{\mathbf{\widehat{T}},0}/W_{0})_{\zeta}\subset V^{(1)}_{\mathbf{\widehat{T}},0}/W_{0}$ of the Satake parameter of the mod $p$ antispherical module $\mathcal{M}_{\overline{\mathbb{F}}_{p}}^{(1)}$ interpolates the $I^{(1)}$ -invariants of the semisimple mod $p$ Langlands correspondence 
+ 
+ $\left.\begin{array}[]{lllll}X_{\zeta}(k)&\longrightarrow&\operatorname{Mod}_{\zeta}^{\rm ladm}(k[G])&\longrightarrow&\operatorname{Mod}(\mathcal{H}^{(1)}_{\overline{\mathbb{F}}_{p}})\\
+x&\longmapsto&\pi(\rho_{x})&\longmapsto&\pi(\rho_{x})^{I^{(1)}},\end{array}\right.$ 
+ in the sense that for all $x\in X_{\zeta}(k)$ , 
+ 
+ $\Big{(}\big{(}L_{\zeta*}S(\mathcal{M}_{\overline{\mathbb{F}}_{p}}^{(1)})|_{(V^{(1)}_{\mathbf{\widehat{T}},0}/W_{0})_{\zeta}}\big{)}\otimes_{\mathcal{O}_{X_{\zeta}}}k(x)\Big{)}^{\operatorname{ss}}=\Big{(}\mathcal{M}_{\overline{\mathbb{F}}_{p}}^{(1)}\otimes_{Z(\mathcal{H}^{(1)}_{\overline{\mathbb{F}}_{p}})}(\mathscr{S}_{\overline{\mathbb{F}}_{p}}^{(1)})^{-1}(\mathcal{O}_{L_{\zeta}^{-1}(x)})\Big{)}^{\operatorname{ss}}\cong\pi(\rho_{x})^{I^{(1)}}$ 
+ in $\operatorname{Mod}(\mathcal{H}^{(1)}_{\overline{\mathbb{F}}_{p}})$ .
+
+The connected components of $(V^{(1)}_{\mathbf{\widehat{T}},0}/W_{0})_{\zeta}$ are either regular and then of type $\mathbb{A}^{1}\cup_{0}\mathbb{A}^{1}$ , or non-regular and then of type $\mathbb{A}^{1}$ . The morphism $L_{\zeta}$ appearing in the theorem depends on the choice of an order of the two affine lines in each regular component. It is surjective and quasi-finite. Moreover, writing $L_{\zeta}^{\gamma}$ for its restriction to the connected component $(V^{\gamma}_{\mathbf{\widehat{T}},0}/W_{0})_{\zeta}\subset(V^{(1)}_{\mathbf{\widehat{T}},0}/W_{0})_{\zeta}$ , one has: (e) Even case. All connected components are of type $\mathbb{A}^{1}\cup_{0}\mathbb{A}^{1}$ , except for the two ‘exterior’ components which are of type $\mathbb{A}^{1}$ . $L_{\zeta}^{\gamma}$ is an open immersion for any $\gamma$ . (o) Odd case. All connected components are of type $\mathbb{A}^{1}\cup_{0}\mathbb{A}^{1}$ . $L_{\zeta}$ is an open immersion on all connected components, except for the two ‘exterior’ ones. On an ‘exterior’ component $\gamma$ , the restriction of $L_{\zeta}^{\gamma}$ to one irreducible component $\mathbb{A}^{1}$ is an open immersion, and its restriction to the open complement $\mathbb{G}_{m}$ is a degree $2$ finite flat covering of its image, with branched locus equal to the intersection of this image with the exceptional locus of $X_{\zeta}$ .
+
+Let $\mathcal{I}_{K}\lhd W(K^{s}/K)$ denote the inertia group and the Weil group of $K$. Consider an epipelagic representation $\pi$ of $G(K)$ associated with a parahoric subgroup ${\mathbf{P}}$ and a stable linear functional $\phi:V_{{\mathbf{P}}}\to k$. According to the local Langlands conjecture, there should exist a Galois representation $\rho_{\pi}:W(K^{s}/K)\to{\vphantom{G}}^{L}{G}(\overline{\mathbb{Q}}_{\ell})$ serving as the conjectural Langlands parameter for $\pi$. Specifically, $\mathcal{I}_{K}$ acts on the Lie algebra ${\widehat{\mathfrak{g}}}$ of $\widehat{G}$ via the composition of $\rho_{\pi}$ with the adjoint representation of $\widehat{G}$. Motivated by the conjecture in [9] concerning adjoint gamma factors and formal degrees, Reeder and Yu posited in [18] that: (1) ${\widehat{\mathfrak{g}}}^{\mathcal{I}_{K}}=0$; and (2) $\textup{Swan}({\widehat{\mathfrak{g}}})=\#\Phi/m$. Furthermore, under the condition that $\textup{char}(k)$ does not divide the order of $\mathbb{W}$, they made even more precise predictions: the restriction of $\rho_{\pi}$ to $\mathcal{I}_{K}$ should have the form 
+
+$\textstyle{1\ignorespaces\ignorespaces\ignorespaces\ignorespaces}$ $\textstyle{\mathcal{I}^{+}_{K}\ignorespaces\ignorespaces\ignorespaces\ignorespaces\ignorespaces\ignorespaces\ignorespaces\ignorespaces}$ $\textstyle{\mathcal{I}_{K}\ignorespaces\ignorespaces\ignorespaces\ignorespaces\ignorespaces\ignorespaces\ignorespaces\ignorespaces}$ $\scriptstyle{\rho_{\pi}}$ $\textstyle{\mathcal{I}^{t}_{K}\ignorespaces\ignorespaces\ignorespaces\ignorespaces\ignorespaces\ignorespaces\ignorespaces\ignorespaces}$ $\textstyle{1}$ $\textstyle{1\ignorespaces\ignorespaces\ignorespaces\ignorespaces}$ $\textstyle{\widehat{T}\ignorespaces\ignorespaces\ignorespaces\ignorespaces}$ $\textstyle{N_{{\vphantom{G}}^{L}{G}}(\widehat{T})\ignorespaces\ignorespaces\ignorespaces\ignorespaces}$ $\textstyle{\mathbb{W}^{\prime}\ignorespaces\ignorespaces\ignorespaces\ignorespaces}$ $\textstyle{1}$ 
+
+where a generator of the tame inertia $\mathcal{I}^{t}_{K}$ maps to a regular elliptic element $w\in\mathbb{W}\sigma$ of order $m$.
+
+In the proof of Lemma 8.5, we demonstrated that if \( j(A,B) = [v] \) and \( v = (v_0, v_+) \), then \( A^{-1}_{++}B_{++} = R_{[v_+]} \), \( B_{00} = R_{[v_0]} \), and \( A_{0+}(x) = -\frac{(x, v_+)}{q_+(v_+)}v_0 \). Notably, \( \det(B_{00}) = -1 \), which corresponds to the first entry of \( f'(A,B) \) as stated in equation (8.12).
+
+Now we proceed to the proof of 8.3.9 , 8.3.10 and 8.3.12 .
+
+Consider the morphism \( j: \mathfrak{G}_{\lambda} \to \mathbb{P}(M) \) that maps each pair \( (A,B) \in \mathfrak{G}_{\lambda} \) to the line in \( M \) corresponding to the rank one endomorphism \( C = I - A^{-1}B \). The image of this map lies within the quadric \( Q(q) \) defined by the equation \( q = 0 \), and the induced mapping \( j: \mathfrak{G}_{\lambda} \to Q(q) \) is an open embedding.
+
+1. Suppose that $\gamma$ is regular. Then $\operatorname{ASph}(v)=\operatorname{ASph}^{\gamma}(v)$ is a simple two-dimensional $\mathcal{H}^{\gamma}_{\overline{\mathbb{F}}_{p}}$ -module, cf. [PS] . Let $\pi\in\operatorname{Mod}^{\rm sm}(k[G])$ be the simple module, unique up to isomorphism, such that $\pi^{I^{(1)}}\simeq\operatorname{ASph}^{\gamma}(v)$ , cf. 8.3.2 . Then $\pi\in\operatorname{Mod}_{\zeta}^{\rm ladm}(k[G])$ with 
+ 
+ $\zeta=(\zeta|_{\mathbb{F}_{p}^{\times}},\zeta(p^{-1}))=(\gamma|_{\mathbb{F}_{p}^{\times}},z_{2})$ 
+ by 8.3.5 . Let $b$ be the block of $\operatorname{Mod}_{\zeta}^{\rm ladm}(k[G])$ which contains $\pi$ . We define $L_{\zeta}(v)$ to be the point of $X_{\zeta}(k)$ which corresponds to $b$ .
+
+2. Suppose that $\gamma$ is non-regular.
+
+Let $\mathbf{P} \subset G(K)$ be a standard parahoric subgroup (specifically, with $\mathbf{I} \subset \mathbf{P}$). Consider the first three steps in the Moy-Prasad filtration of $\mathbf{P}$, denoted as $\mathbf{P} \supset \mathbf{P}^{+} \supset \mathbf{P}^{++}$. Notably, $\mathbf{P}^{+}$ represents the pro-unipotent radical of $\mathbf{P}$, and the quotient $L_{\mathbf{P}} := \mathbf{P}/\mathbf{P}^{+}$ constitutes the Levi factor of $\mathbf{P}$. This Levi factor can be embedded as a subgroup of $\mathbf{P}$ containing $\SS = \mathbb{T}^{\sigma,\circ}$. Define $V_{\mathbf{P}} = \mathbf{P}^{+}/\mathbf{P}^{++}$, which is a vector space over $k$ equipped with an action of $L_{\mathbf{P}}$. The pair $(L_{\mathbf{P}}, V_{\mathbf{P}})$ serves as an instance of a $\theta$-group within the framework established by the Vinberg school.
+
+(b) If $v\in D(1)_{\gamma}(k)$ , then $\operatorname{ASph}(v)^{\operatorname{ss}}$ is the direct sum of the two characters forming the antispherical pair $\operatorname{ASph}^{\gamma}(1)(v)=\{(0,z_{1}),(-1,-z_{1})\}$ where $z_{2}=z^{2}_{1}$ , cf. [PS] . As in the regular case, there are two simple modules $\pi_{1}$ and $\pi_{2}$ , unique up to isomorphism, such that $\pi_{1}^{I^{(1)}}\simeq(0,z_{1})$ and $\pi_{2}^{I^{(1)}}\simeq(-1,-z_{1})$ and $\pi_{1},\pi_{2}$ have central character $\zeta=(\gamma|_{\mathbb{F}_{p}^{\times}},z_{2})$ . Moreover, we claim that there is a unique block $b$ of $\operatorname{Mod}_{\zeta}^{\rm ladm}(k[G])$ which contains both $\pi_{1}$ and $\pi_{2}$ . Indeed, if $\gamma=\{1\otimes 1\}$ and $z_{1}=1$ , then $\pi_{1}=\mathbbm{1}$ and $\pi_{2}={\rm St}$ , cf. 8.3.2 . Then by 8.3.6 it follows more generally that if $\gamma=\{\omega^{r}\otimes\omega^{r}\}$ , then $\pi_{1}=\eta$ and $\pi_{2}={\rm St}\otimes\eta$ with $\eta=(\eta|_{\mathbb{F}_{p}^{\times}},\eta(p^{-1})):=(\omega^{r},z_{1})$ . Consequently $\pi_{1},\pi_{2}$ are contained in a unique block $b$ of type $3$ , cf. 8.3.7 . We define $L_{\zeta}(v)$ to be the point of $X_{\zeta}(k)$ which corresponds to $b$ .
+
+Thus we have a well-defined map of sets $L_{\zeta}:(V^{(1)}_{\mathbf{\widehat{T}},0}/W_{0})_{\zeta}(k)\longrightarrow X_{\zeta}(k).$
+
+We show property (i) of 8.3.12 . Let $x\in X_{\zeta}^{\rm irred}(k)$ and suppose $L_{\zeta}(v)=x$ . Then $b_{x}$ is a supersingular block, contains a unique irreducible representation $\pi$ , which is supersingular, and $\pi=\pi(\rho_{x})$ , cf. 8.3.7 - 8.3.8 . By definition of $L_{\zeta}$ , one has $\operatorname{ASph}(v)\simeq\pi^{I^{(1)}}$ . Since the antispherical map $\operatorname{ASph}$ is $1:1$ over supersingular modules, cf. [PS] and [PS] , such a preimage $v$ of $x$ exists and is uniquely determined by $x$ . Summarizing, we have $L_{\zeta}^{-1}(x)=\{v\}$ and $\operatorname{ASph}(v)\simeq\pi(\rho_{x})^{I^{(1)}}$ . This is property (i).
+
+As a next step, we take a second character $\eta:\mathbb{Q}_{p}^{\times}\rightarrow k^{\times}$ and show that the diagram 
+ 
+ $\textstyle{(V^{(1)}_{\mathbf{\widehat{T}},0}/W_{0})_{\zeta}(k)\ignorespaces\ignorespaces\ignorespaces\ignorespaces\ignorespaces\ignorespaces\ignorespaces\ignorespaces}$ $\scriptstyle{L_{\zeta}}$ $\scriptstyle{\simeq}$ $\scriptstyle{.\eta}$ $\textstyle{X_{\zeta}(k)\ignorespaces\ignorespaces\ignorespaces\ignorespaces}$ $\scriptstyle{\simeq}$ $\scriptstyle{(\cdot)\otimes\eta}$ $\textstyle{(V^{(1)}_{\mathbf{\widehat{T}},0}/W_{0})_{\zeta\eta^{2}}(k)\ignorespaces\ignorespaces\ignorespaces\ignorespaces}$ $\scriptstyle{L_{\zeta\eta^{2}}}$ $\textstyle{X_{\zeta\eta^{2}}(k)}$ 
+ commutes. Here, the vertical arrows are the bijections coming from 8.1.9 and 8.2.2 . To verify the commutativity, let $v\in(V^{(1)}_{\mathbf{\widehat{T}},0}/W_{0})_{\zeta}(k)$ and let its connected component be indexed by $\gamma\in\mathbb{T}^{\vee}/W_{0}$ . Suppose that $\gamma$ is regular or that $\gamma$ is non-regular with $v\in D(2)_{\gamma}(k)$ . Let $\pi$ be the simple $G$ -module with $\pi^{I^{(1)}}\simeq\operatorname{ASph}(v)$ and let $b_{[\rho]}$ be the block corresponding to the point $L_{\zeta}(v)$ . By the equivariance property 8.1.5 , one has $\operatorname{ASph}(v.\eta)\simeq\operatorname{ASph}(v).\eta$ . Taking $I^{(1)}$ -invariants is compatible with twist, cf. 8.3.6 , and so $L_{\zeta\eta^{2}}(v.\eta)$ corresponds to the block which contains the representation $\pi\otimes\eta$ , i.e. to $b_{[\rho]}\otimes\eta=b_{[\rho\otimes\eta]}$ , cf. 8.3.8 , and so $L_{\zeta\eta^{2}}(v.\eta)=[\rho\otimes\eta]=L_{\zeta}(v).\eta$ .
+
+If $v\in D(1)_{\gamma}(k)$ , let $\pi_{1}$ and $\pi_{2}$ be the simple modules such that $(\pi_{1}\oplus\pi_{2})^{I^{(1)}}\simeq\operatorname{ASph}^{\gamma}(v)^{\operatorname{ss}}$ . As before, we conclude from $\operatorname{ASph}(v.\eta)^{\operatorname{ss}}\simeq\operatorname{ASph}(v)^{\operatorname{ss}}\otimes\eta$ that $L_{\zeta\eta^{2}}(v.\eta)$ corresponds to the block which contains $\pi_{1}\otimes\eta$ and $\pi_{2}\otimes\eta$ and that $L_{\zeta\eta^{2}}(v.\eta)=L_{\zeta}(v).\eta$ . The commutativity of the diagram is proved.
+
+The scheme $\mathfrak{G}_{\lambda}$ categorizes pairs $(A,B)$ within $\textup{O}(M,q)\times\textup{O}(M,q)$ that satisfy the following conditions: first, $(Ax,By)=(Bx,Ay)$ for all $x,y\in M$; second, $A$ is contained in the unipotent radical $U(F_{*})$ of the parabolic subgroup $P(F_{*})\subset\textup{O}(M,q)$ that preserves the filtration $F_{*}$ on $M$, while $B$ is contained in the parabolic subgroup $P(F^{*})\subset\textup{O}(M,q)$ preserving the filtration $F^{*}$ on $M$; and third, the difference $A-B$ has rank one. The mapping $(f^{\prime},f^{\prime\prime}):\mathfrak{G}_{\lambda}\to\widetilde{L}^{\textup{ab}}_{m}\times V_{m}$ is defined by $f^{\prime}(A,B)=(\det(B_{0,0}),\cdots,\det(B_{\ell,\ell}))$ and $f^{\prime\prime}(A,B)=(A_{0,1},A_{1,2},\cdots,A_{\ell-1,\ell},-B_{\ell,-\ell})$ when $A$ and $B$ are expressed in block form under the decomposition (6.2). Additionally, the morphism $j:\mathfrak{G}_{\lambda}\to\mathbb{P}(M)$, which sends each $(A,B)\in\mathfrak{G}_{\lambda}$ to the line in $M$ corresponding to the image of the rank one endomorphism $C:=I-A^{-1}B\in\textup{End}(M)$, is an open embedding.
+
+8.4 The morphism $L_{\zeta}$ in the basic even case
+
+Let $\zeta:\mathbb{Q}_{p}^{\times}\rightarrow k^{\times}$ be the trivial character. Here we show that the map of sets $L_{\zeta}:(V^{(1)}_{\mathbf{\widehat{T}},0}/W_{0})_{\zeta}(k)\rightarrow X_{\zeta}(k)$ that we have defined in 8.3.13 satisfies properties (ii) and (iiie) of 8.3.12 , and we define a morphism of $k$ -schemes $L_{\zeta}:(V^{(1)}_{\mathbf{\widehat{T}},0}/W_{0})_{\zeta}\longrightarrow X_{\zeta}$ which coincides with the previous map of sets at the level of $k$ -points. By construction, it will have the properties 8.3.10 . This will complete the proof of 8.3.12 , 8.3.10 and 8.3.9 in the case of an even character.
+
+We verify the properties (ii) and (iiie). We work over an irreducible component $\mathbb{P}^{1}$ with label $"\operatorname{Sym}^{r}\otimes\det^{a}\;|\;\operatorname{Sym}^{p-3-r}\otimes\det^{r+1+a}"$ where $0\leq r\leq p-3$ and $0\leq a\leq p-2$ , cf. 8.2.3 . On this component, we choose an affine coordinate $x$ around the double point having $\operatorname{Sym}^{r}\otimes\det^{a}$ as one of its Serre weights. Away from this point, we have $x\neq 0$ and the corresponding Galois representation has the form
+
+
+ 
+ $\rho_{x}=\left(\begin{array}[]{cc}\operatorname{unr}(x)\omega^{r+1}&0\\
+0&\operatorname{unr}(x^{-1})\end{array}\right)\otimes\eta$ 
+ with $\eta=\omega^{a}$ . By [Be11] or [Br07] , we have 
+ 
+ $\pi(\rho_{x})=\pi(r,x,\eta)^{\operatorname{ss}}\oplus\pi([p-3-r],x^{-1},\omega^{r+1}\eta)^{\operatorname{ss}}=:\pi_{1}\oplus\pi_{2}$ 
+ where $[p-3-r]$ denotes the unique integer in $\{0,...,p-2\}$ which is congruent to $p-3-r$ modulo $p-1$ . Now suppose that $L_{\zeta}(v)=x$ . We distinguish two cases.
+
+1. The generic case $0<r<p-3$ . In this case, the point $x$ lies on one of the ‘interior’ components of the chain $X_{\zeta}$ , which has no exceptional points. The length of $\pi(\rho_{x})$ is $2$ . Indeed, $\pi_{1}=\pi(r,x,\eta)$ and $\pi_{2}=\pi(p-3-r,x^{-1},\omega^{r+1}\eta)$ are two irreducible principal series representations [Br07] . The block $b_{x}$ is of type $2$ and contains only these two irreducible representations, cf. 8.3.7 - 8.3.8 . We may write 
+ 
+ $\pi_{1}=\operatorname{Ind}_{B}^{G}(\chi)\otimes\eta$ 
+ with $\chi=\operatorname{unr}(x)\otimes\omega^{r}\operatorname{unr}(x^{-1})$ , according to [Br07] . By our assumptions on $r$ , the character $\chi|_{\mathbb{T}}=1\otimes\omega^{r}$ is regular (i.e. different from its $s$ -conjugate). We conclude from 8.3.6 and 8.3.2 that $\pi_{1}^{I^{(1)}}$ is a simple $2$ -dimensional standard module in the regular component represented by the character $(1\otimes\omega^{r}).(\eta|_{\mathbb{F}_{p}^{\times}})=(\eta|_{\mathbb{F}_{p}^{\times}})\otimes(\eta|_{\mathbb{F}_{p}^{\times}})\omega^{r}\in\mathbb{T}^{\vee}$ . Similarly, we may write 
+ 
+ $\pi_{2}=\operatorname{Ind}_{B}^{G}(\chi)\otimes\omega^{r+1}\eta$ 
+ where now $\chi=\operatorname{unr}(x^{-1})\otimes\omega^{p-3-r}\operatorname{unr}(x)$ . By our assumptions on $r$ , the character $\chi|_{\mathbb{T}}=1\otimes\omega^{p-3-r}$ is regular and we conclude, as above, that the $I^{(1)}$ -invariants $\pi_{2}^{I^{(1)}}$ form a simple $2$ -dimensional standard module in the regular component represented by the character $(\eta|_{\mathbb{F}_{p}^{\times}})\omega^{r+1}\otimes(\eta|_{\mathbb{F}_{p}^{\times}})\omega^{r+1}\omega^{p-3-r}\in\mathbb{T}^{\vee}$ . Note that the component of $\pi_{1}^{I^{(1)}}$ is different from the component of $\pi_{2}^{I^{(1)}}$ , by our assumptions on $r$ .
+
+We conclude from $L_{\zeta}(v)=x$ that either $\operatorname{ASph}(v)=\pi_{1}^{I^{(1)}}$ or $\operatorname{ASph}(v)=\pi_{2}^{I^{(1)}}$ . Since for $\gamma$ regular, the map $\operatorname{ASph}^{\gamma}$ is a bijection onto all simple $\mathcal{H}^{\gamma}_{\overline{\mathbb{F}}_{p}}$ -modules, cf. [PS] , one finds that $L_{\zeta}^{-1}(x)=\{v_{1},v_{2}\}$ has cardinality $2$ and 
+ 
+ $\operatorname{ASph}(v_{1})\oplus\operatorname{ASph}(v_{2})\simeq\pi(\rho_{x})^{I^{(1)}}.$ 
+ This settles property (ii) of 8.3.12 in the generic case.
+
+2. The boundary cases $r\in\{0,p-3\}$ . In this case, the point $x$ lies on one of the two ‘exterior’ components of $X_{\zeta}$ . On such a component, we will denote the variable $x$ rather by $z_{1}$ , which is the notation \footnote{ 4 The reason for this notation will become clear in the discussion of the non-regular case in 8.4.2 .} which we used already in 8.2.3 .
+
+(a) Suppose that $z_{1}\neq\pm 1$ . The length of $\pi(\rho_{z_{1}})$ is $2$ . Indeed, as in the generic case, $\pi_{1}=\pi(r,z_{1},\eta)$ and $\pi_{2}=\pi(p-3-r,z_{1}^{-1},\omega^{r+1}\eta)$ are two irreducible principal series representations. The block $b_{z_{1}}$ is of type $2$ and contains only these two irreducible representations. It follows, as above, that their invariants $\pi_{1}^{I^{(1)}}$ and $\pi_{2}^{I^{(1)}}$ are simple $2$ -dimensional standard modules, in the components represented by $(\eta|_{\mathbb{F}_{p}^{\times}})\otimes(\eta|_{\mathbb{F}_{p}^{\times}})\omega^{r}\in\mathbb{T}^{\vee}$ and $(\eta|_{\mathbb{F}_{p}^{\times}})\omega^{r+1}\otimes(\eta|_{\mathbb{F}_{p}^{\times}})\omega^{r+1}\omega^{p-3-r}\in\mathbb{T}^{\vee}$ respectively. Since $r\in\{0,p-3\}$ , one of these components is regular, the other non-regular. In particular, the two components are different. We conclude from $L_{\zeta}(v)=z_{1}$ that either $\operatorname{ASph}(v)=\pi_{1}^{I^{(1)}}$ or $\operatorname{ASph}(v)=\pi_{2}^{I^{(1)}}$ . Since for non-regular $\gamma$ , the map $\operatorname{ASph}^{\gamma}(2)$ is a bijection from $D(2)_{\gamma}(k)$ onto all simple standard $\mathcal{H}^{\gamma}_{\overline{\mathbb{F}}_{p}}$ -modules, cf. [PS] , we may conclude as in the generic case: $L_{\zeta}^{-1}(z_{1})=\{v_{1},v_{2}\}$ has cardinality $2$ and 
+ 
+ $\operatorname{ASph}(v_{1})\oplus\operatorname{ASph}(v_{2})\simeq\pi(\rho_{z_{1}})^{I^{(1)}}.$ 
+ This settles property 8.3.12 (ii) in the remaining case $z_{1}\neq\pm 1$ .
+
+(b) Suppose now that $z_{1}=\pm 1$ , i.e. we are at one of the four exceptional points. We will verify property (iiie). The length of $\pi(\rho_{z_{1}})$ is $3$ . Indeed, the representation $\pi(0,\pm 1,\eta)$ is a twist of the representation $\pi(0,1,1)$ (note that $\pi(r,z_{1},\eta)\simeq\pi(r,-z_{1},\operatorname{unr}(-1)\eta)$ according to [Br07] ), which itself is an extension of $\mathbbm{1}$ by ${\rm St}$ , cf. [Br07] . As in the case (a), the representation $\pi_{2}=\pi(p-3,\pm 1,\omega\eta)$ is an irreducible principal series representation. The block $b_{z_{1}}$ is of type $3$ and contains only these three irreducible representations. The invariants $\pi_{1}^{I^{(1)}}$ form a direct sum of two antispherical characters in a non-regular component $\gamma$ , whereas the invariants $\pi_{2}^{I^{(1)}}$ form a simple standard module in a regular component, as before. Since for non-regular $\gamma$ , the map $\operatorname{ASph}^{\gamma}(1)$ is a bijection from $D(1)_{\gamma}(k)$ onto all antispherical pairs of characters of $\mathcal{H}^{\gamma}_{\overline{\mathbb{F}}_{p}}$ , cf. [PS] , we may conclude that $L_{\zeta}^{-1}(z_{1})=\{v_{1},v_{2}\}$ has cardinality $2$ with $v_{1}\in D(1)_{\gamma}(k)$ and $\operatorname{ASph}^{\gamma}(1)(v_{1})^{\operatorname{ss}}=\pi_{1}^{I^{(1)}}$ . In particular, 
+ 
+ $\operatorname{ASph}(v_{1})^{\operatorname{ss}}\oplus\operatorname{ASph}(v_{2})\simeq\pi(\rho_{x})^{I^{(1)}}.$ 
+ This settles property 8.3.12 (iiie).
+
+The group $\widetilde{L}^{\textup{ab}}_{{\mathbf{P}}}\times V_{{\mathbf{P}}}$ acts on Bun due to the normalizing relationships between $\widetilde{{\mathbf{P}}}_{0}$, ${\mathbf{P}}^{\textup{ss}}_{0}$, ${\mathbf{P}}_{\infty}^{+}$, and ${\mathbf{P}}^{++}_{\infty}$. A character $\chi$ induces a rank one Kummer local system $\mathcal{L}_{\chi}$ on $\widetilde{L}^{\textup{ab}}_{{\mathbf{P}}}$, with Frobenius traces at $k$-rational points recovering the character $\chi:\widetilde{L}^{\textup{ab}}_{{\mathbf{P}}}(k)\to\overline{\mathbb{Q}}_{\ell}^{\times}$. For a scheme $S$ equipped with a morphism $s:S\to V^{*}_{{\mathbf{P}}}$, we view $V_{{\mathbf{P}}}\times S$ as a constant additive group over $S$, admitting a rank one local system $\textup{AS}_{S}$ defined by $(\textup{id}\times s)^{*}\langle{,}\rangle^{*}\textup{AS}_{\psi}$, where $\langle{,}\rangle$ is the natural pairing $V_{{\mathbf{P}}}\times V^{*}_{{\mathbf{P}}}\to\mathbb{G}_{a}$ and $\textup{AS}_{\psi}$ is the Artin-Schreier local system on $\mathbb{G}_{a}$ determined by the additive character $\psi$.
+
+Since $\zeta|_{\mathbb{F}_{p}^{\times}}=1$ , the connected components of $(V^{(1)}_{\mathbf{\widehat{T}},0}/W_{0})_{\zeta}$ are indexed by the fibre $(\cdot)|_{\mathbb{F}_{p}^{\times}}^{-1}(1)$ . This fibre consists of the $\frac{p-3}{2}$ regular components, represented by the characters of $\mathbb{T}$ 
+ 
+ $\chi_{k}=\omega^{k}\otimes\omega^{-k}$ 
+ for $k=1,...,\frac{p-3}{2}$ , and of the two non-regular components, given by $\chi_{0}$ and $\chi_{\frac{p-1}{2}}$ , cf. 8.1.2 . We distinguish two cases. Note that $z_{2}=\zeta(p^{-1})=1$ .
+
+1. The regular case $0<k<\frac{p-1}{2}$ . We fix the order $\gamma=(\chi_{k},\chi_{k}^{s})$ on the set $\gamma$ and choose the standard coordinates $x,y$ . According to [PS] , our regular connected component identifies with two affine lines intersecting at the origin: 
+ 
+ $V_{\mathbf{\widehat{T}},0,1}\simeq\mathbb{A}^{1}\cup_{0}\mathbb{A}^{1}.$ 
+ Suppose that $v=(0,0)$ is the origin, so that $\operatorname{ASph}(v)$ is a supersingular module. Let $\pi(r,0,\eta)$ be the corresponding supersingular representation. It corresponds to the irreducible Galois representation $\rho(r,\eta)=\operatorname{ind}(\omega_{2}^{r+1})\otimes\eta$ , in the notation of [Be11] , whence $L_{\zeta}(v)=[\rho(r,\eta)]$ . According to 8.3.2 , the component of the Hecke module $\pi(r,0,\eta)^{I^{(1)}}$ is given by $(\omega^{r}\otimes 1)\cdot(\eta|_{\mathbb{F}_{p}^{\times}})$ . Setting $\eta|_{\mathbb{F}_{p}^{\times}}=\omega^{a}$ , this implies $(\omega^{r}\otimes 1)\cdot(\eta|_{\mathbb{F}_{p}^{\times}})=\omega^{r+a}\otimes\omega^{a}=\chi_{k}$ and hence $a=-k$ and $r=2k$ . Therefore the Serre weights of the irreducible representation $\rho(r,\eta)$ are $\{\operatorname{Sym}^{2k}\otimes\det^{-k},\operatorname{Sym}^{p-1-2k}\otimes\det^{k}\}$ , cf. [Br07] .
+
+Comparing these pairs of Serre weights with the list 8.2.3 shows that the $\frac{p-3}{2}$ points 
+ 
+ $\{\text{origin $(0,0)$ on the component $(\chi_{k},\chi_{k}^{s})$}\}$ 
+ for $0<k<\frac{p-1}{2}$ are mapped successively to the $\frac{p-3}{2}$ double points of the chain $X_{\zeta}$ .
+
+Fix $0<k<\frac{p-1}{2}$ and consider the double point 
+ 
+ $Q=L_{\zeta}(\text{origin $(0,0)$ on the component $\gamma=(\chi_{k},\chi_{k}^{s})$}).$ 
+ As we have just seen, $Q$ lies on the irreducible component $\mathbb{P}^{1}$ whose label includes the weight $\operatorname{Sym}^{2k}\otimes\det^{-k}$ (i.e. on the component $"\operatorname{Sym}^{2k}\otimes\det^{-k}\;|\;\operatorname{Sym}^{p-3-2k}\otimes\det^{k+1}"$ ). We fix an affine coordinate on this $\mathbb{P}^{1}$ around $Q$ , which we will also call $x$ (there will be no risk of confusion with the standard coordinate above!). Away from $Q$ , the affine coordinate $x\neq 0$ parametrizes Galois representations of the form 
+ 
+ $\rho_{x}=\left(\begin{array}[]{cc}\operatorname{unr}(x)\omega^{2k+1}&0\\
+0&\operatorname{unr}(x^{-1})\end{array}\right)\otimes\eta$ 
+ with $\eta:=\omega^{-k}$ . As we have seen above, $\pi(\rho_{x})=\pi(2k,x,\eta)\oplus\pi(p-3-2k,x^{-1},\omega^{r+1}\eta)=:\pi_{1}\oplus\pi_{2}$ . Moreover, $\pi_{1}=\operatorname{Ind}_{B}^{G}(\chi)\otimes\eta$ with $\chi=\operatorname{unr}(x)\otimes\omega^{2k}\operatorname{unr}(x^{-1})$ . Since 
+ 
+ $(1\otimes\omega^{2k}).(\eta|_{\mathbb{F}_{p}^{\times}})=\omega^{-k}\otimes\omega^{k}=\chi_{k}^{s}\in\mathbb{T}^{\vee},$ 
+ we deduce from the regular case of 8.3.2 that 
+ 
+ $\pi_{1}^{I^{(1)}}=M(0,x,1,\chi_{k}^{s})$ 
+ is a simple $2$ -dimensional standard module. Note that $M(0,x,1,\chi_{k}^{s})=M(x,0,1,\chi_{k})$ according to [V04] .
+
+We consider $K=F_{\infty}$ and use the notation ${\mathbf{P}}={\mathbf{P}}_{\infty}$. Let $\mathbf{I}_{0}\subset G(F_{0})$ denote the Iwahori subgroup associated with the opposite Borel $\mathbb{B}^{\textup{opp}}$ of $\mathbb{G}$, constructed analogously to how $\mathbf{I}=\mathbf{I}_{\infty}$ was derived from $\mathbb{B}$. Define ${\mathbf{P}}_{0}\subset G(F_{0})$ as the parahoric subgroup containing $\mathbf{I}_{0}$, sharing the same type as ${\mathbf{P}}_{\infty}$. Let $\widetilde{{\mathbf{P}}}_{0}$ represent the normalizer of ${\mathbf{P}}_{0}$ in $G(F_{0})$, and let $\Omega_{{\mathbf{P}}}=\widetilde{{\mathbf{P}}}_{0}/{\mathbf{P}}_{0}$, where it is noted that $\Omega_{{\mathbf{P}}}$ coincides with the full stabilizer $\Omega$ of the fundamental alcove within the extended affine Weyl group of $G(K)$. Specifically, the sub-Dynkin diagram of the affine Dynkin diagram $\widetilde{\textup{Dyn}}(G)$ corresponding to an admissible standard parahoric ${\mathbf{P}}$ remains invariant under automorphisms of $\widetilde{\textup{Dyn}}(G)$ that fix the extended node. The Levi quotient of ${\mathbf{P}}_{0}$ is identified with $L_{{\mathbf{P}}}$. Define $L^{\textup{ab}}_{{\mathbf{P}}}=L_{{\mathbf{P}}}/L_{{\mathbf{P}}}^{\textup{der}}$ as the maximal quotient torus of $L_{{\mathbf{P}}}$. Let ${\mathbf{P}}^{\textup{ss}}_{0}=\ker({\mathbf{P}}_{0}\to L^{\textup{ab}}_{{\mathbf{P}}})$ and set $\widetilde{L}^{\textup{ab}}_{{\mathbf{P}}}=\widetilde{{\mathbf{P}}}_{0}/{\mathbf{P}}^{\textup{ss}}_{0}$. It is observed that $\widetilde{L}^{\textup{ab}}_{{\mathbf{P}}}$ forms an extension of the finite group $\Omega_{{\mathbf{P}}}$ by the torus $L^{\textup{ab}}_{{\mathbf{P}}}$.
+
+On the other hand, the double point $Q$ lies also on the irreducible component $\mathbb{P}^{1}$ whose labelling includes the other weight of $Q$ , i.e. the weight $\operatorname{Sym}^{p-1-2k}\otimes\det^{k}$ . We fix an affine coordinate $y$ on this $\mathbb{P}^{1}$ around $Q$ . Away from $Q$ , the coordinate $y\neq 0$ parametrizes Galois representations of the form 
+ 
+ $\rho_{x}=\left(\begin{array}[]{cc}\operatorname{unr}(y)\omega^{p-2k}&0\\
+0&\operatorname{unr}(y^{-1})\end{array}\right)\otimes\eta$ 
+ with $\eta:=\omega^{k}$ . As in the first case, $\pi(\rho_{y})$ contains $\pi_{1}:=\pi(p-1-2k,y,\eta)=\operatorname{Ind}_{B}^{G}(\chi)\otimes\eta$ as a direct summand, where now $\chi=\operatorname{unr}(y)\otimes\omega^{p-1-2k}\operatorname{unr}(y^{-1})$ . Since 
+ 
+ $(1\otimes\omega^{p-1-2k}).(\eta|_{\mathbb{F}_{p}^{\times}})=\omega^{k}\otimes\omega^{-k}=\chi_{k}\in\mathbb{T}^{\vee},$ 
+ we deduce, as above, that $\pi_{1}^{I^{(1)}}=M(0,y,1,\chi_{k})$ is a simple $2$ -dimensional standard module.
+
+Now suppose that $v=(0,y),y\neq 0,$ denotes a point on the $y$ -line of $\mathbb{A}_{k}^{1}\cup_{0}\mathbb{A}_{k}^{1}$ . In particular, $\operatorname{ASph}^{\gamma}(v)=M(0,y,1,\chi_{k})$ . By our discussion, the point $L_{\zeta}((0,y))$ corresponds to the block which contains $\pi_{1}$ . Since $\pi_{1}$ lies in the block parametrized by $[\rho_{y}]$ , cf. 8.3.8 , it follows that 
+ 
+ $L_{\zeta}((0,y))=[\rho_{y}]=y\in\mathbb{G}_{m}\subset\mathbb{P}^{1}\subset X_{\zeta}.$ 
+ Since $(0,0)$ maps to $Q$ , i.e. to the point at $y=0$ , the map $L_{\zeta}$ identifies the whole affine $y$ -line $\mathbb{A}^{1}=\{(0,y):y\in k\}\subset V_{\mathbf{\widehat{T}},0,1}$ with the affine $y$ -line $\mathbb{A}^{1}\subset\mathbb{P}^{1}\subset X_{\zeta}$ .
+
+In this way, we get an open immersion of each regular connected component of $(V^{(1)}_{\mathbf{\widehat{T}},0}/W_{0})_{\zeta}$ in the scheme $X_{\zeta}$ , which coincides on $k$ -points with the restriction of the map of sets $L_{\zeta}$ .
+
+2. The non-regular case $k\in\{0,\frac{p-1}{2}\}$ . We choose the Steinberg coordinate $z_{1}$ . According to [PS] , our non-regular connected component identifies with an affine line : 
+ 
+ $V_{\mathbf{\widehat{T}},0,z_{2}}/W_{0}\simeq\mathbb{A}^{1}.$ 
+ Suppose that $v=(0)$ is the origin, so that $\operatorname{ASph}(v)$ is a supersingular module. Let $\pi(r,0,\eta)$ be the corresponding supersingular representation so that $L_{\zeta}(v)=[\rho(r,\eta)]$ . Exactly as in the regular case, we may conclude that the Serre weights of the irreducible representation $\rho(r,\eta)$ are $\{\operatorname{Sym}^{2k}\otimes\det^{-k},\operatorname{Sym}^{p-1-2k}\otimes\det^{k}\}$ . For the two values of $k=0$ and $k=\frac{p-1}{2}$ we find $\{\operatorname{Sym}^{0},\operatorname{Sym}^{p-1}\}$ and $\{\operatorname{Sym}^{0}\otimes\det^{\frac{p-1}{2}},\operatorname{Sym}^{p-1}\otimes\det^{\frac{p-1}{2}}\}$ respectively. Comparing with the list 8.2.3 shows that the $2$ points 
+ 
+ $\{\text{origin $(0)$ on the component $(\chi_{k}=\chi_{k}^{s})$}\}$ 
+ for $k\in\{0,\frac{p-1}{2}\}$ are mapped to the $2$ smooth points in $X_{\zeta}^{\rm irred}$ , which lie on the two ‘exterior’ components of $X_{\zeta}$ , cf. 8.2.3 .
+
+
+
+Now let $v=z_{1}\neq 0$ denote a nonzero point on our connected component $\mathbb{A}^{1}=V_{\mathbf{\widehat{T}},0,1}/W_{0}$ . Suppose that $z_{1}\neq\pm 1$ , i.e. $v\in D(2)_{\gamma}$ . In particular, $\operatorname{ASph}(v)=M(z_{1},1,\gamma)$ is irreducible. By our discussion, the point $L_{\zeta}(z_{1})$ corresponds to the block (a block of type $2$ ) which contains $\pi(0,z_{1},\eta)$ . Suppose that $z_{1}=\pm 1$ , i.e. $v\in D(1)_{\gamma}$ . In particular, $\operatorname{ASph}^{\operatorname{ss}}(v)=M(z_{1},1,\chi_{k})^{\operatorname{ss}}$ and again, $L_{\zeta}(z_{1})$ corresponds to the block (now a block of type $3$ ) which contains the simple constituents of $\pi(0,z_{1},\eta)^{\operatorname{ss}}$ . In both cases, we conclude 
+ 
+ $L_{\zeta}(z_{1})=[\rho_{z_{1}}]=z_{1}\in\mathbb{G}_{m}\subset\mathbb{P}^{1}\subset X_{\zeta}.$ 
+ Since $(0)$ maps to $Q$ , i.e. to the point at $z_{1}=0$ , the map $L_{\zeta}$ identifies the whole $z_{1}$ -line $\mathbb{A}^{1}=V_{\mathbf{\widehat{T}},0,1}/W_{0}$ with the $z_{1}$ -line $\mathbb{A}^{1}\subset\mathbb{P}^{1}\subset X_{\zeta}$ .
+
+ Therefore, the open subset $U$ is a neighborhood of the section $s$ in $X_{\zeta}$; in particular, it is a neighborhood of $0$ in the fiber $X_{\zeta,0}$.
+
+The map $j$ is an open embedding because $U(F_{*}) \times P(F^{*})$ is an open subset of $\textup{O}(M, q)$. ∎
+
+8.5 The morphism $L_{\zeta}$ in the basic odd case
+
+Let $\zeta:=\omega^{-1}:\mathbb{Q}_{p}^{\times}\rightarrow k^{\times}$ . Here we show that the map of sets $L_{\zeta}:(V^{(1)}_{\mathbf{\widehat{T}},0}/W_{0})_{\zeta}(k)\rightarrow X_{\zeta}(k)$ that we have defined in 8.3.13 satisfies properties (ii) and (iiio) of 8.3.12 , and we define a morphism of $k$ -schemes $L_{\zeta}:(V^{(1)}_{\mathbf{\widehat{T}},0}/W_{0})_{\zeta}\longrightarrow X_{\zeta}$ which coincides with the previous map of sets at the level of $k$ -points. By construction, it will have the properties 8.3.10 . This will complete the proof of 8.3.12 , 8.3.10 and 8.3.9 in the case of an odd character.
+
+We verify properties (ii) and (iiio). We work over an irreducible component $\mathbb{P}^{1}$ with label 
+ $"\operatorname{Sym}^{r}\otimes\det^{a}\;|\;\operatorname{Sym}^{p-3-r}\otimes\det^{r+1+a}"$ where $1\leq r\leq p-2$ and $0\leq a\leq p-2$ , cf. 8.2.4 . We distinguish two cases.
+
+1. The generic case $r\neq p-2$ . In this case, the irreducible component of $X_{\zeta}$ we consider is an ‘interior’ component and has no exceptional points. On this component, we choose an affine coordinate $x$ around the double point having $\operatorname{Sym}^{r}\otimes\det^{a}$ as one of its Serre weights. Away from this point, we have $x\neq 0$ and the corresponding Galois representation has the form
+
+
+ 
+ $\rho_{x}=\left(\begin{array}[]{cc}\operatorname{unr}(x)\omega^{r+1}&0\\
+0&\operatorname{unr}(x^{-1})\end{array}\right)\otimes\eta$ 
+ with $\eta=\omega^{a}$ . As before, we have 
+ 
+ $\pi(\rho_{x})=\pi(r,x,\eta)^{\operatorname{ss}}\oplus\pi([p-3-r],x^{-1},\omega^{r+1}\eta)^{\operatorname{ss}}.$ 
+ The length of $\pi(\rho_{x})$ is $2$ . Indeed, by our assumptions on $r$ , the principal series representations $\pi(r,x,\eta)$ and $\pi(p-3-r,x^{-1},\omega^{r+1}\eta)$ are irreducible and the block $b_{x}$ contains only these two irreducible representations. We may follow the argument of the generic case of 8.4.1 word for word and deduce property 8.3.12 (ii).
+
+2. The two boundary cases $r=p-2$ . In this case, the irreducible component is one of the two ‘exterior’ components with labels $"\operatorname{Sym}^{p-2}\;|\;"\operatorname{Sym}^{-1}""$ or $""\operatorname{Sym}^{-1}\det^{\frac{p-1}{2}}"\;|\;\operatorname{Sym}^{p-2}\det^{\frac{p-1}{2}}"$ . Points of the open locus $X_{\zeta}^{\rm red}$ lying on such a component correspond to twists of unramified Galois representations of the form 
+ 
+ $\rho_{x+x^{-1}}=\left(\begin{array}[]{cc}\operatorname{unr}(x)&0\\
+0&\operatorname{unr}(x^{-1})\end{array}\right)\otimes\eta$ 
+ with $\eta=1$ or $\eta=\omega^{\frac{p-1}{2}}$ . Let us concentrate on one of the two components, i.e. let us fix $\eta$ .
+
+Mapping an unramified Galois representation $\rho_{x+x^{-1}}$ to $t:=x+x^{-1}\in k$ identifies this open locus with the $t$ -line $\mathbb{A}^{1}\subset\mathbb{P}^{1}$ . We have 
+ 
+ $\pi(\rho_{t})=\pi(p-2,x,\eta)^{\operatorname{ss}}\oplus\pi(p-2,x^{-1},\eta)^{\operatorname{ss}}=:\pi_{1}\oplus\pi_{2}$ 
+ since $[p-3-(p-2)]=p-2$ (indeed, $p-3-(p-2)=-1\equiv p-2\mod(p-1)$ ). The length of $\pi(\rho_{t})$ is $2$ . Indeed, $\pi_{1}=\pi(p-2,x,\eta)$ and $\pi_{2}=\pi(p-2,x^{-1},\eta)$ are two irreducible principal series representations and the block $b_{t}$ contains only these two irreducible representations. They are isomorphic if and only if $x=\pm 1$ , i.e. if and only if $t=\pm 2$ is an exceptional point. In this case, $b_{t}$ contains only one irreducible representation and is of type $3$ , otherwise it is of type 2.
+
+We may write 
+ 
+ $\pi_{1}=\operatorname{Ind}_{B}^{G}(\chi)\otimes\eta$ 
+ with $\chi=\operatorname{unr}(x)\otimes\omega^{p-2}\operatorname{unr}(x^{-1})$ . Similarly for $\pi_{2}$ . The character $\chi|_{\mathbb{F}_{p}^{\times}}=1\otimes\omega^{p-2}$ is regular (i.e. different from its $s$ -conjugate) and we are in the regular case of 8.3.2 . We conclude that $\pi_{1}^{I^{(1)}}=M(0,x,1,(1\otimes\omega^{p-2}).\eta)$ and $\pi_{2}^{I^{(1)}}=M(0,x^{-1},1,(1\otimes\omega^{p-2}).\eta)$ are both simple $2$ -dimensional standard modules in the regular component $\gamma$ represented by the character $(1\otimes\omega^{p-2}).(\eta|_{\mathbb{F}_{p}^{\times}})=(\eta|_{\mathbb{F}_{p}^{\times}})\otimes(\eta|_{\mathbb{F}_{p}^{\times}})\omega^{p-2}\in\mathbb{T}^{\vee}$ . They are isomorphic if and only if $t=\pm 2$ . We choose an order $\gamma=((\eta|_{\mathbb{F}_{p}^{\times}})\otimes(\eta|_{\mathbb{F}_{p}^{\times}})\omega^{p-2},(\eta|_{\mathbb{F}_{p}^{\times}})\omega^{p-2}\otimes(\eta|_{\mathbb{F}_{p}^{\times}}))$ on the set $\gamma$ . Then from $L_{\zeta}(v)=t$ we get that either $\operatorname{ASph}^{\gamma}(v)=\pi_{1}^{I^{(1)}}$ or $\operatorname{ASph}^{\gamma}(v)=\pi_{2}^{I^{(1)}}$ . Since for regular $\gamma$ , the map $\operatorname{ASph}^{\gamma}$ is a bijection onto all simple $\mathcal{H}^{\gamma}_{\overline{\mathbb{F}}_{p}}$ -modules, cf. [PS] , one finds that $L_{\zeta}^{-1}(t)=\{v_{1},v_{2}\}$ has cardinality $2$ if $t\neq\pm 2$ and then 
+ 
+ $\operatorname{ASph}(v_{1})\oplus\operatorname{ASph}(v_{2})\simeq\pi(\rho_{t})^{I^{(1)}}.$ 
+ This settles property 8.3.12 (ii). In turn, if $t=\pm 2$ is an exceptional point, then $L_{\zeta}^{-1}(t)=\{v\}$ has cardinality $1$ and 
+ 
+ $\operatorname{ASph}(v)\oplus\operatorname{ASph}(v)\simeq\pi(\rho_{t})^{I^{(1)}}.$ 
+ This settles property 8.3.12 (iiio).
+
+We define a morphism of $k$ -schemes $L_{\zeta}:(V^{(1)}_{\mathbf{\widehat{T}},0}/W_{0})_{\zeta}\longrightarrow X_{\zeta}$ which coincides on $k$ -points with the map of sets $L_{\zeta}:(V^{(1)}_{\mathbf{\widehat{T}},0}/W_{0})_{\zeta}(k)\longrightarrow X_{\zeta}(k)$ . We work over a connected component of $(V^{(1)}_{\mathbf{\widehat{T}},0}/W_{0})_{\zeta}$ , indexed by some $\gamma\in\mathbb{T}^{\vee}/W_{0}$ . Let $v$ be a $k$ -point of this component.
+
+The expression $g = \frac{t}{t-1}A - \frac{1}{t-1}B$ preserves the symplectic form $\omega$ if and only if $A,B \in \textup{Sp}(M,\omega)$ and the condition $\omega(Ax,By) + \omega(Bx,Ay) = 2\omega(x,y)$ holds for all $x,y \in M$. This condition is equivalent to $\omega(Cx,y) + \omega(x,Cy) = 0$ for all $x,y \in M$. Notably, $g(0) = B$, $g(\infty) = A$, and $\textup{Res}_{t=1}g = A - B$, ensuring that the remaining conditions are satisfied.
+
+Fix an order $\gamma=(\chi_{k},\chi_{k}^{s})$ on the set $\gamma$ and choose standard coordinates $x,y$ . According to [PS] , our regular connected component identifies with two affine lines intersecting at the origin: 
+ 
+ $V_{\mathbf{\widehat{T}},0,1}\simeq\mathbb{A}^{1}\cup_{0}\mathbb{A}^{1}.$ 
+ Suppose that $v=(0,0)$ is the origin, so that $\operatorname{ASph}(v)$ is a supersingular module. Let $\pi(r,0,\eta)$ be the corresponding supersingular representation. It corresponds to the irreducible Galois representation $\rho(r,\eta)$ , in the notation of [Be11] , whence $L_{\zeta}(v)=[\rho(r,\eta)]$ . According to 8.3.2 , the component of $\pi(r,0,\eta)^{I^{(1)}}$ is given by $(\omega^{r}\otimes 1)\cdot(\eta|_{\mathbb{F}^{\times}_{p}})$ . Setting $\eta|_{\mathbb{F}^{\times}_{p}}=\omega^{a}$ , this implies $(\omega^{r}\otimes 1)\cdot(\eta|_{\mathbb{F}^{\times}_{p}})=\omega^{r+a}\otimes\omega^{a}=\chi_{k}$ and hence $a=-k$ and $r=2k-1$ . The Serre weights of the irreducible representation $\rho(r,\eta)$ are therefore $\{\operatorname{Sym}^{2k-1}\otimes\det^{-k},\operatorname{Sym}^{p-2k}\otimes\det^{k-1}\}$ , cf. [Br07] .
+
+For the coweight $\lambda$, we have $\textup{IC}_{\lambda} = \overline{\mathbb{Q}}_{\ell}[n-1]\left(\frac{n-1}{2}\right)$. Therefore, (2) follows from Proposition 3.9. ∎
+
+1. The generic case $1<k<\frac{p-1}{2}$ . In this case, the argument proceeds as in the regular case of 8.4.2 . Consider the double point 
+ 
+ $Q=L_{\zeta}(\text{origin $(0,0)$ on the component $\gamma=(\chi_{k},\chi_{k}^{s})$}).$ 
+ As we have just seen, $Q$ lies on an ‘interior’ irreducible component $\mathbb{P}^{1}$ whose label includes the weight $\operatorname{Sym}^{2k-1}\otimes\det^{-k}$ . We fix an affine coordinate on this $\mathbb{P}^{1}$ around $Q$ , which we will also call $x$ . Away from $Q$ , the affine coordinate $x\neq 0$ parametrizes Galois representations of the form 
+ 
+ $\rho_{x}=\left(\begin{array}[]{cc}\operatorname{unr}(x)\omega^{2k}&0\\
+0&\operatorname{unr}(x^{-1})\end{array}\right)\otimes\eta$ 
+ with $\eta:=\omega^{-k}$ . As we have seen above, $\pi(\rho_{x})=\pi(2k-1,x,\eta)\oplus\pi(p-3-2k+1,x^{-1},\omega^{2k}\eta)=:\pi_{1}\oplus\pi_{2}$ . Moreover, $\pi_{1}=\operatorname{Ind}_{B}^{G}(\chi)\otimes\eta$ with $\chi=\operatorname{unr}(x)\otimes\omega^{2k-1}\operatorname{unr}(x^{-1})$ . Since 
+ 
+ $(1\otimes\omega^{2k-1}).(\eta|_{\mathbb{F}_{p}^{\times}})=\omega^{-k}\otimes\omega^{k-1}=\chi_{k}^{s}\in\mathbb{T}^{\vee},$ 
+ we deduce from the regular case of 8.3.2 that $\pi_{1}^{I^{(1)}}=M(0,x,1,\chi_{k}^{s})$ is a simple $2$ -dimensional standard module. Note that $M(0,x,1,\chi_{k}^{s})=M(x,0,1,\chi_{k})$ according to [V04] .
+
+Now suppose that $v=(x,0)$ , $x\neq 0$ , denotes a nonzero point on the $x$ -line of $\mathbb{A}^{1}\cup_{0}\mathbb{A}^{1}$ . In particular, $\operatorname{ASph}^{\gamma}(v)=M(x,0,1,\chi_{k})$ . Our discussion shows that the point $L_{\zeta}((x,0))$ corresponds to the block which contains $\pi_{1}$ . Since $\pi_{1}$ lies in the block parametrized by $[\rho_{x}]$ , cf. 8.3.8 , it follows that 
+ 
+ $L_{\zeta}((x,0))=[\rho_{x}]=x\in\mathbb{G}_{m}\subset\mathbb{P}^{1}.$ 
+ Since $(0,0)$ maps to $Q$ , i.e. to the point at $x=0$ , the map $L_{\zeta}$ identifies the whole affine $x$ -line $\mathbb{A}^{1}=\{(x,0):x\in k\}\subset V_{\mathbf{\widehat{T}},0,1}$ with the affine $x$ -line $\mathbb{A}^{1}\subset\mathbb{P}^{1}\subset X_{\zeta}$ .
+
+We propose a conjectural characterization of the local monodromy of $\textup{Kl}_{{\vphantom{G}}^{L}{G},{\mathbf{P}}}(\chi,\phi)$ at $0$ for arbitrary $\chi:\widetilde{L}^{\textup{ab}}_{{\mathbf{P}}}\to\overline{\mathbb{Q}}_{\ell}^{\times}$ and quasi-split $G$. To begin with, $\textup{Kl}_{{\vphantom{G}}^{L}{G},{\mathbf{P}}}(\chi,\phi)$ is observed to exhibit tameness at $0$. The tame inertia group $\mathcal{I}^{t}_{0}$ is isomorphic to the inverse limit $\varprojlim_{(n,p)=1}\mu_{n}(\bar{k})$, and it naturally surjects onto $\mu_{e}(k)$. Letting $\xi\in\mathcal{I}^{t}_{0}$ denote a generator that maps to $\sigma\in\mu_{e}$, we posit that, under the monodromy representation $\mathcal{I}^{t}_{0}\to{\vphantom{G}}^{L}{G}$ associated with $\textup{Kl}_{{\vphantom{G}}^{L}{G},{\mathbf{P}}}(\chi,\phi)$, the element $\xi$ corresponds to $(\kappa u,\sigma)\in\widehat{G}^{\sigma}\times{\sigma}\subset{\vphantom{G}}^{L}{G}$, where $\kappa u$ represents the Jordan decomposition into semisimple and unipotent components of an element within $\widehat{G}^{\sigma}$.
+
+Now suppose that $v=(0,y)$ , $y\neq 0,$ denotes a nonzero point on the $y$ -line of $\mathbb{A}^{1}\cup_{0}\mathbb{A}^{1}$ . In particular, $\operatorname{ASph}^{\gamma}(v)=M(0,y,1,\chi_{k})$ . Our discussion shows that the point $L_{\zeta}((0,y))$ corresponds to the block which contains $\pi_{1}$ , parametrized by $[\rho_{y}]$ . Hence 
+ 
+ $L_{\zeta}((0,y))=[\rho_{y}]=y\in\mathbb{G}_{m}\subset\mathbb{P}^{1}.$ 
+ Since $(0,0)$ maps to $Q$ , i.e. to the point at $y=0$ , the map $L_{\zeta}$ identifies the whole $y$ -line $\mathbb{A}^{1}=\{(0,y):y\in k\}\subset V_{\mathbf{\widehat{T}},0,1}$ with the affine $y$ -line $\mathbb{A}^{1}\subset\mathbb{P}^{1}\subset X_{\zeta}$ .
+
+In this way, we get an open immersion of each connected component $(V^{\gamma}_{\mathbf{\widehat{T}},0}/W_{0})_{\zeta}$ of $(V^{(1)}_{\mathbf{\widehat{T}},0}/W_{0})_{\zeta}$ such that $\gamma=(\chi_{k},\chi_{k}^{s})$ with $1<k<\frac{p-1}{2}$ , in the scheme $X_{\zeta}$ , which coincides on $k$ -points with the restriction of the map of sets $L_{\zeta}$ .
+
+2. The two boundary cases $k\in\{1,\frac{p-1}{2}\}$ . Consider the double point 
+ 
+ $Q=L_{\zeta}(\text{origin $(0,0)$ on the component $\gamma=(\chi_{k},\chi_{k}^{s})$}).$ 
+ As we have just seen, $Q$ lies on an ‘interior’ irreducible component $\mathbb{P}^{1}$ whose label includes the weight $\operatorname{Sym}^{1}\otimes\det^{-1}$ (for $k=1$ ) or the weight $\operatorname{Sym}^{1}\otimes\det^{\frac{p-3}{2}}$ (for $k=\frac{p-1}{2}$ ). We fix an affine coordinate on this $\mathbb{P}^{1}$ around $Q$ , which we will call $z$ . Away from $Q$ , the coordinate $z\neq 0$ parametrizes Galois representations of the form 
+ 
+ $\rho_{z}=\left(\begin{array}[]{cc}\operatorname{unr}(z)\omega^{2}&0\\
+0&\operatorname{unr}(z^{-1})\end{array}\right)\otimes\eta$ 
+ with $\eta=\omega^{-1}$ or $\eta=\omega^{\frac{p-3}{2}}$ .
+
+Let $k=1$ , i.e. $\eta=\omega^{-1}$ . Following the argument in the generic case word for word, we may conclude that $L_{\zeta}$ identifies the $x$ -line $\mathbb{A}^{1}=\{(x,0):x\in k\}\subset V_{\mathbf{\widehat{T}},0,1}$ with the $z$ -line $\mathbb{A}^{1}\subset\mathbb{P}^{1}\subset X_{\zeta}$ .
+
+Let $k=\frac{p-1}{2}$ , i.e. $\eta=\omega^{\frac{p-3}{2}}$ . As in the generic case, we may conclude that $L_{\zeta}$ identifies the $y$ -line $\mathbb{A}^{1}=\{(0,y):y\in k\}\subset V_{\mathbf{\widehat{T}},0,1}$ with the $z$ -line $\mathbb{A}^{1}\subset\mathbb{P}^{1}\subset X_{\zeta}$ .
+
+Under the embedding $j:\mathfrak{G}_{\lambda}\hookrightarrow\mathbb{P}(M)$, the space $\mathfrak{G}_{\lambda}$ is characterized as the complement of the vanishing loci of the divisors $q_{0}=0, q_{[-1,1]}=0, \ldots, q_{[-\ell+1,\ell-1]}=0$, and $q=0$. The map $(f^{\prime},f^{\prime\prime}):\mathbb{P}(M)\supset\mathfrak{G}_{\lambda}\to\widetilde{L}^{\textup{ab}}_{m}\times V_{m}$ is defined explicitly by:
+
+(6.6) $\displaystyle f^{\prime}([v])=(-1,\frac{q_{0}(v)}{q_{[-1,1]}(v)},\frac{q_{[-1,1]}(v)}{q_{[-2,2]}(v)},\ldots,\frac{q_{[-\ell+2,\ell-2]}(v)}{q_{[-\ell+1,\ell-1]}(v)},\frac{q_{[-\ell+1,\ell-1]}(v)}{q(v)});$  
+
+(6.7) $\displaystyle f^{\prime\prime}([v])=(\frac{(-,v_{-1})}{q_{0}(v)}v_{0},\frac{(-,v_{-2})}{q_{[-1,1]}(v)}v_{1},\ldots,\frac{(-,v_{-\ell})}{q_{[-\ell+1,\ell-1]}(v)}v_{\ell-1},\frac{(-,v_{\ell})}{q(v)}v_{\ell}).$  
+
+The local system $\textup{Kl}^{\textup{St}}_{\widehat{G},{\mathbf{P}}_{m}}(\chi)$ on $V_{m}^{*,\textup{rs}}$, associated with the unitary group $G$, the admissible parahoric ${\mathbf{P}}_{m}$, the character $\chi=(\chi_{0},\chi_{1},\ldots,\chi_{\ell})$ (with $\chi_{0}$ of order two), and the standard representation of the dual group $\widehat{G}=\textup{GL}_{n}$, is obtained as the Fourier transform of the complex $f^{\prime\prime}_{!}f^{\prime*}\mathcal{L}_{\chi}[n-1](\frac{n-1}{2})$.
+
+Now suppose that $k=1$ , i.e. $\eta=1$ . Let $v=(0,y)$ , $y\neq 0$ , be a nonzero point on the $y$ -line of $\mathbb{A}^{1}\cup_{0}\mathbb{A}^{1}$ . In particular, $\operatorname{ASph}^{\gamma}(v)=M(0,y,1,\chi_{1})$ . Our discussion shows that the point $L_{\zeta}((0,y))$ corresponds to the block which contains $\pi_{1}$ , i.e. which is parametrized by $[\rho_{t}]$ . It follows that 
+ 
+ $L_{\zeta}((0,y))=[\rho_{t}]=t=y+y^{-1}\in\mathbb{A}^{1}\subset\mathbb{P}^{1}.$ 
+ Since $(0,0)$ maps to $Q$ , i.e. to the point at $t=\infty$ , the map of sets $L_{\zeta}$ maps the $k$ -points of the whole affine $y$ -line $\mathbb{A}^{1}=\{(0,y):y\in k\}\subset V_{\mathbf{\widehat{T}},0,1}$ to the $k$ -points of the whole ‘left exterior’ component $\mathbb{P}^{1}\subset X_{\zeta}$ via the formula 
+ 
+ $\displaystyle\mathbb{A}^{1}$ $\displaystyle\longrightarrow$ $\displaystyle\mathbb{P}^{1}$ 
+ 
+ $\displaystyle y$ $\displaystyle\longmapsto$ $\displaystyle\left\{\begin{array}[]{ll}y+y^{-1}&\textrm{if $y\neq 0$}\\
+\infty=Q&\textrm{if $y=0$}.\end{array}\right.$ 
+ This formula is algebraic: indeed, for $y\in\mathbb{A}^{1}\setminus\{\pm i\}$ (where $\pm i$ are the roots of the polynomial $f(y)=y^{2}+1$ ), we have $y+y^{-1}\neq 0$ and $(y+y^{-1})^{-1}=y/(y^{2}+1)$ , which is equal to $0$ at $y=0$ . Moreover, it glues at the origin $(0,0)$ with the open immersion of the $x$ -line of $V_{\mathbf{\widehat{T}},0,1}=\mathbb{A}^{1}\cup_{0}\mathbb{A}^{1}$ in $X_{\zeta}$ defined above, since both map $(0,0)$ to $Q$ . We take the resulting morphism of $k$ -schemes $\mathbb{A}^{1}\cup_{0}\mathbb{A}^{1}\rightarrow X_{\zeta}$ as the definition of $L_{\zeta}$ on the connected component $(V^{(\chi_{1},\chi_{1}^{s})}_{\mathbf{\widehat{T}},0}/W_{0})_{\zeta}$ of $(V^{(1)}_{\mathbf{\widehat{T}},0}/W_{0})_{\zeta}$ . Note that its restriction to the open subset $\{y\neq 0\}$ in the $y$ -line $\mathbb{A}^{1}$ is the morphism $\mathbb{G}_{m}\rightarrow\mathbb{A}^{1}$ corresponding to the ring extension 
+ 
+ $k[t]\longrightarrow k[y,y^{-1}]=k[t][y]/(y^{2}-ty+1),$ 
+ and that the discriminant $t^{2}-4$ of $y^{2}-ty+1\in k[t][y]$ vanishes precisely at the two exceptional points $t=\pm 2$ .
+
+Let $\phi \in V^{*,\textup{st}}_{2}(k)$ such that the pencil of quadrics spanned by $q$ and $\phi$ is degenerate precisely at $\phi - \lambda_i q$ for distinct $\lambda_1, \ldots, \lambda_n \in \bar{k}$. (1) Consider the morphism
+
+\[
+f_{\phi}: \mathbb{P}(M) - Q(q) \to \mathbb{A}^{1}
+\]
+
+defined by
+
+\[
+[v] \mapsto \frac{\phi(v)}{q(v)}.
+\]
+
+The local system $\textup{Kl}^{\textup{St}}_{\widehat{G},2}(1,\phi)$ over $\widetilde{X}^{\circ} \cong \mathbb{G}_{m}^{\textup{rot}}$ is obtained by restricting the Fourier transform of $f_{\phi,!}\overline{\mathbb{Q}}_{\ell}[n-1](\frac{n-1}{2})$ from $\mathbb{A}^{1}$ to $\mathbb{G}_{m}^{\textup{rot}}$. (2) When $n$ is odd, $\textup{Kl}^{\textup{St}}_{\widehat{G},2}(1,\phi)$ over $\mathbb{G}_{m} \otimes_{k} \bar{k}$ is isomorphic to $\oplus_{i=1}^{n} \textup{AS}_{\psi_{i}}|_{\mathbb{G}_{m}^{\textup{rot}}}$, where $\psi_{i}(t) = \psi(\lambda_{i} t)$. (3) When $n$ is even, $\textup{Kl}^{\textup{St}}_{\widehat{G},2}(1,\phi)$ over $\mathbb{G}_{m} \otimes_{k} \bar{k}$ is isomorphic to $\textup{Four}_{\psi}(\mathcal{L}_{\phi}[1])|_{\mathbb{G}_{m}^{\textup{rot}}}$, where $\mathcal{L}_{\phi}$ is the middle extension of a rank one local system on $\mathbb{A}^{1} - \{\lambda_1, \ldots, \lambda_n\}$ with monodromy $-1$ around each puncture $\lambda_i$.
+
+8.6 A mod $p$ Langlands parametrization in families for $F=\mathbb{Q}_{p}$
+
+In this subsection we continue to assume that $F=\mathbb{Q}_{p}$ with $p\geq 5$ .
+
+Recall the mod $p$ parametrization functor $P:\operatorname{Mod}(\mathcal{H}^{(1)}_{\overline{\mathbb{F}}_{p}})\rightarrow\operatorname{SP}_{\mathbf{\widehat{G}},0}$ from [PS] . For $\zeta\in\mathcal{Z}^{\vee}(k)$ , let $\operatorname{Mod}_{\zeta}(\mathcal{H}^{(1)}_{\overline{\mathbb{F}}_{p}})$ be the full subcategory of $\operatorname{Mod}(\mathcal{H}^{(1)}_{\overline{\mathbb{F}}_{p}})$ whose objets are the $\mathcal{H}^{(1)}_{\overline{\mathbb{F}}_{p}}$ -modules whose Satake parameter is supported on the closed subscheme $(V^{(1)}_{\mathbf{\widehat{T}},0}/W_{0})_{\zeta}\subset V^{(1)}_{\mathbf{\widehat{T}},0}/W_{0}$ . A $\mathcal{H}^{(1)}_{\overline{\mathbb{F}}_{p}}$ -module $M$ lies in the category $\operatorname{Mod}_{\zeta}(\mathcal{H}^{(1)}_{\overline{\mathbb{F}}_{p}})$ if and only if: $M$ is only supported in $\gamma$ -components where $\gamma|_{\mathbb{F}_{p}^{\times}}=\zeta|_{\mathbb{F}_{p}^{\times}}$ and the operator $U^{2}$ acts on $M$ via the $\mathbb{G}_{m}$ -part of $\zeta$ . Set $\operatorname{SP}_{\mathbf{\widehat{G}},0,\zeta}:=\operatorname{QCoh}((V^{(1)}_{\mathbf{\widehat{T}},0}/W_{0})_{\zeta})$ , the category of quasi-coherent modules on the $k$ -scheme $(V^{(1)}_{\mathbf{\widehat{T}},0}/W_{0})_{\zeta}$ . Then $P$ induces a mod $p$ $\zeta$ -parametrization functor 
+ 
+ $\textstyle{P_{\zeta}:\operatorname{Mod}_{\zeta}(\mathcal{H}^{(1)}_{\overline{\mathbb{F}}_{p}})\ignorespaces\ignorespaces\ignorespaces\ignorespaces}$ $\textstyle{\operatorname{SP}_{\mathbf{\widehat{G}},0,\zeta}.}$ 
+
+
+For $\zeta\in\mathcal{Z}^{\vee}(k)$ , also recall the category $\operatorname{LP}_{\mathbf{\widehat{G}},0,\zeta}:=\operatorname{QCoh}(X_{\zeta})$ of mod $p$ Langlands parameters with determinant $\omega\zeta$ from 8.2.5 ; it induces the functor 
+ 
+ $\textstyle{L_{\zeta*}:\operatorname{SP}_{\mathbf{\widehat{G}},0,\zeta}\ignorespaces\ignorespaces\ignorespaces\ignorespaces}$ $\textstyle{\operatorname{LP}_{\mathbf{\widehat{G}},0,\zeta}}$ 
+ push-forward along the $k$ -morphism $L_{\zeta}:(V^{(1)}_{\mathbf{\widehat{T}},0}/W_{0})_{\zeta}\rightarrow X_{\zeta}$ from 8.3.9 .
+
+Finally recall that for $\zeta\in\mathcal{Z}^{\vee}(k)$ , the functor of $I^{(1)}$ -invariants $(\cdot)^{I^{(1)}}:\operatorname{Mod}^{\rm sm}(k[G])\rightarrow\operatorname{Mod}(\mathcal{H}^{(1)}_{\overline{\mathbb{F}}_{p}})$ induces a functor 
+ 
+ $(\cdot)_{\zeta}^{I^{(1)}}:\operatorname{Mod}_{\zeta}^{\rm sm}(k[G])\rightarrow\operatorname{Mod}_{\zeta}(\mathcal{H}^{(1)}_{\overline{\mathbb{F}}_{p}}),$ 
+ by 8.3.5 .
+
+Definition. Let $\zeta\in\mathcal{Z}^{\vee}(k)$ . The mod $p$ $\zeta$ -Langlands parametrization functor is the functor 
+ 
+ $\operatorname{L_{\zeta}P_{\zeta}}:=L_{\zeta*}\circ P_{\zeta}:$ 
+ 
+ 
+ $\textstyle{\operatorname{Mod}_{\zeta}(\mathcal{H}^{(1)}_{\overline{\mathbb{F}}_{q}})\ignorespaces\ignorespaces\ignorespaces\ignorespaces}$ $\textstyle{\operatorname{LP}_{\mathbf{\widehat{G}},0,\zeta}.}$ 
+ Identifying $\zeta$ with a central character of $G$ , the functor $\operatorname{L_{\zeta}P_{\zeta}}$ extends to the category $\operatorname{Mod}_{\zeta}^{\rm sm}(k[G])$ by precomposing with the functor $(\cdot)_{\zeta}^{I^{(1)}}:\operatorname{Mod}_{\zeta}^{\rm sm}(k[G])\rightarrow\operatorname{Mod}_{\zeta}(\mathcal{H}^{(1)}_{\overline{\mathbb{F}}_{p}})$ : 
+ 
+ $\operatorname{L_{\zeta}P_{\zeta}}\circ(\cdot)_{\zeta}^{I^{(1)}}:$ 
+ 
+ 
+ $\textstyle{\operatorname{Mod}_{\zeta}^{\rm sm}(k[G])\ignorespaces\ignorespaces\ignorespaces\ignorespaces}$ $\textstyle{\operatorname{LP}_{\mathbf{\widehat{G}},0,\zeta}.}$ 
+
+
+The moduli stack $\textup{Bun}_{G}(\widetilde{{\mathbf{P}}}_{0},{\mathbf{P}}^{+}_{\infty})$ is characterized by the following data. First, a vector bundle $\mathcal{E}$ of rank $\dim M$ over $X=\mathbb{P}^{1}$ is equipped with a perfect symmetric bilinear pairing on its restriction $\mathcal{E}|_{X^{\circ}}$, inducing a rational map $\iota:\mathcal{E}\dashrightarrow\mathcal{E}^{\vee}$. This map exhibits a simple pole at $0$ with residue of rank $\dim M_{0}$ and a simple zero at $\infty$. Second, a filtration $F_{-1}\mathcal{E} \subset F_{0}\mathcal{E} \subset \cdots \subset F_{m-1}\mathcal{E} = \mathcal{E}$, with each graded piece $\textup{Gr}^{F}_{i}\mathcal{E}$ isomorphic to $M_{i}$, is extended by defining $F_{i+m}\mathcal{E} = F_{i}\mathcal{E}(\{\infty\})$. The requirement is that $F_{i}\mathcal{E}$ and $F_{2m-1-i}\mathcal{E}$ are in perfect duality around $\infty$ with respect to the quadratic form on $\mathcal{E}$, ensuring the induced pairing between $M_{i}$ and $M_{m-i}$ matches the one specified in § 8.1. Third, another filtration $F^{m}\mathcal{E} \subset F^{m-1}\mathcal{E} \subset \cdots \subset F^{0}\mathcal{E} = \mathcal{E}$ is defined, where $\textup{Gr}_{F}^{i}\mathcal{E}$ has dimension $\dim M_{i}$. This filtration is extended by setting $F^{i+m}\mathcal{E} = F^{i}\mathcal{E}(-\{0\})$, with the condition that $F^{i}\mathcal{E}$ and $F^{1-i}\mathcal{E}$ are in perfect pairing around $0$ under the quadratic form on $\mathcal{E}$. Lastly, a trivialization $\delta:\mathcal{O}_{X}\cong\det\mathcal{E}$ is specified such that $\delta^{\vee}\circ\det(\iota)\circ\delta = t^{-\dim M_{0}} \in k[t,t^{-1}] = \textup{Aut}_{X^{\circ}}(\mathcal{O}_{X^{\circ}})$, which is unique up to a sign.
+
+Taking the $a$-th perverse cohomology of both sides of equation (4.3), we obtain:
+
+$$
+{\vphantom{\textup{H}}}^{p}{\textup{H}}^{a}(\pi^{\natural}C_{1}\stackrel{{\scriptstyle\mathbf{I}_{0}}}{{*}}\pi^{\natural}C_{2})\cong\bigoplus_{i\geq 0}\pi^{\natural}{\vphantom{\textup{H}}}^{p}{\textup{H}}^{i}(C_{1}\stackrel{{\scriptstyle{\mathbf{P}}_{0}}}{{*}}C_{2})\otimes\textup{H}^{2a-i}({{\mathbf{P}}_{0}/\mathbf{I}_{0}})(a/2).
+$$
+
+For $i>0$, the corresponding term on the right-hand side resides in $\mathcal{N}$, and thus maps to zero in $\mathcal{P}_{\underline{c}}$ as previously established. Consequently, the object $\pi^{\natural}C_{1}\odot\pi^{\natural}C_{2}$, defined as the image of ${\vphantom{\textup{H}}}^{p}{\textup{H}}^{a}(\pi^{\natural}C_{1}\stackrel{{\scriptstyle\mathbf{I}_{0}}}{{*}}\pi^{\natural}C_{2})(a/2)$ in $\mathcal{Q}_{\underline{c}}$, coincides with the image of $\pi^{\natural}{\vphantom{\textup{H}}}^{p}{\textup{H}}^{0}(C_{1}\stackrel{{\scriptstyle{\mathbf{P}}_{0}}}{{*}}C_{2})\otimes\textup{H}^{2a}({{\mathbf{P}}_{0}/\mathbf{I}_{0}})(a)\cong\pi^{\natural}{\vphantom{\textup{H}}}^{p}{\textup{H}}^{0}(C_{1}\stackrel{{\scriptstyle{\mathbf{P}}_{0}}}{{*}}C_{2})$ in $\mathcal{P}_{\underline{c}}$. This is equivalent to the image of $C_{1}\circledast C_{2}\in\overline{\mathcal{P}}$ in $\mathcal{P}_{\underline{c}}$. Therefore, $\mathcal{P}_{\underline{c}}$ is closed under the operation $\odot$, and the quotient functor $\overline{\mathcal{P}}\to\mathcal{P}_{\underline{c}}$ is monoidal. ∎
+
+By definition of a block of a category as a certain equivalence class of simple objects [Pas13] , if $\pi\in b_{[\rho_{x}]}$ then in particular $\pi$ is simple. Then $\pi^{I^{(1)}}$ is simple too, and hence has a central character. Therefore $P_{\zeta}(\pi^{I^{(1)}})$ is the underlying $k$ -vector space of $\pi^{I^{(1)}}$ supported at the $k$ -point $v\in(V^{(1)}_{\mathbf{\widehat{T}},0}/W_{0})_{\zeta}$ corresponding to its central character under the isomorphism $\mathscr{S}^{(1)}_{\overline{\mathbb{F}}_{p}}$ , which lies on some connected component $\gamma$ . Suppose $\dim_{k}(\pi^{I^{(1)}})=2$ . Then $\pi^{I^{(1)}}$ is isomorphic to the simple standard module of $\mathcal{H}^{\gamma}_{\overline{\mathbb{F}}_{p}}$ with central character $v$ , i.e. to $\operatorname{ASph}^{\gamma}(v)$ , and hence $L_{\zeta}(v)=x$ by definition of the map of sets $L_{\zeta}(k)$ . Suppose $\dim_{k}(\pi^{I^{(1)}})=1$ . Then $\pi^{I^{(1)}}$ is one of the two antispherical characters of $\mathcal{H}^{\gamma}_{\overline{\mathbb{F}}_{p}}$ whose restriction to the center $Z(\mathcal{H}^{\gamma}_{\overline{\mathbb{F}}_{p}})$ is equal to $v$ , i.e. it is one of the simple constituents of $(\operatorname{ASph}^{\gamma}(v))^{\operatorname{ss}}$ , and hence again $L_{\zeta}(v)=x$ by definition of the map of sets $L_{\zeta}(k)$ . Now if $x$ is not an exceptional point in an odd case, then $L_{\zeta}$ is an open immersion at $v$ , and otherwise it has ramification index $2$ at $v$ . The theorem follows. ∎
+
+References
+
+[Be11] L. Berger,La correspondance de Langlands localep𝑝p-adique pourGL2​(ℚp)subscriptGL2subscriptℚ𝑝{\rm GL_{2}}(\mathbb{Q}_{p}), Astérisque339(2011), 157-180.
+[Br07] C. Breuil,Representations of Galois and ofGL2subscriptGL2{\rm GL_{2}}in characteristicp𝑝p, Course at Columbia University (2007),https://www.imo.universite-paris-saclay.fr/~breuil/PUBLICATIONS/New-York.pdf.
+[CEGS19] A. Caraiani, M. Emerton, T. Gee, D. Savitt,Moduli stacks of two-dimensional Galois representations, Preprint (2019), arXiv:1908.07019.
+[Em10] M. Emerton,Ordinary parts of admissible representations ofp𝑝p-adic reductive groups I. Definition and first properties, Asterisque 331 (2010), 335–381.
+[Em19] M. Emerton,LocalizingGL2​(ℚp)subscriptGL2subscriptℚ𝑝{\rm GL_{2}}(\mathbb{Q}_{p})-representations, Talk at Padova School on Serre conjectures and thep𝑝p-adic Langlands program 2019,https://mediaspace.unipd.it/channel/School+on+Serre+conjectures+and+the+p-adic+Langlands+program/119214951.
+[EG19] M. Emerton, T. Gee,Moduli stacks of étale(φ,Γ)𝜑Γ(\varphi,\Gamma)-modules and the existence of crystalline lifts, Preprint (2019) arXiv:1908.07185.
+[H11b] F. Herzig,The classification of irreducible admissible modp𝑝prepresentations of ap𝑝p-adicGLnsubscriptGLn{\rm GL_{n}}, Inventiones Math. 186(2), pages 373-434.
+[Pas13] V. Paškūnas,The image of Colmez’s Montreal functor, Publ. Math. Inst. Hautes Études Sci.118(2013), 1-191.
+[PS] C. Pépin, T. Schmidt,Generic and Modp𝑝pKazhdan-Lusztig Theory forG​L2𝐺subscript𝐿2GL_{2}, Preprint (2020) arXiv:2007.01364v1.
+[V04] M.-F. VignerasRepresentations modulop𝑝pof thep𝑝p-adic groupG​L​(2,F)𝐺𝐿2𝐹GL(2,F), Compositio Math. 140 (2004) 333-358.

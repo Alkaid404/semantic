@@ -1,0 +1,141 @@
+IIT-CAPP-11-04 
+ 
+ Prospects for Antiproton Experiments at Fermilab \textsuperscript{†} \textsuperscript{†} thanks: To appear in Proc. LEAP 2011, TRIUMF, Vancouver, BC, Canada, April 27–May 1, 2011.
+
+By Daniel M. Kaplan
+
+Abstract
+
+Fermilab manages the world's most powerful antiproton source. Future experiments could leverage these antiprotons, either during the Tevatron Collider's operation or post-collider program. For instance, the annihilation of 5 to 8 GeV antiprotons is anticipated to deliver leading-edge sensitivities to hyperon rare decays and CP violation. It could also serve as the globe's most intense source of tagged D^{0} mesons, providing the best short-term opportunity for studying charm mixing and, through CP violation, for seeking new physics. Other potential measurements include the properties of the X(3872) and the charmonium system. An experiment employing a Penning trap and an atom interferometer could deliver the world's most accurate measurement of the gravitational force on antimatter. These and other prospective measurements using antiprotons present a promising avenue for a diverse and exhilarating post-Tevatron physics program at Fermilab.
+
+
+1 Introduction
+
+Fermilab's Antiproton Source now produces over $1.5\times 10^{15}$ antiprotons annually, surpassing the intensity offered by the CERN Antiproton Decelerator (AD) and the anticipated intensity at the Facility for Antiproton and Ion Research (FAIR) in Darmstadt, Germany. According to Table 1, this production significantly outpaces the available intensity. Post-Tevatron operation, an internal target could be activated in the Fermilab Antiproton Accumulator, similar to its use for Experiments 760 and 835, enabling fixed-target experimentation with beam kinetic energy ranging approximately from 3.5 to 8 GeV. With antiproton stacking occurring 10-20% of the time, a sustained luminosity of $2\times 10^{32}\,{\rm cm}^{-2}{\rm s}^{-1}$ could be achieved during the remaining 80%. This program could facilitate leading studies of hyperon rare decays and CP violation, the $X(3872)$ and other enigmatic states in the charmonium region, and the charmonium system. Although the open-charm production cross section at these energies has yet to be measured, world-leading studies of charm mixing, rare decays, and CP violation may also be feasible. For a more comprehensive discussion, refer to the “New pbar Experiments for Fermilab” website.
+
+
+2 Hyperon CP violation and rare decays
+
+CP violation (CPV) in the decay of hyperons is expected to occur at the 10^-5 level in the Standard Model, and this can be amplified by one or two orders of magnitude in models that incorporate new physics (refer to Table 2). Searches for CPV in hyperons are complementary to studies of the $K^0$ and beauty systems, as hyperon and $K^0$ CPV probe new-physics phases in parity-conserving (violating) currents, respectively. The most sensitive experiment to date, HyperCP (Fermilab E871), has yielded the result $A_{\Xi\Lambda} = (-6.0 \pm 2.1 \pm 2.1) \times 10^{-4}$. The experimental sensitivity has now reached a few times 10^-4 in the decay chain $\Xi^{\mp} \to \overline{\Lambda} \pi^{\mp} \to \overline{p} \pi^{\mp} \pi^{\mp}$.
+
+
+HyperCP also observed for the first time the flavor-changing neutral-current decay $\Sigma^{+}\to p\mu^{+}\mu^{-}$ (14) . The three observed events displayed a surprisingly narrow dimuon-mass distribution, suggesting the possibility of a new pseudoscalar or axial-vector resonance as an intermediate state: $\Sigma^{+}\to pP^{0},$ $P^{0}\to\mu^{+}\mu^{-}$ , with $P^{0}$ mass of $(214.3\pm 0.5)$ MeV/ $c^{2}$ (14) . Such a state could not be an ordinary meson, but could arise in models with new physics (15) . Given the small number of observed events, the effect could alternatively be a $\approx$ 2.4 $\sigma$ fluctuation of the Standard Model virtual-photon coupling.
+
+To carry out experiments with a significantly greater number of hyperon statistics than HyperCP, it is necessary to devise new methods, as this cannot be achieved in any currently operating or approved experiment. One proposed approach is to use the fixed-target running of the Antiproton Accumulator, with its beam decelerated to just above the ${\overline{p}}p\to\Omega^{-}{\overline{\Omega}}{}^{+}$ threshold (as shown in Table 3). Such a 1-year run at a luminosity of $2\times 10^{32}\,{\rm cm}^{-2}{\rm s}^{-1}$ would yield approximately $10^{8}$ pairs of $\Omega^{-}{\overline{\Omega}}{}^{+}$, providing statistical sensitivities of approximately $7.8\times 10^{-5}$ and $1.3\times 10^{-4}$ for the CP-violating observables $\Delta_{\Lambda K}$ and $\Delta_{\Xi\pi}$, respectively. These observables are defined as follows:
+
+  $\displaystyle\Delta_{\Lambda K}$ $\displaystyle\equiv$ $\displaystyle\frac{\Gamma(\Omega^{-}\to\Lambda K^{-})-\Gamma({\overline{\Omega}}{}^{+}\to{\overline{\Lambda}}K^{+})}{\Gamma(\Omega^{-}\to\Lambda K^{-})+\Gamma({\overline{\Omega}}{}^{+}\to{\overline{\Lambda}}K^{+})}$
+
+  $\displaystyle\Delta_{\Xi\pi}$ $\displaystyle\equiv$ $\displaystyle\frac{\Gamma(\Omega^{-}\to\Xi^{0}\pi^{-})-\Gamma({\overline{\Omega}}{}^{+}\to{\overline{\Xi}}{}^{0}\pi^{+})}{\Gamma(\Omega^{-}\to\Xi^{0}\pi^{-})+\Gamma({\overline{\Omega}}{}^{+}\to{\overline{\Xi}}{}^{0}\pi^{+})}$
+
+While estimates of systematic uncertainties are still underway, it is anticipated that the uniquely clean environment of ${\overline{p}}p$ annihilation just above threshold will allow measurements at the $10^{-4}$ level, as suggested by (16).
+
+
+To further investigate the $2\sigma$ indication of CPV in the decay $\Xi^{\mp}\to\Lambda\pi\to p\pi\pi$ (Equation 13), it would be beneficial to slow down antiprotons to a level slightly above the $\Xi^{-}{\overline{\Xi}}{}^{+}$ threshold. This could be achieved in the Accumulator, but the efficiency of this process is uncertain. The E835 collaboration employed the "snowplow" technique to readjust the lattice while decelerating, to minimize transition-induced beam losses (Reference 17). However, the applicability of this method at such low energies (Table 3) is uncertain and can only be determined once the Tevatron run concludes, enabling necessary tests.
+
+
+3 Measurements in the charmonium region
+
+The Fermilab Antiproton Source was used in experiments E760 and E835 to achieve the world's most precise measurements of charmonium masses and widths. This precision, below 100 keV, was attainable due to the small energy spread of the stochastically cooled antiproton beam, the absence of Fermi motion, and negligible energy loss in the H\textsubscript{2} cluster-jet target. Despite extensive charmonium studies, several questions persist, including the nature of the enigmatic $X(3872)$ state and improved measurements of $h_{c}$ and $\eta^{\prime}_{c}$ parameters. The $X$'s width may be smaller than 1 MeV. The ${\overline{p}}p$ energy-scan technique's unique precision is perfectly suited for making the precise mass, lineshape, and width measurements needed to test the intriguing hypothesis that the $X(3872)$ is a $D^{*0}\overline{D}{}^{0}$ molecule. As depicted in Fig. 1, in the molecular hypothesis, the $X(3872)$'s lineshape will be distinctive and depend on decay mode. For optimal $\sqrt{s}$ resolution, these measurements will necessitate the use of a hydrogen target, either an improved version of the E835 gas jet or a windowless, frozen-hydrogen target.
+
+
+The cross section of the $X(3872)$ in ${\overline{p}}p$ annihilation remains unmeasured but is estimated to be comparable to that of the $\chi_{c}$ states. Based on extrapolation from E760, approximately 500 events would be observed daily in the $X(3872) \to \pi^{+}\pi^{-}J/\psi$ decay mode at the peak of the $X(3872)$. Due to the uncertainties in the cross section and branching ratios, this estimate might underestimate or overestimate the formation and observation rates in ${\overline{p}}p$ collisions by as much as an order of magnitude. However, a potential new experiment at the Antiproton Accumulator could potentially generate the largest clean samples of $X(3872)$ in as little as a month of operation. Although CDF and DØ are accumulating samples of around 10,000 $X(3872)$ decays, the high backgrounds in their observations limit their effectiveness. In a few months of operation, hundreds to thousands of observed events are expected in all known decay modes, with many more previously unidentified decay modes likely to be observed as well. The experiment will also allow for the study of the angular distributions of both known and unknown decay modes. The high statistics, clean events, and exceptional precision offered by the ${\overline{p}}p$ formation technique could result in the world's smallest systematics. This experiment could, therefore, provide a conclusive test of the nature of the $X(3872)$.
+
+
+4 Charm mixing, CP violation, and rare decays
+
+After a $>$ 20-year search, $D^{0}$ – ${\overline{D}}{}^{0}$ mixing is now established at $>$ 10 standard deviations (Fig. 2 ) (28) , thanks to the $B$ factories and CDF. The level of mixing ( $\sim$ 1%) is consistent with the wide range of Standard Model predictions (30) ; however, this does not preclude a significant and potentially detectable contribution from new physics (31) . Since some new-physics models predict differing effects in the charge-2/3 (“up-type”) and –1/3 quark sectors (31) , it is important to carry out such studies not only with $s$ and $b$ hadrons, but with charm mesons as well — the only up-type system for which meson mixing can be measured.
+
+The cross section for charm production when 8 GeV antiprotons collide with proton or nucleon targets is difficult to compute using fundamental principles. However, recent theoretical estimates suggest values within the range of 1 to 10 microbarns (μb). This is a significant value, as our proposed experiment could generate a sample ten times larger than those produced by the B factories, well before the super-B factories achieve similar sensitivities. For instance, calculations based on models predict an exclusive cross section of about 1 μb for the reaction $\overline{p}p\to D^{*0}{\overline{D}}{}^{0}$ at a center-of-mass energy of approximately 4.2 GeV (35). This corresponds to antiprotons with a kinetic energy of 8 GeV, striking a stationary target. At a luminosity of $2\times 10^{32}$ cm \textsuperscript{-2} s \textsuperscript{-1} , this would result in around $4\times 10^{9}$ events produced per year. In addition to $D^{*\pm}D^{\mp}$ , $D^{*}\overline{D}{}^{*}$ , $D\overline{D}$ , $D\overline{D}\pi$ ,… events, the total charm sample would be even larger. Moreover, using a target nucleus heavier than hydrogen could increase the statistics further by a factor of a few due to the charm-production A-dependence (38). Consequently, the total sample could significantly surpass the $10^{9}$ events currently available at the B factories. In fact, we project in Table 4 more than $10^{10}$ tagged-$D^{0}$ events produced per year of running.
+
+
+Limiting primary interactions to approximately 10 micrometers along the beam direction enables the use of thin wires or frozen-hydrogen targets for resolving $D$ decays. The low charged multiplicity at these energies (40) results in minimal combinatorial background, allowing for the collection of clean samples using only modest vertex cuts, thereby ensuring high efficiency. Consequently, medium-energy $\overline{p}p$ or $\overline{p}N$ annihilation could be the most effective method for studying charm mixing and for searching for potential new-physics contributions via the distinct signature (31) of charm CPV.
+
+
+4.1 ${D^{0}}$ mixing
+
+Observations of several signatures for $D^{0}$ – ${\overline{D}}{}^{0}$ mixing suggest that it lies at the upper end of the SM's expected range (40). These signatures include the time-dependent behaviors of "right-sign" Cabibbo-favored and "wrong-sign" $D^{0}$ decays, differing lifetimes of decays to CP-even and mixed-CP final states, and Dalitz-plot analyses of 3-body $D^{0}$ decays. Sensitive to various combinations of the reduced mixing parameters $x\equiv\Delta m/\Gamma$ and $y\equiv\Delta\Gamma/2\Gamma$, these processes might be indicative of CP violation if new physics is contributing significantly or dominantly.
+
+
+Drawing parallels between the B factory $D$ samples and our proposed experiment, we expect to conduct mixing analyses with enhanced sensitivity compared to previous achievements. Table 4 presents a sensitivity calculation example for $D^{*}$ -tagged $D^{0}\to K\pi$ decays. Our sensitivity in semileptonic decays is contingent on the efficiency and purity of lepton identification, which we have yet to simulate. In hadronic modes, we could potentially emerge as the most sensitive experiment globally, surpassing B factory statistics by a factor of 10 or more, and potentially in semileptonic modes as well. LHC $b$ might attain comparable or exceeding statistical sensitivities in their charm-triggered and reconstructed experiments, but we anticipate they will encounter significant systematic uncertainties for minute ( $\stackrel{{\scriptstyle<}}{{{}_{\sim}}}10^{-3}$ ) charm CPV asymmetries. We will encounter biases that require correction, but these will differ significantly from LHC $b$'s due to factors such as CP-symmetric initial state, absence of $B$ background, and lower charged multiplicities. It is crucial to have independent supporting evidence for these subtle measurements, evidence that both we and LHC $b$ can provide.
+
+
+5 Proposed apparatus
+
+The studies on medium-energy antiproton annihilation described above can all be performed using a single, cost-effective apparatus. This apparatus can be quickly assembled due to the availability of key existing components, including a barrel electromagnetic lead-glass calorimeter from E760/835, a thin superconducting solenoid from BESS, the DØ scintillating-fiber readout system, and trigger and data-acquisition electronics from both DØ and CDF. By incorporating a small, high-rate TPC, new, thin, fine-pitch scintillating-fiber planes, and picosecond time-of-flight detectors currently in development, this apparatus can be transformed into a highly versatile spectrometer for low-multiplicity hadronic events produced by ${\overline{p}}p$ or ${\overline{p}}N$ annihilation in this energy range (Fig. 3).
+
+
+5.1 Targets
+
+While the previous Fermilab Antiproton Source experiments E760 and E835 used internal gas-jet targets, a simpler approach is to use solid targets in the Antiproton Accumulator beam halo à la HERA-B (47) . Thin metal wire targets can serve to localize the production vertex, thereby facilitating charm-event identification via decay-vertex reconstruction. However, some of the proposed physics topics benefit from the elimination of Fermi motion and minimal beam energy loss provided by a hydrogen target. In particular, scanning of the beam energy across the resonance for precision determination of charmonium and $X(3872)$ masses and widths requires a hydrogen target. This can be accommodated by use of a windowless frozen target (24) , based on successful experience with previous designs (25) .
+
+Further details of the proposed TAPAS experiment may be found in the proposal (48) .
+
+6 Antihydrogen measurements
+
+Antihydrogen (${\overline{\rm H}}$) is produced when relativistic antiprotons collide with matter, primarily through electron-positron pair production in the vicinity of the nucleus. The Fermilab E862 experiment detected 99 antihydrogen atoms, generated via the E835 hydrogen cluster-jet target, with zero background, and confirmed the predicted production rate (49). Additionally, a method to measure the energy levels of ${\overline{\rm H}}$ while in motion has been proposed (50). Such measurements can be made incidentally whenever antiprotons are present in the Accumulator. In preparation for this type of program, a thin, gold-plated carbon foil was recently installed in the Accumulator to confirm the expected production rate and evaluate the feasibility of the proposed program.
+
+
+Measuring the gravitational acceleration of antimatter in the field of the Earth is a unique test of the weak equivalence principle of General Relativity (51) . The rate of fall of slow $\overline{\rm H}$ atoms can be measured quite precisely using an atom interferometer, with precision $\Delta g/g\sim 10^{-4}$ using matter gratings and $\sim 10^{-9}$ with laser techniques, and methods to decelerate and trap antiprotons at Fermilab in order to form the needed slow- $\overline{\rm H}$ beam have been described (52) .
+
+7 Outlook
+
+A proposed reconfiguration of the Debuncher and Accumulator rings in the Antiproton Source aims to produce the muon and proton beams necessary for the $g-2$ and Mu2e experiments at Fermilab. The $g-2$ configuration can be compatible with continuous antiproton running, which requires the Accumulator at all times but only the Debuncher for 10 to 20 percent of the time (during antiproton stacking). On the other hand, $g-2$ necessitates the Debuncher constantly (as a $\pi$-to-$\mu$ decay channel) but not the Accumulator. Conversely, the planned Mu2e configuration is incompatible with antiproton running. However, the anticipated 2018 start of Mu2e leaves a several-year window for antiproton operation.
+
+
+Although the TAPAS proposal has not yet received approval at Fermilab, efforts are underway to fortify the collaboration and the proposal itself to improve its chances of being accepted. The hope is that assembly and development of the necessary equipment, software, and firmware can begin shortly following the anticipated conclusion of the Tevatron run in September 2011. Data collection might start as early as 2014. The advancement of the AGE proposal is on hold until the demonstration (in the Raizen lab at UT Austin) of the beam-stopping technique required for a resolution of $10^{-9}$.
+
+
+References
+
+(1) R. Pasquinelliet al., “Progress in Antiproton Production at the Fermilab Tevatron Collider,” PAC09, paper TU6PFP075 (2009).
+(2) J. Tandean, G. Valencia, Phys. Rev. D67, 056001 (2003).
+(3) J. Tandean, Phys. Rev. D70, 076005 (2004).
+(4) J. Tandean, G. Valencia, Phys. Lett. B451, 382 (1999).
+(5) D. Chang, X.-G. He, and S. Pakvasa, Phys. Rev. Lett.74, 3927 (1995).
+(6) X.-G. He, H. Murayama, S. Pakvasa, G. Valencia, Phys. Rev. D61, 071701(R) (2000).
+(7) J. Tandean, private communication.
+(8) “New Pbar Experiments at Fermilab” web page,http://capp.iit.edu/hep/pbar/.
+(9) R. A. Burnsteinet al.[HyperCP Collaboration], Nucl. Instrum. Meth. A541, 516 (2005).
+(10) T. Johansson, inProc. Eighth Int. Conf. on Low Energy Antiproton Physics (LEAP ’05), Bonn, Germany, 16–22 May 2005, AIP Conf. Proc.796, 95 (2005).
+(11) C. Baltayet al., Phys. Rev.140, B1027 (1965).
+(12) High-Energy Reactions Analysis Group, report CERN-HERA-84-01 (1984).
+(13) C. Materniak, presented atEighth Int. Conf. on Hyperons, Charm and Beauty Hadrons (BEACH08), Columbia, SC, 22–28 June 2008,http://beach2008.sc.edu/includes/documents/sessions/materniak.talk.pdf; C. Materniaket al., to be submitted to Phys. Rev. Lett.
+(14) H. K. Parket al.[HyperCP Collaboration], Phys. Rev. Lett.94, 021801 (2005).
+(15) See e.g. X.-G. He, J. Tandean, G. Valencia, Phys. Lett. B631(2005) 100; N. G. Deshpande, G. Eilam, J. Jiang, Phys. Lett. B632(2006) 212.
+(16) N. Hamannet al.[CP-Hyperon Study Group], report CERN/SPSLC 92019, SPSLC/M491, 30 March 1992.
+(17) D. P. McGinnis, G. Stancari, S. J. Werkema, Nucl. Instrum. Meth. A506, 205 (2003).
+(18) E. Braaten and J. Stapleton, Phys. Rev. D81, 014019 (2010).
+(19) T. A. Armstronget al.[E760 Collaboration], Phys. Rev. D47, 772 (1993).
+(20) M. Andreottiet al.[E835 Collaboration], Phys. Lett. B654(2007) 74.
+(21) E. Eichten, K. Lane, and C. Quigg, Phys. Rev. D73, 014014 (2006); Erratum-ibid.73, 079903 (2006).
+(22) N. Brambillaet al.[Quarkonium Working Group],Heavy Quarkonium Physics, CERN Yellow Report CERN-2005-005 (2005).
+(23) N. A. Tørnqvist, Phys. Lett. B590(2004) 209.
+(24) S. Ishimoto, private communication.
+(25) S. Ishimotoet al., Nucl. Instrum. Meth. A480, 304 (2002); S. Ishimotoet al., “Thin Windowless Solid Hydrogen Target,” RCNP-Prog-Report-426, Research Center for Nuclear Physics, Osaka Univ.
+(26) E. Braaten, Phys. Rev. D73, 011501R (2006).
+(27) E. Braaten, Phys. Rev. D77, 034019 (2008).
+(28) Heavy-Flavor Averaging Group,http://www.slac.stanford.edu/xorg/hfag/.
+(29) M. E. Mattson, “Precision measurements of CP violation andD0superscript𝐷0D^{0}–D¯0{\overline{D}}{}^{0}mixing at CDF,” presented at35th Int. Conf. on High Energy Physics, Paris, France, July 22–28, 2010,http://indico.cern.ch/contributionDisplay.py?contribId=1082&confId=73513.
+(30) See e.g. I. I. Bigi and N. Uraltsev, Nucl. Phys.  B592, 92 (2001).
+(31) I. I. Bigi, “No Pain, No Gain – On the Challenges and Promises of Charm Studies,” presented at Charm09, Leimen, Germany, May 2009, arXiv:0907.2950 [hep-ph].
+(32) See e.g. Y. Grossman, A. L. Kagan, Y. Nir, Phys. Rev. D75, 036008 (2007).
+(33) M. Kotullaet al.[P¯¯P\overline{\rm P}ANDA Collaboration], Letter of Intent (2004).
+(34) E. Eichten and C. Quigg, private communication.
+(35) Using Eq. 5 of Ref.Braaten-X-3872, we obtain 1.3μ𝜇\mub.
+(36) A. I. Titov and B. Kämpfer, Phys. Rev. C78, 025201 (2008).
+(37) A. Titov, private communication.
+(38) M. J. Leitchet al., Phys. Rev. Lett.72, 2542 (1994).
+(39) C. Lourenço, H. K. Wöhri, Phys. Rep.433(2006) 127–180.
+(40) K. Nakamuraet al.[Particle Data Group], J. Phys. G37, 075021 (2010).
+(41) See e.g. A. A. Petrov, arXiv:0806.2498 [hep-ph], and references therein.
+(42) See e.g. Sec. 3.9 of M. Artuso, G. Buchalla,et al., Eur. Phys. J. C57, 309–492 (2008).
+(43) L. Bartoszeket al.[E760 Collaboration], Nucl. Instrum. Meth. A301, 47 (1991).
+(44) Y. Makidaet al., Adv. Cryo. Eng.37A, 167 (1992); Y. Makidaet al., IEEE Trans. Appl. Supercond.5, 174 (1995).
+(45) M. Elliset al., “The design, construction, and performance of the MICE scintillating fibre trackers,” Nucl. Instrum. Meth. A, in press, doi:10.1016/j.nima.2011.04.041; A. Brosset al., Nucl. Instrum. Meth. A477, 172 (2002).
+(46) H. Frisch, Univ. of Chicago, private communication.
+(47) K. Ehret, Nucl. Instrum. Meth. A446, 190 (2000).
+(48) L. Bartoszeket al.[TAPAS Collaboration222TAPAS and AGE Collaborations: Arizona: A. Cronin; Bartoszek Eng.: L. Bartoszek; CEA Saclay: P. Colas, I. Giomataris; Duke: T J. Phillips; Fermilab: G. Apollinari, D. R. Broemmelsiek, C. N. Brown, D. C. Christian, P. Derwent, K. Gollwitzer, A. Hahn, P. Kasper, J. Lewis, V. Papadimitriou, G. Stancari, M. Stancari, R. Stefanski, J. T. Volk, S. Werkema, W. Wester, H. B. White, G. P. Yeh; Ferrara: W. Baldini; First Point: R. G. Greaves; Genoa: M. Macri, M. Marinelli; Hbar Tech.: G. P. Jackson; Houston: K. Lau; IIT Chicago: P. W. Johnson, D. M. Kaplan, T. J. Roberts, J. Terry, Y. Torun, C. G. White; IIT Hyderabad: A. Giri; ITEP Moscow: A. Drutskoy; KSU: G. A. Horton-Smith, B. Ratra; Korea: B. R. Ko; KyungPook: H. K. Park; Lebedev Inst.: O. Piskunova; Longwood: T. Holmstrom; Luther Coll.: T. K. Pedlar; Michigan: H. ,R. Gustafson; Moscow State: M. Merkin; NASA MSFC: J. B. Pearson; NIU: M. Fortner; Northwestern: J. Rosen; Notre Dame: M. Wayne; Oxford: F. Azfar; PNNL: D. M. Asner; SMU: T. Coan; St. Xavier: A. Chakravorty; Texas: M. G. Raizen; Uppsala: T. Johansson], “Proposal 986: Medium-Energy Antiproton Physics with The Antiproton Annihilation Spectrometer (TApAS) at Fermilab,”http://www.fnal.gov/directorate/program_planning/Nov2010PACPublic/986_TApAS_Proposal_2010_11_10.pdf; see alsowebsite.
+(49) G. Blanfordet al., Phys. Rev. Lett.80, 3037 (1998).
+(50) G. Blanfordet al., Phys. Rev. D57, 6649 (1998).
+(51) M. Fischler, J. Lykken, T. Roberts, “Direct observation limits on antimatter gravitation,” FERMILAB-FN-0822-CD-T, arXiv:0808.3929 [hep-th] (2008); M. M. Nieto, J.T. Goldman, “The Arguments against ‘antigravity’ and the gravitational acceleration of antimatter,” Phys. Rept.205, 221 (1991).
+(52) A. D. Croninet al.[AGE Collaboration22footnotemark:2], “Letter of Intent: Antimatter Gravity Experiment at Fermilab,” February 3, 2009.

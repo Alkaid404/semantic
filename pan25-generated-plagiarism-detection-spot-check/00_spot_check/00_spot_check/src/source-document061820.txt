@@ -1,0 +1,139 @@
+Dissipative Landau–Zener Tunneling at Marginal Coupling
+
+By A. V. Shytov
+
+Abstract
+
+The Landau–Zener transition in a two level system can be suppressed or enhanced by coupling to an environment, depending on the temperature and the environment spectral function. We consider the marginal spectral function, when the dissipation effects are important for arbitrarily slow motion. Landau–Zener transition rate demonstrates a non-trivial dependence of the on the “bias”, i. e., on the rate of the two energy levels relative motion. The Landau–Zener transition is fully suppressed for the values of the bias below a threshold bias set by the coupling strength. Above the threshold, the transition rate for zero temperature is found using the instanton method. At finite temperature, the Landau–Zener transition rate has a non-monotonic dependence on the coupling strength, being suppressed at the strong coupling.
+
+Introduction. The Landau–Zener problem [1] deals with non-adiabatic transition in a two-state system under external bias. Physical examples include current states in small metallic loops [2] , spin tunneling in magnetic molecules [3] , Andreev states in SNS junctions [4] , slow atomic and molecular collisions [5] , electron transfer in biomolecules [6] . Real-world two-state systems are typically coupled to the environment, and this coupling may lead to different physical effects. This coupling provides dissipation and slows the tunneling down. On the other hand, thermal noise in the environment may cause non-adiabatic transition. The competition between these two effects makes the problem of dissipative Landau–Zener tunneling very interesting.
+
+Also, the Landau–Zener tunneling is of interest in the context of quantum computing, because it describes the adiabatic flip of a qubit. During the process of the flip, the qubit is in a superposition of the pure “on” and “off” states and thus may be very sensitive to environmental noise. Thus, the problem of dissipative Landau–Zener tunneling may be important for the physical implementation of the qubit.
+
+Previous works on the dissipative Landau–Zener tunneling treated the problem either perturbatively or phenomenologically [2] . Perturbative treatment, however, is insufficient for adiabatic limit, because it poses too strong limitations on coupling strength. Phenomenological approach is satisfactory only for high temperatures. Also, previous works focused primarily on the case of Ohmic coupling which is critical for equilibrium tunneling [11] . We will argue that the dissipation is relevant for Landau–Zener problem when the coupling constant $\alpha$ has the same dimension as the velocity of levels relative motion $\nu$ . (We call the latter bias in the following.) We call this coupling marginal . (A physical example of such coupling is an SNS junction with two Andreev states [4] connected to resistor.) It turns out that the tunneling is blocked if the bias is small: $\nu<\alpha$ . For larger bias, we derive an instanton solution describing dissipative Landau–Zener tunneling at low temperatures and find the tunneling probability:
+
+where $\Delta$ is the energy gap, $\nu$ is the bias, and $\alpha$ is the coupling strength. In the high temperature limit ( $T\gg\hbar\Delta/2\nu$ ) we derive master equation which takes into account both thermal noise and dissipation. This equation solves the problem for all temperatures larger than the crossover temperature, and can also incorporate non-equilibrium noise.
+
+Model. It is conventional to represent the two states of Landau–Zener model using the spin 1/2 basis. The Hamiltonian is
+
+where $\nu$ is the bias, $\Delta$ is the energy gap, and $\sigma_{x,z}$ are Pauli matrices. The term $\hat{H}_{c}$ describes the coupling to the environment with Hamiltonian $\hat{H}_{env}$ .
+
+If the coupling $\hat{H}_{c}$ is negligible, the model can be solved exactly [1] , and the non-adiabatic transition probability is $w=\exp(-\pi\Delta^{2}/\nu)$ . In the adiabatic limit, $\nu\ll\Delta^{2}$ , the “adiabatically frozen” eigenvalues are:
+
+The characteristic time of tunneling is $\tau_{0}=\Delta/\nu$ .
+
+Following [11] , we model the environment by a set of oscillators with coordinates $\hat{x}_{i}$ and momenta $\hat{p}_{i}$ :
+
+and couple the environment to the spin linearly:
+
+We consider here only the diagonal coupling which is the main source of dephasing. The effect of environment depends only on the spectral function:
+
+Without the loss of generality, in the limit of small $\omega$ one can consider power-like spectral functions: $J(\omega)=\alpha_{s}\omega^{s}$ . To estimate the effect of dissipation, we look at the dimensionless ratio $\eta=\alpha_{s}/(\nu\tau_{0}^{s+1})$ , which gives the measure of the dissipation with respect to the bias $\nu$ . In the adiabatic limit, when $\tau_{0}$ is large, the dissipation is weak ( $\eta\ll 1$ ) for $s>-1$ , and strong otherwise. The marginal situation arising when $J=\alpha/\omega$ is a subject of this work.
+
+Marginal coupling describes, e. g., single–channel SNS junction [4] connected in series to the resistor. There are two Andreev states in the junction. The dynamics of these states is governed by the Hamiltonian
+
+where $\phi(t)$ is the superconducting phase difference across the junction, $\Delta_{0}$ is the superconducting gap in the leads, and $\tau$ is the channel transmission coefficient. Let $V$ is voltage drop across the whole circuit, and $V_{R}(t)$ is the voltage drop across the resistor. Then, the phase difference is:
+
+In the vicinity of the point $\phi=\pi$ , where the energy difference of the two states is minimal, one may expand $H_{SNS}$ in $\phi$ . If there were no resistor, the system then would be described by Landau–Zener model. To see what is the effect of the resistor, consider voltage fluctuations. According to quantum Nyquist formula, the voltage $V_{R}$ fluctuates at zero temperature as $\langle V_{R,\omega}V_{R,-\omega}\rangle\sim R\omega$ , where $R$ is the resistance, and $\omega$ is the frequency. Thus, phase fluctuations are:
+
+Comparing this correlation function to $\langle X_{\omega}X_{-\omega}\rangle$ , one may see that the circuit is described by Landau–Zener model with marginal dissipation. The parameters are identified as:
+
+There are two regimes of tunneling for different values of environment temperature $T$ . For $T\gg\hbar\Delta/\nu$ the tunneling is thermally assisted, and the tunneling probability obeys Arrhenius law: $w\sim\exp(-2\Delta/T)$ . For low temperatures, the tunneling is due to non-adiabaticity, and the probability saturates at $T\to 0$ . We consider these regimes separately.
+
+Quantum regime. At low temperatures, we treat the nonequilibrium problem by the Keldysh technique [12] . We introduce two time contours describing evolution of wave function and its complex conjugate. Standard contours going along the real time axis are inappropriate for the problem in question because the exponentially small adiabatic transition probability results from a delicate destructive interference of many oscillating contributions. We move Keldysh contours away from the real axis to avoid oscillating terms. Our choice of contours is similar to [14] , where it was used in the context of exciton autolocalization. To illustrate the use of contours, consider the tunneling for $\alpha=0$ . The transition probability is $w=\exp(-S_{0})$ , with the action $S$ given by [15] :
+
+The integral is taken from any point $t_{1}$ on the real axis to $i\tau_{0}$ , where the adiabatic energy $\epsilon(t)$ has a square root singularity. The two adiabatic states correspond to the branches $\epsilon_{\pm}(t)$ , i. e., to the two different sheets of the Riemann surface.
+
+The result ( 11 ) may be represented using Keldysh contours shown on Fig. 1 (a). In the Keldysh formalism, the forward contour always goes from $t=-\infty$ on the real axis, where the initial state is prepared, to $t=+\infty$ where the final state is measured. We draw the contour through the branching point $t=i\tau_{0}$ . At this point the two energies $\epsilon_{+}(t)$ and $\epsilon_{-}(t)$ coincide, hence the adiabaticity is violated, and the transition occurs. It means that we change the branch $\epsilon_{-}(t)\to\epsilon_{+}(t)$ , and continue the contour on another sheet of Riemann surface. Then, the contour goes back to the real axis, and then to $t=+\infty$ . The backward contour is a complex conjugate of the forward contour. In the adiabatic approximation, the segments parallel to the real axis give no contribution to the imaginary part of the action, and thus one may connect vertical segments into a single contour $C$ (see Fig. 1 (b)). In this representation, the action ( 11 ) is given by
+
+It turns out that the problem with $\alpha\neq 0$ has a solution of a similar structure: there is a square root singularity at some point $t=i\tau_{\alpha}$ in the complex plane, and the branch is changed when the contour passes this point. In this case, the branching point $i\tau_{\alpha}$ has to be found self-consistently. We derive the effective action on the contour $C$ , look for an instanton solution and find $\tau_{\alpha}$ from equations of motion. Let us introduce a field $\Phi(t)=\nu t+X(t)$ , so that the energy of the spin is $\sqrt{\Delta^{2}+\Phi^{2}(t)}$ . Thus, the two-level system action is
+
+(The Berry phase is neglected here since the “magnetic field” acting on the spin is always in the $xz$ –plane). The dynamics of the environment is described by $S_{env}+S_{\lambda}$ , where
+
+and the term $S_{\lambda}$ enforces the constraint $\dot{\Phi}-\dot{X}=\nu$ :
+
+We integrate out $\Phi(t)$ and $x_{i}(t)$ in the saddle-point approximation and find the effective action in terms of the Lagrange multiplier $\lambda(t)$ :
+
+The solution describing Landau–Zener tunneling has different signs on different sheets of the Riemann surface: $\lambda(t-0)=-\lambda(t+0)$ . Taking a saddle point with respect to $\lambda(t)$ , one arrives to the equation of motion:
+
+For $\alpha=0$ the solution is $\lambda_{0}(t)=\sqrt{\tau_{0}^{2}+t^{2}}$ . Interestingly, the integral in ( 18 ) with $\lambda=\lambda_{0}(t)$ is constant for $t\in[-i\tau_{0};i\tau_{0}]$ , and the r.h.s. of ( 18 ) preserves its form. Thus, one may look for the solution of the form $\lambda(t)=\sqrt{\tau_{\alpha}^{2}+t^{2}}$ . From Eq. ( 18 ) one finds $\tau_{\alpha}=\Delta/(\nu-\alpha)$ . Substituting it into ( 16 ), one obtains the action
+
+and the tunneling probability $\exp(-S)$ given by Eq. ( 1 ).
+
+This solution gives an instanton for $\nu>\alpha$ . Otherwise, for $\nu<\alpha$ , there is no saddle point solution and the tunneling is impossible. This happens because the friction force is larger than the bias, and the energy put into the system by the bias source, is fully dissipated into the environment. Because of that, there is no level crossing, even at complex times. The tunneling time $\tau_{\alpha}$ diverges at $\nu=\alpha$ . Because of that, the dynamics far from level crossing point becomes essential. The linear approximation on which Eq. ( 2 ) is based may break down. Also, for $\nu\simeq\alpha$ , the tunneling time may be comparable to the time $t_{\infty}$ when the system is prepared and measured. Thus, the Landau–Zener problem makes no sense for $\nu$ too close to $\alpha$ . The behaviour of the system is determined by the details of the dynamics far from the avoided crossing point.
+
+In the perturbative regime, $\alpha\ll\nu$ , the action ( 19 ) can be expanded in $\alpha$ :
+
+This result contradicts to Ao et al., [9] , who found an $\alpha$ –independent tunneling probability. We believe that the result [9] is incorrect because of improper choice of shakeup force $\zeta(t)$ that does not describe tunneling.
+
+The above solution shows that at $T=0$ the environment effect is purely dissipative, and the coupling to the environment reduces the transition probability. This happens because zero-point fluctuations of the environment do not lead to a real transition. At finite temperatures, the environment may transfer the energy to the two-level system, thus increasing the transition probability. If the temperature is low, $T\ll T_{0}=\hbar/\tau_{\alpha}$ , the transition still has mostly quantum nature. In this limit, the finite temperature can be taken into account by requiring the instanton to be periodic in imaginary time, $\lambda(t)=\lambda(t+i\beta)$ , with the period $\beta=1/T$ . Thus, one has to consider a periodic system of cuts, $t\in[-i\tau+i\beta n,i\tau+i\beta n]$ . Note that the nonlocal term in ( 16 ) gives rise to interaction between instantons on different cuts. If $\beta\gg\tau_{\alpha}$ , the interaction is weak and can be treated perturbatively. The correction to the action per period is:
+
+After computing the sum over $n$ , one obtains:
+
+and the tunneling probability is $w\sim\exp(-S(T))$ , as before. Eq. ( 22 ) is applicable when the correction is small and thus does not lead to non–monotonous $T$ –dependence.
+
+Classical regime. If the temperature of the environment is high ( $T\gg\hbar/\tau_{\alpha}$ ), the tunneling is thermally assisted, and the effect of environment can be divided into slow regular motion with frequencies $\omega\sim 1/\tau_{\alpha}$ and fast Langevin noise with $\omega\gg 1/\tau_{\alpha}$ . (Only noise with $\omega>2\Delta$ contributes to the transition probability, and this separation is valid in the adiabatic limit.) Then the Hamiltonian is:
+
+where $F(t)=\nu t+\langle X(t)\rangle$ is a regular part, and $\hat{u}(t)=\hat{X}(t)-\langle X(t)\rangle$ is a fluctuating part. Since the first two terms are slow functions of time, one may consider them in the adiabatic approximation, and treat the noise $\hat{u}(t)$ as a perturbation causing non-adiabatic transition. This implies that the noise contribution to the transition amplitude is larger than the non-adiabatic correction. The eigenstates of the frozen Hamiltonian are:
+
+where $\tan\theta(t)=\Delta/F(t)$ . In this basis the Hamiltonian is:
+
+where $\epsilon(t)=\Delta/\sin\theta(t)$ is the adiabatic energy. The perturbation theory with respect to $\hat{u}(t)$ gives the transition rates
+
+between the states $|m\rangle$ and $|n\rangle$ of the environment. In Eq. ( 26 ), $\dot{\lambda}(t)=\epsilon(t)$ , and the subscript $(\pm)$ denotes initial spin state. Tracing out the environment, one finds the Landau–Zener transition rates
+
+This integral contains a fast oscillating function, and is determined by the region where $|t-t^{\prime}|\sim 1/\epsilon(t)\ll\tau_{0}$ . Therefore, one may approximate in the prefactor $t\simeq t^{\prime}$ , integrate over $t-t^{\prime}$ and find the Landau–Zener transition rates:
+
+Here
+
+is the noise spectrum. In equilibrium, it can be expressed in terms of the spectral function $J(\omega)$ and the Bose distribution function $N(\omega)$ :
+
+The result ( 28 ) is also true for non-equilibrium noise with the proper choice of $K(\omega)$ .
+
+To find the still unknown function $\theta(t)$ , consider the force exerted by the rotating spin on the environment, $f(t)=\langle\hat{\sigma}_{z}(t)\rangle=\pm\cos\theta(t)$ . The response to that force is, in Fourier representation, $\langle X_{\omega}\rangle=-iJ(\omega)f_{\omega}$ . Then, one may write an equation for $\theta(t)$ :
+
+Since $F(t)=\Delta/\tan\theta(t)$ , one has:
+
+For small bias, $\nu<\alpha$ , there is no Landau–Zener tunneling, and situation is similar to quantum limit. If the bias $\nu>\alpha$ , the transition probability is:
+
+Note that the small bias $\nu$ appears in the denominator. Because of that, the probability computed from ( 33 ) can be quite large, and the perturbation theory on which this equation is based, appears to break down. This happens because the motion at small bias is slow, and a small noise acts on the system for a long time, giving rise to a large tunneling probability.
+
+To solve the problem, note that according to ( 28 ), there is no interference between transition amplitudes at different times $t$ . This happens because the transitions are due to random noise, and the amplitudes of separate transitions have random phase. In this situation, one may use master equation, with the transition rate per unit time from ( 28 ). Since $\theta(t)$ depends on the history of the system, it is convenient to use $\theta$ as an independent variable instead of $t$ . Master equation, written in the variable $\theta$ , has the form:
+
+where $P_{\pm}(\theta)$ are occupancies of two adiabatic states. The initial condition is $P_{+}(0)=0$ , $P_{-}(0)=1$ .
+
+Eq. ( 34 ) can be solved in a general form. However, for simplicity, we consider the two cases: (i) $T\ll\Delta$ and (ii) $T\gg\Delta$ . For $T\gg\Delta$ , the transition rates $r_{+}$ and $r_{-}$ are equal. The noise correlator is $K(\omega)=\alpha T/\omega^{2}$ . The calculation gives for $w=P_{+}(\theta=\pi)$ :
+
+Computing the integral, one obtains:
+
+In the limit $T\to\infty$ , Eq. ( 35 ) predicts $w\to 1/2$ , the result of a phenomenological approach. Note that ( 35 ) is true only when $R\ll\Delta^{2}/\nu$ , otherwise non-adiabaticity is again important, and the exponential correction has different structure [8] .
+
+We consider now the case of intermediate temperatures: $\hbar/\tau_{\alpha}\ll T\ll\Delta$ . The transition $|\psi_{-}\rangle\to|\psi_{+}\rangle$ requires energy transfer $2\Delta$ , while the inverse transition does not, and the transition rates $r_{+}$ and $r_{-}$ are not equal. Therefore, the transition from the lower state to the upper one occurs at $\theta=\pi/2$ , when the energy difference is minimal. This transition can be considered as an instant excitation occurring at $\theta\simeq\pi/2$ during the time $t_{ex}\sim\sqrt{\Delta T}/\nu$ . It is followed by a decay from the upper state. Thus, the transition probability is the product of the probability of excitation at $\theta=\pi/2$ and the probability that the excited state survives for $\pi/2<\theta<\pi$ . From the master equation ( 34 ) one finds the excitation probability:
+
+and the survival probability:
+
+Finally, the transition probability is:
+
+Note that the dependence of this expression on $\alpha$ is non-monotonous. This is due to the fact that the coupling to the environment provides both external noise and dissipation. The transition probability reaches the maximal value at $\alpha=2\nu/3$ .
+
+Conclusion. We studied dissipative Landau–Zener tunneling marginally coupled to environment in both quantum and classical limits. At $T=0$ the effect of environment is purely dissipative, whereas at high temperatures thermal fluctuations in the environment increase the transition probability, leading to non–monotonous dependence of the transition rates on the coupling strength $\alpha$ . At $\nu<\alpha$ the tunneling is blocked. Thus, the interplay between fluctuations and dissipation is manifest in the marginal coupling model.
+
+Acknowledgements . I am grateful to M. V. Feigel’man, A. S. Ioselevich, L. S.Levitov, D. Esteve, and C. Urbina for stimulating and illuminating discussions. This research was supported by the Russian Ministry of Science via the program “Physics of quantum computing”, and by RFBR grant 98-02-19252.
+
+References
+
+[1] L. D. Landau,Phys. Z. Sowjetunion,2, 46 (1932); C. Zener,Proc. R. Soc. London, Ser. A137, 696 (1932)
+[2] E. Shimshoni and Y. Gefen,Annals of Physics210, 16, (1991)
+[3] M. N. Leuenberger and D. Loss, preprint cond-mat/9911065; I. Chiorescu, et al., preprint cond-mat/9911180
+[4] D. Averin and A. Bardas,Phys. Rev. Lett.75, 1831 (1995)
+[5] D. S. Crothers and J. G. Huges,J. Phys.B10, L557 (1977); E. E. Nikitin, S. Ya. Umanskii,Theory of Slow Atomic Collisions(Springer–Verlag, Berlin), 1984
+[6] A. Garg, N. J. Onuchi and V. Ambegaokar,J. Chem. Phys.83, 4491 (1985)
+[7] Y. Gefen, E. Ben Jacob, and A. O. Caldeira,Phys. Rev.B36, 2770 (1987)
+[8] Y. Kayanuma,Phys. Rev. Lett.58, 1934 (1987)
+[9] P. Ao, and J. Rammer,Phys. Rev. Lett.62, 3004 (1989); P. Ao, and J. Rammer,Phys. Rev.B43, 5397 (1991)
+[10] E. Shimshoni and A. Stern,Phys. Rev.B47, 9523 (1993)
+[11] A. J. Leggett, S. Chakravarty, A. T. Dorsey, M. P. A. Fisher, A. Garg, and W. Zwerger,Rev. Mod. Phys.59, 1 (1987)
+[12] L. V. Keldysh, Zh. Eksp. Teor. Fiz47, 1515 (1964) [Sov. Phys. JETP20, 1018 (1965)]
+[13] A. Schmid,J. Low Temp. Phys.49, 609 (1982)
+[14] A. S. Ioselevich, E. I. Rashba, Sol. State. Commun.35, 705 (1985)
+[15] L. D. Landau and E. M. Lifshitz,Quantum Mechanics, Pergamon Press, Oxford, 1977, Sects. 53, 90

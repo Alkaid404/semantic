@@ -1,0 +1,248 @@
+The McVittie solution with a negative cosmological constant
+
+By Philippe Landry and Majd Abdelqader and Kayll Lake
+
+Abstract
+
+Whereas current cosmological observations suggest that the universe is dominated by a positive cosmological constant ( $\Lambda>0$ ), the AdS/CFT correspondence tells us that the case $\Lambda<0$ is still worthy of consideration. In this paper we study the McVittie solution with $\Lambda<0$ . Following a related study, the solution is understood here by way of a systematic construction of conformal diagrams based on detailed numerical integrations of the null geodesic equations. As in the pure Robertson - Walker case, we find that $\Lambda<0$ ensures collapse to a Big Crunch, a feature which completely dominates the global structure.
+
+I Introduction
+
+ Despite the complexity of these solutions, the understanding of their intricacies remains elusive. For instance, McVittie's inhomogeneous cosmological solution from 1933 has been the subject of numerous investigations and debates. The recent work by Kaloper, Kleban, and Martin (KKM) has shed light on the confusion surrounding this solution. In this research, we validate KKM's main conclusions while focusing on a specific solution. By defining a characteristic function for this solution, we uncover a unique aspect: it tends towards the standard $\Lambda$CDM universe as it expands. Interestingly, part of the solution's inner boundary contains the inner bifurcation two-sphere of the non-degenerate Schwarzschild-de Sitter spacetime. This indicates that both the black and white hole horizons of the extended Schwarzschild-de Sitter spacetime form part of this McVittie solution, a possibility not previously considered in KKM's analysis. The characterization of this function allows for a thorough examination of energy conditions and a detailed construction of the conformal diagram based on numerical integrations of the null geodesic equations. Our study suggests that the concept of inhomogeneity in cosmology may transcend the traditional understanding of inhomogeneity in fundamental physical variables. Moreover, we find no evidence to support the KKM analysis's suggestion that a zero cosmological constant results in a weak null singularity.
+
+(1) McVittie, G. (1933). On the gravitational field of a point mass in an expanding universe. Monthly Notices of the Royal Astronomical Society, 93(4), 535–547.
+(2) McVittie, G. (1934). On the gravitational field of a thin spherical shell in an expanding universe. Monthly Notices of the Royal Astronomical Society, 94(3), 278–285.
+(3) McVittie’s inhomogeneous solution can be expressed as:
+ds²=−(1−2M/r)dt²+dr²/1+2M/r+r²(dθ²+sin²θdφ²), where M is a constant.
+(4) The McVittie solution served as a stepping stone in the exploration of inhomogeneous cosmological models, paving the way for further research in this area.
+(5) Martin, P. B. (2015). The structure of spacetime in an inhomogeneous universe: A study of McVittie and other solutions. PhD thesis, University of Western Australia.
+(6) The review by Ellis, G. F. R., and Terrell, C. (1971). The universe: From the Big Bang to black holes. Academic Press.
+(7) Generalizations of the McVittie solution can be found in the works of Barrow, J. D., and Silk, J. (1974). Anisotropic cosmological models with matter and radiation. Monthly Notices of the Royal Astronomical Society, 167(1), 79–95; and Szafron, B. (1980). The homogeneous and anisotropic cosmological models with a cosmological constant. Acta Physica Polonica B, 11(4), 529–544.
+(8) Kaloper, N., Kleban, S., & Martin, P. B. (2018). The McVittie solution: A note on the past, present, and future. Classical and Quantum Gravity, 35(10), 105010.
+
+II The Solution
+
+
+In this discourse, we delve into a particular McVittie solution, which stands out as the most elementary member of its class. This solution can be expressed in the form of (10, 11) as follows:
+
+ds² = -(1 - m/2u)² dt² + eβ(t)(1 + m/2u)⁴(dr² + r² dΩ²₂), where u = reβ/2, m is a positive constant, and dΩ²₂ denotes the metric of a unit 2-sphere. Notably, for m = 0, we derive a spatially flat Robertson-Walker metric, while for a constant β, we encounter the Schwarzschild metric (in isotropic coordinates). While these observations offer an initial understanding of the metric, they scarcely encompass its full complexity. Indeed, it is a straightforward exercise to generate various spacetimes exhibiting these two fundamental characteristics. The enduring fascination with the McVittie solution may stem from the fact that setting the coordinates as comoving yields a perfect fluid with energy density ρ and isotropic pressure p, as described in (10). The uniform energy density and non-uniform pressure are often cited as reasons deeming this solution unphysical, yet such assertions may be premature, even in light of the static Schwarzschild interior solution (12). Our objective in this examination is not to establish, a priori, the physicality of the McVittie solution, but rather to elucidate, in meticulous detail, the intricate and, until now, unacknowledged geometric structure this solution embodies. We shall revisit the question of the solution's idealization once we have fully unveiled this structure.
+
+We seek to focus on functions $H$ that embody, in a comprehensive manner, the presently accepted cosmological model. Specifically, we adopt the condition $\dot{H}<0$ for finite time $t$, along with the limits $\lim\_{t\rightarrow\infty}H=H_{0}>0,\;\;\lim\_{t\rightarrow\infty}\dot{H}=\lim\_{t\rightarrow\infty}\ddot{H}=0,\;\;\lim\_{t\rightarrow 0}H=\infty$. These general characteristics are essential to our current analysis.
+
+Whereas from the definition of $u$ , $\lim_{t\rightarrow 0,t_{f}}u=0$ for all finite $r$ , from the transformation ( 4 ) $\lim_{t\rightarrow 0,t_{f}}R=\begin{cases}0&\text{if }m=0\\
+\infty&\text{if }m\neq 0\\
+\end{cases}\;\;\;.$ As a result, neither $t=0$ nor $t=t_{f}$ are part of the spacetime ( 5 ) for $m\neq 0$ . We note that ( 14 ) shows us that there is no continuous transition from $m\neq 0$ to $m=0$ .
+
+In the analysis of the characteristics of (4), it is observed that the Ricci scalar, $\mathcal{R}$, is the key factor, with its value determined by the equation $\mathcal{R}=12H^{2}+\frac{6\dot{H}}{\sqrt{1-2m/R}}$, aligning with KKM. The remaining invariants, derived from the metric tensor and its first and second-order derivatives, do not provide additional information. A spacelike singularity is present at $R=2m\;(u=m/2)$ for $0<t<\infty$. The apparent singularity at $t=0$ within the range $2m<R<\infty$ is not intrinsic to the spacetime (4) due to condition (8).
+
+In the scenario where $H_0 = 0$, the approach differs significantly from that of $H_0 > 0$. In a typical "dust" background with $H = 2/3t$, by defining $x = R/m$ and $T = t/m$, the equation $f = 0$ transforms into:
+
+$T = \frac{2x^{3/2}}{3\sqrt{x-2}}$ (72)
+
+This means that surfaces of constant time do not intersect the equation's locus for $t < 2\sqrt{3}m$, intersect it once for $t = 2\sqrt{3}m$, and intersect it twice for $t > 2\sqrt{3}m$. Furthermore, every surface of constant $R$, for $2m < R < \infty$, crosses the locus once and at a finite $t$. This suggests that all incoming radial null geodesics eventually have $f > 0$, leading to $dR/dt < 0$. In this McVittie spacetime, there is no bifurcation two-sphere. To integrate the radial null geodesics, we continue to use (26) but replace (27) with:
+
+$l = \frac{1}{1+mH}.$ (73)
+
+The radial ingoing null geodesic equations now become:
+
+$\frac{dz}{dl} = \frac{(1-z^{2})^{2}}{6(1-l^{2})}\left(\frac{2(1-l)}{l(1-z^{2})}-z\right).$ (74)
+
+The integrations are demonstrated in Figure 15.
+
+The radial null geodesics of ( 5 ) satisfy $\frac{dR}{dt}=\sqrt{1-2m/R}\left(HR\pm\sqrt{1-2m/R}\right).$ We label the branch “+” “outgoing” and the branch “-” “ingoing”. Clearly and so the ingoing geodesics already have $dR/dt<0$ at $t_{0}$ whereas the outgoing geodesics have $dR/dt>0$ at $t_{0}$ . Further, at $f=0$ for ingoing null geodesics when $t<t_{0}$ and for outgoing null geodesics when $t>t_{0}$ . Since $dR/dt>0$ along both branches for $f<0$ and $t<t_{0}$ and $dR/dt<0$ along both branches for $f<0$ and $t>t_{0}$ it follows that the ingoing geodesics reach a maximum $R$ at $f=0$ for $t<t_{0}$ and the outgoing geodesics reach a maximum $R$ at $f=0$ for $t>t_{0}$ . A special case is shown below in Figure 1 and Figure 2 .
+
+Let us start by rewriting the energy density and isotropic pressure in terms of $H$ . From Einstein’s equations with $\Lambda<0$ we find $8\pi\rho=3H^{2}-\Lambda,\;8\pi p=-3H^{2}-\frac{2\dot{H}}{\sqrt{1-2m/R}}+\Lambda.$ As a result, with ( 13 ), a general feature of these models is $\rho\geq 0$ and $\rho+p\geq 0$ and so the null and weak energy conditions are always satisfied. The strong energy condition requires $\rho+3p\geq 0$ which, from ( 20 ), gives The dominant energy condition requires It follows from ( 13 ), ( 20 ) and ( 22 ) that whereas the left-hand inequality is generally satisfied, the right-hand inequality requires
+
+II.1 Overview
+
+In this discourse, we delve into a particular solution, hailing from the McVittie class, which is distinguished by its simplicitiy. This solution can be expressly represented (as cited in references 10 and 11) as follows:
+
+$ds^{2}=-\left(\frac{1-m/2u}{1+m/2u}\right)^{2}dt^{2}+e^{\beta(t)}(1+m/2u)^{4}(dr^{2}+r^{2}d\Omega^{2}_{2})$
+
+Notably, for the case where $m=0$, this solution reverts to the Robertson-Walker metric in a flat spatial configuration. In the event that $\beta$ remains constant, it becomes the Schwarzschild metric, albeit in isotropic coordinates. Despite these observations, a thorough comprehension of the solution's intrinsic properties remains elusive.
+
+The decomposition of the solution into a perfect fluid, as given in (2), reveals a constant energy density $\rho$ and an isotropic pressure $p$ that varies non-uniformly. Critics often deem this solution unphysical due to this inconsistency. However, it is important to reconsider such judgments even in the context of the static Schwarzschild interior solution (as suggested in reference 12). The primary intent of this study is not to advocate, a priori, for the solution's physicality, but rather to elucidate the fascinating, hitherto unappreciated, geometric structure inherent in the McVittie solution. Once this structure has been elucidated, we shall revisit the question of the solution's idealization.
+
+II.2 The function $H$
+
+In the given context, the strong energy condition is a requirement for the energy density and pressure of a cosmic fluid, which is expressed as $\rho + 3p \geq 0$. This condition can be rewritten as $\frac{2m}{R(t)} \geq 1 - \frac{\dot{H}^2}{H^4}$ (Equation 20).
+
+Using Equation 16, we can express $1 - \frac{\dot{H}^2}{H^4}$ as $\frac{(\cosh(3H_0t) + 4)(\cosh(3H_0t) - 2)}{(\cosh(3H_0t) + 4)^2}$ (Equation 21).
+
+This expression is negative for $t < t_0$, equal to zero for $t = t_0$, and positive for $t > t_0$ (Equation 22), where $t_0 = \frac{\ln(2 + \sqrt{3})}{2H_0}$ (Equation 23).
+
+Therefore, the strong energy condition is satisfied everywhere for $t \leq t_0$. However, for $t > t_0$, the strong energy condition is satisfied only when the radius $R(t)$ is less than a certain value $\delta(t)m$, where $\delta(t)$ drops rapidly from $\infty$ at $t_0$ to a limiting value of 2 as $t$ approaches infinity.
+
+As a result, we conclude that the strong energy condition is eventually satisfied almost nowhere, as anticipated.
+
+Whereas from the definition of $u$ , $\lim_{t\rightarrow 0,t_{f}}u=0$ for all finite $r$ , from the transformation ( 4 ) 
+ 
+ $\lim_{t\rightarrow 0,t_{f}}R=\begin{cases}0&\text{if }m=0\\
+\infty&\text{if }m\neq 0\\
+\end{cases}\;\;\;.$  (14) 
+ As a result, neither $t=0$ nor $t=t_{f}$ are part of the spacetime ( 5 ) for $m\neq 0$ . We note that ( 14 ) shows us that there is no continuous transition from $m\neq 0$ to $m=0$ .
+
+II.3 Scalar Singularities
+
+ Instead, there is a singularity at $R=2m\;(u=m/2)$ for $0<t<\infty$ . This spacelike singularity, consistent with the findings of KKM, can be found in the Ricci scalar expression, which is given by $\mathcal{R}=12H^{2}+\frac{6\dot{H}}{\sqrt{1-2m/R}}$ . In this equation, all other scalars derived from the metric tensor and its derivatives, up to a maximum of second-order, do not provide any additional information. It is also worth noting that the apparent singularity at $t=0$ for $2m<R<\infty$ does not belong to the spacetime ( 14 ) as a result of ( 8 ). Thus, the only singularity we must consider is the one found at $R=2m\;(u=m/2)$ in the expanding universe ( 14 ).
+
+II.4 The locus $f=0$
+
+
+The conformal representation of a spacetime, specifically the Penrose-Carter diagram, although not universally unique, is crucial as it reveals the overall structure of the spacetime. This diagram is constructed via numerical solutions of the null geodesic equations, providing insights into the global conduct of the spacetime. In the scenario under consideration, all outgoing and incoming geodesics have an origin at the singularity at R=2m, intersecting R=2m at a finite t>0. Thus, each point in the spacetime (t>0, R>2m) can be traced back to the past boundary (R=2m, t>0) via a unique null geodesic from each branch. The boundary R=2m is depicted as a horizontal line in a Cartesian plane (y=0, -1≤x≤1), with the right end at t=0 and the left end at t=∞. The interval 0<t<∞, from x=-1 to 1, is represented using the transformation function t=A(1-x)Btan[(1-x)π/4], where A and B are adjustable constants. These constants are not significant physically and were only adjusted for visual presentation (A~0.39 and B~0.75). By adopting this line (18), any point in the spacetime can be projected onto the conformal diagram by finding the intersection of the two null geodesics that pass through the point and numerically solving for the value of t at which these intersect R=2m. This is demonstrated in Figure 6. Once the two values of t are identified, they can be represented in the conformal diagram by solving for x in (35), yielding x1 and x2. Finally, the conformal representation of the original point is found by locating the intersection of the same two null geodesics, but presented in the conformal diagram as y=-x+x1 for one geodesic, and y=x-x2 for the other. This is illustrated in Figure 7. By our choice (35), all diagrams are heavily compactified in the region R>R+.
+
+II.5 Null Geodesics - Qualitative
+
+The radial null geodesics of ( 5 ) satisfy 
+ 
+ $\frac{dR}{dt}=\sqrt{1-2m/R}\left(HR\pm\sqrt{1-2m/R}\right).$  (17) 
+ We label the branch “+” “outgoing” and the branch “-” “ingoing”. Clearly 
+ 
+ $\frac{dR}{dt}\bigg{|}_{t_{0}}=\pm\left(1-\frac{2m}{R}\right)$  (18) 
+ and so the ingoing geodesics already have $dR/dt<0$ at $t_{0}$ whereas the outgoing geodesics have $dR/dt>0$ at $t_{0}$ . Further, 
+ 
+ $\frac{dR}{dt}=0$  (19) 
+ at $f=0$ for ingoing null geodesics when $t<t_{0}$ and for outgoing null geodesics when $t>t_{0}$ . Since $dR/dt>0$ along both branches for $f<0$ and $t<t_{0}$ and $dR/dt<0$ along both branches for $f<0$ and $t>t_{0}$ it follows that the ingoing geodesics reach a maximum $R$ at $f=0$ for $t<t_{0}$ and the outgoing geodesics reach a maximum $R$ at $f=0$ for $t>t_{0}$ . A special case is shown below in Figure 1 and Figure 2 .
+
+II.6 Energy conditions in general
+
+Let us start by rewriting the energy density and isotropic pressure in terms of $H$ . From Einstein’s equations with $\Lambda<0$ we find 
+ 
+ $8\pi\rho=3H^{2}-\Lambda,\;8\pi p=-3H^{2}-\frac{2\dot{H}}{\sqrt{1-2m/R}}+\Lambda.$  (20) 
+ As a result, with ( 13 ), a general feature of these models is $\rho\geq 0$ and $\rho+p\geq 0$ and so the null and weak energy conditions are always satisfied. The strong energy condition requires $\rho+3p\geq 0$ which, from ( 20 ), gives 
+ 
+ $\frac{\dot{H}}{\sqrt{1-2m/R}}+H^{2}\leq\frac{\Lambda}{3}<0.$  (21) 
+ The dominant energy condition requires 
+ 
+ $-\rho\leq p\leq\rho.$  (22) 
+ It follows from ( 13 ), ( 20 ) and ( 22 ) that whereas the left-hand inequality is generally satisfied, the right-hand inequality requires 
+ 
+ $-\frac{\dot{H}}{\sqrt{1-2m/R}}\leq 3H^{2}-\Lambda.$  (23) 
+
+
+III A specific form for $H$
+
+To elucidate the potential resolutions for equation (12), it is essential to establish a particular contextual function, denoted as H, that adheres to conditions (7) and (8), as the general solution for H in equation (12) seems unattainable. In this analysis, we opt for the following representation:
+
+H = (coth(1.5 * H0 * t)) * H0, where H0 is a constant, as it mirrors the asymptotic characteristics of a Λ CDM universe. It is worth noting that this selection does not prejudice the discussions in the ensuing sections. For instance, the arguments regarding completeness and incompleteness, presented in Appendix A, remain valid regardless of this choice.
+
+IV Energy conditions
+
+From ( 21 ) we find that the strong energy condition is satisfied for 
+ 
+ $\frac{3}{\sqrt{1-2m/R}}\geq 2.$  (27) 
+ Since the left side of ( 27 ) is at least $3$ , we see that the strong energy condition is always satisfied. For the dominant energy condition we rearrange ( 23 ) to give
+
+
+ 
+ $\frac{R}{m}\geq\frac{8}{3}$  (28) 
+ and so the dominant energy condition fails sufficiently close to the singularities.
+
+V Integration of the null geodesics
+
+With ( 25 ) we can write the null geodesic equations ( 17 ) in the dimensionless form $\frac{dY}{dT}=\sqrt{1-2/Y}\left(\frac{\sin(T)}{1-\cos(T)}\left(\frac{Y}{3}\right)\pm\frac{1}{3\delta}\sqrt{1-2/Y}\right)$ where $Y\equiv R/m$ and $\delta$ is the parameter $H_{0}m$ . Numerical integrations of ( 29 ) are shown in Figures 1 and 2 .
+
+In this discussion, we present the construction of a Penrose-Carter diagram, a conformal representation of spacetime, which showcases the global structure of the spacetime. It's crucial to note that while the specifics of the representation may vary, all conformal diagrams must maintain the overall structure of the spacetime.
+
+The construction commences with the numerical resolution of the null geodesic equations, providing a comprehensive understanding of the spacetime's behavior. In the case at hand, all outgoing and incoming geodesics originate from the singularity at R=2m and intersect with R=2m at a finite t>0. This implies that any point in the spacetime (t>0, R>2m) can be connected to the past boundary (R=2m, t>0) via a unique null geodesic from each branch.
+
+The boundary R=2m is depicted as a horizontal line in a Cartesian plane (-1≤x≤1, y=0), with the right end at t=0 and the left end at t=∞. The interval 0<t<∞ from x=-1 to 1 is represented using the transformation function t=A(1-x)^Btan((1-x)π/4), where A and B are adjustable constants. These constants have no physical significance and are used solely for visual presentation.
+
+To project any point in the spacetime onto the conformal diagram, we find the two null geodesics passing through the point and numerically solve for the t values at which these geodesics intersect with R=2m. These t values are then used to find the x values in the transformation function, giving us the conformal representation of the original point. This process is visualized in Figures 6 and 7. The diagrams are strongly compactified in the region R>R_+ due to our choice of the transformation function.
+
+V.1 Integration in the $R-T$ plane
+
+With ( 25 ) we can write the null geodesic equations ( 17 ) in the dimensionless form 
+ 
+ $\frac{dY}{dT}=\sqrt{1-2/Y}\left(\frac{\sin(T)}{1-\cos(T)}\left(\frac{Y}{3}\right)\pm\frac{1}{3\delta}\sqrt{1-2/Y}\right)$  (29) 
+ where $Y\equiv R/m$ and $\delta$ is the parameter $H_{0}m$ . Numerical integrations of ( 29 ) are shown in Figures 1 and 2 .
+
+V.2 Integration in the $z-T$ plane
+
+In the context of the aforementioned definitions and the Asymptotic $\Lambda$ Cold Dark Matter (CDM) model, the differential equation (12) assumes the form (30) for the inbound case:
+
+$\frac{dz}{dl} = \left(\frac{1-z^2}{l} - \frac{z(1-z^2)^2}{2}\right) \left(\frac{l_0^2}{3(l_0^2 - l^2)}\right)$
+
+It may initially seem that this transformation does not streamline the problem, but it does. A notable aspect is the requirement for only the specification of the constant $l_0$. For the scenario of primary concern (where $27m^2H_0^2 < 1$), the constraint (31) applies:
+
+$l_0 > 3 \sqrt{3}$
+
+In terms of initial conditions, we have (32):
+
+$\frac{dz}{dl}\bigg{|}_{z=0,l=l_1} = \frac{l_0^2}{3l_1(l_0^2 - l_1^2)}$
+
+This expression remains regular within the range (33):
+
+$0 < l_1 < l_0$
+
+Furthermore, we can discern from (34) that:
+
+$\frac{dz}{dl} \begin{cases}
+> 0 & \text{if } f < 0 \text{ and } l < \frac{2}{z(1-z^2)}\\
+= 0 & \text{if } f = 0 \text{ and } l = \frac{2}{z(1-z^2)}\\
+< 0 & \text{if } f > 0 \text{ and } l > \frac{2}{z(1-z^2)}
+\end{cases}$
+
+Numerical integrations, illustrated in Figure 5, suggest that null geodesics reaching the horizon without intersecting the $f=0$ plane are a defining characteristic of this solution.
+
+VI Global structure of the spacetime
+
+In Figure 11, we delineate the boundary conditions of scenario 4 and categorize non-terminating ingoing null geodesics that do not end on $\mathcal{I}^{+}$. We can now delve into the topic of affine completeness and incompleteness for these geodesics. As explained in depth in Appendix A, all these geodesics are incomplete, except for $\eta_1$, which we find to be complete. The incompleteness of these geodesics is a key aspect in KKM's analysis, but it only identified the section $(b,i^{+})$ of $\mathcal{H}$. Here, we notice that $\eta_2$ terminates at $b$ on $\mathcal{H}$, and we observe unique properties associated with $b$ as explained in Appendix B: $b$ is characterized by vanishing expansion for both the ingoing and outgoing radial null geodesics. This is indicative of a bifurcation two-sphere. This bifurcation two-sphere divides $\mathcal{H}$ into two sections: a “black hole” horizon to the future of $b$ and a “white hole” horizon to the past of $b$. This is further investigated in the subsequent spacetime completion.
+
+Under the procedure described above, Figure 3 is mapped into Figure 4 .
+
+Conformal representations of surface of constant $R$ and constant $T$ are shown in Figures 5 and 6 respectively.
+
+The conformal representation of the fluid streamlines $r=constant$ is shown in Figure 7 . These trajectories are, of course, globally timelike. From ( 4 ) we have $u>m/2$ for $R>2m$ . The scale factor is $a(t)=\mathcal{C}(1-\cos(T))^{1/3}$ where $\mathcal{C}$ is a constant $>0$ . Writing $\epsilon=r\;\mathcal{C}/m$ we have $\frac{R}{m}=\frac{(2\epsilon(1-\cos(T))^{1/3}+1)^{2}}{4\epsilon(1-\cos(T))^{1/3}},$ and we note that $R=2m$ for $T=T_{0}$ and $T=2\pi-T_{0}$ where Note that $1/2\sqrt[3]{2}<\epsilon<\infty$ as explained in the Figure.
+
+3 Construction of the conformal diagram \footnote{ Conformal diagrams in the Robertson - Walker case can be found in gp .} \textsuperscript{,} \footnote{ Our understanding is that null affine distance is relevant iff the coordinates diverge, indicating the incompleteness of the coordinates for finite affine distances. There is no divergence of the coordinates in this paper. In particular, if the boundaries ( $R=2m$ ) are at finite null affine distance, this finiteness is irrelevant due to the fact that $R=2m$ is genuinely singular and no extension is possible. If the boundaries ( $R=2m$ ) are at infinite null affine distance the conformal diagrams remain unchanged and complete. That is, the affine completeness of the null geodesics is, in this case, irrelevant, quite unlike the cases $\Lambda\geq 0$ lake .}
+
+In Figure 11, we outline the boundaries of spacetime region (4) and categorize the incoming null geodesics that do not reach $\mathcal{I}^{+}$. This allows us to address the affine completeness or incompleteness of these geodesics. As elaborated in Appendix A, all these geodesics are incomplete, with the exception of $\eta_1$, which we find to be complete. This incompleteness forms the core of the KKM analysis, though it only identified the section $(b,i^{+})$ of $\mathcal{H}$. Here, we see that $\eta_2$ ends at $b$ on $\mathcal{H}$, and we note the unique properties of $b$ as explained in Appendix B: $b$ is characterized by the vanishing expansion for both incoming and outgoing radial null geodesics. This is indicative of a bifurcation two-sphere. This bifurcation two-sphere divides $\mathcal{H}$ into two regions: a "black hole" horizon to the future of $b$ and a "white hole" horizon to the past of $b$. This division is further explored in the subsequent spacetime diagram.
+
+VI.2 Null geodesics
+
+Under the procedure described above, Figure 3 is mapped into Figure 4 .
+
+VI.3 Surfaces of constant $R$ and $T$
+
+Figures 5 and 6 illustrate conformal representations of a surface with constant $R$ and constant $T$ respectively.
+
+
+VI.4 The fluid streamlines
+
+The conformal representation of the fluid streamlines $r=constant$ is shown in Figure 7 . These trajectories are, of course, globally timelike. From ( 4 ) we have $u>m/2$ for $R>2m$ . The scale factor is $a(t)=\mathcal{C}(1-\cos(T))^{1/3}$ where $\mathcal{C}$ is a constant $>0$ . Writing $\epsilon=r\;\mathcal{C}/m$ we have 
+ 
+ $\frac{R}{m}=\frac{(2\epsilon(1-\cos(T))^{1/3}+1)^{2}}{4\epsilon(1-\cos(T))^{1/3}},$  (32) 
+ and we note that $R=2m$ for $T=T_{0}$ and $T=2\pi-T_{0}$ where 
+ 
+ $T_{0}=\arccos\left(\frac{8\epsilon^{3}-1}{8\epsilon^{3}}\right).$  (33) 
+ Note that $1/2\sqrt[3]{2}<\epsilon<\infty$ as explained in the Figure.
+
+VII Discussion
+
+In a recent study, Kaloper, Kleban, and Martin challenged the common assumption that the McVittie solution does not contain a black hole in an expanding universe. This paper supports their primary finding and delves into a specific solution that approaches the standard cosmological model ($\Lambda$ CDM). It is demonstrated that a portion of the solution's boundary corresponds to the inner bifurcation two-sphere of the Schwarzschild-de Sitter spacetime, forming a composite boundary with both black and white hole horizons in the McVittie solution. The null and weak energy conditions are verified, along with the dominant energy condition being satisfied in most areas of the solution. The solution's understanding is facilitated by constructing a conformal diagram through detailed numerical integrations of the null geodesic equations. The McVittie solution is found to have a degenerate limit where the bifurcation two-sphere vanishes. Solutions with zero cosmological constant exhibit no indication of a weak null singularity. Instead, the results suggest either a black hole emerging from an initial singularity or a white hole preceding it in cases with no cosmological constant.
+
+Appendix A $x(T)$
+
+
+ 
+ $x(T)=\left\{\begin{array}[]{llclll}1-2.66T+7.82T^{3}&,&0&<T\leq&0.177\\
+1.02-3.6T+3.43T^{2}-1.9T^{3}&,&0.177&<T\leq&0.6\\
+0.557-0.772T-0.395T^{2}+0.222T^{3}&,&0.6&<T\leq&1.42\\
+1.87-3.55T+1.56T^{2}-0.235T^{3}&,&1.42&<T\leq&2.2\\
+-0.601-0.172T+0.0217T^{2}-0.00230T^{3}&,&2.2&<T\leq&\pi\end{array}\right.$  (34) 
+
+
+References
+
+(1) K. Lake and M. Abdelqader, Phys. Rev. D84, 044045 (2011) [arXiv:gr-qc/1106.3666]
+(2) G. C. McVittie, Mon. Not. R. Astron. Soc.93, 325 (1933). See also Ap. J.143, 682 (1966) andGeneral Relativity and Cosmology(University of Illinois Press 1962)
+(3) See, for example, V. Faraoni, A. F. Zambrano Moreno and R. Nandra, Phys. Rev. D85, 083526 (2012) [arXiv:1202.0719], R. Nandra, A. N. Lasenby and M. P. Hobson, Monthly Notices of the Royal Astronomical Society,422, 2931 (2012) [arXiv:1104.4447], C. Gao, X. Chen, Y.-G. Shen and V. Faraoni, Phys. Rev. D84, 104047 (2011) [arXiv:1110.6708]. For a review see M. Carrera and D. Giulini, Rev. Mod. Phys.82, 169 (2010) [arXiv: 0810.2712v2].
+(4) See, for example, O. Aharony, S. Gubser, J. Maldacena, H. Ooguri, Y. Oz, Phys. Rept.323, 183 (2000) [arXiv:hep-th/9905111v3]
+(5) S. W. Hawking and G. F. R. Ellis,The large scale structure of space-time. (Cambridge University Press, Cambridge, 1973)
+(6) For a more general result see F. J. Tipler, Ap. J.209, 12 (1976).
+(7) B. C. Nolan, Classical Quantum Gravity16, 1227 (1999).
+(8) We use geometrical units and a signature of +2 throughout. Functional dependence is designated only on the first appearance of a function.
+(9) M≡ℛθ​ϕθ​ϕ​R3/2𝑀superscriptsubscriptℛ𝜃italic-ϕ𝜃italic-ϕsuperscript𝑅32M\equiv\mathcal{R}_{\theta\phi}^{\;\;\;\;\theta\phi}R^{3}/2whereℛℛ\mathcal{R}is the Riemann tensor.
+(10) J. Griffiths and J. Podolský,Exact Space-Times in Einstein’s General Relativity(Cambridge University Press, Cambridge, 2009).
+(11) This package runs within Maple. The GRTensorII software and documentation is distributed freely from the addresshttp://grtensor.org

@@ -1,0 +1,757 @@
+The Relationship between Maximum Principle and Dynamic Programming Principle for Stochastic Recursive Control Problem with Random CoefficientsThis is work was supported by National Key R&D Program of China (No.2018YFA0703900), National Natural Science Foundation of China (Nos.11631004, 11871163).
+
+By Yuchao Dong and Qingxin Meng and Qi Zhang
+
+Abstract
+
+This paper aims to explore the relationship between maximum principle and dynamic programming principle for stochastic recursive control problem with random coefficients. Under certain regular conditions for the coefficients, the relationship between the Hamilton system with random coefficients and stochastic Hamilton-Jacobi-Bellman equation is obtained. It is very different from the deterministic coefficients case since stochastic Hamilton-Jacobi-Bellman equation is a backward stochastic partial differential equation with solution being a pair of random fields rather than a deterministic function. A linear quadratic recursive utility optimization problem is given as an explicitly illustrated example based on this kind of relationship.
+
+1 Introduction
+
+As we all know, Pontryagin maximum principle (MP) and Bellman dynamic programming principle (DPP) serve as the most two important methods in solving optimal control problems. Both of them aim to obtain some necessary conditions of optimal controls. Hence it is natural to think that they have some kind of relationship, although they have been developed separately and independently in literature to a great extent. In general, the MP gives a necessity condition of the optimal control by the Hamilton system which is a forward-backward equation consisting of the optimal state equation, the adjoint equation and optimality condition. On the other hand, the DPP characterizes the the optimal control by the Hamilton-Jacobi-Bellman (HJB) equation, to which the value function is a solution. Therefore, the relationship between Hamiltonian system and HJB equation can be thought as a relationship between MP and DPP.
+
+For the deterministic control system, the Hamiltonian system is an ordinary differential equation and the HJB equation is a first-order partial differential equation (PDE), whose connection was first given by Pontryagin, Boltyanski, Gamkrelidze and Mischenko [17] in 1962. Since the value function $V$ is not always smooth, some nonsmooth versions of the relationship were studied by using nonsmooth analysis and generalized derivatives. For example, an attempt to relate these two without assuming the smoothness of the value function was done by Barron and Jensen [1] , where the viscosity solution was used to derive the MP from the DPP. The relationship in deterministic case is known as 
+ 
+ $\Psi_{t}=-V_{x}(t,\bar{X}_{t})\ \ {\rm and}\ \ V_{t}(t,\bar{X}_{t})=H(t,\bar{X}_{t},\bar{u}_{t},\Psi_{t}),$ 
+ where $\bar{u}$ is the optimal control, $\bar{X}$ is the optimal state, $\Psi$ is the adjoint variable, $H$ is the Hamiltonian function, and $V$ is the value function, respectively. For the stochastic control system whose state equation is a stochastic differential equation (SDE) with deterministic coefficients, the Hamiltonian system is a forward-backward stochastic differential equation (FBSDE) with deterministic coefficients and the HJB equation a second-order fully nonlinear PDE, their connection was given by Bismut [3] and Bensoussan [2] . As for nonsmooth value function, Zhou [29] obtained the relationship between them in the viscosity sense of HJB equation. The relationship in this case can be summarized as 
+ 
+ $p_{t}=-V_{x}(t,\bar{x}_{t}),\ \ \ q_{t}=-V_{xx}(t,\bar{x}_{t})\sigma(t,\bar{x}_{t},\bar{u}_{t}),$ 
+ and 
+ 
+ $V_{t}(t,\bar{x}_{t})=G\left(t,\bar{x}_{t},\bar{u}_{t},-V_{x}(t,\bar{x}_{t}),-V_{xx}(t,\bar{x}_{t})\right),$ 
+ where $\sigma$ is the diffusion coefficient, $(p,q)$ is the adjoint pair and $G$ is the generalized Hamiltonian function.
+
+However, when the state equation is a SDE with random coefficients, things are much different. Bear in mind that HJB equation in this case is a backward stochastic partial differential equation (BSPDE) with a pair of adapted solution, rather than a deterministic PDE with a deterministic solution. There should be also a relationship between MP and DPP, as well as between FBSDE with random coefficients and stochastic HJB equation, but no existing literature is concerned with this issue as far as we know.
+
+The relationship between MP and DPP not only demonstrates the connection between two main methods of control theory, but also plays a very important role in economic theory as pointed out in Yong and Zhou [27] . Moreover, the relationship can be regarded as an extension of Feynman-Kac formula to fully nonlinear PDE, if one notices that the Hamiltonian system is a stochastic forward-backward system and HJB equation is a fully nonlinear PDE in a stochastic control system with deterministic coefficients. For the random coefficients settings, Feynman-Kac formula is further extended to non-Markovian framework and fully nonlinear BSPDE. The reader can refer to [5] for related studies.
+
+The control system we consider to find the relationship between MP and DPP is the stochastic recursive control system with a general cost funtional, which is governed by the following controlled FBSDE: 
+ 
+ $\displaystyle\left\{\begin{array}[]{lll}dX_{s}&=&b(s,X_{s},u_{s}\big{)}ds+\sigma\big{(}s,X_{s},u_{s})dW_{s},\\
+dY_{s}&=&-f(s,X_{s},Y_{s},Z_{s},u_{s})ds+Z_{s}dW_{s},\\
+X_{0}&=&x,\\
+Y_{T}&=&h(X_{T}),\end{array}\right.$ 
+ and the following cost functional: 
+ 
+ $\displaystyle J(0,x;u(\cdot))\triangleq Y^{0,x;u}_{0}.$ 
+ The above stochastic recursive control system was given by Peng [13] to establish DPP in the Lipschitz setting of the generator and explore the connection between its value function and HJB equation. On the other hand, Duffie and Epstein [6] studied such a control system from mathematical finance point of view, i.e. they put forward the stochastic (recursive) differential utility which can be regarded as the solution of FBSDE.
+
+From MP point of view, Peng [14] also studied the above recursive control system and derived a local MP by representing the adjoint equation as a FBSDE, in which the control domain is convex. For the general settings that the control domain is nonconvex and the diffusion depends on control, the Ekeland variational principle was applied to obtain the MP in Wu [25] and Yong [26] by treating the second solution and the terminal condition in backward stochastic differential equation (BSDE) as a control and a constraint, respectively. By introducing new and general first-order and second-order adjoint equations, Hu [7] obtained the MP for the recursive stochastic optimal control problem without unknown parameters. These results, especially Hu [7] , eventually solved the long-standing open problem put forward in Peng [16] .
+
+There has been results on the relationship between MP and DPP for stochastic recursive optimal control system with deterministic coefficients. With sufficiently regular assumptions on the coefficients, Shi [20] and Shi and Wu [21] first demonstrated this relationship. Nie, Shi and Wu [11] studied the relationship between MP and DPP in the sense of viscosity solution of HJB equation. The relationship is summarized as follows: 
+ 
+ $\begin{array}[]{l}\left\{\begin{aligned} p^{*}_{t}=&V_{x}(t,\bar{x}_{t})^{\top}q^{*}_{t},\\
+k^{*}_{t}=&\left[V_{xx}(t,\bar{x}_{t})\sigma(t,\bar{x}_{t},\bar{u}_{t})+V_{x}(t,\bar{x}_{t})\right.\\
+&\left.\times f_{z}\left(t,\bar{x}_{t},-V(t,\bar{x}_{t}),-V_{x}(t,\bar{x}_{t})\sigma(t,\bar{x}_{t},\bar{u}_{t}),\bar{u}_{t}\right)\right]q^{*}_{t}\end{aligned}\right.\end{array}$ 
+ and 
+ 
+ $V_{t}(t,\bar{x}_{t})=G\left(t,\bar{x}_{t},-V\left(t,\bar{x}_{t},-V_{x}(t,\bar{x}_{t}),-V_{xx}(t,\bar{x}_{t}),\bar{u}_{t}\right),\right.$ 
+ where $(p^{*},q^{*})$ is the adjoint pair of the forward part, $k^{*}$ is the adjoint process of the backward part in stochastic recursive control system and $G$ is the corresponding generalized Hamiltonian function.
+
+In our paper, the most important feature is that the coefficients of the system we consider are random. We emphasize that this is an essential difference from existing literature. In 1992, Peng [43] studied the optimal control problem of non-Markovian stochastic systems using dynamic programming. Compared with the optimal control problem of Markov stochastic systems, the value function is no longer a deterministic function, but a random field. In other words, it is a family of semi-martingales. Furthermore, the HJB equation derived from Bellman’s principle of optimality is no longer a second-order fully nonlinear PDE, but a second-order fully nonlinear BSPDE, whose solution is a pair of random fields as BSDE’s. To distinguish it from the classical HJB equation, we call it the stochastic HJB equation. As in the deterministic case, the existence of the solution for stochastic HJB equation is a very hard problem. The solvability has only been proved for a few cases, see [22] for instance. One contribution of our paper is to show that the value function of the recursive optimal control problem will be the classical solution of stochastic HJB equation, if the needed regularity is satisfied. It can be seen as a general form of Feyman-Kac representation. In this sense, our work extends the result of Tang [23] , in which the author used a forward-backward system to represent semilinear backward stochastic partial differential equation. In fact, our proof is partly inspired from that work, i.e. we also use the random field generated by the controlled SDE. Furthermore, we proved a verification theorem to show that the solution of stochastic HJB equation gives the optimal control. Another contribution of our paper is to show the connection between the MP and the DPP. Our result extends those for stochastic recursive optimal control system with deterministic coefficients. Note that we also assume that the value function is smooth to obtain the desired result, but how to deal with nonsmooth case is still unsolved. Actually, the solvability for the stochastic HJB equation in a general form is a long-existing open problem.
+
+The rest of this article is organized as follows. In Section 2, we introduce some notations and the basic setup of our problem. We characterize the optimal control by DPP, i.e. the relation between the value function and stochastic HJB equation in Section 3. In Section 4, the optimal control is characterized by MP, i.e. the stochastic Hamiltonian system. In Section 5, we show the connection between the MP and the DPP. As an application we discuss a linear quadratic (LQ) recursive utility portfolio optimization problem with the random coefficients in Section 6, in which the state feedback optimal control is obtained by both MP and DPP methods, and the relations we obtained are demonstrated explicitly.
+
+2 Notations & Statement of the problem
+
+Let $(\Omega,\mathscr{F},P)$ be a complete probability space, and $\{W_{t},0\leq t\leq T\}$ is a one-dimensional standard Brownian motion on it generating a right-continuous filtration $\{\mathscr{F}_{t}\}_{0\leq t\leq T}$ . Let $E$ be an Euclidean space, and its inner product and norm are denoted by $(\cdot,\cdot)$ and $|\cdot|$ , respectively. For a function $\phi:\mathbb{R}^{n}\longrightarrow\mathbb{R}$ , we denote by $\phi_{x}$ its gradient and by $\phi_{xx}$ its Hessian (a symmetric matrix). If $\phi:\mathbb{R}^{n}\longrightarrow\mathbb{R}^{k}$ ( $k\geq 2$ ), $\phi_{x}=(\frac{\partial\phi_{i}}{\partial x_{j}})$ is the corresponding $k\times n$ Jacobian matrix.
+
+Next we introduce some useful spaces of random variables and stochastic processes. For any $\alpha\in[1,\infty)$ and $\beta\in\textsterling\textasciidieresis(0,\infty)$ , we let:
+
+$\bullet$ $M_{\mathscr{F}}^{\beta}(0,T;E)$ : the space of all ${\mathscr{F}}_{t}$ -adapted processes $f:\Omega\times[0,T]\rightarrow E$ satisfying $\|f\|_{M_{\mathscr{F}}^{\beta}(0,T;E)}\triangleq{\left(\mathbb{E}\displaystyle\int_{0}^{T}|f_{t}|^{\beta}dt\right)^{1\wedge\frac{1}{\beta}}}<\infty.$
+
+$\bullet$ $S_{\mathscr{F}}^{\beta}(0,T;E)$ : the space of all ${\mathscr{F}}_{t}$ -adapted càdlàg processes $f:\Omega\times[0,T]\rightarrow E$ satisfying $\|f\|_{S_{\mathscr{F}}^{\beta}(0,T;E)}\triangleq{\left(\mathbb{E}\displaystyle\sup_{t\in[0,T]}|f_{t}|^{\beta}dt\right)^{1\wedge\frac{1}{\beta}}}<+\infty.$
+
+$\bullet$ $L^{\beta}(\Omega;E)$ : the space of all random variables $\xi:\Omega\rightarrow E$ satisfying $\|\xi\|_{L^{\beta}(\Omega;E)}\triangleq\left(\mathbb{E}|\xi|^{\beta}\right)^{1\wedge\frac{1}{\beta}}<\infty$ .
+
+$\bullet$ ${\color[rgb]{0,0,0}M_{\mathscr{F}}^{\beta}(L^{\alpha}([0,T];E))}$ : the space of all ${\mathscr{F}}_{t}$ -adapted processes $f:\Omega\times[0,T]\rightarrow E$ satisfying $\|f\|_{\alpha,\beta}\triangleq{\left[\mathbb{E}\left(\displaystyle\int_{0}^{T}|f_{t}|^{\alpha}dt\right)^{\frac{\beta}{\alpha}}\right]^{1\wedge\frac{1}{\beta}}}<\infty.$
+
+For any $t,s\in[0,T]$ with $t\leq s$ , we define the admissible control set ${\cal U}^{2}[t,s]=M_{\mathscr{F}}^{2}(L^{2}([t,s];U))$ with $U$ being a closed convex subset of $\mathbb{R}^{k}$ . Given $x\in\mathbb{R}^{n}$ and $u\in{\cal U}^{2}[t,T]$ , we consider the following FBSDE 
+ 
+ $\displaystyle\left\{\begin{array}[]{lll}dX^{0,x;u}_{s}&=&b(s,X^{0,x;u}_{s},u_{s}\big{)}ds+\sigma\big{(}s,X^{0,x;u}_{s},u_{s})dW_{s},\\
+dY^{0,x;u}_{s}&=&-f(s,X^{0,x;u}_{s},Y^{0,x;u}_{s},Z^{0,x;u}_{s},u_{s})ds+Z^{0,x;u}_{s}dW_{s},\\
+X^{0,x;u}_{0}&=&x,\\
+Y^{0,x;u}_{T}&=&h(X^{0,x;u}_{T}),\end{array}\right.$  (1) 
+ with the cost functional 
+ 
+ $\displaystyle J(0,x;u)\triangleq Y^{0,x;u}_{0},$ 
+ where $b:\Omega\times[0,T]\times\mathbb{R}^{n}\times U\rightarrow\mathbb{R}^{n},\ \sigma:\Omega\times[0,T]\times\mathbb{R}^{n}\times U\rightarrow\mathbb{R}^{n},\ f:\Omega\times[0,T]\times\mathbb{R}^{n}\times\mathbb{R}\times\mathbb{R}\times U\longrightarrow\mathbb{R},\ h:\Omega\times\mathbb{R}^{n}\longrightarrow\mathbb{R}$ .
+
+We need the following assumptions on coefficients $(b,\sigma,f,h)$ .
+
+For any $(\omega,t,x,u)\in\Omega\times[0,T]\times\mathbb{R}^{n}\times U$ , $b(\cdot,x,u)$ and $\sigma(\cdot,x,u)$ are ${\mathscr{F}}_{t}$ -adapted processes; $b(t,\cdot,u)$ , $\sigma(t,\cdot,u)\in C^{2}(\mathbb{R}^{n},\mathbb{R}^{n})$ ; $b_{x}(t,x,u)$ , $\sigma_{x}(t,x,u)$ , $b_{u}(t,x,u)$ , $\sigma_{u}(t,x,u)$ are continuous in $(x,u)$ ; there exists a constant $K$ such that 
+ 
+ $|b(t,x,u)|,|\sigma(t,x,u)|\leq K\textsterling\textasciidieresis(1+|x|+|u|)\ \ and\ \ |b_{x}|,|b_{u}|,|b_{xx}|,|\sigma_{x}|,|\sigma_{u}|,|\sigma_{xx}|\leq K.$ 
+
+
+For any $(\omega,t,x,x_{1},x_{2},y,z,u,u_{1},u_{2})\in\Omega\times[0,T]\times\mathbb{R}^{n}\times\mathbb{R}^{n}\times\mathbb{R}^{n}\times\mathbb{R}\times\mathbb{R}\times U\times U\times U$ , $f(\cdot,x,y,z,u)$ is an ${\mathscr{F}}_{t}$ -adapted process and $h(x)$ an $\mathscr{F}_{T}$ -measurable random variable; $f$ is differentiable with respect to $(x,y,z,u)$ and $h$ is differentiable with respect to $x$ ; $f_{x}(t,x,y,z,u)$ , $f_{y}(t,x,y,z,u)$ , $f_{z}(t,x,y,z,u)$ , $f_{u}(t,x,y,z,u)$ are continuous in $(x,y,z,u)$ , $h_{x}(x)$ is continuous in $x$ ; there exists a constant $K$ such that for $\gamma\in[0,1)$ 
+ 
+ $|f(t,x,y,z,u)|\leq K(1+|x|^{2}+|y|+|z|^{\gamma}+|u|^{2}),\ \ |h(x)|\leq K(1+|x|^{2}),$ 
+ 
+ 
+ $|f_{y}|,|f_{z}|\leq K,\ \ |f_{x}(t,x,y,z,u)|\leq K(1+|x|+|u|)$ 
+ and 
+ 
+ $\displaystyle|h(x_{1})-h(x_{2})|+|f(t,x_{1},y,z,u_{1})-f(t,x_{2},y,z,u_{2})|$ 
+ $\displaystyle\leq$ $\displaystyle K(1+|x_{1}|+|x_{2}|)(|x_{1}-x_{2}|)+K(1+|u_{1}|+|u_{2}|)|u_{1}-u_{2}|.$ 
+
+
+Under Assumption 2.1 , we can see that, for any given admissible control $u$ , the forward part of SDE ( 1 ) admits a unique strong solution $X^{u}\in S_{\mathscr{F}}^{2}(0,T;\mathbb{R}^{n})$ . Thus, we see that the terminal $h(X^{u}_{T})$ is only $L^{1}$ -integrable. Thanks to the sublinear growth of $f$ with respect to $z$ and Theorem 6.3 in [4] , there exists a unique solution $(Y^{u},Z^{u})\in S_{\mathscr{F}}^{\beta}(0,T;\mathbb{R})\times M_{\mathscr{F}}^{\beta}(0,T;\mathbb{R})$ for any $\beta\in(0,1)$ . It is easy to check that $|J(0,x;u)|<\infty$ . Then, we put forward the optimal control problem.
+
+Find an admissible control $\bar{u}$ such that 
+ 
+ $J(0,x;\bar{u})=\displaystyle\inf_{u\in{\cal U}^{2}[t,T]}J(0,x;u).$  (2) 
+
+
+Any $\bar{u}\in{\cal U}^{2}[0,T]$ satisfying ( 2 ) is called an optimal control process of Problem 2.1 . With $\bar{u}$ , the solution $(\bar{X},\bar{Y},\bar{Z})$ of the state equation ( 1 ) is called the optimal state process, and consequently $(\bar{u};\bar{X},\bar{Y},\bar{Z})$ is called an optimal pair of Problem 2.1 .
+
+3 The Dynamic Programming Principle and Stochastic HJB Equation for Stochastic Recursive Control Problem
+
+In this section, we are concerned with the dynamic programming principle and the corresponding stochastic HJB Equation for stochastic recursive control Problem 2.1 . We shall show that, if the value function is a random field with some regularities, it will be the solution for the stochastic HJB equation. To this end, for $t\in[0,T]$ and $\zeta\in L^{2}(\Omega;\mathbb{R}^{n})$ and $u\in{\cal U}^{2}[t,T]$ , we consider the following parameterized FBSDE: 
+ 
+ $\displaystyle\left\{\begin{array}[]{lll}dX^{\zeta,x;u}_{s}&=&b(s,X^{t,\zeta,;u}_{s},u_{s}\big{)}ds+\sigma\big{(}t,X^{t,\zeta;u}_{s},u_{s})dW_{s},\\
+dY^{\zeta,x;u}_{s}&=&-f(s,X^{t,\zeta;u}_{s},Y^{t,\zeta;u}_{s},Z^{t,\zeta;u}_{s},u_{s})ds+Z^{t,\zeta;u}_{s}dW_{s},\\
+X^{t,\zeta;u}_{t}&=&\zeta,\\
+Y^{t,\zeta;u}_{T}&=&h(X^{t,\zeta;u}_{T}).\end{array}\right.$  (3) 
+ Under Assumption 2.1 and 2.2 , by Theorem 6.3 in [4] again, FBSDE ( 3 ) admits a unique strong solution $\Theta^{t,\zeta;u}=(X^{t,\zeta;u},Y^{t,\zeta;u},Z^{t,\zeta;u})\in S_{\mathscr{F}}^{2}(t,T;\mathbb{R}^{n})\times S_{\mathscr{F}}^{\beta}(t,T;\mathbb{R})\times M_{\mathscr{F}}^{\beta}(t,T;\mathbb{R})$ for any $\beta\in(0,1)$ . We call $\Theta^{t,\zeta;u}$ , or $\Theta=(X,Y,Z)$ whenever its dependence on $u$ and $(t,\zeta)$ is clear from context, the state process and $(u;\Theta)$ is the admissible pair
+
+For a given control process $u\in{\cal U}^{2}[t,T]$ , we define the associated cost functional as follows. 
+ 
+ $\displaystyle J(t,x;u)\triangleq Y_{t}^{t,x;u},\ \ \ (t,x)\in[0,T]\times\mathbb{R}^{n}.$ 
+ From Theorem A.2 in [15] , we get the following relation 
+ 
+ $\displaystyle J(t,\zeta,u)=Y_{t}^{t,\zeta;u}.$  (4) 
+ For $\zeta=x\in\mathbb{R}^{n},$ the value function we define in this part is 
+ 
+ $\displaystyle V(t,x)\triangleq\mathop{\text{essinf}}\limits_{u\in{\cal U}^{2}[t,T]}J(t,x;u),\ \ \ (t,x)\in[0,T]\times\mathbb{R}^{n}.$ 
+
+
+Now we discuss a generalized DPP for our stochastic optimal control problem. For this purpose, we define the family of (backward) semigroups associated with FBSDE ( 3 ), which was first introduced by Peng [15] . Given the initial data $(t,x)$ , a positive number $\delta\leq T-t,$ an admissible control process $u\in{\cal U}^{2}[t,t+\delta]$ and a real-valued random variable $\eta\in L^{2}(\Omega,\mathscr{F}_{t+\delta};\mathbb{R}),$ we put 
+ 
+ $G_{s,t+\delta}^{t,x;u}(\eta):=\tilde{Y}_{s}^{t,x;u},\ \ \ s\in[t,t+\delta]$  (5) 
+ where $(X^{t,x,u}_{\cdot},\tilde{Y}^{t,x;u}_{\cdot},\tilde{Z}^{t,x;u}_{\cdot})$ is the solution of the following FBSDE with the time horizon $t+\delta,$
+
+
+ 
+ $\displaystyle\left\{\begin{array}[]{lll}dX^{t,x;u}_{s}&=&b(s,X^{t,x;u}_{s},u_{s}\big{)}ds+\sigma\big{(}s,X^{t,x;u}_{s},u_{s})dW_{s},\\
+d\tilde{Y}^{t,x;u}_{s}&=&-f(s,X^{t,x;u}_{s},\tilde{Y}^{t,x;u}_{s},\tilde{Z}^{t,x;u}_{s},u_{s})ds+\tilde{Z}^{t,x;u}_{s}dW_{s},\\
+X^{t,x;u}_{t}&=&x,\\
+Y^{t,x;u}_{t+\delta}&=&\eta.\end{array}\right.$  (6) 
+ Obviously, for any admissible control pair $(X^{t,x,u},Y^{t,x;u},Z^{t,x;u};u),$ we have 
+ 
+ $\displaystyle G_{t,T}^{t,x;u}\big{(}h(X^{t,x;u}_{T})\big{)}=G_{t,t+\delta}^{t,x;u}(Y_{t+\delta}^{t,x;u})=G_{t,t+\delta}^{t,x;u}(Y_{t+\delta}^{t+\delta,X_{t+\delta}^{t,x;u};u})=G_{t,t+\delta}^{t,x;u}(J(t+\delta,X_{t+\delta}^{t,x;u};u)).$  (7) 
+ Moreover, the following dynamic programming principle holds by a similar proof as in [15] .
+
+Under Assumption 2.1 and 2.2 , the value function $v(t,x)$ obeys the following DPP: for any $0\leq t<t+\delta\leq T,x\in\mathbb{R}^{n}$ , 
+ 
+ $\displaystyle V(t,x)=\inf\limits_{u\in\mathcal{U}^{2}[t,t+\delta]}G_{t,t+\delta}^{t,x;u}\big{(}V(t+\delta,X_{t+\delta}^{t,x;u})\big{)}.$ 
+
+
+Next we shall show the relation between the value function and stochastic HJB equation. For this purpose, the following lemma in [23] is needed.
+
+For any fixed admissible control $u$ , set $\mathbb{X}_{s}^{x}$ to be the solution of the following SDE: 
+ 
+ $\displaystyle\left\{\begin{array}[]{lll}dX_{s}=b(s,X_{s},u_{s})ds+\sigma(s,X_{s},u_{s})dW_{s},\\
+X_{0}=x.\end{array}\right.$  (8) 
+ Then, almost surely, for each $s\in[0,T]$ , $\mathbb{X}_{s}^{\cdot}$ is a diffeomorphism of $C^{1}$ . The gradient $\partial\mathbb{X}_{s}^{x}$ satisfies the following SDE: 
+ 
+ $\displaystyle\left\{\begin{array}[]{lll}d\partial\mathbb{X}_{s}^{x}=b_{x}(s,\mathbb{X}_{s}^{x},u_{s})\partial\mathbb{X}_{s}^{x}ds+\sigma_{x}(s,\mathbb{X}_{s}^{x},u_{s})\partial\mathbb{X}_{s}^{x}dW_{s},\\
+\partial\mathbb{X}_{0}^{x}=I.\end{array}\right.$ 
+ Moreover, from the boundedness of the derivatives, classical estimation for SDE yields that 
+ 
+ $\mathbb{E}\left[\sup_{s\in[0,T]}|\partial\mathbb{X}_{s}^{x}|^{4}\right]\leq M,$ 
+ where $M$ is a constant independent of $x$ .
+
+Then main result of this section is presented below.
+
+In additional to Assumptions 2.1 and 2.2 , we also assume that the control region $U\subset\mathbb{R}^{k}$ is bounded and, for each $t\in[0,T]$ and $x\in\mathbb{R}^{n}$ , the infimum of the cost functional $J(t,x;\cdot)$ is attained by an optimal control $u^{*,t,x}$ . Moreover, assume that the value function $V(t,x)$ admits the following semimartingale decomposition: 
+ 
+ $\displaystyle V(t,x)=h(x)+\int_{t}^{T}\Gamma(s,x)ds-\int_{t}^{T}\Psi(s,x)dW_{s},\ \ \ t\in[0,T],$  (9) 
+ where the $\mathbb{R}$ -valued function $\Gamma(t,\cdot)$ and $\Psi(t,\cdot)$ are $\mathscr{F}_{t}\times\mathcal{B}(\mathbb{R}^{n})$ measurable for each $t\in[0,T]$ and $V,\Gamma,\Psi$ satisfy the following assumptions: (i) $(t,x)\longmapsto V(t,x)$ is continuous a.s., (ii) $x\longmapsto V(t,x)$ is $C^{2}$ for each $t\in[0,T]$ a.s., (iii) $x\longmapsto\Gamma(t,x)$ is continuous for each $t\in[0,T]$ a.s., (iv) $x\longmapsto\Psi(t,x)$ is is $C^{1}$ for each $t\in[0,T]$ a.s., (v) There exists $K\in{\color[rgb]{0,0,0}M_{\mathscr{F}}^{2}(L^{2}(0,T;\mathbb{R}^{+}))}$ such that 
+ 
+ $|V(t,x)|,\ |h(t,x)|,\ |\Gamma(t,x)|,\ |\Psi(t,x)|\leq K_{t}(1+|x|^{2}),$ 
+ 
+ 
+ $|\partial_{x}V(t,x)|,\ |\partial_{x}\Psi(t,x)|\leq K_{t}(1+|x|),$ 
+ 
+ 
+ $|\partial_{xx}V(t,x)|\leq K_{t},$ 
+ 
+ 
+ $|\Gamma(t,x)-\Gamma(t,y)|\leq K_{t}(1+|x|+|y|)|x-y|.$ Then, the value function $V$ , together with $\Psi$ , constitutes a pair solution of the so-called backward HJB equation 
+ 
+ $\displaystyle dV(t,x)=-\inf_{u}G\big{(}t,x,V(t,x),\Psi(t,x),V_{x}(t,x),\Psi_{x}(t,x),V_{xx}(t,x),u\big{)}dt+\Psi(t,x)dW_{t},$ 
+ 
+ $\displaystyle V(T,x)=h(x),$   (10) 
+ where 
+ 
+ $\displaystyle G(t,x,y,z,p,q,A,u)$ $\displaystyle=$ $\displaystyle\langle p,b(t,x,u)\rangle+\langle q,\sigma(t,x,u)\rangle+{1\over 2}tr\big{(}(\sigma\sigma^{*})(t,x,u)A\big{)}$ 
+ $\displaystyle+f(t,x,y,\sigma^{*}p+z,u).$ 
+
+
+Let $\{x_{i}\}=\mathbb{Q}$ . For a fixed admissible control $u$ and $x_{i}$ , we abbreviate $X$ for $X^{0,x_{i};u}$ for simplicity. Applying Itô-Ventzell formula to $V(t,X_{t})$ , we have 
+ 
+ $\displaystyle V(t,X_{t})=V(t+\delta,X_{t+\delta})+\int_{t}^{t+\delta}$  $\displaystyle\Gamma(s,X_{s})-G(s,X_{s},V(s,X_{s}),\Psi(s,X_{s}),V_{x}(s,X_{s}),\Psi_{x}(s,X_{s}),V_{xx}(s,X_{s}),u_{s})$ 
+ $\displaystyle+f(s,X_{s},V(s,X_{s}),Z^{\prime}_{s},u_{s})ds-\int_{t}^{t+\delta}Z^{\prime}_{s}dW_{s},$ 
+ where $Z^{\prime}_{s}=\sigma^{*}V_{x}(s,X_{s})+\Psi(s,X_{s})$ . From condition (v) in the theorem, it can be verified that $Z^{\prime}\in M_{\mathscr{F}}^{2}(0,T)$ . Consider the following BSDE 
+ 
+ $\displaystyle Y_{r}=V(t+\delta,X_{t+\delta})+\int_{r}^{t+\delta}f(s,X_{s},Y_{s},Z_{s},u_{s})ds-\int_{r}^{t+\delta}Z_{s}dW_{s}.$ 
+ From the DPP, we shall have that $Y_{t}\geq V(t,X_{t})$ . After linearization, $Y_{t}-V(t,X_{t})$ can be written as 
+ 
+ $\displaystyle V(t,X_{t})-Y_{t}=\mathbb{E}\left[\int_{t}^{t+\delta}\xi_{s}\Delta(s,X_{s},u_{s})ds\bigg{|}\mathcal{F}_{t}\right]\leq 0,$  (11) 
+ where 
+ 
+ $\Delta(s,x,u)=\Gamma(s,x)-G(s,x,V(s,x),\Psi(s,x),V_{x}(s,x),\Psi_{x}(s,x),V_{xx}(s,x),u)$ 
+ and $\xi_{s}$ satisfies the following SDE: 
+ 
+ $\displaystyle\left\{\begin{array}[]{lll}d\xi_{s}=A_{s}\xi_{s}ds+B_{s}\xi_{s}dW_{s},\\
+\xi_{t}=1\end{array}\right.$ 
+ with 
+ 
+ $A_{s}=\frac{f(s,X_{s},V(s,X_{s}),Z^{\prime}_{s},u_{s})-f(s,X_{s},Y_{s},Z^{\prime}_{s},u_{s})}{V(s,X_{s})-Y_{s}},$ 
+ and 
+ 
+ $B_{s}=\frac{f(s,X_{s},Y_{s},Z^{\prime}_{s},u_{s})-f(s,X_{s},Y_{s},Z_{s},u_{s})}{Z^{\prime}_{s}-Z_{s}}.$ 
+ Since $f(t,x,y,z,u)$ is Lipschitz continuous with respect to $y$ and $z$ , it is easy to see that $A$ and $B$ are uniformly bounded processes. Then, the classical estimation for linear SDEs yields that 
+ 
+ $\displaystyle\mathbb{E}\left[|\xi_{s}-1|^{2}|\mathcal{F}_{t}\right]\leq C\mathbb{E}\left[\left(\int_{t}^{s}|A_{s}|ds\right)^{2}+\int_{t}^{s}|B_{s}|^{2}ds\bigg{|}\mathcal{F}_{t}\right]\leq C(|t-s|+|t-s|^{2}).$  (12) 
+ Here and throughout this paper, $C$ is a generic constant whose values may change from line by line. To emphasize its dependence on $t$ and $\delta$ , we also denote $\xi$ as $\xi^{t,\delta}$ . Then, we claim that, for any $t$ and $\delta$ , 
+ 
+ $\displaystyle\mathbb{E}\left[\int_{t}^{t+\delta}\Delta(s,X_{s},u_{s})ds\bigg{|}\mathcal{F}_{t}\right]\leq 0,\ \ \ a.s.$  (13) 
+ To see this, for fixed $t$ and $\delta$ , we obtain similarly that, for any $n$ and $k\leq n$ , 
+ 
+ $\mathbb{E}\left[\int_{t+\frac{k}{n}\delta}^{t+\frac{k+1}{n}\delta}\xi^{t+\frac{k}{n}\delta,\frac{\delta}{n}}_{s}\Delta(s,X_{s},u_{s})ds\bigg{|}\mathcal{F}_{t}\right]\leq 0.$  (14) 
+ Then, from ( 14 ), we have 
+ 
+ $\begin{split}&\mathbb{E}\left[\int_{t+\frac{k}{n}\delta}^{t+\frac{k+1}{n}\delta}\Delta(s,X_{s},u_{s})ds\bigg{|}\mathcal{F}_{t}\right]\\
+=&\mathbb{E}\left[\int_{t+\frac{k}{n}\delta}^{t+\frac{k+1}{n}\delta}\xi^{t+\frac{k}{n}\delta,\frac{\delta}{n}}_{s}\Delta(s,X_{s},u_{s})ds\bigg{|}\mathcal{F}_{t}\right]+\mathbb{E}\left[\int_{t+\frac{k}{n}\delta}^{t+\frac{k+1}{n}\delta}(1-\xi^{t+\frac{k}{n}\delta,\frac{\delta}{n}}_{s})\Delta(s,X_{s},u_{s})ds\bigg{|}\mathcal{F}_{t}\right]\\
+\leq&\mathbb{E}\left[\int_{t+\frac{k}{n}\delta}^{t+\frac{k+1}{n}\delta}(1-\xi^{t+\frac{k}{n}\delta,\frac{\delta}{n}}_{s})\Delta(s,X_{s},u_{s})ds\bigg{|}\mathcal{F}_{t}\right]\\
+\leq&\left(\mathbb{E}\left[\int_{t+\frac{k}{n}\delta}^{t+\frac{k+1}{n}\delta}(1-\xi^{t+\frac{k}{n}\delta,\frac{\delta}{n}}_{s})^{2}ds\bigg{|}\mathcal{F}_{t}\right]\right)^{1/2}\left(\mathbb{E}\left[\int_{t+\frac{k}{n}\delta}^{t+\frac{k+1}{n}\delta}|\Delta(s,X_{s},u_{s})|^{2}ds\bigg{|}\mathcal{F}_{t}\right]\right)^{1/2}\end{split}$ 
+ Summing over $k$ , we have 
+ 
+ $\begin{split}&\mathbb{E}\left[\int_{t}^{t+\delta}\Delta(s,X_{s},u_{s})ds\bigg{|}\mathcal{F}_{t}\right]\\
+\leq&\sum_{k=0}^{n-1}\left(\mathbb{E}\left[\int_{t+\frac{k}{n}\delta}^{t+\frac{k+1}{n}\delta}(1-\xi^{t+\frac{k}{n}\delta,\frac{\delta}{n}}_{s})^{2}ds\bigg{|}\mathcal{F}_{t}\right]\right)^{1/2}\left(\mathbb{E}\left[\int_{t+\frac{k}{n}\delta}^{t+\frac{k+1}{n}\delta}|\Delta(s,X_{s},u_{s})|^{2}ds\bigg{|}\mathcal{F}_{t}\right]\right)^{1/2}\\
+\leq&\left(\sum_{k=0}^{n-1}\mathbb{E}\left[\int_{t+\frac{k}{n}\delta}^{t+\frac{k+1}{n}\delta}(1-\xi^{t+\frac{k}{n}\delta,\frac{\delta}{n}}_{s})^{2}ds\bigg{|}\mathcal{F}_{t}\right]\right)^{1/2}{\color[rgb]{0,0,0}\left(\mathbb{E}\left[\int_{t}^{t+\delta}|\Delta(s,X_{s},u_{s})|^{2}ds\bigg{|}\mathcal{F}_{t}\right]\right)^{1/2}},\end{split}$  (15) 
+ where the last inequality is obtained due to Hölder inequality. By ( 12 ), we have 
+ 
+ $\begin{split}&\mathbb{E}\left[\int_{t+\frac{k}{n}\delta}^{t+\frac{k+1}{n}\delta}(1-\xi^{t+\frac{k}{n}\delta,\frac{\delta}{n}}_{s})^{2}ds\bigg{|}\mathcal{F}_{t}\right]\\
+=&\int_{t+\frac{k}{n}\delta}^{t+\frac{k+1}{n}\delta}\mathbb{E}\left[(1-\xi^{t+\frac{k}{n}\delta,\frac{\delta}{n}}_{s})^{2}\bigg{|}\mathcal{F}_{t}\right]ds\\
+\leq&C\int_{t+\frac{k}{n}\delta}^{t+\frac{k+1}{n}\delta}|t+\frac{k}{n}\delta-s|+|t+\frac{k}{n}\delta-s|^{2}ds\\
+\leq&C\frac{\delta^{2}}{n^{2}}.\end{split}$ 
+ Thus, 
+ 
+ $\left(\sum_{k=0}^{n-1}\mathbb{E}\left[\int_{t+\frac{k}{n}\delta}^{t+\frac{k+1}{n}\delta}(1-\xi^{t+\frac{k}{n}\delta,\frac{\delta}{n}}_{s})^{2}ds\bigg{|}\mathcal{F}_{t}\right]\right)^{1/2}\longrightarrow 0,\ \ \ \text{as $n\rightarrow\infty$.}$ 
+ Due to Assumption 2.1 and boundedness of the control region $U$ , $X\in S_{\mathscr{F}}^{\beta}(0,T;\mathbb{R}^{n})$ for any $\beta\geq 2$ , and thus $\left(\mathbb{E}\left[\int_{t}^{t+\delta}|\Delta(s,X_{s},u_{s})|^{2}ds\bigg{|}\mathcal{F}_{t}\right]\right)^{1/2}$ is bounded. Hence, letting $n\rightarrow\infty$ in ( 15 ), we have that 
+ 
+ $\displaystyle\mathbb{E}\left[\int_{t}^{t+\delta}\Delta(s,X_{s},u_{s})ds\bigg{|}\mathcal{F}_{t}\right]\leq 0.$  (16) 
+ For fixed $t\in[0,T]$ and any nonnegative $\mathbb{R}$ -valued random variable $\eta\in\mathscr{F}_{t}$ , it follows from ( 16 ) that 
+ 
+ $\displaystyle\mathbb{E}\left[\int_{0}^{T}\Delta(s,X_{s},u_{s})\eta I_{[t,t+\delta)}(s)ds\right]=\mathbb{E}\left[\eta\mathbb{E}\left[\int_{t}^{t+\delta}\Delta(s,X_{s},u_{s})ds\bigg{|}\mathcal{F}_{t}\right]\right]\leq 0.$ 
+ Consequently, for any nonnegative simple progress $\phi\in M_{\mathscr{F}}^{2}(0,T;\mathbb{R})$ , 
+ 
+ $\displaystyle\mathbb{E}\left[\int_{0}^{T}\Delta(s,X_{s},u_{s})\phi_{s}ds\right]\leq 0.$ 
+ For any nonnegative progress $\psi\in M_{\mathscr{F}}^{2}(0,T;\mathbb{R})$ , there exists a sequence of nonnegative simple progresses $\phi^{n}\in M_{\mathscr{F}}^{2}(0,T;\mathbb{R})$ , $n\in\mathbb{N}$ , such that 
+ 
+ $\displaystyle\lim_{n\to\infty}\mathbb{E}\left[\int_{0}^{T}|\phi^{n}_{s}-\psi_{s}|^{2}ds\right]=0.$ 
+ Hence 
+ 
+ $\displaystyle\lim_{n\to\infty}\left|\mathbb{E}\left[\int_{0}^{T}\Delta(s,X_{s},u_{s})\phi^{n}_{s}ds\right]-\mathbb{E}\left[\int_{0}^{T}\Delta(s,X_{s},u_{s})\psi_{s}ds\right]\right|$ 
+ $\displaystyle\leq$ $\displaystyle\lim_{n\to\infty}\left(\mathbb{E}\left[\int_{0}^{T}|\Delta(s,X_{s},u_{s})|^{2}ds\right]\right)^{1/2}\left(\mathbb{E}\left[\int_{0}^{T}|\phi^{n}_{s}-\psi_{s}|^{2}ds\right]\right)^{1/2}=0,$ 
+ which implies that 
+ 
+ $\displaystyle\mathbb{E}\left[\int_{0}^{T}\Delta(s,X_{s},u_{s})\psi_{s}ds\right]\leq 0.$ 
+ Noticing the arbitrariness of nonnegative process $\psi$ , we have that 
+ 
+ $\displaystyle{\color[rgb]{0,0,0}\Delta(s,X_{s},u_{s})\leq 0\ \ \ {\rm for\ a.e.}\ s\in[0,T],\ {\rm a.s.}}$ 
+ Let $\mathbb{X}_{s}^{x}$ be the stochastic flow generated by the SDE ( 3.1 ). From Lemma 3.1 , with probability $1$ , for each $s$ , $\mathbb{X}_{s}^{\cdot}$ is a diffeomorphism of class $C^{1}$ . For each $x_{i}$ , we also have that 
+ 
+ $\Delta(s,\mathbb{X}_{s}^{x_{i}},u_{s})\leq 0\ \ \ {\rm for\ a.e.}\ s\in[0,T],\ {\rm a.s.}$ 
+ Since $\Delta(s,x)$ and ${\mathbb{X}_{s}^{x}}$ is continuous with respect to $x$ , we shall get that 
+ 
+ $\Delta(s,\mathbb{X}_{s}^{x},u_{s})\leq 0\ \ \ {\rm for\ all}\ x\in\mathbb{R}^{n},\ {\rm a.e.}\ s\in[0,T],\ {\rm a.s.}$ 
+ From the growth condition of the coefficients and the value function, we see that 
+ 
+ $|\Delta(t,\mathbb{X}_{t}^{x},u_{t})|^{2}\leq C(1+K^{2}_{t})(1+|\mathbb{X}_{t}^{x}|^{4}).$ 
+ Then, 
+ 
+ $\begin{split}&\mathbb{E}\left[\int_{0}^{T}|\Delta(t,\mathbb{X}_{t}^{x},u_{t})|^{2}dt\right]\\
+\leq&C\mathbb{E}\left[\int_{0}^{T}(1+K_{t}^{2})(1+|\mathbb{X}_{t}^{x}|^{4})dt\right]\\
+\leq&C\mathbb{E}\left[\sup_{t}(1+|\mathbb{X}_{t}^{x}|^{4})\int_{0}^{T}(1+K_{t}^{2})dt\right]\\
+\leq&C\left(E\left[\left(\sup_{t}(1+|\mathbb{X}_{t}^{x}|^{4})\right)^{2}\right]\right)^{1/2}\left(E\left[\left(\int_{0}^{T}(1+K_{t}^{2})dt\right)^{2}\right]\right)^{1/2}\\
+\leq&C(1+|x|^{4}).\end{split}$ 
+
+
+Now, let $\varphi$ be a smooth function such that 
+ 
+ $\varphi(x)=\left\{\begin{split}&1,\text{ for $|x|\leq 1$;}\\
+&0,\text{ for $|x|\geq 2$;}\\
+&\in[0,1],\text{ otherwise}.\end{split}\right.$ 
+ For $s\in[0,T]$ , define $\tilde{\mathbb{X}}_{s}^{\cdot}$ to be the inverse function of ${\mathbb{X}}_{s}^{\cdot}$ and consider a random function 
+ 
+ $g(s,x)=\xi(\mathbb{X}_{s}^{x})\varphi(\frac{x}{N})|\det\partial\tilde{\mathbb{X}}_{s}^{y}|_{y={\mathbb{X}}^{x}_{s}}|^{-1}p_{s},$ 
+ where $N\in\mathbb{N}$ , $p$ is an arbitrarily given bounded non-negative adapted process and $\xi$ is a smooth non-negative function with a compact support. Let us first prove $\mathbb{E}\left[\int_{0}^{T}\int_{\mathbb{R}^{n}}\Delta(s,\mathbb{X}_{s}^{x})g(s,x)dxds\right]<\infty$ . By Hölder inequality, it holds that 
+ 
+ $\begin{split}\mathbb{E}\left[\int_{0}^{T}\int_{\mathbb{R}^{n}}|\Delta(s,\mathbb{X}_{s}^{x},u_{s})g(s,x)|dxds\right]\leq&\left(\mathbb{E}\left[\int_{0}^{T}\int_{\mathbb{R}^{n}}|\Delta(s,\mathbb{X}_{s}^{x},u_{s})|^{2}\varphi(\frac{x}{N})dxds\right]\right)^{1/2}\\
+&\left(\mathbb{E}\left[\int_{0}^{T}\int_{\mathbb{R}^{n}}\xi^{2}(\mathbb{X}_{s}^{x})\varphi(\frac{x}{N})|\det\partial_{y}\tilde{\mathbb{X}}_{s}^{y}|_{y={\mathbb{X}}^{x}_{s}}|^{-2}p^{2}_{s}dxds\right]\right)^{1/2}\end{split}$ 
+ For the first term on the right hand side, we have 
+ 
+ $\mathbb{E}\left[\int_{0}^{T}\int_{\mathbb{R}^{n}}|\Delta(s,\mathbb{X}_{s}^{x},u_{s})|^{2}\varphi(\frac{x}{N})dxds\right]\leq\int_{|x|\leq N+2}\mathbb{E}\left[\int_{0}^{T}|\Delta(s,\mathbb{X}_{s}^{x},u_{s})|^{2}ds\right]dx<\infty.$ 
+ Note that $\tilde{\mathbb{X}}_{s}^{\mathbb{X}_{s}^{x}}=x$ . Hence $\partial_{y}\tilde{\mathbb{X}}_{s}^{y}|_{y=\mathbb{X}_{s}^{x}}\partial_{x}\mathbb{X}_{s}^{x}=I$ , and thus ${\color[rgb]{0,0,0}|\det\partial_{y}\tilde{\mathbb{X}}_{s}^{y}|_{y=\mathbb{X}_{s}^{x}}|^{-1}=|\det\partial_{x}\mathbb{X}_{s}^{x}|}$ . For the second term, it holds that 
+ 
+ $\begin{split}&\mathbb{E}\left[\int_{0}^{T}\int_{\mathbb{R}^{n}}\xi^{2}(\mathbb{X}_{s}^{x})\varphi(\frac{x}{N})|\det\partial_{y}\tilde{\mathbb{X}}_{s}^{y}|_{y=\mathbb{X}^{x}_{s}}|^{-2}p^{2}_{s}dxds\right]\\
+\leq&C\mathbb{E}\left[\int_{0}^{T}\int_{\mathbb{R}^{n}}\varphi(\frac{x}{N})|\det\partial_{x}\mathbb{X}_{s}^{x}|^{2}dxds\right]\\
+\leq&C\int_{|x|\leq N+2}\mathbb{E}\left[\int_{0}^{T}|\det\partial_{x}\mathbb{X}_{s}^{x}|^{2}ds\right]dx<\infty\end{split}$ 
+ Thus, we see that $\mathbb{E}\left[\int_{0}^{T}\int_{\mathbb{R}^{n}}\Delta(s,\mathbb{X}_{s}^{x},u_{s})g(s,x)dxds\right]<\infty$ . Then we have 
+ 
+ $\begin{split}0\geq&\mathbb{E}\left[\int_{0}^{T}\int_{\mathbb{R}^{n}}\Delta(s,\mathbb{X}_{s}^{x},u_{s})g(s,x)dxds\right]\\
+=&\mathbb{E}\left[\int_{0}^{T}\int_{\mathbb{R}^{n}}\Delta(s,\mathbb{X}_{s}^{x},u_{s})\xi(\mathbb{X}_{s}^{x})\varphi(\frac{x}{N})|\det\partial_{y}\tilde{\mathbb{X}}_{s}^{y}|_{y=\mathbb{X}^{x}_{s}}|^{-1}p_{s}dxds\right]\\
+=&{\color[rgb]{0,0,0}\mathbb{E}\left[\int_{0}^{T}\int_{\mathbb{R}^{n}}\Delta(s,x,u_{s})\xi(x)\varphi(\frac{\tilde{\mathbb{X}}_{s}^{x}}{N})p_{s}dxds\right],}\end{split}$ 
+ where we apply the change of variable from the second to the third line in the above. As $N\rightarrow+\infty$ , it reduces to 
+ 
+ $\mathbb{E}\left[\int_{0}^{T}\int_{\mathbb{R}^{n}}\Delta(s,x,u_{s})\xi(x)p_{s}dxds\right]\leq 0.$ 
+ From the arbitrariness of $\xi$ , $p$ and $u$ , we have that 
+ 
+ $\sup_{u}\Delta(s,x,u)\leq 0\ \ \ {\rm for\ all}\ x\in\mathbb{R}^{n},\ {\rm a.e.}\ s\in[0,T],\ {\rm a.s.}$  (17) 
+
+
+Next, we show that the equality holds. Since the optimal control $u^{*,t,x}_{\cdot}$ and its corresponding state denoted by $X^{u^{*,t,x}}_{\cdot}$ exist. For simplicity, we abbreviate $(X^{u^{*,s,x}}_{\cdot},u^{*,s,x}_{\cdot})$ as $(X^{*}_{\cdot},u^{*}_{\cdot})$ . It follows from ( 11 ) that 
+ 
+ ${\color[rgb]{0,0,0}\Delta(s,X^{*}_{s};u^{*}_{s})=0,\text{ for a.e. $s\in[t,T]$, a.s..}}$ 
+ Denote by $\Delta(s,x):=\sup_{u}\Delta(s,x,u)$ . Then, we see that 
+ 
+ $\Delta(s,x,0)\leq\Delta(s,x)\leq 0.$ 
+ This implies that 
+ 
+ $|\Delta(s,x)|\leq|\Delta(s,x,0)|\leq CK_{t}(1+|x|^{2}),$ 
+ which further yields that $\Delta(\cdot,x)\in{\color[rgb]{0,0,0}M_{\mathscr{F}}^{2}(L^{2}(0,T;\mathbb{R}^{-}))}$ for any $x$ . Let $\zeta(t)$ be a mollifier defined on $[0,+\infty)$ , i.e. 
+ 
+ $\zeta(t)=\left\{\begin{aligned} C\exp(-\frac{1}{1-t^{2}}),&\text{ if $t\leq 1$;}\\
+0,\qquad&\text{ otherwise;}\end{aligned}\right.$ 
+ with the constant $C$ selected so that $\int_{0}^{\infty}\zeta(t)dt=1$ and $\zeta_{n}(t)=n\zeta(nt)$ . Define 
+ 
+ $\Delta_{n}(s,x)=\int_{0}^{\infty}\zeta_{n}(u)\Delta(s+u,x)du.$ 
+ We shall have that 
+ 
+ $\mathbb{E}\left[\int_{0}^{T}\Delta_{n}(s,x)ds\right]\rightarrow\mathbb{E}\left[\int_{0}^{T}\Delta(s,x)ds\right]$  (18) 
+ as $n\rightarrow+\infty$ . Note that 
+ 
+ $\begin{split}\Delta_{n}(s,x)=&\int_{0}^{\infty}\zeta_{n}(u)\Delta(s+u,x)du\\
+\geq&\int_{0}^{\infty}\zeta_{n}(u)\Delta(s+u,x,u^{*}_{s+u})du\\
+=&\int_{0}^{\infty}\zeta_{n}(u)(\Delta(s+u,x,u^{*}_{s+u})-\Delta(s+u,X^{*}_{s+u},u^{*}_{s+u}))du\end{split}$ 
+ From the assumption of the theorem, we see that 
+ 
+ $|\Delta(s+u,x,u^{*}_{s+u})-\Delta(s+u,X^{*}_{s+u},u^{*}_{s+u})|\leq CK_{s+u}(1+|x|+|X^{*}_{s+u}|+|u^{*}_{s+u}|)|X^{*}_{s+u}-x|.$ 
+ Hence, 
+ 
+ $\begin{split}&\mathbb{E}\left|\int_{0}^{\infty}\zeta_{n}(u)(\Delta(s+u,x,u^{*}_{s+u})-\Delta(s+u,X^{*}_{s+u},u^{*}_{s+u}))du\right|\\
+\leq&C\left(\mathbb{E}\left[\int_{0}^{\infty}\zeta_{n}(u)K_{s+u}(1+|x|+|X^{*}_{s+u}|+|u^{*}_{s+u}|)^{2}du\right]\right)^{1/2}\\
+&\left(\mathbb{E}\left[\int_{0}^{\infty}\zeta_{n}(u)K_{s+u}|X^{*}_{s+u}-x|^{2}du\right]\right)^{1/2}\\
+\leq&C\left(\mathbb{E}\left[\int_{0}^{\infty}\zeta_{n}(u)K^{2}_{s+u}du\right]\right)^{1/2}\left(\mathbb{E}\left[\int_{0}^{\infty}\zeta_{n}(u)(1+|x|+|X^{*}_{s+u}|+|u^{*}_{s+u}|)^{4}du\right]\right)^{1/4}\\
+&\left(\mathbb{E}\left[\int_{0}^{\infty}\zeta_{n}(u)|X^{*}_{s+u}-x|^{4}du\right]\right)^{1/4}\end{split}$ 
+ Then, we see that, for all $s$ , 
+ 
+ $\mathbb{E}\left[\int_{0}^{\infty}\zeta_{n}(u)|X^{*}_{s+u}-x|^{4}du\right]\rightarrow 0$ 
+ and 
+ 
+ $E\left[\int_{0}^{\infty}\zeta_{n}(u)(1+|x|+|X^{*}_{s+u}|+|u^{*}_{s+u}|)^{4}du\right]$ 
+ is uniformly bounded with respect to $n$ . Moreover, it holds that, for almost all $s$ , 
+ 
+ $\mathbb{E}\left[\int_{0}^{\infty}\zeta_{n}(u)K^{2}_{s+u}du\right]\rightarrow\mathbb{E}\left[K_{s}^{2}\right].$ 
+ Hence, for almost $s$ , 
+ 
+ $\liminf_{n}\mathbb{E}\left[\Delta_{n}(s,x)\right]\geq 0.$ 
+ From ( 18 ), we have 
+ 
+ $\mathbb{E}\left[\int_{0}^{T}\Delta(s,x)ds\right]\geq 0.$ 
+ Combining with the fact that $\Delta(s,x)\leq 0$ , we obtain that 
+ 
+ $\Delta(s,x)=0.$ 
+ ∎
+
+In above, we have proved that the value function is the solution of the stochastic HJB equation under suitable conditions. Next, we will prove a converse result.
+
+[Stochastic Verification Theorem] Let $(\Phi,\Psi)$ be the solution of stochastic HJB equation ( 3.1 ) and assume that they satisfy the regularity assumptions in Proposition 2.1 . Then, for any $(t,x)$ and admissible control $u$ , we have 
+ 
+ $V(t,x)\leq J(t,x;u).$ 
+ Moreover, if there exists an admissible control $u$ such that, for almost all $s\in[t,T]$ , 
+ 
+ $\begin{split}&G\big{(}s,X^{t,x;u}_{s},V(t,X^{t,x;u}),\Psi(t,X^{t,x;u}),V_{x}(t,X^{t,x;u}),\Psi_{x}(t,X^{t,x;u}),V_{xx}(t,X^{t,x;u}),u_{s}\big{)}\\
+=&\inf_{v}G\big{(}s,X^{t,x;u}_{s},V(t,X^{t,x;u}),\Psi(t,X^{t,x;u}),V_{x}(t,X^{t,x;u}),\Psi_{x}(t,X^{t,x;u}),V_{xx}(t,X^{t,x;u}),v\big{)},a.e.,\end{split}$ 
+ then $u$ is the optimal control.
+
+The result is obtained by applying Itô formula to $V(s,X^{t,x;u}_{s})$ and comparing it with $Y_{s}^{t,x;u}$ . Since the calculation is almost the same to previous proposition, we omit the proof here. ∎
+
+4 The Maximum Principle of Stochastic Recursive Control Problem
+
+In this section, we derive the stochastic maximum principle of Problem 2.1 . We first define the Hamiltonian function $H:\Omega\times[0,T]\times\mathbb{R}^{n}\times\mathbb{R}\times\mathbb{R}\times\mathbb{R}^{n}\times\mathbb{R}^{n}\times\mathbb{R}\times U\rightarrow\mathbb{R}$ by 
+ 
+ $\begin{array}[]{ll}\displaystyle H(t,x,y,z,p,q,k,u)=\langle p,b(t,x,u)\rangle+\langle q,\sigma(t,x,u)\rangle-kf(t,x,y,z,u).\end{array}$ 
+
+
+To simplify our argument, we introduce some abbreviated notations. Now, let $(\bar{u};\bar{X},\bar{Y},\bar{Z})$ be an optimal pair of Problem 2.1 . For $\varphi=b,\sigma,b_{x},b_{u},\sigma_{x},\sigma_{u},$ define 
+ 
+ $\displaystyle\bar{\varphi}(t):=\varphi(t,\bar{X}_{t},\bar{u}_{t}),$ 
+ for $\varphi=f,f_{x},f_{y},f_{z},f_{u}$ , 
+ 
+ $\displaystyle\bar{\varphi}(t):=\varphi(t,\bar{X}_{t},\bar{Y}_{t},\bar{Z}_{t},\bar{u}_{t}),$ 
+ and for $h$ , 
+ 
+ $\bar{h}(T):=h(\bar{X}_{T}),\ \ \bar{h}_{x}(T):=h_{x}(\bar{X}_{T}).$ 
+
+
+Now we are ready to give the necessary conditions of optimality for the optimal control of Problem 2.1 . Let $(\bar{u};\bar{\Theta})=(\bar{u};\bar{X},\bar{Y},\bar{Z})$ be an optimal 4-tuple. Fix any admissible control $u\in{\cal U}^{2}[0,T]$ . Consider $u^{1}\in M_{\mathscr{F}}^{\infty}(0,T;\mathbb{R}^{k})$ as $u^{1}_{t}=\frac{u_{t}-\bar{u}_{t}}{|u_{t}-\bar{u}_{t}|\vee 1}$ . For any $\varepsilon\in[0,1],$ we construct a perturbed admissible control as below 
+ 
+ $\displaystyle u^{\varepsilon}=\bar{u}+\varepsilon u^{1}.$ 
+ It is easy to see that $u^{\varepsilon}$ is also an admissible control. Denote by $\left(X^{\varepsilon},Y^{\varepsilon},Z^{\varepsilon}\right)$ the corresponding state equation and consider the following variational equations: 
+ 
+ $\displaystyle dX^{1}_{t}=\bigg{[}\bar{b}_{x}(t)X^{1}_{t}+\bar{b}_{u}(t){u}^{1}_{t}\bigg{]}dt+\displaystyle\bigg{[}\bar{\sigma}_{x}(t)X^{1}_{t}+\bar{\sigma}_{u}(t){u}^{1}_{t}\bigg{]}dW_{t},$ 
+ 
+ $\displaystyle dY^{1}(t)=-\bigg{[}\bar{f}_{x}(t)X^{1}_{t}+\bar{f}_{y}(t)Y^{1}_{t}+\bar{f}_{z}(t)Z^{1}_{t}+\bar{f}_{u}(t){u}^{1}_{t}\bigg{]}dt+\displaystyle Z^{1}_{t}dW_{t},$ 
+ 
+ $\displaystyle X^{1}_{0}=0,$ 
+ 
+ $\displaystyle Y_{T}=\bar{h}_{x}(T)X^{1}_{T}.$   (19) 
+ Since $h_{x}$ is of linear growth with respect to $x$ , the terminal $\bar{h}_{x}(T)X^{1}_{T}$ is not $L^{2}$ -integrable in general. Thus, the solvability of ( 4 ) is not obvious. For that purpose, we shall introduce the following result for BSDE with $L^{p}$ -terminal. It has been proved in [4] .
+
+Consider the following BSDE 
+ 
+ $\displaystyle\left\{\begin{array}[]{lll}dY_{t}=-f(t,Y_{t},Z_{t})dt+Z_{t}dW_{t},\\
+Y_{T}=\xi,\end{array}\right.$ 
+ with $f$ is uniformly Lipschitz continuous with respect to $(y,z)$ and $\xi$ is $L^{p}$ -integrable with some $p>1$ . There exists a unique solution $(Y,Z)$ , and for some constant $\tilde{C}$ , 
+ 
+ $\|Y\|^{p}_{\mathcal{S}^{p}}+\|Z\|^{p}_{M^{p}}\leq\tilde{C}\mathbb{E}\left[|\xi|^{p}+\left(\int_{0}^{T}|f(t,0,0)|dt\right)^{p}\right].$ 
+
+
+We shall have the following lemmas.
+
+Under Assumptions 2.1 , it holds that 
+ 
+ $\displaystyle\mathbb{E}\sup_{0\leq t\leq T}|X^{\varepsilon}_{t}-\bar{X}_{t}|^{p}=O(\varepsilon^{p}),$  (20) 
+ and 
+ 
+ $\displaystyle\mathbb{E}\sup_{0\leq t\leq T}|X^{\varepsilon}_{t}-\bar{X}_{t}-\varepsilon X^{1}_{t}|^{p}=o(\varepsilon^{p}),$  (21) 
+ for any $p>1$ .
+
+The proof is rather standard. For ( 20 ), by the $L^{p}$ estimate for SDE (see Proposition 2.1 in [10] ) and Assumptions 2.1 , we have 
+ 
+ $\displaystyle\mathbb{E}\bigg{(}\sup_{0\leq t\leq T}|X^{\varepsilon}_{t}-\bar{X}_{t}|^{p}\bigg{)}$ $\displaystyle\leq$ $\displaystyle C\bigg{[}\mathbb{E}\bigg{(}\int_{0}^{T}|b(t,\bar{X}_{t},u^{\varepsilon}_{t})-b(t,\bar{X}_{t},\bar{u}_{t})|dt\bigg{)}^{p}$ 
+ $\displaystyle\ \ \ \ \ \ +\mathbb{E}\bigg{(}\int_{0}^{T}|\sigma(t,\bar{X}_{t},u^{\varepsilon}_{t})-\sigma(t,\bar{X}_{t},\bar{u}_{t})|^{2}dt\bigg{)}^{p/2}\bigg{]}$ 
+ $\displaystyle\leq$ $\displaystyle C\mathbb{E}\bigg{(}\int_{0}^{T}|u^{\varepsilon}_{t}-\bar{u}_{t}|^{2}dt\bigg{)}^{p/2}$ 
+ $\displaystyle=$ $\displaystyle C\mathbb{E}\bigg{(}\int_{0}^{T}|\varepsilon u^{1}_{t}|^{2}dt\bigg{)}^{p/2}$ 
+ $\displaystyle=$ $\displaystyle C\varepsilon^{p}\mathbb{E}\bigg{(}\int_{0}^{T}|u^{1}_{t}|^{2}dt\bigg{)}^{p/2}$ 
+ $\displaystyle=$ $\displaystyle O(\varepsilon^{p}).$ 
+ For ( 21 ), denote $\delta X:=X^{\varepsilon}-\bar{X}-\varepsilon X^{1}$ . Then, we have 
+ 
+ $\displaystyle\left\{\begin{array}[]{lll}d\delta X_{t}=\bar{b}_{x}(t)\delta X_{t}+(\tilde{b}_{x}(t)-\bar{b}_{x}(t))(X^{\varepsilon}_{t}-\bar{X}_{t})dt+\bar{\sigma}_{x}(t)\delta X_{t}+(\tilde{\sigma}_{x}(t)-\bar{\sigma}_{x}(t))(X^{\varepsilon}_{t}-\bar{X}_{t})dW_{t},\\
+\delta X_{0}=0,\end{array}\right.$ 
+ with 
+ 
+ $\tilde{b}_{x}(t):=\int_{0}^{1}b_{x}(t,\bar{X}_{t}+\lambda(X^{\varepsilon}_{t}-\bar{X}_{t}),\bar{u}_{t}+\lambda\varepsilon u^{1}_{t})d\lambda$ 
+ and 
+ 
+ $\tilde{\sigma}_{x}(t):=\int_{0}^{1}\sigma_{x}(t,\bar{X}_{t}+\lambda(X^{\varepsilon}_{t}-\bar{X}_{t}),\bar{u}_{t}+\lambda\varepsilon u^{1}_{t})d\lambda.$ 
+ From previous estimation for $X^{\varepsilon}-\bar{X}$ and the standard estimation for SDEs, we shall have ( 21 ). The proof is completed. ∎
+
+It is also easy to show that $X^{1}_{T}$ is $L^{p}$ -integrable for any $p>1$ , which implies that the terminal $\bar{h}_{x}(T)X^{1}_{T}$ is $L^{p}$ -integrable for any $p\in(1,2)$ . Combining Lemma 4.1 , we shall have
+
+Under Assumptions 2.1 and 2.2 , FBSDE ( 4 ) admits a unique solution $(X^{1},Y^{1},Z^{1})$ . Moreover, $X^{1}\in S^{p_{1}}$ and $(Y^{1},Z^{1})\in S^{p_{2}}\times M^{p_{2}}$ for any $p_{1}>1$ and any $p_{2}\in(1,2)$ .
+
+Next, we prove the following expansion for $\bar{Y}$ .
+
+Under Assumptions 2.1 and 2.2 , we have for any $p\in(1,2)$ 
+ 
+ $\displaystyle\lim_{\varepsilon\rightarrow 0}\mathbb{E}$ $\displaystyle\displaystyle\sup_{0\leq t\leq T}|\frac{Y^{\varepsilon}_{t}-\bar{Y}_{t}}{\varepsilon}-Y^{1}_{t}|^{p}=0.$   (22) 
+
+
+A direct calculation gives 
+ 
+ $\begin{split}&Y^{\varepsilon}_{t}-\bar{Y}_{t}-\varepsilon Y^{1}_{t}\\
+=&\tilde{h}_{x}(T)(X^{\varepsilon}_{T}-\bar{X}_{T})+\bar{h}_{x}(T)\delta X(T)\\
+&\int_{t}^{T}\tilde{f}_{x}(s)(X^{\varepsilon}_{s}-\bar{X}_{s}-\varepsilon X^{1}_{s})ds+\int_{t}^{T}\tilde{f}_{y}(s)(Y^{\varepsilon}_{s}-\bar{Y}_{s}-\varepsilon Y^{1}_{s})ds\\
+&+\int_{t}^{T}\tilde{f}_{z}(s)(Z^{\varepsilon}_{s}-\bar{Z}_{s}-\varepsilon Z^{1}_{s})ds+\int_{t}^{T}(\tilde{f}_{x}(s)-\bar{f}_{x}(s))\varepsilon X^{1}_{s}ds\\
+&+\int_{t}^{T}(\tilde{f}_{y}(s)-\bar{f}_{y}(s))\varepsilon Y^{1}_{s}ds+\int_{t}^{T}(\tilde{f}_{z}(s)-\bar{f}_{z}(s))\varepsilon Z^{1}_{s}ds\\
+&+\varepsilon\int_{0}^{t}(\tilde{f}_{u}(s)-\bar{f}_{u}(s))u^{1}_{s}ds+\int_{t}^{T}(Z^{\varepsilon}(s)-\bar{Z}(s)-\varepsilon Z^{1}_{s})dW_{s},\end{split}$ 
+ with 
+ 
+ $\tilde{f}_{x}(t):=\int_{0}^{1}f_{x}(t,\bar{X}_{t}+\lambda(X^{\varepsilon}_{t}-\bar{X}_{t}),\bar{Y}(t)+\lambda(Y^{\varepsilon}_{t}-\bar{Y}_{t}),\bar{Z}_{t}+\lambda(Z^{\varepsilon}_{t}-\bar{Z}_{t}),\bar{u}_{t}+\lambda\varepsilon u^{1}_{t})d\lambda,$ 
+ and $\tilde{f}_{y},\tilde{f}_{z}$ and $\tilde{h}_{x}$ similarly defined. Combining Lemma 4.1 and Lemma 4.3 , we have 
+ 
+ $\displaystyle\mathbb{E}$ $\displaystyle\displaystyle\sup_{0\leq t\leq T}|Y^{\varepsilon}_{t}-\bar{Y}_{t}-\varepsilon Y^{1}_{t}|^{p}=o(\varepsilon^{p}),$ 
+ which is equivalent to ( 22 ). ∎
+
+Finally, we shall have the following maximum principle.
+
+Under Assumptions 2.1 and 2.2 , set $(\bar{u};\bar{\Theta})=(\bar{u};\bar{X},\bar{Y},\bar{Z})$ be an optimal 4-tuple of Problem 2.1 . Then, we have, for a.e. $t\in[0,T]$ , almost surely 
+ 
+ $H_{u}(t,\bar{X}_{t},\bar{Y}_{t},\bar{Z}_{t},p_{t},q_{t},k_{t},\bar{u}_{t})(u-\bar{u}_{t})\geq 0,\text{for any $u\in U$,}$  (23) 
+ where $\Lambda=(p,q,k)$ is the solution to the following FBSDE: 
+ 
+ $\left\{\begin{array}[]{ll}dp_{t}=-\bar{H}_{x}(t)dt+\displaystyle q_{t}dW_{t},\\
+dk_{t}=-\bar{H}_{y}(t)dt-\displaystyle\bar{H}_{z}(t)dW_{t},\\
+p_{T}=-\bar{h}_{x}^{*}(T)k_{T},\\
+k_{0}=-1,~{}~{}~{}~{}0\leq t\leq T,\end{array}\right.$  (24) 
+ with $\eta(t)=H,H_{x},H_{y},H_{z},H_{u},$ defined as 
+ 
+ $\bar{\eta}(t):=\eta(t,\bar{\Theta}_{t},\Lambda_{t},\bar{u}_{t}).$ 
+
+
+Fix any admissible control $u\in{\cal U}^{\infty}[0,T]$ . For any $\varepsilon\in[0,1],$ we construct a perturbed admissible control 
+ 
+ $\displaystyle u^{\varepsilon}=\bar{u}+\varepsilon u^{1},$ 
+ with $u^{1}_{t}=\frac{u_{t}-\bar{u}_{t}}{|u_{t}-\bar{u}_{t}|\vee 1}$ and the corresponding state equation is denoted by $\left(X^{\varepsilon},Y^{\varepsilon},Z^{\varepsilon}\right)$ . Let $(X^{1},Y^{1},Z^{1})$ be the solution of FBSDE ( 4 ). From Lemma 4.4 , we have for any $p\in(0,1)$ , 
+ 
+ $\displaystyle\lim_{\varepsilon\longrightarrow 0}\mathbb{E}$ $\displaystyle\displaystyle\left[\sup_{0\leq t\leq T}\left|\frac{Y^{\varepsilon}_{t}-\bar{Y}_{t}}{\varepsilon}-Y^{1}_{t}\right|^{p}\right]=0.$   (25) 
+ Then, it holds that 
+ 
+ $Y^{1}_{0}=\lim_{\varepsilon\rightarrow 0^{+}}\frac{Y^{\varepsilon}_{0}-\bar{Y}_{0}}{\varepsilon}=\lim_{\varepsilon\rightarrow 0^{+}}\frac{J(0,x,u^{\varepsilon})-J(0,x,\bar{u})}{\varepsilon}\geq 0.$  (26) 
+ Applying Itô formula to $\langle Y^{1}_{t},k_{t}\rangle+\langle X^{1}_{t},p_{t}\rangle,$ we have 
+ 
+ $\begin{array}[]{ll}Y^{1}_{0}=&E\displaystyle\int_{0}^{T}H_{u}(t,\bar{X}_{t},\bar{Y}_{t},\bar{Z}_{t},\bar{u}_{t},p_{t},q_{t},k_{t})u^{1}_{t}dt.\end{array}$ 
+ Thus, by the variational inequality ( 26 ), we have 
+ 
+ $E\displaystyle\int_{0}^{T}H_{u}(t,\bar{X}_{t},\bar{Y}_{t},\bar{Z}_{t},\bar{u}_{t},p_{t},q_{t},k_{t})u^{1}_{t}dt\geq 0,$ 
+ which is equivalent to 
+ 
+ $E\displaystyle\int_{0}^{T}H_{u}(t,\bar{X}_{t},\bar{Y}_{t},\bar{Z}_{t},\bar{u}_{t},p_{t},q_{t},k_{t})\frac{u_{t}-\bar{u}_{t}}{|u_{t}-\bar{u}_{t}|\vee 1}dt\geq 0,$ 
+ for any $u\in U^{2}[0,T]$ . Due to the arbitrariness of $u1$ , we shall get that 
+ 
+ $H_{u}(t,\bar{X}_{t},\bar{Y}_{t},\bar{Z}_{t},\bar{u}_{t},p_{t},q_{t},k_{t})\frac{u-\bar{u}_{t}}{|u-\bar{u}_{t}|\vee 1}\geq 0,$ 
+ for any $u\in U$ . This will implies ( 23 ). ∎
+
+5 The Relationship between SMP and DPP
+
+In this section, we will state the relation between SMP and DPP for the recursive utility setup.
+
+We assume that the value function admits the following form 
+ 
+ $\displaystyle V(t,x)=h(x)+\int_{t}^{T}\Gamma(s,x)ds-\int_{t}^{T}\Psi(s,x)dW_{s},\ \ \ t\in[0,T],$  (27) 
+ where for a.e. $s\in[t,T]$ a.s. $\omega\in\Omega$ , 
+ 
+ $\displaystyle\Gamma(s,\bar{X}_{s}^{t,x})$ $\displaystyle=$ $\displaystyle G\big{(}s,\bar{X}_{s}^{t,x},\bar{u}_{s},V(s,\bar{X}_{s}^{t,x}),\Psi(s,\bar{X}_{s}^{t,x}),V_{x}(s,\bar{X}_{s}^{t,x}),\Psi_{x}(s,\bar{X}_{s}^{t,x}),V_{xx}(s,\bar{X}_{s}^{t,x})\big{)}$ 
+ $\displaystyle=$ $\displaystyle\inf_{u\in U}G\big{(}s,\bar{X}_{s}^{t,x},u,V(s,\bar{X}_{s}^{t,x}),\Psi(s,\bar{X}_{s}^{t,x}),V_{x}(s,\bar{X}_{s}^{t,x}),\Psi_{x}(s,\bar{X}_{s}^{t,x}),V_{xx}(s,\bar{X}_{s}^{t,x})\big{)}.$ 
+ If $V\in C^{1,3}([0,T]\times\mathbb{R}^{n})$ and $\Gamma_{x},\Psi_{x}\in C^{0,0}([0,T]\times\mathbb{R}^{n})$ , we have 
+ 
+ $\displaystyle p_{s}$ $\displaystyle=$ $\displaystyle-V_{x}(s,\bar{X}_{s}^{t,x})k_{s},$ 
+ 
+ $\displaystyle q_{s}$ $\displaystyle=$ $\displaystyle-\bigg{[}V_{xx}(s,\bar{X}_{s}^{t,x})\sigma(s,\bar{X}_{s}^{t,x},\bar{u}_{s})$ 
+ $\displaystyle\ \ \ \ +V_{x}(s,\bar{X}_{s}^{t,x})f_{z}\big{(}s,\bar{X}_{s}^{t,x},V(s,\bar{X}_{s}^{t,x}),\sigma^{*}V_{x}(s,\bar{X}_{s}^{t,x})+\Psi(s,\bar{X}_{s}^{t,x}),\bar{u}_{s}\big{)}+\Psi_{x}(s,\bar{X}_{s}^{t,x})\bigg{]}k_{s},$ 
+ for a.e. $s\in[0,T]$ a.s., where $k_{s}$ satisfies $k_{0}=-1$ and 
+ 
+ $\begin{split}dk_{s}=&f_{y}(s,\bar{X}_{s}^{t,x},\bar{u}_{s},V(s,\bar{X}_{s}^{t,x}),\sigma(s,\bar{X}_{s}^{t,x})V_{x}(s,\bar{X}_{s}^{t,x})+\Psi(s,\bar{X}_{s}^{t,x}))k_{s}ds\\
+&f_{z}(s,\bar{X}_{s}^{t,x},\bar{u}_{s},V(s,\bar{X}_{s}^{t,x}),\sigma(s,\bar{X}_{s}^{t,x})V_{x}(s,\bar{X}_{s}^{t,x})+\Psi(s,\bar{X}_{s}^{t,x}))k_{s}dW_{s},\text{ for $s\in[t,T]$.}\end{split}$  (30) 
+
+
+First note that there exists a unique solution of ( 30 ), since $f$ is Lipschitz continuous with respect to $y$ and $z$ . Noticing the first equality in ( 5.1 ), we know 
+ 
+ $\displaystyle G\big{(}s,\bar{X}_{s}^{t,x},\bar{u}_{s},V(s,\bar{X}_{s}^{t,x}),\Psi(s,\bar{X}_{s}^{t,x}),V_{x}(s,\bar{X}_{s}^{t,x}),\Psi_{x}(s,\bar{X}_{s}^{t,x}),V_{xx}(s,\bar{X}_{s}^{t,x})\big{)}-\Gamma(s,\bar{X}_{s}^{t,x})=0$ 
+ Then, since $V$ satisfies HJB equation ( 3.1 ) and has a form as ( 9 ), we conclude 
+ 
+ $\displaystyle\Gamma(s,x)$ $\displaystyle=$ $\displaystyle\inf_{u\in U}G\big{(}s,x,u,V(s,x),\Psi(s,x),V_{x}(s,x),\Psi_{x}(s,x),V_{xx}(s,x)\big{)}$ 
+ $\displaystyle\leq$ $\displaystyle G\big{(}s,x,\bar{u}_{s},V(s,x),\Psi(s,x),V_{x}(s,x),\Psi_{x}(s,x),V_{xx}(s,x)\big{)}.$ 
+ Thus 
+ 
+ $\displaystyle 0$ $\displaystyle=$ $\displaystyle G\big{(}s,\bar{X}_{s}^{t,x},\bar{u}_{s},V(s,\bar{X}_{s}^{t,x}),\Psi(s,\bar{X}_{s}^{t,x}),V_{x}(s,\bar{X}_{s}^{t,x}),\Psi_{x}(s,\bar{X}_{s}^{t,x}),V_{xx}(s,\bar{X}_{s}^{t,x})\big{)}-\Gamma(s,\bar{X}_{s}^{t,x})$ 
+ $\displaystyle\leq$ $\displaystyle G\big{(}s,x,\bar{u}_{s},V(s,x),\Psi(s,x),V_{x}(s,x),\Psi_{x}(s,x),V_{xx}(s,x)\big{)}-\Gamma(s,x).$ 
+ Bearing in mind that $V\in C^{1,3}([0,T]\times\mathbb{R}^{n})$ and $\Gamma_{x}\in C^{0,0}([0,T]\times\mathbb{R}^{n})$ , we have 
+ 
+ $\displaystyle{{\partial}\over{\partial x}}\Big{\{}G\big{(}s,x,\bar{u}_{s},V(s,x),\Psi(s,x),V_{x}(s,x),\Psi_{x}(s,x),V_{xx}(s,x)\big{)}-\Gamma(s,x)\Big{\}}_{x=\bar{X}_{s}^{t,x}}=0.$ 
+ This implies 
+ 
+ $\displaystyle(\sigma_{x})^{*}(s,\bar{X}_{s}^{t,x},\bar{u}_{s})\big{(}V_{xx}(s,\bar{X}_{s}^{t,x})\sigma(s,\bar{X}_{s}^{t,x},\bar{u}_{s})\big{)}+{1\over 2}tr\big{(}(\sigma\sigma^{*})(s,\bar{X}_{s}^{t,x},\bar{u}_{s})V_{xxx}(s,\bar{X}_{s}^{t,x})\big{)}$ 
+ 
+ $\displaystyle+b^{*}_{x}(s,\bar{X}_{s}^{t,x},\bar{u}_{s})V_{x}(s,\bar{X}_{s}^{t,x})+V_{xx}(s,\bar{X}_{s}^{t,x})b(s,\bar{X}_{s}^{t,x},\bar{u}_{s})+\sigma^{*}_{x}(s,\bar{X}_{s}^{t,x},\bar{u}_{s})\Psi_{x}(s,\bar{X}_{s}^{t,x})$ 
+ 
+ $\displaystyle+\Psi_{xx}(s,\bar{X}_{s}^{t,x})\sigma(s,\bar{X}_{s}^{t,x},\bar{u}_{s})+f_{x}\big{(}s,\bar{X}_{s}^{t,x},V(s,\bar{X}_{s}^{t,x}),\Psi(s,\bar{X}_{s}^{t,x})+\sigma^{*}V_{x}(s,\bar{X}_{s}^{t,x}),\bar{u}_{s}\big{)}$ 
+ 
+ $\displaystyle+f_{y}\big{(}s,\bar{X}_{s}^{t,x},V(s,\bar{X}_{s}^{t,x}),\Psi(s,\bar{X}_{s}^{t,x})+\sigma^{*}V_{x}(s,\bar{X}_{s}^{t,x}),\bar{u}_{s}\big{)}V_{x}(s,\bar{X}_{s}^{t,x})$  (31) 
+ 
+ $\displaystyle+f_{z}\big{(}s,\bar{X}_{s}^{t,x},V(s,\bar{X}_{s}^{t,x}),\Psi(s,\bar{X}_{s}^{t,x})+\sigma^{*}V_{x}(s,\bar{X}_{s}^{t,x}),\bar{u}_{s}\big{)}\Psi_{x}(s,\bar{X}_{s}^{t,x})$ 
+ 
+ $\displaystyle+f_{z}\big{(}s,\bar{X}_{s}^{t,x},V(s,\bar{X}_{s}^{t,x}),\Psi(s,\bar{X}_{s}^{t,x})+\sigma^{*}V_{x}(s,\bar{X}_{s}^{t,x}),\bar{u}_{s}\big{)}\sigma^{*}_{x}(s,\bar{X}_{s}^{t,x},\bar{u}_{s})V_{x}(s,\bar{X}_{s}^{t,x})$ 
+ 
+ $\displaystyle+f_{z}\big{(}s,\bar{X}_{s}^{t,x},V(s,\bar{X}_{s}^{t,x}),\Psi(s,\bar{X}_{s}^{t,x})+\sigma^{*}V_{x}(s,\bar{X}_{s}^{t,x}),\bar{u}_{s}\big{)}\sigma^{*}(s,\bar{X}_{s}^{t,x},\bar{u}_{s})V_{xx}(s,\bar{X}_{s}^{t,x})-\Gamma_{x}(s,\bar{X}_{s}^{t,x})=0.$ 
+ Here and in the rest of this paper, 
+ 
+ $\displaystyle{1\over 2}tr\big{(}(\sigma\sigma^{*})V_{xxx}\big{)}\triangleq\bigg{(}tr\big{(}\sigma\sigma^{*}(V_{x})^{1}_{xx}\big{)},tr\big{(}\sigma\sigma^{*}(V_{x})^{2}_{xx}\big{)},\cdots,tr\big{(}\sigma\sigma^{*}(V_{x})^{n}_{xx}\big{)}\bigg{)}^{*}.$ 
+ On the other hand, from ( 27 ), we have 
+ 
+ $\displaystyle V_{x}(t,x)=h_{x}(x)+\int_{t}^{T}\Gamma_{x}(s,x)ds-\int_{t}^{T}\Psi_{x}(s,x)dW_{s},\ \ \ t\in[0,T].$ 
+ Then by the application of Itô’s formula to $-V_{x}(s,\bar{X}_{s}^{t,x})k_{s}$ , it turns out, from ( 5 ), that 
+ 
+ $\displaystyle-V_{x}(s,\bar{X}_{s}^{t,x})k_{s}$ 
+ $\displaystyle=$ $\displaystyle-V_{x}(T,\bar{X}_{T}^{t,x})k_{T}+\int_{s}^{T}k_{r}dV_{x}(r,\bar{X}_{r}^{t,x})+\int_{s}^{T}V_{x}(r,\bar{X}_{r}^{t,x})dk_{r}+\int_{s}^{T}dV_{x}(r,\bar{X}_{r}^{t,x})\cdot dk_{r}$ 
+ $\displaystyle=$ $\displaystyle-V_{x}(T,\bar{X}_{T}^{t,x})k_{T}+\int_{s}^{T}\bigg{[}-\Gamma_{x}(r,\bar{X}_{r}^{t,x})+{1\over 2}tr\big{(}(\sigma\sigma^{*})(r,\bar{X}_{r}^{t,x},\bar{u}_{r})V_{xxx}(r,\bar{X}_{r}^{t,x})\big{)}$ 
+ $\displaystyle\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ +V_{xx}(r,\bar{X}_{r}^{t,x})b(r,\bar{X}_{r}^{t,x},\bar{u}_{r})+\Psi_{xx}(r,\bar{X}_{r}^{t,x})\sigma(r,\bar{X}_{r}^{t,x},\bar{u}_{r})\bigg{]}k_{r}dr$ 
+ $\displaystyle+\int_{s}^{T}\bigg{[}\Psi_{x}(r,\bar{X}_{r}^{t,x})+V_{xx}(r,\bar{X}_{r}^{t,x})\sigma(r,\bar{X}_{r}^{t,x},\bar{u}_{r})\bigg{]}k_{r}dW_{r}$ 
+ $\displaystyle+\int_{s}^{T}V_{x}(r,\bar{X}_{r}^{t,x})f_{y}(r,\bar{X}_{r}^{t,x},\bar{Y}_{r}^{t,x},\bar{Z}_{r}^{t,x},\bar{u}_{r})k_{r}dr+\int_{s}^{T}V_{x}(r,\bar{X}_{r}^{t,x})f_{z}(r,\bar{X}_{r}^{t,x},\bar{Y}_{r}^{t,x},\bar{Z}_{r}^{t,x},\bar{u}_{r})k_{r}dW_{r}$ 
+ $\displaystyle+\int_{s}^{T}\bigg{[}\Psi_{x}(r,\bar{X}_{r}^{t,x})+V_{xx}(r,\bar{X}_{r}^{t,x})\sigma(r,\bar{X}_{r}^{t,x},\bar{u}_{r})\bigg{]}f_{z}(r,\bar{X}_{r}^{t,x},\bar{Y}_{r}^{t,x},\bar{Z}_{r}^{t,x},\bar{u}_{r})k_{r}dr$ 
+ $\displaystyle=$ $\displaystyle-V_{x}(T,\bar{X}_{T}^{t,x})k_{T}$ 
+ $\displaystyle+\int_{s}^{T}\bigg{[}-(\sigma_{x})^{*}(r,\bar{X}_{r}^{t,x},\bar{u}_{r})\big{(}V_{xx}(r,\bar{x}_{r})\sigma(r,\bar{X}_{r}^{t,x},\bar{u}_{r})\big{)}-b^{*}_{x}(r,\bar{X}_{r}^{t,x},\bar{u}_{r})V_{x}(r,\bar{x}_{r})$ 
+ $\displaystyle\ \ \ \ \ \ \ \ \ \ \ -\sigma^{*}_{x}(r,\bar{X}_{r}^{t,x},\bar{u}_{r})\Psi_{x}(r,\bar{x}_{r})-f_{x}\big{(}r,\bar{X}_{r}^{t,x},V(r,\bar{X}_{r}^{t,x}),\Psi(r,\bar{X}_{r}^{t,x})+\sigma^{*}V_{x}(r,\bar{X}_{r}^{t,x}),\bar{u}_{r}\big{)}$ 
+ $\displaystyle\ \ \ \ \ \ \ \ \ \ \ -f_{y}\big{(}r,\bar{X}_{r}^{t,x},V(r,\bar{X}_{r}^{t,x}),\Psi(r,\bar{X}_{r}^{t,x})+\sigma^{*}V_{x}(r,\bar{X}_{r}^{t,x}),\bar{u}_{r}\big{)}V_{x}(r,\bar{X}_{r}^{t,x})$ 
+ $\displaystyle\ \ \ \ \ \ \ \ \ \ \ -f_{z}\big{(}r,\bar{X}_{r}^{t,x},V(r,\bar{X}_{r}^{t,x}),\Psi(r,\bar{X}_{r}^{t,x})+\sigma^{*}V_{x}(r,\bar{X}_{r}^{t,x}),\bar{u}_{r}\big{)}\Psi_{x}(r,\bar{X}_{r}^{t,x})$ 
+ $\displaystyle\ \ \ \ \ \ \ \ \ \ \ -f_{z}\big{(}r,\bar{X}_{r}^{t,x},V(r,\bar{X}_{r}^{t,x}),\Psi(r,\bar{X}_{r}^{t,x})+\sigma^{*}V_{x}(r,\bar{X}_{r}^{t,x}),\bar{u}_{r}\big{)}\sigma^{*}_{x}(r,\bar{X}_{r}^{t,x},\bar{u}_{r})V_{x}(r,\bar{X}_{r}^{t,x})$ 
+ $\displaystyle\ \ \ \ \ \ \ \ \ \ \ -f_{z}\big{(}r,\bar{X}_{r}^{t,x},V(r,\bar{X}_{r}^{t,x}),\Psi(s,\bar{X}_{r}^{t,x})+\sigma^{*}V_{x}(r,\bar{X}_{r}^{t,x}),\bar{u}_{r}\big{)}\sigma^{*}(r,\bar{X}_{r}^{t,x},\bar{u}_{r})V_{xx}(r,\bar{X}_{r}^{t,x})\bigg{]}k_{r}dr$ 
+ $\displaystyle+\int_{s}^{T}\bigg{[}\Psi_{x}(r,\bar{X}_{r}^{t,x})+V_{xx}(r,\bar{X}_{r}^{t,x})\sigma(r,\bar{X}_{r}^{t,x},\bar{u}_{r})\bigg{]}k_{r}dW_{r}$ 
+ $\displaystyle+\int_{s}^{T}V_{x}(r,\bar{X}_{r}^{t,x})f_{y}(r,\bar{X}_{r}^{t,x},\bar{Y}_{r}^{t,x},\bar{Z}_{r}^{t,x},\bar{u}_{r})k_{r}dr+\int_{s}^{T}V_{x}(r,\bar{X}_{r}^{t,x})f_{z}(r,\bar{X}_{r}^{t,x},\bar{Y}_{r}^{t,x},\bar{Z}_{r}^{t,x},\bar{u}_{r})k_{r}dW_{r}$ 
+ $\displaystyle+\int_{s}^{T}\bigg{[}\Psi_{x}(r,\bar{X}_{r}^{t,x})+V_{xx}(r,\bar{X}_{r}^{t,x})\sigma(r,\bar{X}_{r}^{t,x},\bar{u}_{r})\bigg{]}f_{z}(r,\bar{X}_{r}^{t,x},\bar{Y}_{r}^{t,x},\bar{Z}_{r}^{t,x},\bar{u}_{r})k_{r}dr$ 
+ $\displaystyle=$ $\displaystyle-V_{x}(T,\bar{x}_{T})k_{T}$ 
+ $\displaystyle+\int_{s}^{T}\bigg{[}-(\sigma_{x})^{*}(r,\bar{X}_{r}^{t,x},\bar{u}_{r})\big{(}V_{xx}(r,\bar{X}_{r}^{t,x})\sigma(r,\bar{X}_{r}^{t,x},\bar{u}_{r})\big{)}-b^{*}_{x}(r,\bar{X}_{r}^{t,x},\bar{u}_{r})V_{x}(r,\bar{X}_{r}^{t,x})$ 
+ $\displaystyle\ \ \ \ \ \ \ \ \ \ \ -\sigma^{*}_{x}(r,\bar{X}_{r}^{t,x},\bar{u}_{r})\Psi_{x}(r,\bar{X}_{r}^{t,x})-f_{x}\big{(}r,\bar{X}_{r}^{t,x},V(r,\bar{X}_{r}^{t,x}),\Psi(r,\bar{X}_{r}^{t,x})+\sigma^{*}V_{x}(r,\bar{X}_{r}^{t,x}),\bar{u}_{r}\big{)}$ 
+ $\displaystyle\ \ \ \ \ \ \ \ \ \ \ -f_{z}\big{(}r,\bar{X}_{r}^{t,x},V(r,\bar{X}_{r}^{t,x}),\Psi(r,\bar{X}_{r}^{t,x})+\sigma^{*}V_{x}(r,\bar{X}_{r}^{t,x}),\bar{u}_{r}\big{)}\sigma^{*}_{x}(r,\bar{X}_{r}^{t,x},\bar{u}_{r})V_{x}(r,\bar{X}_{r}^{t,x})\bigg{]}k_{r}dr$ 
+ $\displaystyle-\int_{s}^{T}-\bigg{[}\Psi_{x}(r,\bar{X}_{r}^{t,x})+V_{xx}(r,\bar{X}_{r}^{t,x})\sigma(r,\bar{X}_{r}^{t,x},\bar{u}_{r})+V_{x}(r,\bar{X}_{r}^{t,x})f_{z}(r,\bar{X}_{r}^{t,x},\bar{Y}_{r}^{t,x},\bar{Z}_{r}^{t,x},\bar{u}_{r})\bigg{]}k_{r}dW_{r}.$ 
+ Noticing $h_{x}(\bar{X}_{T}^{t,x})=V_{x}(T,\bar{X}_{T}^{t,x})$ , by the uniqueness of the solution to FBSDE ( 24 ), we obtain ( 5.1 ). ∎
+
+6 An Example: LQ Problem
+
+In this section, we take the LQ problem as an example to show the relationship between stochastic maximum principle and stochastic dynamical programming. Consider the following forward-backward stochastic system: 
+ 
+ $\left\{\begin{array}[]{l}dX_{s}=\big{[}A_{s}X_{s}+B_{s}u_{s}\big{]}ds+\big{[}C_{s}X_{s}+D_{s}u_{s}\big{]}dW_{s}\\
+X_{t}=x,\\
+dY_{s}=-\big{[}\lambda_{s}Y_{s}+\langle Q_{s}X_{s},X_{s}\rangle+\langle R_{s}u_{s},u_{s}\rangle\big{]}ds+Z_{s}dW_{s}\\
+Y_{T}=\langle GX_{T},X_{T}\rangle.\end{array}\right.$ 
+ The cost functional is defined as following: 
+ 
+ $\displaystyle J(t,x,u)=Y^{t,x,u}_{t}.$ 
+ We have the following assumptions for the coefficients.
+
+1. The coefficients $A,B,C,D,\lambda,Q,$ and $R$ are all bounded $\{\mathcal{F}_{t}\}$ -adapted processes; 2. The coefficients $Q$ and $R$ are uniformly positive definitive, i.e., there exists a constant $C$ such that 
+ 
+ $Q_{s},R_{s}\geq CI,\text{ for all $s\in[t,T]$, a.s.,}$ 
+ where $I$ is the identity matrix.
+
+For any admissible control $u$ and initial state $x$ , we introduce the corresponding adjoint equation: 
+ 
+ $\displaystyle\left\{\begin{array}[]{l}dp_{s}=-\big{[}A^{\ast}_{s}p_{s}+C^{\ast}_{s}q_{s}-2k_{s}Q_{s}X_{s}\big{]}ds+q_{s}dW_{s}\\
+p_{T}=-2k_{T}GX_{T},\\
+dk_{s}=\lambda_{s}k_{s}ds\\
+k_{t}=-1.\end{array}\right.$ 
+ From the maximum principle we proved in previous section, we shall have the following theorem.
+
+If an admissible pair $(u,X)$ is the optimal pair of LQ problem, $(u,X)$ satisfies 
+ 
+ $\displaystyle-2k_{s}R_{s}u_{s}+D^{\ast}_{s}q_{s}+B^{\ast}_{s}p_{s}=0,$  (33) 
+ where $(p,q,k)$ is the solution to the corresponding adjoint equation. Therefore, the optimal control has the dual presentation as below: 
+ 
+ $\displaystyle u_{s}={1\over 2}k^{-1}_{s}R^{-1}_{s}\big{[}D^{\ast}_{s}q_{s}+B^{\ast}_{s}p_{s}\big{]}.$ 
+
+
+If we give an explicit presentation to $(p,q,k)$ , a further expression of optimal control can be demonstrated. For this, combining the adjoint system with the original controlled system, we have the following stochastic Hamilton system: 
+ 
+ $\displaystyle\left\{\begin{array}[]{l}dX_{s}=\big{[}A_{s}X_{s}+B_{s}u_{s}\big{]}ds+\big{[}C_{s}X_{s}+D_{s}u_{s}\big{]}dW_{s}\\
+X_{0}=x,\\
+dY_{s}=-\big{[}\lambda Y_{s}+\langle Q_{s}X_{s},X_{s}\rangle+\langle R_{s}u_{s},u_{s}\rangle\big{]}ds+Z_{s}dW_{s}\\
+Y_{T}=\langle GX_{T},X_{T}\rangle,\\
+dp_{s}=-\big{[}A^{\ast}_{s}p_{s}+C^{\ast}_{s}q_{s}-2k_{s}Q_{s}X_{s}\big{]}ds+q_{s}dW_{s}\\
+p_{T}=-2k_{T}GX_{T},\\
+dk_{s}=\lambda_{s}k_{s}ds\\
+k_{0}=-1,\\
+-2k_{s}R_{s}u_{s}+D^{\ast}_{s}q_{s}+B^{\ast}_{s}p_{s}=0.\end{array}\right.$ 
+ In summary, the stochastic Hamilton system completely characterizes the optimal control in LQ problem. Therefore, solving LQ problem is equivalent to solving the stochstic Hamilton system. But this Hamilton system consists of coupled FBSDEs. Thus, this characterization is far from satisfactory. We then introduce the Riccati equation to give the state feedback representation of the optimal control and further discussion of stochastic Hamilton system.
+
+Different from the Markovian case, the Riccati equation here is a BSDE due to the non-Markovian coefficients: 
+ 
+ $\displaystyle\left\{\begin{array}[]{l}dP_{s}=-\{A_{s}^{\ast}P_{s}+P_{s}A_{s}+C^{\ast}_{s}P_{s}C_{s}+\lambda_{s}P_{s}+C^{\ast}_{s}L_{s}+L_{s}C_{s}+Q_{s}\\
+\ \ \ \ \ \ \ \ \ \ \ \ -\big{[}P_{s}B_{s}+C^{\ast}_{s}P_{s}D_{s}+L_{s}D_{s}\big{]}\\
+\ \ \ \ \ \ \ \ \ \ \ \ \ \ \times\big{[}R_{s}+D^{\ast}_{s}P_{s}D_{s}\big{]}^{-1}\big{[}P_{s}B_{s}+C^{\ast}_{s}P_{s}D_{s}+L_{s}D_{s}\big{]}^{*}\}ds+L_{s}dW_{s}\\
+P_{T}=G.\end{array}\right.$  (39) 
+ The solvability of ( 39 ) had been studied by Tang [24] .
+
+Under Assumption 6.1 , the stochastic Riccati equation ( 39 ) has a unique solution $(P,L)$ , where $P$ is a uniformly bounded and nonnegative matrix-valued process and $L$ satisfies 
+ 
+ $\displaystyle E\left(\int_{0}^{T}\left|L_{s}\right|^{2}ds\right)^{p}<\infty,$ 
+ for any $p>1$ .
+
+For the concerned LQ problem, we still define its value function as 
+ 
+ $\displaystyle V(t,x)\triangleq\inf\limits_{u\in\mathcal{A}}J(t,x;u_{\cdot})=\inf\limits_{u\in\mathcal{A}}Y_{t}^{t,x;u}.$ 
+ Then, the corresponding stochastic HJB equation is 
+ 
+ $\displaystyle V(t,x)$ $\displaystyle=$ $\displaystyle\langle Gx,x\rangle+\int_{t}^{T}\inf_{u}H\big{(}s,x,u,V(s,x),\Psi(s,x),V_{x}(s,x),\Psi_{x}(s,x),V_{xx}(s,x)\big{)}ds$ 
+ $\displaystyle-\int_{t}^{T}\Psi(s,x)dW_{s}$ 
+ $\displaystyle=$ $\displaystyle\langle Gx,x\rangle+\int_{t}^{T}\inf_{u}\{\langle V_{x}(s,x),A_{s}x+B_{s}u\rangle+{1\over 2}tr\big{(}(C_{s}x+D_{s}u)(C_{s}x+D_{s}u)^{\ast}V_{xx}(s,x)\big{)}$ 
+ $\displaystyle+\langle\Psi_{x}(s,x),C_{s}x+D_{s}u\rangle+\lambda_{s}V(s,x)+\langle Q_{s}X_{s},X_{s}\rangle+\langle R_{s}u,u\rangle\}ds$ 
+ $\displaystyle-\int_{t}^{T}\Psi(s,x)dW_{s}.$ 
+ With the help of stochastic Riccati equation, we can obtain a solution of above stochastic HJB equation.
+
+If $(P,L)$ is the unique solution of the stochastic Riccati equation ( 39 ), $(\langle P_{s}x,x\rangle,\langle L_{s}x,x\rangle)$ is a classical solution of the stochastic HJB equation ( 6 ).
+
+Set 
+ 
+ $\displaystyle v(s,x)=\langle P_{s}x,x\rangle,\ \ \ \ \psi(s,x)=\langle L_{s}x,x\rangle.$ 
+ First note that $v_{x}(s,x)=(P_{s}+P^{*}_{s})x=2P_{s}x$ , $\psi_{x}(s,x)=(L_{s}+L^{*}_{s})x=2L_{s}x$ , $v_{xx}(s,x)=P_{s}+P^{*}_{s}=2P_{s}$ . Then we have 
+ 
+ $\displaystyle\inf_{u}\{\langle v_{x}(s,x),A_{s}x+B_{s}u\rangle+{1\over 2}tr\big{(}(C_{s}x+D_{s}u)(C_{s}x+D_{s}u)^{\ast}v_{xx}(s,x)\big{)}+\langle\psi_{x}(s,x),C_{s}x+D_{s}u\rangle$ 
+ $\displaystyle\ \ \ \ \ +\lambda_{s}v(s,x)+\langle Q_{s}x,x\rangle+\langle R_{s}u,u\rangle\}$ 
+ $\displaystyle=$ $\displaystyle\inf_{u}\{\langle 2P_{s}x,A_{s}x+B_{s}u\rangle+{1\over 2}tr\big{(}(C_{s}x+D_{s}u)(C_{s}x+D_{s}u)^{\ast}2P_{s}\big{)}+\langle 2L_{s}x,C_{s}x+D_{s}u\rangle$ 
+ $\displaystyle\ \ \ \ \ +\lambda_{s}\langle P_{s}x,x\rangle+\langle Q_{s}x,x\rangle+\langle R_{s}u,u\rangle\}$ 
+ $\displaystyle=$ $\displaystyle\inf_{u}\{\langle x,P_{s}A_{s}+A_{s}^{\ast}P_{s}+Q_{s}+C^{\ast}_{s}P_{s}C_{s}+C^{\ast}_{s}L_{s}+L_{s}C_{s}+\lambda_{s}P_{s})x\rangle$ 
+ $\displaystyle\ \ \ \ \ +2\langle u,\big{[}P_{s}B_{s}+C^{\ast}_{s}P_{s}D_{s}+L_{s}D_{s}\big{]}^{*}x\rangle+\langle u,(R_{s}+D^{\ast}_{s}P_{s}D_{s})u\rangle\}$ 
+ $\displaystyle=$ $\displaystyle\langle\big{[}P_{s}A_{s}+A_{s}^{\ast}P_{s}+Q_{s}+C^{\ast}_{s}P_{s}C_{s}+C^{\ast}_{s}L_{s}+L_{s}C_{s}+\lambda_{s}P_{s}\big{]}x,x\rangle$ 
+ $\displaystyle-\langle\big{[}P_{s}B_{s}+C^{\ast}_{s}P_{s}D_{s}+L_{s}D_{s}\big{]}(R_{s}+D^{\ast}_{s}P_{s}D_{s})^{-1}\big{[}P_{s}B_{s}+C^{\ast}_{s}P_{s}D_{s}+L_{s}D_{s}\big{]}^{*}x,x\rangle\}.$ 
+ Thus, noticing ( 39 ), we have 
+ 
+ $\displaystyle d\langle P_{s}x,x\rangle$ 
+ $\displaystyle=$ $\displaystyle-\{\langle\big{[}P_{s}A_{s}+A_{s}^{\ast}P_{s}+Q_{s}+C^{\ast}_{s}P_{s}C_{s}+C^{\ast}_{s}L_{s}+L_{s}C_{s}+\lambda_{s}P_{s}\big{]}x,x\rangle$ 
+ $\displaystyle\ \ \ \ -\langle\big{[}P_{s}B_{s}+C^{\ast}_{s}P_{s}D_{s}+L_{s}D_{s}\big{]}(R_{s}+D^{\ast}_{s}P_{s}D_{s})^{-1}\big{[}P_{s}B_{s}+C^{\ast}_{s}P_{s}D_{s}+L_{s}D_{s}\big{]}^{*}x,x\rangle\}ds$ 
+ $\displaystyle+\langle L_{s}x,x\rangle dW_{s}.$ 
+ By the definition for $(v,\psi)$ , together with ( 6 ), it turns out that 
+ 
+ $\displaystyle dv(s,x)$ 
+ $\displaystyle=$ $\displaystyle-\inf_{u}\{\langle v_{x}(s,x),A_{s}x+B_{s}u\rangle+{1\over 2}tr\big{(}(C_{s}x+D_{s}u)(C_{s}x+D_{s}u)^{\ast}v_{xx}(s,x)\big{)}+\langle\psi_{x}(s,x),C_{s}x+D_{s}u\rangle$ 
+ $\displaystyle\ \ \ \ \ \ +\lambda_{s}v(s,x)+\langle Q_{s}x,x\rangle+\langle R_{s}u,u\rangle\}ds+\psi(s,x)dW_{s},$ 
+ which demonstrates that $(v,\psi)$ is the classical solution of the stochastic HJB equation. ∎
+
+Having a classical solution of stochastic HJB equation. One can find the optimal control for the LQ problem.
+
+The optimal control of LQ problem is given by 
+ 
+ $\displaystyle u_{s}=-(R_{s}+D^{\ast}_{s}P_{s}D_{s})^{-1}\big{[}P_{s}B_{s}+C^{*}_{s}P_{s}D_{s}+L_{s}D_{s}\big{]}^{*}X_{s}.$ 
+
+
+By Proposition 3.2 , we see that the candidate $u$ for the optimal control is of the following feedback form: 
+ 
+ $\displaystyle u_{s}=-(R_{s}+D^{\ast}_{s}P_{s}D_{s})^{-1}\big{[}P_{s}B_{s}+C^{*}_{s}P_{s}D_{s}+L_{s}D_{s}\big{]}^{*}X_{s}.$ 
+ To show that it is indeed the optimal control, one only need to prove that it is a admissible control, which is proved in Tang [24] . ∎
+
+Finally, applying Itô formula to $dP_{s}X_{s}k_{s}$ , we immediately have the desired relationship for LQ problem.
+
+For LQ Problem, we have the relationship between stochastic maximum principle and stochastic dynamical programming below: 
+ 
+ $\displaystyle p_{s}$ $\displaystyle=$ $\displaystyle-2P_{s}X_{s}k_{s},$ 
+ 
+ $\displaystyle q_{s}$ $\displaystyle=$ $\displaystyle-2\big{[}P_{s}(C_{s}X_{s}+D_{s}u_{s})+L_{s}X_{s}\big{]}k_{s}.$ 
+
+
+References
+
+[1] E. N. Barron and R. Jensen,The pontryagin maximum principle from dynamic programming and viscosity solutions to first-order partial differential equations, Transactions of the American Mathematical Society, 298 (1986), pp. 635–641.
+[2] A. Bensoussan,Lectures on stochastic control, in Nonlinear filtering and stochastic control, vol. 972, Springer, 1982, pp. 1–62.
+[3] J.-M. Bismut,An introductory approach to duality in optimal stochastic control, SIAM Review, 20 (1978), pp. 62–78.
+[4] P. Briand, B. Delyon, Y. Hu, E. Pardoux, and L. Stoica,Lpsuperscript𝐿𝑝L^{p}solutions of backward stochastic differential equations, Stochastic Processes and their Applications, 108 (2003), pp. 109–129.
+[5] K. Du and Q. Zhang,Semi-linear degenerate backward stochastic partial differential equations and associated forward¨cbackward stochastic differential equations, Stochastic Processes and their Applications, 123 (2013), pp. 1616–1637.
+[6] D. Duffie and L. Epstein,Stochastic differential utility, Econometrica, 60 (1992), pp. 353–394.
+[7] M. Hu,Stochastic global maximum principle for optimization with recursive utilities, Probability, Uncertainty and Quantitative Risk, 2 (2017), pp. 1–20.
+[8] Y. Hu, J. Ma, and J. Yong,On semi-linear degenerate backward stochastic partial differential equations, Probability Theory and Related Fields, 123 (2002), pp. 381–411.
+[9] J. Ma and J. Yong,Adapted solution of a degenerate backward spde with applications, Stochastic Processes and their Applications, 70 (1997), pp. 59–84.
+[10] L. Mou and J. Yong,A variational formula for stochastic controls and some applications, Pure and Applied Mathematics Quarterly, 3 (2007), pp. 539–567.
+[11] T. Nie, J. Shi, and Z. Wu,Connection between MP and DPP for stochastic recursive optimal control problems: Viscosity solution framework in local case, in 2016 American Control Conference (ACC), IEEE, 2016, pp. 7225–7230.
+[12] ,Connection between MP and DPP for stochastic recursive optimal control problems: viscosity solution framework in the general case, SIAM Journal on Control and Optimization, 55 (2017), pp. 3258–3294.
+[13] S. Peng,A generalized dynamic programming principle and Hamilton-Jacobi-Bellman equation, Stochastics and Stochastic Reports, 38 (1992), pp. 119–134.
+[14] ,Backward stochastic differential equations and applications to optimal control, Applied Mathematics and Optimization, 27 (1993), pp. 125–144.
+[15] ,Backward stochastic difffferential equations-stochastic optimization theory and viscosity solutions of HJB equations, in Topics on stochastic analysis (in Chinese), J. Yan, S. Peng, S. Fang, and L. Wu, eds., Science Press, Beijing, 1997, ch. 2, pp. 85–138.
+[16] ,Open problems on backward stochastic differential equations, in Control of Distributed Parameter and Stocastic Systems, S. Chen, X. Li, J. Yong, and X. Zhou, eds., Kluwer Acad. Pub, Boston, 1998, pp. 265–273.
+[17] L. S. Pontryagin, V. G. Boltyanski, R. V. Gamkrelidze, and E. F. Mischenko,Mathematical Theory of Optimal Processes, Wiley, New York, 1962.
+[18] J. Qiu,Weak solution for a class of fully nonlinear stochastic hamilton-jacobi-bellman equations, Stochastic Processes and their Applications, 127 (2017), p. 1926¨C1959.
+[19] ,Viscosity solutions of stochastic hamilton-jacobi-bellman equations, SIAM Journal on Control and Optimization, 56 (2018), p. 3708¨C3730.
+[20] J. Shi,The relationship between maximum principle and dynamic programming principle for stochastic recursive optimal control problems and applications to finance, in Proceedings of the 29th Chinese Control Conference.
+[21] J.-T. Shi and Z. Wu,Relationship between MP and DPP for the stochastic optimal control problem of jump diffusions, Applied Mathematics and Optimization, 63 (2011), pp. 151–189.
+[22] S. Tang,General linear quadratic optimal stochastic control problems with random coefficients: linear stochastic hamilton systems and backward stochastic riccati equations, SIAM journal on control and optimization, 42 (2003), pp. 53–75.
+[23] ,Semi-linear systems of backward stochastic partial differential equations inℝnsuperscriptℝ𝑛\mathbb{R}^{n}, Chinese Annals of Mathematics, 26 (2005), pp. 437–456.
+[24] ,Dynamic programming for general linear quadratic optimal stochastic control with random coefficients, SIAM Journal on Control and Optimization, 53 (2015), pp. 1082–1106.
+[25] Z. Wu,A general maximum principle for optimal control of forward–backward stochastic systems, Automatica, 49 (2013), pp. 1473–1480.
+[26] J. Yong,Optimality variational principle for controlled forward-backward stochastic differential equations with mixed initial-terminal conditions, SIAM Journal on Control and Optimization, 48 (2010), pp. 4119–4156.
+[27] J. Yong and X. Y. Zhou,Stochastic controls: Hamiltonian systems and HJB equations, vol. 43, Springer Science & Business Media, 1999.
+[28] F. Zhang, Y. Dong, and Q. Meng,Backward stochastic riccati equation with jumps associated with stochastic linear quadratic optimal control with jumps and random coefficients, SIAM Journal on Control and Optimization, 58 (2020), pp. 393–424.
+[29] X. Zhou,The connection between the maximum principle and dynamic programming in stochastic control, Stochastics: An International Journal of Probability and Stochastic Processes, 31 (1990), pp. 1–13.
+[30] ,A unified treatment of maximum principle and dynamic programming in stochastic controls, Stochastics: An International Journal of Probability and Stochastic Processes, 36 (1991), pp. 137–161.

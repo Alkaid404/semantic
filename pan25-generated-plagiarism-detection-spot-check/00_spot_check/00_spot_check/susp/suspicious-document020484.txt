@@ -1,0 +1,253 @@
+Increased Multiplexing Gain with Reconfigurable Surfaces: Simultaneous Channel Orthogonalization and Information Embedding
+
+By Juan Vidal Alegria and Joao Vieira and Fredrik Rusek
+
+Abstract
+
+Orthogonal multi-user multiple-input multiple-output (MU-MIMO) channels provide optimal performance with simplified precoding/equalization, achieving maximum multiplexing gain that is equitably distributed among users. Reconfigurable intelligent surfaces (RIS) offer a cost-effective solution to enhance wireless channels by employing passive reflecting elements capable of adjusting the phase of incoming waves. However, the extent to which these surfaces can improve spatial multiplexing remains uncertain, as the standard RIS model cannot achieve perfect orthogonalization of MU-MIMO channels with a practical number of elements. Additionally, the development of efficient channel estimation algorithms for RIS, crucial for maximizing its benefits, is still an active research area. This study examines two advanced reconfigurable surfaces (RSs): amplitude-reconfigurable intelligent surface (ARIS) and fully-reconfigurable intelligent surface (FRIS), which extend beyond the capabilities of conventional RIS. It demonstrates how these RSs enable perfect channel orthogonalization and highlights their potential for implementation without amplification by minimizing power usage. Furthermore, an efficient channel estimation method is presented for each RS type, enabling the base station (BS) to select the desired propagation channel.
+
+I Introduction
+
+Multi-user multiple-input multiple-output (MU-MIMO) [1] has emerged as a standard solution for base station (BS) implementation in 5G networks. Following the initial commercial deployments of its large-scale counterpart, Massive MIMO [2], MU-MIMO has evolved into a mature technology enabling the spatial domain multiplexing of user equipments (UEs). However, the extent to which MU-MIMO can leverage multiplexing gains is contingent upon the conditions of the wireless propagation channels.
+
+Reconfigurable intelligent surfaces (RIS), also referred to as intelligent reflective surfaces (IRS), represent a cutting-edge technology poised to revolutionize next-generation communication networks. Functioning as a passive reflector, this innovative approach dynamically modifies the wireless propagation environment in a manner that is both energy-efficient and cost-effective. By manipulating the reflected waves, RIS facilitates constructive interference, thereby amplifying the received signal strength and achieving significant enhancements in energy efficiency.
+
+In this study, we investigate two alternatives to reconfigurable intelligent surfaces (RIS), specifically amplitude-reconfigurable surfaces (ARIS) and fully-reconfigurable surfaces (FRIS), to orthogonalize multi-user MIMO (MU-MIMO) channels. To our knowledge, current research has not addressed the fundamental challenge of employing reconfigurable surfaces (RS) to achieve orthogonal MIMO channels, which is crucial as it enables full multiplexing gain with equitable user allocation (equal channel power per UE) [11]. Additionally, for these channels, optimal base station processing is realized through straightforward maximum ratio combining/transmission (MRC/MRT). We introduce a channel estimation technique for each RS that enables the BS to determine its own channel by calculating and transmitting the RS configuration with a minimal number of pilots. Furthermore, we demonstrate that these RSs can be implemented without amplification by minimizing the required power.
+
+Prior research has explored the integration of reconfigurable intelligent surfaces (RIS) to enhance spatial multiplexing capabilities in multiple-input multiple-output (MIMO) systems. In particular, studies such as [8] have demonstrated the utility of RIS in augmenting the rank of single-user MIMO channels. Furthermore, the application of RIS has been investigated for optimizing user throughput across diverse network configurations, as evidenced by [9]. However, a significant limitation of existing RIS-based approaches lies in their dependence on accurate channel state information (CSI) at the base station (BS). This reliance poses substantial challenges, particularly due to the inherent complexity of channel estimation in RIS-enabled systems, as noted in [5]. This difficulty arises from the combination of the large number of elements in RIS structures and their limited operational capabilities.
+
+We examine an uplink multi-user MIMO (MU-MIMO) system where $K$ UEs communicate with an $M$-antenna BS, with $M>K$, via a narrowband channel utilizing an $N$-element reconfigurable surface (RS). The received complex vector $\boldsymbol{y}$ at the BS is given by:
+
+\[
+\boldsymbol{y} = \boldsymbol{H}\boldsymbol{s} + \boldsymbol{n},
+\]
+where $\boldsymbol{H}$ denotes the $M \times K$ channel matrix, $\boldsymbol{s}$ is the $K \times 1$ symbol vector transmitted by the UEs (with $\mathbb{E}(|s_k|^2) = E_s$ for all $k$), and $\boldsymbol{n} \sim \mathcal{CN}(\boldsymbol{0}_{M \times 1}, N_0 \mathbf{I}_M)$ represents the noise vector. The channel matrix $\boldsymbol{H}$ can be decomposed as:
+
+\[
+\boldsymbol{H} = \boldsymbol{H}_0 + \boldsymbol{H}_1 \boldsymbol{\Theta} \boldsymbol{H}_2,
+\]
+where $\boldsymbol{H}_0$ corresponds to the direct $M \times K$ channel between the BS and the UEs, $\boldsymbol{H}_1$ and $\boldsymbol{H}_2$ represent the $M \times N$ channel between the BS and the RS, and the $N \times K$ channel between the RS and the UEs, respectively. The reflection matrix $\boldsymbol{\Theta}$ is applied at the RS to manage the reflected signals.
+
+The remainder of this paper is structured as follows. Section II outlines the system model and specifies the capabilities of the reference signals (RSs). Section III details the methodology for achieving perfectly orthogonal channels utilizing RSs. Section IV focuses on the channel estimation processes necessary for RS configuration. Section V addresses the power minimization framework. Section VI presents numerical results. Finally, Section VII concludes the paper.
+
+II System model
+
+The proposed ARIS approach begins by setting $\boldsymbol{\alpha}=\boldsymbol{0}_{N\times 1}$, at which point the user equipment (UEs) transmit $K$ orthogonal pilot signals. Over $K$ consecutive time slots, the received signal matrix $\boldsymbol{Y}_{1}$, of size $M\times K$, is expressed as:
+
+$\boldsymbol{Y}_{1}=\boldsymbol{H}_{0}\boldsymbol{P}+\boldsymbol{N}_{1},$ (15)
+
+where $\boldsymbol{P}$ represents a known pilot matrix, which can be set to a unit matrix, such as $\boldsymbol{P}=\mathbf{I}_{K}$, and $\boldsymbol{N}_{1}$ denotes the noise matrix with independent and identically distributed (IID) entries $n_{ij}\sim\mathcal{CN}(0,N_{0})$. Given this formulation, advanced channel estimation techniques can be employed to directly estimate $\boldsymbol{H}_{0}$ using the data from equation (15).
+
+II-A Background
+
+Consider a reconfigurable intelligent surface (RIS), denoted as ARIS, whose constituent elements are capable of amplitude adjustment. The associated reflection matrix for this system is expressed as 
+
+$\boldsymbol{\Theta}_{\mathrm{ARIS}}=\mathrm{diag}\left(\alpha_{1},\dots,\alpha_{N}\right),\;\;\alpha_{i}\in\mathbb{C}\;\;\forall i.$  (4) 
+
+Notably, the constraint that each $\alpha_{i}$ must have a magnitude of $1$ is no longer imposed in this case. The concept of integrating amplification into RIS has been explored in prior studies, with certain hardware requirements for implementing such systems outlined in [12]. However, our focus is on limiting the power consumption of these surfaces to ensure their feasibility without relying on active amplification.
+
+The ARIS sum power required for achieving $\boldsymbol{H} = \sqrt{\beta}\widetilde{\boldsymbol{U}}$ is expressed as (refer to Table I):
+
+\[
+P_{\mathrm{A}}(\beta, \widetilde{\boldsymbol{U}}) = \beta g_{1}(\widetilde{\boldsymbol{U}}) - 2\sqrt{\beta}f_{1}(\widetilde{\boldsymbol{U}}) + c_{1},
+\]
+where the terms are defined as:
+\[
+f_{1}(\widetilde{\boldsymbol{U}}) = \mathfrak{Re}\left\{\mathrm{vec}(\widetilde{\boldsymbol{U}})^{\mathrm{H}}\boldsymbol{G}_{12}^{-1}\mathrm{vec}(\boldsymbol{H}_{0})\right\},
+\]
+\[
+g_{1}(\widetilde{\boldsymbol{U}}) = \mathrm{vec}(\widetilde{\boldsymbol{U}})^{\mathrm{H}}\boldsymbol{G}_{12}^{-1}\mathrm{vec}(\widetilde{\boldsymbol{U}}),
+\]
+\[
+c_{1} = \mathrm{vec}(\boldsymbol{H}_{0})^{\mathrm{H}}\boldsymbol{G}_{12}^{-1}\mathrm{vec}(\boldsymbol{H}_{0}),
+\]
+with $\boldsymbol{G}_{12} = \boldsymbol{\mathcal{H}}_{12}\boldsymbol{\mathcal{H}}_{12}^{\mathrm{H}}$. Equation (23) is derived by substituting (11) into the ARIS power expression from Table I and simplifying. Our focus is now on determining the minimum ARIS power needed to achieve an orthogonal channel. The presence of the direct channel $\boldsymbol{H}_{0}$ necessitates a minimum power to orthogonalize the channel with ARIS. If $\boldsymbol{H}_{0}$ is absent ($c_{1} = f_{1}(\widetilde{\boldsymbol{U}}) = 0$), $P_{\mathrm{A}}(\beta, \widetilde{\boldsymbol{U}})$ can be reduced arbitrarily by decreasing $\beta$, implying channel orthogonalization without amplification. Assuming $\boldsymbol{H}_{0}$ is present, the base station can choose $\widetilde{\boldsymbol{U}}$ and $\beta$ freely. To find the minimum power for orthogonalization, we solve:
+
+\[
+P_{\mathrm{A,min}} = \min_{\beta, \widetilde{\boldsymbol{U}}} P_{\mathrm{A}}(\beta, \widetilde{\boldsymbol{U}})
+\]
+subject to $\widetilde{\boldsymbol{U}}^{\mathrm{H}}\widetilde{\boldsymbol{U}} = \mathbf{I}_{K}$. Differentiating $P_{\mathrm{A}}(\beta, \widetilde{\boldsymbol{U}})$ with respect to $\beta$ and setting it to zero yields the optimal $\beta$:
+
+\[
+\beta_{\mathrm{o1}} = \left(\frac{f_{1}(\widetilde{\boldsymbol{U}})}{g_{1}(\widetilde{\boldsymbol{U}})}\right)^{2}.
+\]
+
+Substituting $\beta_{\mathrm{o1}}$ into (23) gives $P_{\mathrm{A}}(\beta_{\mathrm{o1}}, \widetilde{\boldsymbol{U}})$, which is minimized using gradient descent within the unitary space. To enhance optimization accuracy, we consider geodesics in the unitary space as proposed in [18]. The Euclidean gradient is obtained by differentiating $P_{\mathrm{A}}(\beta_{*}, \widetilde{\boldsymbol{U}})$ with respect to $\boldsymbol{U}^{*}$ and utilized in the algorithm from [18], incorporating Armijo line-search for improved convergence. The gradient is:
+
+\[
+\frac{\partial P_{\mathrm{A}}(\beta_{\mathrm{o1}}, \widetilde{\boldsymbol{U}})}{\partial \widetilde{\boldsymbol{U}}^{*}} = \frac{b}{g_{1}^{2}(\widetilde{\boldsymbol{U}})} \mathrm{vec}^{-1}\Big(-f_{1}^{2}(\widetilde{\boldsymbol{U}})\boldsymbol{G}_{12}^{-1}\mathrm{vec}(\widetilde{\boldsymbol{U}})
+\]
+\[
++ f_{1}(\widetilde{\boldsymbol{U}})g_{1}(\widetilde{\boldsymbol{U}})\boldsymbol{G}_{12}^{-1}\mathrm{vec}(\boldsymbol{H}_{0})\Big),
+\]
+where $b = 1 - 2\mathrm{sign}\left(f_{1}(\widetilde{\boldsymbol{U}})\right)$. For differentiation over $\boldsymbol{U}^{*}$ instead of $\widetilde{\boldsymbol{U}}^{*}$, additional zero columns are appended. Once $P_{\mathrm{A,min}}$ is obtained, any higher ARIS sum power can be achieved by solving a quadratic equation over $\sqrt{\beta}$ using (23). It is important to note that for each different $\beta$, a new optimal $\widetilde{\boldsymbol{U}}$ (potentially distinct from the solution of (24)) may minimize the resulting power. Further exploration of alternatives to (24) will be presented in the extended version.
+
+We aim to determine a full-matrix $\boldsymbol{\Theta}_{\mathrm{FRIS}}$ that satisfies 
+
+$\boldsymbol{H}_{0}+\boldsymbol{H}_{1}\boldsymbol{\Theta}_{\mathrm{FRIS}}\boldsymbol{H}_{2}=\sqrt{\beta}\widetilde{\boldsymbol{U}}$ (12)
+
+Under the assumption that $\boldsymbol{H}_{1}$ and $\boldsymbol{H}_{2}$ are full-rank, the reflection matrix can be expressed as $\boldsymbol{\Theta}_{\mathrm{FRIS}}=\boldsymbol{H}_{1}^{\dagger}\boldsymbol{B}\boldsymbol{H}_{2}^{\dagger}$, where $\boldsymbol{H}_{1}^{\dagger}$ represents the right pseudo-inverse of $\boldsymbol{H}_{1}$, $\boldsymbol{H}_{2}^{\dagger}$ is the left pseudo-inverse of $\boldsymbol{H}_{2}$, and $\boldsymbol{B}$ is an $M\times K$ matrix to be determined. This approach minimizes the power required to eliminate the influence of $\boldsymbol{H}_{1}$ and $\boldsymbol{H}_{2}$ on the overall channel, establishing the orthogonalization requirement for FRIS as $N\geq\min(M,K)$. Given $M>K$, this leads to $N\geq M$. Consequently, we obtain 
+
+$\boldsymbol{\Theta}_{\mathrm{FRIS}}=\boldsymbol{H}_{1}^{\dagger}\left(\sqrt{\beta}\widetilde{\boldsymbol{U}}-\boldsymbol{H}_{0}\right)\boldsymbol{H}_{2}^{\dagger}$ (13)
+
+Similar to ARIS, a non-orthogonal channel matrix can be generated by replacing $\sqrt{\beta}\widetilde{\boldsymbol{U}}$ in (13) with any alternative channel matrix.
+
+III Achievable rates for simultaneous RS-plus-UEs transmission
+
+When analyzing the resulting orthogonal sub-channels of $\boldsymbol{H}=\sqrt{\beta}\widetilde{\boldsymbol{U}}$, it is important to consider their power distribution. The power of these sub-channels, represented by $\beta$, is directly proportional to the post-processed SNR per user equipment (UE), given by $\eta=\beta E_{s}/N_{0}$. This assumes that the reference signal (RS) does not contribute additional noise, though it is noted that RSs with amplification might experience noise enhancement, similar to zero-forcing (ZF) equalizers, which could be explored in future studies. Due to the orthogonal nature of the channel, there is no interference between UEs, and each UE achieves the same post-processed SNR. Consequently, to maximize capacity per UE under constrained RS power, a larger $\beta$ is desirable.
+
+The FRIS sum power, represented by $\boldsymbol{H}=\sqrt{\beta}\widetilde{\boldsymbol{U}}$, is expressed as 
+
+$$
+P_{\mathrm{F}} = \beta g_{2}(\widetilde{\boldsymbol{U}}) - 2\sqrt{\beta}f_{2}(\widetilde{\boldsymbol{U}}) + c_{2}, \quad (27)
+$$
+
+where $f_{2}(\widetilde{\boldsymbol{U}}) = \mathfrak{Re}\left\{\mathrm{tr}(\boldsymbol{G}_{2}^{-1}\widetilde{\boldsymbol{U}}^{\mathrm{H}}\boldsymbol{G}_{1}^{-1}\boldsymbol{H}_{0})\right\}$, $g_{2}(\widetilde{\boldsymbol{U}}) = \mathrm{tr}(\boldsymbol{G}_{2}^{-1}\widetilde{\boldsymbol{U}}^{\mathrm{H}}\boldsymbol{G}_{1}^{-1}\widetilde{\boldsymbol{U}})$, and $c_{2} = \mathrm{tr}(\boldsymbol{G}_{2}^{-1}\boldsymbol{H}_{0}^{\mathrm{H}}\boldsymbol{G}_{1}^{-1}\boldsymbol{H}_{0})$, with $\boldsymbol{G}_{1} = \boldsymbol{H}_{1}\boldsymbol{H}_{1}^{\mathrm{H}}$ and $\boldsymbol{G}_{2} = \boldsymbol{H}_{2}^{\mathrm{H}}\boldsymbol{H}_{2}$. By applying the same methodology as in the ARIS case, we aim to solve 
+
+$$
+P_{\mathrm{F,min}} = \min_{\beta,\widetilde{\boldsymbol{U}}} P_{\mathrm{F}}(\beta,\widetilde{\boldsymbol{U}}), \quad (28)
+$$
+
+subject to $\widetilde{\boldsymbol{U}}^{\mathrm{H}}\widetilde{\boldsymbol{U}} = \mathbf{I}_{K}$. Following the previous approach, we find 
+
+$$
+\beta_{\mathrm{o}2} = \left(\frac{f_{2}(\widetilde{\boldsymbol{U}})}{g_{2}(\widetilde{\boldsymbol{U}})}\right)^{2}, \quad (29)
+$$
+
+which results in the Euclidean gradient for minimizing over $\widetilde{\boldsymbol{U}}$ using [18]:
+
+$$
+\frac{\partial P_{\mathrm{F}}(\beta_{\mathrm{o}1},\widetilde{\boldsymbol{U}})}{\partial\widetilde{\boldsymbol{U}}^{*}} = \frac{b}{g_{2}^{2}(\widetilde{\boldsymbol{U}})} \Big( -f_{2}^{2}(\widetilde{\boldsymbol{U}})\boldsymbol{G}_{1}^{-1}\widetilde{\boldsymbol{U}}^{\mathrm{H}}\boldsymbol{G}_{2}^{-1} + g_{2}(\widetilde{\boldsymbol{U}})f_{2}(\widetilde{\boldsymbol{U}})\boldsymbol{G}_{1}^{-1}\boldsymbol{H}_{0}\boldsymbol{G}_{2}^{-1} \Big), \quad (30)
+$$
+
+where $b = 1 - 2\mathrm{sign}\left(f_{2}(\widetilde{\boldsymbol{U}})\right)$.
+
+We aim to determine the coefficients $\alpha_{1},\dots,\alpha_{N}$ that satisfy the equation
+
+\[
+\boldsymbol{H}_{0}+\boldsymbol{H}_{1}\boldsymbol{\Theta}_{\mathrm{ARIS}}\boldsymbol{H}_{2}=\sqrt{\beta}\widetilde{\boldsymbol{U}},
+\]
+
+which is denoted as equation (8). Here, the matrices $\boldsymbol{H}_{1}$ and $\boldsymbol{H}_{2}$ are defined as
+
+\[
+\boldsymbol{H}_{1}=\begin{bmatrix}\boldsymbol{h}_{11},\dots,\boldsymbol{h}_{1N}\end{bmatrix},\;\;\;\;\boldsymbol{H}_{2}=\begin{bmatrix}\boldsymbol{h}_{21},\dots,\boldsymbol{h}_{2N}\end{bmatrix}^{\mathrm{T}},
+\]
+
+where $\boldsymbol{h}_{1i}$ represents the $i$-th column of $\boldsymbol{H}_{1}$ and $\boldsymbol{h}_{2i}^{\mathrm{T}}$ corresponds to the $i$-th row of $\boldsymbol{H}_{2}$. Substituting these definitions into equation (8), we can rewrite it as
+
+\[
+\sum_{i=1}^{N}\alpha_{i}\boldsymbol{h}_{1i}\boldsymbol{h}_{2i}^{\mathrm{T}}=\sqrt{\beta}\widetilde{\boldsymbol{U}}-\boldsymbol{H}_{0},
+\]
+
+which is equation (9). Recognizing that equation (9) represents a linear system in the vector $\boldsymbol{\alpha}=\begin{bmatrix}\alpha_{1},\dots,\alpha_{N}\end{bmatrix}^{\mathrm{T}}$, we apply the vectorization operation to obtain
+
+\[
+\boldsymbol{\mathcal{H}}_{12}\boldsymbol{\alpha}=\mathrm{vec}\left(\sqrt{\beta}\widetilde{\boldsymbol{U}}-\boldsymbol{H}_{0}\right),
+\]
+
+where equation (10) is defined. Here, $\boldsymbol{\mathcal{H}}_{12}$ is constructed as
+
+\[
+\boldsymbol{\mathcal{H}}_{12}=\begin{bmatrix}\mathrm{vec}(\boldsymbol{h}_{11}\boldsymbol{h}_{21}^{\mathrm{T}})&\dots&\mathrm{vec}(\boldsymbol{h}_{1N}\boldsymbol{h}_{2N}^{\mathrm{T}})\end{bmatrix},
+\]
+
+resulting in an $MK\times N$ matrix. Assuming that $\boldsymbol{\mathcal{H}}_{12}$ is full-rank, equation (10) imposes an orthogonalization requirement for ARIS, specifically $N\geq MK$. To solve equation (10), we use
+
+\[
+\boldsymbol{\alpha}=\boldsymbol{\mathcal{H}}_{12}^{\dagger}\mathrm{vec}\left(\sqrt{\beta}\widetilde{\boldsymbol{U}}-\boldsymbol{H}_{0}\right),
+\]
+
+where equation (11) is derived. The term $\boldsymbol{\mathcal{H}}_{12}^{\dagger}$ denotes the right pseudo-inverse of $\boldsymbol{\mathcal{H}}_{12}$. Notably, the standard expression for the right pseudo-inverse, $\boldsymbol{\mathcal{H}}_{12}^{\dagger}=\boldsymbol{\mathcal{H}}_{12}^{\mathrm{H}}(\boldsymbol{\mathcal{H}}_{12}\boldsymbol{\mathcal{H}}_{12}^{\mathrm{H}})^{-1}$, minimizes the norm of $\boldsymbol{\alpha}$ for the given $\widetilde{\boldsymbol{U}}$ and $\beta$, which is particularly advantageous for this application. It is important to note that the derivation of $\boldsymbol{\alpha}$ does not inherently require the desired channel to be orthogonal. In fact, any channel matrix could be generated by substituting $\sqrt{\beta}\widetilde{\boldsymbol{U}}$ in equation (11) with the desired channel.
+
+See Appendix A ∎
+
+In the final step, the base station (BS) selects the desired channel ( $\sqrt{\beta}\widetilde{\boldsymbol{U}}$ ) and calculates the FRIS configuration, $\boldsymbol{\Theta}_{\mathrm{FRIS}}$, by applying equation (13) with the estimates of $\boldsymbol{H}_{0}$, $\boldsymbol{H}_{1}$, and $\boldsymbol{H}_{2}$. Subsequently, the BS transmits $\boldsymbol{\Theta}_{\mathrm{FRIS}}$ to the FRIS, which then implements it.
+
+IV Increased multiplexing gain
+
+Since the influence of $\boldsymbol{H}_{1}$ and $\boldsymbol{H}_{2}$ on the selection of $\boldsymbol{\alpha}$ is mediated through $\boldsymbol{\mathcal{H}}_{12}$, estimating this matrix suffices, where its columns are defined as
+
+$[\boldsymbol{\mathcal{H}}_{12}]_{:,n}=\mathrm{vec}(\boldsymbol{h}_{1n}\boldsymbol{h}_{2n}^{\mathrm{T}}).$  (16)
+
+Assuming the ARIS is configured such that $\alpha_{n}=1$ for a specific $n$ and $\alpha_{i}=0$ for $i\neq n$, transmitting $K$ orthogonal pilots from the UEs results in
+
+$\boldsymbol{Y}_{2n}=\boldsymbol{H}_{0}\boldsymbol{P}+\boldsymbol{h}_{1n}\boldsymbol{h}_{2n}^{\mathrm{T}}\boldsymbol{P}+\boldsymbol{N}_{2n},$  (17)
+
+where $\boldsymbol{P}$ and $\boldsymbol{N}_{2n}$ retain their previous definitions. With $\boldsymbol{H}_{0}$ known from prior steps, it can be canceled at the BS, yielding
+
+$\widetilde{\boldsymbol{Y}}_{2n}=\boldsymbol{h}_{1n}\boldsymbol{h}_{2n}^{\mathrm{T}}\boldsymbol{P}+\widetilde{\boldsymbol{N}}_{2n},$  (18)
+
+where $\widetilde{\boldsymbol{N}}_{2n}$ incorporates the estimation error from the prior step, potentially inducing correlated noise components. From Equation (18), $\boldsymbol{h}_{1n}\boldsymbol{h}_{2n}^{\mathrm{T}}$ can be estimated using advanced estimation techniques, which, upon vectorization, provide the estimate of the $n$-th column of $\boldsymbol{\mathcal{H}}_{12}$ as given in Equation (16). By iteratively performing this estimation for $n=1,\dots,N$, i.e., activating each ARIS element sequentially, the BS can construct a complete estimate of $\boldsymbol{\mathcal{H}}_{12}$.
+
+To estimate the channel matrices, the FRIS activates each group of $M$ elements to 1 at time step $n$, resulting in 
+
+$\boldsymbol{\Theta}_{\mathrm{FRIS}}=\mathrm{diag}(\begin{bmatrix}\boldsymbol{0}_{1\times(n-1)M}&\boldsymbol{1}_{1\times M}&\boldsymbol{0}_{1\times(N-nM)}\end{bmatrix}),$  (20)
+
+and the UEs transmit $K$ orthogonal pilots. The BS receives the signal 
+
+$\boldsymbol{Y}_{3n}=\boldsymbol{H}_{0}\boldsymbol{P}+\boldsymbol{H}_{1,\mathrm{sq}}(n)\boldsymbol{H}_{2,\mathrm{sq}}(n)\boldsymbol{P}+\boldsymbol{N}_{3},$  (21)
+
+where $\boldsymbol{H}_{1,\mathrm{sq}}(n)$ is an $M\times M$ matrix containing columns $(n-1)M+1$ to $nM$ of $\boldsymbol{H}_{1}$, $\boldsymbol{H}_{2,\mathrm{sq}}(n)$ is an $M\times K$ matrix formed by rows $(n-1)M+1$ to $nM$ of $\boldsymbol{H}_{2}$, and $\boldsymbol{N}_{3}$ and $\boldsymbol{P}$ represent noise and the pilot matrix, respectively. Assuming $\boldsymbol{H}_{1,\mathrm{sq}}(n)$ is full-rank for all $n$, we can estimate $\boldsymbol{H}_{2,\mathrm{sq}}(n)$ by applying advanced estimation techniques to 
+
+$\widetilde{\boldsymbol{Y}}_{3n}=\widehat{\boldsymbol{H}}_{1,\mathrm{sq}}^{-1}(n)(\boldsymbol{H}_{1,\mathrm{sq}}(n)\boldsymbol{H}_{2,\mathrm{sq}}(n)\boldsymbol{P}+\boldsymbol{N}_{3}),$  (22)
+
+where $\widehat{\boldsymbol{H}}_{1,\mathrm{sq}}(n)$ is the estimate of $\boldsymbol{H}_{1,\mathrm{sq}}(n)$ from the prior stage. For the final time step, $n=\left\lceil N/M\right\rceil$, if $nM$ exceeds $N$, we truncate the matrices to size $N$ in equation (22) and replace the inverse with the left pseudo-inverse of the truncated $\widehat{\boldsymbol{H}}_{1}$. It is important to note that requiring $\boldsymbol{H}_{1,\mathrm{sq}}(n)$ to have rank $M$ for all $n$ is slightly more restrictive than the condition for solvability of equation (12), which only requires the entire matrix $\boldsymbol{H}_{1}$ to be rank $M$. If any $\boldsymbol{H}_{1,\mathrm{sq}}(n)$ is ill-conditioned, which can be detected at the BS using the estimate of $\boldsymbol{H}_{1}$, alternative strategies could be employed, such as selecting groups of $M$ linearly independent rows. In the worst case, we could reduce the number of 1s in the FRIS and use the pseudo-inverse instead of the inverse of the truncated $\boldsymbol{H}_{1}$, but this would necessitate more pilot slots.
+
+The primary objective of utilizing radio systems (RSs) lies in optimizing the propagation channel to enhance its performance according to specific metrics, such as array gain, channel capacity, or multiplexing gain. Within the proposed framework, orthogonal channels—more precisely referred to as unitary channels due to their inherent complex nature—are characterized by channel matrices whose columns form unitary matrices. Specifically, the channel matrix $\boldsymbol{H}$ can be expressed as $\boldsymbol{H} = \sqrt{\beta} \widetilde{\boldsymbol{U}}$, where $\widetilde{\boldsymbol{U}}$ is defined as:
+
+\[
+\widetilde{\boldsymbol{U}} = \boldsymbol{U} \begin{bmatrix} \mathbf{I}_K \\ \boldsymbol{0}_{(M-K) \times K} \end{bmatrix}, \quad \text{(6)}
+\]
+
+and $\boldsymbol{U}$ is an $M \times M$ unitary matrix. A minor notational inconsistency is acknowledged, where $\sqrt{\beta}$ represents the singular values of the orthogonal channel. Consequently, the product $\boldsymbol{H}^{\mathrm{H}}\boldsymbol{H}$ simplifies to:
+
+\[
+\boldsymbol{H}^{\mathrm{H}}\boldsymbol{H} = \beta \mathbf{I}_K. \quad \text{(7)}
+\]
+
+Since the initial exploration of MIMO systems, orthogonal channels have been recognized as advantageous for multiple reasons [11]: They provide full multiplexing gain due to all non-zero eigenvalues of the channel matrix. Waterfilling algorithms are unnecessary for capacity maximization as all eigenvalues are equal. In MU-MIMO scenarios, users are served equitably since spatial streams have equal power. Additionally, simple linear techniques like MRC or MRT achieve optimal performance by leveraging orthogonal paths, eliminating the need for UE cooperation in MU-MIMO.
+
+V Numerical results
+
+The figure illustrates the minimum average reference signal (RS) power per element, $P_{\mathrm{RS,avg}}=P_{\{\mathrm{A,F}\}\mathrm{,min}}/N$, and the resulting channel gain per user equipment (UE), denoted as $\beta$, which remains consistent across all UEs due to the orthogonal restriction. These metrics are presented relative to the normalized power of the direct channel, $E_{0}$. The analysis primarily focuses on the power relationship between the direct and reflected channels, employing normalized independent and identically distributed (IID) Rayleigh fading channels characterized by $\|H_{0}\|^{2}_{\mathrm{Fro}}=E_{0}MK$, $\|H_{1}\|^{2}_{\mathrm{Fro}}=MN$, and $\|H_{2}\|^{2}_{\mathrm{Fro}}=NK$. While other channel models are reserved for future exploration, the current findings suggest that ill-conditioned channels are particularly detrimental in RS-reflected paths. The left panel of Fig. 1 demonstrates that, in most practical scenarios where direct links operate with power levels below 100 times that of the reflected channel, the minimum average power required for channel orthogonalization using both ARIS and FRIS is lower than that of RIS. This implies potential feasibility for implementing these surfaces without amplification. The corresponding channel gains, derived from these minimized powers, exhibit a linear relationship with $E_{0}$, showcasing performance superior to RIS, which has been numerically optimized for channel orthogonalization via equation (14). It is important to note that for RIS, perfect orthogonality may not be achievable, hence both average and minimum channel gains per UE are plotted. The results for RIS, however, may not be optimal due to the inherent complexity of the task and analytical challenges. Further research into more suitable optimization formulations for channel orthogonalization with RIS is warranted. A key observation is that the channel gains depicted in Fig. 1 are achieved with RS power dependent on $E_{0}$ and generally lower than that of RIS. When the respective gains are increased to align RS power with that of RIS, as illustrated in Fig. 2, the resulting channel gains become even more significant, particularly for FRIS, which achieves 10 times better gains than ARIS with fewer elements. This underscores the potential for further improvement through optimized $\widetilde{\boldsymbol{U}}$, as previously discussed.
+
+VI Conclusions
+
+In this work, we introduce FRIS and ARIS, two innovative reconfigurable intelligent surface (RIS) technologies that operate under more flexible constraints compared to traditional RIS implementations. Through rigorous analysis, we demonstrate that both configurations are capable of achieving perfect channel orthogonalization. To facilitate the practical deployment of these systems, we propose a channel estimation technique that enables the base station (BS) to identify the desired channel and select the appropriate RS configuration. Notably, our findings reveal that these RS technologies can achieve channel orthogonalization without requiring amplification by optimizing within the unitary space. The resulting channel gains, which are distributed equitably among users due to the orthogonalization process, underscore the advantages of enhancing the processing capabilities of RSs.
+
+Appendix A: Proof of Proposition 1
+
+In the context of FRIS, estimating $\boldsymbol{H}_{1}$ and $\boldsymbol{H}_{2}$ is necessary to compute their pseudo-inverses as shown in equation (13). Assuming the FRIS can transmit pilots through each of its elements, it sends $N$ orthogonal pilots, resulting in the received matrix at the BS:
+
+$\boldsymbol{Y}_{2} = \boldsymbol{H}_{1}\boldsymbol{P}_{\mathrm{FRIS}} + \boldsymbol{N}_{2},$ (19)
+
+where $\boldsymbol{P}_{\mathrm{FRIS}}$ is the $N \times N$ known pilot matrix, which can be set to $\mathbf{I}_{N}$. Using state-of-the-art estimation techniques, the BS can obtain an estimate of $\boldsymbol{H}_{1}$ from equation (19).
+
+References
+
+[1] T. L. Marzetta, “Noncooperative cellular wireless with unlimited numbers of base station antennas,”IEEE Transactions on Wireless Communications, vol. 9, no. 11, pp. 3590–3600, November 2010.
+[2] E. Björnson, L. Sanguinetti, H. Wymeersch, J. Hoydis, and T. L. Marzetta, “Massive MIMO is a reality—what is next?: Five promising research directions for antenna arrays,”Digital Signal Processing, vol. 94, pp. 3–20, 2019, special Issue on Source Localization in Massive MIMO. [Online]. Available: https://www.sciencedirect.com/science/article/pii/S1051200419300776
+[3] T. Van Chien and E. Björnson, “Massive MIMO communications,” in5G Mobile Communications, W. Xiang, K. Zheng, and X. S. Shen, Eds.   Cham: Springer International Publishing, 2017, pp. 77–116.
+[4] N. Jindal, “MIMO broadcast channels with finite-rate feedback,”IEEE Transactions on Information Theory, vol. 52, no. 11, pp. 5045–5060, 2006.
+[5] F. Rusek, D. Persson, B. K. Lau, E. G. Larsson, T. L. Marzetta, O. Edfors, and F. Tufvesson, “Scaling up MIMO: Opportunities and challenges with very large arrays,”IEEE Signal Processing Magazine, vol. 30, no. 1, pp. 40–60, Jan 2013.
+[6] S. Hu, F. Rusek, and O. Edfors, “Beyond massive MIMO: The potential of data transmission with large intelligent surfaces,”IEEE Transactions on Signal Processing, vol. 66, no. 10, pp. 2746–2758, May 2018.
+[7] C. Huang, A. Zappone, G. C. Alexandropoulos, M. Debbah, and C. Yuen, “Reconfigurable intelligent surfaces for energy efficiency in wireless communication,”IEEE Transactions on Wireless Communications, vol. 18, no. 8, pp. 4157–4170, 2019.
+[8] E. Basar, M. Di Renzo, J. De Rosny, M. Debbah, M.-S. Alouini, and R. Zhang, “Wireless communications through reconfigurable intelligent surfaces,”IEEE Access, vol. 7, pp. 116 753–116 773, 2019.
+[9] J. Vidal Alegría and F. Rusek, “Channel orthogonalization with reconfigurable surfaces,” in2022 IEEE Globecom Workshops (GC Wkshps), 2022, pp. 37–42.
+[10] M. Z. Chowdhury, M. Shahjalal, S. Ahmed, and Y. M. Jang, “6G wireless communication systems: Applications, requirements, technologies, challenges, and research directions,”IEEE Open Journal of the Communications Society, vol. 1, pp. 957–975, 2020.
+[11] O. Ozdogan, E. Björnson, and E. G. Larsson, “Using intelligent reflecting surfaces for rank improvement in MIMO communications,” inICASSP 2020 - 2020 IEEE International Conference on Acoustics, Speech and Signal Processing (ICASSP), 2020, pp. 9160–9164.
+[12] H. Guo, Y.-C. Liang, J. Chen, and E. G. Larsson, “Weighted sum-rate maximization for reconfigurable intelligent surface aided wireless networks,”IEEE Transactions on Wireless Communications, vol. 19, no. 5, pp. 3064–3076, 2020.
+[13] Y. Zhang, C. Zhong, Z. Zhang, and W. Lu, “Sum rate optimization for two way communications with intelligent reflecting surface,”IEEE Communications Letters, vol. 24, no. 5, pp. 1090–1094, 2020.
+[14] R. Long, Y.-C. Liang, H. Guo, G. Yang, and R. Zhang, “Symbiotic radio: A new communication paradigm for passive internet of things,”IEEE Internet of Things Journal, vol. 7, no. 2, pp. 1350–1363, 2020.
+[15] E. Basar, “Reconfigurable intelligent surface-based index modulation: A new beyond MIMO paradigm for 6G,”IEEE Transactions on Communications, vol. 68, no. 5, pp. 3187–3196, 2020.
+[16] W. Tang, J. Y. Dai, M. Chen, X. Li, Q. Cheng, S. Jin, K.-K. Wong, and T. J. Cui, “Programmable metasurface-based RF chain-free 8PSK wireless transmitter,”Electronics Letters, vol. 55, no. 7, pp. 417–420, 2019. [Online]. Available: https://ietresearch.onlinelibrary.wiley.com/doi/abs/10.1049/el.2019.0400
+[17] W. Yan, X. Yuan, and X. Kuai, “Passive beamforming and information transfer via large intelligent surface,”IEEE Wireless Communications Letters, vol. 9, no. 4, pp. 533–537, 2020.
+[18] J. Ye, S. Guo, S. Dang, B. Shihada, and M.-S. Alouini, “On the capacity of reconfigurable intelligent surface assisted MIMO symbiotic communications,”IEEE Transactions on Wireless Communications, vol. 21, no. 3, pp. 1943–1959, 2022.
+[19] A. Paulraj, R. Nabar, and D. Gore,Introduction to Space-Time Wireless Communications, 1st ed.   USA: Cambridge University Press, 2008.
+[20] T. M. Cover and J. A. Thomas,Elements of Information Theory (Wiley Series in Telecommunications and Signal Processing).   USA: Wiley-Interscience, 2006.
+[21] T. Marzetta and B. Hochwald, “Capacity of a mobile multiple-antenna communication link in rayleigh flat fading,”IEEE Transactions on Information Theory, vol. 45, no. 1, pp. 139–157, 1999.
+[22] I. S. Gradshteyn and I. M. Ryzhik,Table of integrals, series, and products, 7th ed.   Elsevier/Academic Press, Amsterdam, 2007, translated from the Russian, Translation edited and with a preface by Alan Jeffrey and Daniel Zwillinger, With one CD-ROM (Windows, Macintosh and UNIX).
+[23] Harish-Chandra, “Differential operators on a semisimple lie algebra,”American Journal of Mathematics, vol. 79, no. 1, pp. 87–120, 1957. [Online]. Available: http://www.jstor.org/stable/2372387
+[24] C. Itzykson and J. Zuber, “The planar approximation. ii,”Journal of Mathematical Physics, vol. 21, no. 3, pp. 411–421, 1980. [Online]. Available: https://doi.org/10.1063/1.524438
+[25] R. Couillet and M. Guillaud, “Performance of statistical inference methods for the energy estimation of multiple sources,” in2011 IEEE Statistical Signal Processing Workshop (SSP), 2011, pp. 673–676.

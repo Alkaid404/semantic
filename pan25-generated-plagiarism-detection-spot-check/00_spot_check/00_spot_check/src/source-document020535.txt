@@ -1,0 +1,305 @@
+Genus-1 Virasoro conjecture along quantum volume direction
+
+By Xiaobo Liu
+
+Abstract
+
+In this paper, we show that the derivative of the genus-1 Virasoro conjecture for Gromov-Witten invariants along the direction of quantum volume element holds for all smooth projective varieties. This result provides new evidence for the Virasoro conjecture.
+
+1 Introduction
+
+The Virasoro conjecture predicts that the generating functions of the Gromov-Witten invariants of smooth projective varieties are annihilated by a sequence of differential operators which form a half branch of the Virasoro algebra. This conjecture was proposed by Eguchi-Hori-Xiong [EHX] and modified by S. Katz [CX] . In case the underlying manifold is a point, this conjecture is equivalent to Witten’s conjecture [W] , proved by Kontsevich [K] , that the generating function of intersection numbers on the moduli spaces of stable curves is a $\tau$ -function of the KdV hierarchy. Together with Tian, we proved that the genus-0 part of the Virasoro conjecture holds for all compact symplectic manifolds (cf. [LT] ). For manifolds with semisimple quantum cohomology, the genus-1 part of this conjecture was proved by Dubrovin and Zhang [DZ] . Without assuming semisimplicity, the genus-1 Virasoro conjecture was studied in [L1] and [L2] . Among other results, it was proved in [L1] that the genus-1 Virasoro conjecture can be reduced to the the $L_{1}$ -constraint. Using the genus-1 topological recursion relation, it was also proved that Virasoro constraints can be reduced to equations on the small phase space , i.e. the space of cohomology classes of the underlying manifold. Compatibility conditions for Virasoro conjectures were studied in [L2] . Despite these efforts, the general case of the genus-1 Virasoro conjecture is still largely open. In this paper, we give more evidence to the genus-1 Virasoro conjecture without any assumption on the quantum cohomology of the underlying manifold.
+
+Let $M$ be a smooth projective variety. Choose a basis $\{\gamma_{\alpha}\mid\alpha=1,\ldots,N\}$ of the space of cohomology classes $H^{*}(M;\mathbb{C})$ . For simplicity, we assume $H^{\rm odd}(M;\mathbb{C})=0$ . We choose the basis in such a way that $\gamma_{1}$ is the identity of the cohomology ring and $\gamma_{\alpha}\in H^{p_{\alpha},q_{\alpha}}(M)$ for some integers $p_{\alpha}$ and $q_{\alpha}$ . Let $\{t^{1},\ldots,t^{N}\}$ be the coordinates on $H^{*}(M;\mathbb{C})$ with respect to this basis. We can identify each $\gamma_{\alpha}$ with the vector field $\frac{\partial}{\partial t^{\alpha}}$ and further identify each cohomology class with a constant vector field on $H^{*}(M;\mathbb{C})$ . Let 
+ 
+ $b_{\alpha}=p_{\alpha}-\frac{1}{2}(d-1)$  (1) 
+ where $d$ is the complex dimension of $M$ . Then the Euler vector field (on the small phase space) is defined to be 
+ 
+ $E:=c_{1}(M)+\sum_{\alpha}(b_{1}+1-b_{\alpha})t^{\alpha}\gamma_{\alpha}.$ 
+
+
+We refer to [LiT] [RT] for definitions of Gromov-Witten invariants. In genus- $1$ case, it suffices to study only primary Gromov-Witten invariants since all genus- $1$ descendant invariants can be reduced to primary invariants due to the genus- $1$ topological recursion relation. Therefore we only consider primary Gromov-Witten invariants in this paper. Let $F_{g}$ be the generating function of genus- $g$ primary Gromov-Witten invariants of $M$ . The $k$ -point function is defined to be 
+ 
+ $\left<\left<\,v_{1}\cdots v_{k}\,\right>\right>_{g}:=\sum_{\alpha_{1},\ldots,\alpha_{k}}f^{1}_{\alpha_{1}}\cdots f^{k}_{\alpha_{k}}\,\,\frac{\partial^{k}F_{g}}{\partial t^{\alpha_{1}}\cdots\partial t^{\alpha_{k}}},$ 
+ for vector fields $v_{i}=\sum_{\alpha}f^{i}_{\alpha}\gamma_{\alpha}$ where $f^{i}_{\alpha}$ are functions on $H^{*}(M;\mathbb{C})$ . Note that $F_{g}$ and $\left<\left<\,\cdots\,\right>\right>_{g}$ in this paper corresponds to $F_{g}^{s}$ and $\left<\left<\,\cdots\,\right>\right>_{g,s}$ in [L1] . Let $\eta_{\alpha\beta}=\int_{M}\gamma_{\alpha}\cup\gamma_{\beta}$ be the intersection form on $H^{*}(M,{\mathbb{C}})$ . We will use $\eta=(\eta_{\alpha\beta})$ and $\eta^{-1}=(\eta^{\alpha\beta})$ to lower and raise indices. For example $\gamma^{\alpha}:=\eta^{\alpha\beta}\gamma_{\beta}$ where repeated indices should be summed over entire range. We recall that the quantum product of two vector fields $v_{1}$ and $v_{2}$ is defined by 
+ 
+ $v_{1}\circ v_{2}:=\left<\left<\,v_{1}\,v_{2}\,\gamma^{\alpha}\,\right>\right>_{0}\,\gamma_{\alpha}.$ 
+ Define 
+ 
+ $\Psi:=\left<\left<\,E^{2}\,\right>\right>_{1}+\frac{1}{24}\sum_{\alpha}\left<\left<EE\gamma_{\alpha}\gamma^{\alpha}\right>\right>_{0}-\frac{1}{2}\sum_{\alpha}\left(b_{\alpha}(1-b_{\alpha})-\frac{b_{1}+1}{6}\right)\left<\left<\gamma_{\alpha}\gamma^{\alpha}\right>\right>_{0}$  (2) 
+ where $E^{2}=E\circ E$ is the quantum square of the Euler vector field. It was proved in [L1] that, for any smooth projective variety $M$ , the genus-1 Virasoro conjecture can be reduced to a single equation on $H^{*}(M;{\mathbb{C}})$ : 
+ 
+ $\Psi=0.$  (3) 
+ Moreover, since $E\Psi=\Psi$ (cf. [L1] ), the genus-1 Virasoro conjecture holds if and only if 
+ 
+ $E\Psi=0.$  (4) 
+ Therefore, to prove the genus-1 Virasoro conjecture, it suffices to show that $v\Psi=0$ for all vector field $v$ on $H^{*}(M;{\mathbb{C}})$ . It follows from the string equation that $\gamma_{1}\Psi=0$ where $\gamma_{1}=E^{0}$ is the identity of the ordinary cohomology ring. In this paper we will give another vector field which always annihilates $\Psi$ .
+
+Define the vector field 
+ 
+ $\Delta:=\gamma^{\alpha}\circ\gamma_{\alpha}.$  (5) 
+ If, in the definition of $\Delta$ , we replace the quantum product ” $\circ$ ” by the ordinary cup product, we get a vector field proportional to the volume element. Therefore we call $\Delta$ the quantum volume element . The main result of this paper is the following
+
+For all smooth projective varieties, 
+ 
+ $\Delta\Psi=0.$ 
+
+
+This result provides a new evidence for the genus-1 Virasoro conjecture.
+
+2 Properties of Euler vector fields
+
+We first recall some basic properties of the Euler vector field $E$ . We start with the quasi-homogeneity equation 
+ 
+ $\left<\left<E\right>\right>_{g}=(3-d)(1-g)F_{g}+\frac{1}{2}\delta_{g,0}\sum_{\alpha,\beta}{\cal C}_{\alpha\beta}t^{\alpha}_{0}t^{\beta}_{0}-\frac{1}{24}\delta_{g,1}\int_{M}c_{1}(M)\cup c_{d-1}(M).$ 
+ This equation is a consequence of the divisor equation. Define the grading operator $G$ by 
+ 
+ $G(v):=\sum_{\alpha}b_{\alpha}f_{\alpha}\gamma_{\alpha}$ 
+ for any vector field $v=\sum_{\alpha}f_{\alpha}\gamma_{\alpha}$ . Derivatives of quasi-homogeneity equation has the form 
+ 
+ $\displaystyle\left<\left<\,E\,v_{1}\,\cdots\,v_{k}\,\right>\right>_{g}$ $\displaystyle=$ $\displaystyle\sum_{i=1}^{k}\left<\left<\,v_{1}\,\cdots\,G(v_{i})\,\cdots\,v_{k}\,\right>\right>_{g}$  (6) 
+ $\displaystyle-(2g+k-2)(b_{1}+1)\left<\left<\,v_{1}\,\cdots\,v_{k}\,\right>\right>_{g}$ 
+ $\displaystyle+\delta_{g,0}\nabla^{k}_{v_{1},\cdots,v_{k}}\left(\frac{1}{2}{\cal C}_{\alpha\beta}t_{0}^{\alpha}t_{0}^{\beta}\right)$ 
+ where ${\cal C}_{\alpha\beta}$ is defined by $c_{1}(M)\cup\gamma_{\alpha}={\cal C}_{\alpha}^{\beta}\gamma_{\beta}$ , and $\nabla$ is the trivial connection on $H^{*}(M;\mathbb{C})$ defined by $\nabla\gamma_{\alpha}=0$ for all $\alpha$ . In particular, 
+ 
+ $\left<\left<\,E\,v_{1}\,v_{2}\,\gamma^{\alpha}\,\right>\right>_{0}\,\gamma_{\alpha}=G(v_{1})\circ v_{2}+v_{1}\circ G(v_{2})-G(v_{1}\circ v_{2})-b_{1}v_{1}\circ v_{2}.$  (7) 
+ Combining with [L1] , we can obtain 
+ 
+ $\displaystyle\nabla_{E^{k}}\Delta$ $\displaystyle=$ $\displaystyle\left<\left<\,E^{k}\,\gamma^{\alpha}\,\gamma_{\alpha}\,\gamma^{\beta}\,\right>\right>_{0}\,\gamma_{\beta}$  (8) 
+ $\displaystyle=$ $\displaystyle(k-b_{1})E^{k-1}\circ\Delta-G(E^{k-1}\circ\Delta)-\sum_{i=1}^{k-1}\,\,\Delta\circ E^{i-1}\circ G(E^{k-i})$ 
+ $\displaystyle-\sum_{i=1}^{k-1}G(\Delta\circ E^{i-1})\circ E^{k-i}$ 
+ for $k\geq 1$ . Covariant derivative of $E$ is given by 
+ 
+ $\nabla_{v}E=-G(v)+(b_{1}+1)v.$  (9) 
+ Using the fact that 
+ 
+ $\nabla_{w}(v_{1}\circ v_{2})=(\nabla_{w}v_{1})\circ v_{2}+v_{1}\circ(\nabla_{w}v_{2})+\left<\left<\,w\,v_{1}\,v_{2}\,\gamma^{\alpha}\,\right>\right>_{0}\,\gamma_{\alpha},$ 
+ we can also show that 
+ 
+ $\nabla_{\Delta}E^{2}=\Delta\circ G(E)-G(\Delta)\circ E-G(\Delta\circ E)+(b_{1}+2)\Delta\circ E.$  (10) 
+ Combining equations ( 8 ) and ( 10 ), we have 
+ 
+ $[E^{2},\Delta]=-2b_{1}E\circ\Delta-2G(E)\circ\Delta.$ 
+
+
+3 Proof of the main theorem
+
+For any vector fields $v_{1},\ldots v_{4}$ on the small phase space, we define 
+ 
+ $\displaystyle G_{0}(v_{1},v_{2},v_{3},v_{4})$ $\displaystyle=$ $\displaystyle\sum_{g\in S_{4}}\sum_{\alpha,\beta}\left\{\frac{1}{6}\left<\left<v_{g(1)}v_{g(2)}v_{g(3)}\gamma^{\alpha}\right>\right>_{0}\left<\left<\gamma_{\alpha}v_{g(4)}\gamma_{\beta}\gamma^{\beta}\right>\right>_{0}\right.$ 
+ $\displaystyle\hskip 40.0pt+\frac{1}{24}\left<\left<v_{g(1)}v_{g(2)}v_{g(3)}v_{g(4)}\gamma^{\alpha}\right>\right>_{0}\left<\left<\gamma_{\alpha}\gamma_{\beta}\gamma^{\beta}\right>\right>_{0}$ 
+ $\displaystyle\hskip 40.0pt\left.-\frac{1}{4}\left<\left<v_{g(1)}v_{g(2)}\gamma^{\alpha}\gamma^{\beta}\right>\right>_{0}\left<\left<\gamma_{\alpha}\gamma_{\beta}v_{g(3)}v_{g(4)}\right>\right>_{0}\right\},$ 
+ and 
+ 
+ $\displaystyle G_{1}(v_{1},v_{2},v_{3},v_{4})$ $\displaystyle=$ $\displaystyle\sum_{g\in S_{4}}3\left<\left<\{v_{g(1)}\circ v_{g(2)}\}\{v_{g(3)}\circ v_{g(4)}\}\right>\right>_{1}$ 
+ $\displaystyle-\sum_{g\in S_{4}}4\left<\left<\{v_{g(1)}\circ v_{g(2)}\circ v_{g(3)}\}v_{g(4)}\right>\right>_{1}$ 
+ $\displaystyle-\sum_{g\in S_{4}}\sum_{\alpha}\left<\left<\{v_{g(1)}\circ v_{g(2)}\}v_{g(3)}v_{g(4)}\gamma^{\alpha}\right>\right>_{0}\left<\left<\gamma_{\alpha}\right>\right>_{1}$ 
+ $\displaystyle+\sum_{g\in S_{4}}\sum_{\alpha}2\left<\left<v_{g(1)}v_{g(2)}v_{g(3)}\gamma^{\alpha}\right>\right>_{0}\left<\left<\{\gamma_{\alpha}\circ v_{g(4)}\}\right>\right>_{1}.$ 
+ Note that $G_{0}$ is completely determined by genus-0 data, while each term in $G_{1}$ contains genus-1 information. These two tensors are connected by Getzler’s equation (cf. [Ge] ): 
+ 
+ $G_{0}+G_{1}=0.$  (11) 
+ Theorem 1.1 is obtained by applying this equation to $v_{1}=v_{2}=E$ , $v_{3}=\gamma^{\alpha}$ , $v_{4}=\gamma_{\alpha}$ , and summing over $\alpha$ .
+
+We first consider the genus- $1$ part of Equation ( 11 ).
+
+
+ 
+ $\sum_{\alpha}G_{1}(E,E,\gamma^{\alpha},\gamma_{\alpha})=24\Delta\left<\left<\,E^{2}\,\right>\right>_{1}.$ 
+
+
+Proof : We will use the convention that repeated indices should be summed over their entire range. Therefore we will omit $\sum_{\alpha}$ in the left hand of this formula. To compute $G_{1}(E,E,\gamma^{\alpha},\gamma_{\alpha})$ , we notice that 
+ 
+ $\displaystyle\left<\left<\,\{E\circ\gamma_{\alpha}\}\,\{\gamma^{\alpha}\circ E\}\,\right>\right>_{1}$ $\displaystyle=$ $\displaystyle\left<\left<\,E\gamma_{\alpha}\gamma^{\beta}\,\right>\right>_{0}\left<\left<\,E\gamma^{\alpha}\gamma^{\mu}\,\right>\right>_{0}\left<\left<\,\gamma_{\beta}\gamma_{\mu}\,\right>\right>_{1}$ 
+ $\displaystyle=$ $\displaystyle\left<\left<\,EE\gamma_{\alpha}\,\right>\right>_{0}\left<\left<\,\gamma^{\alpha}\gamma^{\beta}\gamma^{\mu}\,\right>\right>_{0}\left<\left<\,\gamma_{\beta}\gamma_{\mu}\,\right>\right>_{1}$ 
+ $\displaystyle=$ $\displaystyle\left<\left<\,\{E^{2}\circ\gamma^{\mu}\}\,\gamma_{\mu}\,\right>\right>_{1}=\left<\left<\,\{E^{2}\circ\gamma^{\alpha}\}\,\gamma_{\alpha}\,\right>\right>_{1}.$ 
+ In the second equality, we have used the associativity of the quantum product. This observation enables us to simplify the formula for $G_{1}(E,E,\gamma^{\alpha},\gamma_{\alpha})$ and obtain 
+ 
+ $\displaystyle G_{1}(E,E,\gamma^{\alpha},\gamma_{\alpha})$  (12) 
+ $\displaystyle=$ $\displaystyle 24\left<\left<\,E^{2}\,\Delta\,\right>\right>_{1}-48\left<\left<\,\{E\circ\Delta\}\,E\,\right>\right>_{1}-4\left<\left<\,E^{2}\,\gamma^{\alpha}\,\gamma_{\alpha}\,\gamma^{\beta}\,\right>\right>_{0}\left<\left<\,\gamma_{\beta}\,\right>\right>_{1}$ 
+ $\displaystyle-16\left<\left<\,\{E\circ\gamma^{\alpha}\}\,\gamma_{\alpha}\,E\,\gamma^{\beta}\,\right>\right>_{0}\left<\left<\,\gamma_{\beta}\,\right>\right>_{1}-4\left<\left<\,\Delta\,E\,E\,\gamma^{\beta}\,\right>\right>_{0}\left<\left<\,\gamma_{\beta}\,\right>\right>_{1}$ 
+ $\displaystyle+24\left<\left<\,E\,E\,\gamma^{\alpha}\,\gamma^{\beta}\,\right>\right>_{0}\left<\left<\,\{\gamma_{\alpha}\circ\gamma_{\beta}\}\,\right>\right>_{1}+24\left<\left<\,E\,\gamma_{\alpha}\,\gamma^{\alpha}\,\gamma^{\beta}\,\right>\right>_{0}\left<\left<\,\{\gamma_{\beta}\circ E\}\,\right>\right>_{1}.$ 
+ We now use formulas in Section 2 to compute each term on the right hand side of this equation. Using equation ( 10 ), we have 
+ 
+ $\displaystyle\left<\left<\,E^{2}\,\Delta\,\right>\right>_{1}$ $\displaystyle=$ $\displaystyle\Delta\left<\left<\,E^{2}\,\right>\right>_{1}-\left<\left<\,\left\{\nabla_{\Delta}E^{2}\right\}\,\right>\right>_{1}$ 
+ $\displaystyle=$ $\displaystyle\Delta\left<\left<\,E^{2}\,\right>\right>_{1}-\left<\left<\,\left\{\Delta\circ G(E)-G(\Delta)\circ E-G(\Delta\circ E)+(b_{1}+2)\Delta\circ E\right\}\,\right>\right>_{1}.$ 
+ Since $\left<\left<\,E\,\right>\right>_{1}$ is a constant due to the quasi-homogeneity equation, by equation ( 9 ), we have 
+ 
+ $\displaystyle\left<\left<\,\{E\circ\Delta\}\,E\,\right>\right>_{1}$ $\displaystyle=$ $\displaystyle\{E\circ\Delta\}\left<\left<\,E\,\right>\right>_{1}-\left<\left<\,\left\{\nabla_{E\circ\Delta}E\right\}\,\right>\right>_{1}$ 
+ $\displaystyle=$ $\displaystyle\left<\left<\,\left\{G(E\circ\Delta)-(b_{1}+1)E\circ\Delta\right\}\,\right>\right>_{1}.$ 
+ By equation ( 8 ), we have 
+ 
+ $\displaystyle\left<\left<\,E^{2}\,\gamma^{\alpha}\,\gamma_{\alpha}\,\gamma^{\beta}\,\right>\right>_{0}\left<\left<\,\gamma_{\beta}\,\right>\right>_{1}$ $\displaystyle=$ $\displaystyle\left<\left<\,\left\{(2-b_{1})E\circ\Delta-G(E\circ\Delta)-G(E)\circ\Delta-E\circ G(\Delta)\right\}\,\right>\right>_{1}.$ 
+ By equation ( 7 ), we have 
+ 
+ $\displaystyle\left<\left<\,\{E\circ\gamma^{\alpha}\}\,\gamma_{\alpha}\,E\,\gamma^{\beta}\,\right>\right>_{0}\left<\left<\,\gamma_{\beta}\,\right>\right>_{1}$ 
+ $\displaystyle=$ $\displaystyle\left<\left<\,\left\{G(E\circ\gamma^{\alpha})\circ\gamma_{\alpha}+E\circ\gamma^{\alpha}\circ G(\gamma_{\alpha})-G(E\circ\Delta)-b_{1}E\circ\Delta\right\}\,\right>\right>_{1}.$ 
+
+
+As a convention, we arrange the basis $\{\gamma_{1},\ldots,\gamma_{N}\}$ of $H^{*}(M,\mathbb{C})$ in such a way that the degree $p_{\alpha}+q_{\alpha}$ of $\gamma_{\alpha}\in H^{p_{\alpha},q_{\alpha}}$ is non-decreasing with respect to $\alpha$ and if two cohomology classes have the same dimension, we also require that the holomorphic dimension $p_{\alpha}$ is non-decreasing. Under this convention, we have 
+ 
+ $G(\gamma^{\alpha})=(1-b_{\alpha})\gamma^{\alpha}$ 
+ for all $\alpha$ , and 
+ 
+ $G(\gamma^{\alpha})\circ\gamma_{\alpha}=\Delta-\gamma^{\alpha}\circ G(\gamma_{\alpha}).$ 
+ On the other hand, 
+ 
+ $G(\gamma^{\alpha})\circ\gamma_{\alpha}=\eta^{\alpha\beta}G(\gamma_{\beta})\circ\gamma_{\alpha}=G(\gamma_{\beta})\circ\gamma^{\beta}=\gamma^{\alpha}\circ G(\gamma_{\alpha}).$ 
+ So we must have 
+ 
+ $G(\gamma^{\alpha})\circ\gamma_{\alpha}=\gamma^{\alpha}\circ G(\gamma_{\alpha})=\frac{1}{2}\,\Delta.$  (13) 
+ Hence 
+ 
+ $\displaystyle G(E\circ\gamma^{\alpha})\circ\gamma_{\alpha}$ $\displaystyle=$ $\displaystyle\left<\left<\,E\,\gamma^{\alpha}\,\gamma^{\beta}\,\right>\right>_{0}G(\gamma_{\beta})\circ\gamma_{\alpha}=G(\gamma_{\beta})\circ(E\circ\gamma^{\beta})$  (14) 
+ $\displaystyle=$ $\displaystyle\frac{1}{2}\,E\circ\Delta.$ 
+ Therefore we obtain 
+ 
+ $\displaystyle\left<\left<\,\{E\circ\gamma^{\alpha}\}\,\gamma_{\alpha}\,E\,\gamma^{\beta}\,\right>\right>_{0}\left<\left<\,\gamma_{\beta}\,\right>\right>_{1}$ $\displaystyle=$ $\displaystyle\left<\left<\,\left\{(1-b_{1})E\circ\Delta-G(E\circ\Delta)\right\}\,\right>\right>_{1}.$ 
+ Similarly, 
+ 
+ $\displaystyle\left<\left<\,\Delta\,E\,E\,\gamma^{\beta}\,\right>\right>_{0}\left<\left<\,\gamma_{\beta}\,\right>\right>_{1}$ $\displaystyle=$ $\displaystyle\left<\left<\,\left\{G(\Delta)\circ E+\Delta\circ G(E)-G(\Delta\circ E)-b_{1}\Delta\circ E\right\}\,\right>\right>_{1},$ 
+ and 
+ 
+ $\displaystyle\left<\left<\,E\,E\,\gamma^{\alpha}\,\gamma^{\beta}\,\right>\right>_{0}\left<\left<\,\{\gamma_{\alpha}\circ\gamma_{\beta}\}\,\right>\right>_{1}$ 
+ $\displaystyle=$ $\displaystyle\left<\left<\,\left\{\gamma_{\alpha}\circ\left(G(E)\circ\gamma^{\alpha}+E\circ G(\gamma^{\alpha})-G(E\circ\gamma^{\alpha})-b_{1}E\circ\gamma^{\alpha}\right)\right\}\,\right>\right>_{1}$ 
+ $\displaystyle=$ $\displaystyle\left<\left<\,\left\{G(E)\circ\Delta-b_{1}E\circ\Delta\right\}\,\right>\right>_{1}.$ 
+ To compute the last term in equation ( 12 ), we first compute 
+ 
+ $\displaystyle\left<\left<\,E\,\gamma_{\alpha}\,\gamma^{\alpha}\,\gamma^{\beta}\,\right>\right>_{0}\gamma_{\beta}$ $\displaystyle=$ $\displaystyle G(\gamma_{\alpha})\circ\gamma^{\alpha}+\gamma_{\alpha}\circ G(\gamma^{\alpha})-G(\Delta)-b_{1}\Delta$  (15) 
+ $\displaystyle=$ $\displaystyle(1-b_{1})\Delta-G(\Delta)$ 
+ by equation ( 13 ). So the last term in equation ( 12 ) is 
+ 
+ $\displaystyle\left<\left<\,E\,\gamma_{\alpha}\,\gamma^{\alpha}\,\gamma^{\beta}\,\right>\right>_{0}\left<\left<\,\{\gamma_{\beta}\circ E\}\,\right>\right>_{1}$ $\displaystyle=$ $\displaystyle\left<\left<\,\left\{(1-b_{1})E\circ\Delta-E\circ G(\Delta)\right\}\,\right>\right>_{1}.$ 
+ After plugging the above formulas into equation ( 12 ), all terms on the right hand side cancel except the term $24\Delta\left<\left<\,E^{2}\,\right>\right>_{1}$ . The lemma is thus proved. $\Box$
+
+Now we consider the genus- $0$ part of Equation ( 11 ). Let 
+ 
+ $\Phi:=-\frac{1}{24}\sum_{\alpha}\left<\left<EE\gamma_{\alpha}\gamma^{\alpha}\right>\right>_{0}+\frac{1}{2}\sum_{\alpha}\left(b_{\alpha}(1-b_{\alpha})-\frac{b_{1}+1}{6}\right)\left<\left<\gamma_{\alpha}\gamma^{\alpha}\right>\right>_{0}.$  (16) 
+ Then 
+ 
+ $\Psi=\left<\left<\,E^{2}\,\right>\right>_{1}-\Phi$  (17) 
+ and the genus-1 Virasoro conjecture can be reduced to 
+ 
+ $\left<\left<\,E^{2}\,\right>\right>_{1}=\Phi.$ 
+
+
+
+ 
+ $\sum_{\alpha}G_{0}(E,E,\gamma^{\alpha},\gamma_{\alpha})=-24\Delta\Phi.$ 
+
+
+Proof : Again we will assume that repeated indices will be summed over their entire range. First, by definition of $G_{0}$ , we have 
+ 
+ $\displaystyle G_{0}(E,E,\gamma^{\alpha},\gamma_{\alpha})$ $\displaystyle=$ $\displaystyle 2\left<\left<\,E\,E\,\gamma^{\alpha}\,\gamma^{\beta}\,\right>\right>_{0}\left<\left<\,\gamma_{\beta}\,\gamma_{\alpha}\,\gamma^{\mu}\,\gamma_{\mu}\,\right>\right>_{0}+2\left<\left<\,E\,\gamma^{\alpha}\,\gamma_{\alpha}\,\gamma^{\beta}\,\right>\right>_{0}\left<\left<\,\gamma_{\beta}\,E\,\gamma^{\mu}\,\gamma_{\mu}\,\right>\right>_{0}$  (18) 
+ $\displaystyle+\left<\left<\,E\,E\,\gamma^{\alpha}\,\gamma_{\alpha}\,\Delta\,\right>\right>_{0}-2\left<\left<\,E\,E\,\gamma^{\beta}\,\gamma^{\mu}\,\right>\right>_{0}\left<\left<\,\gamma_{\beta}\,\gamma_{\mu}\,\gamma^{\alpha}\,\gamma_{\alpha}\,\right>\right>_{0}$ 
+ $\displaystyle-4\left<\left<\,E\,\gamma^{\alpha}\,\gamma^{\beta}\,\gamma^{\mu}\,\right>\right>_{0}\left<\left<\,\gamma_{\beta}\,\gamma_{\mu}\,E\,\gamma_{\alpha}\,\right>\right>_{0}.$ 
+ Note that the first and the fourth terms on the right hand side are canceled with each other. Applying equation ( 15 ) to the second term, we have 
+ 
+ $\displaystyle\left<\left<\,E\,\gamma^{\alpha}\,\gamma_{\alpha}\,\gamma^{\beta}\,\right>\right>_{0}\left<\left<\,\gamma_{\beta}\,E\,\gamma^{\mu}\,\gamma_{\mu}\,\right>\right>_{0}$ $\displaystyle=$ $\displaystyle\left<\left<\,\left\{(1-b_{1})\Delta-G(\Delta)\right\}\,E\,\gamma^{\mu}\,\gamma_{\mu}\,\right>\right>_{0}.$  (19) 
+ Using equation ( 15 ) again, we obtain 
+ 
+ $\displaystyle\left<\left<\,\Delta\,E\,\gamma^{\mu}\,\gamma_{\mu}\,\right>\right>_{0}$ $\displaystyle=$ $\displaystyle\left<\left<\,E\,\gamma^{\mu}\,\gamma_{\mu}\,\gamma^{\beta}\,\right>\right>_{0}\left<\left<\,\gamma_{\beta}\,\gamma^{\alpha}\,\gamma_{\alpha}\,\right>\right>_{0}$ 
+ $\displaystyle=$ $\displaystyle\left<\left<\,\left\{(1-b_{1})\Delta-G(\Delta)\right\}\gamma^{\alpha}\,\gamma_{\alpha}\,\right>\right>_{0}.$ 
+ Moreover, 
+ 
+ $\displaystyle\left<\left<\,G(\Delta)\,\gamma^{\alpha}\,\gamma_{\alpha}\,\right>\right>_{0}$ $\displaystyle=$ $\displaystyle b_{\mu}\left<\left<\,\gamma^{\beta}\,\gamma_{\beta}\,\gamma^{\mu}\,\right>\right>_{0}\left<\left<\,\gamma_{\mu}\,\gamma^{\alpha}\,\gamma_{\alpha}\,\right>\right>_{0}$ 
+ $\displaystyle=$ $\displaystyle\left<\left<\,\gamma^{\beta}\,\gamma_{\beta}\,\left\{\gamma^{\mu}-G(\gamma^{\mu})\right\}\,\right>\right>_{0}\left<\left<\,\gamma_{\mu}\,\gamma^{\alpha}\,\gamma_{\alpha}\,\right>\right>_{0}$ 
+ $\displaystyle=$ $\displaystyle\left<\left<\,\Delta\,\gamma^{\alpha}\,\gamma_{\alpha}\,\right>\right>_{0}-\left<\left<\,\gamma^{\beta}\,\gamma_{\beta}\,G(\Delta)\,\right>\right>_{0}.$ 
+ Moving the second term on the right hand to the left hand, we obtain 
+ 
+ $\left<\left<\,G(\Delta)\,\gamma^{\alpha}\,\gamma_{\alpha}\,\right>\right>_{0}=\frac{1}{2}\,\left<\left<\,\Delta\,\gamma^{\alpha}\,\gamma_{\alpha}\,\right>\right>_{0}.$  (20) 
+ Hence, we have 
+ 
+ $\displaystyle\left<\left<\,\Delta\,E\,\gamma^{\mu}\,\gamma_{\mu}\,\right>\right>_{0}$ $\displaystyle=$ $\displaystyle\left(\frac{1}{2}-b_{1}\right)\left<\left<\,\Delta\,\gamma^{\alpha}\,\gamma_{\alpha}\,\right>\right>_{0}.$  (21) 
+ By equation ( 19 ), we have 
+ 
+ $\displaystyle\left<\left<\,E\,\gamma^{\alpha}\,\gamma_{\alpha}\,\gamma^{\beta}\,\right>\right>_{0}\left<\left<\,\gamma_{\beta}\,E\,\gamma^{\mu}\,\gamma_{\mu}\,\right>\right>_{0}$  (22) 
+ $\displaystyle=$ $\displaystyle(1-b_{1})\left(\frac{1}{2}-b_{1}\right)\left<\left<\,\Delta\,\gamma^{\alpha}\,\gamma_{\alpha}\,\right>\right>_{0}-\left<\left<\,G(\Delta)\,E\,\gamma^{\mu}\,\gamma_{\mu}\,\right>\right>_{0}.$ 
+
+
+To compute the last term on the right hand side of equation ( 18 ), we set 
+ 
+ $f:=\left<\left<\,E\,\gamma^{\alpha}\,\gamma^{\beta}\,\gamma^{\mu}\,\right>\right>_{0}\left<\left<\,\gamma_{\beta}\,\gamma_{\mu}\,E\,\gamma_{\alpha}\,\right>\right>_{0}.$ 
+ Applying equation ( 7 ), we have 
+ 
+ $\displaystyle f$ $\displaystyle=$ $\displaystyle\left<\left<\,\left\{G(\gamma^{\alpha})\circ\gamma^{\mu}+\gamma^{\alpha}\circ G(\gamma^{\mu})-G(\gamma^{\alpha}\circ\gamma^{\mu})-b_{1}\gamma^{\alpha}\circ\gamma^{\mu}\right\}\,\gamma_{\mu}\,E\,\gamma_{\alpha}\,\right>\right>_{0}$ 
+ $\displaystyle=$ $\displaystyle(2-b_{\alpha}-b_{\mu}-b_{1})\left<\left<\,\left\{\gamma^{\alpha}\circ\gamma^{\mu}\right\}\,\gamma_{\mu}\,E\,\gamma_{\alpha}\,\right>\right>_{0}-\left<\left<\,G(\gamma^{\alpha}\circ\gamma^{\mu})\,\gamma_{\mu}\,E\,\gamma_{\alpha}\,\right>\right>_{0}$ 
+ $\displaystyle=$ $\displaystyle(2-2b_{\alpha}-b_{1})\left<\left<\,\gamma^{\alpha}\,\gamma^{\mu}\,\gamma^{\beta}\,\right>\right>_{0}\left<\left<\,\gamma_{\beta}\,\gamma_{\mu}\,E\,\gamma_{\alpha}\,\right>\right>_{0}-\left<\left<\,\gamma^{\alpha}\,\gamma^{\mu}\,\gamma^{\beta}\,\right>\right>_{0}\left<\left<\,G(\gamma_{\beta})\,\gamma_{\mu}\,E\,\gamma_{\alpha}\,\right>\right>_{0}.$ 
+ Switching $\alpha$ and $\beta$ in the last term, we have 
+ 
+ $f=(2-b_{1})\left<\left<\,E\,\gamma_{\alpha}\,\gamma_{\beta}\,\gamma^{\mu}\,\right>\right>_{0}\left<\left<\,\gamma_{\mu}\,\gamma^{\alpha}\,\gamma^{\beta}\,\right>\right>_{0}-3\left<\left<\,E\,G(\gamma_{\alpha})\,\gamma_{\beta}\,\gamma^{\mu}\,\right>\right>_{0}\left<\left<\,\gamma_{\mu}\,\gamma^{\alpha}\,\gamma^{\beta}\,\right>\right>_{0}.$  (23) 
+ Applying equation ( 7 ) again, we have 
+ 
+ $\displaystyle\left<\left<\,E\,\gamma_{\alpha}\,\gamma_{\beta}\,\gamma^{\mu}\,\right>\right>_{0}\left<\left<\,\gamma_{\mu}\,\gamma^{\alpha}\,\gamma^{\beta}\,\right>\right>_{0}$ 
+ $\displaystyle=$ $\displaystyle\left<\left<\,\left\{G(\gamma_{\alpha})\circ\gamma_{\beta}+\gamma_{\alpha}\circ G(\gamma_{\beta})-G(\gamma_{\alpha}\circ\gamma_{\beta})-b_{1}\gamma_{\alpha}\circ\gamma_{\beta}\right\}\,\gamma^{\alpha}\,\gamma^{\beta}\,\right>\right>_{0}.$ 
+ By the associativity of the quantum product and equation ( 13 ), 
+ 
+ $\displaystyle\left<\left<\,\left\{G(\gamma_{\alpha})\circ\gamma_{\beta}\right\}\,\gamma^{\alpha}\,\gamma^{\beta}\,\right>\right>_{0}$ $\displaystyle=$ $\displaystyle\left<\left<\,\left\{G(\gamma_{\alpha})\circ\gamma^{\alpha}\right\}\,\gamma_{\beta}\,\gamma^{\beta}\,\right>\right>_{0}\,=\,\frac{1}{2}\,\left<\left<\,\Delta\,\gamma^{\alpha}\,\gamma_{\alpha}\,\right>\right>_{0}$  (24) 
+ and 
+ 
+ $\displaystyle\left<\left<\,G(\gamma_{\alpha}\circ\gamma_{\beta})\,\gamma^{\alpha}\,\gamma^{\beta}\,\right>\right>_{0}$ $\displaystyle=$ $\displaystyle\left<\left<\,\gamma_{\alpha}\,\gamma_{\beta}\,\gamma^{\mu}\,\right>\right>_{0}\left<\left<\,G(\gamma_{\mu})\,\gamma^{\alpha}\,\gamma^{\beta}\,\right>\right>_{0}$  (25) 
+ $\displaystyle=$ $\displaystyle\left<\left<\,\gamma_{\alpha}\,\left\{G(\gamma_{\mu})\circ\gamma^{\alpha}\right\}\,\gamma^{\mu}\,\right>\right>_{0}=\frac{1}{2}\,\left<\left<\,\Delta\,\gamma^{\alpha}\,\gamma_{\alpha}\,\right>\right>_{0}.$ 
+ So we have 
+ 
+ $\displaystyle\left<\left<\,E\,\gamma_{\alpha}\,\gamma_{\beta}\,\gamma^{\mu}\,\right>\right>_{0}\left<\left<\,\gamma_{\mu}\,\gamma^{\alpha}\,\gamma^{\beta}\,\right>\right>_{0}$ $\displaystyle=$ $\displaystyle\left(\frac{1}{2}-b_{1}\right)\left<\left<\,\Delta\,\gamma^{\alpha}\,\gamma_{\alpha}\,\right>\right>_{0}.$  (26) 
+ Moreover 
+ 
+ $\displaystyle\left<\left<\,E\,G(\gamma_{\alpha})\,\gamma_{\beta}\,\gamma^{\mu}\,\right>\right>_{0}\left<\left<\,\gamma_{\mu}\,\gamma^{\alpha}\,\gamma^{\beta}\,\right>\right>_{0}$ 
+ $\displaystyle=$ $\displaystyle\left<\left<\,\left\{G(G(\gamma_{\alpha}))\circ\gamma_{\beta}+G(\gamma_{\alpha})\circ G(\gamma_{\beta})-G(G(\gamma_{\alpha})\circ\gamma_{\beta})-b_{1}G(\gamma_{\alpha})\circ\gamma_{\beta}\right\}\,\gamma^{\alpha}\,\gamma^{\beta}\,\right>\right>_{0}.$ 
+ Since 
+ 
+ $\displaystyle\left<\left<\,\left\{G(\gamma_{\alpha})\circ G(\gamma_{\beta})\right\}\,\gamma^{\alpha}\,\gamma^{\beta}\,\right>\right>_{0}$  (27) 
+ $\displaystyle=$ $\displaystyle\left<\left<\,\left\{G(\gamma_{\alpha})\circ\gamma^{\alpha}\right\}\,G(\gamma_{\beta})\,\gamma^{\beta}\,\right>\right>_{0}=\frac{1}{2}\,\left<\left<\,\left\{\gamma_{\alpha}\circ\gamma^{\alpha}\right\}\,G(\gamma_{\beta})\,\gamma^{\beta}\,\right>\right>_{0}$ 
+ $\displaystyle=$ $\displaystyle\frac{1}{2}\,\left<\left<\,\gamma_{\alpha}\,\gamma^{\alpha}\,\left\{G(\gamma_{\beta})\circ\gamma^{\beta}\right\}\,\right>\right>_{0}=\frac{1}{4}\,\left<\left<\,\Delta\,\gamma^{\alpha}\,\gamma_{\alpha}\,\right>\right>_{0}$ 
+ and 
+ 
+ $\displaystyle\left<\left<\,G(G(\gamma_{\alpha})\circ\gamma_{\beta})\,\gamma^{\alpha}\,\gamma^{\beta}\,\right>\right>_{0}$  (28) 
+ $\displaystyle=$ $\displaystyle\left<\left<\,G(\gamma_{\alpha})\,\gamma_{\beta}\,\gamma^{\mu}\,\right>\right>_{0}\left<\left<\,G(\gamma_{\mu})\,\gamma^{\alpha}\,\gamma^{\beta}\,\right>\right>_{0}=\left<\left<\,\left\{G(\gamma_{\alpha})\circ\gamma^{\mu}\right\}\,G(\gamma_{\mu})\,\gamma^{\alpha}\,\right>\right>_{0}$ 
+ $\displaystyle=$ $\displaystyle\left<\left<\,\left\{G(\gamma_{\alpha})\circ\gamma^{\alpha}\right\}\,G(\gamma_{\mu})\,\gamma^{\mu}\,\right>\right>_{0}=\frac{1}{2}\left<\left<\,\left\{\gamma_{\alpha}\circ\gamma^{\alpha}\right\}\,G(\gamma_{\mu})\,\gamma^{\mu}\,\right>\right>_{0}$ 
+ $\displaystyle=$ $\displaystyle\frac{1}{2}\left<\left<\,\gamma_{\alpha}\,\gamma^{\alpha}\,\left\{G(\gamma_{\mu})\circ\gamma^{\mu}\right\}\,\right>\right>_{0}=\frac{1}{4}\,\left<\left<\,\Delta\,\gamma^{\alpha}\,\gamma_{\alpha}\,\right>\right>_{0},$ 
+ together with equation ( 24 ), we have 
+ 
+ $\displaystyle\left<\left<\,E\,G(\gamma_{\alpha})\,\gamma_{\beta}\,\gamma^{\mu}\,\right>\right>_{0}\left<\left<\,\gamma_{\mu}\,\gamma^{\alpha}\,\gamma^{\beta}\,\right>\right>_{0}$ $\displaystyle=$ $\displaystyle\left(b_{\alpha}^{2}-\frac{1}{2}b_{1}\right)\left<\left<\,\Delta\,\gamma^{\alpha}\,\gamma_{\alpha}\,\right>\right>_{0}.$  (29) 
+ Combining results of equations ( 23 ), ( 26 ), and ( 29 ), we obtain that the last term on the right hand side of equation ( 18 ) is 
+ 
+ $f=(-3b_{\alpha}^{2}+b_{1}^{2}-b_{1}+1)\left<\left<\,\Delta\,\gamma^{\alpha}\,\gamma_{\alpha}\,\right>\right>_{0}.$  (30) 
+ Together with equation ( 22 ), we can simplify equation ( 18 ) as 
+ 
+ $\displaystyle G_{0}(E,E,\gamma^{\alpha},\gamma_{\alpha})$ $\displaystyle=$ $\displaystyle\left<\left<\,E\,E\,\gamma^{\alpha}\,\gamma_{\alpha}\,\Delta\,\right>\right>_{0}-2\left<\left<\,G(\Delta)\,E\,\gamma^{\mu}\,\gamma_{\mu}\,\right>\right>_{0}$  (31) 
+ $\displaystyle+(12b_{\alpha}^{2}-2b_{1}^{2}+b_{1}-3)\left<\left<\,\Delta\,\gamma^{\alpha}\,\gamma_{\alpha}\,\right>\right>_{0}.$ 
+
+
+On the other hand, by the definition of $\Phi$ in equation ( 16 ), we have 
+ 
+ $\displaystyle 24\Delta\Phi$ $\displaystyle=$ $\displaystyle-\left<\left<\,\Delta\,E\,E\,\gamma_{\alpha}\,\gamma^{\alpha}\,\right>\right>_{0}-2\left<\left<\,\left\{\nabla_{\Delta}E\right\}\,E\,\gamma_{\alpha}\,\gamma^{\alpha}\,\right>\right>_{0}$ 
+ $\displaystyle+12\left(b_{\alpha}(1-b_{\alpha})-\frac{b_{1}+1}{6}\right)\left<\left<\,\Delta\,\gamma_{\alpha}\,\gamma^{\alpha}\,\right>\right>_{0}.$ 
+ By equations ( 9 ) and ( 21 ), we have 
+ 
+ $\displaystyle\left<\left<\,\left\{\nabla_{\Delta}E\right\}\,E\,\gamma_{\alpha}\,\gamma^{\alpha}\,\right>\right>_{0}$ $\displaystyle=$ $\displaystyle\left<\left<\,\left\{-G(\Delta)+(b_{1}+1)\Delta\right\}\,E\,\gamma_{\alpha}\,\gamma^{\alpha}\,\right>\right>_{0}$ 
+ $\displaystyle=$ $\displaystyle-\left<\left<\,G(\Delta)\,E\,\gamma_{\alpha}\,\gamma^{\alpha}\,\right>\right>_{0}+(b_{1}+1)\left(\frac{1}{2}-b_{1}\right)\left<\left<\,\Delta\,\gamma^{\alpha}\,\gamma_{\alpha}\,\right>\right>_{0}.$ 
+ Moreover, 
+ 
+ $b_{\alpha}\left<\left<\,\Delta\,\gamma^{\alpha}\,\gamma_{\alpha}\,\right>\right>_{0}=\left<\left<\,\Delta\,\gamma^{\alpha}\,G(\gamma_{\alpha})\,\right>\right>_{0}=\frac{1}{2}\left<\left<\,\Delta\,\gamma^{\alpha}\,\gamma_{\alpha}\,\right>\right>_{0}.$ 
+ So we have 
+ 
+ $\displaystyle 24\Delta\Phi$ $\displaystyle=$ $\displaystyle-\left<\left<\,\Delta\,E\,E\,\gamma_{\alpha}\,\gamma^{\alpha}\,\right>\right>_{0}+2\left<\left<\,G(\Delta)\,E\,\gamma_{\alpha}\,\gamma^{\alpha}\,\right>\right>_{0}$ 
+ $\displaystyle+\left(-12b_{\alpha}^{2}+2b_{1}^{2}-b_{1}+3\right)\left<\left<\,\Delta\,\gamma_{\alpha}\,\gamma^{\alpha}\,\right>\right>_{0}.$ 
+ Comparing with equation ( 31 ), we obtain 
+ 
+ $G_{0}(E,E,\gamma^{\alpha},\gamma_{\alpha})=-24\Delta\Phi.$ 
+ The lemma is thus proved. $\Box$
+
+Proof of Theorem 1.1 : Since $\Psi=\left<\left<\,E^{2}\,\right>\right>_{1}-\Phi$ , this theorem follows from Lemmas 3.1 , 3.2 and Equation ( 11 ). $\Box$
+
+References
+
+[CX] Cox, D., and Katz, S.,Mirror symmetry and algebraic geometry. Providence, R.I. AMS, 1999.
+[DZ] Dubrovin, B., Zhang, Y.,Bihamiltonian hierarchies in 2D topological field theory at one-loop approximation, Comm. Math. Phys. 198 (1998) 311 - 361.
+[EHX] Eguchi, T., Hori, K., and Xiong, C.,Quantum Cohomology and Virasoro Algebra, Phys. Lett. B402 (1997) 71-80.
+[Ge] Getzler, E.,Intersection theory onM¯1,4subscript¯𝑀14\bar{M}_{1,4}and elliptic Gromov-Witten Invariants, J. Amer. Math. Soc. 10 (1997) 973-998
+[K] Kontsevich, M.,Intersection theory on the moduli space of curves and the matrix airy function, Comm. Math. Phys., 147 (1992).
+[LiT] Li, J. and Tian, G.,Virtual moduli cycles and Gromov-Witten invariants of general symplectic manifolds, Topics in symplectic 4-manifolds (Irvine, CA, 1996), 47-83.
+[L1] Liu, X., Elliptic Gromov-Witten invariants and Virasoro conjecture.Comm. Math. Phys.216 (2001), 705-728.
+[L2] Liu, X., Genus-1 Virasoro conjecture on the small phase space,Symplectic Geometry and Mirror Symmetry, Preceedings of the 4th KIAS Annual International Conference, World Scientific, (2001), 265-279.
+[LT] Liu, X., and Tian, G., Virasoro constraints for quantum cohomology.J. Diff. Geom.50 (1998), 537 - 591.
+[RT] Ruan, Y. and Tian, G.,Higher genus symplectic invariants and sigma models coupled with gravity, Invent. Math. 130 (1997), 455-516.
+[W] Witten, E.,Two dimensional gravity and intersection theory on Moduli space, Surveys in Diff. Geom., 1 (1991), 243-310.

@@ -1,0 +1,858 @@
+Strong Measure Zero Sets on $2^{\kappa}$ for $\kappa$ Inaccessible
+
+By Nick Steven Chapman and Johannes Philipp Schürz
+
+Abstract
+
+We investigate the notion of strong measure zero sets in the context of the higher Cantor space $2^{\kappa}$ for $\kappa$ at least inaccessible. Using an iteration of perfect tree forcings, we give two proofs of the relative consistency of $|2^{\kappa}|=\kappa^{++}+\forall X\subseteq 2^{\kappa}:\ X\text{ is strong measure zero if and only if }|X|\leq\kappa^{+}.$ Furthermore, we also investigate the stronger notion of stationary strong measure zero and show that the equivalence of the two notions is undecidable in ZFC.
+
+Introduction
+
+In searching for a useful notion related to being a Lebesgue measure zero set, Borel [Bor19] introduced strong measure zero sets.
+
+A subset $X$ of the real line is strong measure zero iff for any sequence $(\varepsilon_{n})_{n\in\omega}$ of positive real numbers there exists a sequence of intervals $(I_{n})_{n\in\omega}$ with $\lambda(I_{n})\leq\varepsilon_{n}$ and $X\subseteq\bigcup_{n\in\omega}I_{n}$ .
+
+Clearly, strong measure zero sets are measure zero and every countable set is strong measure zero. Moreover, it is also easy to see that perfect sets cannot be strong measure zero. It was conjectured by Borel that countability is perhaps the only constraint on strong measure zero sets, giving rise to the Borel Conjecture (BC): “A set $X$ is strong measure zero if and only if $X$ is countable.”
+
+In 1928, Sierpiński [Sie28] showed that CH implies the existence of uncountable strong measure zero sets (specifically, he showed that any Luzin set is strong measure zero). It was not until after the advent of Cohen’s revolutionary technique of forcing that Laver [Lav76] established the relative consistency (and thus independence from ZFC) of BC.
+
+Over the years, investigations into matters related to strong measure zero sets (such as the interplay between BC and the size of the continuum [JSW90] , the dual notion of strongly meager sets [Gol+14] and others) became testament to the fact that Borel’s notion was indeed worthy of interest.
+
+For our purposes the most interesting of these is Corazza’s proof of the consistency of “a set is strong measure zero iff it has size less than continuum” ( [Cor89] ) in which he employs an $\omega_{2}$ -length iteration of strongly proper forcings (a notion stronger than “proper + $\omega^{\omega}$ -bounding” that includes well-known forcings such as Sacks and Silver), together with a previous result of Miller [Mil83] to construct a model with “Every set of reals of size continuum can be mapped uniformly continuously onto $[0,1]$ ”.
+
+We are interested in a version of Borel’s Conjecture on higher cardinals $\kappa$ . The higher Cantor space $2^{\kappa}$ and the higher Baire space $\kappa^{\kappa}$ come equipped with the standard ${<}\kappa$ -box topology; see [FKK16] for basic properties of these spaces. Their elements are called $\kappa$ -reals, or simply reals. Note that near universally, the assumption $\kappa^{<\kappa}=\kappa$ is made in discussions on the higher Baire space, without which the space exhibits some undesirable topological properties (see [FHK14] ). Especially in recent years, renewed interest has sparked among set theorists in studying these spaces; a compendium of open questions can be found in [Kho+16] .
+
+The following definition is due to Halko [Hal96] :
+
+Let $X\subseteq 2^{\kappa}$ . We call $X$ strong measure zero iff 
+ 
+ $\forall f\in\kappa^{\kappa}\,\exists(\eta_{i})_{i<\kappa}:\ \big{(}\,\forall i<\kappa:\ \eta_{i}\in 2^{f(i)}\,\big{)}\land X\subseteq\bigcup_{i<\kappa}[\eta_{i}].$ 
+
+
+This is a straightforward combinatorial reformulation (here $[\eta]$ is a basic clopen set as defined in the next section) of Borel’s definition that is agnostic towards the existence of a measure on $2^{\kappa}$ . Let $\mathcal{SN}$ be the collection of all strong measure zero sets; it is easy to see that $\mathcal{SN}$ is a proper, ${\leq}\kappa$ -complete ideal (see also Lemma 6.2 ) on $2^{\kappa}$ containing all singletons.
+
+The Borel Conjecture on $\kappa$ (BC( $\kappa$ )) is the statement “a subset of $2^{\kappa}$ is strong measure zero iff it has cardinality ${\leq}\kappa$ ”. Strong measure zero sets for $\kappa$ regular uncountable have been studied in [HS01] , where the authors have proven that BC( $\kappa$ ) is false for successor $\kappa$ satisfying $\kappa^{<\kappa}=\kappa$ .
+
+Throughout this paper we shall restrict our attention to $\kappa$ at least inaccessible, thus in particular $\kappa^{<\kappa}=\kappa$ . The question of the consistency of BC( $\kappa$ ) on such $\kappa$ is still open [Kho+16] . An argument similar to the one in the proof of Theorem 3.1 - forgoing the notion of $\kappa^{\kappa}$ -bounding and focusing instead directly on encoding coverings within the $\kappa$ -Cohen real - tells us that a $\kappa^{++}$ -c.c. forcing iteration of length $\kappa^{++}$ in which $\kappa$ -Cohen reals are added cofinally will necessarily yield large strong measure zero sets - in fact, the set of ground model $\kappa$ -reals will become strong measure zero. Unfortunately, by the results in [Kho+23] , every Laver-like tree forcing on $\kappa^{\kappa}$ necessarily adds a $\kappa$ -Cohen real. Any treatment of the consistency of BC $(\kappa)$ thus cannot be merely a straightforward adaptation of Laver’s results; potentially, a wholly new approach is needed here.
+
+We shall give two proofs establishing the relative consistency of 
+ 
+ $\text{ZFC}+|2^{\kappa}|=\kappa^{++}+\mathcal{SN}=[2^{\kappa}]^{\leq\kappa^{+}},$ 
+ the first of which is an adaptation of an iteration found in [GJS93] and requires $\kappa$ to be strongly unfoldable (a large cardinal property between weakly compact and Ramsey that is consistent with $V=L$ ). The second, somewhat better, proof only requires $\kappa$ to be inaccessible and employs the same iteration by establishing minimality of the respective forcing extension, following the approach of Corazza [Cor89] .
+
+Last but not least, we would like to thank Martin Goldstern for fruitful discussions during the preparation of this paper. We would also like to thank the anonymous referee for their many valuable remarks and suggestions that helped substantially improve the presentation of the paper.
+
+Notation and Basic Definitions
+
+Let us make some preliminary remarks.
+
+The higher Cantor space $2^{\kappa}$ is equipped with the standard ${<}\kappa$ -box topology, whose base consists of the basic clopen sets 
+ 
+ $[\eta]:=\{b\in 2^{\kappa}:\eta\lhd b\}$ 
+ for $\eta\in 2^{<\kappa}$ ; for the higher Baire space $\kappa^{\kappa}$ the topology is defined analogously. The relation $\eta\lhd\nu$ denotes the extension relation for sequences, i.e. $\eta=\nu{\restriction}i$ for some $i\leq\operatorname{dom}(\nu)$ . The relation $\eta\bot\nu$ denotes incompatibility, i.e. $\eta\ntriangleleft\nu$ and $\nu\ntriangleleft\eta$ .
+
+A ( $\kappa$ -) tree is a subset of $\kappa^{<\kappa}$ closed under initial segments.
+
+Let $T\subseteq\kappa^{<\kappa}$ be a tree and $\eta\in T$ . Then we define the following notions: • A $b\in\kappa^{\kappa}$ is a branch of $T$ iff $b{\restriction}i\in T$ for all $i<\kappa$ . Let $[T]$ denote the set of all branches of $T$ . • Denote by $\operatorname{succ}_{T}(\eta)$ the set of immediate successors of $\eta$ in $T$ . Call $\eta$ a splitting node of $T$ iff $|\operatorname{succ}_{T}(\eta)|>1$ . Denote the set of all splitting nodes of $T$ as $\operatorname{split}(T)$ . We will only consider trees in which every node has a successor. • $T$ is perfect iff for every $\eta\in T$ there is a $\nu$ such that $\eta\lhd\nu$ and $\nu\in\operatorname{split}(T)$ . Note that for $\kappa\neq\omega$ this is not equivalent to $[T]$ containing a homeomorphic copy of $2^{\kappa}$ , even if every node of the tree lies on a branch (of length $\kappa$ ). • The splitting height $\operatorname{ht^{s}}_{T}(\eta)$ of a node $\eta$ is the order type of the set $\{\nu\mathrel{\ooalign{$\lneq$\cr\raise 0.94722pt\hbox{$\lhd$}\cr}}\eta:\ \nu\in\operatorname{split}(T)\}$ . Additionally, for $i<\kappa$ , define 
+ 
+ $\operatorname{split}_{i}(T):=\{\eta\in\operatorname{split}(T):\operatorname{ht^{s}}_{T}(\eta)=i\}.$ • As usual, the set of branches of a tree is a closed set and every closed set $Y$ can be represented as the set of branches of the tree $T=\{b{\restriction}i:\ i<\kappa\land b\in Y\}$ . However, it may be the case that this tree $T$ necessarily contains dying branches , i.e. $T$ might contain an increasing sequence $(\eta_{i})_{i<\lambda}$ with $\lambda<\kappa$ whose limit $\bigcup_{i<\lambda}\eta_{i}$ is not an element of $T$ \footnote{ 2 Consider for example the closed set $2^{\kappa}\backslash[\eta]$ , where $\eta\in 2^{\omega}$ .} . This phenomenon is unique to the $\kappa$ -case and has no $\omega$ -equivalent. We say $T$ (or $[T]$ ) is superclosed iff this does not happen, meaning that whenever $\lambda<\kappa$ is a limit ordinal and $\eta\in\kappa^{\lambda}$ , then $\eta\in T\Leftrightarrow\forall i<\lambda:\ \eta{\restriction}i\in T$ .
+
+We shall attempt to, wherever feasible, adhere to certain self-imposed notational conventions. In this vein, the letters $i,j,k,\ell,m$ will generally refer to ordinals ${<}\kappa$ ; $\delta,\lambda$ to limit ordinals ${\leq}\kappa$ and $\alpha,\beta,\gamma,\zeta$ to ordinals ${\leq}\kappa^{++}$ . The letters $p,q,r,s,t$ denote conditions while $\eta,\nu,\rho$ are elements of $\kappa^{<\kappa}$ . The pair $F,i$ will always fulfil $F\in[\alpha]^{<\kappa},i<\kappa$ , where $\alpha\leq\kappa^{++}$ is either explicitly given or clear from context.
+
+1 Perfect Tree Forcing
+
+We are interested in a particular forcing consisting of ${<}\kappa$ -splitting perfect trees whose splitting is bounded by an $f\in\kappa^{\kappa}$ with $f(i)\geq 2$ for all $i<\kappa$ .
+
+Let $p\in PT_{f}$ iff (S1) $p\subseteq\kappa^{<\kappa}$ is a nonempty tree (S2) $p$ is perfect (S3) $\forall\eta\in p\,\forall i\in\text{dom}(\eta):\ \eta(i)<f(i)$ (S4) $p$ has full splitting: $\forall\eta\in p\colon|\operatorname{succ}_{p}(\eta)|=1\vee\operatorname{succ}_{p}(\eta)=\{\eta^{\frown}j\colon j<f(\text{dom}\,\eta)\}$ (S5) $p$ is superclosed (S6) splitting is continuous: If $\lambda<\kappa$ is a limit, then 
+ $\forall\eta\in\kappa^{\lambda}\cap p:\ \{\nu\mathrel{\ooalign{$\lneq$\cr\raise 0.94722pt\hbox{$\lhd$}\cr}}\eta\colon\nu\in\operatorname{split}(p)\}\text{ is unbounded in }\eta\Rightarrow\eta\in\operatorname{split}(p)$
+
+The significance of (S4) and (S6) lies in ensuring ${<}\kappa$ -closure of the forcing (see Lemma 1.6 ). The axioms (S4) and (S5) guarantee that for all $\eta\in p$ we have 
+ 
+ $[\eta]\cap[p]\neq\emptyset,$ 
+ i.e. there is a branch of $p$ going through $\eta$ . Under the other axioms, (S2) + (S6) is equivalent to the following statement: whenever $b\in[p]$ is a branch of $p$ , then 
+ 
+ $\{i<\kappa:b{\restriction}i\in\operatorname{split}(p)\}$ 
+ is a club subset of $\kappa$ .
+
+For $f\equiv 2$ we have a $\kappa$ -version of Sacks forcing, first studied by Kanamori [Kan80] . An overview of variants of familiar forcing notions on higher cardinals can be found in [FKK16] .
+
+The rest of this section is devoted to proving some regularity properties for $PT_{f}$ , generalized straightforwardly from the classical treatment of similar tree forcings on $\omega^{\omega}$ .
+
+Set $q\leq_{PT_{f}}p$ iff $q\subseteq p$ . For a $PT_{f}$ -generic filter $G$ define the generic real $s_{G}$ to be the unique real contained in $\bigcap_{p\in G}[p]$ .
+
+For a condition $p\in PT_{f}$ the set $\operatorname{split}_{i}(p)$ is a front in $p$ , i.e. it is an antichain in $(p,\lhd)$ with 
+ 
+ $\forall b\in[p]:|b\cap\operatorname{split}_{i}(p)|=1.$ 
+ Call it the $i$ -th splitting front of $p$ .
+
+Let $i<\kappa$ and $p\in PT_{f}$ be a condition. Then $|\operatorname{split}_{i}(p)|<\kappa$ .
+
+We proceed by induction on $i$ : • $i=0$ : Trivial. • $i\to i+1$ : The map $\eta\mapsto\min\{\nu\lhd\eta:\operatorname{ht^{s}}_{p}(\nu)=i+1\}$ is bijection between $\operatorname{split}_{i+1}(p)$ and $\bigcup_{\eta\in\operatorname{split}_{i}(p)}\operatorname{succ}_{p}(\eta)$ . By the inductive hypothesis and the fact that $p$ is ${<}\kappa$ -splitting, the latter set has size $<\kappa$ . • $\lambda$ is a limit: Since every $\eta\in\operatorname{split}_{\lambda}(p)$ is the limit of a sequence $(\eta_{j})_{j<\lambda}$ with $\eta_{j}\in\operatorname{split}_{j}(p)$ , we have $|\operatorname{split}_{\lambda}(p)|\leq|\prod_{j<\lambda}\operatorname{split}_{j}(p)|<\kappa$ by the inaccessibility of $\kappa$ . ∎
+
+Let $(\mathcal{P},\leq_{\mathcal{P}})$ be a forcing notion and $(\leq_{i})_{i<\kappa}$ be a sequence of reflexive and transitive binary relations on $\mathcal{P}$ such that 
+ 
+ $\forall j<i<\kappa\colon(\leq_{i})\,\subseteq\,(\leq_{j})\,\subseteq(\leq_{\mathcal{P}}).$ 
+ Then 1. $(p_{j})_{j<\delta}$ is a fusion sequence of length $\delta\leq\kappa$ iff $\forall j<k<\delta:p_{k}\leq_{j}p_{j}$ . 2. $\mathcal{P}$ has Property B iff • $(\mathcal{P},\leq_{\mathcal{P}})$ is ${<}\kappa$ -closed. • Whenever $(p_{j})_{j<\delta},\delta\leq\kappa$ is a fusion sequence in $\mathcal{P}$ , then there exists a fusion limit $q$ with $\forall j<\delta:q\leq_{j}p_{j}$ . • If $A$ is a maximal antichain, $p\in\mathcal{P}$ and $i<\kappa$ , then there exists a $q\leq_{i}p$ such that $A{\restriction}q:=\{r\in A\colon r\parallel q\}$ has size ${<}\kappa$ , where $\parallel$ means compatible.
+
+Equivalently, we can demand the third condition to hold for all antichains $A$ , by enlarging them to maximal antichains if necessary. Note that by weakening the third requirement to $|A{\restriction}q|\leq\kappa$ , we get a $\kappa$ -version of Baumgartner’s Axiom A. Property B is thus a variant of Axiom A combined with the notion of being $\kappa^{\kappa}$ -bounding [BJ95] ; it is well-known from the countable context that many standard tree forcings, such as Sacks and Silver forcing, have this property.
+
+Property B implies $\kappa^{\kappa}$ -bounding.
+
+Assume $p\Vdash\dot{g}\in\kappa^{\kappa}$ and $\dot{g}(i)$ is decided by an antichain $A_{i+1}$ for every $i<\kappa$ . Construct a fusion sequence $(q_{i})_{i<\kappa}$ below $p$ by setting $q_{0}:=p$ and finding a $q_{i+1}\leq_{i}q_{i}$ with $|A_{i+1}{\restriction}q_{i+1}|<\kappa$ in successor steps. In limit steps $\lambda$ , set $q_{\lambda}$ to be a fusion limit of $(q_{i})_{i<\lambda}$ . The fusion limit $q_{\kappa}$ of the whole sequence will force $q_{\kappa}\Vdash\dot{g}\leq\check{h}$ for some $h\in\kappa^{\kappa}$ in the ground model. ∎
+
+$PT_{f}$ is ${<}\kappa$ -closed.
+
+If $(p_{i})_{i<\delta}$ with $\delta<\kappa$ is a decreasing sequence, set $q:=\bigcap_{i<\delta}p_{i}$ . We check that $q$ is a condition; only (S2) is nontrivial, so we assume that all other axioms hold.
+
+Let thus $\eta\in q$ . For some $b\in[q]$ with $\eta\lhd b$ (recall that by (S4) + (S5) such a $b$ exists) consider the sets 
+ 
+ $C_{i}:=\{j<\kappa:b{\restriction}j\in\operatorname{split}(p_{i})\}.$ 
+ By (S2) and (S6) , $C_{i}$ is a club subset of $\kappa$ . Thus $\bigcap_{i<\delta}C_{i}$ is a club and yields a $\nu$ with $\eta\lhd\nu$ and $\nu\in\operatorname{split}(q)$ . ∎
+
+Clearly, the intersection $\bigcap_{i<\delta}p_{i}$ in the previous lemma is simultaneously also the greatest lower bound of the decreasing sequence $(p_{i})_{i<\delta}$ , $\delta<\kappa$ .
+
+For $p,q\in PT_{f}$ , define $q\leq_{i}p$ iff $q\leq_{PT_{f}}p$ and $\operatorname{split}_{i}(p)=\operatorname{split}_{i}(q)$ .
+
+The following are equivalent: 1. $q\leq_{i}p$ 2. $q\leq_{PT_{f}}p$ and $\forall j\leq i:\operatorname{split}_{j}(p)=\operatorname{split}_{j}(q)$ 3. $q\leq_{PT_{f}}p$ and $\forall\eta\in p:\operatorname{ht^{s}}_{p}(\eta)\leq i\Rightarrow\operatorname{succ}_{p}(\eta)\subseteq q$ 4. $q\leq_{PT_{f}}p$ and $\operatorname{split}_{i+1}(p)\subseteq q$
+
+It remains to prove that equipped with these relations, $PT_{f}$ has Property B.
+
+For every fusion sequence $(p_{j})_{j<\delta}$ of length $\delta\leq\kappa$ in $PT_{f}$ there exists a $q$ with $\forall j<\delta:q\leq_{j}p_{j}$ .
+
+If $\delta<\kappa$ , the intersection $q$ from Lemma 1.6 can be seen to also be a fusion limit.
+
+Otherwise once again set $q=\bigcap_{j<\kappa}p_{j}$ and follow the proof of Lemma 1.6 ; along a branch $b\in[q]$ again define the sets 
+ 
+ $C_{j}:=\{\ell<\kappa:b{\restriction}\ell\in\operatorname{split}(p_{j})\}.$ 
+ By using the fact that $(p_{j})_{j<\kappa}$ is a fusion sequence, one can arrive at 
+ 
+ $\left(\Delta_{j<\kappa}C_{j}\right)\cap\{\lambda<\kappa:\lambda\text{ limit}\}\subseteq\bigcap_{j<\kappa}C_{j},$ 
+ which is enough to conclude that $\bigcap_{j<\kappa}C_{j}$ is also a club by the closure of the club filter under diagonal intersections. It can easily be seen that $q$ is a fusion limit. ∎
+
+Before concluding the proof, we first give two definitions which will come in handy later in the iteration context.
+
+For a condition $p\in PT_{f}$ and $\eta\in p$ , define $p^{[\eta]}:=\{\nu\in p:\nu\lhd\eta\vee\eta\lhd\nu\}$ .
+
+One can see easily that $p^{[\eta]}$ is a stronger condition than $p$ and that for any $i<\kappa$ we have $p=\bigcup_{\eta\in\operatorname{split}_{i}(p)}p^{[\eta]}$ .
+
+Let $p\in PT_{f}$ be a condition and $i<\kappa$ . We say that a condition $s\in PT_{f}$ is $(p,i)$ -determined iff $s\leq p$ and 
+ 
+ $|s\cap\operatorname{split}_{i}(p)|=1.$ 
+
+
+The set of $(p,i)$ -determined conditions is dense below $p$ for all $i$ .
+
+For any $r\leq p$ we may extend the stem of $r$ in the following way: take any branch $b\in[r]\subseteq[p]$ ; since we then know $|b\cap\operatorname{split}_{i}(p)|=1$ , we see that there is a unique $\nu$ with $\nu\in b\cap r\cap\operatorname{split}_{i}(p)$ . Then $r^{[\nu]}$ is $(p,i)$ -determined. ∎
+
+$PT_{f}$ has Property B.
+
+It remains to show the antichain condition. To this end, let $A$ be a maximal antichain, $p\in PT_{f}$ and $i<\kappa$ . Enumerate $\operatorname{split}_{i+1}(p)$ as $(\eta_{j})_{j<\delta}$ with $\delta<\kappa$ . We will decompose $p$ into $|\delta|$ many parts, each of which will be thinned out above the $(i+1)$ -th splitting front.
+
+Proceed by finding for each $j<\delta$ a condition $s_{j}\leq p^{[\eta_{j}]}$ such that $|A{\restriction}s_{j}|=1$ . Set 
+ 
+ $q:=\bigcup_{j<\delta}s_{j}.$ 
+ Then $q\in PT_{f}$ is a condition with $\operatorname{split}_{i+1}(p)\subseteq q$ and thus $q\leq_{i}p$ . To prove $|A{\restriction}q|<\kappa$ , let $r\in A$ be compatible with $q$ . By the previous lemma we may pick a $t_{r}$ that is $(p,i+1)$ -determined with $t_{r}\leq r,q$ and hence $t_{r}\cap\operatorname{split}_{i+1}(p)=\{\eta_{j_{r}}\}$ for some $j_{r}<\delta$ . But since $t_{r}\leq q$ , we can conclude $t_{r}\leq s_{j_{r}}$ and thus $r\parallel s_{j_{r}}$ . We have thus found a function from $A{\restriction}q$ to $\delta$ , mapping $r\mapsto j_{r}$ , which is injective (since $|A{\restriction}s_{j}|=1$ for all $j<\delta$ ). The desired conclusion $|A{\restriction}q|<\kappa$ follows. ∎
+
+2 The Iteration
+
+The backbone of our forcing construction will consist of an iteration of $PT_{f}$ forcings. Let therefore $\langle\mathbb{P}_{\alpha},\dot{\mathbb{Q}}_{\beta}:\alpha\leq\kappa^{++},\beta<\kappa^{++}\rangle$ be a ${\leq}\kappa$ -supported forcing iteration with 
+ 
+ $\Vdash_{\mathbb{P}_{\alpha}}\dot{\mathbb{Q}}_{\alpha}=PT_{f_{\alpha}}$ 
+ where the sequence $(f_{\alpha})_{\alpha<\kappa^{++}}$ is in the ground model and $f_{\alpha}(i)\geq 2$ for all $i<\kappa$ . Set $\mathbb{P}:=\mathbb{P}_{\kappa^{++}}$ .
+
+As a matter of notation, let $\dot{G}_{\alpha}$ for $\alpha\leq\kappa^{++}$ denote the canonical $\mathbb{P}_{\alpha}$ -name for a $\mathbb{P}_{\alpha}$ -generic filter; we also write $\dot{G}$ for $\dot{G}_{\kappa^{++}}$ . Finally, let $\dot{s}_{\alpha}$ be the canonical name for the $\alpha$ -th generic real.
+
+This section is dedicated to verifying some regularity properties of such iterations. We will observe that 1. $\mathbb{P}$ is ${<}\kappa$ -closed 2. $\mathbb{P}$ does not collapse $\kappa^{+}$ 3. if $V\models|2^{\kappa}|=\kappa^{+}$ , then $\mathbb{P}$ has the $\kappa^{++}$ -c.c., thus in aggregate no cardinals are collapsed when forcing with $\mathbb{P}$ .
+
+$\mathbb{P}$ is ${<}\kappa$ -closed.
+
+In the countable case, the favoured tool one would look towards in the endeavour of preserving $\omega_{1}$ is the notion of properness. Finding a satisfactory analogue for higher cardinals is a long-standing open problem (see e.g. [RS13] and [FHZ13] ). A relatively straightforward generalization that still enjoys many desirable qualities of properness is the following:
+
+A forcing $\mathcal{P}$ is called $\kappa$ -proper iff for every sufficiently large $\theta$ (e.g. $\theta>|2^{\mathcal{P}}|$ ) and every elementary submodel $M\preccurlyeq H(\theta)$ such that $\mathcal{P}\in M$ , $|M|=\kappa$ and ${}^{<\kappa}M\subseteq M$ , and every $p\in\mathcal{P}\cap M$ , there exists $q\leq_{\mathcal{P}}p$ such that for every dense $D\in M$ , $D\cap M$ is predense below $q$ .
+
+Forcing notions that are ${<}\kappa^{+}$ -closed or have the $\kappa^{+}$ -c.c. are $\kappa$ -proper. Furthermore, $\kappa$ -proper forcing notions do not collapse $\kappa^{+}$ .
+
+Further details on $\kappa$ -properness can be found in [FKK16] .
+
+Unfortunately, in stark contrast to the classical setting, there is no preservation theorem for $\kappa$ -properness in iterations (see [Ros18] for an iteration of $\kappa^{+}$ -c.c. forcings whose $\omega$ -limit collapses $\kappa^{+}$ ). Our strategy for ensuring $\kappa$ -properness is to verify an iteration version of Property B. Similar to fusion with countable support, in such cases the correct tool is the following notion:
+
+For $\zeta\leq\kappa^{++}$ let $\langle\mathcal{P}_{\alpha},\dot{\mathcal{Q}}_{\beta}:\alpha\leq\zeta,\beta<\zeta\rangle$ be a ${\leq}\kappa$ -support iteration with 
+ 
+ $\forall\alpha<\zeta\colon\Vdash_{\alpha}``\ \dot{Q}_{\alpha}\text{ has Property B ''}.$ 
+ Let $F\in[\zeta]^{<\kappa}$ and $i<\kappa$ . We define $q\leq_{F,i}p$ iff 
+ 
+ $q\leq_{\mathcal{P}_{\zeta}}p\text{ and }\forall\beta\in F\colon q{\restriction}\beta\Vdash_{\beta}q(\beta)\,\leq_{i}^{\dot{\mathcal{Q}}_{\beta}}\,p(\beta).$ 
+ Then 1. A sequence $\langle p_{i},F_{i}:i<\delta\rangle$ of length $\delta\leq\kappa$ is called a fusion sequence iff • $\forall j<k<\delta:p_{k}\leq_{F_{j},j}p_{j}$ • The $F_{j}$ are increasing and, if $\delta=\kappa$ , then $\bigcup_{j<\delta}\text{supp}(p_{j})\subseteq\bigcup_{j<\delta}F_{j}$ . 2. We say that $\mathcal{P}_{\zeta}$ has Property B* iff • For every fusion sequence $\langle p_{i},F_{i}:i<\delta\rangle,\ \delta\leq\kappa$ there exists a fusion limit $q$ with $\forall j<\delta:q\leq_{F_{j},j}p_{j}$ . • For every maximal antichain $A$ , every $p\in\mathcal{P}_{\zeta},F\in[\zeta]^{<\kappa}$ and $i<\kappa$ there exists a $q\leq_{F,i}p$ such that $|A{\restriction}q|<\kappa$ .
+
+Hence for iterations we consider fusion sequences pointwise, with the added caveat of being able to delay fusion arbitrarily long in each coordinate. In practice, the auxiliary sets $F_{j}$ will almost always be defined by a bookkeeping argument relative to the $p_{j}$ .
+
+Property B* implies $\kappa$ -properness and $\kappa^{\kappa}$ -bounding.
+
+In the definition of Property B*, only the antichain condition is nontrivial. In fact, for such iterations of Property B forcings, fusion limits always exist.
+
+With the notation from the previous definition, every fusion sequence $\langle p_{i},F_{i}:i<\delta\rangle,\ \delta\leq\kappa$ in $\mathcal{P}_{\zeta}$ has a fusion limit $q$ .
+
+We construct $q$ inductively such that $\mathcal{P}_{\alpha}\ni q{\restriction}\alpha$ is a fusion limit of $\langle p_{i}{\restriction}\alpha,F_{i}\cap\alpha:i<\delta\rangle$ for each $\alpha\leq\zeta$ .
+
+Assume $q{\restriction}\alpha$ has been defined for $\alpha<\zeta$ . To define $q(\alpha)$ , distinguish three cases: • $\alpha\in\bigcup_{j<\delta}\operatorname{supp}(p_{j})\wedge\alpha\in\bigcup_{j<\delta}F_{j}$ : Find $j^{*}(\alpha)$ minimal such that $\alpha\in F_{j^{*}(\alpha)}$ . Now $q{\restriction}\alpha\Vdash``(p_{j}(\alpha))_{j\geq j^{*}(\alpha)}\text{ is a fusion sequence''}$ , so let $q(\alpha)$ be a fusion limit of that sequence. • $\alpha\in\bigcup_{j<\delta}\operatorname{supp}(p_{j})\wedge\alpha\notin\bigcup_{j<\delta}F_{j}$ : Note that this case may only occur for $\delta<\kappa$ , thus we may use ${<}\kappa$ -closure of $\dot{\mathcal{Q}}_{\alpha}$ to construct $q(\alpha)$ from $(p_{j}(\alpha))_{j<\delta}$ . • $\alpha\notin\bigcup_{j<\delta}\operatorname{supp}(p_{j})$ : Set $q(\alpha):=\mathbbm{1}_{\dot{\mathcal{Q}}_{\alpha}}$ .
+
+To see that $q{\restriction}\gamma\in\mathcal{P}_{\gamma}$ for limit $\gamma$ , merely note $\operatorname{supp}(q{\restriction}\gamma)\subseteq\bigcup_{i<\delta}\operatorname{supp}(p_{i}{\restriction}\gamma)$ . ∎
+
+Note that the forcings $\dot{\mathcal{Q}}_{\alpha}=PT_{f_{\alpha}}$ fulfil ${<}\kappa$ -closure and the existence of fusion limits in a particularly strong way: in either case, a canonical weakest lower bound/fusion limit exists. Thus by following the above proof and choosing these canonical conditions, we can see that an iteration of $PT_{f}$ forcings also fulfils a stronger fusion condition: for every fusion sequence there exists a canonical, weakest fusion limit.
+
+Some work remains to prove the antichain condition for $\mathbb{P}_{\zeta}$ , which we do in a rather ad hoc manner by induction on $\zeta$ . On the way we will introduce some notation that will also come in handy later.
+
+First off, let us define the iteration version of Definition 1.12 and the corresponding density lemma.
+
+Let $\zeta\leq\kappa^{++},p\in\mathbb{P}_{\zeta},F\in[\zeta]^{<\kappa}$ and $i<\kappa$ . We say a condition $s\in\mathbb{P}_{\zeta}$ is $(p,F,i)$ -determined following $g\in\prod_{\beta\in F}\kappa^{<\kappa}$ iff $s\leq_{\mathbb{P}_{\zeta}}p$ and 
+ 
+ $\displaystyle\forall\beta\in F\,\exists\eta_{\beta}\in\kappa^{<\kappa}:$ 
+ 
+ $\displaystyle s{\restriction}\beta\Vdash s(\beta)\cap\operatorname{split}_{i}(p(\beta))=\check{\{\eta_{\beta}\}}\wedge\operatorname{succ}_{s(\beta)}(\eta_{\beta})=\check{\{g(\beta)\}}.$ 
+
+
+We say a condition $s$ is $(p,F,i)$ -determined iff it is $(p,F,i)$ -determined following some (unique) $g$ .
+
+The function $g$ prescribes the choices $s$ makes at the $i$ -th splitting front of $p$ ; it is completely determined by $s$ .
+
+The set of $(p,F,i)$ -determined conditions is dense below $p\in\mathbb{P}_{\zeta}$ for all $p,F,i$ and the set of $(p,F,i)$ -determined conditions following $g$ is open for all $p,F,i,g$ .
+
+Enumerate $F$ as an increasing sequence $(\beta_{j})_{j<\delta}$ with $\delta<\kappa$ and set $\beta_{\delta}:=\zeta$ . For an $r\leq p$ we will inductively construct a decreasing sequence $(s_{j})_{j\leq\delta}$ below $r$ and a $\subseteq$ -increasing sequence $(g_{j})_{j\leq\delta}$ with $g_{j}\in\prod_{\beta\in F\cap\beta_{j}}\kappa^{<\kappa}$ such that $s_{j}\text{ is }(p,F\cap\beta_{j},i)\text{-determined}$ following $g_{j}$ .
+
+• $j=0$ : Set $s_{0}:=r$ . • $j\to j+1$ : Since $s_{j}{\restriction}\beta_{j}\Vdash s_{j}(\beta_{j})\leq_{\dot{\mathbb{Q}}_{\beta_{j}}}p(\beta_{j})$ , we may use Lemma 1.13 to find $\mathbb{P}_{\beta_{j}}$ -names $\dot{t},\dot{\eta}_{\beta_{j}},\dot{\nu}_{\beta_{j}}$ with 
+ 
+ $s_{j}{\restriction}\beta_{j}\Vdash\dot{t}\in\mathbb{Q}_{\beta_{j}}\wedge\dot{t}\leq_{\dot{\mathbb{Q}}_{\beta_{j}}}s_{j}(\beta_{j})$ 
+ and 
+ 
+ $\displaystyle s_{j}{\restriction}\beta_{j}\Vdash\dot{t}\cap\operatorname{split}_{i}(p)=\{\dot{\eta}_{\beta_{j}}\}\wedge\operatorname{succ}_{\dot{t}}(\dot{\eta}_{\beta_{j}})=\{\dot{\nu}_{\beta_{j}}\}.$ 
+ Find a stronger condition $\tilde{s}_{j}\leq s_{j}{\restriction}\beta_{j}$ that decides the names $\dot{\eta}_{\beta_{j}},\dot{\nu}_{\beta_{j}}$ as $\eta_{\beta_{j}},\nu_{\beta_{j}}$ . Define $s_{j+1}:=\tilde{s}_{j}^{\frown}\dot{t}^{\frown}(s_{j}{\restriction}[\beta_{j}+1,\zeta))$ and $g_{j+1}:=g_{j}\cup\{(\beta_{j},\nu_{\beta_{j}})\}$ . • $\lambda\leq\delta$ is a limit: By ${<}\kappa$ -closure we can find a lower bound $s_{\lambda}$ of the sequence $(s_{\ell})_{\ell<\lambda}$ . Define $g_{\lambda}:=\bigcup_{\ell<\lambda}g_{\ell}$ . Clearly, $s_{\lambda}$ is $(p,F\cap\beta_{\lambda},i)$ -determined following $g_{\lambda}$ .
+
+Now $s_{\delta}\leq r$ is $(p,F,i)$ -determined following $g_{\delta}$ . Lastly, if $s$ is $(p,F,i)$ -determined following $g$ , then clearly any $s^{\prime}\leq s$ is as well. ∎
+
+If $p^{\prime}\leq_{F,i}p$ and $s\leq p^{\prime}$ , then $s$ is $(p,F,i)$ -determined iff it is $(p^{\prime},F,i)$ -determined.
+
+Suppose now that $s\leq_{PT_{f}}p$ . The extension of $p$ to $s$ may be undertaken in two steps by interpolating on the $\leq_{i}$ relation. In the first step, we thin out as much as is necessary from $p$ , but only in its ‘upper regions’ - say, above the $(i+1)$ -th splitting front - yielding an interpolating condition $p^{(s)}$ with $p^{(s)}\leq_{i}p$ (above nodes not present in $s$ , $p$ may be left untouched in the extension to $p^{(s)}$ ). In the second step, nodes are removed from $p^{(s)}$ , but only near the base of the tree, such that whenever $\eta\in p^{(s)}\backslash s$ , then there is already some initial segment $\nu\lhd\eta$ with $\nu\in p^{(s)}\backslash s$ and $\operatorname{ht^{s}}_{p^{(s)}}(\nu)\leq i+1$ . We thus have 
+ 
+ $s\leq p^{(s)}\leq_{i}p.$ 
+ This motivates the next lemma.
+
+Let $p\in\mathbb{P}_{\zeta}$ and $s$ be $(p,F,i)$ -determined following $g\in\prod_{\beta\in F}\kappa^{<\kappa}$ for some $F\in[\zeta]^{<\kappa},i<\kappa$ . Then there exists a condition $p^{(s)}\leq_{F,i}p$ with • $s\leq_{\mathbb{P}_{\zeta}}p^{(s)}\leq_{F,i}p$ and • for all $(p,F,i)$ -determined conditions $s^{\prime}$ following $g$ , whenever $s^{\prime}\leq_{\mathbb{P}_{\zeta}}p^{(s)}$ , then already $s^{\prime}\leq_{\mathbb{P_{\zeta}}}s$ .
+
+Construct $p^{(s)}$ by induction such that for each $\alpha\leq\zeta$ we have $p^{(s)}{\restriction}\alpha\in\mathbb{P}_{\alpha}$ and $p^{(s)}{\restriction}\alpha\leq_{F\cap\alpha,i}p{\restriction}\alpha$ .
+
+Assume $p^{(s)}{\restriction}\alpha$ has been defined; to define $p^{(s)}(\alpha)$ , there are two cases to distinguish: • If $\alpha\notin F$ , set $p^{(s)}(\alpha):=\begin{cases}s(\alpha)&\text{ if }s{\restriction}\alpha\in\dot{G}_{\alpha}\\
+p(\alpha)&\text{ otherwise.}\end{cases}$ • If $\alpha\in F$ , set $p^{(s)}(\alpha):=\begin{cases}s(\alpha)\cup(p(\alpha)\backslash p(\alpha)^{[g(\alpha)]})&\text{ if }s{\restriction}\alpha\in\dot{G}_{\alpha}\\
+p(\alpha)&\text{ otherwise.}\end{cases}$ Note that we have $s{\restriction}\alpha\Vdash g(\alpha)\in p(\alpha)$ and 
+ 
+ $p^{(s)}{\restriction}\alpha\Vdash p^{(s)}(\alpha)\leq_{i}p(\alpha).$ To see that $p^{(s)}{\restriction}\gamma\in\mathbb{P}_{\gamma}$ for $\gamma$ limit, we note that 
+ 
+ $\operatorname{supp}(p^{(s)}{\restriction}\gamma)\subseteq\operatorname{supp}(s{\restriction}\gamma).$ 
+ Furthermore, we clearly have $s\leq p^{(s)}$ .
+
+It remains to check the second requirement. Take some $(p,F,i)$ -determined $s^{\prime}$ following $g$ with $s^{\prime}\leq p^{(s)}$ . Assume inductively that $s^{\prime}{\restriction}\alpha\leq s{\restriction}\alpha$ . Since the case $\alpha\notin F$ is trivial, we may restrict our attention to the case $\alpha\in F$ . Then we have $s^{\prime}{\restriction}\alpha\Vdash s^{\prime}(\alpha)\leq_{\mathbb{Q}_{\alpha}}p^{(s)}(\alpha)=s(\alpha)\cup(p(\alpha)\backslash p(\alpha)^{[g(\alpha)]})$ . But then we already have $s^{\prime}{\restriction}\alpha\Vdash s^{\prime}(\alpha)\leq_{\mathbb{Q}_{\alpha}}s(\alpha)$ . In conclusion, $s^{\prime}\leq s$ , which finishes the proof of the lemma. ∎
+
+The above construction yields the following observation: not only is $p^{(s)}$ an interpolant for $p,s,F$ and $i$ , but we even have that $p^{(s)}{\restriction}\alpha$ is an interpolant for $p{\restriction}\alpha,s{\restriction}\alpha,F\cap\alpha$ and $i$ for any $\alpha<\zeta$ .
+
+In the next lemma, we show that under certain conditions, the forcing $\mathbb{P}_{\zeta}$ admits least upper bounds of the form 
+ 
+ $\bigvee_{\mathclap{\begin{subarray}{c}s\leq q,\\
+s\text{ is }(q,F,i)-\text{determined following }g\end{subarray}}}s.$ 
+
+
+Let $p\in\mathbb{P}_{\zeta}$ and $s$ be $(p,F,i)$ -determined following $g\in\prod_{\beta\in F}\kappa^{<\kappa}$ . Then for every $q\leq_{F,i}p^{(s)}$ there exists an $\tilde{s}\leq q,s$ that is $(q,F,i)$ -determined following $g$ such that for every $s^{\prime}\leq q$ , if $s^{\prime}$ is $(q,F,i)$ -determined following $g$ , then $s^{\prime}\leq\tilde{s}$ . In other words, $\tilde{s}$ is the weakest $(q,F,i)$ -determined condition following $g$ .
+
+Construct $\tilde{s}$ by induction such that for all $\alpha\leq\zeta$ we have $\tilde{s}{\restriction}\alpha\in\mathbb{P}_{\alpha}$ , $\tilde{s}{\restriction}\alpha\leq q{\restriction}\alpha$ and $\tilde{s}{\restriction}\alpha$ is $(q{\restriction}\alpha,F\cap\alpha,i)$ -determined following $g{\restriction}\alpha$ .
+
+Assume $\tilde{s}{\restriction}\alpha$ has been defined; define $\tilde{s}(\alpha)$ as 
+ 
+ $\tilde{s}(\alpha):=\begin{cases}q(\alpha)^{[g(\alpha)]}&\text{ if }\alpha\in F\\
+q(\alpha)&\text{ otherwise.}\end{cases}$ 
+ If $\alpha\notin F$ , there is nothing to prove. For $\alpha\in F$ , observe that since $\tilde{s}{\restriction}\alpha\leq q{\restriction}\alpha$ is $(q{\restriction}\alpha,F\cap\alpha,i)$ -determined following $g{\restriction}\alpha$ and $q\leq_{F,i}p^{(s)}$ , so by the above remark we can conclude $\tilde{s}{\restriction}\alpha\leq s{\restriction}\alpha$ . But 
+ 
+ $s{\restriction}\alpha\Vdash\exists\nu:g(\alpha)\in\operatorname{succ}_{p}(\nu)\wedge\nu\in\operatorname{split}_{i}(p(\alpha))$ 
+ and $q{\restriction}\alpha\Vdash\operatorname{split}_{i}(p(\alpha))=\operatorname{split}_{i}(q(\alpha))$ , hence $\tilde{s}(\alpha)$ is well-defined. The other two properties follow easily.
+
+If $\gamma$ is a limit, then we have $\operatorname{supp}(\tilde{s}{\restriction}\gamma)\subseteq\operatorname{supp}(q)\cup F$ , hence $\tilde{s}{\restriction}\gamma\in\mathbb{P}_{\gamma}$ is a condition.
+
+Knowing $\tilde{s}$ to be well-defined, one can easily see that for each $s^{\prime}\leq q$ that is $(q,F,i)$ -determined following $g$ we have $s^{\prime}\leq\tilde{s}$ . ∎
+
+$(\mathbb{P}_{\zeta},\leq_{F,i})$ is ${<}\kappa$ -closed for all $\zeta,F,i$ .
+
+Let us now introduce two auxiliary “boundedness” properties a $\mathbb{P}_{\zeta}$ -condition may exhibit.
+
+We say a condition $p\in\mathbb{P}_{\zeta}$ is $(F,i)$ -bounded for $F\in[\zeta]^{<\kappa},i<\kappa$ iff there exists a $\mu<\kappa$ with 
+ 
+ $\forall\beta\in F:\ p{\restriction}\beta\Vdash\operatorname{split}_{i}(p(\beta))\subseteq\mu^{<\mu}.$ 
+
+
+If $p\in\mathbb{P}_{\zeta}$ is $(F,i)$ -bounded and $p^{\prime}\leq_{F,i}p$ , then $p^{\prime}$ is as well.
+
+Let $\zeta\leq\kappa^{++},p\in\mathbb{P}_{\zeta},F\in[\zeta]^{<\kappa}$ and $i<\kappa$ . Take furthermore a $D\subseteq\mathbb{P}_{\zeta}$ that is open dense below $p$ . We say $p$ is $(D,F,i)$ - complete iff there exists a $C\subseteq\prod_{\beta\in F}\kappa^{<\kappa},|C|<\kappa$ and a family $(s_{g})_{g\in C}$ in $D$ such that a) $s_{g}$ is $(p,F,i)$ -determined following $g$ for all $g\in C$ b) whenever $s\leq p$ is $(p,F,i)$ -determined following a function $g$ and $s\in D$ , then $g\in C$ and $s\leq s_{g}$
+
+If $p\in\mathbb{P}_{\zeta}$ is $(D,F,i)$ -complete as witnessed by $(s_{g})_{g\in C}$ , then $(s_{g})_{g\in C}$ is a maximal antichain below $p$ .
+
+Let $p^{\prime}\leq_{F,i}p$ be $\mathbb{P}_{\zeta}$ -conditions such that $p$ is $(D,F,i)$ -complete and $p^{\prime}$ is $(D^{\prime},F,i)$ -complete. Let $(s_{g})_{g\in C}$ and $(s^{\prime}_{g})_{g\in C^{\prime}}$ witness this. Then $C^{\prime}\subseteq C$ . If in addition $D^{\prime}\subseteq D$ , then we even have $s^{\prime}_{g}\leq s_{g}$ for each $g\in C^{\prime}$ .
+
+Assume that $g\in C^{\prime}$ and find a $t\leq s^{\prime}_{g}$ with $t\in D$ (note that $s^{\prime}_{g}\leq p$ ). Then $t\leq p$ is $(p,F,i)$ -determined following $g$ by Fact 2.10 and thus $g\in C$ and $t\leq s_{g}$ by the second requirement in the definition of completeness. If $D^{\prime}\subseteq D$ , we may take $t=s^{\prime}_{g}$ and get $s^{\prime}_{g}\leq s_{g}$ . ∎
+
+In particular we know that the set $C$ in the definition of completeness is completely determined by $p$ . Complete conditions are also going to be playing a major role later in Lemma 5.1 .
+
+Our strategy for proving Property B* for all $\mathbb{P}_{\zeta},\zeta\leq\kappa^{++}$ is by the equivalence of the following four statements: a( $\zeta$ ): $\mathbb{P}_{\alpha}$ has Property B* for each $\alpha<\zeta$ . b( $\zeta$ ): The set of $(F,i)$ -bounded conditions is $\leq_{F,i}$ -dense in $\mathbb{P}_{\alpha}$ for all $\alpha\leq\zeta$ , $F\in[\alpha]^{<\kappa}$ and $i<\kappa$ . c( $\zeta$ ): The set of $(D,F,i)$ -complete conditions is $\leq_{F,i}$ -dense in $\mathbb{P}_{\zeta}$ for all $F,i$ and open dense $D\subseteq\mathbb{P}_{\zeta}$ . d( $\zeta$ ): $\mathbb{P}_{\zeta}$ has Property B*.
+
+The implication a(ζ𝜁\zeta) $\Rightarrow$ b(ζ𝜁\zeta) is Lemma 2.21 , b(ζ𝜁\zeta) $\Rightarrow$ c(ζ𝜁\zeta) is Lemma 2.22 and c(ζ𝜁\zeta) $\Rightarrow$ d(ζ𝜁\zeta) is Lemma 2.23 . Thus a(ζ𝜁\zeta) $\Rightarrow$ d(ζ𝜁\zeta) establishes an induction by which Property B* is verified for all $\mathbb{P}_{\zeta}$ .
+
+$\mathbb{P}_{\zeta}$ has Property B* for all $\zeta\leq\kappa^{++}$ .
+
+Let $\zeta\leq\kappa^{++}$ and assume $\mathbb{P}_{\alpha}$ has Property B* for each $\alpha<\zeta$ . Then for each $\alpha\leq\zeta$ , $p\in\mathbb{P}_{\alpha},F\in[\alpha]^{<\kappa}$ and $i<\kappa$ there is a condition $q\leq_{F,i}p$ that is $(F,i)$ -bounded.
+
+We proceed by induction on $\alpha\leq\zeta$ . • $\alpha=1$ : Trivial by the inaccessibility of $\kappa$ . • $\alpha\to\alpha+1$ : Let $p\in\mathbb{P}_{\alpha+1},F\in[\alpha+1]^{<\kappa}$ and $i<\kappa$ be given. Since $\mathbb{P}_{\alpha}$ is ${<}\kappa$ -closed, $\kappa$ remains inaccessible in $V^{\mathbb{P}_{\alpha}}$ . Thus 
+ 
+ $\Vdash_{\mathbb{P}_{\alpha}}\forall\beta\in F\,\exists\mu_{\beta}<\kappa:\ \operatorname{split}_{i}(p(\beta))\subseteq\mu_{\beta}^{<\mu_{\beta}}$ 
+ and considering $\sup_{\beta\in F}\mu_{\beta}$ we can find a name $\dot{\mu}$ for an ordinal less than $\kappa$ with 
+ 
+ $\Vdash_{\mathbb{P}_{\alpha}}\forall\beta\in F:\ \operatorname{split}_{i}(p(\beta))\subseteq\dot{\mu}^{<\dot{\mu}}.$ 
+ Let now $A\subseteq\mathbb{P}_{\alpha}$ be a maximal antichain deciding $\dot{\mu}$ ; we may find a $\mathbb{P}_{\alpha}\ni\hat{q}\leq_{F\cap\alpha,i}p{\restriction}\alpha$ with $|A{\restriction}\hat{q}|<\kappa$ . Thus 
+ 
+ $\hat{q}\Vdash\dot{\mu}<\mu_{q}$ 
+ for some $\mu_{q}<\kappa$ and therefore 
+ 
+ $\forall\beta\in F:\ \hat{q}{\restriction}\beta\Vdash\operatorname{split}_{i}(p(\beta))\subseteq\mu_{q}^{<\mu_{q}}.$ 
+ Setting $q:=\hat{q}^{\frown}p(\alpha)$ and noting that since $\hat{q}\leq_{F\cap\alpha,i}p{\restriction}\alpha$ we have $q{\restriction}\beta\Vdash\operatorname{split}(q(\beta))=\operatorname{split}(p(\beta))$ for all $\beta\in F$ , so it follows that $q$ is $(F,i)$ -bounded. • $\gamma\leq\zeta$ is a limit: Let $p\in\mathbb{P}_{\gamma},F\in[\gamma]^{<\kappa}$ and $i<\kappa$ be given. Using ${<}\kappa$ -closure of $(\mathbb{P}_{\gamma},\leq_{F,i})$ (see Fact 2.14 ) and the inductive assumption, we can construct a $\leq_{F,i}$ -decreasing sequence $(q_{\beta})_{\beta\in F}$ in $\mathbb{P}_{\gamma}$ with the following properties: – $\forall\beta\in F\,\forall\beta^{\prime}\in F\cap\beta:\ q_{\beta}\leq_{F,i}q_{\beta^{\prime}}\leq_{F,i}p$ – $\forall\beta\in F\,\exists\mu_{\beta}<\kappa\,\forall\beta^{\prime}\in F\cap(\beta+1):\ q_{\beta}{\restriction}\beta^{\prime}\Vdash_{\mathbb{P}_{\beta^{\prime}}}\operatorname{split}_{i}(q_{\beta}(\beta^{\prime}))\subseteq\mu_{\beta}^{<\mu_{\beta}}.$ Again using ${<}\kappa$ -closure of $(\mathbb{P}_{\gamma},\leq_{F,i})$ , set $q$ to a $\leq_{F,i}$ -lower bound of $(q_{\beta})_{\beta\in F}$ and $\mu:=\sup_{\beta\in F}\mu_{\beta}$ . Now $q\leq_{F,i}p$ and 
+ 
+ $\forall\beta\in F:\ q{\restriction}\beta\Vdash\operatorname{split}_{i}(q(\beta))\subseteq\mu^{<\mu}.\qed$
+
+Let $\zeta\leq\kappa^{++},F\in[\zeta]^{<\kappa},i<\kappa$ and suppose $p\in\mathbb{P}_{\zeta}$ is $(F,i)$ -bounded. Let furthermore $D\subseteq\mathbb{P}_{\zeta}$ be open dense below $p$ . Then there is a $q\leq_{F,i}p$ which is $(D,F,i)$ -complete.
+
+In particular, if the set of $(F,i)$ -bounded conditions is $\leq_{F,i}$ -dense in $\mathbb{P}_{\zeta}$ , then for all open dense $D\subseteq\mathbb{P}_{\zeta}$ the set of $(D,F,i)$ -complete conditions is $\leq_{F,i}$ -dense as well.
+
+By assumption $p$ is $(F,i)$ -bounded, hence we can find a $\mu$ such that 
+ 
+ $\forall\beta\in F:\ p{\restriction}\beta\Vdash\operatorname{split}_{i}(p(\beta))\subseteq\mu^{<\mu}.$ 
+ Our strategy is to consider all possible choices a $(p,F,i)$ -determined condition might make at the $i$ -th splitting front of $p$ and then interpolate on the witnesses of such choices. Since we have a uniform bound $\mu$ on the respective splitting fronts, this will require us to only iterate through ${<}\kappa$ many possibilities. Set $\tilde{\mu}_{\beta}:=\sup_{j\leq\mu}f_{\beta}(j)$ and consider the set 
+ 
+ $\tilde{C}:=\prod_{\beta\in F}\tilde{\mu}_{\beta}^{\leq\mu}.$ 
+ Whenever $s$ is $(p,F,i)$ -determined following some $g$ , then $g\in\tilde{C}$ . Enumerate $\tilde{C}$ as $(g_{j+1})_{j<\delta}$ with $\delta<\kappa$ . We now construct a $\leq_{F,i}$ -decreasing sequence $(t_{j})_{j<\delta}$ : • $j=0$ : Set $t_{0}:=p$ . • $j\to j+1$ : If there exists an $s\leq t_{j}$ that is $(p,F,i)$ -determined following $g_{j+1}$ , pick an arbitrary such condition from $D$ (this is possible, since $D$ is dense below $p$ ) and call it $\tilde{s}_{g_{j+1}}$ . Set $t_{j+1}:=t_{j}^{(\tilde{s}_{g_{j+1}})}$ . If there is no such $s$ , simply set $t_{j+1}:=t_{j}$ . In any case we have $t_{j+1}\leq_{F,i}t_{j}$ . • $\lambda$ is a limit: Set $t_{\lambda}$ to a $\leq_{F,i}$ -lower bound of $(t_{j})_{j<\lambda}$ (see Fact 2.14 ).
+
+Set $q$ to a $\leq_{F,i}$ -lower bound of $(t_{j})_{j<\delta}$ . We know $q\leq_{F,i}p$ . Now let 
+ 
+ $C:=\left\{g\in\tilde{C}:\ \tilde{s}_{g}\text{ exists}\right\},$ 
+ i.e. $C$ is the set of all $g_{j+1}$ for which a witness was found in the inductive step $j\to j+1$ . We have $|C|<\kappa$ . Finally, for each $g=g_{j+1}\in C$ apply Lemma 2.13 to $p=t_{j}$ , $s=\tilde{s}_{g_{j+1}}$ and $q=q$ to construct the condition $s_{g}$ . We have $s_{g}\in D$ since $s_{g}\leq\tilde{s}_{g}\in D$ and $D$ is open.
+
+We verify that $q$ is $(D,F,i)$ -complete, witnessed by $(s_{g})_{g\in C}$ . The first condition in the definition of completeness follows by construction. The second follows immediately from Lemma 2.13 by noting that if $s\leq q$ is $(q,F,i)$ -determined following $g$ , then $g=g_{j+1}$ for some $j<\delta$ , and thus a witness was found in the inductive step $j\to j+1$ ; hence $g\in C$ . ∎
+
+If the set of $(D,F,i)$ -complete conditions is $\leq_{F,i}$ -dense in $\mathbb{P}_{\zeta}$ for all $F,i$ and $D\subseteq\mathbb{P}_{\zeta}$ open dense, then $\mathbb{P}_{\zeta}$ has Property B*.
+
+We have seen in Lemma 2.6 that the fusion condition is always fulfilled. We will now prove that $\mathbb{P}_{\zeta}$ fulfils the antichain condition: let $A\subseteq\mathbb{P}_{\zeta}$ be a maximal antichain, $p\in\mathbb{P}_{\zeta},F\in[\zeta]^{<\kappa}$ and $i<\kappa$ . Find a $q\leq_{F,i}p$ that is $(D,F,i)$ -complete, where 
+ 
+ $D=\{r\in\mathbb{P}_{\zeta}:\ |A{\restriction}r|=1\}$ 
+ and let $(s_{g})_{g\in C}$ witness this. Since $(s_{g})_{g\in C}$ is a maximal antichain below $q$ by Fact 2.18 , it is easy to see that 
+ 
+ $A{\restriction}q\subseteq\{r\in A:\ \exists g\in C:\ A{\restriction}s_{g}=\{r\}\}$ 
+ and thus $|A{\restriction}q|\leq|C|<\kappa$ . ∎
+
+From this point onward, assume that 
+ 
+ $V\models|2^{\kappa}|=\kappa^{+}.$ 
+ From among our stated goals at the beginning of this section, only one remains to be verified; our interest now turns to the $\kappa^{++}$ -chain condition:
+
+$\mathbb{P}$ has the $\kappa^{++}$ -c.c.
+
+This will follow easily from Lemma 2.29 once we have proven that each $\mathbb{P}_{\alpha}$ for $\alpha<\kappa^{++}$ has a dense subset of size $\kappa^{+}$ .
+
+For the purposes of the next definition, for each $\alpha<\kappa^{++}$ fix a $\mathbb{P}_{\alpha}$ -name $\dot{c}_{\alpha}$ for a bijection $c_{\alpha}:(PT_{f_{\alpha}})^{V^{\mathbb{P_{\alpha}}}}\to(\mathcal{P}(\kappa))^{V^{\mathbb{P_{\alpha}}}}$ such that $c_{\alpha}(\mathbbm{1}_{PT_{f_{\alpha}}})=\emptyset$ . Let us also fix a $\theta$ sufficiently large (e.g. $\theta>|2^{\mathbb{P}}|$ ) and a well-ordering $\preceq$ of $H(\theta)$ (by which we mean the sets hereditarily of size ${<}\theta$ , not $H_{\theta}$ as defined below).
+
+Let $\alpha<\kappa^{++}$ . • A $\mathbb{P}_{\alpha}$ -name $\dot{\tau}$ for a subset of $\kappa$ is $\alpha$ -good iff $\dot{\tau}$ is a nice name of the form 
+ 
+ $\dot{\tau}=\{\{j\}\times A_{j}:j<\kappa\},$ 
+ where $A_{j}\subseteq H_{\alpha}$ and $|A_{j}|\leq\kappa$ for all $j<\kappa$ . • A condition $p\in\mathbb{P}_{\alpha}$ is in $\tilde{H}_{\alpha}$ iff $p{\restriction}\beta\in H_{\beta}$ for each $\beta<\alpha$ and, if $\alpha=\beta+1$ is a successor, there additionally is a $\beta$ -good name $\dot{\tau}$ such that $p{\restriction}\beta\Vdash_{\beta}\dot{c}_{\beta}(p(\beta))=\dot{\tau}$ and $p(\beta)$ is the $\preceq$ -least $\mathbb{P}_{\beta}$ -name that satisfies this relation for $p{\restriction}\beta$ and $\dot{\tau}$ . Now let $H_{\alpha}$ be the closure of $\tilde{H}_{\alpha}$ under canonical fusion limits (see Remark 2.7 ), where we always choose the pointwise $\preceq$ -least name for the canonical fusion limit (i.e. for every $\beta<\alpha$ , $q(\beta)$ is the $\preceq$ -least name for the $\beta$ -th entry of the canonical fusion limit $q$ of a fusion sequence). \footnote{ 3 For $\alpha=0$ let $H_{0}=P_{0}$ be the trivial forcing notion.}
+
+It is easy to see that for $p\in H_{\alpha}$ (not only $p\in\tilde{H}_{\alpha}$ ) we have $p{\restriction}\beta\in H_{\beta}$ for all $\beta<\alpha$ as well.
+
+Note also that there is a canonical embedding $H_{\beta}\hookrightarrow H_{\alpha}$ for $\beta<\alpha$ .
+
+$H_{\alpha}$ -conditions and $\alpha$ -good names appeared first as $H_{\kappa}$ - $\mathbb{P}_{\alpha}$ -names in [BGS21] and are themselves a straightforward generalization of hereditarily countable names as introduced in [She98] .
+
+For every $0<\alpha<\kappa^{++}$ , $F\in[\alpha]^{<\kappa}$ and $i<\kappa$ , $H_{\alpha}$ is $\leq_{F,i}$ -dense in $\mathbb{P}_{\alpha}$ and $|H_{\alpha}|=\kappa^{+}$ .
+
+We prove the statements by induction on $\alpha$ . • $\alpha=1$ : We have $H_{1}=\mathbb{P}_{1}$ and $|\mathbb{P}_{1}|=|PT_{f_{0}}|=\kappa^{+}$ . • $\alpha\to\alpha+1$ : Let $p\in\mathbb{P}_{\alpha+1}$ , $F\in[\alpha+1]^{<\kappa}$ and $i<\kappa$ . Using the inductive hypothesis, we may assume $p{\restriction}\alpha\Vdash_{\alpha}\dot{c}_{\alpha}(p(\alpha))=\{\{j\}\times A_{j}:j<\kappa\}$ with $A_{j}\subseteq H_{\alpha}$ for all $j<\kappa$ . Additionally using Property B*, construct a fusion sequence $\langle q_{j},F_{j}:j<\kappa\rangle$ with – $\forall j<\kappa:q_{j}\in H_{\alpha}$ and $|A_{j}{\restriction}q_{j}|<\kappa$ , – $q_{0}\leq_{F\cap\alpha,i}p{\restriction}\alpha$ , – $\forall j<\ell<\kappa:q_{\ell}\leq_{F_{j},i+j}q_{j}$ and $F\cap\alpha\subseteq F_{j}$ , where the $F_{j}$ are constructed using a bookkeeping argument. Let $q_{\kappa}$ be a canonical fusion limit of this sequence that is a member of $H_{\alpha}$ . By the first property of the fusion sequence, 
+ 
+ $\dot{\tau}=\{\{j\}\times(A_{j}{\restriction}q_{\kappa}):j<\kappa\}$ 
+ is an $\alpha$ -good name and $q_{\kappa}\Vdash_{\alpha}\dot{c}_{\alpha}(p(\alpha))=\dot{\tau}$ . Let thus $\dot{r}$ be the $\preceq$ -least $\mathbb{P}_{\alpha}$ -name that satisfies $q_{\kappa}\Vdash_{\alpha}\dot{c}_{\alpha}(\dot{r})=\dot{\tau}$ ; now we can (pedantically, using Remark 2.26 ) conclude $H_{\alpha+1}\ni(q_{\kappa}\,^{\frown}\dot{r})\leq_{F,i}p$ . Since $|H_{\alpha}|=\kappa^{+}$ and there are only $|(\kappa^{+})^{\kappa}|=\kappa^{+}$ many $\alpha$ -good names for reals, we get $|\tilde{H}_{\alpha+1}|=\kappa^{+}$ and therefore also $|H_{\alpha+1}|=\kappa^{+}$ by standard arguments. • $\gamma$ is a limit: If $\operatorname{cf}(\gamma)=\kappa^{+}$ , density is trivial and $|H_{\gamma}|\leq|\bigcup_{\beta<\gamma}H_{\beta}|\leq\kappa^{+}$ . Assume $\operatorname{cf}(\gamma)=\delta\leq\kappa$ and let furthermore $p\in\mathbb{P}_{\gamma}$ , $F\in[\gamma]^{<\kappa}$ and $i<\kappa$ be given. For a cofinal sequence $(\beta_{j})_{j<\delta}$ construct a fusion sequence $\langle q_{j},F_{j}:j<\delta\rangle$ with – $\forall j<\delta:F\cap\beta_{j}\subseteq F_{j}\subseteq\beta_{j}$ , – $\forall j<\delta:q_{j}{\restriction}\beta_{j}\leq_{F_{j},i+j}p{\restriction}\beta_{j}$ , – $\forall j<\ell<\delta:q_{\ell}\leq_{F_{j},i+j}q_{j}$ , – $\forall j<\delta:q_{j}\in H_{\gamma}$ , which may be achieved by having $q_{j}{\restriction}\beta_{j}\in H_{\beta_{j}}$ and letting $q_{j}(\beta)$ be the trivial condition for $\beta\geq\beta_{j}$ . The $F_{j}$ are again constructed using a bookkeeping argument. Set $q_{\delta}$ to be a fusion limit contained in $H_{\gamma}$ ; then we have $H_{\gamma}\ni q_{\delta}\leq_{F,i}p$ . Lastly, using Remark 2.26 , we get $|H_{\gamma}|\leq\left|\prod_{j<\delta}H_{\beta_{j}}\right|\leq\kappa^{+}$ . ∎
+
+Let $\langle\mathcal{P}_{\alpha},\dot{\mathcal{Q}}_{\beta}:\alpha\leq\zeta,\beta<\zeta\rangle$ be an iteration such that 
+ 
+ $\forall\alpha<\zeta:\ \mathcal{P}_{\alpha}\text{ has the }\theta\text{-c.c.},$ 
+ where $\theta$ is a regular uncountable cardinal. If $\mathcal{P}_{\zeta}$ is a direct limit and, additionally, either $\operatorname{cf}(\zeta)\neq\theta$ or the set $\{\gamma<\zeta:\ \mathcal{P}_{\gamma}\text{ is a direct limit}\}$ is stationary, then $\mathcal{P}_{\zeta}$ has the $\theta$ -c.c.
+
+See [Jec03] . ∎
+
+By Lemma 2.28 , each $\mathbb{P}_{\alpha}$ has a dense subset of size ${\leq}\kappa^{+}$ and therefore satisfies the $\kappa^{++}$ -c.c.; our desired conclusion thus follows easily from Lemma 2.29 and by noting that the set $\{\gamma<\kappa^{++}:\operatorname{cf}(\gamma)=\kappa^{+}\}$ is stationary in $\kappa^{++}$ . ∎
+
+As we have remarked at the beginning of this section, we get the following corollary:
+
+Forcing with $\mathbb{P}_{\alpha},\alpha\leq\kappa^{++}$ does not collapse cardinals.
+
+We have • If $\alpha<\kappa^{++}$ , then $V^{\mathbb{P}_{\alpha}}\models|2^{\kappa}|=\kappa^{+}$ . • If $\operatorname{cof}(\alpha)>\kappa$ , then $V^{\mathbb{P}_{\alpha}}\models 2^{\kappa}=\bigcup_{\beta<\alpha}(2^{\kappa}\cap V^{\mathbb{P}_{\beta}})$ . • $V^{\mathbb{P}}\models|2^{\kappa}|=\kappa^{++}$ .
+
+Suppose $\alpha<\kappa^{++}$ . Let $\dot{\tau}$ be a $\mathbb{P}_{\alpha}$ -name and $p\in\mathbb{P}_{\alpha}$ force $\dot{\tau}$ to be a subset of $\kappa$ . Without loss of generality assume $\dot{\tau}=\{\{j\}\times A_{j}:j<\kappa\}$ is a nice name with $A_{j}\subseteq H_{\alpha}$ for all $j<\kappa$ . Just like in Lemma 2.28 , construct a fusion sequence $\langle q_{j},F_{j}:j<\kappa\rangle$ below $p$ with $|A_{j}{\restriction}q_{j}|<\kappa$ for all $j<\kappa$ . The fusion limit $q_{\kappa}$ forces $\dot{\tau}$ to be equal to an $\alpha$ -good name, of which there are only $\kappa^{+}$ many. If we additionally assume $\operatorname{cf}(\alpha)>\kappa$ , then $q_{\kappa}$ forces $\dot{\tau}$ to be equal to a $\mathbb{P}_{\gamma}$ -name for some $\gamma<\alpha$ . The first two statements thus follow by a density argument.
+
+The last point follows immediately from the previous two. ∎
+
+For $\alpha<\kappa^{++}$ we can define in $V^{\mathbb{P}_{\alpha}}$ the ${\leq}\kappa$ -support tail iteration $\langle\tilde{\mathbb{P}}_{\gamma},\dot{\tilde{\mathbb{Q}}}_{\beta}:\gamma\leq\kappa^{++},\beta<\kappa^{++}\rangle$ such that $\Vdash_{\tilde{\mathbb{P}}_{\gamma}}\dot{\tilde{\mathbb{Q}}}_{\gamma}=\dot{\mathbb{Q}}_{\alpha+\gamma}$ . Set $\mathbb{P}_{\alpha,\kappa^{++}}:=\tilde{\mathbb{P}}_{\kappa^{++}}$ and note that $\mathbb{P}_{\alpha,\kappa^{++}}$ has Property B* as well. It follows from standard proper forcing arguments (adapting [She98] to the case of $\kappa$ -properness) that $\mathbb{P}\simeq\mathbb{P}_{\alpha}\star\mathbb{P}/_{\dot{G}_{\alpha}}$ is densely embedded in $\mathbb{P}_{\alpha}\star\mathbb{P}_{\alpha,\kappa^{++}}$ .
+
+3 First Proof
+
+We are now equipped to present the first proof of the relative consistency of 
+ 
+ $\text{ZFC}+|2^{\kappa}|=\kappa^{++}+\mathcal{SN}=[2^{\kappa}]^{\leq\kappa^{+}}.$ 
+ Starting with a model of $|2^{\kappa}|=\kappa^{+}$ , we consider a ${\leq}\kappa$ -supported forcing iteration $\langle\mathbb{P}_{\alpha},\dot{\mathbb{Q}}_{\beta}:\alpha\leq\kappa^{++},\beta<\kappa^{++}\rangle$ with 
+ 
+ $\forall\alpha<\kappa^{++}:\ \Vdash_{\mathbb{P}_{\alpha}}\dot{\mathbb{Q}}_{\alpha}=PT_{f_{\alpha}},$ 
+ such that $(f_{\alpha})_{\alpha<\kappa^{++}}\in V$ and each increasing $f\in\kappa^{\kappa}\cap V$ appears as an $f_{\alpha}$ cofinally often. Set $\mathbb{P}:=\mathbb{P}_{\kappa^{++}}$ . By Lemma 2.31 we see $V^{\mathbb{P}}\models|2^{\kappa}|=\kappa^{++}$ .
+
+By a density argument, the $\alpha$ -th generic real $\dot{s}_{\alpha}$ will encode a covering of the ground model reals satisfying the ‘challenge’ $f_{\alpha}$ . For this argument it is sufficient that only $f_{\alpha}$ from some dominating family appear cofinally often; from the perspective of some intermediate model $V^{\mathbb{P}_{\alpha}}$ , the tail forcing $\mathbb{P}_{\alpha,\kappa^{++}}$ fulfils this criterion. Hence the observation can be extended to the set of reals appearing already in some $V^{\mathbb{P}_{\alpha}}$ ; the following theorem formalizes this.
+
+$V^{\mathbb{P}}\models\forall\alpha<\kappa^{++}:2^{\kappa}\cap V^{\mathbb{P}_{\alpha}}\in\mathcal{SN}.$
+
+Working within $V^{\mathbb{P}}$ , take $\alpha<\kappa^{++}$ and $f\in\kappa^{\kappa}$ . Since $\mathbb{P}$ is $\kappa^{\kappa}$ -bounding by Fact 2.5 , we find an $h\in\kappa^{\kappa}\cap V$ with $f\leq h$ and $\beta>\alpha$ with $f_{\beta}(i)=|2^{h(i)}|$ for all $i<\kappa$ . In $V$ we may construct bijections $c_{\ell}:|2^{\ell}|\to 2^{\ell}$ for $\ell<\kappa$ .
+
+Working now in $V^{\mathbb{P}_{\beta}}$ , define the function $\dot{\sigma}(i)=c_{h(i)}(\dot{s}_{\beta}(i))$ . For $x\in 2^{\kappa}\cap V^{\mathbb{P}_{\alpha}}$ the set 
+ 
+ $D_{x}:=\{p\in\mathbb{Q}_{\beta}:\ \exists i<\kappa:p\Vdash\dot{\sigma}(i)=x{\restriction}h(i)\}$ 
+ is dense; in fact, it is easy to see that for any $p\in\mathbb{Q}_{\beta}$ and $\eta\in\operatorname{split}(p),j=\operatorname{dom}(\eta)$ we have $p^{[\eta^{\frown}c^{-1}_{h(j)}(x{\restriction}h(j))]}\in D_{x}$ . Here $c^{-1}_{h(j)}(x{\restriction}h(j))$ is well-defined, since $2^{<\kappa}\cap V=2^{<\kappa}\cap V^{\mathbb{P}_{\beta}}$ . Hence $(\sigma(i))_{i<\kappa}$ provides the required covering for the challenge $f$ and $2^{\kappa}\cap V^{\mathbb{P}_{\alpha}}\in\mathcal{SN}$ follows. ∎
+
+If $V^{\mathbb{P}}\models X\subseteq 2^{\kappa},|X|\leq\kappa^{+}$ , then by the $\kappa^{++}$ -c.c., $X$ already appears at some intermediate stage $V^{\mathbb{P}_{\alpha}}$ . We thus get one direction of our desired result by the previous theorem.
+
+$V^{\mathbb{P}}\models[2^{\kappa}]^{\leq\kappa^{+}}\subseteq\mathcal{SN}$ .
+
+In order to lift the arguments appearing in [GJS93] , we require additional large cardinal assumptions on $\kappa$ . A priori it is sufficient for our purposes for $\kappa$ to merely be weakly compact, since the only occasion at which a property stronger than inaccessibility is utilized is a crucial invocation of the tree property in Lemma 3.5 . However, the aforementioned lemma is invoked not only in $V$ , but also at intermediate stages $V^{\mathbb{P}_{\alpha}}$ ; it might be the case that weak compactness of $\kappa$ is by that point destroyed.
+
+The following large cardinal property was introduced by Villaveces [Vil98] :
+
+Let $\theta$ be an ordinal. We say an inaccessible cardinal $\kappa$ is $\theta$ - strongly unfoldable iff for all transitive models $M$ of ZF \textsuperscript{-} (ZF without the Power Set Axiom) such that $|M|=\kappa,\kappa\in M$ and ${}^{<\kappa}M\subseteq M$ there exists a transitive model $N$ with $V_{\theta}\cup\{\theta\}\subseteq N$ and an elementary embedding $j:M\to N$ with critical point $\kappa$ and $j(\kappa)\geq\theta$ .
+
+Furthermore, call $\kappa$ strongly unfoldable iff it is $\theta$ -strongly unfoldable for all $\theta$ .
+
+Strongly unfoldable cardinals are weakly compact and are downwards absolute to $L$ [Vil98] . Villaveces also observed that Ramsey cardinals are strongly unfoldable in $L$ (though they may fail to be such in $V$ ). The consistency strength of a strongly unfoldable cardinal thus slots between a weakly compact and Ramsey cardinal, with it being a conservative enough strengthening of weak compactness as to still be consistent with $V=L$ .
+
+Of interest to us is a preservation theorem by Johnstone [Joh08] .
+
+For any $\kappa$ strongly unfoldable there is a forcing extension in which the strong unfoldability of $\kappa$ is indestructible under ${<}\kappa$ -closed, $\kappa$ -proper forcing notions.
+
+We stress that the full strength of strong unfoldability is not used in our proof; we merely require it in order to make the weak compactness of $\kappa$ indestructible by the forcings $\mathbb{P}_{\alpha}$ .
+
+For a strongly unfoldable $\kappa$ , after forcing indestructibility using Johnstone’s theorem, we may collapse a potentially blown up $2^{\kappa}$ back to $\kappa^{+}$ with a ${<}\kappa^{+}$ -closed forcing \footnote{ 4 ${<}\kappa^{+}$ -closed forcings and two-step iterations of $\kappa$ -proper forcings are $\kappa$ -proper.} . Throughout this section we may therefore assume 
+ 
+ $\displaystyle V\models``|2^{\kappa}|=\kappa^{+}+$ the strong unfoldability of $\kappa$ is indestructible 
+ 
+ under ${<}\kappa$ -closed, $\kappa$ -proper forcing notions”. 
+
+
+We now set out to prove $V^{\mathbb{P}}\models\mathcal{SN}\subseteq[2^{\kappa}]^{\leq\kappa^{+}}$ .
+
+The statement of the next two lemmas takes place in $V^{\mathbb{P}_{\alpha}}$ . Recall that $\mathbb{P}_{\alpha,\kappa^{++}}$ denotes the tail forcing.
+
+Let $\alpha<\kappa^{++}$ be an ordinal, $\dot{\tau}$ a $\mathbb{P}_{\alpha,\kappa^{++}}$ -name for a real in $2^{\kappa}$ , $F\in[\kappa^{++}\backslash\alpha]^{<\kappa}$ and $i<\kappa$ . Assume furthermore that $p\in\mathbb{P}_{\alpha,\kappa^{++}}$ forces $\dot{\tau}\notin V^{\mathbb{P}_{\alpha}}$ . Then there exists a $\delta<\kappa$ such that 
+ 
+ $\forall\eta\in 2^{\delta}\,\exists q\leq_{F,i}p:\ q\Vdash_{\mathbb{P}_{\alpha,\kappa^{++}}}\eta\ntriangleleft\dot{\tau}.$ 
+ We will write $\delta_{p,F,i}$ for the least such $\delta$ .
+
+Suppose not. Then we can find $\alpha,\dot{\tau},F,i$ and $p$ with 
+ 
+ $\forall\delta<\kappa\,\exists\eta_{\delta}\in 2^{\delta}:\ \neg(\exists q\leq_{F,i}p:\ q\Vdash\eta\ntriangleleft\dot{\tau}).$ 
+ Set $T:=\{\eta_{\delta}{\restriction}\ell:\ell\leq\delta<\kappa\}$ . By virtue of the preparation of $\kappa$ , 
+ 
+ $V^{\mathbb{P}_{\alpha}}\models\kappa\text{ is weakly compact}$ 
+ and therefore, since $T$ is a ${<}\kappa$ -splitting tree of height $\kappa$ , it has a branch $b^{*}$ in $V^{\mathbb{P}_{\alpha}}$ . Since $p$ forces $\dot{\tau}\notin V^{\mathbb{P}_{\alpha}}$ , there is a $\mathbb{P}_{\alpha,\kappa^{++}}$ -name $\dot{\ell}$ for an ordinal less than $\kappa$ such that $p\Vdash\dot{\tau}{\restriction}\dot{\ell}\neq b^{*}{\restriction}\dot{\ell}$ . As $\mathbb{P}_{\alpha,\kappa^{++}}$ satisfies Property B*, there is a $q\leq_{F,i}p$ and $\ell^{*}<\kappa$ with $q\Vdash\dot{\ell}<\ell^{*}$ .
+
+Since $b^{*}{\restriction}\ell^{*}\in T$ , there is a $\delta\geq\ell^{*}$ such that $b^{*}{\restriction}\ell^{*}=\eta_{\delta}{\restriction}\ell^{*}$ . But this means $q\Vdash\dot{\tau}{\restriction}\ell^{*}\neq\check{\eta}_{\delta}{\restriction}\ell^{*}$ and therefore $q\Vdash\eta_{\delta}\ntriangleleft\dot{\tau}$ , a contradiction. ∎
+
+In the following we refer to pointwise (everywhere) domination $\leq$ and not just the eventually dominating relation. For a ${<}\kappa$ -closed, $\kappa^{\kappa}$ -bounding forcing, the ground model $\kappa$ -reals form a pointwise dominating family.
+
+Let $D\subseteq\kappa^{\kappa}$ be a dominating family. We say that $H$ has index $D$ iff $H=\{h_{f}\colon f\in D\}$ and $\forall i<\kappa\colon h_{f}(i)\in 2^{f(i)}$ .
+
+
+ 
+ $\displaystyle X\in\mathcal{SN}$ $\displaystyle\Leftrightarrow\forall D\,\text{dominating}\,\,\,\exists H\,\text{with index}\,D\colon X\subseteq\bigcap_{f\in D}\bigcup_{\alpha<\kappa}[h_{f}(\alpha)].$ 
+
+
+Let $D\in V$ be a dominating family, $\alpha<\kappa^{++}$ and $H\in V^{\mathbb{P}_{\alpha}}$ have index $D$ . Let furthermore $\dot{\tau}$ be a name for an element of $2^{\kappa}$ with $\Vdash_{\mathbb{P}_{\alpha,\kappa^{++}}}\dot{\tau}\notin V^{\mathbb{P}_{\alpha}}$ . Then we have 
+ 
+ $\Vdash_{\mathbb{P}_{\alpha,\kappa^{++}}}\dot{\tau}\notin\bigcap_{f\in D}\bigcup_{i<\kappa}[h_{f}(i)].$ 
+
+
+We prove the claim with a density argument, let therefore $p\in\mathbb{P}_{\alpha,\kappa^{++}}$ be arbitrary. Working in $V^{\mathbb{P}_{\alpha}}$ , we will construct an increasing sequence $(\delta_{i})_{i<\kappa}$ of ordinals less than $\kappa$ . On the tree 
+ 
+ $T:=\{g\in\prod_{j<i}2^{\delta_{j}}:i<\kappa\}$ 
+ we shall construct a mapping $\mathfrak{q}:T\to\mathbb{P}_{\alpha,\kappa^{++}}$ and a sequence of increasing sets $(F_{i})_{i<\kappa}$ such that whenever $b\in\prod_{j<\kappa}2^{\delta_{j}}$ is a branch of $T$ in $V^{\mathbb{P}_{\alpha}}$ , then 
+ 
+ $\langle\mathfrak{q}(b{\restriction}i),F_{i}:\ i<\kappa\rangle$ 
+ is a fusion sequence below $p$ . Each condition $\mathfrak{q}(g)$ will carry some information about an increasingly long initial segment of $\dot{\tau}$ . More specifically, we will ensure that for all $i<\kappa$ and $g\in\prod_{j<i}2^{\delta_{j}}$ we have 
+ 
+ $\mathfrak{q}(g)\Vdash\forall j<i:\ g(j)\ntriangleleft\dot{\tau}.$ 
+
+
+We define $\mathfrak{q}(g)$ for $g\in\prod_{j<i}2^{\delta_{j}}$ by induction in $i$ .
+
+• $i=0$ : Set $\mathfrak{q}(\emptyset):=p$ and $F_{0}:=\emptyset$ . • $i\to i+1$ : Assume $\mathfrak{q}(g)$ is defined for every $g\in\prod_{j<i}2^{\delta_{j}}$ . Using Lemma 3.5 we can define $\delta_{i}:=\sup\Big{(}\{\delta_{\mathfrak{q}(g),F_{i},i}:g\in\prod_{j<i}2^{\delta_{j}}\}\cup\{\delta_{j}+1:j<i\}\Big{)}$ and for every $g\in\prod_{j<i}2^{\delta_{j}},\eta_{i}\in 2^{\delta_{i}}$ find a condition $\mathfrak{q}(g^{\frown}\eta_{i})\leq_{F_{i},i}\mathfrak{q}(g)$ with 
+ 
+ $\mathfrak{q}(g^{\frown}\eta_{i})\Vdash\eta_{i}\ntriangleleft\dot{\tau}.$ 
+ Now since $\mathfrak{q}(g^{\frown}\eta_{i})\leq\mathfrak{q}(g)$ , we also have 
+ 
+ $\mathfrak{q}(g^{\frown}\eta_{i})\Vdash\forall j<i:\ g(j)\ntriangleleft\dot{\tau}.$ 
+ Use a bookkeeping argument to define $F_{i+1}$ . • $\lambda<\kappa$ is a limit: By construction, for every $g\in\prod_{j<\lambda}2^{\delta_{j}}$ the sequence $(\mathfrak{q}(g{\restriction}j))_{j<\lambda}$ is a fusion sequence. Set $\mathfrak{q}(g)$ to be a fusion limit of said sequence and $F_{\lambda}:=\bigcup_{j<\lambda}F_{j}$ . Note that we have 
+ 
+ $\mathfrak{q}(g)\Vdash\forall j<\lambda:\ g(j)\ntriangleleft\dot{\tau}.$
+
+This concludes the construction of $\mathfrak{q}$ . Let now $f\in D$ dominate the function $i\mapsto\delta_{i}$ and set $\eta_{i}:=h_{f}(i){\restriction}\delta_{i}$ . Now $(\mathfrak{q}(g_{i}))_{i<\kappa}$ with $g_{i}=(\eta_{j})_{j<i}$ is a fusion sequence and has a fusion limit $q_{\kappa}$ . It follows that 
+ 
+ $q_{\kappa}\Vdash\eta_{i}\ntriangleleft\dot{\tau}$ 
+ for each $i<\kappa$ and therefore $q_{\kappa}\Vdash\dot{\tau}\notin\bigcap_{f\in D}\bigcup_{i<\kappa}[h_{f}(i)]$ . Thus the set of conditions that force $\dot{\tau}\notin\bigcap_{f\in D}\bigcup_{i<\kappa}[h_{f}(i)]$ is dense in $\mathbb{P}_{\alpha,\kappa^{++}}$ . ∎
+
+We see that every intermediate model $V^{\mathbb{P}_{\alpha}}$ believes that a set $X\subseteq 2^{\kappa}$ which contains a real appearing in a later model will never be strong measure zero with respect to any test conducted in $V^{\mathbb{P}_{\alpha}}$ . This essentially gives us our theorem.
+
+$V^{\mathbb{P}}\models\mathcal{SN}=[2^{\kappa}]^{\leq\kappa^{+}}$ .
+
+Since we already saw one inclusion in Theorem 3.2 , it suffices to show $V^{\mathbb{P}}\models\mathcal{SN}\subseteq[2^{\kappa}]^{\leq\kappa^{+}}$ . Let now $X\in V^{\mathbb{P}}$ be of size $\kappa^{++}$ and $D$ be a dominating family in $V^{\mathbb{P}}$ which lies in $V$ . We will show that there is no $H\in V^{\mathbb{P}}$ with index $D$ such that 
+ 
+ $X\subseteq\bigcap_{f\in D}\bigcup_{i<\kappa}[h_{f}(i)],$ 
+ hence $X$ is not strong measure zero by Fact 3.7 . Towards a contradiction, assume such an $H$ exists. Note that since $D$ is in $V$ , the set $H$ can have cardinality at most $\kappa^{+}$ ; since $\mathbb{P}$ fulfils the $\kappa^{++}$ -c.c., we know $H$ must already appear in some intermediate model $V^{\mathbb{P}_{\alpha}}$ . But $|X|=\kappa^{++}$ , thus there must be an $x\in X$ with $x\notin V^{\mathbb{P}_{\alpha}}$ .
+
+Working in $V^{\mathbb{P_{\alpha}}}$ , let $\dot{x}$ and $\dot{X}$ be $\mathbb{P}_{\alpha,\kappa^{++}}$ -names for $x$ and $X$ , respectively, so that we have 
+ 
+ $\Vdash_{\mathbb{P}_{\alpha,\kappa^{++}}}\dot{x}\in\dot{X}\wedge\dot{x}\notin V^{\mathbb{P}_{\alpha}}.$ 
+ Then by Lemma 3.8 we have 
+ 
+ $\Vdash_{\mathbb{P}_{\alpha,\kappa^{++}}}\dot{x}\notin\bigcap_{f\in D}\bigcup_{i<\kappa}[h_{f}(i)],$ 
+ and thus $X\nsubseteq\bigcap_{f\in D}\bigcup_{i<\kappa}[h_{f}(i)]$ in $V^{\mathbb{P}}$ , a contradiction. ∎
+
+4 Coding of Continuous Functions
+
+For the reader’s convenience we collect some selected facts about the coding of continuous functions that are going to find use in the next section.
+
+Throughout this section, every tree $T$ is assumed to be a tree on $2^{<\kappa}$ .
+
+Let $T$ be a tree and $(T_{\eta})_{\eta\in 2^{<\kappa}}$ a family of trees. Then $\langle T,(T_{\eta})_{\eta\in 2^{<\kappa}}\rangle$ is a code for a continuous function (or just code ) iff 1. if $\eta_{1}\lhd\eta_{2}$ , then $[T_{\eta_{2}}]\subseteq[T_{\eta_{1}}]$ 2. if $\eta_{1}\perp\eta_{2}$ , then $[T_{\eta_{1}}]\cap[T_{\eta_{2}}]=\emptyset$ 3. $\bigcup_{\eta\in 2^{i}}[T_{\eta}]=[T]$ for each $i<\kappa$ .
+
+If $\mathcal{P}$ is a ${<}\kappa$ -closed forcing notion, then $\mathbf{\Sigma}^{1}_{1}(\kappa)$ properties (i.e. analytic properties in the sense of the projective hierarchy on $\kappa^{\kappa}$ ) are absolute between $V$ and $V^{\mathcal{P}}$ .
+
+See [FKK16] . ∎
+
+Let $\langle T,(T_{\eta})_{\eta\in 2^{<\kappa}}\rangle$ be a code. Then there exists a unique continuous function $g_{\langle T,(T_{\eta})_{\eta\in 2^{<\kappa}}\rangle}:[T]\to 2^{\kappa}$ such that 
+ 
+ $g_{\langle T,(T_{\eta})_{\eta\in 2^{<\kappa}}\rangle}^{-1}([\eta])=[T_{\eta}]$ 
+ for all $\eta\in 2^{<\kappa}$ .
+
+If we set $g(y):=\bigcup\{\eta\in 2^{<\kappa}:y\in[T_{\eta}]\}$ , then it is easy to see that $g:[T]\to 2^{\kappa}$ is a well-defined continuous function and $g^{-1}([\eta])=[T_{\eta}]$ for all $\eta\in 2^{<\kappa}$ . Since $([\eta])_{\eta\in 2^{<\kappa}}$ forms a clopen basis of $2^{\kappa}$ , uniqueness is given. ∎
+
+On the other hand, if $g:Y\to 2^{\kappa}$ is a continuous function where $Y\subseteq 2^{\kappa}$ is closed, then $\langle T,(T_{\eta})_{\eta\in 2^{<\kappa}}\rangle$ is a code for $g$ , where $T$ and the $T_{\eta}$ ’s are trees with $[T]=Y$ and $[T_{\eta}]=g^{-1}([\eta])$ .
+
+For codes $c,c^{\prime}$ define $c\preccurlyeq c^{\prime}:\Leftrightarrow g_{c}\subseteq g_{c^{\prime}}$ .
+
+Clearly $\preccurlyeq$ is reflexive and transitive.
+
+A function $g:Y\to Z$ with $Y,Z\subseteq 2^{\kappa}$ is uniformly continuous iff 
+ 
+ $\forall i<\kappa\,\exists j(i)<\kappa\,\forall x\in Y:\ g^{\prime\prime}([x{\restriction}j(i)]\cap Y)\subseteq[g(x){\restriction}i]\cap Z.$ 
+ The map $i\mapsto j(i)$ is the modulus of continuity of $g$ .
+
+The following statements are $\mathbf{\Pi}_{1}^{1}(\kappa)$ and therefore absolute for ${<}\kappa$ -closed forcing extensions: • $c$ is a code for a continuous function • “ $[T]=[T^{\prime}]$ ” for trees $T,T^{\prime}$ • “ $c\preccurlyeq c^{\prime}$ ” for codes $c,c^{\prime}$ • “ $g_{c}$ is a total function” for a code $c$ • “ $\operatorname{ran}(g_{c})\subseteq[T]$ ” for a code $c$ and a tree $T$ • “ $g_{c}$ is uniformly continuous with modulus of continuity $i\mapsto j(i)$ ” for a code $c$
+
+Let now $Y\subseteq 2^{\kappa}$ be closed and $g:Y\to 2^{\kappa}$ be continuous. The above thus yields a method to continuously and uniquely extend $g$ to $\tilde{g}:Y^{(V^{\mathcal{P}})}\to(2^{\kappa})^{(V^{\mathcal{P}})}$ \footnote{ 5 Here $Y^{(V^{\mathcal{P}})}$ is defined as $[T]^{(V^{\mathcal{P}})}$ for a ground model tree $T$ with $[T]=Y$ . By the above fact, this definition does not depend on the choice of $T$ .} for a ${<}\kappa$ -closed forcing $\mathcal{P}$ . To do so, choose a code $c$ for $g$ and evaluate it in $V^{\mathcal{P}}$ . It is easy to prove that $\tilde{g}=(g_{c})^{V^{\mathcal{P}}}$ is an extension of $g$ ; also observe that $\tilde{g}$ is independent of the chosen code $c$ , since the statement $c\preccurlyeq c^{\prime}$ is absolute by the above fact. Furthermore, we note that $\tilde{g}$ is the unique continuous extension of $g$ , since $Y$ is dense in $Y^{V^{\mathcal{P}}}$ .
+
+In the future we will not be making a notational distinction between $g$ and $\tilde{g}$ .
+
+5 Second Proof
+
+In this section we will construct a model in which every $X\subseteq 2^{\kappa}$ of size $|2^{\kappa}|$ can be uniformly continuously mapped onto $2^{\kappa}$ . The construction closely follows Corazza’s approach [Cor89] .
+
+We will consider the same forcing iteration $\langle\mathbb{P}_{\alpha},\dot{\mathbb{Q}}_{\beta}:\alpha\leq\kappa^{++},\beta<\kappa^{++}\rangle$ with ${\leq}\kappa$ -support as in the previous section. Additionally, we also choose $\dot{\mathbb{Q}}_{\alpha}$ to be $\kappa$ -Sacks forcing (i.e. $f_{\alpha}\equiv 2$ ) for $\alpha=0$ and for $\alpha$ with cofinality $\kappa^{+}$ . We still assume $V\models|2^{\kappa}|=\kappa^{+}$ , but $\kappa$ is only required to be inaccessible this time.
+
+Since the forcing iteration is identical to the one in the previous section, Theorem 3.2 holds and thus 
+ 
+ $V^{\mathbb{P}}\models[2^{\kappa}]^{\leq\kappa^{+}}\subseteq\mathcal{SN}.$ 
+
+
+The other direction of the proof hinges on a technical lemma.
+
+Let $p\in\mathbb{P},F\in[\kappa^{++}]^{<\kappa},i<\kappa$ , $Y\in[2^{\kappa}]^{<\kappa}$ and a $\mathbb{P}$ -name $\dot{\tau}$ be given such that $p$ forces $\dot{\tau}\in 2^{\kappa}$ and $\dot{\tau}\notin V$ . Then we may find an $X\in[2^{\kappa}]^{<\kappa}$ and a sequence $(q_{j})_{j<\kappa}$ of conditions below $p$ such that • $\forall j_{1}<j_{2}<\kappa:\ q_{j_{2}}\leq_{F,i}q_{j_{1}}\leq_{F,i}p$ , • $\forall j<\kappa:\ q_{j}\Vdash\exists x\in\check{X}:\ \dot{\tau}{\restriction}j=x{\restriction}j$ and • $X\cap Y=\emptyset$ .
+
+If necessary, we may strengthen $p$ twice in the following manner: • Firstly, since $|Y|<\kappa$ and $p\Vdash\dot{\tau}\notin\check{Y}$ , we may find a name $\dot{\ell}$ for an ordinal less than $\kappa$ such that 
+ 
+ $p\Vdash\forall y\in\check{Y}:\ \dot{\tau}{\restriction}\dot{\ell}\neq y{\restriction}\dot{\ell}.$ 
+ Property B* enables us to find a $p^{\prime}\leq_{F,i}p$ and $\ell^{*}<\kappa$ with 
+ 
+ $\forall y\in Y:p^{\prime}\Vdash\ \dot{\tau}{\restriction}\ell^{*}\neq y{\restriction}\ell^{*}$ 
+ by restricting a maximal antichain deciding $\dot{\ell}$ . • Secondly, we can find a $p^{\prime\prime}\leq_{F,i}p^{\prime}$ that is $(F,i)$ -bounded (see Definition 2.15 ).
+
+So without loss of generality assume that $p$ already has both these properties. We construct the sequence $(q_{j})_{j<\kappa}$ inductively: • $j=0$ : Set $q_{0}:=p$ . • $j\to j+1$ : Since 
+ 
+ $D_{j+1}:=\{r\leq q_{j}:r\text{ decides }\dot{\tau}{\restriction}(j+1)\}$ 
+ is open dense below $q_{j}$ , we may apply Lemma 2.22 to $q_{j},F,i$ and $D_{j+1}$ \footnote{ 6 $q_{j}$ is $(F,i)$ -bounded by Fact 2.16 .} to get $q_{j+1}$ and $(s_{g}^{j+1})_{g\in C_{j+1}}$ such that $q_{j+1}$ is $(D_{j+1},F,i)$ -complete as witnessed by $(s_{g}^{j+1})_{g\in C_{j+1}}$ . Note that we have $q_{j+1}\leq_{F,i}q_{j}\leq_{F,i}p$ . • $\delta$ is a limit: Find a $\leq_{F,i}$ -lower bound $\tilde{q}_{\delta}$ of $(q_{\ell})_{\ell<\delta}$ . Just as in the successor step, apply Lemma 2.22 to $\tilde{q_{\delta}},F,i$ and 
+ 
+ $D_{\delta}:=\{r\leq\tilde{q_{\delta}}:r\text{ decides }\dot{\tau}{\restriction}\delta\}$ 
+ to get $q_{\delta}$ and $(s_{g}^{\delta})_{g\in C_{\delta}}$ .
+
+By Lemma 2.19 we know that $(C_{j})_{j<\kappa}$ is a decreasing sequence of non-empty sets of size less than $\kappa$ ; as such, the sequence is eventually constant. Let $j^{*}$ be the index at which this happens.
+
+Now define 
+ 
+ $X:=\{x\in 2^{\kappa}:\exists g\in C_{j^{*}}\,\forall j<\kappa:\ s_{g}^{j}\Vdash\dot{\tau}{\restriction}j=x{\restriction}j\}$ 
+
+
+For $g\in C_{j^{*}}$ the sequence $(s_{g}^{j})_{j<\kappa}$ is decreasing by Lemma 2.19 . Hence each $g\in C_{j^{*}}$ successfully interprets $\dot{\tau}$ as some unique $x\in X$ , i.e. 
+ 
+ $\forall g\in C_{j^{*}}\,\exists!\,x\in X\,\forall j<\kappa:\ s_{g}^{j}\Vdash\dot{\tau}{\restriction}j=x{\restriction}j.$ 
+ Since $\forall y\in Y:\ p\Vdash\dot{\tau}{\restriction}\ell^{*}\neq y{\restriction}\ell^{*}$ , we know that $X\cap Y=\emptyset$ .
+
+Suppose now that $j\geq j^{*}$ and $r\leq q_{j}$ . Then $r$ is compatible with $s_{g}^{j}$ for some $g\in C_{j}=C_{j^{*}}$ and we can find a $t\leq r,s_{g}^{j}$ . But then $\exists x\in X:\ t\Vdash\dot{\tau}{\restriction}j=x{\restriction}j$ , so we can conclude 
+ 
+ $q_{j}\Vdash\exists x\in\check{X}:\ \dot{\tau}{\restriction}j=x{\restriction}j.$ 
+
+
+Since $|Y|<\kappa$ , we may for each $j<j^{*}$ pick an arbitrary $x_{j}\in[\sigma_{j}]\backslash Y$ , where 
+ 
+ $q_{j}\Vdash\dot{\tau}{\restriction}j=\check{\sigma}_{j}$ 
+ and add those $x_{j}$ to $X$ , thereby ensuring that 
+ 
+ $q_{j}\Vdash\exists x\in\check{X}:\ \dot{\tau}{\restriction}j=x{\restriction}j$ 
+ holds for $j<j^{*}$ as well. ∎
+
+We are now preparing to show that every new real $\dot{\tau}^{G}\in V^{\mathbb{P}}$ can be mapped onto the first Sacks real $\dot{s}_{0}$ via a uniformly continuous ground model function. In what follows we shall slightly abuse notation; for $p\in\mathbb{P}$ and a node $\eta\in p(0)$ denote by $p^{[\eta]}$ the condition that satisfies $p^{[\eta]}(0)=p(0)^{[\eta]}$ and $p^{[\eta]}(\beta)=p(\beta)$ for $\beta>0$ .
+
+Let $p\in\mathbb{P},F\in[\kappa^{++}]^{<\kappa}$ and $i,\ell<\kappa$ . Let furthermore a $\mathbb{P}$ -name $\dot{\tau}$ be given such that $p$ forces $\dot{\tau}\in 2^{\kappa}$ and $\dot{\tau}\notin V$ . Then we can find a $q\leq_{F,i}p$ , an $\ell^{*}>\ell$ and a family $(A_{\eta})_{\eta\in\operatorname{split}_{i}(p(0))}$ of non-empty, clopen sets with • if $\eta_{1}\neq\eta_{2}$ , then $A_{\eta_{1}}\cap A_{\eta_{2}}=\emptyset$ , • $A_{\eta}=\bigcup_{\nu\in S_{\eta}}[\nu]$ for some $S_{\eta}\subseteq 2^{\ell^{*}}$ and • $q^{[\eta]}\Vdash\dot{\tau}\in A_{\eta}$ .
+
+Enumerate $\operatorname{split}_{i}(p(0))$ as $(\eta_{k})_{k<\delta}$ with $\delta<\kappa$ . We inductively construct sequences $((t_{j}^{k})_{j<\kappa})_{k<\delta}$ and a sequence of sets $(X_{k})_{k<\delta}$ : assuming that $X_{m}$ has been constructed for $m<k$ , apply Lemma 5.1 to $p^{[\eta_{k}]}$ and $Y:=\bigcup_{m<k}X_{m}$ to get a sequence of conditions $(t_{j}^{k})_{j<\kappa}$ and a set $X_{k}$ .
+
+Now let $\ell^{*}>\ell$ be an ordinal large enough such that whenever $j_{1}\neq j_{2}$ for $j_{1},j_{2}<\delta$ and $x_{1}\in X_{j_{1}},x_{2}\in X_{j_{2}}$ then $x_{1}{\restriction}\ell^{*}\neq x_{2}{\restriction}\ell^{*}$ . This is possible, since the $(X_{k})_{k<\delta}$ are disjoint and of size less than $\kappa$ . This allows us to define 
+ 
+ $A_{\eta_{k}}:=\bigcup_{x\in X_{k}}[x{\restriction}\ell^{*}].$ 
+
+
+Now we glue the conditions $t^{k}_{\ell^{*}}$ together in the following way: Set 
+ 
+ $q(0):=\bigcup_{k<\delta}t^{k}_{\ell^{*}}(0)$ 
+ and for $\beta>0$ define $q(\beta)$ inductively; assuming $q{\restriction}\beta$ has been defined, set 
+ 
+ $q(\beta):=t^{\dot{k}}_{\ell^{*}}(\beta),\text{ where $\dot{k}$ is the unique ordinal less than $\delta$ such that $t^{\dot{k}}_{\ell^{*}}{\restriction}\beta\in\dot{G}_{\beta}$}.$ 
+ Note that $(t_{\ell^{*}}^{k}{\restriction}\beta)_{k<\delta}$ is a maximal antichain below $q{\restriction}\beta$ . For limit $\beta$ observe that $\operatorname{supp}(q{\restriction}\beta)\subseteq\bigcup_{k<\delta}\operatorname{supp}(t^{k}_{\ell^{*}}{\restriction}\beta)$ . By Lemma 5.1 we know that $t_{\ell^{*}}^{k}\leq_{F,i}p^{[\eta_{k}]}$ for each $k<\delta$ , and since $\operatorname{split}_{i}(p(0))=\{\eta_{k}:k<\delta\}$ , we can inductively conclude $q{\restriction}\beta\leq_{F\cap\beta,i}p{\restriction}\beta$ for all $\beta\leq\kappa^{++}$ .
+
+To see the last claim, only note that $q^{[\eta]}=t_{\ell^{*}}^{k}$ for some $k<\delta$ , therefore by Lemma 5.1 we have $t_{\ell^{*}}^{k}\Vdash\exists x\in\check{X_{k}}:\ \dot{\tau}{\restriction}\ell^{*}=x{\restriction}\ell^{*}$ and thus 
+ 
+ $q^{[\eta]}\Vdash\dot{\tau}\in A_{\eta}$ 
+ by definition of $A_{\eta}$ . ∎
+
+Without loss of generality, we may choose the $A_{\eta}$ in the previous lemma to be minimal in the following sense: for each $\nu\in 2^{\ell^{*}}$ we have $\nu\in S_{\eta}$ iff there exists a condition $r\leq q^{[\eta]}$ such that $r\Vdash\dot{\tau}\in[\nu]$ .
+
+Let $p\in\mathbb{P}$ and a $\mathbb{P}$ -name $\dot{\tau}$ be given such that $p$ forces $\dot{\tau}\in 2^{\kappa}$ and $\dot{\tau}\notin V$ . Then there exists a $q\leq p$ , a sequence $(\ell^{*}(i))_{i<\kappa}$ and a family $(A_{\eta})_{\eta\in\operatorname{split}(q(0))}$ such that $A_{\eta}\subseteq 2^{\kappa}$ are non-empty, clopen and: • if $\eta_{1}\lhd\eta_{2}$ , then $A_{\eta_{2}}\subseteq A_{\eta_{1}}$ , • if $\eta_{1}\perp\eta_{2}$ , then $A_{\eta_{1}}\cap A_{\eta_{2}}=\emptyset$ , • if $\eta\in\operatorname{split}_{i}(q(0))$ , then $A_{\eta}=\bigcup_{\nu\in S_{\eta}}[\nu]$ for some $S_{\eta}\subseteq 2^{\ell^{*}(i)}$ and • $q^{[\eta]}\Vdash\dot{\tau}\in A_{\eta}$ .
+
+We shall construct a fusion sequence $\langle q_{i},F_{i}:i<\kappa\rangle$ and a strictly increasing sequence $(\ell^{*}(i))_{i<\kappa}$ of ordinals less than $\kappa$ such that $q_{i+1}$ has the required properties for $(A_{\eta})_{\eta\in\operatorname{split}_{i}(q_{i}(0))}$ . • $i=0$ : Set $q_{0}:=p$ and $F_{0}:=\{0\}$ . • $i\to i+1$ : Applying Lemma 5.2 to $q_{i},F_{i},i$ and $\sup_{j<i}\ell^{*}(j)$ yields a $\tilde{q}\leq_{F_{i},i}q_{i}$ , an ordinal $\ell^{*}(i)$ and a family $(A^{i}_{\eta})_{\eta\in\operatorname{split}_{i}(q_{i}(0))}$ . Set $q_{i+1}:=\tilde{q}$ . Define $F_{i+1}$ with a bookkeeping argument. • $\delta$ is a limit: Set $q_{\delta}$ to a fusion limit of $\langle q_{j},F_{j}:j<\delta\rangle$ and $F_{\delta}:=\bigcup_{j<\delta}F_{j}$ .
+
+Let now $q_{\kappa}$ be a fusion limit of the sequence $\langle q_{i},F_{i}:i<\kappa\rangle$ and for $\eta\in\operatorname{split}(q_{\kappa}(0))$ define 
+ 
+ $A_{\eta}:=A_{\eta}^{i(\eta)},$ 
+ where $i(\eta)$ is the unique $i$ with $\eta\in\operatorname{split}_{i}(q_{\kappa}(0))=\operatorname{split}_{i}(q_{i}(0))$ . We claim $q_{\kappa}$ has the properties we are looking for: • The third property holds by Lemma 5.2 . • If we assume the $A_{\eta}^{i(\eta)}$ have been chosen minimal in each step as in Remark 5.3 , then the first property holds. To see this, take $\nu\lhd\eta$ and $\eta^{\prime}\in S_{\eta}$ , where $S_{\eta}$ is as stated in Lemma 5.2 . By Remark 5.3 there is a condition $r\leq q_{i(\eta)+1}^{[\eta]}$ such that $r\Vdash\dot{\tau}\in[\eta^{\prime}]$ . But then $r\leq q_{i(\eta)+1}^{[\eta]}\leq q_{i(\nu)+1}^{[\nu]}$ , and thus $\eta^{\prime}{\restriction}\ell^{*}(i(\nu))\in S_{\nu}$ . Hence $A_{\eta}\subseteq A_{\nu}$ . • For the second property, let $\eta,\nu\in\operatorname{split}(q_{\kappa}(0))$ with $\eta\perp\nu$ be given. Without loss of generality assume $i(\nu)\leq i(\eta)$ and find an $\eta^{\prime}$ with $\eta^{\prime}\lhd\eta$ and $\eta^{\prime}\in\operatorname{split}_{i(\nu)}(q_{\kappa}(0))$ ; by incompatibility we have $\eta^{\prime}\neq\nu$ . By the first property we have $A_{\eta}\subseteq A_{\eta^{\prime}}$ and Lemma 5.2 yields $A_{\eta^{\prime}}\cap A_{\nu}=\emptyset$ . • To see the fourth property, let $\eta\in\operatorname{split}(q_{\kappa}(0))$ . Then we have $q_{\kappa}^{[\eta]}\leq q_{i(\eta)+1}^{[\eta]}$ and therefore 
+ 
+ $q_{\kappa}^{[\eta]}\Vdash\dot{\tau}\in A_{\eta},$ 
+ as desired. ∎
+
+The following lemma substitutes in for Tietze’s Extension Theorem from the countable case in [Cor89] . Recall the notion of superclosure (page •‣Notation and Basic Definitions ) and uniform continuity (Definition 4.5 ).
+
+Let $Y,Z\subseteq 2^{\kappa}$ , where $Y$ is closed and $Z$ is superclosed, and let $g:Y\to Z$ be uniformly continuous. Then $g$ can be extended to a uniformly continuous function $\tilde{g}:2^{\kappa}\to Z$ with the same modulus of continuity as $g$ .
+
+The open set $2^{\kappa}\backslash Y$ can be be written as a union of basic open sets $\bigcup_{i<\delta}[\nu_{i}]$ with $\delta\leq\kappa,\nu_{i}\in 2^{\lambda_{i}}$ such that the $\nu_{i}$ are minimal, i.e. 
+ 
+ $\forall j<\lambda_{i}:\ [\nu_{i}{\restriction}j]\cap Y\neq\emptyset.$ 
+ In particular the sets $[\nu_{i}]$ are pairwise disjoint. We will define $\tilde{g}$ to extend $g$ and to be constant on each $[\nu_{i}]$ .
+
+For $i<\delta$ define 
+ 
+ $S(i):=\{\eta\in 2^{<\kappa}:\exists j<\lambda_{i}:g^{\prime\prime}([\nu_{i}{\restriction}j]\cap Y)\subseteq[\eta]\cap Z\}.$ 
+ Clearly $S(i)$ consists of pairwise $\lhd$ -compatible elements; furthermore, for each $\eta\in S(i)$ we have $[\eta]\cap Z\neq\emptyset$ . Since $Z$ is superclosed \footnote{ 7 If $|S(i)|=\kappa$ , then $[\bigcup S(i)]$ is not defined, so work with $\{\bigcup S(i)\}$ instead.} , we have $Z\cap[\bigcup S(i)]\neq\emptyset$ . We may thus set $\tilde{g}{\restriction}[\nu_{i}]$ to be constant with an arbitrary, fixed value from $Z\cap[\bigcup S(i)]$ .
+
+It remains to check that $\tilde{g}:2^{\kappa}\to Z$ is uniformly continuous with the same modulus of continuity as $g$ . To this end, let $i<\kappa$ and $x\in 2^{\kappa}$ . Consider $y\in[x{\restriction}j(i)]$ . • If $x\in Y$ , the interesting case is $y\notin Y$ , hence $y\in[\nu_{\ell}]$ for some $\ell<\delta$ . But then $j(i)<\lambda_{\ell}$ and 
+ 
+ $g^{\prime\prime}([x{\restriction}j(i)]\cap Y)\subseteq[g(x){\restriction}i]\cap Z,$ 
+ hence by definition $g(x){\restriction}i\in S(\ell)$ and thus $\tilde{g}(y)\in[\bigcup S(\ell)]\cap Z\subseteq[\tilde{g}(x){\restriction}i]\cap Z$ . • On the other hand, if $x\notin Y$ , then $x$ is in $[\nu_{k}]$ for some $k<\delta$ . Now one possibility is $[x{\restriction}j(i)]\cap Y=\emptyset$ , in which case $j(i)\geq\lambda_{k}$ and $\tilde{g}$ is constant on $[x{\restriction}j(i)]$ , therefore $\tilde{g}(y)=\tilde{g}(x)\in[\tilde{g}(x){\restriction}i]\cap Z$ . The other possibility is $[x{\restriction}j(i)]\cap Y\neq\emptyset$ and thus $j(i)<\lambda_{k}$ , and there once again are two cases to be distinguished: – If $y\in Y$ , then $g(y){\restriction}i\in S(k)$ and thus 
+ 
+ $\tilde{g}(y)=g(y)\in[g(y){\restriction}i]\cap Z=[\tilde{g}(x){\restriction}i]\cap Z.$ – On the other hand, if $y\notin Y$ , then $y\in[\nu_{\ell}]$ for some $\ell<\delta$ . Since $[y{\restriction}j(i)]\cap Y=[x{\restriction}j(i)]\cap Y\neq\emptyset$ , we can also conclude $j(i)<\lambda_{\ell}$ . This means that $S(k)\cap S(\ell)$ contains an $\eta$ with $\operatorname{dom}(\eta)=i$ (namely $g(x^{\prime}){\restriction}i$ for some $x^{\prime}\in[x{\restriction}j(i)]\cap Y$ ) and thus $\tilde{g}(y)\in[\eta]\cap Z=[\tilde{g}(x){\restriction}i]\cap Z$ . ∎
+
+A natural question the inquisitive reader might pose is the validity of Lemma 5.5 in case of the additional “artificial” assumption of superclosure being dropped. Indeed, the statement no longer holds; in [LS15] the authors observe, for instance, that the closed subset $Y$ of $2^{\kappa}$ consisting of all sequences with finitely many zeroes is not a retract of $2^{\kappa}$ (and thus the identity $Y\to Y$ cannot be extended to a continuous function on $2^{\kappa}$ ).
+
+Let $p\in\mathbb{P}$ force $\dot{\tau}\in 2^{\kappa}$ and $\dot{\tau}\notin V$ . Then there exists a $q\leq p$ and a uniformly continuous function $f^{*}:2^{\kappa}\to[q(0)]$ in $V$ such that 
+ 
+ $q\Vdash f^{*}(\dot{\tau})=\dot{s}_{0},$ 
+ where $\dot{s}_{0}$ denotes the first Sacks real.
+
+Lemma 5.4 yields a condition $q\leq p$ , a sequence $(\ell^{*}(i))_{i<\kappa}$ and a family $(A_{\eta})_{\eta\in\operatorname{split}(q(0))}$ of clopen sets. This family codes \footnote{ 8 If we define $A^{\prime}_{\eta}:=\begin{cases}A_{\nu},\text{ where }\nu=\min\{\rho\in\operatorname{split}(q(0)):\eta\lhd\rho\}&\text{ for }\eta\in q(0)\\
+\emptyset&\text{ for }\eta\notin q(0)\end{cases}$ and set $c:=\langle T,(T_{\eta})_{\eta\in 2^{<\kappa}}\rangle$ , where $[T]=Y$ and $[T_{\eta}]=A^{\prime}_{\eta}\cap Y$ , then it can be seen that $c$ is a code for a continuous function; to avoid abuse of notation, we could also be working with $c$ at this point instead.} a continuous function 
+ 
+ $\displaystyle f:Y\to[q(0)]$ 
+ 
+ $\displaystyle y\mapsto\bigcup\{\eta:y\in A_{\eta}\}$ 
+ defined on the closed set $Y=\bigcap_{i<\kappa}\bigcup_{\eta\in\operatorname{split}_{i}(q(0))}A_{\eta}$ \footnote{ 9 Note that the ${<}\kappa$ -box topology is closed under intersections of size less than $\kappa$ .} .
+
+We claim that $f$ is in fact uniformly continuous. To see this, let $i<\kappa$ and $x\in Y$ . Choose $\eta$ such that $x\in A_{\eta}$ and $\eta\in\operatorname{split}_{i}(q(0))$ . Recall that $A_{\eta}$ is of the form (see Lemma 5.4 ) 
+ 
+ $A_{\eta}=\bigcup_{\nu\in S_{\eta}}[\nu].$ 
+ with $S_{\eta}\subseteq 2^{\ell^{*}(i)}$ . Therefore we have 
+ 
+ $f^{\prime\prime}([x{\restriction}\ell^{*}(i)])\subseteq[\eta]\subseteq[f(x){\restriction}i],$ 
+ since $i\leq\operatorname{dom}(\eta)$ .
+
+Since the set $[q(0)]$ is superclosed, we can apply Lemma 5.5 and extend $f$ to a uniformly continuous function $f^{*}:2^{\kappa}\to[q(0)]$ . Lastly, we have 
+ 
+ $q^{[\eta]}\Vdash\dot{\tau}\in A_{\eta}\subseteq(f^{*})^{-1}([\eta])$ 
+ for each $\eta\in\operatorname{split}(q(0))$ and thus 
+ 
+ $q\Vdash f^{*}(\dot{\tau})=\dot{s}_{0}.$ 
+ ∎
+
+As in the classical case, every $\kappa$ -Sacks condition can be decomposed into $|2^{\kappa}|$ many $\kappa$ -Sacks conditions in a continuous way. The last auxiliary result we require formalizes this:
+
+Let $p\in\mathbb{P}$ be a condition. Then there exists a uniformly continuous $g^{*}:[p(0)]\to 2^{\kappa}$ \footnote{ 10 Recall that $p(0)\subseteq 2^{<\kappa}$ .} and for each $x\in 2^{\kappa}\cap V$ a condition $q_{x}\leq p$ such that 
+ 
+ $q_{x}\Vdash\check{x}=g^{*}(\dot{s}_{0}).$ 
+
+
+First we construct a function $e=(e_{1},e_{2}):p(0)\to 2^{<\kappa}\times 2^{<\kappa}$ with the following properties: • $e$ is continuous and monotone increasing • $e(\emptyset)=(\emptyset,\emptyset)$ • if $\eta\notin\operatorname{split}(p(0))$ , then $e(\eta^{\frown}i)=e(\eta)$ • if $\eta\in\operatorname{split}_{j}(p(0))$ and – $j$ is a successor, then $e(\eta^{\frown}i)=(e_{1}(\eta)^{\frown}i,e_{2}(\eta))$ – $j=0$ or $j$ is a limit, then $e(\eta^{\frown}i)=(e_{1}(\eta),e_{2}(\eta)^{\frown}i)$ . Define $\hat{g}=(\hat{g}_{1},\hat{g}_{2}):[p(0)]\to 2^{\kappa}\times 2^{\kappa}$ as $\hat{g}_{k}(b)=\bigcup\{e_{k}(b{\restriction}i):i<\kappa\}$ for $k=1,2$ . Since $[p(0)]$ is perfect, $\hat{g}$ is well-defined. Moreover, $\hat{g}$ maps the clopen basis $([\eta])_{\eta\in\operatorname{split}(p(0))}$ to a clopen basis of $2^{\kappa}\times 2^{\kappa}$ , hence it is a homeomorphism.
+
+For $x\in 2^{\kappa}$ now set $q_{x}(0):=\{\eta\in 2^{<\kappa}:\ \exists y\in\hat{g}^{-1}(\{x\}\times 2^{\kappa}):\ \eta\lhd y\}$ and $q_{x}(\beta)=p(\beta)$ for $\beta>0$ . We claim that $q_{x}$ is a condition; it is sufficient to check that $q_{x}(0)$ is. We check (S2) , (S5) and (S6) ; the rest is left as an exercise for the reader.
+
+• (S2) : Since $\hat{g}$ is a homeomorphism, it follows that $\hat{g}^{-1}\left(\{x\}\times 2^{\kappa}\right)$ is a perfect set. • (S5) : Let $\left(\eta_{j}\right)_{j<\delta}$ with $\eta_{j}\in q_{x}(0)$ be a strictly increasing sequence of length $\delta<\kappa$ . Set $\eta:=\bigcup_{j<\delta}\eta_{j}$ . It easily follows that $\nu\in q_{x}(0)\Leftrightarrow x\in[e_{1}(\nu)]$ for all $\nu\in 2^{<\kappa}$ . As $e_{1}(\eta)=\bigcup\{e_{1}(\eta_{j}):j<\delta\}$ we see that $x\in[e_{1}(\eta)]$ , hence $\eta\in q_{x}(0)$ . • (S6) : Let $(\eta_{j})_{j<\delta}$ be a strictly increasing sequence of length less than $\kappa$ such that $\eta_{j}\in\operatorname{split}(q_{x}(0))$ . Again, set $\eta:=\bigcup_{j<\delta}\eta_{j}$ . It follows that $\eta\in\operatorname{split}_{\lambda}(p(0))$ for some limit $\lambda$ . But as $x\in[e_{1}(\eta)]$ and $e_{1}(\eta)=e_{1}(\eta^{\frown}i)$ , we have $\eta^{\frown}i\in q_{x}(0)$ for $i=0,1$ , hence $\eta\in\operatorname{split}(q_{x}(0))$ .
+
+Clearly $q_{x}\leq p$ . Now set $g^{*}:=\hat{g}_{1}$ . Then $g^{*}$ is uniformly continuous with modulus of continuity 
+ 
+ $i\mapsto j(i):=\sup\{\operatorname{dom}(\nu)+1:\nu\in\operatorname{split}_{i+1}(p(0))\}.$ 
+ Finally, we have $q_{x}\Vdash\check{x}=g^{*}(\dot{s}_{0})$ by the definition of $q_{x}(0)$ and the absoluteness (see Fact 4.6 ) of the statement 
+ 
+ $\operatorname{ran}(g^{*}\restriction[q_{x}(0)])\subseteq\{x\}.\qed$ 
+
+
+In $V^{\mathbb{P}}$ , every subset $X$ of $2^{\kappa}$ of size $\kappa^{++}$ can be uniformly continuously mapped onto $2^{\kappa}$ .
+
+Assume that $\dot{X}$ is a $\mathbb{P}$ -name for a subset of $2^{\kappa}$ such that 
+ 
+ $\Vdash_{\mathbb{P}}\forall h\text{ uniformly continuous function }\exists y\in 2^{\kappa}:\ y\notin h^{\prime\prime}\dot{X}.$ 
+ We will show $\exists\alpha^{*}<\kappa^{++}:\ \Vdash_{\mathbb{P}}\dot{X}\subseteq V^{\mathbb{P}_{\alpha^{*}}}$ , thus $\Vdash_{\mathbb{P}}|\dot{X}|\leq\kappa^{+}$ .
+
+By our assumption on $\dot{X}$ and $\mathbb{P}$ satisfying the $\kappa^{++}$ -c.c. we get 
+ 
+ $\displaystyle\forall\alpha<\kappa^{++}\,\forall$ $\displaystyle\dot{h}\text{ $\mathbb{P}_{\alpha}$-name for a uniformly continuous function }$ 
+ 
+ $\displaystyle\exists$ $\displaystyle\beta<\kappa^{++},\beta\geq\alpha\,\exists y\text{ $\mathbb{P}_{\beta}$-name for a real}:\ \Vdash_{\mathbb{P}}\dot{y}\notin\dot{h}^{\prime\prime}\dot{X}.$ 
+ To increase legibility, let the ellipsis $(\dots)$ denote the four quantifications in the above statement. By interpreting the name $\dot{X}$ partially in the intermediate model $V^{\mathbb{P}_{\beta}}$ , i.e. by identifying $\dot{X}$ with a canonical $\mathbb{P}_{\beta}$ -name for a $\mathbb{P}_{\beta,\kappa^{++}}$ -name, we get 
+ 
+ $(\dots):\ \Vdash_{\mathbb{P}_{\beta}}\Vdash_{\mathbb{P}_{\beta,\kappa^{++}}}\dot{y}\notin\dot{h}^{\prime\prime}\dot{X}.$ 
+ Keep in mind that $\dot{y},\dot{h}$ are both $\mathbb{P}_{\beta}$ -names, since $\beta\geq\alpha$ .
+
+Without loss of generality assume that the function $\alpha\mapsto\beta(\alpha)$ maps to the minimal $\beta$ for which the statement holds. Observe that, crucially, since every continuous function $h:2^{\kappa}\to 2^{\kappa}$ can be coded by an element of $2^{\kappa}$ (see Section 4 ), no new functions of the kind appear at stages of cofinality $>\kappa$ (Lemma 2.31 ). Therefore we can easily find a fixed point of the function $\alpha\mapsto\beta(\alpha)$ with cofinality $\kappa^{+}$ ; call it $\alpha^{*}$ . For $\alpha^{*}$ we thus know that 
+ 
+ $V^{\mathbb{P}_{\alpha^{*}}}\models\forall h\text{ uniformly continuous function }\exists y\in 2^{\kappa}:\ \Vdash_{\mathbb{P}_{\alpha^{*},\kappa^{++}}}\check{y}\notin h^{\prime\prime}\dot{X}.$ 
+ For the remainder of this proof we will be working within $V^{\mathbb{P}_{\alpha^{*}}}$ . We wish to show $\Vdash_{\mathbb{P}_{\alpha^{*},\kappa^{++}}}\dot{X}\subseteq V^{\mathbb{\mathbb{P}_{\alpha^{*}}}}$ .
+
+Let thus $p\in\mathbb{P}_{\alpha^{*},\kappa^{++}}$ and $\dot{\tau}$ be a $\mathbb{P}_{\alpha^{*},\kappa^{++}}$ -name such that $p$ forces $\dot{\tau}\in 2^{\kappa}$ and $\dot{\tau}\notin V^{\mathbb{P}_{\alpha^{*}}}$ . Theorem 5.6 applied within $V^{\mathbb{P}_{\alpha^{*}}}$ (recall that the tail iteration $\mathbb{P}_{\alpha*,\kappa^{++}}$ has the same structure as the full iteration) yields a $q\leq p$ and a uniformly continuous function $f^{*}:2^{\kappa}\to[q(0)]$ such that $q\Vdash_{\mathbb{P}_{\alpha^{*},\kappa^{++}}}f^{*}(\dot{\tau})=\dot{s_{0}}$ . Likewise, Lemma 5.7 applied to $q$ gives us a uniformly continuous function $g^{*}:[q(0)]\to 2^{\kappa}$ and conditions $(q_{x})_{x\in 2^{\kappa}\cap V^{\mathbb{P}_{\alpha^{*}}}}$ with $q_{x}\Vdash_{\mathbb{P}_{\alpha^{*},\kappa^{++}}}\check{x}=g^{*}(\dot{s_{0}})$ .
+
+Now let $x\in 2^{\kappa}\cap V^{\mathbb{P}_{\alpha^{*}}}$ be arbitrary. By construction we have $q_{x}\Vdash\check{x}=(g^{*}\circ f^{*})(\dot{\tau})$ . For the uniformly continuous function $(g^{*}\circ f^{*}):2^{\kappa}\to 2^{\kappa}$ we can by our assumption on $\alpha^{*}$ find a $y\in 2^{\kappa}\cap V^{\mathbb{P}_{\alpha^{*}}}$ with $\Vdash_{\mathbb{P}_{\alpha^{*},\kappa^{++}}}\check{y}\notin(g^{*}\circ f^{*})^{\prime\prime}\dot{X}$ . The condition $q_{y}$ thus forces $\dot{\tau}\notin\dot{X}$ . Since $p$ and $\dot{\tau}$ were arbitrary, we may conclude 
+ 
+ $\Vdash_{\mathbb{P}_{\alpha^{*},\kappa^{++}}}\dot{X}\subseteq V^{\mathbb{\mathbb{P}_{\alpha^{*}}}}.$ 
+ Thus we have shown $V\models\ \Vdash_{\mathbb{P}_{\alpha^{*}}}\Vdash_{\mathbb{P}_{\alpha^{*},\kappa^{++}}}\dot{X}\subseteq V^{\mathbb{\mathbb{P}_{\alpha^{*}}}}$ , which finishes the proof. ∎
+
+It is easy to see that the uniformly continuous image of a strong measure zero set remains strong measure zero; thus we have shown 
+ 
+ $V^{\mathbb{P}}\models\mathcal{SN}\subseteq[2^{\kappa}]^{\leq\kappa^{+}}.$ 
+
+
+$V^{\mathbb{P}}\models\mathcal{SN}=[2^{\kappa}]^{\leq\kappa^{+}}$ .
+
+6 Stationary Strong Measure Zero
+
+Finally, let us take a look at the following definition, introduced by Halko [Hal96] :
+
+A set $X\subseteq 2^{\kappa}$ is called stationary strong measure zero iff 
+ 
+ $\forall f\in\kappa^{\kappa}\,\exists(\eta_{i})_{i<\kappa}:\ (\forall i<\kappa:\ \eta_{i}\in 2^{f(i)})\wedge X\subseteq\bigcap_{cl\subseteq\kappa\text{ club}}\ \bigcup_{i\in cl}[\eta_{i}].$ 
+
+
+So a set $X$ is stationary strong measure zero iff we can find coverings that cover every point of $X$ stationarily often. To motivate why this definition might be of interest, observe that even for regular strong measure zero sets, we can always find coverings that cover each point at least unboundedly often:
+
+Let $X\subseteq 2^{\kappa}$ be strong measure zero. Then 
+ 
+ $\forall f\in\kappa^{\kappa}:\ \exists(\eta_{i})_{i<\kappa}:\ (\forall i<\kappa:\ \eta_{i}\in 2^{f(i)})\wedge X\subseteq\bigcap_{j<\kappa}\bigcup_{i\geq j}[\eta_{i}].$ 
+
+
+Partition $\kappa$ into sets $(U_{i})_{i<\kappa}$ , where each $U_{i}$ has size $\kappa$ . For a challenge $f\in\kappa^{\kappa}$ and every $i<\kappa$ we can find coverings $(\eta_{j}^{i})_{j\in U_{i}}$ that satisfy the challenge $(f(j))_{j\in U_{i}}$ . But now $(\eta_{j}^{i})_{j\in U_{i},i<\kappa}$ has the property we are looking for. ∎
+
+Let $\mathcal{P}$ be a $\kappa^{\kappa}$ -bounding forcing notion and $cl\in V^{\mathcal{P}}$ a club subset of $\kappa$ . Then there is a club $cl^{\prime}\in V$ with $cl^{\prime}\subseteq cl$ .
+
+In $V^{\mathcal{P}}$ , let $h\in\kappa^{\kappa}$ enumerate $cl$ and $g\in\kappa^{\kappa}\cap V$ dominate $h$ ; note that $h$ is a continuous function. Define the functions 
+ 
+ $\displaystyle g^{\prime}(0)=g(0),\ g^{\prime}(\alpha+1)=g(g^{\prime}(\alpha))\text{ and }g^{\prime}(\lambda)=\sup_{i<\lambda}g^{\prime}(i)\text{ for limit }\lambda$ 
+ 
+ $\displaystyle h^{\prime}(0)=h(0),\ h^{\prime}(\alpha+1)=h(g^{\prime}(\alpha))\text{ and }h^{\prime}(\lambda)=\sup_{i<\lambda}h^{\prime}(i)\text{ for limit }\lambda.$ 
+ Let $\lambda$ be a limit. Then since $h^{\prime}(\alpha)\leq g^{\prime}(\alpha)$ and $g^{\prime}(\alpha)\leq h^{\prime}(\alpha+1)$ , we have $h^{\prime}(\lambda)=g^{\prime}(\lambda)$ ; furthermore we know $h^{\prime}(\lambda)\in cl$ and $g\in V$ , hence $(g^{\prime}(\lambda))_{\lambda<\kappa,\lambda\text{ limit}}$ is a ground model club contained in $cl$ . ∎
+
+In the Corazza-type model from Section 5 , the notions of strong measure zero and stationary strong measure zero coincide.
+
+$V^{\mathbb{P}}\models\forall X\subseteq 2^{\kappa}:\ X\in\mathcal{SN}\Leftrightarrow X\text{ is stationary strong measure zero}$ .
+
+Modify the argument in Theorem 3.1 to show 
+ 
+ $V^{\mathbb{P}}\models\forall\alpha<\kappa^{++}:2^{\kappa}\cap V^{\mathbb{P}_{\alpha}}\text{ is stationary strong measure zero}$ 
+ by instead showing the set 
+ 
+ $D_{x,cl}:=\{p\in\mathbb{Q}_{\beta}:\exists i\in cl:\ p\Vdash\dot{\sigma}(i)=x{\restriction}h(i)\}$ 
+ to be dense for every $x\in V^{\mathbb{P}_{\alpha}}$ and every ground model club $cl\subseteq\kappa$ , where $\dot{\sigma}$ is as defined in Theorem 3.1 . As every club $cl\in V^{\mathbb{P}}$ contains a ground model club $cl^{\prime}$ by Lemma 6.3 , this is sufficient. To see that $D_{x,cl}$ is dense, merely note that for any $p\in\mathbb{Q}_{\beta}$ and $b\in[p]\cap V^{\mathbb{P}_{\beta}}$ , the set 
+ 
+ $\{j<\kappa:b{\restriction}j\in\operatorname{split}(p)\}$ 
+ is a club and thus intersects $cl$ . ∎
+
+On the other hand, it follows from $|2^{\kappa}|=\kappa^{+}$ that there is a strong measure zero set which is not stationary strong measure zero.
+
+Under $|2^{\kappa}|=\kappa^{+}$ there exists an $X\in\mathcal{SN}$ that is not stationary strong measure zero.
+
+First off, let us enumerate all strictly increasing functions in $\kappa^{\kappa}$ as $(f_{\alpha})_{\alpha<\kappa^{+}}$ and likewise enumerate the set 
+ 
+ $\mathcal{S}:=\{\sigma\in(2^{<\kappa})^{\kappa}:\forall i<\kappa:\ \operatorname{dom}(\sigma(i))=i+1\}$ 
+ as $(\sigma_{\alpha})_{\alpha<\kappa^{+}}$ .
+
+We shall inductively construct three sequences $(x_{\alpha})_{\alpha<\kappa^{+}}$ , $(\tau_{\alpha})_{\alpha<\kappa^{+}}$ and $(cl_{\alpha})_{\alpha<\kappa^{+}}$ with the following properties: a) $\forall\alpha<\kappa^{+}:\ x_{\alpha}\in 2^{\kappa},\tau_{\alpha}\in(2^{<\kappa})^{\kappa}$ and $cl_{\alpha}$ is a club subset of $\kappa$ b) $\forall\alpha<\kappa^{+}\,\forall i<\kappa:\ \operatorname{dom}(\tau_{\alpha}(i))=f_{\alpha}(i)$ c) $\forall\alpha<\kappa^{+}\,\forall i<\kappa:\ \bigcup_{j\geq i}[\tau_{\alpha}(j)]$ is open dense d) $\forall\alpha<\kappa^{+}\,\forall\beta\leq\alpha:\ x_{\beta}\in\bigcup_{i<\kappa}[\tau_{\alpha}(i)]$ e) $\forall\beta<\kappa^{+}\,\forall\alpha<\beta:\ x_{\beta}\in\bigcup_{i<\kappa}[\tau_{\alpha}(i)]$ f) $\forall\alpha<\kappa^{+}:\ x_{\alpha}\notin\bigcup_{i\in cl_{\alpha}}[\sigma_{\alpha}(i)]$
+
+Setting $X=\{x_{\alpha}:\alpha<\kappa^{+}\}$ yields a strong measure zero set (by b , d and e ). However, $X$ is not stationary strong measure zero, since for the challenge $g:i\mapsto i+1$ property f ensures 
+ 
+ $\forall\sigma\in\mathcal{S}\,\exists x\in X\,\exists cl\text{ club }:\ x\notin\bigcup_{i\in cl}[\sigma(i)].$ 
+
+
+Suppose now, inductively, that $(x_{\alpha})_{\alpha<\gamma}$ , $(\tau_{\alpha})_{\alpha<\gamma}$ and $(cl_{\alpha})_{\alpha<\gamma}$ have been constructed for $\gamma<\kappa^{+}$ . We wish to define $x_{\gamma},\tau_{\gamma}$ and $cl_{\gamma}$ . To this end, reindex $(x_{\alpha})_{\alpha<\gamma}$ and $(\tau_{\alpha})_{\alpha<\gamma}$ as $(\tilde{x}_{i+1})_{i<\kappa}$ , $(\tilde{\tau}_{i+1})_{i<\kappa}$ \footnote{ 11 If $\gamma<\kappa$ , use some $x$ and $\tau$ multiple times. For $\gamma=0$ pick $x_{0}$ and $cl_{0}$ arbitrarily such that $x_{0}\notin\bigcup_{i\in cl_{0}}[\sigma_{0}(i)]$ .} and inductively construct $x_{\gamma}$ and $cl_{\gamma}$ by building up partial approximations $x_{\gamma}^{j}$ and $cl_{\gamma}^{j}$ for $j<\kappa$ . Here $x_{\gamma}^{j}$ will be a binary sequence of length at least $j+1$ .
+
+• $j=0$ : Set $cl_{\gamma}^{0}:=0$ and $x_{\gamma}^{0}:=\langle 1-\sigma_{\gamma}(0)(0)\rangle$ . • $j\to j+1$ : Since by assumption $\ell\mapsto\operatorname{dom}(\tilde{\tau}_{j+1}(\ell))$ is strictly increasing and $\bigcup_{\ell^{\prime}\geq\ell}[\tilde{\tau}_{j+1}(\ell^{\prime})]$ is open dense for all $\ell<\kappa$ , we can find an $\ell^{*}>cl_{\gamma}^{j}$ with $x_{\gamma}^{j}\lhd\tilde{\tau}_{j+1}(\ell^{*})$ . Set $cl_{\gamma}^{j+1}:=\operatorname{dom}(\tilde{\tau}_{j+1}(\ell^{*}))$ and $x_{\gamma}^{j+1}:=\tilde{\tau}_{j+1}(\ell^{*})^{\frown}(1-\sigma_{\gamma}(cl_{\gamma}^{j+1})(cl_{\gamma}^{j+1}))$ . • $\lambda$ is a limit: Set $cl_{\gamma}^{\lambda}:=\sup_{j<\lambda}cl_{\gamma}^{j}$ and $x_{\gamma}^{\lambda}:=(\bigcup_{j<\lambda}x_{\gamma}^{j})^{\frown}(1-\sigma_{\gamma}(cl_{\gamma}^{\lambda})(cl_{\gamma}^{\lambda}))$ .
+
+Now set $x_{\gamma}:=\bigcup\{x_{\gamma}^{j}:j<\kappa\}$ and $cl_{\gamma}:=\{cl_{\gamma}^{j}:j<\kappa\}$ . In the construction we have ensured $x_{\gamma}\notin\bigcup_{j\in cl_{\gamma}}[\sigma_{\gamma}(j)]$ and $x_{\gamma}\in\bigcup_{j<\kappa}[\tilde{\tau}_{i+1}(j)]$ for all $i<\kappa$ . Finally, it is elementary to construct $\tau_{\gamma}$ such that b , c and d holds. ∎
+
+References
+
+[BJ95] Tomek Bartoszyński and Haim Judah “Set theory” On the structure of the real line A K Peters, Ltd., Wellesley, MA, 1995, pp. xii+546
+[BGS21] Thomas Baumhauer, Martin Goldstern and Saharon Shelah “The higher Cichoń diagram” InFund. Math.252.3, 2021, pp. 241–314 DOI:10.4064/fm666-4-2020
+[Bor19] Émile Borel “Sur la classification des ensembles de mesure nulle” InBull. Soc. Math. France47, 1919, pp. 97–125 URL:http://www.numdam.org/item?id=BSMF_1919__47__97_0
+[Cor89] Paul Corazza “The generalized Borel conjecture and strongly proper orders” InTrans. Amer. Math. Soc.316.1, 1989, pp. 115–140 DOI:10.2307/2001276
+[FHZ13] Sy-David Friedman, Radek Honzik and Lyubomyr Zdomskyy “Fusion and large cardinal preservation” InAnn. Pure Appl. Logic164.12, 2013, pp. 1247–1273 DOI:10.1016/j.apal.2013.06.011
+[FHK14] Sy-David Friedman, Tapani Hyttinen and Vadim Kulikov “Generalized descriptive set theory and classification theory” InMem. Amer. Math. Soc.230.1081, 2014, pp. vi+80
+[FKK16] Sy David Friedman, Yurii Khomskii and Vadim Kulikov “Regularity properties on the generalized reals” InAnn. Pure Appl. Logic167.4, 2016, pp. 408–430 DOI:10.1016/j.apal.2016.01.001
+[GJS93] Martin Goldstern, Haim Judah and Saharon Shelah “Strong measure zero sets without Cohen reals” InJ. Symbolic Logic58.4, 1993, pp. 1323–1341 DOI:10.2307/2275146
+[Gol+14] Martin Goldstern, Jakob Kellner, Saharon Shelah and Wolfgang Wohofsky “Borel conjecture and dual Borel conjecture” InTrans. Amer. Math. Soc.366.1, 2014, pp. 245–307 DOI:10.1090/S0002-9947-2013-05783-2
+[Hal96] Aapo Halko “Negligible subsets of the generalized Baire spaceω1ω1subscriptsuperscript𝜔subscript𝜔11\omega^{\omega_{1}}_{1}” InAnn. Acad. Sci. Fenn. Math. Diss., 1996, pp. 38
+[HS01] Aapo Halko and Saharon Shelah “On strong measure zero subsets of2κ{}^{\kappa}2” InFund. Math.170.3, 2001, pp. 219–229 DOI:10.4064/fm170-3-1
+[Jec03] Thomas Jech “Set theory” The third millennium edition, revised and expanded, Springer Monographs in Mathematics Springer-Verlag, Berlin, 2003
+[Joh08] Thomas A. Johnstone “Strongly unfoldable cardinals made indestructible” InJ. Symbolic Logic73.4, 2008, pp. 1215–1248 DOI:10.2178/jsl/1230396915
+[JSW90] Haim Judah, Saharon Shelah and W.. Woodin “The Borel conjecture” InAnn. Pure Appl. Logic50.3, 1990, pp. 255–269 DOI:10.1016/0168-0072(90)90058-A
+[Kan80] Akihiro Kanamori “Perfect-set forcing for uncountable cardinals” InAnn. Math. Logic19.1-2, 1980, pp. 97–114 DOI:10.1016/0003-4843(80)90021-2
+[Kho+23] Yurii Khomskii, Marlene Koelbing, Giorgio Laguzzi and Wolfgang Wohofsky “Laver trees in the generalized Baire space” InIsr. J. Math.255.2, 2023, pp. 599–620 DOI:10.1007/s11856-022-2465-5
+[Kho+16] Yurii Khomskii, Giorgio Laguzzi, Benedikt Löwe and Ilya Sharankou “Questions on generalised Baire spaces” InMLQ Math. Log. Q.62.4-5, 2016, pp. 439–456 DOI:10.1002/malq.201600051
+[Lav76] Richard Laver “On the consistency of Borel’s conjecture” InActa Math.137.3-4, 1976, pp. 151–169 DOI:10.1007/BF02392416
+[LS15] Philipp Lücke and Philipp Schlicht “Continuous images of closed sets in generalized Baire spaces” InIsrael J. Math.209.1, 2015, pp. 421–461 DOI:10.1007/s11856-015-1224-2
+[Mil83] Arnold W. Miller “Mapping a set of reals onto the reals” InJ. Symbolic Logic48.3, 1983, pp. 575–584 DOI:10.2307/2273449
+[Ros18] Andrzej Roslanowski “Explicit example of collapsingκ+superscript𝜅\kappa^{+}in iteration ofκ𝜅\kappa-proper forcings” arXiv, 2018 DOI:10.48550/ARXIV.1808.01636
+[RS13] Andrzej Rosłanowski and Saharon Shelah “More aboutλ𝜆\lambda-support iterations of(<λ)absent𝜆(<\lambda)-complete forcing notions” InArch. Math. Logic52.5-6, 2013, pp. 603–629 DOI:10.1007/s00153-013-0334-y
+[She98] Saharon Shelah “Proper and improper forcing”, Perspectives in Mathematical Logic Springer-Verlag, Berlin, 1998, pp. xlviii+1020 DOI:10.1007/978-3-662-12831-2
+[Sie28] Wacław Sierpiński “Sur une ensemble non dénombrable, dont toute image continue est de mesure nulle.” InFundam. Math.11, 1928, pp. 302–304 DOI:10.4064/fm-11-1-302-303
+[Vil98] Andrés Villaveces “Chains of end elementary extensions of models of set theory” InJ. Symbolic Logic63.3, 1998, pp. 1116–1136 DOI:10.2307/2586730

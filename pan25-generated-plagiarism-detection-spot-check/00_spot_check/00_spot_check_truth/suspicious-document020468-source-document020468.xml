@@ -1,0 +1,26 @@
+<document reference="suspicious-document020468.txt">
+  <feature name="about" authors="A. Lazarian and D. Pogosyan and Alejandro Esquivel" title="Quest for HI Turbulence Statistics: New Techniques" lang="en" similarity="0.9910" severity="medium" prompt_tokens="6833" output_tokens="4424"/>
+  <feature name="md5Hash" value="71b6f195e96802e46077043f4b886129"/>
+  <feature name="plagiarism" type="llm_prompted" llm="DeepSeek-R1" this_language="en" this_offset="117" this_length="1465" source_reference="source-document020468.txt" obfuscation="simple" source_offset="82" source_length="1677"/>
+  <feature name="plagiarism" type="llm_prompted" llm="DeepSeek-R1" this_language="en" this_offset="1601" this_length="883" source_reference="source-document020468.txt" obfuscation="simple" source_offset="9300" source_length="868"/>
+  <feature name="plagiarism" type="llm_prompted" llm="DeepSeek-R1" this_language="en" this_offset="2486" this_length="1194" source_reference="source-document020468.txt" obfuscation="medium" source_offset="4705" source_length="1204"/>
+  <feature name="plagiarism" type="llm_prompted" llm="DeepSeek-R1" this_language="en" this_offset="3682" this_length="294" source_reference="source-document020468.txt" obfuscation="simple" source_offset="6246" source_length="275"/>
+  <feature name="plagiarism" type="llm_prompted" llm="DeepSeek-R1" this_language="en" this_offset="3978" this_length="379" source_reference="source-document020468.txt" obfuscation="medium" source_offset="5911" source_length="333"/>
+  <feature name="plagiarism" type="llm_prompted" llm="DeepSeek-R1" this_language="en" this_offset="4359" this_length="1178" source_reference="source-document020468.txt" obfuscation="simple" source_offset="3699" source_length="1004"/>
+  <feature name="plagiarism" type="llm_prompted" llm="DeepSeek-R1" this_language="en" this_offset="6028" this_length="460" source_reference="source-document020468.txt" obfuscation="medium" source_offset="16494" source_length="248"/>
+  <feature name="plagiarism" type="llm_prompted" llm="DeepSeek-R1" this_language="en" this_offset="6490" this_length="2482" source_reference="source-document020468.txt" obfuscation="simple" source_offset="18654" source_length="3573"/>
+  <feature name="plagiarism" type="llm_prompted" llm="DeepSeek-R1" this_language="en" this_offset="8974" this_length="462" source_reference="source-document020468.txt" obfuscation="simple" source_offset="12720" source_length="470"/>
+  <feature name="plagiarism" type="llm_prompted" llm="DeepSeek-R1" this_language="en" this_offset="9438" this_length="496" source_reference="source-document020468.txt" obfuscation="simple" source_offset="17104" source_length="442"/>
+  <feature name="plagiarism" type="llm_prompted" llm="DeepSeek-R1" this_language="en" this_offset="9936" this_length="287" source_reference="source-document020468.txt" obfuscation="simple" source_offset="68687" source_length="286"/>
+  <feature name="plagiarism" type="llm_prompted" llm="DeepSeek-R1" this_language="en" this_offset="10225" this_length="630" source_reference="source-document020468.txt" obfuscation="simple" source_offset="28747" source_length="529"/>
+  <feature name="plagiarism" type="llm_prompted" llm="DeepSeek-R1" this_language="en" this_offset="13084" this_length="334" source_reference="source-document020468.txt" obfuscation="simple" source_offset="38621" source_length="298"/>
+  <feature name="plagiarism" type="llm_prompted" llm="DeepSeek-R1" this_language="en" this_offset="13420" this_length="1878" source_reference="source-document020468.txt" obfuscation="simple" source_offset="36696" source_length="1923"/>
+  <feature name="plagiarism" type="llm_prompted" llm="DeepSeek-R1" this_language="en" this_offset="15300" this_length="1733" source_reference="source-document020468.txt" obfuscation="simple" source_offset="29760" source_length="1911"/>
+  <feature name="plagiarism" type="llm_prompted" llm="DeepSeek-R1" this_language="en" this_offset="17035" this_length="937" source_reference="source-document020468.txt" obfuscation="medium" source_offset="38921" source_length="937"/>
+  <feature name="altered" type="llm_prompted" llm="DeepSeek-R1" this_language="en" this_offset="17974" this_length="301"/>
+  <feature name="altered" type="llm_prompted" llm="DeepSeek-R1" this_language="en" this_offset="18313" this_length="253"/>
+  <feature name="plagiarism" type="llm_prompted" llm="DeepSeek-R1" this_language="en" this_offset="19181" this_length="653" source_reference="source-document020468.txt" obfuscation="medium" source_offset="63121" source_length="446"/>
+  <feature name="plagiarism" type="llm_prompted" llm="DeepSeek-R1" this_language="en" this_offset="19836" this_length="237" source_reference="source-document020468.txt" obfuscation="hard" source_offset="68975" source_length="152"/>
+  <feature name="plagiarism" type="llm_prompted" llm="DeepSeek-R1" this_language="en" this_offset="20075" this_length="772" source_reference="source-document020468.txt" obfuscation="simple" source_offset="45253" source_length="804"/>
+  <feature name="plagiarism" type="llm_prompted" llm="DeepSeek-R1" this_language="en" this_offset="20861" this_length="1308" source_reference="source-document020468.txt" obfuscation="simple" source_offset="7853" source_length="1424"/>
+</document>

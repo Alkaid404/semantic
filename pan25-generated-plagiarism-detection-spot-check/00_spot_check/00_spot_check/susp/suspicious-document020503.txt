@@ -1,0 +1,783 @@
+Some Probabilistic Properties of General Topological Markov Chains
+
+By Eduardo A. Silva and Elis G. Mesquita and Edgar Matias
+
+Abstract
+
+In this paper, we utilize the framework of Markov processes to attain a more probabilistic perspective on the theory of transfer operators. In doing so, we establish a functional central limit theorem (FLCT) for an $O(N)$ model associated with Dyson potential on the one-dimensional lattice. We also proof a FLCT on a non-compact alphabet setting, for a model associated with a Dyson type potential on the one-dimensional lattice. A Breimann ergodic theorem for equilibrium measures arising from the Ruelle Operator Formalism is proved. Furthermore, we obtain a qualitative criterion (strong transitivity) to determine when the conformal measure has full support. As an application, we show how to connect the Ruelle operator framework with the perspective of the Hopf theory of Markov Processes.
+
+1. introduction
+
+The classical Thermodynamic Formalism has its start in the seminal paper of David Ruelle [Rue68] on the one-dimensional lattice gas model and further developed for subshifts of finite type, i.e, some suitable subsets of $\Sigma=\{1,\ldots,k\}$ .
+
+Since then, the theory has been widely developed in several ways, particularly in considering alphabets beyond the finite ones. Restricting ourselves to works that consider countable alphabets, we can cite for instance, [Sar01a] , where a Thermodynamic Formalism theory is developed for countable alphabets.
+
+From the viewpoint of Statistical Mechanics it is also of interest to consider shift spaces being more general spaces, such as products of compact metric alphabets or even standard Borel spaces. A Thermodynamic Formalism for these types of alphabets has been extensively developed, we cite for example [BCL+11] . In [BCL+11] a Ruelle operator formalism was developed for the alphabet $E=\mathbb{S}^{1}$ , extending the classical theory to the $XY$ model and in a subsequent work [LMMS15] extended for general compact metric alphabets. In the work [CMRS21] the transfer operator framework is used to describe an $O(N)$ model (see [Geo11] ). The relation between the Gibbs measures on the one-dimensional lattice obtained through Ruelle operators and Gibbs measures in the Dobrushin-Lanford-Ruelle (DLR) sense is established in [CLS20] for compact alphabets (in the lattice $\mathbb{Z}$ this equivalence is false, see [BEvELN18] ).
+
+More recently in [CSS19] a thermodynamic formalism for alphabets being standard Borel spaces (non necessarily compact) is developed. Additionally, it is worth mentioning the work [LMSV21] where a highly non trivial application of transfer operators framework in general state space is performed to obtain fully supported ergodic measures for a class of Linear Dynamics in Banach spaces(whose fibers are not compact).
+
+Roughly speaking, one of the principal aspects behind the transfer operator method is based on utilizing functional analysis techniques (such as Kato’s perturbation theory, Tychonov-Schauder theorem, Brower fixed point theorem, Arzelà-Ascoli theorem, etc.) to establish statistical properties of Markov processes that arise from the theories of dynamical systems and statistical mechanics, in fact see [Rue68] for classical references and [BT07] for more recently ones. Our goal in this paper is to take the opposite approach, using the framework of Markov processes to gain a more probabilistic perspective on the theory of transfer operators. In doing so, we aim to establish a more natural connection with the literature of Stochastic Processes.
+
+In this work, we will continue to focus on general alphabets, particularly the non-compact ones. Motivated by the framework introduced by [Klo20] we will express the Ruelle operator as an integral against a probability kernel. A bit more precisely, if $T:X\to X$ measurable map and $\mathsf{M}=(m_{x})_{x\in X}$ is the transition probability kernel arising from a walk on the pre-images $T^{-1}(x)$ , given a bounded continuous potential $f$ we define the transfer operator of $\mathsf{M}$ with respect to $f$ by 
+ 
+ (1)  $\mathscr{L}_{\mathsf{M},f}\varphi(x)=\int_{X}e^{f(y)}\varphi(y)\;dm_{x}(y).$ 
+
+
+We find this description of transfer operators (especially those originating from dynamical systems theory) to be very auspicious and insightful.
+
+A brief description of the paper organization and main results.
+
+In this section, we present the fundamental concepts and framework of the paper.
+
+In Section 3 the notion of irreducible Feller process is introduced. We show that every conformal measure (see [DU91] ) arising from a irreducible Feller process is fully supported. By relating this notion of irreducibility with a strong form of transitivity we show that every conformal measure $\nu$ of a hypercyclic backward weighted shift is fully supported. As an outcome we are able to extend the Ruelle operator for the backward weighted shift (introduced in [LMSV21] ) to $L^{p}(\nu)$ . This is a new result and it opens up possibilities for the study of Linear Dynamics from the point of view of the Hopf theory of Markov Processes , see [Hop54] and [CMRS21] .
+
+In this section, as an immediate consequence of viewing the transfer operator as a transition probability kernel we get, using a Furstenbeg’s result (see [Fur63] ), the validity of a Breimann Ergodic theorem. By carefully analysis of Furstenberg’s proof, we see that his result works even in presence of more than one stationary measures.
+
+This section is devoted to proof a Functional Central Limit theorem for some long-range statistical mechanics models on the one-dimensional lattice.
+
+Most commonly in the transfer operator scenario people when want to prove a CLT falls back on Nagaev-Guivarc’h method. Nevertheless that method pass by to find a suitable subspace where the transfer operator restricted to it will be a quasi-compact , which is in general the difficult part.
+
+Here we will follow the method presented in [BL88] , where presence of spectral gap is not required. It consists in to find a solution of the Poisson equation , $(I-P)\upsilon=\phi.$ Above $P$ represents the extension of the Ruelle operator to $L^{2}(\mu)$ , and $\mu$ is the equilibrium measure (fixed point of the transfer operator) of the model in consideration.
+
+In Section 5.5 we consider the $O(N)$ model, $N\geqslant 2,$ whose the fibers are the compact space $E=\mathbb{S}^{N-1}$ , associated to a long-range Dyson type potential , $f(x)=\sum_{n=1}^{\infty}\dfrac{\langle x_{1},x_{n+1}\rangle}{n^{2+\varepsilon}},$ where $\langle x_{1},x_{n+1}\rangle$ means the inner product of $\mathbb{R}^{n}$ . The approach that we use is close to the presented in [CMRS21] . By using Theorem 4.1 of [Klo20] we show, in a suitable space (potentials with logarithmic modulus of continuity), a polynomial decay of correlation for this model. We use that feature to construct a solution of the Poisson equation and ensure a validity of a FCLT to this model.
+
+To achieve this task we need to extend some notions and results of [Klo20] , to contemplate uncountable alphabets, see Section 5.4 .
+
+In Section 5.6 we extend (under some boundedness condition) the main result of [Klo20] to the  non-compact setting. This constitutes a non-trivial extension of Theorem 3.1 of [CSS19] . Utilizing the aforementioned generalization in the non-compact setting, we employ the same strategy mentioned earlier to establish a Functional Central Limit Theorem (FCLT) for an adapted Dyson-type model.
+
+Section 2
+
+In this section, we present the fundamental concepts and framework of the paper.
+
+Section 3
+
+In Section 3 the notion of irreducible Feller process is introduced. We show that every conformal measure (see [DU91] ) arising from a irreducible Feller process is fully supported. By relating this notion of irreducibility with a strong form of transitivity we show that every conformal measure $\nu$ of a hypercyclic backward weighted shift is fully supported. As an outcome we are able to extend the Ruelle operator for the backward weighted shift (introduced in [LMSV21] ) to $L^{p}(\nu)$ . This is a new result and it opens up possibilities for the study of Linear Dynamics from the point of view of the Hopf theory of Markov Processes , see [Hop54] and [CMRS21] .
+
+Section 4
+
+In this section, as an immediate consequence of viewing the transfer operator as a transition probability kernel we get, using a Furstenbeg’s result (see [Fur63] ), the validity of a Breimann Ergodic theorem. By carefully analysis of Furstenberg’s proof, we see that his result works even in presence of more than one stationary measures.
+
+Section 5
+
+This section is devoted to proof a Functional Central Limit theorem for some long-range statistical mechanics models on the one-dimensional lattice.
+
+Most commonly in the transfer operator scenario people when want to prove a CLT falls back on Nagaev-Guivarc’h method. Nevertheless that method pass by to find a suitable subspace where the transfer operator restricted to it will be a quasi-compact , which is in general the difficult part.
+
+Here we will follow the method presented in [BL88] , where presence of spectral gap is not required. It consists in to find a solution of the Poisson equation , 
+ 
+ $(I-P)\upsilon=\phi.$ 
+ Above $P$ represents the extension of the Ruelle operator to $L^{2}(\mu)$ , and $\mu$ is the equilibrium measure (fixed point of the transfer operator) of the model in consideration.
+
+In Section 5.5 we consider the $O(N)$ model, $N\geqslant 2,$ whose the fibers are the compact space $E=\mathbb{S}^{N-1}$ , associated to a long-range Dyson type potential , 
+ 
+ $f(x)=\sum_{n=1}^{\infty}\dfrac{\langle x_{1},x_{n+1}\rangle}{n^{2+\varepsilon}},$ 
+ where $\langle x_{1},x_{n+1}\rangle$ means the inner product of $\mathbb{R}^{n}$ . The approach that we use is close to the presented in [CMRS21] . By using Theorem 4.1 of [Klo20] we show, in a suitable space (potentials with logarithmic modulus of continuity), a polynomial decay of correlation for this model. We use that feature to construct a solution of the Poisson equation and ensure a validity of a FCLT to this model.
+
+To achieve this task we need to extend some notions and results of [Klo20] , to contemplate uncountable alphabets, see Section 5.4 .
+
+In Section 5.6 we extend (under some boundedness condition) the main result of [Klo20] to the  non-compact setting. This constitutes a non-trivial extension of Theorem 3.1 of [CSS19] . Utilizing the aforementioned generalization in the non-compact setting, we employ the same strategy mentioned earlier to establish a Functional Central Limit Theorem (FCLT) for an adapted Dyson-type model.
+
+2. Preliminaries
+
+A measurable space $(X,\mathscr{X})$ is a standard Borel space if there exists a metric $d_{X}$ such that $(X,d_{X})$ is a complete separable metric space and $\mathscr{X}$ is the Borel sigma-algebra induced by $d_{X}$ . An important example is the product space $X=E^{\mathbb{N}}$ regarded as a metric space with the metric 
+ 
+ $d_{X}(x,y)=\sum_{n=1}^{\infty}\frac{1}{2^{n}}\min\{d_{E}(x_{n},y_{n}),1\},$ 
+ where $E$ can be taken as either a finite set $\{1,\ldots,d\}$ , the set of positive integers $\mathbb{N}$ , a compact metric space on the Euclidean space $\mathbb{R}^{d}$ , or more generally a standard Borel space. Other important example are $X=\ell^{p}({\mathbb{N}})=\{(x_{n})_{n\in\mathbb{N}}\in\mathbb{R}^{\mathbb{N}}:\sum_{n=1}^{\infty}|x_{n}|^{p}<\infty\}$ , $1\leqslant p<\infty$ equipped with the norm 
+ 
+ $\|(x_{n})_{n\in\mathbb{N}}\|_{p}=\left(\sum_{n=1}^{\infty}|x_{n}|^{p}\right)^{1/p}.$ 
+
+
+From now on $X$ denotes a standard Borel space and $T:X\to X$ a measurable transformation. We denote by $\mathscr{P}(X)$ the set of probability measures on the Borel sigma-algebra $\mathscr{B}(X)$ endowed with the weak- $*$ -topology. Given $\mu\in\mathscr{P}(X)$ and a bounded Borel-measurable function $f:X\to\mathbb{R}$ , we denote by either $\int_{X}f\,d\mu$ or $\mu(f)$ the Lebesgue integral of $f$ , with respect to $\mu$ .
+
+We denote by $\mathcal{L}^{p}(\mu)$ , $1\leqslant p<\infty$ , the space of all measurable functions such that, $\int|f|^{p}\,d\mu<\infty$ , and by $L(\mu)=\mathcal{L}^{p}(\mu)/\sim$ , the quotient space where $\sim$ is the equivalence relation defined by $f\sim g$ iff $\int|f|^{p}\,d\mu=\int|g|\,d\mu$ , endowed with its standard norms.
+
+2.1. Generalized Hölder spaces
+
+Recall that a modulus of continuity is a continuous, increasing, concave function $\omega:[0,\infty)\to[0,\infty)$ such that $\omega(0)=0$ . We say that a function $f:X\to\mathbb{R}$ is $\omega$ -Hölder continuous function if for some positive constant $C$ , we have 
+ 
+ $|f(x)-f(y)|\leqslant C\omega(d(x,y))\quad\text{for all }x,y\in X.$ 
+ If $f$ is a $\omega$ -Hölder continuous function, we define 
+ 
+ $\text{Hol}_{\omega}(f)=\sup_{x\neq y}\frac{|f(x)-f(y)|}{\omega(d(x,y))}.$ 
+ We refer to $C_{b}(X,\mathbb{R})$ as the Banach space of all real-valued bounded continuous functions endowed with its supremum norm $\|f\|_{\infty}=\sup_{x\in X}|f(x)|$ . We use the notation $C^{\omega}(X,\mathbb{R})$ to denote the space of all bounded real-valued $\omega$ -Hölder functions on $X$ , endowed with the norm 
+ 
+ $\|f\|_{\omega}=\|f\|_{\infty}+\text{Hol}_{\omega}(f).$ 
+ It is easy to see that the normed space $(C^{\omega}(X,\mathbb{R}),\|\cdot\|_{\omega})$ is a Banach algebra, that is, it is a Banach space and the following inequality holds $\|fg\|_{\omega}\leq\|f\|_{\omega}\|g\|_{\omega}$ , for all $f,g\in C^{\omega}(X,\mathbb{R})$ .
+
+Two particularly important examples of moduli of continuity are for, $0<\alpha\leqslant 1$ and $\varepsilon>0$ , $\omega(t)=t^{\alpha},$ and, $\omega_{\varepsilon}(t)=\log(t_{0}/t)^{-\varepsilon}$ for $t_{0}$ sufficiently large and $t\in[0,1]$ . We denote by $C^{\varepsilon\log}(X,\mathbb{R})$ the space of all bounded continuous potentials having $\omega_{\varepsilon}$ as modulus of continuity.
+
+2.2. Markov chains on general state space framework
+
+A transition probability kernel on a standard Borel space $(X,\mathscr{X})$ means a family $\mathsf{M}=(m_{x})_{x\in X}$ of probability measures such that for each $A\in\mathscr{B}(X)$ the function $x\mapsto m_{x}(A)\equiv m(x,A)$ is a measurable function.
+
+Let $\mu\in\mathscr{P}(X)$ be an initial probability and $\mathsf{M}=(m_{x})_{x\in X}$ a transition probability kernel. A time homogeneous stochastic process $\Phi\equiv\{\Phi_{0},\Phi_{1},\ldots\}$ on a probability space $(X,\mathscr{X},\mathbb{P}_{\mu})$ , whose its finite dimensional distributions satisfy, for each $n\geq 1$ , 
+ 
+ (2)  $\mathbb{P}_{\mu}(\Phi_{0}\in A_{0},\ldots,\Phi_{n}\in A_{n})\\
+=\int_{A_{0}}\ldots\int_{A_{n-1}}m(y_{n-1},A_{n})dm(y_{n-2},y_{n-1})\ldots dm(y_{0},y_{1})d\mu(y_{0}),$ 
+ is called a Markov chain with initial distribution $\mu$ and transition kernel $\mathsf{M}=(m_{x})_{x\in X}.$ If $\mu=\delta_{x}$ for some $x\in X$ we say that $\Phi$ is a Markov Chain starting at $x$ .
+
+Given an initial probability measure $\mu\in\mathscr{P}(X)$ and $\mathsf{M}=(m_{x})_{x\in X}$ a transition probability kernel we can always construct on $(X^{\mathbb{N}},\mathscr{B}(X^{\mathbb{N}}))$ a probability measure $\mathbb{P}_{\mu}$ and a stochastic process $\Phi$ whose its finite dimensional distributions satisfy ( 2 ), see [MT09] .
+
+The transition probability kernel $\mathsf{M}=(m_{x})_{x\in X}$ is said to have the Feller property when induces for every $f\in C_{b}(X,\mathbb{R})$ a bounded continuous map defined by 
+ 
+ $x\mapsto Pf(x)=\int f(y)m_{x}(dy).$ 
+ It is clearly that the correspondence $f\mapsto Pf$ induces a map $P:C_{b}(X,\mathbb{R})\to C_{b}(X,\mathbb{R})$ , called the Feller operator associated to $\mathsf{M}=(m_{x})_{x\in X}.$
+
+The Markov operator induced by $m(x,A)$ is the map $\mathscr{T}:\mathscr{P}(X)\to\mathscr{P}(X)$ defined by, 
+ 
+ $\mathscr{T}\mu(A)=\int_{X}m_{x}(A)\,d\mu(x).$ 
+ It is a straightforward calculation to show that $\mathscr{T}$ must satisfy the duality relation 
+ 
+ $\int_{X}f(x)\,d\mathscr{T}\mu(x)=\int_{X}Pf(x)d\mu(x),$ 
+ for every $f\in C_{b}(X)$ . A probability measure $\mu\in\mathscr{P}(X)$ satisfying, $\mathscr{T}\mu=\mu$ , i.e, 
+ 
+ $\mathscr{T}\mu(A)=\int_{X}m_{x}(A)d\mu(x)=\mu(A),\quad\forall A\in\mathscr{X},$ 
+ is called a stationary measure.
+
+2.3. General transfer operator and its basic properties
+
+As we already mention, in this paper we use the framework of [Klo20] , which we describe below.
+
+A transition probability kernel $\mathsf{M}=(m_{x})_{x\in X}$ is said to be a backward walk of a measurable map $T:X\to X$ if for all $x\in X$ the measure $m_{x}$ is fully supported on $T^{-1}(x)$ . Given a potential $f\in C_{b}(X,\mathbb{R})$ we define the transfer operator of $\mathsf{M}$ with respect to $f$ by 
+ 
+ (3)  $\mathscr{L}_{\mathsf{M},f}\varphi(x)=\int_{X}e^{f(y)}\varphi(y)\;dm_{x}(y).$ 
+
+
+For each $n\in\mathbb{N}$ and $x\in X$ we denote by $m_{x}^{n}$ the measure on $X^{n}$ which is the law of a Markov chain $\Phi=(\Phi_{n})$ starting at $\Phi_{0}=x$ and following the transition probability kernel $\mathsf{M}$ . In other words, denoting by $\bar{x}=(x_{1},\dots,x_{n})$ points of $X^{n}$ , $m_{x}^{n}$ is defined by its action on bounded continuous functions $F:X^{n}\to\mathbb{R}$ as follows 
+ 
+ $\int_{X^{n}}F(\bar{x})\,dm_{x}^{n}(\bar{x})=\int_{X}\cdots\int_{X}F(\bar{x})\,dm_{x_{n-1}}(x_{n})dm_{x_{n-2}}(x_{n-1})\cdots dm_{x}(x_{1}).$ 
+ For the sake of simplicity, we will denote 
+ 
+ $(m_{x}^{n})_{x\in X}=\underbrace{(m_{x})_{x\in X}\circ(m_{x})_{x\in X}\circ\dots\circ(m_{x})_{x\in X}}_{n\mbox{ - times}}\quad\text{or}\quad\mathsf{M}^{n}=\mathsf{M}\circ\dots\circ\mathsf{M}.$ 
+
+
+A straightforward computation shows that $\mathscr{L}_{\mathsf{M},f}^{n}$ can be expressed in terms of Birkhoff sums as, 
+ 
+ $\mathscr{L}_{\mathsf{M},f}^{n}\varphi(x)=\int_{X^{n}}e^{f^{n}(\bar{x})}\varphi(x_{n})\,dm^{n}_{x}(\bar{x})$ 
+ where $f^{n}:X^{n}\to\mathbb{R}$ is the map defined by $\bar{x}=(x_{1},\dots,x_{n})\longmapsto f(x_{1})+\dots+f(x_{n})$ .
+
+Denote by $\varrho$ the spectral radius of the transfer operator $\mathscr{L}_{\mathsf{M},f}.$ Following Denker and Urbanski [DU91] , we call a probability measure $\nu\in\mathscr{P}(X)$ belonging to the set 
+ 
+ $\mathscr{G}^{*}(\varrho)=\{\nu\in\mathscr{P}(X):\mathscr{L}_{\mathsf{M},f}^{*}\nu=\varrho\nu\}$ 
+ a $\varrho$ -conformal measure , or simply a conformal measure. It is a well known result that when $X$ is a compact and $T$ is continuous the set $\mathscr{G}^{*}$ is nonempty. We will see in next section two examples where $X$ is non-compact and $\mathscr{G}^{*}$ still nonempty.
+
+2.4. A natural Markov chain
+
+We will be particularly interested in potentials that satisfy $\mathscr{L}_{\mathsf{M},f}\mathbf{1}=\mathbf{1}$ ; these potentials are called normalized . This notion can be stated in a different manner, by saying that $e^{f}dm_{x}$ is a probability measure for every $x$ .
+
+Let $\mathsf{M}=(m_{x})_{x\in X}$ be a backward walk for a dynamical system $T$ . When $f$ is normalized an other natural stochastic process associated to the transfer operator $\mathscr{L}_{\mathsf{M},f}$ is the Markov chain $(\Psi_{n})$ having $\widetilde{m}_{x}(A)=\mathscr{L}_{\mathsf{M},f}(\mathbf{1}_{A})(x)$ , $A\in\mathscr{X}$ and $x\in X$ , as a transition kernel.
+
+Below, the expectation with respect to the joint law of the Markov Chain $(\Psi_{n})_{n\in\mathbb{N}}$ with stationary measure $\mu$ will be denoted as usual by $\mathbb{E}_{\mu}$ . The distributional relation between the Markov chain $(\Psi_{n})_{n\in\mathbb{N}}$ and the underlying dynamics is given by the following lemma, whose the proof can be found in reference [HH01a] .
+
+Let $(\Psi_{n})_{n\in\mathbb{N}}$ be the Markov chain with transition kernel $\widetilde{\mathsf{M}}=(\widetilde{m}_{x})_{x\in X}$ defined above, $n\geqslant 1$ , $g:X^{n}\to\mathbb{R}$ a positive measurable function and $\mu$ the stationary measure. Then we have 
+ 
+ $\int_{X}g(x,T(x),\ldots,T^{n-1}(x))\,d\mu(x)=\mathbb{E}_{\mu}[g(\Psi_{n},\Psi_{n-1},\ldots,\Psi_{1})].$ 
+
+
+Here we will focus on functions $g$ of the form $g={\mathbf{1}}_{A}\circ h$ , where $A=(-\infty,t]$ is some suitable interval on the real line, $h:X^{n}\to\mathbb{R}$ is given by $h(z_{1},\ldots,z_{n})=\phi(z_{1})+\ldots+\phi(z_{n})$ , with $\phi:X\to\mathbb{R}$ being a positive function in some Banach space, for example, the space of Hölder continuous functions.
+
+In these particular cases, by taking $A=(-\infty,t\sqrt{n}]$ , and $h$ as above, we get from Lemma 2.1 the following identity 
+ 
+ $\displaystyle\mu(\{\textstyle\sum_{j=0}^{n-1}\phi\circ T^{j}(x)\leqslant t\sqrt{n}\})$ $\displaystyle=\int_{X}{\mathbf{1}}_{(-\infty,t\sqrt{n}]}\circ h(x,T(x),\ldots,T^{n-1}(x))\,d\mu(x)$ 
+ 
+ $\displaystyle=\mathbb{E}_{\mu}[{\mathbf{1}}_{(-\infty,t\sqrt{n}]}\circ h(\Psi_{n},\Psi_{n-1},\ldots,\Psi_{1})]$ 
+ 
+ $\displaystyle=\mathbb{P}_{\mu}(\{\textstyle\sum_{j=1}^{n}\phi(\Psi_{j})\leqslant t\sqrt{n}\}).$ 
+
+
+This relation implies, for example, that if random variables $(\phi(\Psi_{n}))_{n\in\mathbb{N}}$ are distributed according to $\mathbb{P}_{\mu}$ and obeys a CLT then for the random variables $(\phi\circ T^{n})_{n\in\mathbb{N}}$ distributed according to $\mu$ also obeys a CLT.
+
+3. Irreducible Feller processes.
+
+Understanding the conformal measures of a dynamical system allows for a deeper comprehension of its geometric, dynamical, and statistical characteristics. It provides insights into the long-term behavior, and fundamental structures of the system. One important feature of conformal measures or stationary measures is their support. Next we provide a general probabilistic condition sufficient to characterize the support of stationary and conformal measures of general transfer operators.
+
+3.1. Irreducible Feller processes
+
+For the sake of convenience it will be useful to extend the notion of conformal measure to bit more general setting. Let $\mathsf{M}=(m_{x})_{x\in X}$ be a transition probability kernel on a Borel standard space $X$ , a probability measure $\nu\in\mathscr{P}(X)$ is called a conformal measure to the Markov operator $\mathscr{T}$ if there exists $\lambda>0$ such that, $\mathscr{T}\nu=\lambda\nu$ .
+
+We say that a Markov chain $\Phi=(\Phi_{n})$ with transition kernel $\mathsf{M}=(m_{x})_{x\in X}$ satisfying the Feller property is irreducible when for every non-negative and nontrivial bounded continuous function $\varphi$ , and for every $x\in X$ there exists $n\in\mathbb{N}$ such that $P^{n}\varphi(x)>0$ .
+
+Let $\Phi=(\Phi_{n})$ be a Markov chain having $\mathsf{M}=(m_{x})_{x\in X}$ as transition kernel, and satisfying the Feller Property. Suppose that $\Phi=(\Phi_{n})$ irreducible and that its Feller operator $P:C_{b}(X,\mathbb{R})\to C_{b}(X,\mathbb{R})$ is a bounded linear operator. Then every conformal measure is fully supported.
+
+Let $\lambda>0$ and $\nu\in\mathscr{P}(X)$ be such that $\mathscr{T}\nu=\lambda\nu$ . We can assume, by making a change of scale if necessary, that $0<\lambda<1$ . Then we have for every $n\geqslant 1$ , and for every non-negative and non-trivial bounded continuous function $\varphi$ we have that, 
+ 
+ $\lambda^{n}\nu(\varphi)=\mathscr{T}^{n}\nu(\varphi)=\int_{X}P^{n}\varphi(y)\,d\nu(y).$ 
+ By summing on $n$ on both sides of the above equality, we get that 
+ 
+ $\dfrac{\lambda}{1-\lambda}\nu(\varphi)=\sum_{n=1}^{\infty}\int_{X}P^{n}\varphi(y)\,d\nu(y)=\int_{X}\sum_{n=1}^{\infty}P^{n}\varphi(y)\,d\nu(y),$ 
+ where the last equality above is guaranteed by the monotone convergence theorem. Now, since $P$ preserves the cone of the non-negative functions, we have that $G(y)=\sum_{n=1}^{\infty}P^{n}\varphi(y)$ is a non-negative measurable function. Remembering that $\Phi$ is irreducible we get that $G(y)>0$ for every $y\in X$ , thus implying that $\nu(\varphi)>0$ . ∎
+
+Let $f\in C_{b}(X,\mathbb{R})$ be a continuous function and $\mathsf{M}=(m_{x})_{x\in X}$ a backward walk of some measurable map $T:X\to X$ . Consider the natural Markov chains $(\Phi_{n})$ and $(\Psi_{n})$ associated to the transfer operator $\mathscr{L}_{\mathsf{M},f}$ introduced in previous section. If the process $(\Phi_{n})$ is Feller irreducible then $(\Psi_{n})$ has the same property.
+
+Since $(\Phi_{n})$ is irreducible, given $x\in X$ there exists an integer $M\equiv M(x)$ such that $\mathscr{L}_{\mathsf{M},0}^{M}\varphi(x)>0$ . Thus, we have the following, 
+ 
+ (4)  $\mathscr{L}_{\mathsf{M},f}^{M}\varphi(x)=\int_{X^{M}}e^{f^{M}(\bar{x})}\varphi(x_{n})\,dm^{M}_{x}(\bar{x})\\
+\geqslant\bigl{(}\inf e^{f^{M}(\bar{x})}\bigl{)}\int_{X^{M}}\varphi(x_{n})\,dm^{M}_{x}(\bar{x})\,\\
+=\inf\bigl{(}e^{f^{M}(\bar{x})}\bigr{)}\mathscr{L}_{\mathsf{M},0}^{M}\varphi(x)>0,$ 
+ which is the desired result. ∎
+
+3.2. The standard Ruelle operator
+
+Let $E$ be a standard Borel space, and $\mu$ an a priori probability measure in $\mathscr{P}(E)$ . For each $x\in X=E^{\mathbb{N}}$ consider the probability measure $m_{x}=\mu\times\delta_{x}$ on $\mathscr{B}(X)$ . Then $(m_{x})_{x\in X}$ is a transition probability kernel and for each $f\in C_{b}(X,\mathbb{R})$ fixed we have that, 
+ 
+ $\displaystyle\mathscr{L}_{\mathsf{M},f}\varphi(x)$ $\displaystyle=\int_{X}e^{f(y)}\varphi(y)dm_{x}(y)=\int_{E^{\mathbb{N}}}e^{f(y)}\varphi(y)\,dm_{x}(y)$ 
+ 
+ $\displaystyle=\int_{E\times E^{\mathbb{N}}}e^{f(ay)}\varphi(ay)\,d\mu(a)\,d\delta_{x}(y)=\int_{E}\left[\int_{E^{\mathbb{N}}}e^{f(ay)}\varphi(ay)\,d\delta_{x}(y)\right]d\mu(a)$ 
+ 
+ $\displaystyle=\int_{E}e^{f(ax)}\varphi(ax)\,d\mu(a).$ 
+ Therefore the transfer operator associated to $\mathsf{M}=(\mu\times\delta_{x})_{x\in X}$ coincides with the Ruelle operator for the shift map considered in [BCL+11] . In each one of the previous references is showed that for a sufficiently regular potential $f$ , we have that $\mathscr{G}^{*}(\varrho_{f})\neq\varnothing.$
+
+Observe that a realization of the Markov process associated to the transition kernel $\mathsf{M}=(\mu\times\delta_{x})_{x\in X}$ started at $x$ is given by $\Phi_{n}=a_{1}\cdots a_{n}x$ . Below by showing that the process $(\Phi_{n})$ is irreducible we will proof that any conformal measure $\nu\in\mathscr{G}^{*}(\varrho_{f})$ is fully supported.
+
+Consider the following backward walk $\mathsf{M}=(\mu\times\delta_{x})_{x\in X}$ for the full shift and let $f\in C_{b}(X,\mathbb{R})$ be a bounded continuous potential. Then any conformal measure with respect to $\mathscr{L}_{\mathsf{M},f}$ is fully supported.
+
+It is enough to consider a non-negative and non-trivial continuous function $\varphi\in C_{b}(X,\mathbb{R})$ . By continuity there exists an open set $U$ such that $\varphi$ is strictly positive in $U$ . On the other side, one can easily verify that for each $x\in X$ there always exists a positive integer $M$ such that $\sigma^{-M}x\cap U\neq\varnothing,$ i.e, there exists $(a_{1},\ldots,a_{M})\in\mathbb{R}^{M}$ so that, $\varphi(a_{1}a_{2}\ldots a_{M}x)>0$ . Again, by continuity we can find a small neighborhood $W$ of $({a}_{1},\ldots,{a}_{M})$ in $\mathbb{R}^{M}$ such that for every $(\widetilde{a_{1}},\ldots,\widetilde{a}_{M})\in W$ we have that $\widetilde{a_{1}}\cdots\widetilde{a}_{M}x$ still in $U$ . Then we have the following, 
+ 
+ $\displaystyle\mathscr{L}_{\mathsf{M},0}^{M}\varphi(x)=\int_{\mathbb{R}^{M}}\varphi(a_{1}\cdots a_{M}x)\,\mu^{M}(a_{1}\cdots a_{M})$ 
+ 
+ $\displaystyle\geqslant\int_{W}\varphi(a_{1}\cdots a_{M}x)\,\mu^{M}(a_{1}\cdots a_{M})>0.$ 
+ Since $\mu$ is fully supported we have that the above integral is positive. From that by using Proposition 3.3 and Theorem 3.2 we conclude that for each continuous potential $f$ , any conformal measure $\nu\in\mathscr{G}^{*}(\varrho_{f})$ is fully supported. ∎
+
+3.3. Ruelle operator of the backward weighted shift
+
+In this section $X$ will denote $\ell^{p}({\mathbb{N}})$ with $1\leqslant p<\infty.$
+
+We fix values $0<c<c^{\prime}$ and a weight sequence $(\alpha_{n})_{n\geqslant 1}$ satisfying $\alpha_{n}\in(c,c^{\prime})$ for each $n\in\mathbb{N}$ . The backward weighted shift associated to the sequence $(\alpha_{n})_{n\geqslant 1}$ is defined as the linear map $L:X\to X$ given by 
+ 
+ $L((x_{n})_{n\geqslant 1})=(\alpha_{n}x_{n+1})_{n\geqslant 1}\,.$ 
+
+
+For a weight sequence $(\alpha_{n})_{n\geqslant 1}$ we consider the auxiliary map $S:X\to X$ defined as $S(x)=(\alpha_{1}^{-1}x_{1},\alpha_{2}^{-1}x_{2},\ldots).$ Let $\mu$ be a fully supported Borel a priori measure in $\mathbb{R}$ and let $\mathsf{M}=(m_{x})_{x\in X}$ be the transition probability kernel defined as follows, 
+ 
+ $m_{x}=\delta_{S(x)}\times\mu.$ 
+ Let $f\in C_{b}(X,\mathbb{R})$ be a bounded continuous potential, by observing that $\mathbb{R}\times\ell^{p}({\mathbb{N}})$ is isometric to $\ell^{p}({\mathbb{N}})$ we have that, 
+ 
+ $\mathscr{L}_{\mathsf{M},f}\varphi(x)=\int_{\ell^{p}({\mathbb{N}})}e^{f(y)}\varphi(y)\,dm_{x}(y)=\int_{\mathbb{R}\times\ell^{p}({\mathbb{N}})}e^{f(ry)}\varphi(ry)\,d\mu(r)\,d\delta_{S(x)}(y)\\[8.5359pt]
+=\int_{\mathbb{R}}\left[\int_{\ell^{p}({\mathbb{N}})}e^{f(ry)}\varphi(ry)\,d\delta_{S(x)}(y)\right]\,d\mu(r)=\int_{\mathbb{R}}e^{f(rS(x))}\varphi(rS(x))\,d\mu(r)\\[8.5359pt]
+=\int_{\mathbb{R}}e^{f\bigl{(}r,\frac{x_{1}}{\alpha_{1}},\frac{x_{2}}{\alpha_{2}},\ldots\bigr{)}}\varphi\bigl{(}r,\frac{x_{1}}{\alpha_{1}},\frac{x_{2}}{\alpha_{2}},\ldots\bigr{)}d\mu(r).$ 
+ which coincides with the Ruelle operator associated to the weighted shift introduced in [LMSV21] . In this case a realization of the Markov process associated to the transition kernel $\mathsf{M}=(\mu\times\delta_{S(x)})_{x\in X}$ started at $x$ is given by $\Phi_{n}=\bigl{(}r_{1},\ldots,r_{n},\frac{x_{1}}{\beta_{1}^{n}},\frac{x_{2}}{\beta_{2}^{n}},\ldots\bigr{)}$ , where $(r_{1},\ldots,r_{n})\in\mathbb{R}^{n}$ .
+
+Suppose $0<c<c^{\prime}$ and $1<c^{\prime}$ . For each $k,n\in\mathbb{N}$ we define $\beta_{k}^{n}\equiv\alpha_{k}\ldots\alpha_{k+n-1}$ and 
+ 
+ (5)  $\displaystyle\displaystyle d_{n}=\inf_{k\geqslant 1}\beta_{k}^{n}.$ 
+ In [LMSV21] the authors consider a weight sequence $(\alpha_{n})_{n\geqslant 1}$ that satisfy $\alpha_{n}\in(c,c^{\prime})$ , for all $n\in\mathbb{N}$ and 
+ 
+ (6)  $\displaystyle\displaystyle\sum_{n=1}^{\infty}(d_{n})^{-\alpha}<\infty.$ 
+ They showed, under suitable conditions on the a priori measure $\mu$ , and for a locally Hölder potential $f$ , that the Ruelle operator $\mathscr{L}_{\mathsf{M},f}$ has at least one equilibrium measure (ergodic).
+
+It is worth mentioning that condition ( 6 ) implies that $L$ is frequently hypercyclic \footnote{ 1 This is a standard terminology from Dynamics of Linear Operators Theory, see [FB09]} by meaning that, there exists $x\in X$ such that for any open set $V$ the set $N(x,V)=\{n:L^{n}x\in V\}$ has positive lower density, i.e 
+ 
+ $\liminf_{n\to\infty}\dfrac{1}{n}\#N(x,V)\cap\{1,\ldots,n\}>0,$ 
+ see [FB09] . The property of to be frequently hypercyclic implies in turn that $L$ is strongly transitive , i.e, for any non-empty open set $U$ we have that, 
+ 
+ (7)  $X\setminus\{0\}\subset\bigcup_{n=1}^{\infty}L^{n}(U),$ 
+ indeed see [Ans21] . It is useful to observe that inclusion ( 7 ) can be rewritten as follows, 
+ 
+ (8)  $\forall x\in X\setminus\{0\},\forall U\neq\varnothing~{}~{}\text{open set}~{}\exists n\in\mathbb{N},~{}\text{such that}~{}L^{-n}(x)\cap U\neq\varnothing.$ 
+
+
+We will show that $(\Phi_{n})$ satisfies the conditions of Theorem 3.2 .
+
+Consider the following backward walk $\mathsf{M}=(\mu\times\delta_{S(x)})_{x\in X}$ for a strongly transitive weighted shift and let $f\in C_{b}(X,\mathbb{R})$ be a bounded continuous potential. Then any conformal measure with respect to $\mathscr{L}_{\mathsf{M},f}$ is fully supported.
+
+Let $\varphi\in C_{b}(X,\mathbb{R})$ be non-negative and nontrivial. Continuity implies the existence of an open set $U$ where $\varphi$ is strictly positive. By ( 8 ) there exists $(r_{1},\ldots,r_{n})\in\mathbb{R}^{n}$ such that $\varphi\bigl{(}r_{1},\ldots,r_{n},\frac{x_{1}}{\beta_{1}^{n}},\frac{x_{2}}{\beta_{2}^{n}},\ldots\bigr{)}>0$ . Continuity of $\varphi$ implies that the previous inequality remains valid in some open neighborhood $V$ of $(r_{1},\ldots,r_{n})$ in $\mathbb{R}^{n}$ . Therefore, letting $\mu^{n}$ denote the product measure $\mu\times\cdots\times\mu$ we have that 
+ 
+ $\mathscr{L}_{\mathsf{M},0}^{n}\varphi(x)=\int_{X}\varphi(y)\,dm_{x}(y)=\int_{\mathbb{R}^{n}}\varphi\bigl{(}r_{1},\ldots,r_{n},\frac{x_{1}}{\beta_{1}^{n}},\frac{x_{2}}{\beta_{2}^{n}},\ldots\bigr{)}\,d\mu^{n}(r_{1},\ldots,r_{n})\\
+\geqslant\int_{V}\varphi\bigl{(}r_{1},\ldots,r_{n},\frac{x_{1}}{\beta_{1}^{n}},\frac{x_{2}}{\beta_{2}^{n}},\ldots\bigr{)}\,d\mu^{n}(r_{1},\ldots,r_{n})>0$ 
+ which means that $(\Phi_{n})$ is irreducible. Then, it follows from Proposition 3.3 and Theorem 3.2 that any conformal measure of $\mathscr{L}_{\mathsf{M},f}^{n}$ is fully supported. ∎
+
+A sufficient condition for strong transitivity in the context of linear dynamics is to require $\bigcup_{n=1}^{\infty}\text{Ker}(T^{n})$ to be dense in $X$ . (see [Ans21] ).
+
+3.4. Nonexpansive IFS
+
+In this section $X$ denotes a compact subset of $\mathbb{R}^{d}$ . For each $i=1,\ldots m,$ consider $T_{i}:X\to X$ a continuous map. Let $p_{1},p_{2},\ldots,p_{m},$ be continuous positive real functions satisfying $\sum_{i=1}^{n}p_{i}(x)=1,\,\forall x\in X$ . We say that $T:X\to X$ is nonexpansive if $|T(x)-T(y)|\leqslant|x-y|$ $\forall x,y\in X$ and weakly contractive if, 
+ 
+ $\alpha_{T}(t):=\sup_{|x-y|\leq t}|T(x)-T(y)|<t,\forall t>0.$ 
+ For a multi-index $J=(j_{1},\ldots,j_{n}),$ $1\leqslant j_{k}\leqslant m$ , set, $T_{J}(x)=T_{j_{1}}\circ\cdots\circ T_{j_{n}}(x)$ . The following result is proved in [LY01]
+
+Suppose that $\{T_{i}\}_{i=1}^{m}$ are continuous on $X$ and at least one of them is weakly contractive. Then there exists a unique smallest nonempty compact set $K$ such that, 
+ 
+ $K=\bigcup_{i=1}^{m}T_{i}(K).$ 
+ Moreover, for any $x\in K$ , the closure of $\{T_{J}(x):|J|=n,n\in\mathbb{N}\}$ is $K$ .
+
+Now, for each $x\in X$ define $m_{x}=\sum_{i=1}^{n}p_{i}(x)\delta_{T_{i}(x)}$ on $\mathscr{P}(K)$ . Is clear that $\mathsf{M}=(m_{x})_{x\in X}$ is a transition probability kernel and we have for any $\varphi\in C(K,\mathbb{R})$ that, 
+ 
+ $\displaystyle\mathscr{L}_{\mathsf{M},0}\varphi(x)$ $\displaystyle=\int_{X}e^{f(y)}\varphi(y)\,dm_{x}(y)=\sum_{i=1}^{n}p_{i}(x)\varphi(T_{i}(x)),$ 
+ which turns out to be the classical transfer operator associate to the IFS generated by $\{T_{1},T_{2},\ldots,T_{n}\}.$ More generally if $J=(j_{1},\ldots,j_{n})$ , $1\leqslant j_{k}\leqslant m$ , is a multi-index and we denote 
+ 
+ $p_{T_{J}}(x):=p_{j_{1}}(T_{j_{1}}\circ T_{j_{2}}\circ\cdots\circ T_{j_{n}})\cdots p_{j_{n-1}}(T_{j_{n-1}}\circ T_{j_{n}})p_{j_{n}}(T_{j_{n}}),$ 
+ then we have 
+ 
+ $\displaystyle\mathscr{L}_{\mathsf{M},0}^{n}\varphi(x)$ $\displaystyle=\sum_{|J|=n}^{n}p_{T_{J}}(x)\varphi(T_{J}(x)).$ 
+
+
+We will show that $\Phi=(\Phi_{n})$ is irreducible. Indeed, let $\varphi\in C(K,\mathbb{R})$ with $\varphi\geqslant 0$ and $\varphi\not\equiv 0$ . Define $V=\{x\in K:\varphi(x)>0\}.$ It follows from Proposition 3.7 that there exist a multi-index $J_{0}$ such that $T_{J_{0}}(x)\in V$ . Let $k=|J_{0}|$ , then we have that 
+ 
+ $\mathscr{L}_{\mathsf{M},0}^{k}\varphi(x)=\sum_{|J|=k}p_{T_{J}(x)}\varphi(T^{J}(x))\geqslant p_{T_{J_{0}}}(x)\varphi(T_{J_{0}}(x))>0.$ 
+
+
+Therefore, as a consequence of Proposition 3.3 and Theorem 3.2 any conformal measure of $\mathscr{L}_{\mathsf{M},0}^{k}$ is fully supported.
+
+This remark regard Examples 3.2 , 3.3 and 3.4 . One should note that the full shift in the Example 3.2 has a property much stronger than being strongly transitive, indeed it holds the following, 
+ 
+ (9)  $\forall U\neq\varnothing~{}~{}\text{open set}~{}\exists M=M(U)\in\mathbb{N},~{}\text{such that}~{}\forall x\in X,\sigma^{-1}(x)\cap U\neq\varnothing,$ 
+ or, in other words, for each open set $U$ there exists an integer $M$ such that we have $\sigma^{M}U=X$ . This is a kind of a weak topological form of Doebling’s minorization condition see [BM07] . Condition ( 9 ) seems also to be related to the Bhattacharya-Waymire splitting condition, see [BM07] . However ( 9 ) does not imply either of these two probabilistic properties because both of them implies exponential asymptotically stability of the Markov operator.
+
+Obviously property ( 9 ) is not valid for the backward weighted shift (in fact $\text{diam}(L^{k}U)\leqslant\|L\|^{k}\text{diam}(U)$ ). Nevertheless $L$ has the property $X\setminus\{0\}\subset\bigcup_{n=1}^{\infty}L^{n}(U),$ which is in turn a much weaker property than ( 9 ), but still a stronger form of transitivity.
+
+The conclusion of Proposition 3.7 is also a type of strong transitivity formulated for IFS.
+
+These examples suggests that full support property of the conformal measure is related to this strong form transitivity.
+
+3.5. Application: Extension of the Transfer Operator on a non-compact setting
+
+Suppose $\nu$ is a conformal measure of some transfer operator $\mathscr{L}_{\mathsf{M},f}$ . Extending $\mathscr{L}_{\mathsf{M},f}$ to some $\mathbb{L}:L^{1}(\nu)\to L^{1}(\nu)$ , having some control on the spectrum of $\mathbb{L}$ has a very good karma. Indeed, in doing so we can see the $\mathbb{L}$ as a Markov process in the Hopf’s sense (see [Hop54] ).
+
+A Markov process is defined as an ordered quadruple $(X,\mathscr{F},\mu,T)$ , where the triple $(X,\mathscr{F},\mu)$ is a sigma-finite measure space with a positive measure $\mu$ and $T$ is a bounded linear operator acting on $L^{1}(\mu)$ satisfying: (i) $T$ is a contraction: $\sup\{\|T\varphi\|_{1}:\|\varphi\|_{1}\leqslant 1\}\equiv\|T\|_{\mathrm{op}}\leqslant 1$ ; (ii) $T$ is a positive operator, that is, if $\varphi\geqslant 0$ , then $T\varphi\geqslant 0$ .
+
+Here, the sigma-algebra $\mathscr{F}$ will be the Borel sigma-algebra $\mathscr{B}(X)$ , $T$ is the extension $\mathbb{L}:L^{1}(\nu)\to L^{1}(\nu)$ of the transfer operator $\mathscr{L}_{\mathsf{M},f}$ , and $\mu=\nu$ . Condition (ii), the positivity property of $\mathbb{L}$ , is inherited from $\mathscr{L}_{\mathsf{M},f}$ , and the condition (i) follows from $\|\mathbb{L}\|_{\mathrm{op}}=\varrho(\mathscr{L}_{\mathsf{M},f})$ , and the assumption $\varrho(\mathscr{L}_{\mathsf{M},f})=1$ .
+
+We refer to [CMRS21] to the reader interested in how to explore the Hopf-Markov theory in the Thermodynamic Formalism context.
+
+3.5.1. Extending the transfer operator
+
+In this section $X=E^{\mathbb{N}}$ or $X=\ell^{p}(\mathbb{N})$ , $f\in C_{b}(X,\mathbb{R})$ will denote a bounded continuous potential and $\mathsf{M}$ will stand for $\mathsf{M}=(\mu\times\delta_{x})_{x\in X}$ or $\mathsf{M}=(\mu\times\delta_{S(x)})_{x\in X}$ .
+
+Since the transfer operator $\mathscr{L}_{\mathsf{M},f}$ is irreducible, Theorem 3.2 shows that any conformal measure of $\mathscr{L}_{\mathsf{M},f}$ is fully supported, therefore there is a linear continuous embedding $q:(C_{b}(X,\mathbb{R}),\|\cdot\|_{\infty})\hookrightarrow(L^{p}(\nu),\|\cdot\|_{p})$ .
+
+Theorem 3.2 is fundamental to get an embedding of $C_{b}(X,\mathbb{R})$ onto $(L^{p}(\nu),\|\cdot\|_{p})$ . In general that embedding could not exists, fact if $\nu=\delta_{x}$ is the delta Dirac measure concentrated in some $x\in X$ then $\text{dim}_{\mathbb{R}}L^{1}(\nu)=1$ while $\text{dim}_{\mathbb{R}}C_{b}(X,\mathbb{R})=\infty.$
+
+The most short path to provide the extension is to consider the map $L:\text{dom}(L)\subset\mathcal{L}^{1}(\nu)\to\mathcal{L}^{1}(\nu)$ , defined by 
+ 
+ (10)  $L\varphi(x)=\int_{X}e^{f(y)}\varphi(y)\,dm_{x}(y),\quad\forall x\in X,$ 
+ where $\text{dom}(L)$ means the subset of all $\varphi\in\mathcal{L}^{1}(\nu)$ such that the expression ( 10 ) makes sense for all $x\in X$ . It is clear that $\text{dom}(L)$ is a subspace of $\mathcal{L}^{1}(\nu)$ and that contains $C_{b}(X,\mathbb{R})$ .
+
+The map given by ( 10 ) seems to be quite auspicious to fulfill our purposes, nevertheless some technical issues need to be clarified. The most fundamental question about it is whether this expression preserves $\nu$ -equivalence classes. This question leads us to the following lemma.
+
+Let $\mathsf{M}=(m_{x})_{x\in X}$ be the transition probability kernel of subsection 3.2 or 3.3 . Let $\mu$ be the a priori measure and $\nu$ a conformal measure of $\mathscr{L}_{\mathsf{M},f}.$ Then there is $K>0$ such that, 
+ 
+ $\mu\times\nu(B)\leqslant K\nu(B),\quad\forall B\in\mathscr{B}(X).$ 
+
+
+In case $X=E^{\mathbb{N}}$ and $m_{x}=\mu\times\delta_{x}$ we have that $\mathscr{L}_{\mathsf{M},f}$ is the standard Ruelle operator and the proof of the lemma is the same as the proof of [CMRS21] .
+
+If $X=\ell^{p}(\mathbb{N})$ and $m_{x}=\mu\times\delta_{x},$ the proof is still very close to the one above mentioned, but we need to use the following observation: let $B$ be an open set of $\ell^{p}(\mathbb{N})$ , then every $x\in B$ is contained in a smaller open set of the form $U\times V$ where $U$ is an open interval of $\mathbb{R}$ and $V$ is an open set of $\ell^{p}(\mathbb{N})$ and $U\times V\subset B$ .
+
+Define the class 
+ 
+ $\mathscr{R}=\{U\times V,\;U\subset\mathbb{R}\;\text{open interval, and }\,V\subset\ell^{p}(\mathbb{N})\,\text{open set}\}.$ 
+ We will show that the statement of the lemma is valid for every element of $\mathscr{R}$ . Let $B=U\times V\in\mathscr{R}.$ Choose an increasing sequence of continuous functions (Urysohn functions) $\phi_{n}:\mathbb{R}\to[0,1]$ and $\psi_{n}:\ell^{p}(\mathbb{N})\to[0,1]$ , $n\in\mathbb{N},$ satisfying $\phi_{n}\uparrow 1_{U}$ and $\psi_{n}\uparrow 1_{V}$ pointwisely and in $L^{1}(\mu)$ and $L^{1}(\nu)$ respectively. From construction we must have $\Theta_{n}(x)=\phi_{n}(x_{1})\times\psi_{n}(\sigma(x))\uparrow 1_{B}(x)$ . Therefore, we have that 
+ 
+ $\displaystyle\nu(B)$ $\displaystyle\geqslant\int_{\ell^{p}(\mathbb{N})}\Theta_{n}(x)\,d\nu(x)=\varrho^{-1}\int_{\ell^{p}(\mathbb{N})}\left[\int_{\mathbb{R}}e^{f(ax)}\Theta_{n}(ax)\,d\mu(a)\right]\,d\nu(x)$ 
+ 
+ $\displaystyle\geqslant\varrho^{-1}\int_{\ell^{p}(\mathbb{N})}\left[\int_{\mathbb{R}}e^{f(ax)}\phi_{n}(a)\psi_{n}(x))\,d\mu(a)\right]\,d\nu(x)$ 
+ 
+ $\displaystyle\geqslant\varrho^{-1}e^{-\|f\|_{\infty}}\int_{\mathbb{R}}\phi_{n}(a)\,d\mu(a)\int_{\ell^{p}(\mathbb{N})}\psi_{n}(x)\,d\nu(x).$ 
+ Taking $n\to\infty$ we get that 
+ 
+ $\mu\times\nu(B)\leqslant\varrho e^{\|f\|_{\infty}}\nu(B),$ 
+ concluding the lemma for the class $\mathscr{R}$ . Now, observe that $\mathscr{R}$ is a $\pi$ -system which generates the Borel sigma-algebra and consider the class $\mathscr{L}=\{B\in\mathscr{B}(\ell^{p}(\mathbb{N})):\mu\times\nu(B)\leqslant K\nu(B)\}$ . By observing that $\mathscr{L}$ is a $\lambda$ -system and that $\mathscr{L}\supset\mathscr{R}$ we must have by the Dynkin $\pi-\lambda$ theorem that $\mathscr{B}(\ell^{p}(\mathbb{N}))\subset\mathscr{L}$ . ∎
+
+With the above lemma in hands we have the following proposition.
+
+The map $L:\textnormal{dom}(L)\subset\mathcal{L}^{1}(\nu)\to\mathcal{L}^{1}(\nu)$ given by ( 10 ) is well defined and preserves $\nu$ -equivalence classes of $L^{1}(\nu)$ .
+
+Again, when $\mathscr{L}_{\mathsf{M},f}$ is the standard Ruelle operator the proof is still the same as the one that we gave in [CMRS21] . If we consider the operator $\mathscr{L}_{\mathsf{M},f}$ as the transfer operator of the backward weighted shift then we have some minor changes.
+
+Let $\varphi\in\text{dom}(L)$ . By Lemma 3.11 we have 
+ 
+ $\displaystyle\int_{X}|L\varphi|\,d\nu\leqslant\int_{\ell^{p}(\mathbb{N})}\int_{\mathbb{R}}e^{f\bigl{(}r,\frac{x_{1}}{\alpha_{1}},\frac{x_{2}}{\alpha_{2}},\ldots\bigr{)}}\varphi\bigl{(}r,\frac{x_{1}}{\alpha_{1}},\frac{x_{2}}{\alpha_{2}},\ldots\bigr{)}\,d\mu(r)d\nu(x)$ 
+ 
+ (11)  $\displaystyle\leqslant e^{\|f\|_{\infty}}\int_{\ell^{p}(\mathbb{N})}\int_{\mathbb{R}}\varphi\bigl{(}r,\frac{x_{1}}{\alpha_{1}},\frac{x_{2}}{\alpha_{2}},\ldots\bigr{)}\,d\mu(r)d\nu(x)\leqslant Ke^{\|f\|_{\infty}}\int_{\ell^{p}(\mathbb{N})}|\varphi|\,d\nu.$ 
+
+
+The inequality ( 3.5.1 ) has two important consequences. The first is that $L$ is well defined. Secondly, if $\varphi=\psi$ $\nu$ -a.e are $\nu$ -integrable functions then $L\varphi=L\psi$ $\nu$ -a.e thus implying that $L$ preserves $\nu$ -equivalence classes. ∎
+
+Since the space of all Lipschitz functions is dense in $L^{1}(\nu)$ , we have that $L$ induces an operator $\widetilde{\mathbb{L}}$ on a dense subset of $L^{1}(\nu)$ . By using that $\widetilde{\mathbb{L}}$ is Lispchitz one can extend $\widetilde{\mathbb{L}}$ to a bounded operator $\mathbb{L}:L^{1}(\nu)\to L^{1}(\nu)$ which is the desired extension.
+
+We refer the reader to [CMRS21] for a proof that the spectral radius $\mathbb{L}$ is no larger than the spectral radius of $\mathscr{L}_{\mathsf{M},f}$ .
+
+4. Stationary measures and the Breiman Ergodic Theorem
+
+In this section we proof a result which can be seen as a generalization of Breiman’s Ergodic theorem presented in [Bre60] . The generalization remains on the fact that we do not require from the process unique ergodicity. More precisely, we allow our process to have more than one stationary measure, and we still ensure that the empirical measures will converge to some stationary measure with probability one. The proof is a direct consequence of Furstenberg [Fur63] .
+
+Bellow we state this lemma and for the sake of completeness we provide its demonstration.
+
+Let $X$ be a standard Borel space and $\mathsf{M}=(m_{x})_{x\in X}$ a transition probability kernel on $X$ having the Feller property. Let $P:C_{b}(X,\mathbb{R})\to C_{b}(X,\mathbb{R})$ be the associated Feller operator. If $\Phi=(\Phi_{n})$ is a Markov process with transition probability kernel $\mathsf{M}=(m_{x})_{x\in X}$ , then, for every $\varphi\in C_{b}(X,\mathbb{R})$ we have 
+ 
+ $\lim_{n\to\infty}\frac{1}{n}\sum_{k=0}^{n-1}\big{(}P\varphi(\Phi_{k})-\varphi(\Phi_{k})\big{)}\rightarrow 0\,\,\,\,\qquad\mbox{a.e.}$ 
+
+
+First, observe that 
+ 
+ $\displaystyle\frac{1}{n}\sum_{k=0}^{n-1}\big{(}P\varphi\left(\Phi_{k}\right)-\varphi\left(\Phi_{k}\right)\big{)}=\displaystyle\frac{1}{n}\sum_{k=0}^{n-1}\big{(}P\varphi\left(\Phi_{k}\right)-\varphi\left(\Phi_{k+1}\right)\big{)}+\frac{\varphi(\Phi_{n})-\varphi(\Phi_{0})}{n}.$ 
+ Since $\varphi$ is bounded, the sequence $(\varphi(\Phi_{n})-\varphi(\Phi_{0}))/n$ converges to $0$ as $n\to\infty$ . Thus, to prove our claim we will prove that the sequence of random variables $\frac{1}{n}\sum_{k=0}^{n-1}\big{(}P\varphi\left(\Phi_{k}\right)-\varphi\left(\Phi_{k+1}\right)\big{)}$ converges a.e. to $0$ as $n\to\infty$ . To this end, by the Kronecker’s lemma, it is sufficient to prove that the sequence of random variables $(W_{n})$ defined by 
+ 
+ $W_{n}=\sum_{k=0}^{n-1}\dfrac{P\varphi(\Phi_{k})-\varphi(\Phi_{k+1})}{k+1}$ 
+ converges a.e. to a finite limit as $n\to\infty$ . This is proved by showing that $(W_{n})$ is a martingale. Indeed, 
+ 
+ $\mathbb{E}\left(W_{n+1}\mid\Phi_{1},\cdots,\Phi_{n}\right)=W_{n}+\frac{1}{n+1}\mathbb{E}\left(P\varphi\left(\Phi_{n}\right)-\varphi\left(\Phi_{n+1}\right)\mid\Phi_{1},\cdots,\Phi_{n}\right)\\
+=W_{n}+\frac{1}{n+1}P\varphi\left(\Phi_{n}\right)-\frac{1}{n+1}\mathbb{E}\left(\varphi\left(\Phi_{n+1}\right)\mid\Phi_{1},\cdots,\Phi_{n}\right).$ 
+ It follows from the definition of the Feller operator $P$ that $\mathbb{E}\left(\varphi\left(\Phi_{n+1}\right)\mid\Phi_{1},\cdots,\Phi_{n}\right)=P\varphi\left(\Phi_{n}\right)$ , which implies that $\mathbb{E}\left(W_{n+1}\mid\Phi_{1},\cdots,\Phi_{n}\right)=W_{n}$ . Therefore, $W_{n}$ is a martingale. Since $\varphi$ is bounded, 
+ 
+ $\mathbb{E}\left(W_{n+1}^{2}\right)\leqslant 4\|\varphi\|_{\infty}^{2}\sum_{k=1}^{\infty}\frac{1}{k^{2}}.$ 
+ It follows from the Martingale Convergence Theorem that $W_{n}$ converges a.e. to a limit $W$ with $\mathbb{E}|W|<\infty$ . ∎
+
+The next can be seen as a generalization of Breiman’s Ergodic theorem presented in [Bre60] .
+
+Let $X$ be a compact metric space and $\mathsf{M}=(m_{x})_{x\in X}$ a Feller transition probability on $X$ . If $\Phi=(\Phi_{n})$ is a Markov chain with transition probability kernel $\mathsf{M}=(m_{x})_{x\in X}$ , then with probability $1$ , any accumulation point (in the weak- $*$ -topology) of the sequence 
+ 
+ $\frac{1}{n}\sum_{i=0}^{n-1}\delta_{\Phi_{i}}$ 
+ is a stationary measure for $\Phi$ .
+
+Since $X$ is compact $C_{b}(X,\mathbb{R})$ is separable, then it follows from 4.1 that with probability $1$ 
+ 
+ (12)  $\lim_{n\to\infty}\frac{1}{n}\sum_{i=0}^{n-1}P\varphi(\Phi_{i})-\varphi(\Phi_{i})=0$ 
+ for every $\varphi\in C_{b}(X,\mathbb{R})$ . Let $(\Phi_{i})$ be a sample sequence for which this is the case.
+
+Assume that $\nu$ is an accumulation point of $\frac{1}{n}\sum_{i=0}^{n-1}\delta_{\Phi_{i}}$ , that is, there is an increasing subsequence $(n_{k})_{k\in\mathbb{N}}$ such that 
+ 
+ (13)  $\lim_{k\to\infty}\frac{1}{n_{k}}\sum_{i=0}^{n_{k}-1}\delta_{\Phi_{i}}=\nu$ 
+ in the weak- $*$ -topology. Since $P$ is Feller, we have that $P\varphi-\varphi$ is continuous for every continuous function $\varphi$ . In particular, it follows from ( 13 ) that 
+ 
+ $\lim_{k\to\infty}\frac{1}{n_{k}}\sum_{i=0}^{n_{k}-1}P\varphi(\Phi_{i})-\varphi(\Phi_{i})=\int_{X}(P\varphi-\varphi)\,d\nu$ 
+ for every continuous function $\varphi$ . Now, it follows from ( 12 ) that 
+ 
+ $\int_{X}P\varphi\,d\nu=\int_{X}\varphi\,d\nu$ 
+ for every continuous function $\varphi$ . This shows that $\nu$ is a stationary measure. ∎
+
+4.0.1. Application
+
+The previous result has an immediate application in the transfer operator scenario.
+
+Let $\mathsf{M}=(m_{x})_{x\in X}$ be a transition probability kernel on a compact space $X$ satisfying the Feller property, and consider $f\in C_{b}(X,\mathbb{R})$ a bounded continuous normalized potential. If $\mathscr{L}_{\mathsf{M},f}$ is the associated transfer operator, denote $\widetilde{\mathsf{M}}=(\widetilde{m}_{x})_{x\in X}$ the transition probability kernel given by, $\widetilde{m}_{x}(A)=\mathscr{L}_{\mathsf{M},f}(\mathbf{1}_{A})(x)$ and let $\Psi=(\Psi_{n})$ denote its associated Markov chain starting at $x$ . Then with probability $1$ , any accumulation point of the sequence 
+ 
+ (14)  $\frac{1}{n}\sum_{i=0}^{n-1}\delta_{\Psi_{i}}$ 
+ is a stationary measure of $\Psi$ . In particular a such limit $\nu$ must satisfies $\mathscr{L}_{\mathsf{M},f}^{*}\nu=\nu$ , i.e, $\nu$ is a fixed point of the dual of the transfer operator.
+
+The proof follows immediately from observing that $X$ is compact and that $\widetilde{\mathsf{M}}=(\widetilde{m}_{x})_{x\in X}$ has the Feller property, then we apply Proposition 4.2 and the result follows. ∎
+
+A particular interesting case is when $\mathsf{M}=(\mu\times\delta_{x})_{x\in X}$ . In this case $\mathscr{L}_{\mathsf{M},f}$ is the Standard Ruelle operator, and therefore, any accumulation point of ( 14 ) is a Gibbs measure .
+
+5. A FCLT for a Long-Range $O(N)$ model via Poisson Equation
+
+In this section we study the validity of a Functional Central Limit Theorem in the setting of Statistical Mechanics on the one-dimensional lattice. We use the version obtained here to prove FCLT for a long-range $O(N)$ model with polynomial decay of correlations. This is, as far as we know, a new result in Statistical Mechanics. That task would require an extension of the main result of [Klo20] (see also [KLO23] ) to the setting of Example 3.2 where uncountable alphabets are considered.
+
+We will consider long-range $O(N)$ models on the $\mathbb{N}$ lattice. In the $O(N)$ , for $N\geqslant 2$ , the fibers are uncountable and given by $E=\mathbb{S}^{N-1}$ , the unit sphere in the $N$ -dimensional Euclidean space. The potential we will consider is a Dyson type potential given by the expression $f(x)=\sum_{n=1}^{\infty}J(n)\langle x_{1},x_{n+1}\rangle,$ where $J(n)=O(n^{-2-\varepsilon})$ and the scalar multiplication is replaced by the usual inner product of $\mathbb{R}^{n}$ .
+
+In Section 5.6 we study the validity of a FCLT in a non compact alphabet setting with respect to an adapted Dyson type potential.
+
+5.1. Proving a FCLT by solving the Poisson equation
+
+The problem of proving a Central Limit Theorem for a Markov process often relies on verifying some analytical condition on the associated transfer operator, see for instance [BL88] . Most commonly, when people want to prove a Central Limit Theorem in the context of transfer operators, they often appeal to the Nagaev-Guivarc’h method. An abstract version of this method can be stated as follows.
+
+Let $X_{1},X_{1},\ldots$ be a sequence of real random variables. Denote $S_{n}=X_{1}+\cdots+X_{n}$ . Assume that there is $\delta>0$ and functions $c(t),\lambda(t)$ and $d_{n}(t),$ defined on $[-\delta,\delta]$ such that, 
+ 
+ (15)  $\mathbb{E}(e^{itS_{n}})=c(t)\lambda(t)^{n}+d_{n}(t),\quad\forall t\in[-\delta,\delta],n\in\mathbb{N}.$ 
+
+
+Assume that we can write $\lambda(t)=\exp(iAt-\sigma^{2}/2+o(t^{2}))$ , for some constant $A$ and $\sigma^{2}$ in $\mathbb{C}$ for small values of $t$ . Also suppose that the function $c(t)$ continuous on $0$ , and that the $\|d_{n}\|_{\infty}$ goes to zero when $n\to\infty$ . Then $A\in\mathbb{R},\sigma^{2}\geqslant 0$ and $(S_{n}-nA)/\sqrt{n}$ converges to a Gaussian distribution $\mathscr{N}(0,\sigma^{2})$ . The proof is essentially the same as Central Limit Theorem with some minor changes (to more details see [Gou15] ).
+
+In the transfer operator context, writing $\mathbb{E}(e^{itS_{n}})$ as something like ( 15 ) will pass by finding a suitable subspace where the transfer operator restricted to it becomes quasi-compact , i.e, can be decomposed as $\Pi+Q$ where spectrum of $Q$ is contained in a disc of radius $r<1$ , and $\Pi$ has finite rank. Indeed, that is the main challenge of the method, finding a subspace on which the transfer operator exhibits the spectral gap property. In general, the absence of spectral gap will occur when we have super-polynomial decay of correlations. In [CS16] considering the Ruelle operator in the Walters space a potential where the associated Ruelle operator has no spectral gap is exhibited.
+
+Here we will follow the method presented in [BL88] which consists in to find a solution of the Poisson equation . Namely, assume that $(Y_{n})_{n\in\mathbb{N}}$ is an ergodic stationary Markov chain whose stationary distribution is $\mu$ . Note that $P$ takes $L^{2}(\mu)$ into $L^{2}(\mu)$ . Given an almost surely non-constant observable $\phi\colon S\to\mathbb{R}$ such that $\phi\in L^{2}(\mu)$ and $\int_{X}\phi\,d\mu=0$ , consider the Poisson equation 
+ 
+ $(I-P)\upsilon=\phi.$ 
+ Assume that there is a solution $\upsilon\in L^{2}(\mu)$ and let $\varrho\equiv\mu(\upsilon^{2})-\mu(P\upsilon)^{2}>0$ (ergodicity implies $\varrho>0$ ). Consider the stochastic process $Y_{n}(t)$ given by 
+ 
+ $Y_{n}(t)=\displaystyle\frac{1}{\varrho\sqrt{n}}\sum_{j=0}^{[nt]}\phi(Z_{j}),\qquad 0\leqslant t<\infty$ 
+ taking values in the space $D[0,\infty)$ of real-valued right continuous functions on $[0,\infty)$ having left limits, endowed with the Skorohod topology. Then, the process $Y_{n}(t)$ converges in distribution (weak- $*$ convergence) to the Wiener measure on $D[0,\infty)$ .
+
+The above FCLT is obtained by reducing the problem to the martingale case. See [BL88] for this reduction and Billingsley [Bil99] for a FCLT for martingale differences.
+
+Let $\mathsf{M}=(m_{x})_{x\in X}$ be a transition probability kernel, $f$ a normalized potential (i.e., $\mathscr{L}_{\mathsf{M},f}\mathbf{1}=\mathbf{1}$ ) and $\mu$ a stationary measure. Consider the transition probability $\widetilde{m}$ given by 
+ 
+ $\widetilde{m}(x,A)=\mathbb{L}(\mathbf{1}_{A})(x),$ 
+ where the operator $\mathbb{L}$ is the extension of the operator $\mathscr{L}_{\mathsf{M},f}$ to ${L}^{2}(\mu)$ . It is readily checked that the induced Feller operator satisfies $P\varphi(x)=\mathbb{L}(\varphi)(x)$ , and also that any probability measure satisfying $\mathscr{L}_{\mathsf{M},f}^{*}\mu=\mu$ is an stationary measure for $P$ .
+
+Denote by $\Psi=(\Psi_{n})$ the Markov chain taking values in $X$ defined by $(\widetilde{m}_{x})_{x\in X}$ . In view of Theorem 2.1 the above result in our setting take the following form.
+
+Let $P$ be the transfer operator induced by the extension $\mathbb{L}$ associated with a continuous and normalized potential and $\mu\in\mathscr{G}^{*}$ . Let $\phi:X\to\mathbb{R}$ be a non-constant observable in $L^{2}(\mu)$ satisfying $\mu(\phi)=0$ . If there exists a solution $\upsilon\in L^{2}(\mu)$ for Poisson’s equation $(I-\mathbb{L})\upsilon=\phi$ , then the stochastic process $Y_{n}(t)$ , given by 
+ 
+ (16)  $\displaystyle Y_{n}(t)=\displaystyle\frac{1}{\varrho\sqrt{n}}\sum_{j=0}^{[nt]}\phi\circ\sigma^{j},\qquad 0\leqslant t<\infty,$ 
+ where $\varrho=\mu(\upsilon^{2})-\mu(P\upsilon)^{2}$ , converges in distribution to the Wiener measure in $D[0,\infty)$ .
+
+Before we continue we need to introduce some framework of Optimal Transport Theory.
+
+5.2. Optimal transport
+
+Define the Wasserstein metric with respect to distances of the form $\omega\circ d$ , where $\omega$ is a modulus of continuity, by putting 
+ 
+ $W_{\omega}(\mu,\nu)=\inf_{\Pi\in\Gamma(\mu,\nu)}\int_{X\times X}\omega\circ d(x,y)\;d\Pi(x,y)$ 
+ where $\Gamma(\mu,\nu)$ is the set of the Borel probability measures on $X\times X$ with marginals $\mu$ and $\nu$ . We refer to an element of $\Gamma(\mu,\nu)$ as a transport plan. A transport plan attaining the above infimum is called an optimal transport plan with respect to the cost $\omega\circ d$ . It is worth mentioning that optimal transport plans always exist, and that $W_{\omega}$ metrizes the weak- $*$ -topology on $\mathscr{P}(X)$ . For more details see [Vil09] .
+
+A non-negative function $F:\mathbb{N}\times(0,R)\to(0,\infty)$ is said to be a decay function if a) $F$ is non increasing in $n$ and non-decreasing and concave in the second variable; b) $\lim_{n\to\infty}F(n,r)=\lim_{r\to 0}F(n,r)=0$ ; c) There exists $C>0$ such that, $\forall t,r$ , we have $F(t,r)\leqslant cr$ ; d) $\forall k,n\in\mathbb{N}$ and $r>0$ , we have $F(k+n,r)\leqslant F(k,F(n,r)).$
+
+Let $\mathscr{T}$ be a linear operator defined on the finite signed measure space preserving the probability measures space $\mathscr{P}(X).$ We say that $\mathscr{T}$ has $\omega$ - decay rate $F$ if for all $n\in\mathbb{N},\mu,\nu\in\mathscr{P}(X)$ we have that 
+ 
+ $W_{\omega}(\mathscr{T}\mu,\mathscr{T}\nu)\leqslant F(t,W_{\omega}(\mu,\nu)).$ 
+ where $F$ is a decay function. In particular, when $F$ is given by 
+ 
+ $F(n,r)=\frac{Br}{(nr^{\alpha}+b)^{\frac{1}{\alpha}}}$ 
+ for some $B\geqslant 1,b\in(0,1)$ and for some $n,r$ , we say that $\mathscr{T}$ has polyomial $\omega$ -decay.
+
+5.3. Coupling and flat potentials
+
+A coupling of a transition probability kernel $\mathsf{M}=(m_{x})_{x\in X}$ is a family $\mathsf{P}$ of probability measures $\Pi_{x,y}^{n}\in\Gamma(m^{n}_{x},m^{n}_{y})$ , $n\in\mathbb{N}$ and $x,y\in X$ , such that, for each $n$ , the map $(x,y)\mapsto\Pi^{n}_{x,y}$ is Borel-measurable.
+
+A coupling $\mathsf{P}=(\Pi_{x,y}^{n})_{n,x,y}$ of the transition probability kernel $\mathsf{M}=(m_{x})_{x\in X}$ is said to be $\omega$ - H ölder if there exists a constant $C$ such that for all $n\in\mathbb{N}$ and $x,y\in X$ we have the following: 
+ 
+ (17)  $\int\omega\circ d(x_{n},y_{n})\;d\Pi_{x,y}^{n}(\bar{x},\bar{y})\leqslant C\omega\circ d(x,y).$ 
+
+
+Given a coupling $\mathsf{P}$ and a normalized potential $f$ , we define the family $\mathsf{P}_{f}=(e^{f^{n}(\bar{x})}\Pi_{x,y}^{n}(\bar{x},\bar{y}))_{n,x,y},$ and we say that $\mathsf{P}_{f}$ has $\omega$ -decay rate $F$ when for some constant $C$ (depending on $f$ ), for every $n$ and all $x,y\in X$ it holds, 
+ 
+ $\int\omega\circ d(x_{n},y_{n})e^{f^{n}(\bar{x})}\,d\Pi^{n}_{x,y}(\bar{x},\bar{y})\leqslant CF(n,\omega\circ d(x,y)).$ 
+
+
+If a coupling $\mathsf{P}$ has $\omega$ -decay rate of type a) we say that $\mathsf{P}$ has exponential decay, and if $\mathsf{P}$ has $\omega$ -decay rate of type b) we say that $\mathsf{P}$ polynomial decay.
+
+Fix a coupling $\mathsf{P}=(\Pi^{n}_{x,y})_{n,x,y}$ associated to a transition probability kernel $\mathsf{M}$ . We say that a potential $f\in C^{\omega}(X,\mathbb{R})$ is flat with respect to $\mathsf{P}$ if there is some positive constant $C$ such that for all $n\in\mathbb{N}$ , all $x,y\in X$ and $\Pi_{x,y}^{n}$ -almost $(\bar{x},\bar{y})$ we have the following: 
+ 
+ (18)  $|f^{n}(\bar{x})-f^{n}(\bar{y})|\leqslant C\omega\circ d(x,y).$ 
+
+
+The next theorem plays a fundamental role in the next section. It is part of the main result of [Klo20] (Theorem 4.1, see also [KLO23] ) and we state sake of clarity.
+
+Let $\mathsf{M}=(m_{x})_{x\in X}$ be a transition kernel on a compact metric space $X$ and $\omega$ be a modulus of continuity. Let $f\in C^{\omega}(X,\mathbb{R})$ be flat and normalized potential with respect to $\mathscr{L}\equiv\mathscr{L}_{\mathsf{M},f}$ . Suppose that $\mathsf{M}=(m_{x})_{x\in X}$ has a coupling $\mathsf{P}$ such that $\mathsf{P}_{f}$ has $\omega$ -decay function $F$ .
+
+Then there exist a constant $C>0$ such that for all $\mu,\nu\in\mathscr{P}(X)$ 
+ 
+ $W_{\omega}\big{(}\mathscr{L}^{*n}\mu,\mathscr{L}^{*n}\nu\big{)}\leqslant CW_{\omega}(\mu,\nu)$ 
+ In particular, when $F$ is polynomial then $\mathscr{L}^{*}_{\mathsf{M},f}$ decays polynomially in the Wasserstein metric with the same degree.
+
+5.4. Decay rate on uncountable alphabets
+
+In this section $X$ will stand for $E^{\mathbb{N}}$ , where $E$ is a standard Borel space. Our goal in this section is to adapt the notion of natural coupling introduced in [Klo20] to contemplate the context of Example 3.2 , where general alphabets are considered, and then show that for a suitable choice of potential this coupling has polynomial decay rate.
+
+By considering the transition kernel $\mathsf{M}=(\mu\times\delta_{x})_{x\in X}$ given in Example 3.2 , and a potential $f\in C^{\omega}(X,\mathbb{R})$ we have the standard Ruelle operator 
+ 
+ $\mathscr{L}_{\mathsf{M},f}\varphi(x)=\int_{E}e^{f(ax)}\varphi(ax)\,d\mu(a).$ 
+ For each fixed $w=(r_{1},r_{2},\dots,r_{n})\in E^{n}$ and $x,y\in X$ define $\bar{x}^{w}_{n}$ and $\bar{y}^{w}_{n}$ in $X^{n}$ by specifying its projections for $j=1,\ldots,n$ as 
+ 
+ $\Pi_{j}(\bar{x}^{w}_{n})=\left(r_{j},r_{j-1},\ldots,r_{1},x_{1},x_{2},\cdots\right)$ 
+ and 
+ 
+ $\Pi_{j}(\bar{y}^{w}_{n})=\left(r_{j},r_{j-1},\ldots,r_{1},y_{1},y_{2},\cdots\right).$ 
+ Consider $\mathsf{P}=(\Pi_{x,y}^{n})_{n,x,y}$ defined by 
+ 
+ (19)  $\Pi^{n}_{x,y}=\int_{E^{n}}\delta_{(\bar{x}^{w}_{n},\bar{y}^{w}_{n})}\,d\mu^{n}(w).$ 
+ More explicitly, if $\varphi:X\times X\to\mathbb{R}$ is a measurable function then, the expression ( 19 ) means that, 
+ 
+ $\int_{X\times X}\varphi(x,y)\,d\Pi_{x,y}=\int_{E^{n}}\varphi(\bar{x}^{w}_{n},\bar{y}^{w}_{n})\,d\mu(w).$ 
+
+
+One can easily shows that $\mathsf{P}=(\Pi_{x,y}^{n})_{n,x,y}$ is a coupling for the transition probability kernel $\mathsf{M}=(\mu\times\delta_{x})_{x\in X}$ , and it is called natural coupling. It is worth observing that for $(\Pi^{n}_{x,y})_{n,x,y}$ almost all $(\bar{x},\bar{y})$ in $X^{n}\times X^{n}$ we have the following contraction property, 
+ 
+ $\displaystyle d(x_{n},y_{n})\leqslant\dfrac{1}{2^{n}}d(x,y).$ 
+ In fact, by its very nature $\mathsf{P}=(\Pi_{x,y}^{n})_{n,x,y}$ only sees the paired orbits $r_{j}r_{j-1}\cdots r_{1}x$ and $r_{j}r_{j-1}\cdots r_{1}y$ , then we have 
+ 
+ $\displaystyle d(x_{n},y_{n})$ $\displaystyle=d(r_{n}r_{n-1}\cdots r_{1}x,r_{n}r_{n-1}\cdots r_{1}y)$ 
+ 
+ $\displaystyle\leqslant\dfrac{1}{2^{n}}d(x,y).$ 
+
+
+Let $\mathsf{M}=(\mu\times\delta_{x})_{x\in X}$ be a transition probability kernel defined on a standard Borel space $X$ . Consider $\mathsf{P}=(\Pi^{n}_{x,y})_{x,y,n}$ the natural coupling defined in ( 19 ). For each $\varepsilon>0$ consider $\omega_{\varepsilon}(r)=\log(r_{0}/r)^{-\varepsilon}$ and $f\in C^{\varepsilon\log}(X,\mathbb{R})$ a normalized potential. Then $\mathsf{P}_{f}$ has polynomial decay of degree $\varepsilon$ with respect $\omega_{\varepsilon}$ .
+
+The proof will closely follow the one given in [Klo20] , Lemma 5.3, with some small modifications. Observe that, 
+ 
+ $\int\omega_{\varepsilon}\circ d(x_{n},y_{n})\,d\big{(}e^{f^{n}(\bar{x})}\Pi^{n}_{x,y}\big{)}(\bar{x},\bar{y})\\
+\leqslant\omega_{\varepsilon}\left(\int d(x_{n},y_{n})\,d\big{(}e^{f^{n}(\bar{x})}\Pi^{n}_{x,y}\big{)}(\bar{x},\bar{y})\right)\leqslant\omega_{\varepsilon}\left(2^{-n}d(x,y)\right).$ 
+ On the other hand a straightforward calculation shows that for a suitable choice of $\lambda^{\prime},$ 
+ 
+ $\omega_{\varepsilon}\left(2^{-n}d(x,y)\right)=\dfrac{1}{(\omega_{\epsilon}(d(x,y))^{1/\varepsilon}+t\log\lambda^{\prime})^{\varepsilon}},$ 
+ from which follows the result. ∎
+
+Suppose $X=E^{\mathbb{N}}$ where $E$ is a compact metric space. Let $\mathsf{M}=(\mu\times\delta_{x})_{x\in X}$ be a transition probability kernel and consider $f\in C^{\varepsilon\log}(X,\mathbb{R})$ a flat potential with respect to the moduli of continuity $\omega_{\varepsilon}(r)=\log(r_{0}/r)^{-\varepsilon}$ and the natural coupling $\Pi^{n}_{x,y}=\int_{E^{n}}\delta_{(\bar{x}^{w}_{n},\bar{y}^{w}_{n})}\,d\mu^{n}(w)$ . Then the transfer operator $\mathscr{L}_{\mathsf{M},f}$ has a strictly positive eigenfunction $h_{f}\in C^{\varepsilon\log}(X,\mathbb{R})$ with respect to some positive eigenvalue $\lambda_{f}$ and its dual $\mathscr{L}_{\mathsf{M},f}^{*}$ has a conformal measure $\nu_{f}$ with respect to the eigenvalue $\lambda_{f}.$ The measure $\mu_{f}=h_{f}d\nu_{f}$ is a stationary measure.
+
+If $\bar{f}=f+\log h_{f}-\log h\circ\sigma-\log\lambda_{f}$ is the normalized potential, and if $\varphi$ is an observable satisfying $\int\varphi d\mu_{\bar{f}}=0,$ we must have that, $\|\mathscr{L}_{\mathsf{M},\bar{f}}^{n}\varphi\|\leqslant C\frac{\|f\|_{\omega_{\varepsilon}}}{n^{\varepsilon}}.$ In particular the one sided shift has polynomial decay of correlations.
+
+The proof theorem relies in Theorems 3.2, 4.1 and 5.8 of [Klo20] . The first part of theorem is an immediate application of Theorem 3.2. For the second part, it was showed in Proposition 5.5 , that the natural coupling $\mathsf{P}=(\Pi^{n}_{x,y})_{n,x,y}$ has polynomial decay rate with respect to $\omega_{\varepsilon}$ , therefore we can apply Theorem 4.1 of [Klo20] (see Theorem 5.4 ) obtaining that $\mathscr{L}^{*}_{\mathsf{M},f}$ also has polynomial decay rate. Minor adaptations in the proof of Theorem 5.8 of [Klo20] provide the desired polynomial decay of correlations. ∎
+
+5.5. FCLT for a long-range $O(N)$ model
+
+Let $X=(\mathbb{S}^{N})^{\mathbb{N}}$ where $\mathbb{S}^{N}$ is the $(N+1)$ -dimensional euclidean sphere. Let $\mathbb{\mu}$ be the Lebesgue measure on $\mathbb{S}^{N}.$ Consider the Dyson type potential, 
+ 
+ $f(x)=\sum_{n=1}^{\infty}\dfrac{\langle x_{1},x_{n+1}\rangle}{n^{2+\varepsilon}}.$ 
+ where $\langle x,y\rangle$ means the inner product of $\mathbb{R}^{n}$ .
+
+Below we will show that this model has a polynomial decay of correlations. To do that we need two technical lemmas.
+
+For each $\varepsilon>0$ we have that $f\in C^{\varepsilon\log}(X,\mathbb{R})$ , where $\omega_{\varepsilon}(r)=\log(r_{0}/r)^{-\varepsilon}$ .
+
+The proof of the lemma will relies in two reductions. The first one is to observe that since $C^{\varepsilon\log}(X,\mathbb{R})$ is a Banach algebra it is sufficient to proof that each $\langle x_{1},x_{n+1}\rangle$ lives in $C^{\varepsilon\log}(X,\mathbb{R})$ .
+
+Secondly, by observing that $\langle x_{1},x_{n+1}\rangle=\sum_{k=1}^{N}x_{1}^{k}x_{n+1}^{k}$ , the same reasoning above ensures that we only need to verify that each map $\pi_{k,n}:(\mathbb{S}^{N})^{\mathbb{N}}\to[0,1]$ given by $\pi_{k,n}(x)=x_{n}^{k}$ , $n\in\mathbb{N}$ , $k=1,\ldots,N$ is in $C^{\varepsilon\log}(X,\mathbb{R})$ .
+
+Now observe that there exists a constant $D$ such that for each $t\in[0,1]$ we have that $t\leqslant D\omega_{\varepsilon}(t)$ . Indeed, it suffices to observe that for each $\varepsilon>0$ , the limit $\lim_{t\to 0}t|\log(t)|^{\varepsilon}$ is finite. Then, we have that 
+ 
+ (20)  $\displaystyle|\pi_{k,n}(x)-\pi_{k,n}(y)|=|x_{n}^{k}-y_{n}^{k}|\leqslant 2d(x,y)\leqslant 2D\omega(d(x,y)).$ 
+ This shows that $\pi_{k,n}\in C^{\varepsilon\log}(X,\mathbb{R})$ . ∎
+
+Suppose that $f\in C^{\varepsilon\log}(X,\mathbb{R})$ for $\varepsilon>2$ , then $f\in C^{(\varepsilon-1)\log}(X,\mathbb{R})$ . In particular the Dyson type potential is flat with respect to the natural coupling and ${\omega}_{\varepsilon-1}$ .
+
+Observe that $d(a_{1}\cdots a_{j}x,a_{1}\cdots a_{j}y)=2^{-j}d(x,y)$ . This implies, for $0\leqslant j\leqslant n-1$ , that $|f(\sigma^{j}(a_{1}\cdots a_{n}x))-f(\sigma^{j}(a_{1}\cdots a_{n}y))|\leqslant\omega(2^{n-j}d(x,y)).$ Therefore, 
+ 
+ $|\sum_{j=0}^{n-1}f(\sigma^{j}(a_{1}\cdots a_{n}x))-f(\sigma^{j}(a_{1}\cdots a_{n}y))|\leqslant\sum_{j=0}^{n-1}\omega(2^{-j}d(x,y)).$ 
+ On the other hand, 
+ 
+ $\omega(2^{-j}d(x,y))=\Big{[}j\log 2+\log\left(\dfrac{r_{0}}{d(x,y)}\right)\Big{]}^{-\varepsilon}.$ 
+ Thus, 
+ 
+ $\sum_{j=0}^{n-1}\omega(2^{-j}d(x,y))\leqslant\sum_{j=0}^{\infty}\omega(2^{-j}d(x,y))=\sum_{j=0}^{\infty}\left[j\log 2+\log\left(\dfrac{r_{0}}{d(x,y)}\right)\right]^{-\varepsilon}\\[8.5359pt]
+\leqslant\lim_{\delta\to 0}\displaystyle\int_{\delta}^{\infty}\left[j\log 2+\log\left(\dfrac{r_{0}}{d(x,y)}\right)\right]^{\varepsilon}\,dx=C\left[\log\left(\dfrac{r_{0}}{d(x,y)}\right)\right]^{-(\varepsilon-1)}.$ 
+ Showing that 
+ 
+ $\sum_{j=0}^{n-1}\omega(2^{-j}d(x,y))\leqslant C\tilde{\omega}(d(x,y)),$ 
+ where $\tilde{\omega}(r)=\log(r_{0}/r)^{-(\varepsilon-1)}$ . This proves the existence of a constant $C>0$ such that, for every $n\in\mathbb{N}$ , 
+ 
+ (21)  $\big{|}\sum_{j=0}^{n-1}f(\sigma^{j}(a_{1}\cdots a_{n}x))-f(\sigma^{j}(a_{1}\cdots a_{n}y))\big{|}\leqslant C\tilde{\omega}(d(x,y)).$ 
+ As a consequence of the above inequality we get that $f$ is flat with respect to the modulus of continuity $\omega_{\varepsilon-1}$ and that $f\in C^{(\varepsilon-1)\log}(X,\mathbb{R})$ . ∎
+
+Therefore, by applying Theorem 3.2 of [Klo20] we get a strictly positive eigenfunction $h$ living in $C^{(\varepsilon-1)\log}(X,\mathbb{R})$ with associated eigenvalue $\lambda>0$ . This allow us to consider the normalized potential $\bar{f}=f+\log h-\log h\circ\sigma-\log\lambda$
+
+The normalized potential $\bar{f}=f+\log h-\log h\circ\sigma-\log\lambda$ is also a flat potential.
+
+See discussion in [Klo20] . ∎
+
+Consider $\mathsf{P}=(\Pi^{n}_{x,y})_{x,y,n}$ the natural coupling defined in ( 19 ), by Proposition 5.5 we get that $\mathsf{P}_{f}$ has polynomial decay rate with respect to $\omega_{\varepsilon-1}$ . Therefore, we can apply Theorem 5.6 to get a constant $C>0$ such that for any $\varphi\in C^{(\varepsilon-1)\log}$ satisfying $\int_{X}\varphi\,d\mu_{f}=0$ we have that 
+ 
+ $\|\mathscr{L}_{\mathsf{M},\bar{f}}^{n}\varphi\|\leqslant C\frac{\|f\|_{\omega_{\varepsilon}}}{n^{\varepsilon-1}}.$ 
+ Since we are considering $\varepsilon>0$ we have $\sum_{n=2}^{\infty}\|\mathscr{L}_{\mathsf{M},\bar{f}}^{n}\varphi\|\leqslant\sum_{n=2}^{\infty}Cn^{-(\varepsilon-1)}<\infty$ , thus implying that $v=-\sum_{n=0}^{\infty}\mathscr{L}_{\mathsf{M},\bar{f}}^{n}\varphi$ is a well defined element of $L^{2}(\mu_{f})$ . One can easily verify that $v$ is a solution for Poisson’s equation, allowing us to apply Theorem 5.1 , thus concluding the FCLT to this model.
+
+5.6. Polinomial decay rate in a non-compact setting
+
+It is useful for our purposes to observe that the proof of Theorem 5.4 in [Klo20] (see also [KLO23] ) uses the compactness of $X$ for two reasons. The first reason is to ensure that $\text{diam}(X)$ is finite. The second reason is to obtain a strictly positive eigenfunction $h\in C^{\omega}(X,\mathbb{R}),$ whose its associated eigenvalue is the spectral radius $\mathscr{L}_{\mathsf{M},f}$ , in order to construct a normalized potential. The remaining of the proof is based on results from Optimal Transport Theory in which compactness does not play any role.
+
+Therefore if we would like to provide a version of Theorem ( 5.4 ) when $(X,\mathscr{X})$ is non-compact we need to arrange two things. Firstly we need to endow $X$ with an equivalent bounded metric, and secondly to provide a strictly positive eigenfunction $h\in C^{\omega}(X,\mathbb{R})$ .
+
+5.6.1. A bounded metric
+
+Suppose $d$ is a metric on $X$ , if $d$ is not bounded we can change $d$ by the metric $\tilde{d}=\min\{1,d\}$ . From the topological perspective the metrics $d$ and $\tilde{d}$ generate the same topology on $X$ . It is easy to verify that this new metric space $(X,\tilde{d})$ is now bounded and still complete. On the other hand, it is important to note that other metric features will change. For instance, the space of the $\omega$ -Hölder continuous functions with respect to this new metric will be different.
+
+5.6.2. Providing the positive eigenfunction
+
+To obtain a strictly positive eigenfunction, we can follow a classical approach by using a general form of the Arzelà-Ascoli theorem, see [Dug66] . Let us provide a brief overview of this construction for completeness.
+
+Bellow $\mathsf{M}=(m_{x})_{x\in X}$ is a transition probability kernel on a standard Borel space $(X,\mathscr{X})$ equipped with a bounded metric, $f$ is a flat potential belonging to $C^{\omega}(X,\mathbb{R})$ for some modulus of continuity $\omega$ , and $\mathscr{L}_{\mathsf{M},f}$ refers to the associated transfer operator with respect to $\mathsf{M}$ and $f$ .
+
+Denote by $\varrho$ the spectral radius of $\mathscr{L}_{\mathsf{M},f}$ , we start by showing that there exist positive constants $A$ and $B$ such that for every $n\in\mathbb{N}$ we have that, 
+ 
+ $A\leqslant\varrho^{-n}\mathscr{L}^{n}_{\mathsf{M},f}\mathbf{1}\leqslant B.$ 
+ This will follows from using the flatness property of the potential $f$ . Indeed, since $f$ is a flat potential we have for every $n\in\mathbb{N}$ that, 
+ 
+ $e^{f^{n}(\bar{x})}-e^{f^{n}(\bar{y})}=e^{f^{n}(\bar{y})}\big{(}e^{f^{n}(\bar{x})-f^{n}(\bar{y})}-1\big{)}\leqslant C\omega\circ d(x,y)$ 
+ then by using that $\Pi_{x,y}$ has marginals $m_{x}^{n}$ and $m_{y}^{n}$ , 
+ 
+ (22)  $\displaystyle\mathscr{L}^{n}_{\mathsf{M},f}\mathbf{1}(x)=\int e^{f^{n}(\bar{x})}\,d\Pi^{n}_{\bar{x},\bar{y}}(x,y)=\int e^{f^{n}(\bar{y})}e^{f^{n}(\bar{x})-f^{n}(\bar{y})}\,d\Pi^{n}_{\bar{x},\bar{y}}(x,y)$ 
+ 
+ $\displaystyle\leqslant e^{C\text{diam}(X)}\int e^{f^{n}(\bar{y})}\,d\Pi^{n}_{{x},{y}}(\bar{x},\bar{y})=C^{\prime}\mathscr{L}^{n}_{\mathsf{M},f}\mathbf{1}(y),$ 
+ for all $x,y\in X$ . Therefore by symmetry, we have for all $x,y\in X$ that, 
+ 
+ (23)  $\displaystyle\frac{1}{C^{\prime}}\mathscr{L}^{n}_{\mathsf{M},f}\mathbf{1}(y)\leqslant\mathscr{L}^{n}_{\mathsf{M},f}\mathbf{1}(x)\leqslant C^{\prime}\mathscr{L}^{n}_{\mathsf{M},f}\mathbf{1}(y).$ 
+ The above inequality has as a consequence that the number 
+ 
+ (24)  $\tilde{\varrho}=\limsup_{n\to\infty}\big{(}\mathscr{L}^{n}_{\mathsf{M},f}\mathbf{1}(x)\big{)}^{1/n}$ 
+ is finite and non-zero, and it does not depend on $x\in X$ . Since $\mathscr{L}^{n}_{\mathsf{M},f}$ preserve the cone of positive functions we get that $\varrho=\tilde{\varrho}$ .
+
+A second consequence of ( 23 ) is that in view of ( 24 ) we can find positive constants $A$ and $B$ such that for every $n\in\mathbb{N}$ and $x\in X$ , 
+ 
+ $A\varrho^{n}\leqslant\mathscr{L}^{n}_{\mathsf{M},f}\mathbf{1}(x)\leqslant\varrho^{n}B.$ 
+
+
+Now observe that ( 22 ) also implies that the family $\{\mathscr{L}^{n}_{\mathsf{M},f}\mathbf{1}\}_{n\in\mathbb{N}}$ is an equicontinuous sequence. Define for each $n\in\mathbb{N}$ the function $h_{n}\in C^{\omega}(X,\mathbb{R})$ by putting, 
+ 
+ $h_{n}(x)=\dfrac{1}{n}\sum_{j=0}^{n}\varrho^{-j}\mathscr{L}^{j}_{\mathsf{M},f}\mathbf{1}(x).$ 
+ It is immediate from the definition that $A\leqslant h_{n}\leqslant B$ and $\{h_{n}\}_{n\in\mathbb{N}}$ is an equicontinuous sequence. By the Arzelà-Ascoli theorem we can assume that there exists an $h\in C^{\omega}(X,\mathbb{R})$ such that $h_{n}$ converges uniformly to $h$ on the compact subsets of $X$ . Hence for every $x\in X$ , 
+ 
+ (25)  $|\mathscr{L}_{\mathsf{M},f}h(x)-\rho h(x)|=\lim_{n\to\infty}|\mathscr{L}_{\mathsf{M},f}h_{n}(x)-\rho h_{n}(x)|\\
+\leqslant\dfrac{\varrho}{n}|1-\varrho^{-n}\mathscr{L}_{\mathsf{M},f}\mathbf{1}(x)|\leqslant\dfrac{\varrho}{n}(1+B)=0.$ 
+ Therefore, $\mathscr{L}_{\mathsf{M},f}h=\varrho h$ , and obviously $h\geqslant A>0$ .
+
+As a consequence we can state the following adaptation of Theorem 5.4 .
+
+The statement of Theorems 5.4 and 5.6 still valid if instead a compact metric space we consider $X$ being a standard Borel space equipped with a bounded metric.
+
+Theorem 5.10 is not the first Ruelle theorem to address non-compact and uncountable state spaces. In [CSS19] , the authors also presented a Ruelle theorem for Hölder observables, using Optimal Transport techniques. The main distinction between Theorem 5.10 and the one described in [CSS19] lies in the consideration of decay functions and moduli of continuity, which is in turn a non-trivial improvement.
+
+Let $X=[0,\infty)^{\mathbb{N}}$ and consider the Dyson type potential $f:X\to\mathbb{R}$ given by 
+ 
+ (26)  $f(x)=\dfrac{x_{1}}{1+x_{1}}\sum_{n=1}^{\infty}J(n)\dfrac{x_{n}}{1+x_{n}}.$ 
+ where $J(n)$ is chosen in order to ensure convergence of the above series.
+
+We claim that $f\in C^{\varepsilon\log}(X,\mathbb{R})$ . Indeed, it is sufficient to prove that the map given by $\pi(x)=x_{i}/(1+x_{i})$ belongs to $C^{\varepsilon\log}(X,\mathbb{R})$ , the result will follows from the fact that $C^{\varepsilon\log}(X,\mathbb{R})$ is a Banach algebra.
+
+Firstly, 
+ 
+ (27)  $\displaystyle|\pi(x)-\pi(y)|=\left|\dfrac{x_{i}}{1+x_{i}}-\dfrac{y_{i}}{1+y_{i}}\right|=\dfrac{|x_{i}-y_{i}|}{(1+x_{i})(1+y_{i})}.$ 
+ Now observe that for each $i\in\mathbb{N}$ we have that, 
+ 
+ (28)  $d(x,y)\geqslant\dfrac{1}{2^{i}}\min\{|x_{i}-y_{i}|,1\}$ 
+ The case $x_{i}=y_{i}$ is trivial, suppose $x_{i}\neq y_{i}$ . Dividing ( 27 ) by ( 28 ) we get that 
+ 
+ $\displaystyle\dfrac{|\pi(y)-\pi(x)|}{d(x,y)}\leqslant 2^{i}\cdot\dfrac{|x_{i}-y_{i}|}{(1+x_{i})(1+y_{i})\min\{|x_{i}-y_{i}|,1\}}.$ 
+ By observing that $i$ is fixed, and considering the cases $|x_{i}-y_{i}|<1$ and $|x_{i}-y_{i}|\geqslant 1$ one can easily see that the fraction on the right-hand side above is bounded for any $x_{i}$ and $y_{i}$ belonging in $[0,\infty).$ Remembering that for $t\in[0,1]$ we have that, $t\leqslant D\omega_{\varepsilon}(t)$ , it follows that there must exists a constant $C$ such that 
+ 
+ $|\pi(x)-\pi(y)|\leqslant C\omega_{\varepsilon}(d(x,y)),$ 
+ thus concluding that $f\in C^{\varepsilon\log}(X,\mathbb{R})$ .
+
+Now suppose $J(n)=1/n^{2+\varepsilon}$ . By using Lemma 5.8 we get, for $\varepsilon>2$ that $f$ is flat with respect to $\omega_{\varepsilon-1}$ . Now consider the transition probability kernel $\mathsf{M}=(\mu\times\delta_{x})_{x\in X}$ and $\mathsf{P}=(\Pi_{x,y}^{n})_{x,y,n}$ the natural coupling defined by 
+ 
+ (29)  $\Pi^{n}_{x,y}=\int_{E^{n}}\delta_{(\bar{x}^{w}_{n},\bar{y}^{w}_{n})}d\mu^{n}(w).$ 
+ Theorem 5.5 shows that $\mathsf{P}_{f}$ has polynomial decay rate of degree $\varepsilon$ with respect to $\omega_{\varepsilon}(r)=\log(r_{0}/r)^{-\varepsilon}$ .
+
+Then we can apply Theorem 5.10 and obtain that $\mathscr{L}_{\mathsf{M},f}$ has polynomial decay of correlations. By following the same approach adopted in Section 5.5 we have that, for each $\varphi\in C^{\varepsilon\log}(X,\mathbb{R})$ satisfying $\int\varphi\,d\mu_{f}=0$ , the potential $v=-\sum_{n=0}^{\infty}\mathscr{L}_{\mathsf{M},\bar{f}}\varphi$ is a solution, thus implying the validity of a FCLT for this model.
+
+Acknowledgments
+
+The authors thanks to Leandro Ciolleti and Ali Messaoudi for fruitful discussions and suggestions.
+
+References
+
+[Ans21] Mohammad Ansari. Supermixing and hypermixing operators. J. Math. Anal. Appl., 498(1):Paper No. 124952, 13, 2021.
+[BCL+11] A. T. Baraviera, L. Cioletti, A. O. Lopes, J. Mohr, and R. R. Souza. On the general one-dimensionalX​Y𝑋𝑌XYmodel: positive and zero temperature, selection and non-selection. Rev. Math. Phys., 23(10):1063–1113, 2011.
+[BEvELN18] Rodrigo Bissacot, Eric O. Endo, Aernout C. D. van Enter, and Arnaud Le Ny. Entropic repulsion and lack of theg𝑔g-measure property for Dyson models. Comm. Math. Phys., 363(3):767–788, 2018.
+[Bil99] P. Billingsley. Convergence of probability measures. Wiley Series in Probability and Statistics: Probability and Statistics. John Wiley & Sons, Inc., New York, second edition, 1999. A Wiley-Interscience Publication.
+[BL88] Rabi N. Bhattacharya and Oesook Lee. Asymptotics of a class of Markov processes which are not in general irreducible. Ann. Probab., 16(3):1333–1347, 1988.
+[BM07] Rabi Bhattacharya and Mukul Majumdar. Random dynamical systems. Cambridge University Press, Cambridge, 2007. Theory and applications.
+[BNNT22] Pablo G Barrientos, Fumihiko Nakamura, Yushi Nakano, and Hisayoshi Toyokawa. Finitude of physical measures for random maps. September 2022.
+[Bre60] Leo Breiman. The strong law of large numbers for a class of Markov chains. Ann. Math. Statist., 31:801–803, 1960.
+[BT07] Viviane Baladi and Masato Tsujii. Anisotropic Hölder and Sobolev spaces for hyperbolic diffeomorphisms. Ann. Inst. Fourier (Grenoble), 57(1):127–154, 2007.
+[CLS20] Leandro Cioletti, Artur O. Lopes, and Manuel Stadlbauer. Ruelle operator for continuous potentials and DLR-Gibbs measures. Discrete Contin. Dyn. Syst., 40(8):4625–4652, 2020.
+[CMRS21] L. Cioletti, L. Melo, R. Ruviaro, and E. A. Silva. On the dimension of the space of harmonic functions on transitive shift spaces. Adv. Math., 385:Paper No. 107758, 24, 2021.
+[CS16] L. Cioletti and E. A. Silva. Spectral properties of the Ruelle operator on the Walters class over compact spaces. Nonlinearity, 29(8):2253–2278, 2016.
+[CSS19] L. Cioletti, E. Silva, and M. Stadlbauer. Thermodynamic formalism for topological Markov chains on standard Borel spaces. Discrete & Continuous Dynamical Systems - A, 39(11):6277–6298, 2019.
+[DU91] M. Denker and M. Urbański. On the existence of conformal measures. Trans. Amer. Math. Soc., 328(2):563–587, 1991.
+[Dug66] James Dugundji. Topology. Allyn and Bacon, 1966.
+[FB09] Etienne MATHERON Frédéric Bayart. Dynamics of Linear Operators. Cambridge University Press, Cambridge, 2009.
+[Fog69] S. R. Foguel. The ergodic theory of Markov processes. Van Nostrand Mathematical Studies, No. 21. Van Nostrand Reinhold Co., New York-Toronto, Ont.-London, 1969.
+[Fur63] Harry Furstenberg. Noncommuting random products. Trans. Amer. Math. Soc., 108:377–428, 1963.
+[Geo11] H-O. Georgii. Gibbs measures and phase transitions, volume 9 ofde Gruyter Studies in Mathematics. Walter de Gruyter & Co., Berlin, second edition, 2011.
+[GKLM18] Paolo Giulietti, Benoît Kloeckner, Artur O. Lopes, and Diego Marcon. The calculus of thermodynamical formalism. J. Eur. Math. Soc. (JEMS), 20(10):2357–2412, 2018.
+[GL78] M. I. Gordin and B. A. Lifšic. Central limit theorem for stationary Markov processes. Dokl. Akad. Nauk SSSR, 239(4):766–767, 1978.
+[Gou15] Sébastien Gouëzel. Limit theorems in dynamical systems using the spectral method. InHyperbolic dynamics, fluctuations and large deviations, volume 89 ofProc. Sympos. Pure Math., pages 161–193. Amer. Math. Soc., Providence, RI, 2015.
+[HH01a] H. Hennion and L. Hervé. Limit theorems for Markov chains and stochastic properties of dynamical systems by quasi-compactness, volume 1766 ofLecture Notes in Mathematics. Springer-Verlag, Berlin, 2001.
+[HH01b] H. Hennion and L. Hervé. Limit theorems for Markov chains and stochastic properties of dynamical systems by quasi-compactness, volume 1766 ofLecture Notes in Mathematics. Springer-Verlag, Berlin, 2001.
+[HM08] M. Hairer and J. C. Mattingly. Spectral gaps in Wasserstein distances and the 2D stochastic Navier-Stokes equations. Ann. Probab., 36(6):2050–2091, 2008.
+[Hop54] E. Hopf. The general temporally discrete Markov process. J. Rational Mech. Anal., 3:13–45, 1954.
+[Klo19] Benoît R. Kloeckner. Effective perturbation theory for simple isolated eigenvalues of linear operators. J. Operator Theory, 81(1):175–194, 2019.
+[Klo20] B. Kloeckner. An optimal transportation approach to the decay of correlations for non-uniformly expanding maps. Ergodic Theory and Dynamical Systems, 40(3):714–750, 2020.
+[KLO23] BENOÎT R. KLOECKNER. An optimal transportation approach to the decay of correlations for non-uniformly expanding maps – CORRIGENDUM. Ergodic Theory Dynam. Systems, 43(10):3538–3544, 2023.
+[LMMS15] A. O. Lopes, J. K. Mengue, J. Mohr, and R. R. Souza. Entropy and variational principle for one-dimensional lattice systems with a generala prioriprobability: positive and zero temperature. Ergodic Theory Dynam. Systems, 35(6):1925–1961, 2015.
+[LMSV21] Artur O. Lopes, Ali Messaoudi, Manuel Stadlbauer, and Victor Vargas. Invariant probabilities for discrete time linear dynamics via thermodynamic formalism. Nonlinearity, 34(12):8359–8391, 2021.
+[LY01] Ka-Sing Lau and Yuan-Ling Ye. Ruelle operator with nonexpansive IFS. Studia Math., 148(2):143–169, 2001.
+[MT09] Sean Meyn and Richard L. Tweedie. Markov chains and stochastic stability. Cambridge University Press, Cambridge, second edition, 2009. With a prologue by Peter W. Glynn.
+[MU01] R. D. Mauldin and M. Urbański. Gibbs states on the symbolic space over an infinite alphabet. Israel J. Math., 125:93–130, 2001.
+[MW00] Michael Maxwell and Michael Woodroofe. Central limit theorems for additive functionals of Markov chains. Ann. Probab., 28(2):713–724, 2000.
+[Nag57] S. V. Nagaev. Some limit theorems for stationary Markov chains. Teor. Veroyatnost. i Primenen., 2:389–416, 1957.
+[Rue68] D. Ruelle. Statistical mechanics of a one-dimensional lattice gas. Comm. Math. Phys., 9:267–278, 1968.
+[Sar01a] O. Sarig. Thermodynamic formalism for null recurrent potentials. Israel J. Math., 121:285–311, 2001.
+[Sar01b] Omri M. Sarig. Thermodynamic formalism for null recurrent potentials. Isr. J. Math., 121:285–311, 2001.
+[Sar03] O. Sarig. Existence of Gibbs measures for countable Markov shifts. Proc. Amer. Math. Soc., 131(6):1751–1758 (electronic), 2003.
+[Sar13] Omri M. Sarig. Symbolic dynamics for surface diffeomorphisms with positive entropy. J. Amer. Math. Soc., 26:341–426, 2013.
+[Vil09] C. Villani. Optimal transport, volume 338 ofGrundlehren der Mathematischen Wissenschaften [Fundamental Principles of Mathematical Sciences]. Springer-Verlag, Berlin, 2009. Old and new.

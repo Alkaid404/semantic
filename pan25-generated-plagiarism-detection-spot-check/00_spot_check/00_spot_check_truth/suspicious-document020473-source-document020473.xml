@@ -1,0 +1,50 @@
+<document reference="suspicious-document020473.txt">
+  <feature name="about" authors="Kailong Hao and Botao Yu and Wei Hu" title="Knowing False Negatives: An Adversarial Training Method for Distantly Supervised Relation Extraction" lang="en" similarity="0.9529" severity="medium" prompt_tokens="7724" output_tokens="6378"/>
+  <feature name="md5Hash" value="9acd81813334ae5f23e5253d77fa3629"/>
+  <feature name="altered" type="llm_prompted" llm="Llama-3" this_language="en" this_offset="1049" this_length="747"/>
+  <feature name="altered" type="llm_prompted" llm="Llama-3" this_language="en" this_offset="1798" this_length="914"/>
+  <feature name="altered" type="llm_prompted" llm="Llama-3" this_language="en" this_offset="2714" this_length="829"/>
+  <feature name="altered" type="llm_prompted" llm="Llama-3" this_language="en" this_offset="3545" this_length="1044"/>
+  <feature name="altered" type="llm_prompted" llm="Llama-3" this_language="en" this_offset="6350" this_length="704"/>
+  <feature name="altered" type="llm_prompted" llm="Llama-3" this_language="en" this_offset="7056" this_length="879"/>
+  <feature name="altered" type="llm_prompted" llm="Llama-3" this_language="en" this_offset="7937" this_length="785"/>
+  <feature name="altered" type="llm_prompted" llm="Llama-3" this_language="en" this_offset="8724" this_length="727"/>
+  <feature name="altered" type="llm_prompted" llm="Llama-3" this_language="en" this_offset="9475" this_length="705"/>
+  <feature name="altered" type="llm_prompted" llm="Llama-3" this_language="en" this_offset="10211" this_length="874"/>
+  <feature name="altered" type="llm_prompted" llm="Llama-3" this_language="en" this_offset="11110" this_length="704"/>
+  <feature name="altered" type="llm_prompted" llm="Llama-3" this_language="en" this_offset="11845" this_length="729"/>
+  <feature name="altered" type="llm_prompted" llm="Llama-3" this_language="en" this_offset="12929" this_length="785"/>
+  <feature name="altered" type="llm_prompted" llm="Llama-3" this_language="en" this_offset="13716" this_length="1002"/>
+  <feature name="altered" type="llm_prompted" llm="Llama-3" this_language="en" this_offset="14744" this_length="556"/>
+  <feature name="altered" type="llm_prompted" llm="Llama-3" this_language="en" this_offset="17012" this_length="582"/>
+  <feature name="altered" type="llm_prompted" llm="Llama-3" this_language="en" this_offset="17596" this_length="135"/>
+  <feature name="altered" type="llm_prompted" llm="Llama-3" this_language="en" this_offset="17757" this_length="537"/>
+  <feature name="altered" type="llm_prompted" llm="Llama-3" this_language="en" this_offset="19019" this_length="923"/>
+  <feature name="altered" type="llm_prompted" llm="Llama-3" this_language="en" this_offset="19971" this_length="479"/>
+  <feature name="altered" type="llm_prompted" llm="Llama-3" this_language="en" this_offset="20674" this_length="642"/>
+  <feature name="altered" type="llm_prompted" llm="Llama-3" this_language="en" this_offset="21339" this_length="378"/>
+  <feature name="altered" type="llm_prompted" llm="Llama-3" this_language="en" this_offset="21743" this_length="261"/>
+  <feature name="altered" type="llm_prompted" llm="Llama-3" this_language="en" this_offset="22587" this_length="571"/>
+  <feature name="altered" type="llm_prompted" llm="Llama-3" this_language="en" this_offset="23247" this_length="242"/>
+  <feature name="altered" type="llm_prompted" llm="Llama-3" this_language="en" this_offset="23491" this_length="1066"/>
+  <feature name="altered" type="llm_prompted" llm="Llama-3" this_language="en" this_offset="24579" this_length="360"/>
+  <feature name="altered" type="llm_prompted" llm="Llama-3" this_language="en" this_offset="26030" this_length="731"/>
+  <feature name="altered" type="llm_prompted" llm="Llama-3" this_language="en" this_offset="26777" this_length="493"/>
+  <feature name="altered" type="llm_prompted" llm="Llama-3" this_language="en" this_offset="27272" this_length="445"/>
+  <feature name="altered" type="llm_prompted" llm="Llama-3" this_language="en" this_offset="28362" this_length="424"/>
+  <feature name="altered" type="llm_prompted" llm="Llama-3" this_language="en" this_offset="28788" this_length="280"/>
+  <feature name="altered" type="llm_prompted" llm="Llama-3" this_language="en" this_offset="29070" this_length="782"/>
+  <feature name="altered" type="llm_prompted" llm="Llama-3" this_language="en" this_offset="31067" this_length="500"/>
+  <feature name="altered" type="llm_prompted" llm="Llama-3" this_language="en" this_offset="32072" this_length="311"/>
+  <feature name="altered" type="llm_prompted" llm="Llama-3" this_language="en" this_offset="32553" this_length="373"/>
+  <feature name="altered" type="llm_prompted" llm="Llama-3" this_language="en" this_offset="32949" this_length="685"/>
+  <feature name="altered" type="llm_prompted" llm="Llama-3" this_language="en" this_offset="33636" this_length="424"/>
+  <feature name="altered" type="llm_prompted" llm="Llama-3" this_language="en" this_offset="34082" this_length="296"/>
+  <feature name="altered" type="llm_prompted" llm="Llama-3" this_language="en" this_offset="34380" this_length="778"/>
+  <feature name="altered" type="llm_prompted" llm="Llama-3" this_language="en" this_offset="35691" this_length="791"/>
+  <feature name="altered" type="llm_prompted" llm="Llama-3" this_language="en" this_offset="36521" this_length="454"/>
+  <feature name="altered" type="llm_prompted" llm="Llama-3" this_language="en" this_offset="37414" this_length="816"/>
+  <feature name="altered" type="llm_prompted" llm="Llama-3" this_language="en" this_offset="39007" this_length="266"/>
+  <feature name="altered" type="llm_prompted" llm="Llama-3" this_language="en" this_offset="39275" this_length="346"/>
+  <feature name="altered" type="llm_prompted" llm="Llama-3" this_language="en" this_offset="40086" this_length="337"/>
+</document>

@@ -1,0 +1,102 @@
+New Vistas in Braneworld CosmologyHonorable mention in the 2002 Essay Competition of the Gravity Research Foundation.
+
+By Varun Sahni and Yuri Shtanov
+
+Abstract
+
+Traditionally, higher-dimensional cosmological models have sought to provide a description of the fundamental forces in terms of a unifying geometrical construction. In this essay we discuss how, in their present incarnation, higher-dimensional ‘braneworld’ models might provide answers to a number of cosmological puzzles including the issue of dark energy and the nature of the big-bang singularity.
+
+Compact extra dimensions
+
+The idea that physical space has more than three dimensions is not new. Nordström (1914), and independently Kaluza (1921) and Klein (1926) suggested the presence of a fifth spatial dimension in their attempts to unify gravity with the electromagnetic force [2] . The flowering of Kaluza-Klein cosmology took place in the 1980’s and was associated with the development of non-Abelian gauge field theories. The major aim of this program was to recover the gauge symmetries of the standard model from compact (hidden) dimensions, and it was assumed that the compactification scale ${\cal R}$ was of the same order as the Planck length: ${\cal R}\sim\ell_{P}\simeq 10^{-33}$ cm. A fresh impetus to this paradigm was given in [3] , where it was suggested that compact extra dimensions may be macroscopic, ${\cal R}\ \lower-1.5pt\vbox{\hbox{\hbox to0.0pt{$<$\hss}\lower 5.3pt\vbox{\hbox{$\sim$}}}}\ 1$ mm, while our space-time is described as a lower-dimensional domain wall (brane) where all the matter is concentrated. Within this setting, the fundamental higher-dimensional Planck scale could become as small as $\sim$ 1 TeV, thus ridding particle physics of the hierarchy problem. (The hierarchy problem arises because the Planck scale is so much higher than the known scales in physics, for instance $M_{P}/M_{W}\sim 10^{17}$ , where $M_{W}$ is the mass of the vector boson which mediates the electroweak force.) The reasoning behind this scenario becomes clear when one considers two test masses $m_{1}$ , $m_{2}$ separated by a distance $r\ll{\cal R}$ in a $(4+n)$ -dimensional universe and interacting via the Newtonian potential 
+ 
+ $V(r)\sim\frac{m_{1}\,m_{2}}{M^{n+2}_{N}}\,\frac{1}{r^{n+1}}\quad(r\ll{\cal R}),$  (1) 
+ where $M_{N}$ is the $N$ -dimensional Planck mass. If the same two particles are placed much further apart, then, because the gravitational field lines associated with $m_{1}$ , $m_{2}$ cannot penetrate into the extra dimensions at such large distances, the potential at large separations becomes 
+ 
+ $V(r)\sim\frac{m_{1}\,m_{2}}{M^{n+2}_{N}{\cal R}^{n}}\,\frac{1}{r}\sim\frac{m_{1}\,m_{2}}{M_{4}^{2}}\,\frac{1}{r}\quad(r\gg{\cal R}).$  (2) 
+ From ( 1 ) & ( 2 ) one finds that the effective four-dimensional Planck mass is simply given by $M^{2}_{4}\sim M^{n+2}_{N}{\cal R}^{n}$ . Substituting ${\cal R}\sim 1$ mm and $n=2$ , one finds $M_{N}\sim 1$ TeV.
+
+Noncompact extra dimension
+
+A novel approach to higher-dimensional cosmology emerged when Randall and Sundrum postulated the existence of a noncompact spacelike fifth dimension [4] . According to this world-view, our perception of ‘normal’ four-dimensional gravity arises because we live on a domain wall (brane) embedded in or bounding a ‘bulk’ anti-de Sitter space (AdS). The metric describing the full (4+1)-dimensional space-time is non-factorizable, and the small value of the true five-dimensional Planck mass is related to its large effective four-dimensional value by the extremely large warp of the five-dimensional space. This new approach to extra dimensions has far-reaching cosmological implications, some of which will be examined in this essay.
+
+A general framework for braneworld cosmology in which the brane is the boundary of the five-dimensional bulk is provided by the action 
+ 
+ $S=M^{3}\left[\int_{\rm bulk}\left(R_{5}-2\Lambda_{\rm b}\right)-2\int_{\rm brane}K\right]+\int_{\rm brane}\left(m^{2}R_{4}-2\sigma\right)+\int_{\rm brane}L\left(h_{\alpha\beta},\phi\right)\,.$  (3) 
+ Here, $R_{5}$ is the scalar curvature of the metric $g_{ab}$ in the five-dimensional bulk, and $R_{4}$ is the scalar curvature of the induced metric $h_{\alpha\beta}$ on the brane. The quantity $K=K_{\alpha\beta}h^{\alpha\beta}$ is the trace of the extrinsic curvature $K_{\alpha\beta}$ on the brane defined with respect to its inner normal. $L(h_{\alpha\beta},\phi)$ is the four-dimensional matter field Lagrangian, $M$ and $m$ denote, respectively, the five-dimensional and four-dimensional Planck masses, $\Lambda_{\rm b}$ is the bulk cosmological constant, and $\sigma$ is the brane tension. Integrations in ( 3 ) are performed with respect to the natural volume elements on the bulk and brane.
+
+In virtually all the braneworld models, the extra dimension is assumed to be spacelike, so that the brane is embedded in a Lorentzian five-dimensional manifold. However, no physical principle appears to prevent us from considering a complementary model in which the extra dimension is timelike, so that the brane is a Lorentzian boundary of a five-dimensional space with signature $(-,-,+,+,+)$ (see [5] ). This model is described by action ( 3 ) in which $K_{\alpha\beta}$ is the extrinsic curvature defined with respect to the outer normal to the brane. Both models will be examined in this essay.
+
+Action ( 3 ) leads to the following general cosmological equation (see [6] ): 
+ 
+ $m^{4}\left(H^{2}+{\kappa\over a^{2}}-{\rho+\sigma\over 3m^{2}}\right)^{2}=\epsilon M^{6}\left(H^{2}+{\kappa\over a^{2}}-{\Lambda_{\rm b}\over 6}-{C\over a^{4}}\right)\,,$  (4) 
+ where $\epsilon=1$ if the extra dimension is spacelike, and $\epsilon=-1$ if it is timelike. The constant $C$ is the integration constant that, in the case $\epsilon=1$ , corresponds to the black-hole mass of the Schwarzschild–AdS solution in the bulk, $H\equiv\dot{a}/a$ is the Hubble parameter on the brane, and $\kappa=0,\pm 1$ corresponds to the sign of the spatial curvature on the brane.
+
+The Randall–Sundrum model assumes $m=0$ , and the cosmological brane equation ( 4 ) in this case reduces to 
+ 
+ $H^{2}+\frac{\kappa}{a^{2}}=\frac{8\pi}{3M_{4}^{2}}\left(\rho+\frac{\rho^{2}}{2\sigma}\right)+\frac{\Lambda}{3}+\frac{C}{a^{4}}\,,$  (5) 
+ where 
+ 
+ $M_{4}^{2}=\frac{12\pi\epsilon M^{6}}{\sigma}\,,\qquad\Lambda=\frac{\Lambda_{\rm b}}{2}+\frac{\epsilon\sigma^{2}}{3M^{6}}\,.$  (6) 
+ A cosmologically viable model requires $M_{4}^{2}>0$ , hence, $\epsilon/\sigma>0$ . The term $C/a^{4}$ is called ‘dark radiation.’
+
+The additional term in the parentheses of ( 5 ), $\rho^{2}/2\sigma$ , can be of great relevance for inflationary model building on the brane. Consider, for example, a scalar field propagating on the brane that satisfies 
+ 
+ ${\ddot{\phi}}+3H{\dot{\phi}}+V^{\prime}(\phi)=0\,,$  (7) 
+ where $H$ is given by ( 5 ) with $\rho={1\over 2}{\dot{\phi}}^{2}+V(\phi)$ . For the usual case $\epsilon=1$ ( $\sigma>0$ ), the new term $\rho^{2}/2\sigma$ in ( 5 ) increases the damping experienced by the scalar field as it rolls down its potential. This is reflected in the slow-roll parameters [7] (derived below for the case when $\sigma/V\ll 1$ ) 
+ 
+ $\zeta\simeq\frac{M_{4}^{2}}{4\pi}\left(\frac{V^{\prime}}{V}\right)^{2}\frac{\sigma}{V}\,,\qquad\eta\simeq\frac{M_{4}^{2}}{4\pi}\,\frac{V^{\prime\prime}}{V}\,\frac{\sigma}{V}\,.$  (8) 
+ At early times, one expects $\sigma/V\ll 1$ , and the slow-roll condition $\zeta,\eta\ll 1$ becomes surprisingly easy to achieve. As a result, inflation can be driven by steep potentials , including some ( $V\propto\phi^{-\alpha}$ etc.) not normally associated with inflation [8] . Thus, the class of potentials which give rise to inflation vastly increases, and the possibility of realising inflation becomes that much easier in braneworld cosmology.
+
+Braneworld inflation leaves behind an imprint on the cosmological gravity-wave background by increasing its amplitude and creating a distinct ‘blue tilt’ in its spectrum. Braneworld models therefore allow the possibility of being tested through future LISA-type searches for gravity waves [9] .
+
+As demonstrated in [10] , the presence of the $\rho^{2}$ term in the RHS of the equations for the braneworld persists when one considers anisotropic space-times such as Bianchi I and results in a fundamental change in the nature of the big-bang singularity, which is shown to be matter dominated and isotropic . This result marks a big departure from our conventional picture of a cosmological singularity which, within the general-relativistic setting, is expected to be vacuum dominated and significantly anisotropic [11] .
+
+The $\rho^{2}$ term in ( 5 ) plays an even more interesting role if the extra dimension is timelike. In this case, we have $\epsilon=-1$ , and the requirement $M_{4}^{2}>0$ implies a negative brane tension, $\sigma<0$ . As a result, the $\rho^{2}$ term comes with negative sign in Eq. ( 5 ), and one finds that instead of becoming singular, the universe bounces at high densities when $\rho/2|\sigma|\sim 1$ . Thus the initial ‘big-bang singularity’ may be avoided in a braneworld which has a timelike extra dimension !
+
+Braneworld dark energy
+
+More surprises appear if we enlarge the scope of braneworld cosmology and permit $m\neq 0$ in action ( 3 ). This means that we must now consider the contribution from the term $\displaystyle m^{2}\int_{\rm brane}R_{4}$ which arises when one incorporates quantum effects generated by matter fields residing on the brane. (The origin of this idea goes back to Sakharov [12] , who first suggested the possibility of ‘inducing gravity’ through the backreaction of matter fields in the action.) The resulting field equations on the brane can be written as 
+ 
+ $m^{2}G_{\alpha\beta}+\sigma h_{\alpha\beta}=T_{\alpha\beta}+\underline{M^{3}\left(K_{\alpha\beta}-h_{\alpha\beta}K\right)}\,,$  (9) 
+ where $T_{\alpha\beta}$ is the stress-energy tensor on the brane, and the underlined term makes braneworld dynamics different from general relativity. We see that a new length scale $\ell=2m^{2}/M^{3}$ emerges in the theory [13] . On dimensional grounds, $G_{\alpha\beta}\sim\left(K_{\alpha\beta}\right)^{2}\sim 1/r^{2}$ , and an examination of ( 9 ) reveals that braneworld dynamics approaches general relativity (GR) on small scales $r\ll\ell$ . Departure from GR in this braneworld model therefore occurs at late times and on large scales. This unusual property stands in contrast to braneworld cosmology based on the Randall–Sundrum model discussed earlier, in which nonstandard behaviour is encountered at very early times.
+
+A spacelike extra dimension leads to dynamical equations on the brane having the form ( 4 ) with $\epsilon=1$ . Since observations of the cosmic microwave background indicate that the spatial curvature is small, we shall set $\kappa=0$ . We also neglect the radiation density and the ‘dark radiation’ term $C/a^{4}$ assuming both to be small today. Equation ( 4 ) with $\epsilon=1$ can be rewritten in terms of the cosmological redshift $z=a/a_{0}-1$ in the following form: 
+ 
+ ${H^{2}(z)\over H_{0}^{2}}=\Omega_{\rm m}(1\!+\!z)^{3}+\Omega_{\sigma}+\underline{2\Omega_{\ell}\pm 2\sqrt{\Omega_{\ell}}\,\sqrt{\Omega_{\rm m}(1\!+\!z)^{3}+\Omega_{\sigma}+\Omega_{\ell}+\Omega_{\Lambda_{\rm b}}}}\,,$  (10) 
+ where the dimensionless cosmological parameters 
+ 
+ $\Omega_{\rm m}={\rho_{0}\over 3m^{2}H_{0}^{2}}\,,\quad\Omega_{\sigma}={\sigma\over 3m^{2}H_{0}^{2}}\,,\quad\Omega_{\ell}={1\over\ell^{2}H_{0}^{2}}\,,\quad\Omega_{\Lambda_{\rm b}}=-{\Lambda_{\rm b}\over 6H_{0}^{2}}$  (11) 
+ correspond to the present epoch. The two signs in ( 10 ) reflect the two different ways in which the brane can be a boundary of the bulk; following [14] , we shall refer to the model with ‘ $-$ ’ sign as BRANE1 and the model with the ‘ $+$ ’ sign as BRANE2. The underlined term highlights the difference of braneworld dynamics from GR.
+
+Dark energy in the braneworld model has exciting new properties. This is reflected in Fig. 1 and in the expression for the effective equation of state for dark energy [14] 
+ 
+ $w_{0}={2q_{0}-1\over 3\left(1-\Omega_{\rm m}\right)}=-1\pm{\Omega_{\rm m}\over 1-\Omega_{\rm m}}\,{\sqrt{\Omega_{\ell}\over\Omega_{\rm m}+\Omega_{\sigma}+\Omega_{\ell}+\Omega_{\Lambda_{\rm b}}}}\,.$  (12) 
+ Remarkably, the two embeddings of the brane give rise to two distinct possibilities for dark energy: $w\leq-1$ for the ‘ $-$ ’ sign in ( 12 ), and $w\geq-1$ for the ‘ $+$ ’ sign. It should be noted that only the latter possibility is admitted by conventional models of dark energy including the cosmological constant and quintessence [15] . However, there already exist indications that $w\leq-1$ may provide a better fit to the existing supernovae data [16] , a possibility which, if confirmed, could make a strong case for the braneworld scenario.
+
+Another striking feature of braneworld cosmology is that the current acceleration epoch (like the radiative and matter-dominated epochs which preceded it) can be temporary, and could soon come to an end. It is well known that conventional models of dark energy (cosmological constant, quintessence, etc.) give rise to an eternally accelerating universe with an event horizon, thus preventing the construction of an $S$ -matrix describing particle interactions within the framework of string or M-theory [17] . By contrast, a negative-tension brane can be ‘transiently accelerating’ as demonstrated in Fig. 2 . Braneworld models could therefore succeed where quintessence models have failed, and reconcile an accelerating universe with the requirements of string/M-theory [5] .
+
+
+
+
+Acknowledgments : The authors acknowledge support from the Indo-Ukrainian program of cooperation in science and technology. The work of Yu. S. was also supported in part by the INTAS grant for project No. 2000-334.
+
+References
+
+[1] 
+[2] T. Appelquist, A. Chodos, and P. G. O. Freund (editors),Modern Kaluza-Klein Theories, Addison-Wesley Publishing Co. (1987).
+[3] N. Arkani-Hamed, S. Divopolous, and G. Dvali, Phys. Lett. B429, 263 (1998) hep-ph/9803315;  I. Antoniadis, N. Arkani-Hamed, S. Divopolous, and G. Dvali, Phys. Lett. B436, 257 (1998) hep-ph/9804398.
+[4] L. Randall and R. Sundrum, Phys. Rev. Lett.83, 3370 (1999) [hep-ph/9905221]; Phys. Rev. Lett.83, 4690 (1999) [hep-th/9906064].
+[5] G. Kofinas, JHEP0108, 034 (2001) [hep-th/0108013].
+[6] Yu. V. Shtanov,Closed system of equations on a brane,hep-th/0108153.
+[7] R. Maartens, D. Wands, B. A. Bassett, and I. P. C. Heard, Phys. Rev. D62, 041301 (2000) hep-ph/9912464.
+[8] E. J. Copeland, A. R. Liddle, and J. E. Lidsey, Phys. Rev. D64, 023509 (2001) astro-ph/0006421.
+[9] V. Sahni, M. Sami and T. Souradeep, Phys. Rev. D65, 023518 (2002) gr-qc/0105121.
+[10] R. Maartens, V. Sahni, and T. D. Saini, Phys. Rev. D63, 063509 (2001) [gr-qc/0011105]. A. Toporensky, Class. Quant. Grav.18, 2311 (2001) [gr-qc/0103093].
+[11] M. A. H. MacCallum,Anisotropic and inhomogeneous relativistic cosmologies, in:General Relativity: An Einstein Centenary Survey, ed. by S. W. Hawking and W. Israel, Cambridge University Press, Cambridge (1979).
+[12] A. D. Sakharov, Dokl. Akad. Nauk SSSR. Ser. Fiz.177, 70 (1967)  [Sov. Phys. Dokl.12, 1040 (1968)].
+[13] G. Dvali, G. Gabadadze, and M. Porrati, Phys. Lett. B485, 208 (2000) [hep-th/0005016];  G. Dvali and G. Gabadadze, Phys. Rev. D63, 065007 (2001) [hep-th/0008054].
+[14] V. Sahni and Yu. V. Shtanov,Braneworlds models of dark energy,astro-ph/0202346.
+[15] V. Sahni and A. A. Starobinsky, Int. J. Mod. Phys. D9, 373 (2000) [astro-ph/9904398].
+[16] R. R. Caldwell,A phantom menace?,astro-ph/9908168.
+[17] W. Fischler, A. Kashani-Poor, R. McNees, and S. Paban, JHEP0107, 3 (2001) [hep-th/0104181];  J. Ellis, N. E. Mavromatos, and D. V. Nanopoulos,String theory and an accelerating universe,hep-th/0105206.

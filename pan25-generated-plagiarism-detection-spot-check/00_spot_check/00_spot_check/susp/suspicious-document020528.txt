@@ -1,0 +1,194 @@
+Motion induced by asymmetric excitation of the quantum vacuum
+
+By Jeferson Danilo L. Silva and Alessandra N. Braga and Andreson L. C. Rego and Danilo T. Alves
+
+Abstract
+
+During the last fifty-one years, the effect of excitation of the quantum vacuum field induced by its coupling with a moving object has been systematically studied. Here, we propose and investigate a somewhat inverted setting: an object, initially at rest, whose motion becomes induced by an excitation of the quantum vacuum caused by the object itself. In the present model, this excitation occurs asymmetrically on different sides of the object by a variation in time of one of its characteristic parameters, which couple it with the quantum vacuum field.
+
+I Introduction
+
+We employ a model grounded in the assumptions outlined above to compute the vacuum persistence amplitude as a functional dependent on the particle's trajectory, considering various types of motion. Our objective is to investigate the internal excitation process of the atom, including photon emission, photon pair creation resulting from DCE, the emergence of quantum contactless friction, and the modifications to free emission caused by the mirror's presence.
+
+In his pioneering work, Moore remarked that “to practical experimental situations, the creation of photons from the zero-point energy is altogether negligible” Moore (1970) . In an attempt to overcome this difficulty, several ingenious proposals have been made aiming to observe the particle creation from vacuum by experiments based on the mechanical motion of a mirror Kimet al.(2006) , but this remains as a challenge Dodonov (2020) . However, the particle creation from the vacuum occurs, in general, when a quantized field is submitted to time-dependent boundary conditions, with moving mirrors being a particular case. Therefore, it is not necessary to move a mirror to generate real particles from the vacuum. Within this more general view, alternative ways to detect particle creation from vacuum were inspired in the ideas of Yablonovitch Yablonovitch (1989) and Lozovik et al. Lozoviket al.(1995) , which consist in exciting the vacuum field by means of time-dependent boundary conditions imposed to the field by a motionless mirror whose internal properties rapidly vary in time. In this context, Wilson et al. Wilsonet al.(2011) observed experimentally the particle creation from vacuum, using a time-dependent magnetic flux applied in a coplanar waveguide (transmission line) with a superconducting quantum interference device (SQUID) at one of the extremities, changing the inductance of the SQUID, and thus yielding a time-dependent boundary condition Wilsonet al.(2011) . Other experiments have also been done Lähteenmäkiet al.(2013) , and other have been proposed Braggioet al.(2005) .
+
+When one moves an object imposing changes in the vacuum field, the latter offers resistance, extracting kinetic energy from the object, which is converted into real particles. In this case, one can say that the net action of the vacuum is against the motion. Here, we propose and investigate a somewhat inverted situation: an object, initially at rest, isolated from everything and just interacting with the quantum vacuum, whose motion becomes induced by an excitation of the vacuum field caused by the object itself. In other words, we are looking for a situation where the vacuum field acts in favor of a motion in a preferred direction. With this in mind, we propose a model where an object imposes a change to the quantum field by the time variation of the properties of the object. Resisting to this change, the vacuum field extracts energy from the object, exciting the quantum field and converting the energy into real particles. A fundamental point of the model presented here is that, to get in motion in a preferred direction, the object has to excite the quantum vacuum differently on each side, which requires that an asymmetry must be introduced in the object. Taking into account the same simplified one-dimensional model considered in the pioneering articles on the DCE Moore (1970) , we consider the coupling of a static point object with a quantum real scalar field in (1+1)D via a $\delta-\delta^{\prime}$ potential, which simulates a partially reflecting object with asymmetric scattering properties on each side Muñoz Castañeda and Mateos Guilarte (2015) . When the coupling parameters vary in time, this model simulates an object exciting asymmetrically the fluctuations of the quantum vacuum, which produces a non-null mean force acting on the object, so that it can get in motion. Then, instead of against, the vacuum acts in favor of the motion in a preferred direction. But, not completely in favor, since, once in motion, a dynamical Casimir force acts on the object, so that part of its kinetic energy is extracted by the vacuum fluctuations and goes to the field.
+
+II The initial model
+
+We are interested in an object whose interaction with the field is described by an asymmetric scattering matrix, intending to excite asymmetrically the quantum vacuum fluctuations. The interaction between the object and the field described by a Dirac $\delta$ potential produces a (left-right) symmetric scattering matrix Barton and Calogeracos (1995) . Therefore, to generate an asymmetry, we also consider the presence of an odd $\delta^{\prime}$ term in the description of the interaction, so that our starting point is the following lagrangian for a real massless scalar field in (1+1)D: 
+ 
+ $\mathcal{L}=\mathcal{L}_{0}-[\mu(t)\delta(x)+\lambda_{0}\delta^{\prime}(x)]\phi^{2}(t,x),$  (1) 
+ where $\mathcal{L}_{0}=[\partial_{t}\phi(t,x)]^{2}-[\partial_{x}\phi(t,x)]^{2}$ is the lagrangian for the free field, and the real parameters $\lambda_{0}$ and $\mu$ , together with $\delta$ and $\delta^{\prime}$ functions, describe the coupling between the quantum field and a static object located at the point $x=0$ . These coupling parameters are related to the properties of the object. The parameter $\mu$ is a prescribed function of time: $\mu(t)=\mu_{0}[1+\epsilon f(t)]$ , where $\mu_{0}\geq 0$ is a constant, $f(t)$ is an arbitrary function such that $|f(t)|\leq 1$ and $\epsilon\ll 1$ . In this way, the parameter $\mu$ is a perturbation in time around the value $\mu_{0}$ . We consider that this time variation of $\mu$ occurs at the expense of the internal energy of the object, with null heat transfer between the object and the environment. As we discuss next, the point object described by this model is partially reflective, so that a modification in the parameter $\mu$ implies a change in the transmission and reflection coefficients. Hereafter, we consider that $c=\hbar=1$ , tilde indicates the Fourier transform, and the subscript $+\;(-)$ indicates the right (left) side.
+
+An alternative approach involves integrating the scalar field to derive an effective action for the harmonic oscillator, although this method will not be pursued in the present discussion. However, it is worth noting that such an integration yields, at ${\mathbf{r}}=0$, 
+
+\[
+{\mathcal{S}}_{p}^{eff}(q)={\mathcal{S}}_{p}^{(0)}(q)-\frac{g^{2}}{2}\int dt\,dt^{\prime}q(t)G_{0}(t-t^{\prime})q(t^{\prime})\,,
+\]
+
+where the propagator for the scalar field at coincident spatial points is given by
+
+\[
+G_{0}(t-t^{\prime})=\int\frac{d^{4}p}{(2\pi)^{4}}\frac{e^{-ip_{0}(t-t^{\prime})}}{p_{0}^{2}-{\mathbf{p}}^{2}+i\epsilon}.
+\]
+
+The spatial momentum integral in this expression is linearly divergent, leading to a propagator proportional to $\Lambda\delta(t-t^{\prime})$, with $\Lambda$ representing the $3-$momentum cutoff. This divergence induces a shift $\delta\Omega$ in the oscillator's natural frequency,
+
+\[
+\Omega_{p}+\delta\Omega=\Omega_{p}^{(ren)},\,\,\delta\Omega=-\frac{g^{2}}{4\pi^{2}}\frac{\Lambda}{\Omega_{p}^{(ren)}},
+\]
+
+a consequence of the point-like interaction model.
+
+III Spectrum, energy and momentum
+
+To streamline the notation, we denote $\Omega_{p}^{(ren)}$ as $\Omega$. Despite each $\Sigma_{i}$ exhibiting a pole at $q = \Omega$, the summation remains finite. Furthermore, by partitioning the integrals into $\int_{0}^{\infty} = \int_{0}^{\nu} + \int_{\nu}^{\infty}$, the renormalized self-energy $\Sigma^{\rm(ren)}$ can be evaluated analytically. Owing to the complexity of the derived expressions, we refrain from presenting them here and instead illustrate $\Sigma^{\rm(ren)}/\Omega$ as a function of the dimensionless frequency $\nu/\Omega$ in Figure 1. Below the threshold, the outcome aligns with the dynamic Casimir effect (DCE), which arises from atomic oscillations. In the regime where $\nu \ll \Omega$, the result scales as $\nu^{5}$, consistent with dimensional analysis, given that the effective coupling strength becomes proportional to $g^{4}/\Omega^{4}$ (as shown in Eq. (26)). When $\nu \approx \Omega$ but remains subthreshold, the calculation incorporates the influence of the atom's internal structure on the DCE.
+
+We subsequently introduce the in-out effective action, $\Gamma[{\mathbf{r}}(t)]$, which serves as a functional dependent on the particle's trajectory. It is formally defined through the expression:
+
+\begin{equation}
+e^{i\Gamma[{\mathbf{r}}(t)]}\;\equiv\;\frac{\int{\mathcal{D}}\phi\;e^{i{\mathcal{S}}(\phi)}}{\int{\mathcal{D}}\phi\;e^{i{\mathcal{S}}_{0}(\phi)}}\,=\,\frac{\int{\mathcal{D}}\phi\;e^{i{\mathcal{S}}_{I}(\phi)}\;e^{i{\mathcal{S}}_{0}(\phi)}}{\int{\mathcal{D}}\phi\;e^{i{\mathcal{S}}_{0}(\phi)}}\,\equiv\,\langle\,e^{i{\mathcal{S}}_{I}(\phi)}\,\rangle_{0}\;,
+\end{equation}
+
+where the functional integrals are performed over $\phi(x)$, representing a vacuum real scalar field in $3+1$ dimensions. The field is governed by an action ${\mathcal{S}}(\phi)$, which comprises two components:
+
+\begin{equation}
+{\mathcal{S}}(\phi)\;=\;{\mathcal{S}}_{0}(\phi)\,+\,{\mathcal{S}}_{I}^{(p)}(\phi)\;.
+\end{equation}
+
+Here, ${\mathcal{S}}_{0}$ corresponds to the free propagation term:
+
+\begin{equation}
+{\mathcal{S}}_{0}(\phi)\;=\;\frac{1}{2}\,\int d^{4}x\left[\partial_{\mu}\phi(x)\partial^{\mu}\phi(x)+i\epsilon\phi^{2}(x)\right]\;,\;\;x=(x^{0},x^{1},x^{2},x^{3})\;,
+\end{equation}
+
+while ${\mathcal{S}}_{I}^{(p)}$ accounts for the interaction of the scalar field with the particle. In the context of our model, this interaction is assumed to be quadratic:
+
+\begin{equation}
+{\mathcal{S}}_{I}^{(p)}(\phi)\;=\;-\frac{1}{2}\int_{x,y}\phi(x)V_{p}(x,y)\phi(y)\;,
+\end{equation}
+
+where the notation $\int_{x,y}$ represents the shorthand for integration over space-time coordinates. The kernel $V_{p}$, arising from the integration of microscopic degrees of freedom, is treated as a symmetric function of $x$ and $y$. The subsequent analysis delves into the specific form of $V_{p}$.
+
+The system under consideration is governed by a single degree of freedom, represented by a coordinate \( q \), which is associated with a bosonic oscillator confined to the internal space of the particle. The potential \( V_p \) arises from the functional integration over \( q \), expressed as
+
+\[
+e^{-\frac{i}{2}\int_{x,y}\phi(x)V_{p}(x,y)\phi(y)} = \int{\mathcal{D}}q\;e^{i{\mathcal{S}}_{p}(q,\phi;{\mathbf{r}})}\;,\quad (5)
+\]
+
+where the particle's action \( {\mathcal{S}}_p \) is decomposed into two components:
+
+\[
+{\mathcal{S}}_{p}(q,\phi;{\mathbf{r}}) = {\mathcal{S}}_{p}^{(0)}(q) + {\mathcal{S}}_{p}^{int}(q,\phi;{\mathbf{r}})\;,
+\]
+
+with
+
+\[
+{\mathcal{S}}^{(0)}_{p}(q) = \frac{1}{2}\int dt\,\big{(}\dot{q}^{2} - (\Omega_{p}^{2} - i\epsilon)q^{2}\big{)}\;,
+\]
+
+and
+
+\[
+{\mathcal{S}}_{p}^{int}(q,\phi;{\mathbf{r}}) = g\int dt\,q(t)\phi(t,{\mathbf{r}}(t))\;. \quad (6)
+\]
+
+In this context, \( \Omega_p \) denotes the frequency of the harmonic oscillator, while the coupling constant \( g \) governs the interaction between the oscillator and the real scalar field \( \phi \). It is important to note that \( g \) carries the mass dimension of \( [{\rm mass}]^{1/2} \).
+
+IV Force on the static object
+
+Let us now obtain the expression for the mean force acting on the object at $x=0$ due to the field fluctuations (see Fig. 1 .b). The components of the energy-momentum tensor for a scalar field in $1+1$ dimensions are given by $T_{00}=T_{11}=\left[\varphi^{\prime}(t-x)\right]^{2}+\left[\psi^{\prime}(t+x)\right]^{2}\equiv E(t,x)$ , and $T_{01}=T_{10}=\left[\varphi^{\prime}(t-x)\right]^{2}-\left[\psi^{\prime}(t+x)\right]^{2}\equiv P(t,x)$ , where $E(t,x)$ and $P(t,x)$ are the energy and momentum densities respectively, and their mean values can be written as $\langle E_{j}(t,x)\rangle$ $=\mathrm{Tr}[\partial_{t}\partial_{t^{\prime}}\langle\Phi_{j}(t,x)\Phi_{j}^{\mathrm{T}}(t^{\prime},x)\rangle]_{t=t^{\prime}}$ and $\langle P_{j}(t,x)\rangle$ $=$ $\text{Tr}[\text{diag}(1,-1)\partial_{t}\partial_{t^{\prime}}\langle\Phi_{j}(t,x)\Phi_{j}^{\mathrm{T}}(t^{\prime},x)\rangle]_{t=t^{\prime}}$ , where $j={\text{out},\text{in}}$ . The force acting on the object due to the field fluctuations can be found as the difference between the radiation pressure ( $T_{11}$ ), on the left and on the right sides of the object. Therefore, the mean force is given by $F_{\mu}(t)=\langle P_{\text{in}}(t,0)-P_{\text{out}}(t,0)\rangle$ and it can be written as 
+ 
+ $\displaystyle F_{\mu}(t)\approx F_{\mu}^{(1)}(t)\epsilon+F_{\mu}^{(2)}(t)\epsilon^{2}.$  (8) 
+ Taking its Fourier transform and considering Eq. ( 2 ), we obtain $\tilde{F}_{\mu}(\omega)\approx\tilde{F}_{\mu}^{(1)}(\omega)\epsilon+\tilde{F}_{\mu}^{(2)}(\omega)\epsilon^{2}$ , where the mean value was taken considering a vacuum as the initial state of the field. The first-order term is $\tilde{F}_{\mu}^{(1)}(\omega)=\chi_{1}(\omega)\tilde{f}(\omega)$ where 
+ 
+ $\chi_{1}(\omega)=\frac{2\lambda_{0}\omega^{2}}{\pi\rho^{2}(\lambda_{0}^{2}+1)}\bigg{\{}\frac{\rho+i}{\rho+2i}[2i\arctan\rho-\ln(\rho^{2}+1)]-i\rho\bigg{\}},$ 
+ and $\rho=(\lambda_{0}^{2}+1)\omega/\mu_{0}$ . The second-order term is $\tilde{F}_{\mu}^{(2)}(\omega)=\int\mathrm{d}\omega^{\prime}\int\mathrm{d}\omega^{\prime\prime}\chi_{2}(\omega,\omega^{\prime},\omega^{\prime\prime})\alpha(\omega^{\prime},-\omega^{\prime\prime})\alpha(\omega-\omega^{\prime\prime},\omega^{\prime})$ where 
+ 
+ $\displaystyle\chi_{2}(\omega,\omega^{\prime},\omega^{\prime\prime})$ $\displaystyle=$ $\displaystyle\lambda_{0}[h(-\omega^{\prime})\varTheta(\omega^{\prime\prime})\omega^{\prime 2}(1+\lambda_{0}^{2})-\omega^{\prime\prime}/2]$ 
+ $\displaystyle\times h(\omega^{\prime\prime})(\omega^{\prime\prime}-\omega)\mathrm{sgn}(\omega^{\prime\prime})/\pi^{2},$ 
+ and $h(\omega)=1/[i\mu_{0}+\omega(1+\lambda_{0}^{2})]$ .
+
+V Free to move
+
+We have computed the vacuum persistence amplitude for a moving harmonic oscillator, initially in free space and subsequently in the vicinity of a dielectric plane. The in-out effective action was evaluated perturbatively, expanding in terms of the coupling strength between the atom and the field. The corresponding imaginary part, expressed as a functional of the atom's trajectory, reveals a threshold at the lowest non-trivial order, linked to the possibility of internal atomic excitation prior to radiation emission. Additionally, the next-to-leading-order (NTLO) analysis demonstrates a combination of this effect with the standard DCE, which does not involve such excitation processes. A notable aspect of the calculation is the shift in the oscillator's natural frequency (and consequently in the atom's energy levels) due to vacuum fluctuations. This shift must be accounted for to ensure finite corrections to the vacuum persistence amplitude at the NTLO. Furthermore, we examined the atom's motion near an imperfect mirror, modeling the mirror as quantum harmonic oscillators coupled to an environment, introducing internal dissipation. The vacuum persistence amplitude was evaluated for an atom moving near the plate, considering first-order contributions from both the atom-microscopic degrees of freedom coupling and the atom-vacuum field interaction. At the same order where DCE occurs, quantum contactless friction and corrections to free emission emerge, displaying unique behavior when the external frequency matches the sum of the atom's frequency and the microscopic degrees of freedom' frequency, resulting in regions of amplitude enhancement and suppression. These findings are analogous to the spontaneous emission of an atom embedded in a lossy dielectric. Importantly, incorporating losses in the dielectric is essential for obtaining a finite vacuum persistence amplitude during atomic acceleration. In contrast, friction effects exhibit less sensitivity to dissipation and retain a well-defined limit for non-lossy dielectrics.
+
+Now, let us consider again $\mu(t)=\mu_{0}[1+\epsilon f(t)]$ in the interval $-\tau<t<\tau$ (Fig. 2 .b), with $M_{0}$ remaining large enough to the Brownian motion be neglected, and the object free to move for $t>-\tau$ (Fig. 2 .c). For this case, the boundary condition imposed to the field on the static object at $x=0$ must now be replaced by a boundary condition considered in the instantaneous position $x=q(t)$ of the moving object, observed from the point of view of an inertial frame where the object is instantaneously at rest (called tangential frame), and then be mapped into a boundary condition viewed by the laboratory system Jaekel and Reynaud (1992) . This means that the force $F_{\text{$\mu$}}(t)$ [Eq. ( 8 )] needs to be replaced by a modified $F_{\text{$\mu q$}}(t,\dot{q}(t))$ , which now can depend on the velocity of the object [for consistency, we consider that $F_{\text{$\mu q$}}(t,0)=F_{\text{$\mu$}}(t)$ ]. In addition to the force $F_{\text{$\mu q$}}(t,\dot{q}(t))$ , the motion of the object gives rise to an extra disturbance to the vacuum field, from which arises an additional (dynamical Casimir) force acting on the object. This force is here represented by $F_{\text{$q$}}(\partial_{t}^{3}q(t),\partial_{t}^{4}q(t),...)$ , so that it acts on non-uniformly accelerating objects (see, for instance, Ref. Fulling and Davies (1976) ). For consistency, we assume that, for a static object, $F_{\text{$q$}}(0,0,...)=0$ . As an example, if one considers, for instance $\lambda_{0}\rightarrow-1$ , the object imposes to the field on the left (right) side the Robin (Dirichlet) boundary condition. For this case, $F_{\text{$q$}}(\partial_{t}^{3}q(t),\partial_{t}^{4}q(t),...)\approx{1}/({6\pi})\partial_{t}^{3}q(t)-{1}/({6\pi\mu_{0}})\partial_{t}^{4}q(t)$ Ford and Vilenkin (1982) . In summary, two forces act on the object free to move, a force $F_{\text{$\mu q$}}(t,\dot{q}(t))$ (related to the time-varying properties of the object) and a force $F_{\text{$q$}}(\partial_{t}^{3}q(t),\partial_{t}^{4}q(t),...)$ (related to the motion of the object).
+
+From the energy conservation, and assuming that the excitation of the quantum vacuum occurs at the expense of the energy of the object [so that its initial mass $M_{0}$ becomes time-dependent: $M_{0}\rightarrow M(t)$ ], we have $M(t)\approx M_{0}[1-\mathcal{E_{\text{field}}}(t)/M_{0}]/[1+\dot{q}(t)^{2}/2]$ , where $\mathcal{E_{\text{field}}}(t)$ is the energy stored in the field, and the velocities of the object are considered non-relativistic (remember that $c=1$ ). We consider, now, the approximation $\mathcal{E_{\text{field}}}(t)/M_{0}\ll 1$ , which means that the energy $\mathcal{E_{\text{field}}}(t)$ is negligible if compared to the initial energy of the object. We also consider the non-relativistic assumption $\dot{q}(t)^{2}\ll 1$ . Then we have $M(t)\approx M_{0}$ .
+
+Considering all forces acting on the object, we have the equation of motion $F_{\text{$\mu q$}}(t,\dot{q}(t))+F_{\text{$q$}}(\partial_{t}^{3}q(t),\partial_{t}^{4}q(t),...)\approx M_{0}\ddot{q}(t)$ . We also consider that, up to second order in $\epsilon$ , the force $F_{\text{$\mu q$}}(t,\dot{q}(t))$ can be written as $F_{\text{$\mu q$}}(t,\dot{q}(t))\approx F_{\text{$\mu q$}}^{(1)}(t,\dot{q}(t))\epsilon+F_{\text{$\mu q$}}^{(2)}(t,\dot{q}(t))\epsilon^{2}$ , which is an extension of Eq. ( 8 ), assuming $F_{\text{$\mu q$}}^{(1)}(t,0)=F_{\mu}^{(1)}(t)$ , and $F_{\text{$\mu q$}}^{(2)}(t,0)=F_{\mu}^{(2)}(t)$ . Then, we write the equation of motion as: ${F_{\text{$\mu q$}}^{(1)}(t,\dot{q}(t))\epsilon}+{F_{\text{$\mu q$}}^{(2)}(t,\dot{q}(t))\epsilon^{2}}+F_{\text{$q$}}(\partial_{t}^{3}q(t),\partial_{t}^{4}q(t),...)\approx{M_{0}}\ddot{q}(t).$ Now, one can use two of the degrees of freedom of the model, namely the value of $\epsilon$ and the initial mass $M_{0}$ , to simplify the problem. For instance, let us consider the changes $\epsilon\rightarrow 10^{p}\epsilon$ , and $M_{0}\rightarrow 10^{2p}M_{0}$ (with $p>0$ ) to build a new situation for which the equation of motion is ${F_{\mu q}^{(1)}(t,\dot{q}(t))\epsilon}/{10^{p}}+{F_{\mu q}^{(2)}(t,\dot{q}(t))\epsilon^{2}}+{F_{q}(\partial_{t}^{3}q(t),\partial_{t}^{4}q(t),...)}/{10^{2p}}\approx M_{0}\ddot{q}(t).$ Increasing the value of $p$ , we can inhibit the effect of the first and third terms in the last equation, so that we can set up a situation where these terms can be neglected in comparison with the second one, resulting in the approximate equation of motion $F_{\mu q}^{(2)}(t,\dot{q}(t))\epsilon^{2}\approx M_{0}\ddot{q}(t)$ . In other words, for a suitable choice of the initial mass $M_{0}$ , the force $F_{\mu q}^{(2)}(t,\dot{q}(t))$ defines effectively the mean trajectory of the object. By keeping increasing the mass $M_{0}$ , one can produce smaller accelerations, so that the velocities of the object are of such magnitude that the boundary condition imposed by the object on the field, considered by the tangential frame, after mapped into the boundary condition viewed by the laboratory system, can be approximately given by $F_{\mu q}^{(2)}(t,\dot{q}(t))\approx F_{\mu q}^{(2)}(t,0)=F_{\mu}^{(2)}(t)$ . With this approximation, we have the equation of motion given by $F_{\mu}^{(2)}(t)\epsilon^{2}\approx M_{0}\ddot{q}(t)$ . Integrating in time, $\int_{-\infty}^{+\infty}F_{\mu}^{(2)}(t)\mathrm{d}t$ , using the mentioned formula shown for $\tilde{F}_{\mu}^{(2)}(\omega)$ , the property $\eta(\omega,\omega^{\prime})=\eta(\omega^{\prime},\omega)=\eta(-\omega,-\omega^{\prime})$ , and also considering that $\dot{q}(t<-\tau)=0$ , we get 
+ 
+ $v_{f}\approx-{{\cal P}}/{M_{0}},$  (9) 
+ where $v_{f}=\dot{q}(t>\tau)$ is the mean final velocity. Note that $-{\cal P}$ is the opposite of the net momentum transferred from the object to the field [see Eq. ( 7 )], so that the momentum transferred to the object, caused by the action of the force $F_{\text{$\mu$}}^{(2)}(t)\epsilon^{2}$ , is directly correlated with the particle creation process. This situation is illustrated in Figs. 2 .c and 3 .a.
+
+Let us give attention to another situation. The values of $\epsilon$ and $p$ can be chosen in such way that the term related to ${F_{\text{$\mu q$}}^{(1)}(t,\dot{q}(t))}$ becomes dominant in relation to ${F_{\text{$\mu q$}}^{(2)}(t,\dot{q}(t))\epsilon^{2}}$ . We consider [as done in a similar way for ${F_{\text{$\mu q$}}^{(2)}(t,\dot{q}(t))\epsilon^{2}}$ ] the approximation $F_{\text{$\mu q$}}^{(1)}(t,\dot{q}(t))\approx F_{\text{$\mu q$}}^{(1)}(t,0)=F_{\text{$\mu$}}^{(1)}(t)$ . It can be shown that $\int_{-\infty}^{+\infty}F_{\text{$\mu$}}^{(1)}(t)\mathrm{d}t=0$ , which means that, although this force makes the position of the object vary in time, the total net momentum transferred to the object is null. This situation is illustrated in Fig. 3 .b.
+
+Another situation can be obtained by manipulating the values of $\epsilon$ and $p$ in such way that $F_{\text{$\mu$}}^{(1)}(t)\epsilon$ and $F_{\text{$\mu$}}^{(2)}(t)\epsilon^{2}$ have similar magnitudes. The presence of $F_{\text{$\mu$}}^{(1)}(t)\epsilon$ disturbs the mean trajectory but does not change the final velocity $v_{f}$ obtained if only $F_{\text{$\mu$}}^{(2)}(t)\epsilon^{2}$ was considered. This case is illustrated in Fig. 3 .c.
+
+Finally, we can set up the values of $\epsilon$ and $p$ so that we have to consider all terms, ${F_{\text{$\mu q$}}^{(1)}(t)}\epsilon$ , ${F_{\text{$\mu q$}}^{(2)}(t)\epsilon^{2}}$ and $F_{\text{$q$}}(\partial_{t}^{3}q(t),\partial_{t}^{4}q(t),...)$ . One can see that $\int_{-\infty}^{+\infty}F_{\text{$q$}}(\partial_{t}^{3}q(t),\partial_{t}^{4}q(t),...)\dot{q}(t)\mathrm{d}t<0$ , so that the net action of $F_{\text{$q$}}(\partial_{t}^{3}q(t),\partial_{t}^{4}q(t),...)$ is to dissipate energy of the object. This leads to a mean final velocity $v_{f}^{\prime}$ with a smaller magnitude if compared with $v_{f}$ $(|v_{f}|>|v_{f}^{\prime}|)$ obtained if only $F_{\text{$\mu$}}^{(1)}(t)\epsilon+F_{\text{$\mu$}}^{(2)}(t)\epsilon^{2}$ was considered. This situation is illustrated in Fig. 3 .d.
+
+VI Summary of the results and final remarks
+
+In this study, we investigate the quantum dissipative phenomena that arise when an atom, modeled as a quantum harmonic oscillator (QHO), interacts with a quantum real scalar field while undergoing non-relativistic motion near a static, imperfect mirror. The research is divided into two components. Initially, we analyze accelerated motion in free space by disconnecting the atom from the mirror, which induces radiation quantified through the vacuum persistence amplitude. The QHO's intrinsic frequency establishes a critical threshold that distinguishes various dynamical regimes: one where internal oscillator excitation and subsequent photon emission occur, and another where such processes are absent. At higher interaction orders with the field, the Dynamical Casimir Effect (DCE) facilitates photon pair creation. Subsequently, we reintroduce the mirror's influence by incorporating its localized microscopic degrees of freedom. This reintroduction gives rise to quantum contactless friction and modifies the emission characteristics observed in the first scenario, akin to the impact of a dielectric on spontaneous emission from an excited atom. Notably, when the atom is accelerated near the plate, incorporating dielectric losses is essential to ensure finite vacuum persistence amplitudes.
+
+The mean force acting on the object due to $\mu(t)$ can be divided in two parts, the forces $F_{\text{$\mu$}}^{(1)}(t)\epsilon$ and $F_{\text{$\mu$}}^{(2)}(t)\epsilon^{2}$ . These forces only exist (are non-null) owing to the asymmetry of the object, which means that the asymmetry is fundamental to the rise of these quantum forces.
+
+The present study is structured as follows: Section II outlines the model of a particle in free space, detailing its effective action. Section III proceeds to analyze this effective action through a perturbative approach, focusing on the coupling between the atom and the field. At the leading order of a weak-coupling approximation, a threshold emerges in the imaginary component of the effective action, corresponding to the atom's internal excitation prior to radiation emission. The next-to-leading order (NTLO) reveals a synergy between this threshold and the conventional Dynamical Casimir effect, which does not involve such excitation. Section IV introduces the model of an imperfect mirror, incorporating quantum harmonic oscillators as microscopic degrees of freedom interacting with an environment that induces internal dissipation. In Section V, the vacuum persistence amplitude is evaluated for an atom moving near the plate, up to first order in both the atom-field and mirror-field couplings. The general expressions for the imaginary part of the effective action are applied to study dissipative effects across distinct particle trajectories, with a focus on isolating quantum friction and motion-induced radiation. Notably, resonant effects highlight the necessity of the mirror's internal dissipation to attain finite outcomes. Concluding remarks are presented in Section VI.
+
+The mean forces, $F_{\text{$\mu$}}^{(1)}(t)\epsilon$ and $F_{\text{$\mu$}}^{(2)}(t)\epsilon^{2}$ , described in the present paper, are quantum forces emerged from the asymmetry and time-varying properties. In conjunction with the dynamical Casimir force $F_{\text{$q$}}(\partial_{t}^{3}q(t),\partial_{t}^{4}q(t),...)$ , these three forces define, in the approximation considered here, a mean trajectory for the object. Finally, the object, starting from the rest, gets a non-null mean final velocity, so that, exciting the vacuum, it moves.
+
+VII Acknowledgments
+
+D.T.A. thanks the hospitality of the Centro de Física, Universidade do Minho, Braga, Portugal.
+
+References
+
+Moore (1970) G. T. Moore, Quantum theory of the electromagnetic field in a variable-length one-dimensional cavity,J. Math. Phys. (N.Y.)11, 2679 (1970).
+DeWitt (1975) B. S. DeWitt, Quantum field theory in curved spacetime,Phys. Rep.19, 295 (1975).
+Fulling and Davies (1976) S. A. Fulling and P. C. W. Davies, Radiation from a moving mirror in two dimensional space-time: conformal anomaly,Proc. R. Soc. A.348, 393 (1976).
+Davies and Fulling (1977) P. C. W. Davies and S. A. Fulling, Radiation from moving mirrors and from black holes,Proc. R. Soc. A356, 237 (1977).
+Candelas and Deutsch (1977) P. Candelas and D. Deutsch, On the vacuum stress induced by uniform acceleration or supporting the ether,Proc. R. Soc. A354, 79 (1977).
+Dodonov (2009) V. V. Dodonov, Dynamical Casimir effect: Some theoretical aspects,J. Phys. Conf. Ser.161, 012027 (2009).
+Dodonov (2010) V. V. Dodonov, Current status of the dynamical Casimir effect,Phys. Scr.82, 038105 (2010).
+Dalvitet al.(2011) D. A. R. Dalvit, P. A. M. Neto, and F. D. Mazzitelli, Fluctuations, dissipation and the dynamical Casimir effect (Springer-Verlag Berlin Heidelberg, 2011) Chap. 13, pp. 419–457, edited by D. A. R. Dalvit, P. Milonni, D. Roberts, and F. da Rosa.
+Dodonov (2020) V. Dodonov, Fifty years of the dynamical Casimir effect,Physics2, 67 (2020).
+Kimet al.(2006) W.-J. Kim, J. H. Brownell, and R. Onofrio, Detectability of dissipative motion in quantum vacuum via superradiance,Phys. Rev. Lett.96, 200402 (2006).
+Brownellet al.(2008) J. H. Brownell, W. J. Kim, and R. Onofrio, Modelling superradiant amplification of Casimir photons in very low dissipation cavities,J. Phys. A Math. Theor.41, 164026 (2008).
+Motazedifardet al.(2018) A. Motazedifard, A. Dalafi, M. Naderi, and R. Roknizadeh, Controllable generation of photons and phonons in a coupled Bose-Einstein condensate-optomechanical cavity via the parametric dynamical Casimir effect,Ann. Phys. (N. Y).396, 202 (2018).
+Sanzet al.(2018) M. Sanz, W. Wieczorek, S. Gröblacher, and E. Solano, Electro-mechanical Casimir effect,Quantum2, 91 (2018).
+Qinet al.(2019) W. Qin, V. Macrì, A. Miranowicz, S. Savasta, and F. Nori, Emission of photon pairs by mechanical stimulation of the squeezed vacuum,Phys. Rev. A100, 062501 (2019).
+Butera and Carusotto (2019) S. Butera and I. Carusotto, Mechanical backreaction effect of the dynamical Casimir emission,Phys. Rev. A99, 053815 (2019).
+Yablonovitch (1989) E. Yablonovitch, Accelerating reference frame for electromagnetic waves in a rapidly growing plasma: Unruh-davies-fulling-dewitt radiation and the nonadiabatic casimir effect,Phys. Rev. Lett.62, 1742 (1989).
+Lozoviket al.(1995) Y. E. Lozovik, V. G. Tsvetus, and E. A. Vinogradov, Femtosecond parametric excitation of electromagnetic field in a cavity, Pis’ma Zh. Éksp. Teor. Fiz.61, 711 (1995).
+Wilsonet al.(2011) C. M. Wilson, G. Johansson, A. Pourkabirian, M. Simoen, J. R. Johansson, T. Duty, F. Nori, and P. Delsing, Observation of the dynamical Casimir effect in a superconducting circuit,Nature (London)479, 376 (2011).
+Lähteenmäkiet al.(2013) P. Lähteenmäki, G. S. Paraoanu, J. Hassel, and P. J. Hakonen, Dynamical Casimir effect in a Josephson metamaterial,Proc. Natl. Acad. Sci. U.S.A.110, 4234 (2013).
+Vezzoliet al.(2019) S. Vezzoli, A. Mussot, N. Westerberg, A. Kudlinski, H. Dinparasti Saleh, A. Prain, F. Biancalana, E. Lantz, and D. Faccio, Optical analogue of the dynamical casimir effect in a dispersion-oscillating fibre,Communications Physics2, 84 (2019).
+Schneideret al.(2020) B. H. Schneider, A. Bengtsson, I. M. Svensson, T. Aref, G. Johansson, J. Bylander, and P. Delsing, Observation of broadband entanglement in microwave radiation from a single time-varying boundary condition,Phys. Rev. Lett.124, 140503 (2020).
+Braggioet al.(2005) C. Braggio, G. Bressi, G. Carugno, C. Del Noce, G. Galeazzi, A. Lombardi, A. Palmieri, G. Ruoso, and D. Zanello, A novel experimental approach for the detection of the dynamical Casimir effect,Europhys. Lett.70, 754 (2005).
+Agnesiet al.(2008) A. Agnesi, C. Braggio, G. Bressi, G. Carugno, G. Galeazzi, F. Pirzio, G. Reali, G. Ruoso, and D. Zanello, MIR status report: an experiment for the measurement of the dynamical Casimir effect,J. Phys. A41, 164024 (2008).
+Agnesiet al.(2009) A. Agnesi, C. Braggio, G. Bressi, G. Carugno, F. D. Valle, G. Galeazzi, G. Messineo, F. Pirzio, G. Reali, G. Ruoso, D. Scarpa, and D. Zanello, MIR: An experiment for the measurement of the dynamical Casimir effect,J. Phys. Conf. Ser.161, 012028 (2009).
+Johanssonet al.(2009) J. R. Johansson, G. Johansson, C. M. Wilson, and F. Nori, Dynamical casimir effect in a superconducting coplanar waveguide,Phys. Rev. Lett.103, 147003 (2009).
+Dezael and Lambrecht (2010) F. X. Dezael and A. Lambrecht, Analogue Casimir radiation using an optical parametric oscillator,Europhys. Lett.89, 14001 (2010).
+Kawakubo and Yamamoto (2011) T. Kawakubo and K. Yamamoto, Photon creation in a resonant cavity with a nonstationary plasma mirror and its detection with Rydberg atoms,Phys. Rev. A83, 013819 (2011).
+Faccio and Carusotto (2011) D. Faccio and I. Carusotto, Dynamical Casimir effect in optically modulated cavities,Europhys. Lett.96, 24006 (2011).
+Naylor (2012) W. Naylor, Towards particle creation in a microwave cylindrical cavity,Phys. Rev. A86, 023842 (2012).
+Naylor (2015) W. Naylor, Vacuum-excited surface plasmon polaritons,Phys. Rev. A91, 053804 (2015).
+Motazedifardet al.(2015) A. Motazedifard, M. H. Naderi, and R. Roknizadeh, Analogue model for controllable Casimir radiation in a nonlinear cavity with amplitude-modulated pumping: generation and quantum statistical properties,J. Opt. Soc. Am. B32, 1555 (2015).
+Muñoz Castañeda and Mateos Guilarte (2015) J. M. Muñoz Castañeda and J. Mateos Guilarte,δ−δ′𝛿superscript𝛿′\delta-{\delta}^{\prime}generalized Robin boundary conditions and quantum vacuum fluctuations,Phys. Rev. D91, 025028 (2015).
+Silvaet al.(2016) J. D. L. Silva, A. N. Braga, and D. T. Alves, Dynamical Casimir effect withδ−δ′𝛿superscript𝛿′\delta-{\delta}^{\prime}mirrors,Phys. Rev. D94, 105009 (2016).
+Barton and Calogeracos (1995) G. Barton and A. Calogeracos, On the quantum electrodynamics of a dispersive mirror.: I. Mass shifts, radiation, and radiative reaction,Ann. Phys. (N.Y.)238, 227 (1995).
+Calogeracos and Barton (1995) A. Calogeracos and G. Barton, On the quantum electrodynamics of a dispersive mirror.: II. The boundary condition and the applied force via Dirac’s theory of constraints,Ann. Phys. (N.Y.)238, 268 (1995).
+Jaekel and Reynaud (1992) M.-T. Jaekel and S. Reynaud, Fluctuations and dissipation for a mirror in vacuum,Quantum Opt.4, 39 (1992).
+Lambrechtet al.(1996) A. Lambrecht, M.-T. Jaekel, and S. Reynaud, Motion induced radiation from a vibrating cavity,Phys. Rev. Lett.77, 615 (1996).
+Sinha and Sorkin (1992) S. Sinha and R. D. Sorkin, Brownian motion at absolute zero,Phys. Rev. B45, 8123 (1992).
+Jaekel and Reynaud (1993) M.-T. Jaekel and S. Reynaud, Quantum fluctuations of position of a mirror in vacuum,J. Phys. I (France)3, 1 (1993).
+Stargenet al.(2016) D. J. Stargen, D. Kothawala, and L. Sriramkumar, Moving mirrors and the fluctuation-dissipation theorem,Phys. Rev. D94, 025040 (2016).
+Wanget al.(2017) Q. Wang, Z. Zhu, and W. G. Unruh, How the huge energy of quantum vacuum gravitates to drive the slow accelerating expansion of the universe,Phys. Rev. D95, 103504 (2017).
+Neto (1994) P. A. M. Neto, Vacuum radiation pressure on moving mirrors,Journal of Physics A: Mathematical and General27, 2167 (1994).
+Regoet al.(2013) A. L. C. Rego, B. W. Mintz, C. Farina, and D. T. Alves, Inhibition of the dynamical Casimir effect with Robin boundary conditions,Phys. Rev. D87, 045024 (2013).
+Silvaet al.(2015) J. D. L. Silva, A. N. Braga, A. L. C. Rego, and D. T. Alves, Interference phenomena in the dynamical Casimir effect for a single mirror with Robin conditions,Phys. Rev. D92, 025040 (2015).
+Ford and Vilenkin (1982) L. H. Ford and A. Vilenkin, Quantum radiation by moving mirrors,Phys. Rev. D25, 2569 (1982).
+Mintzet al.(2006) B. Mintz, C. Farina, P. A. Maia Neto, and R. B. Rodrigues, Casimir forces for moving boundaries with Robin conditions,J. Phys. A39, 6559 (2006).

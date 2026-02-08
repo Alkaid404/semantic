@@ -1,0 +1,406 @@
+Electronic structure and quantum transport in twisted bilayer graphene with resonant scatterers
+
+By Omid Faizy Namarvar and Ahmed Missaoui and Laurence Magaud and Didier Mayou and Guy Trambly de Laissardière
+
+Abstract
+
+Staking layered materials revealed to be a very powerful method to tailor their electronic properties. It has indeed been theoretically and experimentally shown that twisted bilayers of graphene (tBLG) with a rotation angle $\theta$ , forming Moiré pattern, confine electrons in a tunable way as a function of $\theta$ . Here, we study electronic structure and transport in tBLG using tight-binding numerical calculations in commensurate twisted bilayer structures and a pertubative continuous theory, which is valid for not too small angles ( $\theta>\sim 2^{\circ}$ ). These two approaches allow to understand the effect of $\theta$ on the local density of states, the electron lifetime due to disorder, the dc-conductivity and the conductivity quantum correction due to multiple scattering effects. We distinguish the cases where disorder is equally distributed over the two layers or only over one layer. When only one layer is disordered, diffusion properties depend strongly on $\theta$ , showing thus the effect of Moiré electronic localisation at intermediate angles $\theta$ , $\sim 2^{\circ}<\theta<\sim 20^{\circ}$ .
+
+I Introduction
+
+Staking layered materials is a very powerful method to tailor their electronic properties. Geim and Grigorieva (2013) The properties not only depend on the choice of materials to be stacked but also on the details of the relative arrangement of the layers. It has thus been theoretically Lopes dos Santoset al.(2007) and experimentally Liet al.(2009) shown that twisted bilayer graphene (tBLG), forming Moiré pattern, confine conduction electrons in a tunable way as a function of the angle of rotation of one layer with respect to the other. Recently, it has been experimentally proven that this electronic localization by geometry can induce strong electronic correlations Caoet al.(2018a) and a superconducting state Caoet al.(2018b) for certain angles called magic angles. Bistritzer and MacDonald (2011) Despite numerous studies of the electronic structure of these systems, Lopes dos Santoset al.(2007) the consequences of the electronic localization by a Moiré on electrical transport properties are still poorly known. In particular the effects of local defects such as adsorbated atoms or adsorbated molecules, which are known to tune strongly electronic properties in graphene based 2D materials. Katochet al.(2018)
+
+Graphene can be formed in multilayers on SiC Ohtaet al.(2006) but also on metal surfaces such as Ni Luicanet al.(2011) and in exfoliated flakes, Liet al.(2009) where hopping terms between successive layers play a crucial role. While on the Si face of SiC, multilayers have an AB Bernal stacking and do not show graphene properties, Latil and Henrard (2006) on the C-face multilayers are twisted multilayers of graphene with various angles of rotation between two successive layers. For large twist angle $\theta$ between two layers, multilayers show graphene-like properties even when they involve a large number of graphene layers. Indeed, as shown by ARPES, Emtsevet al.(2008) STM, Milleret al.(2009) transport Bergeret al.(2006) and optical transitions, Sadowskiet al.(2006) their properties are characteristic of a linear graphene-like dispersion. Therefore, in tBLG interlayer hopping terms does not systematically destroy graphene like properties, but it can lead to the emergence of very peculiar and new behaviors induced by the Moiré patterns that is accentuated for $\theta$ smaller than $\sim 20\rm^{\circ}$ . Theoretical studies have predicted Lopes dos Santoset al.(2007) the existence of three domains: $(1)$ for large rotation angles ( $\theta>20^{\circ}$ ) the layers are decoupled and behave as a collection of isolated graphene layers. $(2)$ For intermediate angles $\sim 2^{\circ}<\theta<20^{\circ}$ the dispersion, around Fermi energy $E_{F}$ , remains linear but the velocity is renormalized. Consequently, the energies of the two van Hove singularities $E_{-}$ and $E_{+}$ are shifted to Dirac energy $E_{D}$ when $\theta$ decreases, as it has been shown experimentally. Luicanet al.(2011) $(3)$ For the lowest $\theta$ , $\theta<\sim 2^{\circ}$ , almost flat bands appear and result in electronic localization in AA stacking regions: states of similar energies, belonging to the Dirac cones of the two layers interact strongly. In this regime, the velocity of states at Dirac point goes to almost zero for specific angle so-called magic angles. Trambly de Laissardièreet al.(2010) Recently, the signature of the electron localization in the AA regions at long time evolution has been confirmed numerically for small $\theta$ . Doet al.(2019)
+
+In this paper, we study the consequence of the tunable effective coupling between layers by angle $\theta$ with intermediate values, $\sim 2^{\circ}<\theta<\sim 20^{\circ}$ , on local density of states (LDOS) and transport properties. We combine tight-binding (TB) numerical calculations for commensurate tBLG and a perturbative continuous theory (see Appendix) that gives us deeper insight on $\theta$ effect. Note that our TB calculation include all matrix element couplings; whereas the continuous theory, like the one previously developed, Lopes dos Santoset al.(2007) neglect the coupling of electrons in different valleys. To analyze transport properties numerically in bulk 2D systems, we consider local defects, Lazaret al.(2013) such as adsorbates or vacancies, that are resonant scatterers. Local defects tend to scatter electrons in an isotropic way for each valley and lead also to strong intervalley scattering. The adsorbate is simulated by a simple vacancy in the layer of p \textsubscript{z} orbital as usually done. Castro Netoet al.(2009) Indeed the covalent bonding between the adsorbate and the carbon atom of graphene to which it is linked, eliminates the p \textsubscript{z} orbital from the relevant energy window. We consider here that the up and down spins are degenerate, i.e. we deal with a paramagnetic state. Indeed the existence and the effect of a magnetic state for various adsorbates or vacancies is still debated. Nairet al.(2012) In the case of a magnetic state the up and down spins give two different contributions to the conductivity but the individual contribution of each spin can be analyzed from the results discussed here. We consider the case $(i)$ where defects are located in the two layers, with respect to the case $(ii)$ where defects are located on one layer (layer 2) only.
+
+In Sec. II , tight-binding (TB) local Density of states (LDOS) in pristine tBLG and the effect of disorder on total DOS (TDOS) are analyzed with respect to our analytical model for commensurate tBLG. The spatial modulation of the DOS shows an increase of the DOS in AA region of the Moiré. This is a precursor of the localization in the AA region for very small angles less than $\sim 2^{\circ}$ . Trambly de Laissardièreet al.(2010) The electrical dc-conductivity at high temperature (microscopic conductivity) is studied in Sec. III.1 , and quantum corrections of conductivity (low temperature limit) are presented in Sec III.2 . The method to compute dc-conductivity is given in the appendix A . Numerical resuts of the paper are analyzed using the analytical continous model presented in appendix B and C . This pertubative theory recovers known results for the velocity renormalization, Lopes dos Santoset al.(2007) but provides new analytical results concerning LDOS and state lifetime versus $\theta$ values.
+
+The method to built commensurate tBLG is well known and explained in many articles. Here we use the notations used in our previous papers Trambly de Laissardièreet al.(2010) where each tBLG is built from two index $n$ and $m$ (table 1 ). For $|m-n|=1$ the cell of the bilayer contains one Moiré cell, whereas for $|m-n|>1$ the cell of the bilayer contains several Moiré cells.
+
+II Density of States
+
+We first analyze the local density of states (LDOS) in pristine twisted bilayer graphene (tBLG) computed with the TB Hamiltonian detailed in the Refs Trambly de Laissardièreet al.(2012) and the appendix. It is now well known theoretically Trambly de Laissardièreet al.(2012) and experimentally Brihuegaet al.(2012) that the energies $E_{-}$ and $E_{+}$ of Van Hove singularities vary linearly with the angle $\theta$ for $\theta>\sim 2^{\circ}$ . This is clearly seen in the LDOS on p \textsubscript{z} orbital of atom located at the center of AA area of the Moiré (Fig. 1 ). Since our TB Hamiltonian includes coupling beyond the first neighboring atoms, the electron / hole symmetry is slightly broken and $E_{-}$ is not strictly equal to $-E_{+}$ .
+
+The LDOS in one layer of the bilayer as a function of position $\vec{r}$ in the Moiré structure is $\rho(E,\vec{r})=\braket{\vec{r}}{\delta(E-H)}{\vec{r}}.$ To compare LDOS in bilayer with LDOS in monolayer we compute the relative variation of the LDOS due to interlayer hopping terms ${\Delta\rho(E,\vec{r})}/{\rho_{m}(E)}$ , with $\Delta\rho(E,\vec{r})=\rho(E,\vec{r})-\rho_{m}(E)$ , where $\rho_{m}(E)$ is the LDOS in monolayer that does not depend on the position $\vec{r}$ .
+
+The LDOS on each carbon atoms of Moiré has been calculated using TB, so that density map $\rho(E,\vec{r})$ where $\vec{r}$ are the positions of Carbon atoms can be drawn for an energy $E$ . Figures 2 (a.1) and 2 (b.1) show relative TB LDOS in (12,13) and (6,7) bilayers at the energy $E=E_{D}+0.05$ eV. The strong increase of LDOS in AA areas with respect to the AB zone are clearly seen. As expected this difference between LDOS in AA area and AB area decreases as $\theta$ increases. Moreover our numerical TB calculation recovers the difference in the LDOS of the two inequivalent atoms in AB area. Indeed in AB area, as in AB Bernal stacking, C atoms lying above a C atom of the other layer have a lower LDOS than the LDOS of C atom not lying above a C atom of the other layer. That leads to a triangular contrast Tománeket al.(1987) in the density map that has been observed in STM images in AB Bernal bilayer.
+
+According to the perturbative analytical model presented in Appendix (Sec. C.5 ), the relative variation of the LDOS is independant of $E$ for small $E$ and it can be estimated by the simple formula, $\frac{\Delta\rho(E,\vec{r})}{\rho_{m}(E)}\simeq\left(\frac{\theta_{1}}{\theta}\right)^{2}\sum\limits_{j=1}^{6}\,\cos(\vec{G_{j}}\cdot\vec{r}),$ where $\vec{G_{j}}$ are 6 equivalent vectors of the reciprocal space of the Moiré lattice. The constant $\theta_{1}$ is given by, where $v$ is the monolayer velocity and $K_{D}$ is the modulus of the wave-vector in Dirac point of graphene. Using the interlayer coupling value $t\simeq 0.12$ eV (Appendix Sec. B.1 ), one finds that the value of $\theta_{1}$ is close to $\theta_{1}\simeq 1^{\circ}$ . Equation ( 2 ) does not depend on the type of atom (atom A or atom B) it oscillates with $\vec{G}_{j}$ as expected. As it is clear the maximum value is obtained for $\vec{r}=0$ which is at the center of AA area, and relative variation of the LDOS varies as $\theta^{-2}$ . As shown in Fig. 2 the overall agreement between TB numerical calculation and TB analytical model is very good. We just note a small triangular contrast in AB zone which is not reproduced by the analytical model (see Appendix Sec. C.5 for a discussion). We observe in particular a reinforcement of the DOS in the AA region and a lowering in the AB regions. This behavior is a precursor of the electronic localization in AA region which is observed in the very low angle limit $\theta<\sim 2^{\circ}$ . Trambly de Laissardièreet al.(2010)
+
+To study the effect of static defects on the electronic confinement by the Moiré we include atomic vacancies (vacant atoms) that simulate resonnant adsorbates atoms or molecules. Pereiraet al.(2006) For each vacancies concentrations $c$ with respect to the total number of Carbon atoms in tBLG, we consider two cases:
+
+vacancies are randomly distributed in both layers,
+
+vacancies are randomly distributed in layer 2 only.
+
+Total DOSs (tDOSs) in (12,13) tBLG and (6,7) tBLG are drawn Fig. 3 for different concentrations of vacancies in cases $(i)$ and $(ii)$ . For small $c$ values, the Van Hove singularities are still clearly seen but they are enlarged by disorder. This shows that static disorder destroys the confinement by Moiré in AA areas. For $c>\sim 0.5$ %, peaks of the Van Hove singularities are destroyed by vacancy states. With TB Hamiltonian including only first neighbor hopping terms, the vacancy states are midgap states at Dirac energy. Pereiraet al.(2006) But, as in monolayer graphene Trambly de Laissardière and Mayou (2014) and Bernal bilayer graphene, Missaouiet al.(2017) taking into account the TB hoppings beyond first neighbor enlarges the midgap states and shifts it to negative energies, typically around $-0.2$ eV. As shown in Fig. 4 , when vacancies are located in layer 2 only (case $(ii)$ ), the vacancy states only appear on LDOS p \textsubscript{z} orbitals of layer 2. Note that average DOS in layer 1 is slightly modified by the vacancies located in layer 2 (Fig. 4 ). This effect seems similar to modification due to nonresonant scatterers. Trambly de Laissardière and Mayou (2013) Figs. 3 and 4 show that, as far as the DOS is concerned and for rather large concentration of vacancies ( $c>0.5$ %), the rotated angle $\theta$ does not change the effect of vacancies. As we will see in next section, the effect of $\theta$ is more pronounced on wave-packet quantum diffusion and thus on transport properties.
+
+II.1 Without defect
+
+We first analyze the local density of states (LDOS) in pristine twisted bilayer graphene (tBLG) computed with the TB Hamiltonian detailed in the Refs Trambly de Laissardièreet al.(2012) and the appendix. It is now well known theoretically Trambly de Laissardièreet al.(2012) and experimentally Brihuegaet al.(2012) that the energies $E_{-}$ and $E_{+}$ of Van Hove singularities vary linearly with the angle $\theta$ for $\theta>\sim 2^{\circ}$ . This is clearly seen in the LDOS on p \textsubscript{z} orbital of atom located at the center of AA area of the Moiré (Fig. 1 ). Since our TB Hamiltonian includes coupling beyond the first neighboring atoms, the electron / hole symmetry is slightly broken and $E_{-}$ is not strictly equal to $-E_{+}$ .
+
+The LDOS in one layer of the bilayer as a function of position $\vec{r}$ in the Moiré structure is 
+ 
+ $\rho(E,\vec{r})=\braket{\vec{r}}{\delta(E-H)}{\vec{r}}.$  (1) 
+ To compare LDOS in bilayer with LDOS in monolayer we compute the relative variation of the LDOS due to interlayer hopping terms ${\Delta\rho(E,\vec{r})}/{\rho_{m}(E)}$ , with $\Delta\rho(E,\vec{r})=\rho(E,\vec{r})-\rho_{m}(E)$ , where $\rho_{m}(E)$ is the LDOS in monolayer that does not depend on the position $\vec{r}$ .
+
+The LDOS on each carbon atoms of Moiré has been calculated using TB, so that density map $\rho(E,\vec{r})$ where $\vec{r}$ are the positions of Carbon atoms can be drawn for an energy $E$ . Figures 2 (a.1) and 2 (b.1) show relative TB LDOS in (12,13) and (6,7) bilayers at the energy $E=E_{D}+0.05$ eV. The strong increase of LDOS in AA areas with respect to the AB zone are clearly seen. As expected this difference between LDOS in AA area and AB area decreases as $\theta$ increases. Moreover our numerical TB calculation recovers the difference in the LDOS of the two inequivalent atoms in AB area. Indeed in AB area, as in AB Bernal stacking, C atoms lying above a C atom of the other layer have a lower LDOS than the LDOS of C atom not lying above a C atom of the other layer. That leads to a triangular contrast Tománeket al.(1987) in the density map that has been observed in STM images in AB Bernal bilayer.
+
+According to the perturbative analytical model presented in Appendix (Sec. C.5 ), the relative variation of the LDOS is independant of $E$ for small $E$ and it can be estimated by the simple formula, 
+ 
+ $\frac{\Delta\rho(E,\vec{r})}{\rho_{m}(E)}\simeq\left(\frac{\theta_{1}}{\theta}\right)^{2}\sum\limits_{j=1}^{6}\,\cos(\vec{G_{j}}\cdot\vec{r}),$  (2) 
+ where $\vec{G_{j}}$ are 6 equivalent vectors of the reciprocal space of the Moiré lattice. The constant $\theta_{1}$ is given by, 
+ 
+ $\theta_{1}=\frac{\sqrt{2}t}{(\hbar vK_{D})},$  (3) 
+ where $v$ is the monolayer velocity and $K_{D}$ is the modulus of the wave-vector in Dirac point of graphene. Using the interlayer coupling value $t\simeq 0.12$ eV (Appendix Sec. B.1 ), one finds that the value of $\theta_{1}$ is close to $\theta_{1}\simeq 1^{\circ}$ . Equation ( 2 ) does not depend on the type of atom (atom A or atom B) it oscillates with $\vec{G}_{j}$ as expected. As it is clear the maximum value is obtained for $\vec{r}=0$ which is at the center of AA area, and relative variation of the LDOS varies as $\theta^{-2}$ . As shown in Fig. 2 the overall agreement between TB numerical calculation and TB analytical model is very good. We just note a small triangular contrast in AB zone which is not reproduced by the analytical model (see Appendix Sec. C.5 for a discussion). We observe in particular a reinforcement of the DOS in the AA region and a lowering in the AB regions. This behavior is a precursor of the electronic localization in AA region which is observed in the very low angle limit $\theta<\sim 2^{\circ}$ . Trambly de Laissardièreet al.(2010)
+
+II.2 With resonant adsorbates
+
+To study the effect of static defects on the electronic confinement by the Moiré we include atomic vacancies (vacant atoms) that simulate resonnant adsorbates atoms or molecules. Pereiraet al.(2006) For each vacancies concentrations $c$ with respect to the total number of Carbon atoms in tBLG, we consider two cases: $(i)$ vacancies are randomly distributed in both layers, $(ii)$ vacancies are randomly distributed in layer 2 only.
+
+Total DOSs (tDOSs) in (12,13) tBLG and (6,7) tBLG are drawn Fig. 3 for different concentrations of vacancies in cases $(i)$ and $(ii)$ . For small $c$ values, the Van Hove singularities are still clearly seen but they are enlarged by disorder. This shows that static disorder destroys the confinement by Moiré in AA areas. For $c>\sim 0.5$ %, peaks of the Van Hove singularities are destroyed by vacancy states. With TB Hamiltonian including only first neighbor hopping terms, the vacancy states are midgap states at Dirac energy. Pereiraet al.(2006) But, as in monolayer graphene Trambly de Laissardière and Mayou (2014) and Bernal bilayer graphene, Missaouiet al.(2017) taking into account the TB hoppings beyond first neighbor enlarges the midgap states and shifts it to negative energies, typically around $-0.2$ eV. As shown in Fig. 4 , when vacancies are located in layer 2 only (case $(ii)$ ), the vacancy states only appear on LDOS p \textsubscript{z} orbitals of layer 2. Note that average DOS in layer 1 is slightly modified by the vacancies located in layer 2 (Fig. 4 ). This effect seems similar to modification due to nonresonant scatterers. Trambly de Laissardière and Mayou (2013) Figs. 3 and 4 show that, as far as the DOS is concerned and for rather large concentration of vacancies ( $c>0.5$ %), the rotated angle $\theta$ does not change the effect of vacancies. As we will see in next section, the effect of $\theta$ is more pronounced on wave-packet quantum diffusion and thus on transport properties.
+
+III Quantum transport
+
+Within the Kubo-Greenwood formalism we compute the conductivity $\sigma(E_{F})$ versus the Fermi energy $E_{F}$ using the real space method developped by Mayou, Khanna, Roche and Triozon, Mayou (1988) in the famework of the Relaxation Time Approximation (RTA) to account Trambly de Laissardière and Mayou (2013) effects of inelastic scatterers due to electron-phonon interactions (see Appendix A ). Elastic scattering events due to local defects (vacant atoms) are included in the Hamiltonian itself in a large unit cell containing more than 10 \textsuperscript{7} atoms with boundary periodic conditions.
+
+III.1 High temperature conductivity
+
+We first consider the high temperature case (or room temperature case) where the inelastic scattering time $\tau_{i}$ is close to the elastic scattering time $\tau_{e}$ due to static defects. In that case, the dc-conductivity is called microscopic conductivity , $\sigma_{M}$ , because it takes into account quantum interference effects occurring during time less or equal to $\tau_{e}\simeq\tau_{i}$ . $\sigma_{M}$ is close to semi-classical conductivity that does not take into account the quantum corrections due to multiple scattering effects. Typically, this quantity represents a room temperature conductivity when multiple scattering effects are destroyed by dephasing due to the electron-phonon interactions. In Fig. 5 , $\sigma_{M}(E)$ is shown for three tBLG $(12,13)$ , $(6,7)$ and $(3,4)$ , with rotated angle $\theta$ equal to 2.656 \textsuperscript{∘} , 5.086 \textsuperscript{∘} and 9.430 \textsuperscript{∘} , respectively, and in Fig. 6 , $\sigma_{M}(\theta^{2})$ is shown for different energy values close to the Dirac energy $E_{D}$ .
+
+For vacancies distribution $(i)$ – $ie$ vacancies randomly distruted in the two layers–, $\sigma_{M}(E)$ is almost independent of $\theta$ value. When vacancies concentration $c$ is large (Fig. 6 , $c=1\%$ and $2\%$ ) behavior is similar to that of MLG and $\sigma_{M}\simeq 2\sigma_{M,MLG}$ , where $\sigma_{M,MLG}$ is the conductivity for MLG, Trambly de Laissardière and Mayou (2013) $\sigma_{M,MLG}\simeq 0.6$ G \textsubscript{0} , with G ${}_{0}=2e^{2}/h$ . $\sigma_{M,MLG}$ reaches to the well known universal minimum of the conductivity so-called conductivity “plateau” –independent of defect concentration– at energies around $E_{\rm D}$ . Castro Netoet al.(2009) For smaller concentration (Fig. 6 , $c=0.5\%$ ), $\sigma_{M}$ increases when the concentration $c$ increases. These two regimes are similar to the one found in AB Bernal bilayer graphene. Missaouiet al.(2017) Roughly speaking, for large $c$ values, the elastic mean free path $L_{e}$ in MLG (see Fig. 4(a) in Ref. Missaouiet al.(2017) ) is smaller than the average traveling distance Missaouiet al.(2017) $l_{1}$ in a layer between two interlayer hoppings of the charge carriers, and thus carriers behaves like in MLG. Whereas for small $c$ values, $L_{e}>l_{1}$ and thus interlayer hopping are involved in the diffusive regime and BLG conductivity properties are different that MLG ones.
+
+For vacancies distribution $(ii)$ – $ie$ vacancies randomly distributed in layer 2–, and large rotated angle (Fig. 5 (c)), conductivity is larger than in the first case $(i)$ . Indeed for large $\theta$ , typically $\theta>10^{\circ}$ , eigenstates are located mainly in one layer (“ decoupled ” layers) Trambly de Laissardièreet al.(2010) and thus conductivity of the bilayer is the sum of the conductivity of two almost independent layers, 
+ 
+ $\sigma_{M}\simeq\sigma_{M,1}+\sigma_{M,2},$  (4) 
+ corresponding to conductivity of layer 1 and 2, respectively. Conductivity of layer with defects is close to MLG conductivity $\sigma_{M,2}\simeq\sigma_{M,MLG}$ and conductivity of layer without defects $\sigma_{M,1}$ is affected by the presence of defects in layer 2. With increasing $\theta$ , the eigenstates are more and more located on one layer, thus layers are more and more decoupled, and the $\sigma_{M,1}$ increases as layer 1 becomes more and more like a pristine MLG. Consequently the conductivity of the tBLG increases when $\theta$ increases. In theses cases numerical results (Figs. 6 ) show that $\sigma_{M}$ increases as $\theta^{2}$ .
+
+For small angles (Fig. 5 (a) and Fig. 6 ), eigenstates are located almost equally on both layer for all energies around Dirac energy; Trambly de Laissardièreet al.(2016) therefore they are affected in a similar way by the two kinds of vacancies distributions $(i)$ and $(ii)$ . Conductivity is thus very similar in the two cases.
+
+The analytical model presented in Appendix Sec. C.4 , allows to understand why $\sigma_{M}$ increases as $\theta^{2}$ when defects are located only in layer 2 (cases $(ii)$ ). From Einstein conductivity formula, conductivity in layer $p$ , $p=1$ , $2$ , is 
+ 
+ $\sigma_{M,p}(E)=e^{2}\rho_{p}(E)v^{2}\tau_{p},$  (5) 
+ where $\rho_{p}$ and $\tau_{p}$ are the average DOS in layer $p$ and the average elastic scattering time in layer $p$ , respectively. For energy values in the plateau of conductivity arround $E_{\rm D}$ , the layer 2 –with defects– has a conductivity close to universal minimum of MLG, Trambly de Laissardière and Mayou (2013) $\sigma_{M,2}(E)\simeq\sigma_{M,MLG}$ , thus from equations ( 4 ) and ( 5 ), the conductivity in the bilayer is 
+ 
+ $\sigma_{M}(E)\simeq\sigma_{M,MLG}\left(1+\frac{\rho_{1}(E)}{\rho_{2}(E)}\frac{\tau_{1}}{\tau_{2}}\right),$  (6) 
+ where the ratio between scattering times can be estimated from the formula ( 47 ) obtained in the Appendix. Thus, 
+ 
+ $\sigma_{M}(E)\simeq\sigma_{M,MLG}\left(1+\frac{\rho_{1}(E)}{\rho_{2}(E)}\frac{\theta^{2}}{\theta_{0}^{2}}\right),$  (7) 
+ with $\theta_{0}$ related to $\theta_{1}$ (Appendix equation ( 31 )), 
+ 
+ $\theta_{0}=\sqrt{3}\theta_{1},$  (8) 
+ i.e. $\theta_{0}\simeq 2^{\circ}$ (Appendix Sec. C.3 ). Since $\rho_{1}(E)$ and $\rho_{2}(E)$ are different (Fig. 4 ) and depend on the energy values and the defect concentration $c$ , the slope of $\sigma_{M}$ versus $\theta^{2}$ also depends on $E$ and $c$ (Fig. 6 ).
+
+III.2 Low temperature conductivity
+
+In the low temperature limit, inelastic scattering time $\tau_{i}$ is larger than elastic scattering time $\tau_{e}$ , and multiple scattering effects may reduced the conductivity with respect to microscopic conductivity $\sigma_{m}$ . The average inelastic length $L_{i}$ thus satisfies $L_{i}\gg L_{e}$ and $L_{i}\gg l_{1}$ . $\tau_{i}$ and $L_{i}$ increase when temperature decreases. To evaluate this effect we compute Trambly de Laissardière and Mayou (2013) the conductivity $\sigma$ versus $L_{i}$ at every energy $E$ (Fig. 7 ) for the two vacancy distribution cases: ( $i$ ) in the two layers and ( $ii$ ) in layer 2. As expected in disordered 2D systems, Lee and Ramakrishnan (1985) for large $L_{i}$ , $\sigma(L_{i})$ follows a linear variation with the logarithm of $L_{i}$ , like in the case of monolayer graphene Trambly de Laissardière and Mayou (2013) and Bernal bilayer graphene, Missaouiet al.(2017) 
+ 
+ $\sigma(E,L_{i})=\sigma_{0}-\alpha{\rm G}_{0}\ln(L_{i}),$  (9) 
+ where $\sigma_{0}$ is a constant depending on $\sigma_{M}$ and $L_{e}$ , and the slope $\alpha$ is almost independent on energy $E$ , the defect concentration and the repartition of the defects (in one layer or in both layers). From numerical results one obtains $\alpha\simeq 0.32$ which is close to monolayer value Trambly de Laissardière and Mayou (2013) and Bernal bilayer value. Missaouiet al.(2017)
+
+Localization length $\xi$ can be estimated from the equation $\sigma(L_{i}=\xi)=0$ and the linear extrapolation of $\sigma$ versus $\log L_{i}$ at large $L_{i}$ (see dashed lines Fig. 7 ). $\xi$ versus $\theta$ for various energies in the plateau of conductivity are shown in Fig. 8 . As $\sigma_{M}$ , $\xi$ is almost independent of $\theta$ when defects are located in both layers, but $\xi$ increases strongly when defects are located in one layer only.
+
+Conclusion
+
+We have presented a numerical study of the local electronic density of states (LDOS) and the conductivity in pristine and covalently functionalized twisted graphene bilayers (tBLG), with an angle of rotation $\theta>2^{\circ}$ . Those results are understood using a perturbative analytical model described in the Appendixes. The atomic structure in Moiré induces a strong modulation in the LDOS between AA stacking areas and AB stacking areas, which varies as $\theta^{-2}$ following a simple analytic expression. We show that disorder breaks the interlayer effective coupling due to Moiré pattern. Therefore when defects are randomly distributed in both layer, the conductivity $\sigma_{M}$ is almost independent of $\theta$ , whereas $\sigma_{M}\sim\theta^{2}$ when defects are randomly distributed in one layer only. Such a non-symmetric distribution of defects may often occur in experimental situation because of the effect of substrate, adatoms or admolecules. Finally the quantum correction to the conductivity are computed and localization length is calculated versus $\theta$ .
+
+IV Acknowledgment
+
+The authors wish to thank C. Berger, W. A. de Heer, P. Mallet and J.-Y. Veuillen, T. Le Quang, V. Renard, C. Chapelier for fruitful discussions. TB calculations have been performed at the Centre de Calculs (CDC), Université de Cergy-Pontoise. We thank Y. Costes and Baptiste Mary, CDC, for computing assistance. DFT calculations was performed using HPC resources from GENCI-IDRIS (Grants A0060910784 and A0060907655). This work was supported by the ANR project J2D (ANR-15-CE24-0017) and the Paris//Seine excellence initiative (grant 2019-055-C01-A0).
+
+Appendix A Kubo-Greenwood conductivity
+
+In Kubo-Greenwood approach for transport properties, the quantum diffusion $D$ , is computed by using the polynomial expansion of the average square spreading, $\Delta X^{2}$ , for charge carriers. This method, developed by Mayou, Khanna, Roche and Triozon, Mayou (1988) allows very efficient numerical calculations by recursion in real-space that take into account all quantum effects. Static defects are included directly in the structural modelisation of the system and they are randomly distributed on a supercell containing up to $10^{7}$ Carbon atoms. Inelastic scattering is computed Trambly de Laissardière and Mayou (2013) within the Relaxation Time Approximation (RTA) including an inelastic scattering time $\tau_{i}$ beyond which the propagation becomes diffusive due to the destruction of coherence by inelastic processes. One finally get the Einstein conductivity formula, Trambly de Laissardière and Mayou (2013) 
+ 
+ $\sigma(E_{F},\tau_{i})=e^{2}\rho(E_{F})D(E_{F},\tau_{i}),$  (10) 
+ where $E_{F}$ is the Fermi level, $D(E,\tau_{i})$ is the diffusivity (diffusion coefficient at energy $E$ and inelastic scattering time $\tau_{i}$ ), 
+ 
+ $D(E,\tau_{i})=\frac{L_{i}^{2}(E,\tau_{i})}{2\tau_{i}},$  (11) 
+ $\rho(E)$ is the density of states (DOS) and $L_{i}(E,\tau_{i})$ is the inelastic mean-free path. $L_{i}(E,\tau_{i})$ is the typical distance of propagation during the time interval $\tau_{i}$ for electrons at energy $E$ , 
+ 
+ $L_{i}^{2}(E,\tau_{i})=\frac{1}{\tau_{i}}\int_{0}^{\infty}\!\Delta X^{2}(E,t)\,{\rm e}^{-t/\tau_{i}}\,dt.$  (12) 
+ Without static defects (static disorder) the $L_{i}$ and $D$ goes to infinity when $\tau_{i}$ diverges. With statics defects, at every energy $E$ , $\sigma(\tau_{i})$ reaches a maximum value, 
+ 
+ $\sigma_{M}(E_{F},\tau_{i})=e^{2}n(E_{F})\,{\rm Max}_{\tau_{i}}\left\{D(E_{F},\tau_{i})\right\},$  (13) 
+ called microscopic conductivity . $\sigma_{M}$ corresponds to the usual semi-classical approximation (semi-classical conductivity). This conductivity is typically the conductivity at room temperature, when inelastic scattering time $\tau_{i}$ (inelastic mean free path $L_{i}$ ) is close to elastic scattering time $\tau_{e}$ (elastic mean free path $L_{e}$ ), $\tau_{e}(E)=L_{e}(E)/v(E)$ and $L_{e}(E)=D_{M}(E)/2v(E)$ , where $D_{M}(E)$ is the maximum value of $D(\tau_{i})$ at energy $E$ and $v(E)$ the velocity at very small times (slope of $\Delta X(t)$ ).
+
+For larger $\tau_{i}$ and $L_{i}$ , $\tau_{e}\ll\tau_{i}$ and $L_{e}\ll L_{i}$ , quantum interferences may result in a diffusive state, $D(\tau_{i})\simeq D_{M}$ , or a sub-diffusive state where $D$ decreases when $\tau_{i}$ and $L_{i}$ increase. For very large $L_{i}$ , $L_{i}$ close to localization length $\xi$ , the conductivity goes to zero.
+
+Appendix B Tight-Binding Model
+
+In the tight-binding (TB) scheme only $\rm p_{z}$ orbitals are taken into account since we are interested in electronic states close to the Fermi level. The TB model used in this paper is the same as in our previous work on twisted bilayers graphene Trambly de Laissardièreet al.(2010) and in AB Bernal bilayer graphene. Missaouiet al.(2017) The Hamiltonian has the form, ${H}=\sum_{i}\epsilon_{i}|i\rangle\langle i|+\sum_{(i,j)}t_{ij}|i\rangle\langle j|,$ where $i$ is the p \textsubscript{z} orbital located at $\vec{r}_{i}$ with an on-site energy $\epsilon_{i}$ , and the sum runs over all neighboring $i$ , $j$ sites. $t_{ij}$ is the hopping element matrix between site $i$ and site $j$ , computed from the usual Slater-Koster parameters as given in Ref Trambly de Laissardièreet al.(2012) . Since the layers are rotated, interlayer neighbors are not on top of each other (as it is the case for the Bernal AB stacking). Therefore, the interlayer hopping terms are then not restricted to $\rm pp\sigma$ terms but $\rm pp\pi$ terms have also to be introduced. Trambly de Laissardièreet al.(2010) Moreover hopping terms are not restricted to first neighbouring orbitals and they decrease exponentially with the interatomic distance. A cutoff distance $r_{c}$ is introduced which must be large enough so that the results do not depend on it. We have checked that $r_{c}=0.6$ nm is enough. For small $r_{c}$ values, small gap may appeared at the Dirac energy as shown in Fig. 9 . Several studies Shallcrosset al.(2008) has shown that this small gap comes from non-zero matrix element coupling electron states in equivalent Dirac cones for some superstructures with small number of atoms in the cell of tBLG.
+
+The matrix element of the interlayer Hamiltonian $H_{c}$ between one orbital at $\vec{r}$ in layer 1 and one orbital at $\vec{r}\,^{\prime}$ in layer 2 is given by ${\langle}\vec{r^{\prime}}|{H_{c}}|\vec{r}{\rangle}=H_{c}(|\vec{r}-\vec{r}\,^{\prime}|).$ Note that $H_{c}(\vec{r}-\vec{r}\,^{\prime})$ is real and depends only on the modulus $|\vec{r}-\vec{r}\,^{\prime}|$ . $H_{c}(|\vec{r}|)$ is maximum at zero distance i.e. when the two orbitals are aligned perpendicularly to the two layers. The hopping integral between the two orbitals decreases when their distance increases. The Fourier transform which will be essential in the following is also real and depends only on the modulus of the wave vector. From Fourier transformation we write and Here also the coupling $\widetilde{H}_{c}(\vec{k})$ decreases when $|\vec{k}|$ increases. We shall see below that the largest value of $\widetilde{H}_{c}(\vec{k})$ is for $|\vec{k}|$ close to the modulus of a Dirac point which is represented by $K_{D}$ in Fig. 10 .
+
+We want to compute the coupling between two Bloch states of layer 1 and layer 2. Each graphene layer is a honeycomb lattice with two atoms, atoms A and atoms B, in its unit cell. Let us consider normalized Bloch states made of atomic $\rm p_{z}$ orbitals A or B in layer $\alpha$ , $\alpha=1$ or $2$ , ${|A\vec{k}\rangle}_{\alpha}=\frac{1}{\sqrt{N}}\sum\limits_{\vec{R}}e^{i\vec{k}\cdot\vec{R_{A}}}{|{A\vec{R}}\rangle}_{\alpha},$
+
+where $N$ is the number of unit cells of the crystal and the summation is performed on all cells of crystal ( $\vec{R}$ ). In the following A or B are indicated by $\varepsilon$ according to the following convention, $\varepsilon=\begin{cases}{\rm A}&{\rm for~{}A~{}atom}\\
+{\rm B}&{\rm for~{}B~{}atom}\end{cases}$
+
+The positions of the atoms in layer 1 are, $\begin{cases}\vec{r}_{\varepsilon\vec{R}}=\vec{R}&\mbox{if $\varepsilon=A$}\\
+\vec{r}_{\varepsilon\vec{R}}=\vec{R}+\vec{u}&\mbox{if $\varepsilon=B$}\end{cases}$ and in layer 2, where $\vec{u}$ and $\vec{u}\,^{\prime}$ are vectors connecting the two atoms in the unit cells, i.e. $A$ and $B$ atoms in layer 1 and $A^{\prime}$ and $B^{\prime}$ atoms in layer 2, respectively. Writing where $t({\varepsilon}_{i}\,{\vec{k}}_{i}\,,\varepsilon\,\vec{k})\,\equiv t_{i}$ is the transfer matrix element, we find a selection rule such that where $\vec{K}_{r}$ and $\vec{K}_{r}^{\prime}$ are vectors of reciprocal lattices. This means that interlayer coupling Hamiltonian $H_{c}$ couples the upper state $|\varepsilon\,\vec{k}{\rangle}_{2}$ to lower state $|\varepsilon\,\vec{k}{\rangle}_{1}$ only if the selection rule equation ( 25 ) is obeyed.
+
+Finally for $\vec{k}_{i}=\vec{k}+\vec{K}_{r}=\vec{k}\,^{\prime}\,({\rm mod}\,\,\vec{K}_{r}^{\prime})$ , we derive a formula for coupling matrix, after some calculations, Namarvar (2012) we switch to the following expression of the Hamiltonian, $\displaystyle t_{i}(\vec{k}+\vec{K_{r}})=\displaystyle\frac{4\pi^{2}}{S}\,{\widetilde{H}_{c}}(\vec{k}+\vec{K_{r}})\,{\rm e}^{i\,(\vec{k}+\vec{K_{r}})\cdot({\varepsilon}^{\prime}\vec{u^{\prime}}-\varepsilon\vec{u}+\vec{\Delta})}.$ $S$ is the area of the unit cell, $\vec{\Delta}$ is the translation between the two layers. However this translation of the two layers just translates the overall Moiré pattern and can be set to zero without loss of generality.
+
+By symmetry of hopping term between two orbitals, coupling depends only on the modulus of $\vec{k}+\vec{K_{r}}$ i.e $\widetilde{H}_{c}(\vec{k}+\vec{K_{r}})\simeq\widetilde{H}_{c}(|\vec{K}_{D}+\vec{K_{r}}|)$ , in the vicinity of the Dirac point. The modulus of $t_{i}$ is represented in Fig. 10 . One sees that the largest value of $|t_{i}|$ is one that corresponds to the smallest possible value of $\vec{k}+\vec{K}_{r}$ . By careful examination it can be shown that for electronic states close to the Dirac point this minimum corresponds to the modulus of wave-vector in Dirac point ( $K_{D}=||\vec{K}_{D}||\simeq 17.2$ nm \textsuperscript{-1} ). From Fig. 10 , it is easy to deduce numerically the interlayer hopping term close Dirac is around $t_{1}\simeq 0.12$ eV. All the other contributions are much smaller and will be neglected here.
+
+Selecting only this contribution means that $\vec{K_{r}}$ is such that $\vec{k}+\vec{K_{r}}$ belongs to one of three equivalent valleys. Therefore a set of two Bloch states with a given wave vector (equations ( 18 ) and ( 19 )) in one layer will be coupled to three sets of two Bloch states in other layer corresponding to three different wave vectors. This strongly simplifies the structure of Hamiltonian and the analytical calculations presented here.
+
+In the following we shall count the vectors $\vec{k}$ and $\vec{k}^{\prime}$ from their respective Dirac point $\vec{K}_{D1}$ and $\vec{K}^{\prime}_{D1}$ . $\vec{K}^{\prime}_{D1}$ is obtained from $\vec{K}_{D1}$ by a rotation of an angle $\theta$ around the vector $\vec{\zeta}$ which is perpendicular to the layers 1 and 2. Therefore one has $\displaystyle{\vec{k}=\delta\vec{k}+\vec{K}_{D1}},$
+
+Finally one get for the selection rule $\delta{\vec{k}\,^{\prime}\simeq\delta\vec{k}-\theta\vec{\zeta}\times\vec{K}_{Di}},$ where the indice $i$ takes the values $i=1,2,3$ . $\vec{K}_{Di}$ and $\vec{K}^{\prime}_{Di}$ are the three equivalent Dirac point in layer 1 and 2. $\vec{K}^{\prime}_{Di}$ is obtained from $\vec{K}_{Di}$ by a rotation of an angle $\theta$ around the vector $\vec{\zeta}$ .
+
+B.1 Real space couplings
+
+In the tight-binding (TB) scheme only $\rm p_{z}$ orbitals are taken into account since we are interested in electronic states close to the Fermi level. The TB model used in this paper is the same as in our previous work on twisted bilayers graphene Trambly de Laissardièreet al.(2010) and in AB Bernal bilayer graphene. Missaouiet al.(2017) The Hamiltonian has the form, 
+ 
+ ${H}=\sum_{i}\epsilon_{i}|i\rangle\langle i|+\sum_{(i,j)}t_{ij}|i\rangle\langle j|,$  (14) 
+ where $i$ is the p \textsubscript{z} orbital located at $\vec{r}_{i}$ with an on-site energy $\epsilon_{i}$ , and the sum runs over all neighboring $i$ , $j$ sites. $t_{ij}$ is the hopping element matrix between site $i$ and site $j$ , computed from the usual Slater-Koster parameters as given in Ref Trambly de Laissardièreet al.(2012) . Since the layers are rotated, interlayer neighbors are not on top of each other (as it is the case for the Bernal AB stacking). Therefore, the interlayer hopping terms are then not restricted to $\rm pp\sigma$ terms but $\rm pp\pi$ terms have also to be introduced. Trambly de Laissardièreet al.(2010) Moreover hopping terms are not restricted to first neighbouring orbitals and they decrease exponentially with the interatomic distance. A cutoff distance $r_{c}$ is introduced which must be large enough so that the results do not depend on it. We have checked that $r_{c}=0.6$ nm is enough. For small $r_{c}$ values, small gap may appeared at the Dirac energy as shown in Fig. 9 . Several studies Shallcrosset al.(2008) has shown that this small gap comes from non-zero matrix element coupling electron states in equivalent Dirac cones for some superstructures with small number of atoms in the cell of tBLG.
+
+The matrix element of the interlayer Hamiltonian $H_{c}$ between one orbital at $\vec{r}$ in layer 1 and one orbital at $\vec{r}\,^{\prime}$ in layer 2 is given by 
+ 
+ ${\langle}\vec{r^{\prime}}|{H_{c}}|\vec{r}{\rangle}=H_{c}(|\vec{r}-\vec{r}\,^{\prime}|).$  (15) 
+ Note that $H_{c}(\vec{r}-\vec{r}\,^{\prime})$ is real and depends only on the modulus $|\vec{r}-\vec{r}\,^{\prime}|$ . $H_{c}(|\vec{r}|)$ is maximum at zero distance i.e. when the two orbitals are aligned perpendicularly to the two layers. The hopping integral between the two orbitals decreases when their distance increases. The Fourier transform which will be essential in the following is also real and depends only on the modulus of the wave vector. From Fourier transformation we write 
+ 
+ $H_{c}(\vec{r})=\displaystyle\int{{\widetilde{H}}_{c}(\vec{k})\,\,{\rm e}^{i\vec{k}\cdot\vec{r}}\,{d^{2}}\vec{k}}\,,$  (16) 
+ and 
+ 
+ $\widetilde{H}_{c}(\vec{k})=\frac{1}{(2\pi)^{2}}\int H_{c}(\vec{r})\,{\rm e}^{-i\vec{k}\cdot\vec{r}}\,{d^{2}}\vec{r}.$  (17) 
+ Here also the coupling $\widetilde{H}_{c}(\vec{k})$ decreases when $|\vec{k}|$ increases. We shall see below that the largest value of $\widetilde{H}_{c}(\vec{k})$ is for $|\vec{k}|$ close to the modulus of a Dirac point which is represented by $K_{D}$ in Fig. 10 .
+
+B.2 Interlayer Coupling between Bloch states
+
+We want to compute the coupling between two Bloch states of layer 1 and layer 2. Each graphene layer is a honeycomb lattice with two atoms, atoms A and atoms B, in its unit cell. Let us consider normalized Bloch states made of atomic $\rm p_{z}$ orbitals A or B in layer $\alpha$ , $\alpha=1$ or $2$ , 
+ 
+ ${|A\vec{k}\rangle}_{\alpha}=\frac{1}{\sqrt{N}}\sum\limits_{\vec{R}}e^{i\vec{k}\cdot\vec{R_{A}}}{|{A\vec{R}}\rangle}_{\alpha},$  (18) 
+ 
+ 
+ ${|B\vec{k}\rangle}_{\alpha}=\frac{1}{\sqrt{N}}\sum\limits_{\vec{R}}e^{i\vec{k}\cdot\vec{R_{B}}}{|{B\vec{R}}\rangle}_{\alpha},$  (19) 
+ where $N$ is the number of unit cells of the crystal and the summation is performed on all cells of crystal ( $\vec{R}$ ). In the following A or B are indicated by $\varepsilon$ according to the following convention, 
+ 
+ $\varepsilon=\begin{cases}{\rm A}&{\rm for~{}A~{}atom}\\
+{\rm B}&{\rm for~{}B~{}atom}\end{cases}$  (20) 
+ 
+ 
+ $\alpha=\begin{cases}1&\mbox{lower layer}\\
+2&\mbox{upper layer}\end{cases}$  (21) 
+ The positions of the atoms in layer 1 are, 
+ 
+ $\begin{cases}\vec{r}_{\varepsilon\vec{R}}=\vec{R}&\mbox{if $\varepsilon=A$}\\
+\vec{r}_{\varepsilon\vec{R}}=\vec{R}+\vec{u}&\mbox{if $\varepsilon=B$}\end{cases}$  (22) 
+ and in layer 2, 
+ 
+ $\begin{cases}\vec{r}\,^{\prime}_{{\varepsilon}^{\prime}\vec{R}\,^{\prime}}=\vec{R}\,^{\prime}&\mbox{if ${\varepsilon}^{\prime}=A$}\\
+\vec{r^{\prime}}_{{\varepsilon}^{\prime}\vec{R}\,^{\prime}}=\vec{R^{\prime}}+\vec{{u}}\,^{\prime}&\mbox{if ${\varepsilon}^{\prime}=B$}\end{cases}$  (23) 
+ where $\vec{u}$ and $\vec{u}\,^{\prime}$ are vectors connecting the two atoms in the unit cells, i.e. $A$ and $B$ atoms in layer 1 and $A^{\prime}$ and $B^{\prime}$ atoms in layer 2, respectively. Writing 
+ 
+ $H_{c}|\varepsilon\,\vec{k}{\rangle}_{2}=\sum\limits_{i}t({\varepsilon}_{i}\,{\vec{k}}_{i}\,,\varepsilon\,\vec{k})\,\,|{\varepsilon}_{i}\,{\vec{k}}_{i}{\rangle}_{1},$  (24) 
+ where $t({\varepsilon}_{i}\,{\vec{k}}_{i}\,,\varepsilon\,\vec{k})\,\equiv t_{i}$ is the transfer matrix element, we find a selection rule such that 
+ 
+ $\displaystyle{\vec{k}+\vec{K}_{r}=\vec{k}\,^{\prime}+\vec{K}\,^{\prime}_{r}},$  (25) 
+ where $\vec{K}_{r}$ and $\vec{K}_{r}^{\prime}$ are vectors of reciprocal lattices. This means that interlayer coupling Hamiltonian $H_{c}$ couples the upper state $|\varepsilon\,\vec{k}{\rangle}_{2}$ to lower state $|\varepsilon\,\vec{k}{\rangle}_{1}$ only if the selection rule equation ( 25 ) is obeyed.
+
+Finally for $\vec{k}_{i}=\vec{k}+\vec{K}_{r}=\vec{k}\,^{\prime}\,({\rm mod}\,\,\vec{K}_{r}^{\prime})$ , we derive a formula for coupling matrix, after some calculations, Namarvar (2012) we switch to the following expression of the Hamiltonian, 
+ 
+ $\displaystyle t_{i}(\vec{k}+\vec{K_{r}})=\displaystyle\frac{4\pi^{2}}{S}\,{\widetilde{H}_{c}}(\vec{k}+\vec{K_{r}})\,{\rm e}^{i\,(\vec{k}+\vec{K_{r}})\cdot({\varepsilon}^{\prime}\vec{u^{\prime}}-\varepsilon\vec{u}+\vec{\Delta})}.$  (26) 
+ $S$ is the area of the unit cell, $\vec{\Delta}$ is the translation between the two layers. However this translation of the two layers just translates the overall Moiré pattern and can be set to zero without loss of generality.
+
+By symmetry of hopping term between two orbitals, coupling depends only on the modulus of $\vec{k}+\vec{K_{r}}$ i.e $\widetilde{H}_{c}(\vec{k}+\vec{K_{r}})\simeq\widetilde{H}_{c}(|\vec{K}_{D}+\vec{K_{r}}|)$ , in the vicinity of the Dirac point. The modulus of $t_{i}$ is represented in Fig. 10 . One sees that the largest value of $|t_{i}|$ is one that corresponds to the smallest possible value of $\vec{k}+\vec{K}_{r}$ . By careful examination it can be shown that for electronic states close to the Dirac point this minimum corresponds to the modulus of wave-vector in Dirac point ( $K_{D}=||\vec{K}_{D}||\simeq 17.2$ nm \textsuperscript{-1} ). From Fig. 10 , it is easy to deduce numerically the interlayer hopping term close Dirac is around $t_{1}\simeq 0.12$ eV. All the other contributions are much smaller and will be neglected here.
+
+Selecting only this contribution means that $\vec{K_{r}}$ is such that $\vec{k}+\vec{K_{r}}$ belongs to one of three equivalent valleys. Therefore a set of two Bloch states with a given wave vector (equations ( 18 ) and ( 19 )) in one layer will be coupled to three sets of two Bloch states in other layer corresponding to three different wave vectors. This strongly simplifies the structure of Hamiltonian and the analytical calculations presented here.
+
+In the following we shall count the vectors $\vec{k}$ and $\vec{k}^{\prime}$ from their respective Dirac point $\vec{K}_{D1}$ and $\vec{K}^{\prime}_{D1}$ . $\vec{K}^{\prime}_{D1}$ is obtained from $\vec{K}_{D1}$ by a rotation of an angle $\theta$ around the vector $\vec{\zeta}$ which is perpendicular to the layers 1 and 2. Therefore one has 
+ 
+ $\displaystyle{\vec{k}=\delta\vec{k}+\vec{K}_{D1}},$  (27) 
+ 
+ 
+ $\displaystyle{\vec{k}\,^{\prime}=\delta\vec{k}\,^{\prime}+\vec{K}^{\prime}_{D1}}.$  (28) 
+ Finally one get for the selection rule 
+ 
+ $\delta{\vec{k}\,^{\prime}\simeq\delta\vec{k}-\theta\vec{\zeta}\times\vec{K}_{Di}},$  (29) 
+ where the indice $i$ takes the values $i=1,2,3$ . $\vec{K}_{Di}$ and $\vec{K}^{\prime}_{Di}$ are the three equivalent Dirac point in layer 1 and 2. $\vec{K}^{\prime}_{Di}$ is obtained from $\vec{K}_{Di}$ by a rotation of an angle $\theta$ around the vector $\vec{\zeta}$ .
+
+Appendix C Effect of interlayer coupling
+
+We consider a Layer 1 coupled to layer 2 which is rotated by an angle $\theta$ with respect to layer 1. If one considers the time evolution within layer 1 or more generally the restriction of the total Green’s function to layer 1, the coupling to layer 2 amounts to the addition of an effective Hamiltonian or self-energy. From this effective Hamiltonian we shall get the velocity renormalization, the electron lifetime in layer 1 due to disorder in layer 2 and the modulation of the DOS close the charge neutrality point. The theory which is developed here is perturbative and assumes that the rotation angle $\theta$ is not too small. In particular we emphasize that the perturbation theory is valid for 
+ 
+ ${\displaystyle z,\,t,\,\Delta\ll\hbar vK_{D}\theta},$  (30) 
+ where $v$ is the monolayer velocity and $K_{D}=||\vec{K_{D}}||$ , $z$ is the energy of calculation, $t$ is the interlayer coupling ( $t\simeq t_{1}\simeq 0.12$ eV, Sec. B.1 ) and $\Delta$ is a possible difference in on-site energy between the two layers. The condition on $t$ implies that $\theta>\theta_{1}$ where 
+ 
+ $\theta_{1}=\frac{\sqrt{2}t}{\hbar vK_{D}}.$  (31) 
+ The value of $\theta_{1}$ is close to $\theta_{1}\simeq 1^{\circ}$ . The condition on $z$ implies that the current energy at which the quantities are calculated is smaller than the typical energy of the Van Hove Singularities (VHS) which depends linearly on $\theta$ . The difference in energy $\Delta$ of the two layers must also be smaller than the energy of the VHS.Note that the VHS have been clearly observed with STM experiments on twisted graphene bilayer.
+
+C.1 Effective one-plan Hamiltonian
+
+We consider first a Bloch state in layer 1 with wave vector $\delta\vec{k_{0}}$ . It can be coupled to a Bloch state $\delta\vec{k^{\prime}}$ in layer 2 then propagates freely in layer 2 and is scattered again to a Bloch state in layer 1 with a wave vector $\delta\vec{k_{f}}$ . Applying the selection rule ( 29 ) to each interlayer hopping term we find that $\vec{\delta k_{f}}$ and $\vec{\delta k_{0}}$ are related by 
+ 
+ ${\delta\vec{k_{f}}\simeq\delta\vec{k_{0}}-\theta\vec{\zeta}\times(\vec{K}_{Di}-\vec{K}_{Dj})}.$  (32) 
+ Therefore the coupling between layers 1 and 2 induces an effective coupling between Bloch states of layer 1 with the selection rule ( 32 ). Note that the indices $i$ and $j$ take the values $1$ , $2$ , $3$ .
+
+When $i=j$ , a Bloch state with $\delta\vec{k_{0}}$ is coupled only to the Bloch states with the same wave-vector $\delta\vec{k_{f}}=\delta\vec{k_{0}}$ . This process gives a self-energy which renormalizes the energy of the state of the single layer 1 (see below).
+
+When $i$ and $j$ are different then $\delta\vec{k_{f}}$ and $\delta\vec{k_{0}}$ are different, 
+ 
+ ${\delta\vec{k_{f}}\simeq\delta\vec{k_{0}}+\vec{G_{k}}}.$  (33) 
+ $\vec{G_{k}}=\theta\vec{\zeta}\times(\vec{K}_{Di}-\vec{K}_{Dj})$ is a reciprocal lattice vector of the Moiré lattice, where $\vec{K}_{Di}-\vec{K}_{Dj}$ is a reciprocal lattice vector of graphene. These vectors takes six possible values, named $\vec{G_{k}}$ in the main text, that are vectors of the reciprocal lattice of the Moiré pattern. As we show below this coupling between Bloch states of different wave vector will create eigenstates with mixing of different oscillating components which leads to oscillations in the DOS with wave-vectors components $\vec{G_{k}}$ (see below). We note also that the coupling introduces only small spatial frequencies and in particular it does not connect states of the two non equivalent Dirac cones.
+
+C.2 Self-energy
+
+We are interested in the self-energy of coupling of states in layer 1 due to the coupling with states of layer 2. Indeed the real-part of self-energy $\Re\sigma(z)$ is associated to modification of dispersion relation and will allow us to discuss velocity renormalization. The imaginary part of self-energy is associated to the electron lifetime. It will allow us to discuss lifetime of the electron in one layer when there is disorder in other layer.
+
+Using matrix notations defined in Appendix B we have 
+ 
+ ${\displaystyle{\widetilde{\Sigma}}_{1}(z)=\displaystyle\sum\limits_{\vec{K_{r}}}T_{+}(\vec{K_{r}})\,\,{\mathcal{G}_{2}}\,(\vec{K_{D}}+\vec{K_{r}})\,\,T_{-}(\vec{K_{r}})},$  (34) 
+ where $\vec{K_{r}}$ is the vector of reciprocal lattice which has three values that connect one Dirac point to itself or to the two other equivalent Dirac points. $T$ describes the coupling between two layers and the Green operator at wave vector $\theta\,\vec{\zeta}\times\,\vec{K}_{d\mu}$ is 
+ 
+ ${\displaystyle{\mathcal{G}_{2}}\,(z,\theta\,\vec{\zeta}\times\,\vec{K}_{d\mu})=\frac{1}{z-H_{-}(\theta\,\vec{\zeta}\times\,\vec{K}_{d\mu})}},$  (35) 
+ where $\vec{K}_{d\mu}$ counts the three equivalent Dirac points. And for the Hamiltonian Namarvar (2012) 
+ 
+ $H_{2}(\theta\,\vec{\zeta}\times\,\vec{K}_{d\mu})=\left({\begin{array}[]{*{20}c}\Delta&-\gamma_{0}f\,(\theta\,\vec{\zeta}\times\,\vec{K}_{d\mu})\\
+-\gamma_{0}f^{\ast}\,(\theta\,\vec{\zeta}\times\,\vec{K}_{d\mu})&\Delta\\
+\end{array}}\right),$  (36) 
+ where $\Delta$ is potential difference between the two layers (layer 1 is in potential 0 and layer 2 is in potential $\Delta$ ), $\gamma_{0}$ is the next-nearest neighbor hoping, and 
+ 
+ ${\displaystyle f\,(\theta\,\vec{\zeta}\times\,\vec{K_{\mu}})=2\sin\frac{\pi\theta}{\sqrt{3}}\,\exp{i\left(\theta_{\mu}+\frac{\pi}{2}\,\varepsilon_{\theta}+\alpha_{-}(\theta)\right)}},$  (37) 
+ with $\varepsilon_{\theta}=\text{sgn}{(\theta)}$ and $\alpha_{-}(\theta)={2\pi\theta}/{\sqrt{3}}$ . Note that this matrix is evaluated at $\theta\,\vec{\zeta}\times\,\vec{K}_{d\mu}$ . Indeed for $\vec{k}$ sufficiently close to Dirac point $\vec{k}$ , because $\hbar v(||\vec{k}-\vec{K}_{d}||)\ll\gamma_{0}|f\,(\theta\,\vec{\zeta}\times\,\vec{K}_{d\mu})|$ and we can neglect the dependence on the $\vec{k}$ in $H_{2}$ , $\mathcal{G}_{2}$ and $\widetilde{\Sigma}_{2}(z)$ . This corresponds to the general conditions of validity of the present perturbation theory (see above the introduction of appendix C ).
+
+So now after some calculations we get for the self-energy 
+ 
+ ${\displaystyle{\widetilde{\Sigma}}_{0}(z)=\sigma(z)\,\mathbb{I}},$  (38) 
+ with 
+ 
+ ${\displaystyle\sigma(z)\simeq\frac{\theta_{0}^{2}}{\theta^{2}}\,\Big{[}\Delta-z\Big{]}},$  (39) 
+ where we have introduced $\theta_{0}$ , 
+ 
+ $\theta_{0}=\frac{3}{\sqrt{2}\pi}\frac{t}{\gamma_{0}}.$  (40) 
+ Using the values of $t\simeq t_{1}\simeq 0.12$ eV (Sec. B.1 ) and $\gamma_{0}\simeq 2.7$ eV one finds that the value of the angle $\theta_{0}$ is $\theta_{0}\simeq 1.7^{\circ}$ .
+
+C.3 Velocity renormalization
+
+The eigenvalues are the poles of the Green’s function. Therefore the energy $E(\vec{k})$ is given by 
+ 
+ $E-\sigma(E)=\pm\hbar v||\delta\vec{k}||.$  (41) 
+ For $|\vec{k}|=0$ , we have solution $E=E_{0}$ such that 
+ 
+ $\displaystyle{E_{0}-\sigma(E_{0})=0}.$  (42) 
+ For small $\vec{k}$ , we can write $E(\vec{k})=E_{0}+\delta E(\vec{k})$ . Eventually we have a nice formula: 
+ 
+ $\delta E=\frac{\pm\hbar v||\delta\vec{k}||}{1-\sigma^{\prime}(E_{0})}.$  (43) 
+ Finally the renormalized velocity $v_{r}$ is 
+ 
+ $\frac{v_{r}}{v}=\frac{1}{1+\theta_{0}^{2}/\theta^{2}}.$  (44) 
+
+
+Therefore using a well established tight-binding model, we recover velocity renormalization consistent with that of Ref. Lopes dos Santoset al.(2007) . In addition we find that this velocity renormalization is independent of the difference in potential of two layers. As it is shown in Fig. 11 , a systematic study of the renormalization of the velocity close to the Dirac point is done, Trambly de Laissardièreet al.(2010) compared to its value in a monolayer graphene, for rotation angles $\theta$ varying between $0^{\circ}$ and $60^{\circ}$ (Fig. 11 ). The renormalization of the velocity varies symmetrically around $\theta=30^{\circ}$ . Indeed, the two limit cases $\theta=0^{\circ}$ (AA stacking) and $\theta=60^{\circ}$ (AB stacking) are different, but Moiré patterns when $\theta\rightarrow 0^{\circ}$ and when $\theta\rightarrow 60^{\circ}$ are similar because a simple translation by a vector transforms an AA zone to an AB zone.
+
+Focusing on angles smaller than $30^{\circ}$ , three regimes can be defined Trambly de Laissardièreet al.(2010) as a function of the rotation angle $\theta$ (Fig. 11 ). For large $\theta(20^{\circ}\leq\theta\leq 30^{\circ})$ the Fermi velocity is very close to that of graphene. For intermediate values of $\theta(3^{\circ}\leq\theta\leq 20^{\circ})$ , the velocity renormalization is predicted by equation ( 44 ), as well as by the perturbative theory of Lopes dos Santos et al. Lopes dos Santoset al.(2012) For the small rotation angles ( $\theta<2^{\circ}$ ) a new regime occurs where the velocity tends to zero and perturbation theory can not be applied.
+
+C.4 Electron lifetime
+
+The two layers of the tBLG can have very different amount of disorder due to their different exposure to environment. For example the lower layer will be in contact with a substrate and the upper layer is exposed either to vacuum or to a gas (sensor application). Therefore it is of high interest to consider the limiting case where defects are present in one layer and absent from the other layer. In the following we consider that defects are present only in the layer 2. If the two layers were decoupled, defects in one layer would affect electron lifetime in that layer but not in the other one. Since the layers are coupled, defects in one layer will also affect electronic lifetime in the other layer. In this section, we discuss how such a distribution of defects impacts the electron lifetime.
+
+If there is disorder in the lower layer (layer 2) the Bloch states of this layer will have a contribution to their self-energy which is imaginary. This can be represented in the simplest possible model by a purely imaginary part of the potential energy $\Delta$ , 
+ 
+ $\displaystyle{\Delta=-\frac{i\hbar}{\tau_{2}}}\,,$  (45) 
+ where $\tau_{2}$ is the lifetime in the layer 2 due to disorder in the layer 2. Using formula ( 39 ), we see that electrons in the layer 1 acquire an imaginary self-energy 
+ 
+ $\displaystyle{\Im\sigma(z)=-\frac{i\hbar}{\tau_{1}}=-\frac{i\hbar}{\tau_{2}}\frac{\theta_{0}^{2}}{\theta^{2}}}.$  (46) 
+ Therefore the lifetimes $\tau_{1}$ and $\tau_{2}$ in the layer 1 and layer 2 are related through: 
+ 
+ $\displaystyle{\frac{\tau_{1}}{\tau_{2}}=\left(\frac{\theta}{\theta_{0}}\right)^{2}}\,,$  (47) 
+ where $\theta_{0}$ is given by equation ( 40 ), and is same quantity as in the velocity renormalization expression ( 44 ).
+
+C.5 Spatial variation of density of states
+
+As explained above the coupling between Bloch states of different wave-vectors in layer 1 (due to interlayer coupling with layer 2) corresponds to the selection rule 
+ 
+ $\delta\vec{k_{f}}\simeq\delta\vec{k_{0}}+\vec{G_{k}},$  (48) 
+ where $\vec{G_{k}}=\theta\vec{\zeta}\times(\vec{K}_{Di}-\vec{K}_{Dj})$ is a reciprocal lattice vector of the Moiré lattice. The typical difference in energy between Bloch states of $\vec{\delta k_{f}}$ and of $\vec{\delta k_{0}}$ is $\Delta E\simeq\hbar v\theta||\vec{K}_{Di}||$ . This difference is nearly independent of $\vec{\delta k_{0}}$ provided that it is sufficiently close to zero. The typical coupling is $t_{eff}\simeq t^{2}/(\hbar v\theta||\vec{K}_{Di}||)$ .
+
+Then the mixing between states of wave vector close to ( $\vec{K}_{Di}$ ) and wave vector close to $\vec{K}_{Di}+\vec{G_{k}}$ will be of order $t_{eff}/\Delta E$ i.e. of order $(\theta_{1}/\theta)^{2}$ . Therefore the relative variation of the DOS of a state is independent of the energy, for states sufficiently close to the Dirac point, and it depends only on the position in the Moiré pattern. A precise calculation Namarvar (2012) provides the expression given in the main text (equation ( 2 )), 
+ 
+ $\frac{\Delta\rho(E,\vec{r})}{\rho_{m}(E)}\simeq\left(\frac{\theta_{1}}{\theta}\right)^{2}\sum\limits_{j=1}^{6}\,\cos(\vec{G_{j}}\cdot\vec{r}),$  (49) 
+ where $\vec{G_{j}}$ are 6 equivalent vectors of the reciprocal space of the Moiré lattice and where the rotation angle $\theta_{1}$ is given by 
+ 
+ $\theta_{1}=\frac{\sqrt{2}t}{(\hbar vK_{D})}=\frac{\theta_{0}}{\sqrt{3}}.$  (50) 
+ Using the interlayer coupling value $t\simeq 0.12$ eV (Appendix Sec. B.1 ) one finds that $\theta_{1}$ is close to one degree.
+
+We emphasize that the present theory is perturbative in the coupling $t$ . This perturbation theory is valid for sufficiently large values of $\theta$ as explained in the introduction of appendix ( C ). The other assumption is to neglect Fourier components of the interlayer Hamiltonian that couple a Bloch state to other states having wave vectors away from the Dirac cones. This approximation can lead to the under estimation of modulations of the DOS at spatial frequencies high with respect to the Moiré period. This could explain why the DOS modulation (TB calculations) on sub-lattices A and B can differ by about $\pm 15\%$ as compared to averaged DOS, whereas the present perturbative theory does not predict this difference. Note that the average DOS of two neighboring A and B atoms is well reproduced by the analytical model.
+
+References
+
+Geim and Grigorieva (2013) A. K. Geim and I. V. Grigorieva, “Van der Waals heterostructures,”Nature499, 419 (2013).
+Lopes dos Santoset al.(2007) J. M. B. Lopes dos Santos, N. M. R. Peres,  and A. H. Castro Neto, “Graphene bilayer with a twist: Electronic structure,”Phys. Rev. Lett.99, 256802 (2007).
+Trambly de Laissardièreet al.(2010) Guy Trambly de Laissardière, Didier Mayou,  and Laurence Magaud, “Localization of dirac electrons in rotated graphene bilayers,”Nano Letters10, 804–808 (2010).
+Suárez Morellet al.(2010) E. Suárez Morell, J. D. Correa, P. Vargas, M. Pacheco,  and Z. Barticevic, “Flat bands in slightly twisted bilayer graphene: Tight-binding calculations,”Phys. Rev. B82, 121407 (2010).
+Bistritzer and MacDonald (2010) R. Bistritzer and A. H. MacDonald, “Transport between twisted graphene layers,”Phys. Rev. B81, 245412 (2010).
+Bistritzer and MacDonald (2011) Rafi Bistritzer and Allan H. MacDonald, “Moiré bands in twisted double-layer graphene,”Proceedings of the National Academy of Sciences108, 12233–12237 (2011).
+Trambly de Laissardièreet al.(2012) Guy Trambly de Laissardière, Didier Mayou,  and Laurence Magaud, “Numerical studies of confined states in rotated bilayers of graphene,”Phys. Rev. B86, 125413 (2012).
+Liet al.(2009) Guohong Li, A. Luican, J. M. B. Lopes dos Santos, A. H. Castro Neto, A. Reina, J. Kong,  and E. Y. Andrei, “Observation of van hove singularities in twisted graphene layers,”Nature Physics6, 109 EP – (2009).
+Luicanet al.(2011) A. Luican, Guohong Li, A. Reina, J. Kong, R. R. Nair, K. S. Novoselov, A. K. Geim,  and E. Y. Andrei, “Single-layer behavior and its breakdown in twisted graphene layers,”Phys. Rev. Lett.106, 126802 (2011).
+Brihuegaet al.(2012) I. Brihuega, P. Mallet, H. González-Herrero, G. Trambly de Laissardière, M. M. Ugeda, L. Magaud, J. M. Gómez-Rodríguez, F. Ynduráin,  and J.-Y. Veuillen, “Unraveling the intrinsic and robust nature of van hove singularities in twisted bilayer graphene by scanning tunneling microscopy and theoretical analysis,”Phys. Rev. Lett.109, 196802 (2012).
+Huderet al.(2018) Loïc Huder, Alexandre Artaud, Toai Le Quang, Guy Trambly de Laissardière, Aloysius G. M. Jansen, Gérard Lapertot, Claude Chapelier,  and Vincent T. Renard, “Electronic spectrum of twisted graphene layers under heterostrain,”Phys. Rev. Lett.120, 156405 (2018).
+Caoet al.(2018a) Yuan Cao, Valla Fatemi, Ahmet Demir, Shiang Fang, Spencer L. Tomarken, Jason Y. Luo, Javier D. Sanchez-Yamagishi, Kenji Watanabe, Takashi Taniguchi, Efthimios Kaxiras, Ray C. Ashoori,  and Pablo Jarillo-Herrero, “Correlated insulator behaviour at half-filling in magic-angle graphene superlattices,”Nature556, 80 (2018a).
+Caoet al.(2018b) Yuan Cao, Valla Fatemi, Shiang Fang, Kenji Watanabe, Takashi Taniguchi, Efthimios Kaxiras,  and Pablo Jarillo-Herrero, “Unconventional superconductivity in magic-angle graphene superlattices,”Nature556, 43 (2018b).
+Latilet al.(2007) Sylvain Latil, Vincent Meunier,  and Luc Henrard, “Massless fermions in multilayer graphitic systems with misoriented layers: Ab initio calculations and experimental fingerprints,”Phys. Rev. B76, 201402 (2007).
+Lopes dos Santoset al.(2012) J. M. B. Lopes dos Santos, N. M. R. Peres,  and A. H. Castro Neto, “Continuum model of the twisted graphene bilayer,”Phys. Rev. B86, 155449 (2012).
+Trambly de Laissardièreet al.(2016) Guy Trambly de Laissardière, Omid Faizy Namarvar, Didier Mayou,  and Laurence Magaud, “Electronic properties of asymmetrically doped twisted graphene bilayers,”Phys. Rev. B93, 235135 (2016).
+Chariet al.(2016) Tarun Chari, Rebeca Ribeiro-Palau, Cory R. Dean,  and Kenneth Shepard, “Resistivity of rotated graphite–graphene contacts,”Nano Letters16, 4477–4482 (2016), pMID: 27243333.
+Le and Do (2018) H. Anh Le and V. Nam Do, “Electronic structure and optical properties of twisted bilayer graphene calculated via time evolution of states in real space,”Phys. Rev. B97, 125136 (2018).
+Chunget al.(2018) Ting-Fung Chung, Yang Xu,  and Yong P. Chen, “Transport measurements in twisted bilayer graphene: Electron-phonon coupling and landau level crossing,”Phys. Rev. B98, 035425 (2018).
+Wuet al.(2018) Xiangyu Wu, Yaoteng Chuang, Antonino Contino, Bart Sorée, Steven Brems, Zsolt Tokei, Marc Heyns, Cedric Huyghebaert,  and Inge Asselberghs, “Boosting carrier mobility of synthetic few layer graphene on sio2 by interlayer rotation and decoupling,”Advanced Materials Interfaces5, 1800454 (2018).
+Ribeiro-Palauet al.(2018) Rebeca Ribeiro-Palau, Changjian Zhang, Kenji Watanabe, Takashi Taniguchi, James Hone,  and Cory R. Dean, “Twistable electronics with dynamically rotatable heterostructures,”Science361, 690–693 (2018).
+Andelkovićet al.(2018) M. Andelković, L. Covaci,  and F. M. Peeters, “Dc conductivity of twisted bilayer graphene: Angle-dependent transport properties and effects of disorder,”Phys. Rev. Materials2, 034004 (2018).
+Jeonet al.(2018) Jun Woo Jeon, Hyeonbeom Kim, Hyuntae Kim, Soobong Choi,  and Byung Hoon Kim, “Experimental evidence for interlayer decoupling distance of twisted bilayer graphene,”AIP Advances8, 075228 (2018).
+Rickhauset al.(2018) Peter Rickhaus, John Wallbank, Sergey Slizovskiy, Riccardo Pisoni, Hiske Overweg, Yongjin Lee, Marius Eich, Ming-Hao Liu, Kenji Watanabe, Takashi Taniguchi, Thomas Ihn,  and Klaus Ensslin, “Transport through a network of topological channels in twisted bilayer graphene,”Nano Letters18, 6725–6730 (2018), pMID: 30336041.
+Doet al.(2019) V. Nam Do, H. Anh Le,  and D. Bercioux, “Time-evolution patterns of electrons in twisted bilayer graphene,”Phys. Rev. B99, 165127 (2019).
+Sharmaet al.(2020) Girish Sharma, Indra Yudhistira, Nilotpal Chakraborty, Derek Y. H. Ho, Michael S. Fuhrer, Giovanni Vignale,  and Shaffique Adam, “Carrier transport theory for twisted bilayer graphene in the metallic regime,”  (2020),arXiv:2003.00018 [cond-mat.mes-hall].
+Hidalgoet al.(2019) Francisco Hidalgo, Alberto Rubio-Ponce,  and Cecilia Noguez, “Tuning adsorption of methylamine and methanethiol on twisted-bilayer graphene,”The Journal of Physical Chemistry C123, 15273–15283 (2019).
+Katochet al.(2018) Jyoti Katoch, Tiancong Zhu, Denis Kochan, Simranjeet Singh, Jaroslav Fabian,  and Roland K. Kawakami, “Transport spectroscopy of sublattice-resolved resonant scattering in hydrogen-doped bilayer graphene,”Phys. Rev. Lett.121, 136801 (2018).
+Pintoet al.(2020) A.K.M. Pinto, N.F. Frazão, D.L. Azevedo,  and F. Moraes, “Evidence for flat zero-energy bands in bilayer graphene with a periodic defect lattice,”Physica E: Low-dimensional Systems and Nanostructures119, 113987 (2020).
+Ohtaet al.(2006) Taisuke Ohta, Aaron Bostwick, Thomas Seyller, Karsten Horn,  and Eli Rotenberg, “Controlling the electronic structure of bilayer graphene,”Science313, 951–954 (2006).
+Colettiet al.(2010) C. Coletti, C. Riedl, D. S. Lee, B. Krauss, L. Patthey, K. von Klitzing, J. H. Smet,  and U. Starke, “Charge neutrality and band-gap tuning of epitaxial graphene on sic by molecular doping,”Phys. Rev. B81, 235401 (2010).
+Brihuegaet al.(2008) I. Brihuega, P. Mallet, C. Bena, S. Bose, C. Michaelis, L. Vitali, F. Varchon, L. Magaud, K. Kern,  and J. Y. Veuillen, “Quasiparticle chirality in epitaxial graphene probed at the nanometer scale,”Phys. Rev. Lett.101, 206802 (2008).
+Hasset al.(2006) J. Hass, R. Feng, T. Li, X. Li, Z. Zong, W. A. de Heer, P. N. First, E. H. Conrad, C. A. Jeffrey,  and C. Berger, “Highly ordered graphene for two dimensional electronics,”Applied Physics Letters89, 143106 (2006).
+Hasset al.(2008a) J Hass, W A de Heer,  and E H Conrad, “The growth and morphology of epitaxial multilayer graphene,”Journal of Physics: Condensed Matter20, 323202 (2008a).
+Emtsevet al.(2008) K. V. Emtsev, F. Speck, Th. Seyller, L. Ley,  and J. D. Riley, “Interaction, growth, and ordering of epitaxial graphene on sic0001 surfaces: A comparative photoelectron spectroscopy study,”Phys. Rev. B77, 155303 (2008).
+Hasset al.(2008b) J. Hass, F. Varchon, J. E. Millán-Otoya, M. Sprinkle, N. Sharma, W. A. de Heer, C. Berger, P. N. First, L. Magaud,  and E. H. Conrad, “Why multilayer graphene on4​h−SiC​(000​1¯)4ℎSiC000¯14h\mathrm{\text{$-$}}\mathrm{SiC}(000\overline{1})behaves like a single sheet of graphene,”Phys. Rev. Lett.100, 125504 (2008b).
+Sprinkleet al.(2009) M. Sprinkle, D. Siegel, Y. Hu, J. Hicks, A. Tejeda, A. Taleb-Ibrahimi, P. Le Fèvre, F. Bertran, S. Vizzini, H. Enriquez, S. Chiang, P. Soukiassian, C. Berger, W. A. de Heer, A. Lanzara,  and E. H. Conrad, “First direct observation of a nearly ideal graphene band structure,”Phys. Rev. Lett.103, 226803 (2009).
+Hickset al.(2011) J. Hicks, M. Sprinkle, K. Shepperd, F. Wang, A. Tejeda, A. Taleb-Ibrahimi, F. Bertran, P. Le Fèvre, W. A. de Heer, C. Berger,  and E. H. Conrad, “Symmetry breaking in commensurate graphene rotational stacking: Comparison of theory and experiment,”Phys. Rev. B83, 205403 (2011).
+Latil and Henrard (2006) Sylvain Latil and Luc Henrard, “Charge carriers in few-layer graphene films,”Phys. Rev. Lett.97, 036803 (2006).
+Varchonet al.(2008) F. Varchon, P. Mallet, J.-Y. Veuillen,  and L. Magaud, “Ripples in epitaxial graphene on the si-terminated sic(0001) surface,”Phys. Rev. B77, 235412 (2008).
+Zhanget al.(2010) Fan Zhang, Bhagawan Sahu, Hongki Min,  and A. H. MacDonald, “Band structure ofa​b​c𝑎𝑏𝑐abc-stacked graphene trilayers,”Phys. Rev. B82, 035409 (2010).
+McCann and Koshino (2013) Edward McCann and Mikito Koshino, “The electronic properties of bilayer graphene,”Reports on Progress in Physics76, 056503 (2013).
+Rozhkovet al.(2016) A. V. Rozhkov, A. O. Sboychakov, A.L. Rakhmanov,  and Franco Nori, “Electronic properties of graphene-based bilayer systems,”Physics Reports648, 1–104 (2016).
+Milleret al.(2009) David L. Miller, Kevin D. Kubista, Gregory M. Rutter, Ming Ruan, Walt A. de Heer, Phillip N. First,  and Joseph A. Stroscio, “Observing the quantization of zero mass carriers in graphene,”Science324, 924–927 (2009).
+Bergeret al.(2006) Claire Berger, Zhimin Song, Xuebin Li, Xiaosong Wu, Nate Brown, Cécile Naud, Didier Mayou, Tianbo Li, Joanna Hass, Alexei N. Marchenkov, Edward H. Conrad, Phillip N. First,  and Walt A. de Heer, “Electronic confinement and coherence in patterned epitaxial graphene,”Science312, 1191–1196 (2006).
+Sadowskiet al.(2006) M. L. Sadowski, G. Martinez, M. Potemski, C. Berger,  and W. A. de Heer, “Landau level spectroscopy of ultrathin graphite layers,”Phys. Rev. Lett.97, 266405 (2006).
+Ohtaet al.(2012) Taisuke Ohta, Jeremy T. Robinson, Peter J. Feibelman, Aaron Bostwick, Eli Rotenberg,  and Thomas E. Beechem, “Evidence for interlayer coupling and moiré periodic potentials in twisted bilayer graphene,”Phys. Rev. Lett.109, 186807 (2012).
+Cherkezet al.(2015) V. Cherkez, G. Trambly de Laissardière, P. Mallet,  and J.-Y. Veuillen, “Van hove singularities in doped twisted graphene bilayers studied by scanning tunneling spectroscopy,”Phys. Rev. B91, 155428 (2015).
+Lazaret al.(2013) Petr Lazar, František Karlický, Petr Jurečka, Mikuláš Kocman, Eva Otyepková, Klára Šafářová,  and Michal Otyepka, “Adsorption of small organic molecules on graphene,”Journal of the American Chemical Society135, 6372–6377 (2013), pMID: 23570612.
+Brihuega and Yndurain (2018) Ivan Brihuega and Felix Yndurain, “Selective hydrogen adsorption in graphene rotated bilayers,”The Journal of Physical Chemistry B122, 595–600 (2018), pMID: 28753010.
+Castro Netoet al.(2009) A. H. Castro Neto, F. Guinea, N. M. R. Peres, K. S. Novoselov,  and A. K. Geim, “The electronic properties of graphene,”Rev. Mod. Phys.81, 109–162 (2009).
+Trambly de Laissardière and Mayou (2013) Guy Trambly de Laissardière and Didier Mayou, “Conductivity of graphene with resonant and nonresonant adsorbates,”Phys. Rev. Lett.111, 146601 (2013).
+Missaouiet al.(2017) Ahmed Missaoui, Jouda Jemaa Khabthani, Nejm-Eddine Jaidane, Didier Mayou,  and Guy Trambly de Laissardière, “Numerical analysis of electronic conductivity in graphene with resonant adsorbates: comparison of monolayer and bernal bilayer,”The European Physical Journal B90, 75 (2017).
+Nairet al.(2012) R. R. Nair, M. Sepioni, I-Ling Tsai, O. Lehtinen, J. Keinonen, A. V. Krasheninnikov, T. Thomson, A. K. Geim,  and I. V. Grigorieva, “Spin-half paramagnetism in graphene induced by point defects,”Nature Physics8, 199 (2012).
+Scopelet al.(2016) W.L. Scopel, Wendel S. Paz,  and Jair C.C. Freitas, “Interaction between single vacancies in graphene sheet: An ab initio calculation,”Solid State Communications240, 5 – 9 (2016).
+Tománeket al.(1987) David Tománek, Steven G. Louie, H. Jonathon Mamin, David W. Abraham, Ruth Ellen Thomson, Eric Ganz,  and John Clarke, “Theory and observation of highly asymmetric atomic structure in scanning-tunneling-microscopy images of graphite,”Phys. Rev. B35, 7790–7793 (1987).
+Pereiraet al.(2006) Vitor M. Pereira, F. Guinea, J. M. B. Lopes dos Santos, N. M. R. Peres,  and A. H. Castro Neto, “Disorder induced localized states in graphene,”Phys. Rev. Lett.96, 036801 (2006).
+Pereiraet al.(2008) Vitor M. Pereira, J. M. B. Lopes dos Santos,  and A. H. Castro Neto, “Modeling disorder in graphene,”Phys. Rev. B77, 115109 (2008).
+Wehlinget al.(2010) T. O. Wehling, S. Yuan, A. I. Lichtenstein, A. K. Geim,  and M. I. Katsnelson, “Resonant scattering by realistic impurities in graphene,”Phys. Rev. Lett.105, 056802 (2010).
+Trambly de Laissardière and Mayou (2014) Guy Trambly de Laissardière and Didier Mayou, “Conductivity of graphene with resonant adsorbates: beyond the nearest neighbor hopping model,”Advances in Natural Sciences: Nanoscience and Nanotechnology5, 015007 (2014).
+Fanet al.(2014) Zheyong Fan, Andreas Uppstu,  and Ari Harju, “Anderson localization in two-dimensional graphene with short-range disorder: One-parameter scaling and finite-size effects,”Phys. Rev. B89, 245422 (2014).
+Missaouiet al.(2018) Ahmed Missaoui, Jouda Jemaa Khabthani, Nejm-Eddine Jaidane, Didier Mayou,  and Guy Trambly de Laissardière, “Mobility gap and quantum transport in a functionalized graphene bilayer,”Journal of Physics: Condensed Matter30, 195701 (2018).
+Mayou (1988) D. Mayou, “Calculation of the conductivity in the short-mean-free-path regime,”EPL (Europhysics Letters)6, 549 (1988).
+Mayou and Khanna (1995) D. Mayou and S. N. Khanna, “A real-space approach to electronic transport,”J. Phys. I France5, 1199–1211 (1995).
+Roche and Mayou (1997) S. Roche and D. Mayou, “Conductivity of quasiperiodic systems: A numerical study,”Phys. Rev. Lett.79, 2518–2521 (1997).
+Roche and Mayou (1999) Stephan Roche and Didier Mayou, “Formalism for the computation of the rkky interaction in aperiodic systems,”Phys. Rev. B60, 322–328 (1999).
+Triozonet al.(2002) François Triozon, Julien Vidal, Rémy Mosseri,  and Didier Mayou, “Quantum dynamics in two- and three-dimensional quasiperiodic tilings,”Phys. Rev. B65, 220202 (2002).
+Lee and Ramakrishnan (1985) Patrick A. Lee and T. V. Ramakrishnan, “Disordered electronic systems,”Reviews of Modern Physics57, 287–337 (1985).
+Trambly de Laissardière and Mayou (2011) Guy Trambly de Laissardière and Didier Mayou, “Electronic transport in graphene: Quantum effects and role of loacl defects,”Modern Physics Letters B25, 1019–1028 (2011).
+Shallcrosset al.(2008) S. Shallcross, S. Sharma,  and O. A. Pankratov, “Quantum interference at the twist boundary in graphene,”Phys. Rev. Lett.101, 056803 (2008).
+Mele (2010) E. J. Mele, “Commensuration and interlayer coherence in twisted bilayer graphene,”Phys. Rev. B81, 161405 (2010).
+Sboychakovet al.(2015) A. O. Sboychakov, A. L. Rakhmanov, A. V. Rozhkov,  and Franco Nori, “Electronic spectrum of twisted bilayer graphene,”Phys. Rev. B92, 075402 (2015).
+Rozhkovet al.(2017) A. V. Rozhkov, A. O. Sboychakov, A. L. Rakhmanov,  and Franco Nori, “Single-electron gap in the spectrum of twisted bilayer graphene,”Phys. Rev. B95, 045119 (2017).
+Namarvar (2012) Omid Faizy Namarvar,Electronic structure and quantum transport in graphene nanostructures, Ph.D. thesis, Université de Grenoble, France (2012).

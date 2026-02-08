@@ -1,0 +1,952 @@
+Conditions for the vanishing of the genus-2 G-function
+
+By Xiaobo Liu and Xin Wang
+
+Abstract
+
+In this paper, we establish sufficient conditions for the vanishing of the genus-2 G-function, introduced by B. Dubrovin, S. Liu, and Y. Zhang in [DLZ]. As a corollary, we confirm their conjecture regarding the vanishing of the genus-2 G-function for ADE singularities.
+
+1 Preliminaries
+
+Properties of the quantum product and idempotents on the big phase space for Gromov-Witten theory were studied in [L02] , [L06] and [L07] . These properties can be easily extended to any cohomological field theory. In this section we will review concepts and properties needed for the proof of Theorem 0.1 .
+
+Let \( M \) be a smooth projective variety. Consider a basis \( \{\gamma_{\alpha}\} \) for the cohomology space \( H^{*}(M;\mathbb{C}) \), where \( \alpha=1,\ldots,N \). For simplicity, we assume the odd-degree cohomology groups vanish, i.e., \( H^{\text{odd}}(M;\mathbb{C})=0 \). The chosen basis satisfies \( \gamma_{1} \) being the ring identity, and each \( \gamma_{\alpha} \) lies in \( H^{p_{\alpha},q_{\alpha}}(M) \) with integers \( p_{\alpha} \) and \( q_{\alpha} \). Let \( \{t^{1},\ldots,t^{N}\} \) denote coordinates on \( H^{*}(M;\mathbb{C}) \) relative to this basis. Each \( \gamma_{\alpha} \) corresponds to the vector field \( \frac{\partial}{\partial t^{\alpha}} \), and cohomology classes are identified with constant vector fields on \( H^{*}(M;\mathbb{C}) \). Define \( b_{\alpha} \) by
+
+\[
+b_{\alpha} = p_{\alpha} - \frac{1}{2}(d-1) \quad \text{(1)}
+\]
+
+where \( d \) is the complex dimension of \( M \). The Euler vector field on the small phase space is then expressed as
+
+\[
+E := c_{1}(M) + \sum_{\alpha}(b_{1}+1 - b_{\alpha})t^{\alpha}\gamma_{\alpha}.
+\]
+
+In their work, [LiT] and [RT] provide the definitions for Gromov-Witten invariants. Specifically, for genus-1 invariants, it is sufficient to focus solely on primary Gromov-Witten invariants, as all genus-1 descendant invariants can be expressed in terms of these primary invariants due to the genus-1 topological recursion relation. Consequently, this paper will exclusively address primary Gromov-Witten invariants. Let $F_{g}$ represent the generating function for genus-$g$ primary Gromov-Witten invariants of the manifold $M$. The $k$-point function is defined as
+
+$$
+\left<\left<\,v_{1}\cdots v_{k}\,\right>\right>_{g}:=\sum_{\alpha_{1},\ldots,\alpha_{k}}f^{1}_{\alpha_{1}}\cdots f^{k}_{\alpha_{k}}\,\,\frac{\partial^{k}F_{g}}{\partial t^{\alpha_{1}}\cdots\partial t^{\alpha_{k}}},
+$$
+
+where each $v_{i}=\sum_{\alpha}f^{i}_{\alpha}\gamma_{\alpha}$ is a vector field, and the $f^{i}_{\alpha}$ are functions on $H^{*}(M;\mathbb{C})$. It is important to note that in this paper, $F_{g}$ and $\left<\left<\,\cdots\,\right>\right>_{g}$ correspond to $F_{g}^{s}$ and $\left<\left<\,\cdots\,\right>\right>_{g,s}$ as defined in [L1]. The intersection form on $H^{*}(M,{\mathbb{C}})$ is denoted by $\eta_{\alpha\beta}=\int_{M}\gamma_{\alpha}\cup\gamma_{\beta}$, and we use $\eta=(\eta_{\alpha\beta})$ and its inverse $\eta^{-1}=(\eta^{\alpha\beta})$ to lower and raise indices, respectively. For example, $\gamma^{\alpha}:=\eta^{\alpha\beta}\gamma_{\beta}$, with repeated indices implicitly summed over their entire range. The quantum product of two vector fields $v_{1}$ and $v_{2}$ is defined by
+
+$$
+v_{1}\circ v_{2}:=\left<\left<\,v_{1}\,v_{2}\,\gamma^{\alpha}\,\right>\right>_{0}\,\gamma_{\alpha}.
+$$
+
+We define
+
+$$
+\Psi:=\left<\left<\,E^{2}\,\right>\right>_{1}+\frac{1}{24}\sum_{\alpha}\left<\left<EE\gamma_{\alpha}\gamma^{\alpha}\right>\right>_{0}-\frac{1}{2}\sum_{\alpha}\left(b_{\alpha}(1-b_{\alpha})-\frac{b_{1}+1}{6}\right)\left<\left<\gamma_{\alpha}\gamma^{\alpha}\right>\right>_{0}
+$$
+
+where $E^{2}=E\circ E$ is the quantum square of the Euler vector field. It was established in [L1] that the genus-1 Virasoro conjecture for any smooth projective variety $M$ can be reduced to a single equation on $H^{*}(M;{\mathbb{C}})$:
+
+$$
+\Psi=0.
+$$
+
+Furthermore, since $E\Psi=\Psi$ (as shown in [L1]), the genus-1 Virasoro conjecture holds if and only if
+
+$$
+E\Psi=0.
+$$
+
+Therefore, proving the genus-1 Virasoro conjecture requires demonstrating that $v\Psi=0$ for all vector fields $v$ on $H^{*}(M;{\mathbb{C}})$. From the string equation, it follows that $\gamma_{1}\Psi=0$, where $\gamma_{1}=E^{0}$ is the identity element of the ordinary cohomology ring. In this paper, we aim to identify another vector field that always annihilates $\Psi$.
+
+Define a $k$ -tensor $\left<\left<\,\cdot\cdot\cdot\,\right>\right>_{g}$ by 
+ 
+ $\displaystyle\left<\left<\,\mathcal{W}_{1}\mathcal{W}_{2}\cdot\cdot\cdot\mathcal{W}_{k}\,\right>\right>_{g}:=\sum_{m_{1},\alpha_{1},...,m_{k},\alpha_{k}}f_{m_{1},\alpha_{1}}^{1}\cdot\cdot\cdot f_{m_{k},\alpha_{k}}^{k}\frac{\partial^{k}}{\partial t_{m_{1}}^{\alpha_{1}}\cdot\cdot\cdot\partial t_{m_{k}}^{\alpha_{k}}}F_{g}$  (2) 
+ for vector fields $\mathcal{W}_{i}=\sum_{m,\alpha}f_{m,\alpha}^{i}\frac{\partial}{\partial t_{m}^{\alpha}}$ where $f_{m,\alpha}^{i}$ are functions on the big phase space. This tensor is called $k$ - $point$ $(correlation)$ $function$ . For any vector fields $\mathcal{W}_{1}$ and $\mathcal{W}_{2}$ on the big phase space, the $quantum$ $product$ of $\mathcal{W}_{1}$ and $\mathcal{W}_{2}$ is defined by 
+ 
+ $\mathcal{W}_{1}\circ\mathcal{W}_{2}:=\left<\left<\,\mathcal{W}_{1}\mathcal{W}_{2}\gamma^{\alpha}\,\right>\right>_{0}\gamma_{\alpha}.$ 
+ This is a commutative and associative product. But it does not have an identity.
+
+As per the convention, we order the basis $\{\gamma_{1},\ldots,\gamma_{N}\}$ of $H^{*}(M,\mathbb{C})$ so that the degree $p_{\alpha}+q_{\alpha}$ of $\gamma_{\alpha}\in H^{p_{\alpha},q_{\alpha}}$ is non-decreasing with respect to $\alpha$. Furthermore, if two cohomology classes have the same dimension, we ensure that the holomorphic dimension $p_{\alpha}$ is non-decreasing. Under this ordering, we have 
+
+$G(\gamma^{\alpha})=(1-b_{\alpha})\gamma^{\alpha}$ 
+for all $\alpha$, and 
+
+$G(\gamma^{\alpha})\circ\gamma_{\alpha}=\Delta-\gamma^{\alpha}\circ G(\gamma_{\alpha}).$ 
+Additionally, 
+
+$G(\gamma^{\alpha})\circ\gamma_{\alpha}=\eta^{\alpha\beta}G(\gamma_{\beta})\circ\gamma_{\alpha}=G(\gamma_{\beta})\circ\gamma^{\beta}=\gamma^{\alpha}\circ G(\gamma_{\alpha}).$ 
+This implies 
+
+$G(\gamma^{\alpha})\circ\gamma_{\alpha}=\gamma^{\alpha}\circ G(\gamma_{\alpha})=\frac{1}{2}\,\Delta.$  (13) 
+Thus, 
+
+$\displaystyle G(E\circ\gamma^{\alpha})\circ\gamma_{\alpha}$ $\displaystyle=$ $\displaystyle\left<\left<\,E\,\gamma^{\alpha}\,\gamma^{\beta}\,\right>\right>_{0}G(\gamma_{\beta})\circ\gamma_{\alpha}=G(\gamma_{\beta})\circ(E\circ\gamma^{\beta})$  (14) 
+$\displaystyle=$ $\displaystyle\frac{1}{2}\,E\circ\Delta.$ 
+Consequently, we derive 
+
+$\displaystyle\left<\left<\,\{E\circ\gamma^{\alpha}\}\,\gamma_{\alpha}\,E\,\gamma^{\beta}\,\right>\right>_{0}\left<\left<\,\gamma_{\beta}\,\right>\right>_{1}$ $\displaystyle=$ $\displaystyle\left<\left<\,\left\{(1-b_{1})E\circ\Delta-G(E\circ\Delta)\right\}\,\right>\right>_{1}.$ 
+Similarly, 
+
+$\displaystyle\left<\left<\,\Delta\,E\,E\,\gamma^{\beta}\,\right>\right>_{0}\left<\left<\,\gamma_{\beta}\,\right>\right>_{1}$ $\displaystyle=$ $\displaystyle\left<\left<\,\left\{G(\Delta)\circ E+\Delta\circ G(E)-G(\Delta\circ E)-b_{1}\Delta\circ E\right\}\,\right>\right>_{1},$ 
+and 
+
+$\displaystyle\left<\left<\,E\,E\,\gamma^{\alpha}\,\gamma^{\beta}\,\right>\right>_{0}\left<\left<\,\{\gamma_{\alpha}\circ\gamma_{\beta}\}\,\right>\right>_{1}$ 
+$\displaystyle=$ $\displaystyle\left<\left<\,\left\{\gamma_{\alpha}\circ\left(G(E)\circ\gamma^{\alpha}+E\circ G(\gamma^{\alpha})-G(E\circ\gamma^{\alpha})-b_{1}E\circ\gamma^{\alpha}\right)\right\}\,\right>\right>_{1}$ 
+$\displaystyle=$ $\displaystyle\left<\left<\,\left\{G(E)\circ\Delta-b_{1}E\circ\Delta\right\}\,\right>\right>_{1}.$ 
+To compute the last term in equation (12), we first evaluate 
+
+$\displaystyle\left<\left<\,E\,\gamma_{\alpha}\,\gamma^{\alpha}\,\gamma^{\beta}\,\right>\right>_{0}\gamma_{\beta}$ $\displaystyle=$ $\displaystyle G(\gamma_{\alpha})\circ\gamma^{\alpha}+\gamma_{\alpha}\circ G(\gamma^{\alpha})-G(\Delta)-b_{1}\Delta$  (15) 
+$\displaystyle=$ $\displaystyle(1-b_{1})\Delta-G(\Delta)$ 
+by equation (13). Therefore, the last term in equation (12) is 
+
+$\displaystyle\left<\left<\,E\,\gamma_{\alpha}\,\gamma^{\alpha}\,\gamma^{\beta}\,\right>\right>_{0}\left<\left<\,\{\gamma_{\beta}\circ E\}\,\right>\right>_{1}$ $\displaystyle=$ $\displaystyle\left<\left<\,\left\{(1-b_{1})E\circ\Delta-E\circ G(\Delta)\right\}\,\right>\right>_{1}.$ 
+Upon substituting these expressions into equation (12), all terms on the right-hand side cancel except for the term $24\Delta\left<\left<\,E^{2}\,\right>\right>_{1}$. The lemma is thus established. $\Box$
+
+The quantum multiplication by $\mathcal{X}$ is an endomorphism of the space of primary vector fields on the big phase space. If this endomorphism has distinct eigenvalues at generic points, the big phase space is called $semisimple$ . In this case, let $\mathcal{E}_{1},...,\mathcal{E}_{N}$ be the eigenvectors with corresponding eigenvalues $u_{1},...,u_{N}$ , i.e. 
+ 
+ $\mathcal{X}\circ\mathcal{E}_{i}=u_{i}\mathcal{E}_{i}$ 
+ for each $i=1,...,N$ . $\mathcal{E}_{i}$ is considered as a vector field on the big phase space, and $u_{i}$ is considered as a function on the big phase space. They satisfy the following properties: 
+ 
+ $\mathcal{E}_{i}\circ\mathcal{E}_{j}=\delta_{ij}\mathcal{E}_{i},\quad[\mathcal{E}_{i},\mathcal{E}_{j}]=0,\quad\mathcal{E}_{i}u_{j}=\delta_{ij}$ 
+ for any $i$ and $j$ . Vector fields ${\mathcal{E}_{1},...,\mathcal{E}_{N}}$ are called idempotents on the big phase space. When restricted to the small phase space, $\{u_{1},\ldots,u_{N}\}$ gives the canonical coordinate system on semisimple Frobenius manifold $\mathcal{H}$ and ${\mathcal{E}_{1},...,\mathcal{E}_{N}}$ coincide with coordinate vector fields of this system (cf. [D] ).
+
+We now examine the genus-$0$ component of Equation (11). Define
+
+$$
+\Phi:=-\frac{1}{24}\sum_{\alpha}\left<\left<EE\gamma_{\alpha}\gamma^{\alpha}\right>\right>_{0}+\frac{1}{2}\sum_{\alpha}\left(b_{\alpha}(1-b_{\alpha})-\frac{b_{1}+1}{6}\right)\left<\left<\gamma_{\alpha}\gamma^{\alpha}\right>\right>_{0}. \quad (16)
+$$ 
+
+Let
+
+$$
+\Psi=\left<\left<\,E^{2}\,\right>\right>_{1}-\Phi \quad (17)
+$$ 
+
+The genus-1 Virasoro conjecture simplifies to
+
+$$
+\left<\left<\,E^{2}\,\right>\right>_{1}=\Phi.
+$$
+
+The Virasoro conjecture posits that the generating functions for the Gromov-Witten invariants of smooth projective varieties are annihilated by a sequence of differential operators that correspond to a half-branch of the Virasoro algebra. This conjecture was originally proposed by Eguchi, Hori, and Xiong [EHX] and later refined by S. Katz [CX]. When the base manifold is a point, the conjecture aligns with Witten's conjecture [W], which was proven by Kontsevich [K]. Witten's conjecture states that the generating function for intersection numbers on the moduli spaces of stable curves serves as a $\tau$-function for the KdV hierarchy. In collaboration with Tian, the genus-0 portion of the Virasoro conjecture was established for all compact symplectic manifolds (see [LT]). For manifolds with semisimple quantum cohomology, the genus-1 part of the conjecture was demonstrated by Dubrovin and Zhang [DZ]. Without assuming semisimplicity, the genus-1 Virasoro conjecture was explored in [L1] and [L2]. Key findings include the reduction of the genus-1 Virasoro conjecture to the $L_{1}$-constraint in [L1], and the use of the genus-1 topological recursion relation to show that Virasoro constraints can be expressed as equations on the small phase space, which is the space of cohomology classes of the underlying manifold. Additionally, [L2] investigated compatibility conditions for the Virasoro conjectures. Despite these advancements, the general case of the genus-1 Virasoro conjecture remains largely unresolved. This paper aims to provide further support for the genus-1 Virasoro conjecture without imposing any conditions on the quantum cohomology of the manifold.
+
+For any vector fields \( v_1, \ldots, v_4 \) on the small phase space, we define 
+
+\[
+G_0(v_1, v_2, v_3, v_4) = \sum_{g \in S_4} \sum_{\alpha, \beta} \left\{ \frac{1}{6} \left\langle \left\langle v_{g(1)} v_{g(2)} v_{g(3)} \gamma^\alpha \right\rangle \right\rangle_0 \left\langle \left\langle \gamma_\alpha v_{g(4)} \gamma_\beta \gamma^\beta \right\rangle \right\rangle_0 \right.
+\]
+\[
+\left. + \frac{1}{24} \left\langle \left\langle v_{g(1)} v_{g(2)} v_{g(3)} v_{g(4)} \gamma^\alpha \right\rangle \right\rangle_0 \left\langle \left\langle \gamma_\alpha \gamma_\beta \gamma^\beta \right\rangle \right\rangle_0 - \frac{1}{4} \left\langle \left\langle v_{g(1)} v_{g(2)} \gamma^\alpha \gamma^\beta \right\rangle \right\rangle_0 \left\langle \left\langle \gamma_\alpha \gamma_\beta v_{g(3)} v_{g(4)} \right\rangle \right\rangle_0 \right\},
+\]
+
+and
+
+\[
+G_1(v_1, v_2, v_3, v_4) = \sum_{g \in S_4} 3 \left\langle \left\langle \{v_{g(1)} \circ v_{g(2)}\} \{v_{g(3)} \circ v_{g(4)}\} \right\rangle \right\rangle_1 - \sum_{g \in S_4} 4 \left\langle \left\langle \{v_{g(1)} \circ v_{g(2)} \circ v_{g(3)}\} v_{g(4)} \right\rangle \right\rangle_1
+\]
+\[
+- \sum_{g \in S_4} \sum_\alpha \left\langle \left\langle \{v_{g(1)} \circ v_{g(2)}\} v_{g(3)} v_{g(4)} \gamma^\alpha \right\rangle \right\rangle_0 \left\langle \left\langle \gamma_\alpha \right\rangle \right\rangle_1 + \sum_{g \in S_4} \sum_\alpha 2 \left\langle \left\langle v_{g(1)} v_{g(2)} v_{g(3)} \gamma^\alpha \right\rangle \right\rangle_0 \left\langle \left\langle \{\gamma_\alpha \circ v_{g(4)}\} \right\rangle \right\rangle_1.
+\]
+
+Here, \( G_0 \) is entirely determined by genus-0 data, while each term in \( G_1 \) incorporates genus-1 information. These tensors are related through Getzler’s equation (cf. [Ge]):
+
+\[
+G_0 + G_1 = 0. \quad (11)
+\]
+
+Theorem 1.1 is derived by applying this equation to \( v_1 = v_2 = E \), \( v_3 = \gamma^\alpha \), \( v_4 = \gamma_\alpha \), and summing over \( \alpha \).
+
+Define 
+ 
+ $\Omega_{ij}:=\frac{1}{u_{j}-u_{i}}\Big{(}\theta_{ij}-\theta_{ji}+\sum_{k,l}r_{il}r_{jk}v_{kl}\Big{)}$ 
+ for $i\neq j$ . Then 
+ 
+ $\Omega_{ij}=\Omega_{ji}$ 
+ for all $i\neq j$ . These functions arise naturally in the second order derivatives of rotation coefficients because 
+ 
+ $\mathcal{E}_{j}\theta_{ij}=\Big{(}r_{jj}-\sqrt{\frac{g_{j}}{g_{i}}}r_{ij}\Big{)}\theta_{ij}-\Omega_{ij}$ 
+ for $i\neq j$ . We might consider $\theta_{ij}$ and $\Omega_{ij}$ as functions having poles of order 1 and 2 respectively in terms of $u_{1},...,u_{N}$ .
+
+As in [L07] , we will use the following notations for genus-0 and genus-1 $k$ -point functions: 
+ 
+ $z_{i_{1},\cdot\cdot\cdot,i_{k}}:=\left<\left<\,\mathcal{E}_{i_{1}},\cdot\cdot\cdot,\mathcal{E}_{i_{k}}\,\right>\right>_{0}$ 
+ and 
+ 
+ $\phi_{i_{1},\cdot\cdot\cdot,i_{k}}:=\left<\left<\,\mathcal{E}_{i_{1}},\cdot\cdot\cdot,\mathcal{E}_{i_{k}}\,\right>\right>_{1}.$ 
+ In [L06] , it was proved that genus-0 4-point functions satisfy the following properties: For $i\neq j$ , 
+ 
+ $\displaystyle(i)$ $\displaystyle\quad z_{iiii}=-g_{i}r_{ii},$ 
+ 
+ $\displaystyle(ii)$ $\displaystyle\quad z_{jiii}=-z_{jjii}=-\sqrt{g_{i}g_{j}}r_{ij},$ 
+ 
+ $\displaystyle(iii)$ $\displaystyle\quad z_{ijkl}=0,\quad\mbox{otherwise}.$  (8) 
+ It was also proved that the genus-1 1-point functions are given by 
+ 
+ $\displaystyle 24\phi_{i}=-12\sum_{j}{r_{ij}v_{ij}}-\sum_{j}{\frac{h_{i}}{h_{j}}}r_{ij}$  (9) 
+ for all $i$ . Higher point genus-0 and genus-1 functions can be computed recursively using the following formula: 
+ 
+ $\displaystyle\left<\left<\,\mathcal{E}_{i_{1}}\mathcal{E}_{i_{2}}\cdot\cdot\cdot\mathcal{E}_{i_{k+1}}\,\right>\right>_{g}$ 
+ 
+ $\displaystyle=\mathcal{E}_{i_{k+1}}\left<\left<\,\mathcal{E}_{i_{1}}\cdot\cdot\cdot\mathcal{E}_{i_{k}}\,\right>\right>_{g}-\Big{(}\sum_{j=1}^{k}r_{i_{j},i_{k+1}}\sqrt{\frac{g_{i_{k+1}}}{g_{i_{j}}}}\Big{)}\left<\left<\,\mathcal{E}_{i_{1}}\cdot\cdot\cdot\mathcal{E}_{i_{k}}\,\right>\right>_{g}$ 
+ 
+ $\displaystyle-\sum_{j=1}^{k}r_{i_{j},i_{k+1}}\sqrt{\frac{g_{i_{j}}}{g_{i_{k+1}}}}\left<\left<\,\mathcal{E}_{i_{1}}\cdot\cdot\cdot\widehat{\mathcal{E}_{i_{j}}}\cdot\cdot\cdot\mathcal{E}_{i_{k}}\mathcal{E}_{i_{k+1}}\,\right>\right>_{g}$ 
+ 
+ $\displaystyle+\sum_{j=1}^{k}\delta_{i_{k+1},i_{j}}\sum_{p}r_{p,i_{k+1}}\sqrt{\frac{g_{i_{k+1}}}{g_{p}}}\left<\left<\,\mathcal{E}_{i_{1}}\cdot\cdot\cdot\widehat{\mathcal{E}_{i_{j}}}\cdot\cdot\cdot\mathcal{E}_{i_{k}}\mathcal{E}_{p}\,\right>\right>_{g}$  (10) 
+ for all $g\geq 0$ . For example, the genus-1 2-point functions are given by 
+ 
+ $\displaystyle 24\phi_{ij}=$ $\displaystyle 12r_{ij}^{2}+\sum\limits_{l}{({r_{il}}{r_{jl}}{{{h_{i}}{h_{j}}}\over{h_{l}^{2}}}-{r_{ij}}{r_{il}}{{{h_{j}}}\over{{h_{l}}}}-{r_{ij}}{r_{jl}}{{{h_{i}}}\over{{h_{l}}}})}-\{{\theta_{ij}}{{{h_{j}}}\over{{h_{i}}}}+{\theta_{ji}}{{{h_{i}}}\over{{h_{j}}}}\}$ 
+ 
+ $\displaystyle-24r_{ij}\{\frac{h_{j}}{h_{i}}\phi_{i}+\frac{h_{i}}{h_{j}}\phi_{j}\}$  (11) 
+ for $i\neq j$ , and 
+ 
+ $\displaystyle 24\phi_{ii}=$ $\displaystyle 12r_{ii}^{2}+\sum_{j}\{r_{ij}^{2}(-10+\frac{h_{i}^{2}}{h_{j}^{2}})-2r_{ii}r_{ij}\frac{h_{i}}{h_{j}}\}-\sum_{j\neq i}\{\theta_{ij}\frac{h_{i}}{h_{j}}+\theta_{ji}\frac{h_{j}}{h_{i}}\}$ 
+ 
+ $\displaystyle-48r_{ii}\phi_{i}+24\sum_{j}r_{ij}\frac{h_{i}}{h_{j}}\phi_{j}-\frac{1}{h_{i}^{2}}<\tau_{-}^{2}(S),\mathcal{E}_{i}>$  (12) 
+ for all $i$ . Some genus-1 3-point functions can be found in Appendix D .
+
+We begin by reviewing fundamental properties of the Euler vector field \( E \). The starting point is the quasi-homogeneity equation:
+
+\[
+\left<\left<E\right>\right>_{g}=(3-d)(1-g)F_{g}+\frac{1}{2}\delta_{g,0}\sum_{\alpha,\beta}{\cal C}_{\alpha\beta}t^{\alpha}_{0}t^{\beta}_{0}-\frac{1}{24}\delta_{g,1}\int_{M}c_{1}(M)\cup c_{d-1}(M).
+\]
+
+This equation is derived from the divisor equation. We define the grading operator \( G \) as follows:
+
+\[
+G(v):=\sum_{\alpha}b_{\alpha}f_{\alpha}\gamma_{\alpha}
+\]
+
+for any vector field \( v=\sum_{\alpha}f_{\alpha}\gamma_{\alpha} \). The derivatives of the quasi-homogeneity equation take the form:
+
+\[
+\displaystyle\left<\left<\,E\,v_{1}\,\cdots\,v_{k}\,\right>\right>_{g} = \sum_{i=1}^{k}\left<\left<\,v_{1}\,\cdots\,G(v_{i})\,\cdots\,v_{k}\,\right>\right>_{g} \quad (6)
+\]
+
+\[
+\displaystyle-(2g+k-2)(b_{1}+1)\left<\left<\,v_{1}\,\cdots\,v_{k}\,\right>\right>_{g}
+\]
+
+\[
+\displaystyle+\delta_{g,0}\nabla^{k}_{v_{1},\cdots,v_{k}}\left(\frac{1}{2}{\cal C}_{\alpha\beta}t_{0}^{\alpha}t_{0}^{\beta}\right)
+\]
+
+where \( {\cal C}_{\alpha\beta} \) is defined by \( c_{1}(M)\cup\gamma_{\alpha}={\cal C}_{\alpha}^{\beta}\gamma_{\beta} \), and \( \nabla \) is the trivial connection on \( H^{*}(M;\mathbb{C}) \) with \( \nabla\gamma_{\alpha}=0 \) for all \( \alpha \). Specifically,
+
+\[
+\left<\left<\,E\,v_{1}\,v_{2}\,\gamma^{\alpha}\,\right>\right>_{0}\,\gamma_{\alpha}=G(v_{1})\circ v_{2}+v_{1}\circ G(v_{2})-G(v_{1}\circ v_{2})-b_{1}v_{1}\circ v_{2}. \quad (7)
+\]
+
+By incorporating results from [L1], we derive:
+
+\[
+\displaystyle\nabla_{E^{k}}\Delta = \left<\left<\,E^{k}\,\gamma^{\alpha}\,\gamma_{\alpha}\,\gamma^{\beta}\,\right>\right>_{0}\,\gamma_{\beta} \quad (8)
+\]
+
+\[
+\displaystyle=(k-b_{1})E^{k-1}\circ\Delta-G(E^{k-1}\circ\Delta)-\sum_{i=1}^{k-1}\,\,\Delta\circ E^{i-1}\circ G(E^{k-i})
+\]
+
+\[
+\displaystyle-\sum_{i=1}^{k-1}G(\Delta\circ E^{i-1})\circ E^{k-i}
+\]
+
+for \( k\geq 1 \). The covariant derivative of \( E \) is given by:
+
+\[
+\nabla_{v}E=-G(v)+(b_{1}+1)v. \quad (9)
+\]
+
+Using the relation:
+
+\[
+\nabla_{w}(v_{1}\circ v_{2})=(\nabla_{w}v_{1})\circ v_{2}+v_{1}\circ(\nabla_{w}v_{2})+\left<\left<\,w\,v_{1}\,v_{2}\,\gamma^{\alpha}\,\right>\right>_{0}\,\gamma_{\alpha},
+\]
+
+we establish:
+
+\[
+\nabla_{\Delta}E^{2}=\Delta\circ G(E)-G(\Delta)\circ E-G(\Delta\circ E)+(b_{1}+2)\Delta\circ E. \quad (10)
+\]
+
+Combining equations (8) and (10), we obtain:
+
+\[
+[E^{2},\Delta]=-2b_{1}E\circ\Delta-2G(E)\circ\Delta.
+\]
+
+2 Proof of the main theorem
+
+For a semisimple Frobenius manifold $\mathcal{H}$, the genus-2 G-function $G^{(2)}(u,u_{x},u_{xx})$, as defined in [DLZ], has the following form:
+
+\[
+G^{(2)}(u,u_{x},u_{xx}) = \sum_{i} G_{i}^{(2)}(u,u_{x}) u_{xx}^{i} + \sum_{i \neq j} G_{ij}^{(2)}(u) \frac{(u_{x}^{j})^{3}}{u_{x}^{i}} + \frac{1}{2} \sum_{i,j} P_{ij}^{(2)}(u) u_{x}^{i} u_{x}^{j} + \sum_{i} Q_{i}^{(2)}(u) (u_{x}^{i})^{2} \quad (14)
+\]
+
+Here, $G_{i}^{(2)}$, $G_{ij}^{(2)}$, $P_{ij}^{(2)}$, and $Q_{i}^{(2)}$ are functions on the jet space of $\mathcal{H}$. Their precise definitions are provided in Appendix A. In this context, $u_{i} = u^{i}$ for $i = 1, \ldots, N$ are the canonical coordinates on the small phase space $\mathcal{H}$, corresponding to the restriction of the functions $u_{i}$ defined in Section 1 to $\mathcal{H}$. Let $w^{\alpha}$ for $\alpha = 1, \ldots, N$ denote the flat coordinates on $\mathcal{H}$ with respect to the basis $\{\gamma_{1}, \ldots, \gamma_{N}\}$, where $w^{\alpha}$ is the restriction of $t_{0}^{\alpha}$ to the small phase space $\mathcal{H}$. Under the transformation
+
+\[
+w^{\alpha} = \left<\left< \gamma_{1} \gamma^{\alpha} \right>\right>_{0}, \quad (15)
+\]
+
+every function on the small phase space can also be regarded as a function on the big phase space. Specifically, $u_{i,x} = u^{i}_{x}$ represents the first-order derivative of $u_{i}$ with respect to $x := t_{0}^{1}$ after applying the transformation (15). The functions $u_{i}, u_{i,x}, u_{i,xx}, \ldots$ for $i = 1, \ldots, N$ constitute a coordinate system for the jet space of the semisimple Frobenius manifold $\mathcal{H}$ (cf. [DZ]).
+
+The genus-1 component of Equation (11) is our initial focus of analysis.
+
+The following lemma will be very useful in the proof.
+
+Under the condition $(C2)$ , on the small phase space the following identities hold: 
+ 
+ $\displaystyle\sum_{j}{r_{ij}v_{ij}}\,\,=\,\,-\frac{1}{12}\sum_{j}r_{ij}\frac{h_{i}}{h_{j}}$  (16) 
+ for all $i$ , and 
+ 
+ $\displaystyle{\theta_{ij}}{{{h_{j}}}\over{{h_{i}}}}+{\theta_{ji}}{{{h_{i}}}\over{{h_{j}}}}\,\,=\,\,12r_{ij}^{2}+\sum\limits_{l}{({r_{il}}{r_{jl}}{{{h_{i}}{h_{j}}}\over{h_{l}^{2}}}-{r_{ij}}{r_{il}}{{{h_{j}}}\over{{h_{l}}}}-{r_{ij}}{r_{jl}}{{{h_{i}}}\over{{h_{l}}}})}$  (17) 
+ for all $i\neq j$ .
+
+The result offers fresh validation for the genus-1 Virasoro conjecture.
+
+Equation $(\ref{eq:g=1 1-pt small})$ follows from equation ( 9 ) and $\phi_{i}\mid_{\mathcal{H}}=0$ . Equation ( 17 ) follows from equation ( 11 ), $\phi_{i}\mid_{\mathcal{H}}=0$ , and $\phi_{ij}\mid_{\mathcal{H}}=0$ for $i\neq j$ . $\Box$
+
+In the definition of the genus-2 G-function (see Appendix A ), the following functions were introduced to simplify expressions: 
+ 
+ $\displaystyle H_{i}:=\frac{1}{2}\sum_{j\neq i}u_{ij}\gamma_{ij}^{2}$ 
+ where $u_{ij}:=u_{i}-u_{j}$ and $\gamma_{ij}$ are the rotation coefficients defined in [D] . An immediate application of equation ( 16 ) is to get rid of functions $u_{ij}$ in $H_{i}$ , i.e. 
+ 
+ $\displaystyle H_{i}=\frac{1}{24}\sum_{k}r_{ik}\frac{h_{i}}{h_{k}}$  (19) 
+ when condition (C2) is satisfied.
+
+2.1 Vanishing of $G_{ij}^{(2)}$
+
+To establish the validity of the proposition, we adopt the convention that repeated indices imply summation over their full range, thereby omitting the explicit summation symbol $\sum_{\alpha}$ in the left-hand side of the equation. Our objective is to evaluate $G_{1}(E,E,\gamma^{\alpha},\gamma_{\alpha})$, which can be expressed as:
+
+\[
+\left<\left<\,\{E\circ\gamma_{\alpha}\}\{\gamma^{\alpha}\circ E\}\,\right>\right>_{1} = \left<\left<\,EE\gamma_{\alpha}\,\right>\right>_{0}\left<\left<\,\gamma^{\alpha}\gamma^{\beta}\gamma^{\mu}\,\right>\right>_{0}\left<\left<\,\gamma_{\beta}\gamma_{\mu}\,\right>\right>_{1} = \left<\left<\,\{E^{2}\circ\gamma^{\mu}\}\gamma_{\mu}\,\right>\right>_{1} = \left<\left<\,\{E^{2}\circ\gamma^{\alpha}\}\gamma_{\alpha}\,\right>\right>_{1}.
+\]
+
+This simplification is made possible by leveraging the associativity property of the quantum product. Substituting this result into the expression for $G_{1}(E,E,\gamma^{\alpha},\gamma_{\alpha})$, we obtain:
+
+\[
+G_{1}(E,E,\gamma^{\alpha},\gamma_{\alpha}) = 24\left<\left<\,E^{2}\Delta\,\right>\right>_{1} - 48\left<\left<\,\{E\circ\Delta\}E\,\right>\right>_{1} - 4\left<\left<\,E^{2}\gamma^{\alpha}\gamma_{\alpha}\gamma^{\beta}\,\right>\right>_{0}\left<\left<\,\gamma_{\beta}\,\right>\right>_{1}
+\]
+\[
+-16\left<\left<\,\{E\circ\gamma^{\alpha}\}\gamma_{\alpha}E\gamma^{\beta}\,\right>\right>_{0}\left<\left<\,\gamma_{\beta}\,\right>\right>_{1} - 4\left<\left<\,\Delta E E\gamma^{\beta}\,\right>\right>_{0}\left<\left<\,\gamma_{\beta}\,\right>\right>_{1}
+\]
+\[
++24\left<\left<\,E E\gamma^{\alpha}\gamma^{\beta}\,\right>\right>_{0}\left<\left<\,\{\gamma_{\alpha}\circ\gamma_{\beta}\}\,\right>\right>_{1} + 24\left<\left<\,E\gamma_{\alpha}\gamma^{\alpha}\gamma^{\beta}\,\right>\right>_{0}\left<\left<\,\{\gamma_{\beta}\circ E\}\,\right>\right>_{1.
+\]
+
+To compute each term on the right-hand side, we employ the relationships outlined in Section 2. Using equation (10), we express the first term as:
+
+\[
+\left<\left<\,E^{2}\Delta\,\right>\right>_{1} = \Delta\left<\left<\,E^{2}\,\right>\right>_{1} - \left<\left<\,\left\{\nabla_{\Delta}E^{2}\right\}\,\right>\right>_{1} = \Delta\left<\left<\,E^{2}\,\right>\right>_{1} - \left<\left<\,\left\{\Delta\circ G(E) - G(\Delta)\circ E - G(\Delta\circ E) + (b_{1}+2)\Delta\circ E\right\}\,\right>\right>_{1.
+\]
+
+Given that $\left<\left<\,E\,\right>\right>_{1}$ is a constant due to the quasi-homogeneity condition, equation (9) yields:
+
+\[
+\left<\left<\,\{E\circ\Delta\}E\,\right>\right>_{1} = \{E\circ\Delta\}\left<\left<\,E\,\right>\right>_{1} - \left<\left<\,\left\{\nabla_{E\circ\Delta}E\right\}\,\right>\right>_{1} = \left<\left<\,\left\{G(E\circ\Delta) - (b_{1}+1)E\circ\Delta\right\}\,\right>\right>_{1.
+\]
+
+Through equation (8), the third term is expressed as:
+
+\[
+\left<\left<\,E^{2}\gamma^{\alpha}\gamma_{\alpha}\gamma^{\beta}\,\right>\right>_{0}\left<\left<\,\gamma_{\beta}\,\right>\right>_{1} = \left<\left<\,\left\{(2 - b_{1})E\circ\Delta - G(E\circ\Delta) - G(E)\circ\Delta - E\circ G(\Delta)\right\}\,\right>\right>_{1.
+\]
+
+Finally, equation (7) provides the expression for the fourth term:
+
+\[
+\left<\left<\,\{E\circ\gamma^{\alpha}\}\gamma_{\alpha}E\gamma^{\beta}\,\right>\right>_{0}\left<\left<\,\gamma_{\beta}\,\right>\right>_{1} = \left<\left<\,\left\{G(E\circ\gamma^{\alpha})\circ\gamma_{\alpha} + E\circ\gamma^{\alpha}\circ G(\gamma_{\alpha}) - G(E\circ\Delta) - b_{1}E\circ\Delta\right\}\,\right>\right>_{1.
+\]
+
+In this paper, we demonstrate that the derivative of the genus-1 Virasoro conjecture for Gromov-Witten invariants with respect to the quantum volume element holds true for all smooth projective varieties. This finding offers compelling new support for the validity of the Virasoro conjecture.
+
+2.2 Vanishing of $G_{i}^{(2)}$
+
+The equation $\sum_{\alpha}G_{0}(E,E,\gamma^{\alpha},\gamma_{\alpha})=-24\Delta\Phi$ holds true.
+
+To compute the last term on the right-hand side of equation (18), we define 
+
+\[
+f = \left<\left< E \gamma^{\alpha} \gamma^{\beta} \gamma^{\mu} \right>\right>_{0} \left<\left< \gamma_{\beta} \gamma_{\mu} E \gamma_{\alpha} \right>\right>_{0}.
+\]
+
+Applying equation (7), we have
+
+\[
+f = \left<\left< \left\{ G(\gamma^{\alpha}) \circ \gamma^{\mu} + \gamma^{\alpha} \circ G(\gamma^{\mu}) - G(\gamma^{\alpha} \circ \gamma^{\mu}) - b_{1} \gamma^{\alpha} \circ \gamma^{\mu} \right\} \gamma_{\mu} E \gamma_{\alpha} \right>\right>_{0}
+\]
+\[
+= (2 - b_{\alpha} - b_{\mu} - b_{1}) \left<\left< \left\{ \gamma^{\alpha} \circ \gamma^{\mu} \right\} \gamma_{\mu} E \gamma_{\alpha} \right>\right>_{0} - \left<\left< G(\gamma^{\alpha} \circ \gamma^{\mu}) \gamma_{\mu} E \gamma_{\alpha} \right>\right>_{0}
+\]
+\[
+= (2 - 2b_{\alpha} - b_{1}) \left<\left< \gamma^{\alpha} \gamma^{\mu} \gamma^{\beta} \right>\right>_{0} \left<\left< \gamma_{\beta} \gamma_{\mu} E \gamma_{\alpha} \right>\right>_{0} - \left<\left< \gamma^{\alpha} \gamma^{\mu} \gamma^{\beta} \right>\right>_{0} \left<\left< G(\gamma_{\beta}) \gamma_{\mu} E \gamma_{\alpha} \right>\right>_{0}.
+\]
+
+Switching $\alpha$ and $\beta$ in the last term, we obtain
+
+\[
+f = (2 - b_{1}) \left<\left< E \gamma_{\alpha} \gamma_{\beta} \gamma^{\mu} \right>\right>_{0} \left<\left< \gamma_{\mu} \gamma^{\alpha} \gamma^{\beta} \right>\right>_{0} - 3 \left<\left< E G(\gamma_{\alpha}) \gamma_{\beta} \gamma^{\mu} \right>\right>_{0} \left<\left< \gamma_{\mu} \gamma^{\alpha} \gamma^{\beta} \right>\right>_{0}. \quad (23)
+\]
+
+Applying equation (7) again, we find
+
+\[
+\left<\left< E \gamma_{\alpha} \gamma_{\beta} \gamma^{\mu} \right>\right>_{0} \left<\left< \gamma_{\mu} \gamma^{\alpha} \gamma^{\beta} \right>\right>_{0}
+\]
+\[
+= \left<\left< \left\{ G(\gamma_{\alpha}) \circ \gamma_{\beta} + \gamma_{\alpha} \circ G(\gamma_{\beta}) - G(\gamma_{\alpha} \circ \gamma_{\beta}) - b_{1} \gamma_{\alpha} \circ \gamma_{\beta} \right\} \gamma^{\alpha} \gamma^{\beta} \right>\right>_{0}.
+\]
+
+By the associativity of the quantum product and equation (13),
+
+\[
+\left<\left< \left\{ G(\gamma_{\alpha}) \circ \gamma_{\beta} \right\} \gamma^{\alpha} \gamma^{\beta} \right>\right>_{0} = \left<\left< \left\{ G(\gamma_{\alpha}) \circ \gamma^{\alpha} \right\} \gamma_{\beta} \gamma^{\beta} \right>\right>_{0} = \frac{1}{2} \left<\left< \Delta \gamma^{\alpha} \gamma_{\alpha} \right>\right>_{0} \quad (24)
+\]
+
+and
+
+\[
+\left<\left< G(\gamma_{\alpha} \circ \gamma_{\beta}) \gamma^{\alpha} \gamma^{\beta} \right>\right>_{0} = \left<\left< \gamma_{\alpha} \gamma_{\beta} \gamma^{\mu} \right>\right>_{0} \left<\left< G(\gamma_{\mu}) \gamma^{\alpha} \gamma^{\beta} \right>\right>_{0} \quad (25)
+\]
+\[
+= \left<\left< \gamma_{\alpha} \left\{ G(\gamma_{\mu}) \circ \gamma^{\alpha} \right\} \gamma^{\mu} \right>\right>_{0} = \frac{1}{2} \left<\left< \Delta \gamma^{\alpha} \gamma_{\alpha} \right>\right>_{0}.
+\]
+
+Thus,
+
+\[
+\left<\left< E \gamma_{\alpha} \gamma_{\beta} \gamma^{\mu} \right>\right>_{0} \left<\left< \gamma_{\mu} \gamma^{\alpha} \gamma^{\beta} \right>\right>_{0} = \left( \frac{1}{2} - b_{1} \right) \left<\left< \Delta \gamma^{\alpha} \gamma_{\alpha} \right>\right>_{0}. \quad (26)
+\]
+
+Moreover,
+
+\[
+\left<\left< E G(\gamma_{\alpha}) \gamma_{\beta} \gamma^{\mu} \right>\right>_{0} \left<\left< \gamma_{\mu} \gamma^{\alpha} \gamma^{\beta} \right>\right>_{0}
+\]
+\[
+= \left<\left< \left\{ G(G(\gamma_{\alpha})) \circ \gamma_{\beta} + G(\gamma_{\alpha}) \circ G(\gamma_{\beta}) - G(G(\gamma_{\alpha}) \circ \gamma_{\beta}) - b_{1} G(\gamma_{\alpha}) \circ \gamma_{\beta} \right\} \gamma^{\alpha} \gamma^{\beta} \right>\right>_{0}.
+\]
+
+Since
+
+\[
+\left<\left< \left\{ G(\gamma_{\alpha}) \circ G(\gamma_{\beta}) \right\} \gamma^{\alpha} \gamma^{\beta} \right>\right>_{0} \quad (27)
+\]
+\[
+= \left<\left< \left\{ G(\gamma_{\alpha}) \circ \gamma^{\alpha} \right\} G(\gamma_{\beta}) \gamma^{\beta} \right>\right>_{0} = \frac{1}{2} \left<\left< \left\{ \gamma_{\alpha} \circ \gamma^{\alpha} \right\} G(\gamma_{\beta}) \gamma^{\beta} \right>\right>_{0}
+\]
+\[
+= \frac{1}{2} \left<\left< \gamma_{\alpha} \gamma^{\alpha} \left\{ G(\gamma_{\beta}) \circ \gamma^{\beta} \right\} \right>\right>_{0} = \frac{1}{4} \left<\left< \Delta \gamma^{\alpha} \gamma_{\alpha} \right>\right>_{0}
+\]
+
+and
+
+\[
+\left<\left< G(G(\gamma_{\alpha}) \circ \gamma_{\beta}) \gamma^{\alpha} \gamma^{\beta} \right>\right>_{0} \quad (28)
+\]
+\[
+= \left<\left< G(\gamma_{\alpha}) \gamma_{\beta} \gamma^{\mu} \right>\right>_{0} \left<\left< G(\gamma_{\mu}) \gamma^{\alpha} \gamma^{\beta} \right>\right>_{0} = \left<\left< \left\{ G(\gamma_{\alpha}) \circ \gamma^{\mu} \right\} G(\gamma_{\mu}) \gamma^{\alpha} \right>\right>_{0}
+\]
+\[
+= \left<\left< \left\{ G(\gamma_{\alpha}) \circ \gamma^{\alpha} \right\} G(\gamma_{\mu}) \gamma^{\mu} \right>\right>_{0} = \frac{1}{2} \left<\left< \left\{ \gamma_{\alpha} \circ \gamma^{\alpha} \right\} G(\gamma_{\mu}) \gamma^{\mu} \right>\right>_{0}
+\]
+\[
+= \frac{1}{2} \left<\left< \gamma_{\alpha} \gamma^{\alpha} \left\{ G(\gamma_{\mu}) \circ \gamma^{\mu} \right\} \right>\right>_{0} = \frac{1}{4} \left<\left< \Delta \gamma^{\alpha} \gamma_{\alpha} \right>\right>_{0},
+\]
+
+along with equation (24), we have
+
+\[
+\left<\left< E G(\gamma_{\alpha}) \gamma_{\beta} \gamma^{\mu} \right>\right>_{0} \left<\left< \gamma_{\mu} \gamma^{\alpha} \gamma^{\beta} \right>\right>_{0} = \left( b_{\alpha}^{2} - \frac{1}{2} b_{1} \right) \left<\left< \Delta \gamma^{\alpha} \gamma_{\alpha} \right>\right>_{0}. \quad (29)
+\]
+
+Combining results from equations (23), (26), and (29), the last term on the right-hand side of equation (18) becomes
+
+\[
+f = (-3b_{\alpha}^{2} + b_{1}^{2} - b_{1} + 1) \left<\left< \Delta \gamma^{\alpha} \gamma_{\alpha} \right>\right>_{0}. \quad (30)
+\]
+
+Incorporating equation (22), equation (18) simplifies to
+
+\[
+G_{0}(E,E,\gamma^{\alpha},\gamma_{\alpha}) = \left<\left< E E \gamma^{\alpha} \gamma_{\alpha} \Delta \right>\right>_{0} - 2 \left<\left< G(\Delta) E \gamma^{\mu} \gamma_{\mu} \right>\right>_{0}
+\]
+\[
++ (12b_{\alpha}^{2} - 2b_{1}^{2} + b_{1} - 3) \left<\left< \Delta \gamma^{\alpha} \gamma_{\alpha} \right>\right>_{0}. \quad (31)
+\]
+
+Next we will get rid of first order poles $\theta_{ik}$ and $\theta_{ki}$ in equations ( 21 ) and ( 20 ) using functions only depending on $\{r_{ij}\mid i,j=1,\ldots,N\}$ and $\{h_{i}\mid i=1,\ldots,N\}$ . Here we also need condition (C1). A key ingredient in this process is the following lemma:
+
+ 
+
+**Lemma 1**. *Assume that for each $n \geq 1$, the function $f_n$ satisfies the condition that* 
+
+$$ 
+\sum_{k=1}^{n} |f_k(x)| \leq C 
+$$ 
+
+*for some constant $C > 0$ and for all $x \in X$*. 
+
+*Then, the sequence $\{f_n\}$ converges uniformly to $f$ on $X$.* 
+
+This lemma is crucial because it ensures that the convergence is uniform, which is a stronger form of convergence than pointwise convergence. Uniform convergence is essential in many areas of analysis, such as when we want to interchange limits with integrals or derivatives. The lemma also provides a clear criterion for uniform convergence, which is based on the boundedness of the partial sums of the sequence of functions. This criterion is particularly useful because it allows us to verify uniform convergence without having to directly compute the limit function or deal with the uniform norm explicitly. Instead, we only need to ensure that the partial sums of the sequence of functions are uniformly bounded, which can often be checked more easily in practical situations. Furthermore, the lemma underscores the importance of condition (C1) in ensuring that the necessary bounds are maintained, thereby facilitating the application of the lemma in a wide range of scenarios.
+
+Proof: Condition (C1) is equivalent to say that the restriction of $\left<\left<\,{\gamma_{\alpha}}{\gamma^{\alpha}}{\gamma_{\beta}}{\gamma^{\beta}}\,\right>\right>_{0}$ to the small phase space is constant. By equation ( 3 ), we have 
+ 
+ $\displaystyle{\left<\left<\,{\gamma_{\alpha}}{\gamma^{\alpha}}{\gamma_{\beta}}{\gamma^{\beta}}{}\,\right>\right>_{0}}$ $\displaystyle=\sum_{i,j=1}^{N}\frac{1}{g_{i}g_{j}}\left<\left<\,\mathcal{E}_{i}\mathcal{E}_{i}\mathcal{E}_{j}\mathcal{E}_{j}\,\right>\right>_{0}=\sum_{i,j=1}^{N}\frac{1}{g_{i}g_{j}}z_{iijj}.$ 
+ So equation ( 8 ) implies 
+ 
+ $\left<\left<\,{\gamma_{\alpha}}{\gamma^{\alpha}}{\gamma_{\beta}}{\gamma^{\beta}}\,\right>\right>_{0}\,=\,\sum_{i,j}\frac{r_{ij}}{h_{i}h_{j}}-2\sum_{i}\frac{r_{ii}}{h_{i}^{2}}.$  (23) 
+ Therefore if condition (C1) is satisfied, on the small phase space, we have 
+ 
+ $\sum_{i,j}\frac{r_{ij}}{h_{i}h_{j}}-2\sum_{i}\frac{r_{ii}}{h_{i}^{2}}\,=\,\mbox{constant}.$ 
+ Taking derivative of this equation along the direction of $\mathcal{E}_{k}$ , we have 
+ 
+ $\displaystyle\sum\limits_{i\neq k}({{{h_{k}}}\over{h_{i}^{3}}}+{{{h_{i}}}\over{h_{k}^{3}}}){\theta_{ik}}-2\sum\limits_{i\neq k}{{{{\theta_{ki}}}\over{{h_{k}}{h_{i}}}}}=$ $\displaystyle\sum\limits_{i,j}{{{{r_{ik}}{r_{jk}}}\over{{h_{i}}{h_{j}}}}}-2\sum\limits_{i}{{{r_{ik}^{2}}\over{h_{i}^{2}}}}-\sum\limits_{i,j}{{{{r_{ij}}{h_{k}}({r_{ik}}{h_{j}}+{r_{jk}}{h_{i}})}\over{h_{i}^{2}h_{j}^{2}}}}$ 
+ 
+ $\displaystyle+4\sum\limits_{i}{{{{h_{k}}{r_{ik}}{r_{ii}}}\over{h_{i}^{3}}}}+2\sum\limits_{i}{{{r_{ik}^{2}}\over{h_{k}^{2}}}}.$  (24) 
+ We then convert the first summation on the left hand side to an expression similar to the second summation on the left hand side together with some function only depending on $r_{ij}$ and $h_{i}$ . To see how this can be done, we write 
+ 
+ $\displaystyle\sum_{i\neq k}\frac{h_{k}}{h_{i}^{3}}\theta_{ik}=\sum_{i\neq k}\{\frac{h_{k}}{h_{i}}\theta_{ik}\}\frac{1}{h_{i}^{2}}$ 
+ and use equation ( 17 ) to replace $\frac{h_{k}}{h_{i}}\theta_{ik}$ by $-\frac{h_{i}}{h_{k}}\theta_{ki}$ plus a function only depending on $r_{ij}$ and $h_{i}$ . In this way, we can see that 
+ 
+ $\displaystyle\sum_{i\neq k}\frac{h_{k}}{h_{i}^{3}}\theta_{ik}=-\sum_{i\neq k}\{\frac{1}{h_{i}h_{k}}\theta_{ki}\}+\{\mbox{some function of $r$ and $h$}\}.$  (25) 
+ Here “some function of $r$ and $h$ ” means a function which only depends on $h_{i}$ for all $i$ and $r_{ij}$ for all $i$ and $j$ . For simplicity, we omit the precise form of such functions. Note that we can use equation ( 6 ) to switch indices in $\theta_{ik}$ . So by a similar calculation using equation ( 17 ), we also obtain 
+ 
+ $\displaystyle\sum_{i\neq k}\frac{h_{i}}{h_{k}^{3}}\theta_{ik}=-\sum_{i\neq k}\{\frac{1}{h_{i}h_{k}}\theta_{ki}\}+\{\mbox{some function of $r$ and $h$}\}.$ 
+ After plugging these terms into equation ( 24 ) and multiplying the resulting expression by $-\frac{1}{2}h_{k}$ , we obtain equation ( 22 ). $\Box$
+
+Combining equations $(\ref{eq:theta})$ and $(\ref{eq:sumtheta})$ , we can express $\sum\limits_{\mathop{i}\limits_{i\neq k}}\frac{\theta_{ik}}{h_{i}}$ in terms of functions $\{r_{ij}\}$ and $\{h_{i}\}$ . By equations $(\ref{eq:theta})$ , $(\ref{eq:g=1 2-pt small})$ and $(\ref{eq:sumtheta})$ , we can also express $\sum\limits_{\mathop{i}\limits_{i\neq k}}h_{i}\theta_{ki}$ and $\sum\limits_{\mathop{i}\limits_{i\neq k}}h_{i}\theta_{ik}$ in terms of functions $\{r_{ij}\}$ and $\{h_{i}\}$ . More generally, we can express both $\sum\limits_{\mathop{i}\limits_{i\neq k}}h_{i}^{p}\theta_{ik}$ and $\sum\limits_{\mathop{i}\limits_{i\neq k}}h_{i}^{p}\theta_{ki}$ in terms of functions $\{r_{ij}\}$ and $\{h_{i}\}$ if $p$ is odd. We also note that repeatedly applying equations ( 6 ) and ( 17 ) shows that 
+ 
+ $\theta_{ij}h_{i}^{p}h_{j}^{q}\,\,=\,\,\theta_{ij}h_{i}^{p+2k}h_{j}^{q-2k}+\{\mbox{some function of $r$ and $h$}\}$ 
+ for any integers $p$ , $q$ , and $k$ . This observation is very useful in the process of getting rid of functions $\theta_{ij}$ in complicated expressions.
+
+Now we come back to the computation of $G_{i}^{(2)}=G_{i,1}^{(2)}+G_{i,2}^{(2)}$ . After replacing all terms containing $\theta_{ik}$ and $\theta_{ki}$ in equations ( 21 ) and ( 20 ) using the method indicated in Lemma 2.2 and Remark 2.3 , we obtain a formula for $G_{i}^{(2)}$ which only involves functions $\{r_{jk}\mid j,k=1,\ldots,N\}$ and $\{h_{j}\mid j=1,\ldots,N\}$ . Straightforward computations then show $G_{i}^{(2)}=0$ .
+
+2.3 Vanishing of $P_{ij}^{(2)}+P_{ji}^{(2)}$
+
+The proof of Theorem 1.1 is established by leveraging the expression for $\Psi$, defined as $\Psi = \left<\left<\,E^{2}\,\right>\right>_{1} - \Phi$, and by invoking the results from Lemmas 3.1, 3.2, and Equation (11). $\Box$
+
+For convenience, we give all terms in $P_{ij}^{(2)}$ which contain first order poles below: 
+ 
+ $\displaystyle P_{ij}^{(2)}=$ $\displaystyle\frac{1}{1440}\left(-3\sum_{k\neq j}\frac{h_{i}h_{j}r_{ik}\theta_{kj}}{h_{k}^{4}}-\frac{41r_{ij}\theta_{ij}}{h_{i}^{2}}+\frac{6r_{ii}h_{j}\theta_{ij}}{h_{i}^{3}}-3\sum_{k}\frac{r_{ik}h_{j}\theta_{ij}}{h_{i}^{2}h_{k}}\right.$ 
+ 
+ $\displaystyle\left.\hskip 60.0pt-4\sum_{k\neq i}\frac{r_{ij}h_{j}h_{k}\theta_{ik}}{h_{i}^{4}}-5\sum_{k\neq i}\frac{r_{ij}h_{j}\theta_{ki}}{h_{i}^{2}h_{k}}\right)$ 
+ 
+ $\displaystyle+\{\mbox{some function of $r$ and $h$}\}.$  (26) 
+ Using Remark 2.3 , the two terms containing $\theta_{ik}$ and $\theta_{ki}$ in the second line of equation ( 26 ) can be expressed as functions of $\{r_{kl}\}$ and $\{h_{k}\}$ . Below we explain how to deal with the first 4 terms in equation ( 26 ). For simplicity, we will omit precise forms of functions only depending on $\{r_{kl}\}$ and $\{h_{k}\}$ .
+
+On the other hand, by the definition of $\Phi$ in equation (16), we have 
+
+$\displaystyle 24\Delta\Phi$ $\displaystyle=$ $\displaystyle-\left<\left<\,\Delta\,E\,E\,\gamma_{\alpha}\,\gamma^{\alpha}\,\right>\right>_{0}-2\left<\left<\,\left\{\nabla_{\Delta}E\right\}\,E\,\gamma_{\alpha}\,\gamma^{\alpha}\,\right>\right>_{0}$ 
+$\displaystyle+12\left(b_{\alpha}(1-b_{\alpha})-\frac{b_{1}+1}{6}\right)\left<\left<\,\Delta\,\gamma_{\alpha}\,\gamma^{\alpha}\,\right>\right>_{0}.$ 
+By equations (9) and (21), we have 
+
+$\displaystyle\left<\left<\,\left\{\nabla_{\Delta}E\right\}\,E\,\gamma_{\alpha}\,\gamma^{\alpha}\,\right>\right>_{0}$ $\displaystyle=$ $\displaystyle\left<\left<\,\left\{-G(\Delta)+(b_{1}+1)\Delta\right\}\,E\,\gamma_{\alpha}\,\gamma^{\alpha}\,\right>\right>_{0}$ 
+$\displaystyle=$ $\displaystyle-\left<\left<\,G(\Delta)\,E\,\gamma_{\alpha}\,\gamma^{\alpha}\,\right>\right>_{0}+(b_{1}+1)\left(\frac{1}{2}-b_{1}\right)\left<\left<\,\Delta\,\gamma^{\alpha}\,\gamma_{\alpha}\,\right>\right>_{0}.$ 
+Moreover, 
+
+$b_{\alpha}\left<\left<\,\Delta\,\gamma^{\alpha}\,\gamma_{\alpha}\,\right>\right>_{0}=\left<\left<\,\Delta\,\gamma^{\alpha}\,G(\gamma_{\alpha})\,\right>\right>_{0}=\frac{1}{2}\left<\left<\,\Delta\,\gamma^{\alpha}\,\gamma_{\alpha}\,\right>\right>_{0}.$ 
+So we have 
+
+$\displaystyle 24\Delta\Phi$ $\displaystyle=$ $\displaystyle-\left<\left<\,\Delta\,E\,E\,\gamma_{\alpha}\,\gamma^{\alpha}\,\right>\right>_{0}+2\left<\left<\,G(\Delta)\,E\,\gamma_{\alpha}\,\gamma^{\alpha}\,\right>\right>_{0}$ 
+$\displaystyle+\left(-12b_{\alpha}^{2}+2b_{1}^{2}-b_{1}+3\right)\left<\left<\,\Delta\,\gamma_{\alpha}\,\gamma^{\alpha}\,\right>\right>_{0}.$ 
+Comparing with equation (31), we obtain 
+
+$G_{0}(E,E,\gamma^{\alpha},\gamma_{\alpha})=-24\Delta\Phi.$ 
+The lemma is thus proved. $\Box$
+
+A detailed proof is presented as follows, adhering to the assumption that repeated indices are summed over their entire range. The expression for \( G_{0} \) is given by:
+
+\[
+G_{0}(E,E,\gamma^{\alpha},\gamma_{\alpha}) = 2\left<\left< E\,E\,\gamma^{\alpha}\,\gamma^{\beta} \right>\right>_{0}\left<\left< \gamma_{\beta}\,\gamma_{\alpha}\,\gamma^{\mu}\,\gamma_{\mu} \right>\right>_{0} + 2\left<\left< E\,\gamma^{\alpha}\,\gamma_{\alpha}\,\gamma^{\beta} \right>\right>_{0}\left<\left< \gamma_{\beta}\,E\,\gamma^{\mu}\,\gamma_{\mu} \right>\right>_{0} + \left<\left< E\,E\,\gamma^{\alpha}\,\gamma_{\alpha}\,\Delta \right>\right>_{0} - 2\left<\left< E\,E\,\gamma^{\beta}\,\gamma^{\mu} \right>\right>_{0}\left<\left< \gamma_{\beta}\,\gamma_{\mu}\,\gamma^{\alpha}\,\gamma_{\alpha} \right>\right>_{0} - 4\left<\left< E\,\gamma^{\alpha}\,\gamma^{\beta}\,\gamma^{\mu} \right>\right>_{0}\left<\left< \gamma_{\beta}\,\gamma_{\mu}\,E\,\gamma_{\alpha} \right>\right>_{0}.
+\]
+
+It is observed that the first and fourth terms on the right-hand side cancel each other. Applying equation (15) to the second term yields:
+
+\[
+\left<\left< E\,\gamma^{\alpha}\,\gamma_{\alpha}\,\gamma^{\beta} \right>\right>_{0}\left<\left< \gamma_{\beta}\,E\,\gamma^{\mu}\,\gamma_{\mu} \right>\right>_{0} = \left<\left< \left\{(1-b_{1})\Delta - G(\Delta)\right\} E\,\gamma^{\mu}\,\gamma_{\mu} \right>\right>_{0}.
+\]
+
+Using equation (15) again, we find:
+
+\[
+\left<\left< \Delta\,E\,\gamma^{\mu}\,\gamma_{\mu} \right>\right>_{0} = \left<\left< E\,\gamma^{\mu}\,\gamma_{\mu}\,\gamma^{\beta} \right>\right>_{0}\left<\left< \gamma_{\beta}\,\gamma^{\alpha}\,\gamma_{\alpha} \right>\right>_{0} = \left<\left< \left\{(1-b_{1})\Delta - G(\Delta)\right\} \gamma^{\alpha}\,\gamma_{\alpha} \right>\right>_{0}.
+\]
+
+Additionally,
+
+\[
+\left<\left< G(\Delta)\,\gamma^{\alpha}\,\gamma_{\alpha} \right>\right>_{0} = b_{\mu}\left<\left< \gamma^{\beta}\,\gamma_{\beta}\,\gamma^{\mu} \right>\right>_{0}\left<\left< \gamma_{\mu}\,\gamma^{\alpha}\,\gamma_{\alpha} \right>\right>_{0} = \left<\left< \gamma^{\beta}\,\gamma_{\beta}\,\left\{\gamma^{\mu} - G(\gamma^{\mu})\right\} \right>\right>_{0}\left<\left< \gamma_{\mu}\,\gamma^{\alpha}\,\gamma_{\alpha} \right>\right>_{0} = \left<\left< \Delta\,\gamma^{\alpha}\,\gamma_{\alpha} \right>\right>_{0} - \left<\left< \gamma^{\beta}\,\gamma_{\beta}\,G(\Delta) \right>\right>_{0}.
+\]
+
+Rearranging the second term on the right-hand side to the left-hand side, we obtain:
+
+\[
+\left<\left< G(\Delta)\,\gamma^{\alpha}\,\gamma_{\alpha} \right>\right>_{0} = \frac{1}{2}\,\left<\left< \Delta\,\gamma^{\alpha}\,\gamma_{\alpha} \right>\right>_{0}.
+\]
+
+Thus,
+
+\[
+\left<\left< \Delta\,E\,\gamma^{\mu}\,\gamma_{\mu} \right>\right>_{0} = \left(\frac{1}{2} - b_{1}\right)\left<\left< \Delta\,\gamma^{\alpha}\,\gamma_{\alpha} \right>\right>_{0}.
+\]
+
+Finally, using equation (19), we derive:
+
+\[
+\left<\left< E\,\gamma^{\alpha}\,\gamma_{\alpha}\,\gamma^{\beta} \right>\right>_{0}\left<\left< \gamma_{\beta}\,E\,\gamma^{\mu}\,\gamma_{\mu} \right>\right>_{0} = (1-b_{1})\left(\frac{1}{2} - b_{1}\right)\left<\left< \Delta\,\gamma^{\alpha}\,\gamma_{\alpha} \right>\right>_{0} - \left<\left< G(\Delta)\,E\,\gamma^{\mu}\,\gamma_{\mu} \right>\right>_{0}.
+\]
+
+Let $\Delta$ be the vector field defined as 
+
+$$
+\Delta := \gamma^{\alpha} \circ \gamma_{\alpha}.
+$$
+
+(5)
+
+If we substitute the quantum product $\circ$ in the definition of $\Delta$ with the standard cup product, the resulting vector field becomes proportional to the volume element. Consequently, we refer to $\Delta$ as the quantum volume element. The primary contribution of this work is as follows:
+
+Multiplying both sides of equation ( 28 ) by $\frac{1}{h_{k}^{2}}$ and taking sum over $k$ for $k\notin\{i,j\}$ , we obtain 
+ 
+ $\displaystyle\frac{h_{i}}{h_{j}}\sum_{k\neq j}\frac{r_{ik}\theta_{jk}}{h_{k}^{2}}+\frac{h_{j}}{h_{i}}\sum_{k\neq j}\frac{r_{jk}\theta_{ik}}{h_{k}^{2}}$ 
+ 
+ $\displaystyle=$ $\displaystyle-\sum_{k}{\theta_{ij}}r_{jk}\frac{{{1}}}{{{h_{i}}{h_{k}}}}-\sum_{k}{\theta_{ji}}{r_{ik}}\frac{{1}}{{{h_{j}}{h_{k}}}}+2{\theta_{ij}}{r_{jj}}\frac{{1}}{{{h_{i}}{h_{j}}}}+2{\theta_{ji}}{r_{ii}}\frac{{1}}{{{h_{i}}{h_{j}}}}$ 
+ 
+ $\displaystyle+\mbox{\{some function of $r$ and $h$\}}.$  (29) 
+ In deriving this formula, we have used equation ( 17 ) and the fact that both $\sum_{k\neq i}\frac{\theta_{ki}}{h_{k}^{3}}$ and $\sum_{k\neq j}\frac{\theta_{kj}}{h_{k}^{3}}$ can be expressed as functions of $\{r_{kl}\}$ and $\{h_{k}\}$ , which in turn follow from equations ( 25 ) and ( 22 ). By equations ( 27 ) and ( 29 ), we get 
+ 
+ $\displaystyle P_{ij}^{(2)}+P_{ji}^{(2)}$ 
+ 
+ $\displaystyle=$ $\displaystyle\frac{1}{1440}\left(-3\sum_{k}r_{jk}{\theta_{ij}}\frac{{{1}}}{{{h_{i}}{h_{k}}}}-3\sum_{k}r_{jk}\theta_{ji}\frac{h_{i}}{h_{j}^{2}h_{k}}-3\sum_{k}{r_{ik}}{\theta_{ji}}\frac{{1}}{{{h_{j}}{h_{k}}}}-3\sum_{k}r_{ik}\theta_{ij}\frac{h_{j}}{h_{i}^{2}h_{k}}\right.$ 
+ 
+ $\displaystyle\left.\hskip 40.0pt-\frac{41r_{ij}}{h_{i}h_{j}}(\theta_{ij}\frac{h_{j}}{h_{i}}+\theta_{ji}\frac{h_{i}}{h_{j}})+6r_{ii}\theta_{ij}\frac{h_{j}}{h_{i}^{3}}+6{r_{ii}}{\theta_{ji}}\frac{{1}}{{{h_{i}}{h_{j}}}}+6r_{jj}\theta_{ji}\frac{h_{i}}{h_{j}^{3}}+6{r_{jj}}{\theta_{ij}}\frac{{1}}{{{h_{i}}{h_{j}}}}\right)$ 
+ 
+ $\displaystyle+\mbox{\{some function of $r$ and $h$\}}.$ 
+ Using equation ( 17 ), it is easy to see that the right hand side of this equation can be expressed as a function only depending on $\{r_{kl}\}$ and $\{h_{k}\}$ . A straightforward calculation shows that this function is equal to $0$ . This proves that $P_{ij}^{(2)}+P_{ji}^{(2)}=0$ for $i\neq j$ .
+
+2.4 Vanishing of $\frac{1}{2}P_{ii}^{(2)}+Q_{i}^{(2)}$
+
+For any smooth projective variety, the expression $\Delta\Psi$ satisfies the condition $\Delta\Psi = 0$.
+
+In this work, we demonstrate that the derivative of the genus-1 Virasoro conjecture concerning Gromov-Witten invariants, taken along the direction of the quantum volume element, is valid for all smooth projective varieties. This finding offers additional support for the conjecture's validity.
+
+In this paper, we demonstrate that the derivative of the genus-1 Virasoro conjecture for Gromov-Witten invariants in the direction of the quantum volume element is valid for all smooth projective varieties. This finding offers fresh support for the Virasoro conjecture.
+
+In this paper, we demonstrate that the derivative of the genus-1 Virasoro conjecture for Gromov-Witten invariants, when taken with respect to the quantum volume element, holds true for all smooth projective varieties. This finding contributes new supporting evidence for the validity of the Virasoro conjecture.
+
+Proof: Condition (C3) is equivalent to  
+ 
+$$\left<\left<\,\gamma_{\alpha}\,\right>\right>_{2}|_{\mathcal{H}}=0 \quad \text{and} \quad \left<\left<\,\tau_{1}(\gamma_{\alpha})\,\right>\right>_{2}|_{\mathcal{H}}=0$$  
+ 
+for all $\alpha$, where $\mathcal{H}$ is the small phase space. Since  
+ 
+$$\left<\left<\,T({\mathcal{E}_{i}})\,\right>\right>_{2}=\left<\left<\,\tau_{+}({\mathcal{E}_{i}})\,\right>\right>_{2}-\left<\left<\,\mathcal{E}_{i}\gamma^{\alpha}\,\right>\right>_{0}\left<\left<\,\gamma_{\alpha}\,\right>\right>_{2},$$  
+ 
+and $\mathcal{E}_{i}$ are primary vector fields, it follows that  
+ 
+$${\left<\left<\,T({\mathcal{E}_{i}})\,\right>\right>_{2}}|_{\mathcal{H}}=0. \quad (33)$$
+
+This paper demonstrates that the derivative of the genus-1 Virasoro conjecture concerning Gromov-Witten invariants, when evaluated along the quantum volume element's direction, is valid for all smooth projective varieties. This finding constitutes significant support for the broader Virasoro conjecture.
+
+We should also note that there are many terms in $\left<\left<\,T({\mathcal{E}_{i}})\,\right>\right>_{2}|_{\mathcal{H}}$ which do not contain $\{\theta_{jk}\}$ , but contain $\{v_{jk}\}$ . Many of such terms can be get rid of using equation ( 16 ). Other terms of this type can be canceled with terms produced in the process of obtaining expression ( 36 ) and terms produced from applying equation ( 34 ) to those terms containing $\{\theta_{jk}v_{jk}\}$ . Eventually, after straightforward calculations, we obtain equation ( 32 ) from ${\left<\left<\,T({\mathcal{E}_{i}})\,\right>\right>_{2}}|_{\mathcal{H}}=0$ . $\Box$
+
+By equations ( 31 )and ( 32 ), we obtain 
+ 
+ $\displaystyle 5760\{P_{ii}^{(2)}+2Q_{i}^{(2)}\}$ 
+ 
+ $\displaystyle=$ $\displaystyle-5\frac{1}{{h_{i}^{2}}}\sum\limits_{\mathop{{\rm{}}j}\limits_{j\neq i}}{{{\widetilde{\Omega}}_{ji}}}-5\sum\limits_{\mathop{{\rm{}}j}\limits_{j\neq i}}{{{\widetilde{\Omega}}_{ji}}\frac{1}{{h_{j}^{2}}}}+10\sum\limits_{\mathop{k,l}\limits_{k\neq i}}{\frac{{{r_{kl}}{\theta_{ik}}}}{{{h_{i}}{h_{l}}}}}-200\sum\limits_{\mathop{k}\limits_{k\neq i}}{{\theta_{ki}}{r_{ki}}\frac{1}{{h_{i}^{2}}}}$ 
+ 
+ $\displaystyle-4\sum\limits_{\mathop{k,l}\limits_{l\neq i}}{\frac{{{r_{kl}}{h_{i}}{\theta_{il}}}}{{{h_{k}}h_{l}^{2}}}}+32\sum\limits_{\mathop{k}\limits_{k\neq i}}{{\theta_{ik}}{r_{kk}}\frac{{{h_{i}}}}{{h_{k}^{3}}}}+22\sum\limits_{\mathop{j}\limits_{j\neq i}}{\sum\limits_{k}{{\theta_{ji}}{r_{jk}}\frac{1}{{{h_{k}}{h_{i}}}}}}-12\sum\limits_{k\neq i}{\frac{{h_{i}^{2}{r_{ik}}{\theta_{ki}}}}{{h_{k}^{4}}}}$ 
+ 
+ $\displaystyle+\mbox{\{some function of $r$ and $h$\}}$  (37) 
+ Here we omit the terms not containing $\{\theta_{jk}\}$ or $\{\Omega_{jk}\}$ . The following lemma will be used to get rid of $\widetilde{\Omega}_{ij}$ in this formula.
+
+Under conditions $(C1)$ and $(C2)$ , on the small phase space we have 
+ 
+ $\displaystyle 0=$ $\displaystyle{{\widetilde{\Omega}}_{ij}}+{\theta_{ij}}\{20{r_{ij}}+4{r_{ii}}\frac{{{h_{j}}}}{{{h_{i}}}}-\sum\limits_{k}{}({r_{ik}}\frac{{{h_{j}}}}{{{h_{k}}}}+{r_{jk}}\frac{{{h_{i}}}}{{{h_{k}}}})\}+2\sum\limits_{k\neq i}{{\theta_{ik}}}{r_{jk}}\frac{{{h_{j}}}}{{{h_{i}}}}$ 
+ 
+ $\displaystyle+\{\mbox{some function of $r$ and $h$}\}$  (38) 
+ for all $i\neq j$ . The complete formula is given by equation ( 53 ) in Appendix B .
+
+This paper demonstrates that the derivative of the genus-1 Virasoro conjecture concerning Gromov-Witten invariants, when taken along the quantum volume element direction, is valid for all smooth projective varieties. This finding offers additional support for the Virasoro conjecture.
+
+In this study, we establish that the derivative of the genus-1 Virasoro conjecture concerning Gromov-Witten invariants, when computed along the quantum volume element direction, is valid for all smooth projective varieties. This finding contributes novel support to the broader Virasoro conjecture framework.
+
+In this paper, we demonstrate that the derivative of the genus-1 Virasoro conjecture concerning Gromov-Witten invariants in the direction of the quantum volume element is valid for all smooth projective varieties. This finding offers additional support for the Virasoro conjecture.
+
+This paper establishes that the derivative of the genus-1 Virasoro conjecture concerning Gromov-Witten invariants, when taken with respect to the quantum volume element, applies to all smooth projective varieties. This finding offers fresh support for the validity of the Virasoro conjecture.
+
+Plugging equation ( 40 ) into equation ( 39 ), we can express $\frac{1}{2}P_{ii}^{(2)}+Q_{i}^{(2)}$ as a function which only depends on $\{r_{jk}\}$ and $\{h_{j}\}$ . A straightforward but complicated calculation then shows that this function is identically equal to $0$ . This proves $\frac{1}{2}P_{ii}^{(2)}+Q_{i}^{(2)}=0$ for all $i$ , and thus finishes the proof of Theorem 0.1 .
+
+3 Proof of corollary 0.2
+
+On the contrary, according to the definition of $\Phi$ in equation (16), it follows that 
+
+\[
+24\Delta\Phi = -\left\langle\left\langle\Delta E E \gamma_{\alpha} \gamma^{\alpha}\right\rangle\right\rangle_{0} - 2\left\langle\left\langle\{\nabla_{\Delta}E\} E \gamma_{\alpha} \gamma^{\alpha}\right\rangle\right\rangle_{0}
+\]
+\[
++ 12\left(b_{\alpha}(1 - b_{\alpha}) - \frac{b_{1} + 1}{6}\right)\left\langle\left\langle\Delta \gamma_{\alpha} \gamma^{\alpha}\right\rangle\right\rangle_{0}.
+\]
+
+From equations (9) and (21), we deduce
+
+\[
+\left\langle\left\langle\{\nabla_{\Delta}E\} E \gamma_{\alpha} \gamma^{\alpha}\right\rangle\right\rangle_{0} = \left\langle\left\langle\{-G(\Delta) + (b_{1} + 1)\Delta\} E \gamma_{\alpha} \gamma^{\alpha}\right\rangle\right\rangle_{0}
+\]
+\[
+= -\left\langle\left\langle G(\Delta) E \gamma_{\alpha} \gamma^{\alpha}\right\rangle\right\rangle_{0} + (b_{1} + 1)\left(\frac{1}{2} - b_{1}\right)\left\langle\left\langle\Delta \gamma^{\alpha} \gamma_{\alpha}\right\rangle\right\rangle_{0}.
+\]
+
+Additionally,
+
+\[
+b_{\alpha}\left\langle\left\langle\Delta \gamma^{\alpha} \gamma_{\alpha}\right\rangle\right\rangle_{0} = \left\langle\left\langle\Delta \gamma^{\alpha} G(\gamma_{\alpha})\right\rangle\right\rangle_{0} = \frac{1}{2}\left\langle\left\langle\Delta \gamma^{\alpha} \gamma_{\alpha}\right\rangle\right\rangle_{0}.
+\]
+
+Substituting these into the original expression yields
+
+\[
+24\Delta\Phi = -\left\langle\left\langle\Delta E E \gamma_{\alpha} \gamma^{\alpha}\right\rangle\right\rangle_{0} + 2\left\langle\left\langle G(\Delta) E \gamma_{\alpha} \gamma^{\alpha}\right\rangle\right\rangle_{0}
+\]
+\[
++\left(-12b_{\alpha}^{2} + 2b_{1}^{2} - b_{1} + 3\right)\left\langle\left\langle\Delta \gamma_{\alpha} \gamma^{\alpha}\right\rangle\right\rangle_{0}.
+\]
+
+Upon comparing with equation (31), we find that
+
+\[
+G_{0}(E, E, \gamma^{\alpha}, \gamma_{\alpha}) = -24\Delta\Phi.
+\]
+
+Thus, the lemma is proven. $\Box$
+
+The equation is expressed as:
+
+ 
+ $\sum_{\alpha}G_{0}(E,E,\gamma^{\alpha},\gamma_{\alpha})=-24\Delta\Phi.$
+
+For any smooth projective variety, the condition 
+
+ $\Delta\Psi=0$ 
+
+holds true.
+
+In this study, we demonstrate that the derivative of the genus-1 Virasoro conjecture concerning Gromov-Witten invariants, when taken with respect to the quantum volume element, is valid for all smooth projective varieties. This finding offers additional support for the broader validity of the Virasoro conjecture.
+
+The equation $\Delta\Psi=0$ holds universally for every smooth projective variety.
+
+In this paper, we demonstrate that the derivative of the genus-1 Virasoro conjecture for Gromov-Witten invariants, when taken with respect to the quantum volume element direction, applies universally to all smooth projective varieties. This finding constitutes significant new support for the Virasoro conjecture.
+
+For semisimple Frobenius manifolds, it was proved in [DLZ] that on the small phase space 
+ 
+ $O_{1}-O_{2}\,\,=\,\,\sum_{1\leq i<j\leq n}r_{ij}\frac{(h_{i}^{2}+h_{j}^{2})^{2}}{h_{i}^{3}h_{j}^{3}}.$ 
+ After expanding the square in the numerator, it is easy to see that the right hand side of this equation is precisely the restriction of $\left<\left<\,\gamma_{\alpha}\gamma^{\alpha}\gamma_{\beta}\gamma^{\beta}\,\right>\right>_{0}$ to the small phase space due to equations ( 5 ) and ( 23 ). This gives an alternative proof for Lemma 3.1 for the special case of semisimple Frobenius manifolds.
+
+On the contrary, according to the definition of $\Phi$ as stated in equation (16), it follows that
+
+$$
+24\Delta\Phi = -\left<\left<\,\Delta E E \gamma_{\alpha} \gamma^{\alpha}\,\right>\right>_{0} - 2\left<\left<\,\left\{\nabla_{\Delta} E\right\} E \gamma_{\alpha} \gamma^{\alpha}\,\right>\right>_{0}
+$$
+$$
++12\left(b_{\alpha}(1 - b_{\alpha}) - \frac{b_{1} + 1}{6}\right)\left<\left<\,\Delta \gamma_{\alpha} \gamma^{\alpha}\,\right>\right>_{0}.
+$$
+
+Furthermore, utilizing equations (9) and (21), we find that
+
+$$
+\left<\left<\,\left\{\nabla_{\Delta} E\right\} E \gamma_{\alpha} \gamma^{\alpha}\,\right>\right>_{0} = \left<\left<\,\left\{-G(\Delta) + (b_{1} + 1)\Delta\right\} E \gamma_{\alpha} \gamma^{\alpha}\,\right>\right>_{0}
+$$
+$$
+= -\left<\left<\,G(\Delta) E \gamma_{\alpha} \gamma^{\alpha}\,\right>\right>_{0} + (b_{1} + 1)\left(\frac{1}{2} - b_{1}\right)\left<\left<\,\Delta \gamma^{\alpha} \gamma_{\alpha}\,\right>\right>_{0}.
+$$
+
+Additionally,
+
+$$
+b_{\alpha} \left<\left<\,\Delta \gamma^{\alpha} \gamma_{\alpha}\,\right>\right>_{0} = \left<\left<\,\Delta \gamma^{\alpha} G(\gamma_{\alpha})\,\right>\right>_{0} = \frac{1}{2}\left<\left<\,\Delta \gamma^{\alpha} \gamma_{\alpha}\,\right>\right>_{0}.
+$$
+
+Substituting these results, we arrive at
+
+$$
+24\Delta\Phi = -\left<\left<\,\Delta E E \gamma_{\alpha} \gamma^{\alpha}\,\right>\right>_{0} + 2\left<\left<\,G(\Delta) E \gamma_{\alpha} \gamma^{\alpha}\,\right>\right>_{0}
+$$
+$$
++ \left(-12 b_{\alpha}^{2} + 2 b_{1}^{2} - b_{1} + 3\right)\left<\left<\,\Delta \gamma_{\alpha} \gamma^{\alpha}\,\right>\right>_{0}.
+$$
+
+By comparing this expression with equation (31), we deduce that
+
+$$
+G_{0}(E, E, \gamma^{\alpha}, \gamma_{\alpha}) = -24\Delta\Phi.
+$$
+
+Hence, the lemma is proved. $\Box$
+
+Note that the proof of [DLZ] was quite complicated and was done via case by case study. Lemma 3.1 and our first proof of equation ( 42 ) provide a unified and much simpler proof of [DLZ] for $ADE$ singularities.
+
+Since we have verified all three conditions (C1)–(C3), Corollary 0.2 just follows from Theorem 0.1 .
+
+4 Further remarks
+
+The summation over all indices α of the function G₀ evaluated at the points E, E, γ^α, and γ_α yields the result -24ΔΦ.
+
+The validity of Theorem 1.1 is established through the following reasoning: By defining $\Psi$ as the difference between the second moment $\left<\left<\,E^{2}\,\right>\right>_{1}$ and the function $\Phi$, the theorem's conclusion is directly supported by the auxiliary results from Lemmas 3.1 and 3.2, in conjunction with the expression provided in Equation (11). This completes the proof.
+
+$\Box$
+
+For any smooth projective variety, the equation ∆Ψ equals zero holds true.
+
+In this paper, we demonstrate that the derivative of the genus-1 Virasoro conjecture concerning Gromov-Witten invariants, when taken along the quantum volume element direction, is valid for all smooth projective varieties. This finding offers fresh support for the Virasoro conjecture.
+
+Appendix
+
+Appendix A The genus-2 G-function
+
+In this appendix, we give the precise definition of the genus-2 G-function $G^{(2)}$ following [DLZ] . Write 
+ 
+ $\displaystyle G^{(2)}=$ $\displaystyle\sum_{i}G_{i}^{(2)}(u,u_{x})u_{xx}^{i}+\sum_{i\neq j}G_{ij}^{(2)}(u)\frac{(u_{x}^{j})^{3}}{u_{x}^{i}}$ 
+ 
+ $\displaystyle+\frac{1}{2}\sum_{i,j}P_{ij}^{(2)}(u)u_{x}^{i}u_{x}^{j}+\sum_{i}Q_{i}^{(2)}(u)(u_{x}^{i})^{2}.$  (48) 
+ Let $\gamma_{ij}$ be the rotation coefficient on the small phase space as defined in [D] . Note that $\gamma_{ii}=0$ which is different from our definition of $r_{ii}$ in Section 1 . For $i\neq j$ , $\gamma_{ij}$ is equal to our definition of $r_{ij}$ restricted to the small phase space. Define 
+ 
+ $\displaystyle H_{i}:=\frac{1}{2}\sum_{j\neq i}u_{ij}\gamma_{ij}^{2}$ 
+ where $u_{ij}:=u_{i}-u_{j}$ . Then the function $G_{i}^{(2)}$ can be defined as 
+ 
+ $\displaystyle G_{i}^{(2)}=G_{i,1}^{(2)}+G_{i,2}^{(2)}$ 
+ with 
+ 
+ $\displaystyle G_{i,1}^{(2)}=$ $\displaystyle\frac{\partial_{x}h_{i}H_{i}}{60u_{i,x}h_{i}^{3}}-\frac{7\partial_{i}h_{i}\partial_{x}h_{i}}{5760u_{i,x}h_{i}^{4}}+\sum_{k}\Bigg{(}\frac{\gamma_{ik}H_{k}}{120h_{i}h_{k}}\frac{u_{k,x}}{u_{i,x}}-\frac{\gamma_{ik}\partial_{x}h_{i}}{5760h_{i}^{2}h_{k}u_{i,x}}-\frac{\gamma_{ik}\partial_{k}h_{k}u_{k,x}}{1152h_{i}h_{k}^{2}u_{i,x}}$ 
+ 
+ $\displaystyle+\frac{\partial_{i}\gamma_{ik}h_{k}u_{k,x}}{1920u_{i,x}h_{i}^{3}}+\frac{\partial_{x}\gamma_{ik}}{5760u_{i,x}h_{i}h_{k}}+\frac{\partial_{k}\gamma_{ik}u_{k,x}}{2880h_{i}h_{k}u_{i,x}}-\frac{7\gamma_{ik}^{2}u_{k,x}}{1152h_{i}^{2}u_{i,x}}\Bigg{)}-\sum_{k,l}\frac{u_{k,x}h_{k}\gamma_{il}\gamma_{kl}}{1920u_{i,x}h_{i}h_{l}^{2}}$ 
+ and 
+ 
+ $\displaystyle G_{i,2}^{(2)}=$ $\displaystyle-\frac{3\partial_{i}h_{i}H_{i}}{40h_{i}^{3}}+\frac{19(\partial_{i}h_{i})^{2}}{2880h_{i}^{4}}+\sum_{k}\Bigg{(}\frac{\gamma_{ik}H_{i}}{120h_{i}h_{k}}+\frac{7\gamma_{ik}H_{k}}{120h_{i}h_{k}}-\frac{4\gamma_{ik}\partial_{i}h_{i}}{5760h_{i}^{2}h_{k}}-\frac{7\gamma_{ik}\partial_{k}h_{k}}{2880h_{i}h_{k}^{2}}$ 
+ 
+ $\displaystyle+\frac{\gamma_{ik}\partial_{k}h_{k}}{384h_{i}^{3}}-\frac{\partial_{k}\gamma_{ik}h_{k}}{384h_{i}^{3}}+\frac{\partial_{i}\gamma_{ik}}{2880h_{i}h_{k}}+\frac{7\partial_{k}\gamma_{ik}}{2880h_{i}h_{k}}+\frac{\gamma_{ik}h_{i}\partial_{k}h_{k}}{2880h_{k}^{4}}-\frac{19\gamma_{ik}^{2}}{720h_{i}^{2}}+\frac{\gamma_{ik}^{2}}{1440h_{k}^{2}}\Bigg{)}$ 
+ 
+ $\displaystyle-\sum_{k,l}\frac{h_{i}\gamma_{il}\gamma_{kl}}{2880h_{k}h_{l}^{2}}.$ 
+ Other functions in equation ( 48 ) are defined in the following way: 
+ 
+ $\displaystyle G_{ij}^{(2)}=$ $\displaystyle-\frac{{\gamma_{ij}^{2}{H_{j}}}}{{120h_{j}^{2}}}+\frac{{\gamma_{ij}^{3}}}{{480{h_{i}}{h_{j}}}}-\frac{{{\gamma_{ij}}}}{{5760}}(\frac{{{\partial_{i}}{\gamma_{ij}}}}{{h_{i}^{2}}}+\frac{{{\partial_{j}}{\gamma_{ij}}}}{{h_{j}^{2}}})+\frac{{\gamma_{ij}^{2}}}{{5760}}(\frac{{{\partial_{i}}{h_{i}}}}{{h_{i}^{3}}}+\frac{{3{\partial_{j}}{h_{j}}}}{{h_{j}^{3}}})$ 
+ 
+ $\displaystyle+\sum\limits_{k}{}(\frac{{{\gamma_{ij}}{\gamma_{ik}}{\gamma_{jk}}}}{{5760h_{k}^{2}}}+\frac{{\gamma_{ij}^{2}}}{{5760{h_{k}}}}(\frac{{{\gamma_{jk}}}}{{{h_{j}}}}-\frac{{{\gamma_{ik}}}}{{{h_{i}}}})),$ 
+ 
+ 
+ $\displaystyle P_{ij}^{(2)}=$ $\displaystyle-\frac{{2{\gamma_{ij}}{H_{i}}{H_{j}}}}{{5{h_{i}}{h_{j}}}}+\frac{{{\gamma_{ij}}{\partial_{j}}{h_{j}}{H_{i}}}}{{20{h_{i}}h_{j}^{2}}}+\frac{{{\gamma_{ij}}{h_{i}}{\partial_{j}}{h_{j}}{H_{j}}}}{{20h_{j}^{4}}}-\frac{{19\gamma_{ij}^{2}{H_{j}}}}{{30h_{j}^{2}}}-\frac{{{\partial_{i}}{\gamma_{ij}}{H_{j}}}}{{60{h_{i}}{h_{j}}}}$ 
+ 
+ $\displaystyle+\frac{{41\gamma_{ij}^{3}}}{{240{h_{i}}{h_{j}}}}-\frac{{41{\gamma_{ij}}{\partial_{i}}{\gamma_{ij}}}}{{1440h_{i}^{2}}}+\frac{{{\partial_{i}}{\gamma_{ij}}{\partial_{j}}{h_{j}}}}{{1440{h_{i}}h_{j}^{2}}}+\frac{{79\gamma_{ij}^{2}{\partial_{j}}{h_{j}}}}{{1440h_{j}^{3}}}-\frac{{{\gamma_{ij}}{\partial_{i}}{h_{i}}{\partial_{j}}{h_{j}}}}{{720h_{i}^{2}h_{j}^{2}}}-\frac{{{\gamma_{ij}}{h_{i}}{{({\partial_{j}}{h_{j}})}^{2}}}}{{288h_{j}^{5}}}$ 
+ 
+ $\displaystyle+\sum\limits_{k}{}(\frac{{{\gamma_{ij}}{\gamma_{ik}}{H_{j}}}}{{60{h_{j}}{h_{k}}}}-\frac{{{\gamma_{ik}}{\gamma_{jk}}{h_{i}}{h_{j}}{H_{k}}}}{{30h_{k}^{4}}}-\frac{{{\gamma_{ij}}{\gamma_{jk}}{h_{i}}{H_{j}}}}{{60h_{j}^{2}{h_{k}}}}+\frac{{{\gamma_{ik}}{\gamma_{jk}}{h_{i}}{H_{j}}}}{{60{h_{j}}h_{k}^{2}}}-\frac{{7{\gamma_{ij}}{\gamma_{jk}}{h_{i}}{H_{k}}}}{{60h_{j}^{2}{h_{k}}}}$ 
+ 
+ $\displaystyle-\frac{{{\gamma_{ij}}{\gamma_{ik}}{\partial_{j}}{h_{j}}}}{{720h_{j}^{2}{h_{k}}}}+\frac{{{\gamma_{ij}}{\gamma_{jk}}{h_{i}}{\partial_{j}}{h_{j}}}}{{240h_{j}^{3}{h_{k}}}}-\frac{{{\gamma_{ik}}{\gamma_{jk}}{h_{i}}{\partial_{j}}{h_{j}}}}{{1440h_{j}^{2}h_{k}^{2}}}+\frac{{{\gamma_{ij}}{\gamma_{jk}}{h_{i}}{\partial_{k}}{h_{k}}}}{{720h_{k}^{4}}}+\frac{{{\gamma_{ik}}{\gamma_{jk}}{h_{i}}{h_{j}}{\partial_{k}}{h_{k}}}}{{288h_{k}^{5}}}$ 
+ 
+ $\displaystyle+\frac{{{\gamma_{jk}}{\partial_{i}}{\gamma_{ij}}}}{{1440{h_{i}}{h_{k}}}}-\frac{{{h_{j}}{h_{k}}{\gamma_{ij}}{\partial_{i}}{\gamma_{ik}}}}{{360h_{i}^{4}}}-\frac{{{h_{j}}(3{\gamma_{ik}}{\partial_{i}}{\gamma_{ij}}+2{\gamma_{ij}}{\partial_{i}}{\gamma_{ik}})}}{{1440h_{i}^{2}{h_{k}}}}-\frac{{7{h_{j}}{\gamma_{ij}}{\partial_{k}}(h_{k}^{-1}{\gamma_{ik}})}}{{1440h_{i}^{2}}}$ 
+ 
+ $\displaystyle-\frac{{{h_{i}}{h_{j}}{\gamma_{ik}}{\partial_{k}}{\gamma_{jk}}}}{{480h_{k}^{4}}}+\frac{{\gamma_{ij}^{2}{\gamma_{jk}}}}{{120{h_{j}}{h_{k}}}}+\frac{{7{h_{i}}{\gamma_{ij}}\gamma_{jk}^{2}}}{{160h_{j}^{3}}}+\frac{{11{\gamma_{ij}}{\gamma_{ik}}{\gamma_{jk}}}}{{2880h_{k}^{2}}}+\frac{{{h_{j}}\gamma_{ik}^{2}{\gamma_{jk}}}}{{96h_{k}^{3}}})$ 
+ 
+ $\displaystyle+\sum\limits_{k,l}{}(\frac{{{h_{i}}{h_{j}}{\gamma_{il}}{\gamma_{jl}}}}{{720{h_{k}}h_{l}^{2}}}(\frac{{{\gamma_{kl}}}}{{{h_{l}}}}-\frac{{{\gamma_{jk}}}}{{2{h_{j}}}})-\frac{{{h_{i}}{\gamma_{ij}}{\gamma_{jl}}{\gamma_{kl}}}}{{720{h_{k}}h_{l}^{2}}}),$ 
+ and 
+ 
+ $\displaystyle Q_{i}^{(2)}=$ $\displaystyle\frac{{4H_{i}^{3}}}{{5h_{i}^{2}}}-\frac{{7{\partial_{i}}{h_{i}}H_{i}^{2}}}{{10h_{i}^{3}}}+\frac{{7{{({\partial_{i}}{h_{i}})}^{2}}{H_{i}}}}{{48h_{i}^{4}}}-\frac{{{{({\partial_{i}}{h_{i}})}^{3}}}}{{120h_{i}^{5}}}+\sum\limits_{k}{}(\frac{{7{\gamma_{ik}}{H_{i}}{H_{k}}}}{{10{h_{i}}{h_{k}}}}-\frac{{{\gamma_{ik}}{\partial_{i}}{h_{i}}{H_{i}}}}{{120h_{i}^{2}{h_{k}}}}$ 
+ 
+ $\displaystyle+\frac{{7{\partial_{k}}(h_{k}^{-1}{\gamma_{ik}}){H_{i}}}}{{240{h_{i}}}}-\frac{{7{\gamma_{ik}}{\partial_{i}}{h_{i}}{H_{k}}}}{{80h_{i}^{2}{h_{k}}}}+\frac{{{\gamma_{ik}}{H_{k}}}}{{576{u_{ik}}{h_{i}}{h_{k}}}}+\frac{{(2{H_{i}}+7{H_{k}}){\partial_{i}}{\gamma_{ik}}}}{{240{h_{i}}{h_{k}}}}$ 
+ 
+ $\displaystyle+\frac{{{\gamma_{ik}}{h_{k}}{H_{i}}}}{{576{u_{ik}}h_{i}^{3}}}-\frac{{31\gamma_{ik}^{2}{H_{i}}}}{{144h_{i}^{2}}}+\frac{{{\gamma_{ik}}{{({\partial_{i}}{h_{i}})}^{2}}}}{{720h_{i}^{3}{h_{k}}}}+\frac{{253\gamma_{ik}^{2}{\partial_{i}}{h_{i}}}}{{5760h_{i}^{3}}}-\frac{{{\partial_{i}}{\gamma_{ik}}{\partial_{i}}{h_{i}}}}{{960h_{i}^{2}{h_{k}}}}-\frac{{\gamma_{ik}^{2}{\partial_{k}}{h_{k}}}}{{2880h_{k}^{3}}}$ 
+ 
+ $\displaystyle-\frac{{7{\partial_{k}}(h_{k}^{-1}{\gamma_{ik}}){\partial_{i}}{h_{i}}}}{{1920h_{i}^{2}}}-\frac{{7{\partial_{i}}{\gamma_{ik}}{\partial_{k}}{h_{k}}}}{{5760{h_{i}}h_{k}^{2}}}-\frac{{41{\partial_{i}}{\gamma_{ik}}{\partial_{i}}{h_{i}}{h_{k}}}}{{5760h_{i}^{4}}}+\frac{{{\partial_{i}}({h_{i}}{\gamma_{ik}}){\partial_{k}}{h_{k}}}}{{2880h_{k}^{4}}}$ 
+ 
+ $\displaystyle-\frac{{113{\gamma_{ik}}{\partial_{i}}{\gamma_{ik}}}}{{5760h_{i}^{2}}}+\frac{{(3{\partial_{i}}{\gamma_{ik}}+{\partial_{k}}{\gamma_{ik}}){\gamma_{ik}}}}{{1440h_{k}^{2}}}-\frac{{{\partial_{i}}{\gamma_{ik}}{h_{k}}}}{{576{u_{ik}}h_{i}^{3}}}-\frac{{{\partial_{k}}{\gamma_{ik}}}}{{576{u_{ik}}{h_{i}}{h_{k}}}}-\frac{{\gamma_{ik}^{3}}}{{240{h_{i}}{h_{k}}}})$ 
+ 
+ $\displaystyle+\sum\limits_{k,l}{}(-\frac{{{\gamma_{kl}}{\partial_{i}}({h_{i}}{\gamma_{il}})}}{{2880{h_{k}}h_{l}^{2}}}+\frac{{\gamma_{il}^{2}{\gamma_{kl}}}}{{2880{h_{k}}{h_{l}}}}-\frac{{{\gamma_{ik}}\gamma_{il}^{2}}}{{240{h_{i}}{h_{k}}}}-\frac{{{\gamma_{kl}}{\partial_{i}}{\gamma_{ik}}}}{{2880{h_{i}}{h_{l}}}}+\frac{{{u_{lk}}{\gamma_{ik}}{\partial_{l}}{\gamma_{kl}}}}{{1152{u_{il}}{h_{i}}{h_{l}}}}$ 
+ 
+ $\displaystyle+\frac{{{u_{kl}}{\gamma_{ik}}{\gamma_{kl}}{\partial_{i}}{\gamma_{il}}}}{{144h_{i}^{2}}}+\frac{{{h_{l}}{\gamma_{ik}}{\partial_{i}}{\gamma_{il}}}}{{144h_{i}^{2}{h_{k}}}}+\frac{{{h_{k}}{u_{kl}}{\gamma_{kl}}{\partial_{i}}{\gamma_{il}}}}{{1152{u_{ik}}h_{i}^{3}}}+\frac{{{h_{l}}{u_{ik}}\gamma_{ik}^{2}{\partial_{i}}{\gamma_{il}}}}{{40h_{i}^{3}}}).$ 
+
+
+In this study, we establish that the derivative of the genus-1 Virasoro conjecture concerning Gromov-Witten invariants, when taken along the quantum volume element's direction, holds universally across all smooth projective varieties. This finding reinforces the validity of the Virasoro conjecture by offering compelling new evidence.
+
+Appendix B Explicit formulas of some equations appeared in the proof of the main theorem
+
+For clarity of presentations, we omitted terms only depending on $\{r_{ij}\}$ and $\{h_{i}\}$ in many formulas in sections 2.3 and 2.4 . We give precise forms of such formulas in this section for readers’ convenience.
+
+In this paper, we establish that the derivative of the genus-1 Virasoro conjecture concerning Gromov-Witten invariants, taken along the quantum volume element direction, holds true for all smooth projective varieties. This finding constitutes significant new support for the validity of the Virasoro conjecture.
+
+In this paper, we demonstrate that the derivative of the genus-1 Virasoro conjecture for Gromov-Witten invariants, when taken along the quantum volume element direction, is valid for all smooth projective varieties. This finding offers significant support for the Virasoro conjecture.
+
+The precise formula for equation ( 38 ) is the following 
+ 
+ $\displaystyle 0=$ $\displaystyle{{\widetilde{\Omega}}_{ij}}+{\theta_{ij}}\{20{r_{ij}}+4{r_{ii}}\frac{{{h_{j}}}}{{{h_{i}}}}-\sum_{k}({r_{ik}}\frac{{{h_{j}}}}{{{h_{k}}}}+{r_{jk}}\frac{{{h_{i}}}}{{{h_{k}}}})\}+2\sum_{k\neq i}{{\theta_{ik}}}{r_{jk}}\frac{{{h_{j}}}}{{{h_{i}}}}$ 
+ 
+ $\displaystyle+24r_{ii}^{2}{r_{ij}}\frac{{{h_{j}}}}{{{h_{i}}}}+24r_{ij}^{3}\frac{{{h_{i}}}}{{{h_{j}}}}-12\sum_{k}r_{ik}^{2}{r_{jk}}\frac{{{h_{j}}}}{{{h_{k}}}}+4\sum_{k}{r_{ij}}{{r_{ik}}{r_{jk}}\frac{{h_{i}^{2}}}{{h_{k}^{2}}}}-4\sum_{k}{{r_{ij}^{2}}{r_{ik}}\frac{{{h_{i}}}}{{{h_{k}}}}}$ 
+ 
+ $\displaystyle-4\sum_{k}{r_{ii}}{r_{ij}}{r_{ik}}\frac{{{h_{j}}}}{{{h_{k}}}}-3\sum_{k}{{r_{ij}}r_{ik}^{2}\frac{{{h_{i}}{h_{j}}}}{{h_{k}^{2}}}}-4\sum_{k}{r_{ik}^{2}{r_{ij}}\frac{{{h_{j}}}}{{{h_{i}}}}}+2\sum_{k}{{r_{ij}}{r_{kk}}{r_{ik}}\frac{{h_{i}^{2}{h_{j}}}}{{h_{k}^{3}}}}$ 
+ 
+ $\displaystyle-2\sum_{k}r_{ij}^{2}{r_{jk}}\frac{{h_{i}^{2}}}{{{h_{k}}{h_{j}}}}-2\sum_{k}r_{ik}^{2}{r_{jk}}\frac{{h_{i}^{2}{h_{j}}}}{{h_{k}^{3}}}-\sum_{k,l}{\frac{{h_{i}^{2}{h_{j}}}}{{{h_{k}}h_{l}^{2}}}{r_{ij}}{r_{kl}}{r_{li}}}+\sum_{k,l}{\frac{{{h_{i}}{h_{j}}}}{{{h_{k}}{h_{l}}}}{r_{ij}}{r_{ik}}{r_{li}}}$ 
+ 
+ $\displaystyle-\sum_{k,l}{{r_{kl}}{r_{jl}}{r_{ik}}\frac{{{h_{i}}{h_{j}}}}{{h_{l}^{2}}}}-\sum_{k,l}{{r_{il}}{r_{kl}}{r_{jk}}\frac{{{h_{i}}{h_{j}}}}{{h_{l}^{2}}}}+\sum_{k,l}{{r_{ik}}{r_{il}}{r_{jk}}\frac{{{h_{j}}}}{{{h_{l}}}}}+\sum_{k,l}{{r_{ik}}{r_{kl}}{r_{jk}}\frac{{{h_{i}}{h_{j}}}}{{{h_{k}}{h_{l}}}}}$  (53) 
+ for any $i\neq j$ .
+
+The precise formula for equation ( 40 ) is the following 
+ 
+ $\displaystyle 4\sum\limits_{\mathop{{\rm{}}k}\limits_{k\neq i}}{\theta_{ik}}{r_{ik}}\frac{1}{{h_{i}^{2}}}-2\sum\limits_{\mathop{j,k}\limits_{k\neq i}}{}{\theta_{ik}}{r_{jk}}\frac{{1}}{{{h_{i}}{h_{j}}}}+4\sum\limits_{\mathop{{\rm{}}k}\limits_{k\neq i}}{}{\theta_{ik}}{r_{kk}}\frac{{{h_{i}}}}{{h_{k}^{3}}}$ 
+ 
+ $\displaystyle=$ $\displaystyle-96r_{ii}^{3}\frac{1}{{h_{i}^{2}}}+48\sum\limits_{j}r_{ij}^{3}\frac{1}{{{h_{i}}{h_{j}}}}+44\sum\limits_{k}{}r_{ii}^{2}{r_{ik}}\frac{1}{{{h_{i}}{h_{k}}}}+12\sum\limits_{k}{r_{ik}^{2}{r_{ii}}\frac{1}{{h_{k}^{2}}}}-8\sum\limits_{k}{r_{ii}}{r_{kk}}{r_{ik}}\frac{{{h_{i}}}}{{h_{k}^{3}}}$ 
+ 
+ $\displaystyle+20\sum\limits_{k}r_{ik}^{2}{r_{ii}}\frac{1}{{h_{i}^{2}}}+28\sum\limits_{k}{r_{ik}^{3}\frac{{{h_{i}}}}{{h_{k}^{3}}}}-12\sum\limits_{j,k}{{r_{ij}}{r_{ik}}{r_{jk}}\frac{1}{{h_{k}^{2}}}}-10\sum\limits_{j,k}{r_{ij}^{2}{r_{ik}}\frac{1}{{{h_{i}}{h_{k}}}}}$ 
+ 
+ $\displaystyle-18\sum\limits_{j,k}{}r_{ij}^{2}{r_{jk}}\frac{1}{{{h_{j}}{h_{k}}}}-8\sum\limits_{j,k}{r_{ii}}{r_{ij}}{r_{ik}}\frac{1}{{{h_{j}}{h_{k}}}}-7\sum\limits_{j,k}{{r_{ij}}r_{ik}^{2}}{\frac{{{h_{i}}}}{{h_{k}^{2}{h_{j}}}}}+4\sum\limits_{j,k}{r_{ii}}{r_{jk}}{r_{ij}}{\frac{{{h_{i}}}}{{{h_{k}}h_{j}^{2}}}}$ 
+ 
+ $\displaystyle+2\sum\limits_{j,k}{{{r_{ik}}{r_{kk}}{r_{ij}}}\frac{{h_{i}^{2}}}{{h_{k}^{3}{h_{j}}}}}+4\sum\limits_{j,k}{r_{ik}}{r_{ij}}{r_{kj}}\frac{{h_{i}^{2}}}{{h_{k}^{2}h_{j}^{2}}}-4\sum\limits_{j,k}{r_{ik}^{2}}{r_{jk}}\frac{{h_{i}^{2}}}{{h_{k}^{3}{h_{j}}}}+2\sum\limits_{j,k,l}{r_{ij}}{r_{ik}}{r_{jl}}\frac{1}{{{h_{k}}{h_{l}}}}$ 
+ 
+ $\displaystyle-2\sum\limits_{j,k,l}{r_{ik}}{r_{jk}}{r_{jl}}\frac{{{h_{i}}}}{{{h_{l}}h_{k}^{2}}}-2\sum\limits_{j,k,l}{}{{r_{jk}}{r_{kl}}{r_{ij}}\frac{{{h_{i}}}}{{h_{k}^{2}{h_{l}}}}}+2\sum\limits_{j,k,l}{r_{ij}}{r_{jk}}{r_{jl}}\frac{{{h_{i}}}}{{{h_{j}}{h_{k}}{h_{l}}}}+\sum\limits_{j,k,l}{{{r_{ij}}{r_{il}}{r_{ik}}}\frac{{{h_{i}}}}{{{h_{k}}{h_{j}}{h_{l}}}}}$ 
+ 
+ $\displaystyle-\sum\limits_{j,k,l}{{{r_{il}}{r_{jk}}{r_{ij}}}\frac{{h_{i}^{2}}}{{{h_{k}}h_{j}^{2}{h_{l}}}}}$  (54) 
+ for any $i$ .
+
+Appendix C The genus-2 generating function
+
+On the other hand, by the definition of $\Phi$ in equation (16), we have
+
+$\displaystyle 24\Delta\Phi$ $\displaystyle=$ $\displaystyle-\left<\left<\,\Delta\,E\,E\,\gamma_{\alpha}\,\gamma^{\alpha}\,\right>\right>_{0}-2\left<\left<\,\left\{\nabla_{\Delta}E\right\}\,E\,\gamma_{\alpha}\,\gamma^{\alpha}\,\right>\right>_{0}$ 
+$\displaystyle+12\left(b_{\alpha}(1-b_{\alpha})-\frac{b_{1}+1}{6}\right)\left<\left<\,\Delta\,\gamma_{\alpha}\,\gamma^{\alpha}\,\right>\right>_{0}.$
+
+By equations (9) and (21), we have
+
+$\displaystyle\left<\left<\,\left\{\nabla_{\Delta}E\right\}\,E\,\gamma_{\alpha}\,\gamma^{\alpha}\,\right>\right>_{0}$ $\displaystyle=$ $\displaystyle\left<\left<\,\left\{-G(\Delta)+(b_{1}+1)\Delta\right\}\,E\,\gamma_{\alpha}\,\gamma^{\alpha}\,\right>\right>_{0}$ 
+$\displaystyle=$ $\displaystyle-\left<\left<\,G(\Delta)\,E\,\gamma_{\alpha}\,\gamma^{\alpha}\,\right>\right>_{0}+(b_{1}+1)\left(\frac{1}{2}-b_{1}\right)\left<\left<\,\Delta\,\gamma^{\alpha}\,\gamma_{\alpha}\,\right>\right>_{0}.$
+
+Moreover,
+
+$b_{\alpha}\left<\left<\,\Delta\,\gamma^{\alpha}\,\gamma_{\alpha}\,\right>\right>_{0}=\left<\left<\,\Delta\,\gamma^{\alpha}\,G(\gamma_{\alpha})\,\right>\right>_{0}=\frac{1}{2}\left<\left<\,\Delta\,\gamma^{\alpha}\,\gamma_{\alpha}\,\right>\right>_{0}.$
+
+So we have
+
+$\displaystyle 24\Delta\Phi$ $\displaystyle=$ $\displaystyle-\left<\left<\,\Delta\,E\,E\,\gamma_{\alpha}\,\gamma^{\alpha}\,\right>\right>_{0}+2\left<\left<\,G(\Delta)\,E\,\gamma_{\alpha}\,\gamma^{\alpha}\,\right>\right>_{0}$ 
+$\displaystyle+\left(-12b_{\alpha}^{2}+2b_{1}^{2}-b_{1}+3\right)\left<\left<\,\Delta\,\gamma_{\alpha}\,\gamma^{\alpha}\,\right>\right>_{0}.$
+
+Comparing with equation (31), we obtain
+
+$G_{0}(E,E,\gamma^{\alpha},\gamma_{\alpha})=-24\Delta\Phi.$
+
+The lemma is thus proved. $\Box$
+
+The study demonstrates that the derivative of the genus-1 Virasoro conjecture, as it pertains to Gromov-Witten invariants, is valid in the direction of the quantum volume element for all smooth projective varieties. This finding reinforces the conjecture by providing substantial new support for its validity.
+
+Appendix D Formulas of genus-1 3-point functions
+
+The proof of Lemma 2.4 and Lemma 2.6 relies on explicit formulas for genus-1 3-point functions, which can be derived using equations (9), (10), and (11).
+
+In this paper, we demonstrate that the derivative of the genus-1 Virasoro conjecture for Gromov-Witten invariants, when taken along the quantum volume element direction, is valid for all smooth projective varieties. This finding offers significant support for the broader Virasoro conjecture.
+
+References
+
+[DW] R. Dijkgraaf and E. Witten,Mean field theory, topological field theory, and multimatrix models, Nucl. Phys. B 342 (1990) 486-522.
+[D] B. Dubrovin,Geometry of 2D topological field theories, Integrable Systems and Quantum Group, Spinger Lecture Notes in Math. 1620 (1996), 120-348.
+[DLZ] B. Dubrovin, S. Liu, Y. Zhang,On the genus Two Free Energies for Semisimple Frobenius Manifold, Russian Journal of Mathematical Physics 19 (2012), 273-298.
+[DZ] B. Dubrovin, Y. Zhang,Normal forms of integrable PDEs, Frobenius manifolds and Gromov-Witten invariants, arxiv:math/0108160.
+[FJR] H.Fan, T.Jarvis, Y.Ruan,The Witten equation, mirror symmetry and quantum singularity theory,, eprint arxiv:0712.4021, to appear in Ann. of Math.
+[FLZZ] Y. Fu, S. Liu, Y. Zhang, C. Zhou,Proof of a Conjecture On the genus Two Free Energies Associated to theAnsubscript𝐴𝑛A_{n}Singularity, arXiv:1205.5990.
+[Ge] E. Getzler,Topological recursion relations in genus 2, Integrable systems and algebraic geometry (Kobe/kyoto, 1997) 73-106.
+[KM] M. Konsevich, Yu. I. Manin,Gromov-Witten classes, quantum cohomology, and enumerative geometry, Commun. Math. Phys. 164 (1994), 525-562.
+[L02] X. Liu,Quantum product on the big phase space and Virasoro conjecture, Advances in Mathematics 169 (2002), 313-375.
+[L06] X. Liu,Idempotents on the big phase space, Contemporary Mathematics,vol. 403 (2006), 43-66.
+[L07] X. Liu,Genus-2 Gromov-Witten invariants for manifolds with semisimple quantum cohomology, American Journal of Mathematics, 129 (2007), no.2, 463-498.

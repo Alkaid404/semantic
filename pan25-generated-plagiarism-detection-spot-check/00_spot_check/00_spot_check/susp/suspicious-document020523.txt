@@ -1,0 +1,516 @@
+Twist-and-store entanglement in bimodal and spin-1 Bose-Einstein condensates
+
+By Artur Niezgoda and Emilia Witkowska and Safoura Sadat Mirkhalaf
+
+Abstract
+
+The analysis of a dynamical stabilization scheme for entanglement, quantified using the quantum Fisher information, is performed for bimodal and spin-1 Bose-Einstein condensates in the context of atomic interferometry. This scheme involves twisting dynamics, followed by a single rotation of a state, which restricts subsequent evolution around stable fixed points in the mean-field phase space. As a result, the level of entanglement post-rotation is of the same order or higher. It is shown that the measurement of parity during the entire evolution process provides a quantification of the entanglement level.
+
+
+I Introduction
+
+Entanglement is a fascinating concept of quantum physics and, as already well established, a unique resource for emerging quantum technologies. In metrology, for example, entangled states such as squeezed states can improve the sensitivity of interferometric measurements Giovannettiet al.(2006) because they allow overcoming the standard quantum limit, where sensitivity scales as $\sim 1/\sqrt{N}$ for $N$ uncorrelated particles, approaching the ultimate Heisenberg limit with scaling as $\sim 1/N$ . Initially, this concept emerged in terms of squeezing Mandel and Wolf (1995) and very recently was applied Barsottiet al.(2018) in the optical domain. Lately, it was also successfully generated and characterized in the system composed of massive particles, namely ultra-cold atoms Pezzèet al.(2018) .
+
+Generally, the production of squeezed and entangled states necessitates inter-atomic interaction that dynamically generates complex quantum correlations between atoms. However, this same interaction can be unwanted after the desired level of entanglement is achieved because it may still dynamically degrade entanglement or inter-atomic correlations. The interaction types proposed by Kitagawa and Ueda (1993) allow for a uniform description of the dynamic generation of entanglement in various setups consisting of cold atoms, such as cavity-induced spin squeezing (Pezzè et al., 2018), spin-changing collisions in bimodal systems (Riedel et al., 2010), and spin-1 Bose-Einstein condensates (Hamley et al., 2012). In the latter setup, reducing the undesirable effects of interaction is especially challenging.
+
+
+In this paper, we introduce a straightforward approach to stabilize and store entanglement using a single state rotation in bimodal and spin-1 Bose-Einstein condensates. Our method, elucidated in Figure 1 and detailed in Section II, operates within the mean-field phase space of the system's Hamiltonian. This structure is common to both bimodal and spin-1 condensates as demonstrated in Section II. The proposed method involves a generalized Ramsey protocol, where an additional state rotation is applied following the twisting dynamics. Initially, a spin coherent state is positioned around a saddle point and then twisted along constant energy lines. After the single rotation, the state is confined and stabilized around two stable center points. Further details of the scheme are provided in Section III. We notice that the quantum Fisher information (QFI), which determines the sensitivity level of interferometric measurements as well as the degree of entanglement (Hyllerset al., 2012), remains at least equal to its initial value following the rotation and may even increase initially. An analytical explanation of this QFI characteristic, based on energy conservation, is provided in Section V. Consequently, we deduce that the QFI can demonstrate Heisenberg scaling with a pre-factor of order one during the entire evolution in the idealized scenario presented in this paper.
+
+
+The best sensitivity, and therefore the QFI value, can be estimated using the signal-to-noise ratio Braunstein and Caves (1994) when appropriate readout measurement is provided. In general, identification of a good observable to measure that gives the highest precision is a difficult task, in particular for non-Gaussian states. It might require measurements of higher order correlation functions Gessneret al.(2019) . Here, in Section VI , we define the parity operators for both the bimodal and spin-1 systems. We show analytically, and confirm numerically, that the measurement of parity Chiruvelli and Lee (2011) allows the sensitivity to saturate the QFI value. We prove this, by using only the fact of parity conservation. The measurement can be robust against phase noise if the operator representing the noise commutes with the parity operator Kajtochet al.(2016) .
+
+II The model and structure of classical mean-field phase space
+
+The desired structure of the mean-field phase space is composed of two stable center fixed points located symmetrically on both sides of an unstable saddle fixed point. We concentrate here on the two systems widely explored theoretically and experimentally in the ultra-cold atomic gases, namely bimodal and spinor Bose-Einstein condensates.
+
+II.1 Bimodal condensate
+
+We consider here the twisting model enriched by a linear coupling term between the two modes $a$ and $b$ turning the state along an orthogonal direction of the form 
+ 
+ $\displaystyle\hat{H}_{\rm BI}=\hbar\chi\hat{S}_{z}^{2}-\hbar\Omega\hat{S}_{x},$  (1) 
+ where $\hat{S}_{x}=\frac{1}{2}\left(\hat{a}^{\dagger}\hat{b}+\hat{b}^{\dagger}\hat{a}\right)$ , $\hat{S}_{y}=\frac{1}{2i}\left(\hat{a}^{\dagger}\hat{b}-\hat{b}^{\dagger}\hat{a}\right)$ , $\hat{S}_{z}=\frac{1}{2}\left(\hat{a}^{\dagger}\hat{a}-\hat{b}^{\dagger}\hat{b}\right)$ are pseudo-spin operators satisfying the cyclic commutation relation $[\hat{S}_{l},\hat{S}_{n}]=i\sum_{m}\epsilon_{lnm}\hat{S}_{m}$ , where $\epsilon_{lnm}$ is the Levi-Civita symbol and $\hat{a}(\hat{a}^{\dagger})$ and $\hat{b}(\hat{b}^{\dagger})$ are bosonic mode annihilation (creation) operators of an atom in the mode $a$ ( $b$ ). The above Hamiltonian describes two weakly-coupled Bose-Einstein condensates interacting with the strength $\chi$ in the presence of an external field of the strength $\Omega$ . The model can be realized experimentally employing either a double-well trapping potential Grosset al.(2010) or internal (e.g. two hyperfine atomic states) degrees of freedom Riedelet al.(2010) .
+
+To obtain the mean-field phase space, one calculates the average value of an operator over the spin coherent state, defined as
+
+$$|\varphi,\theta\rangle_{\rm BI}=e^{-i\varphi\hat{S}_{x}}e^{-i\theta\hat{S}_{y}}|N,0\rangle,$$
+where $\frac{\hat{a}^{\dagger N}}{\sqrt{N!}}|0,0\rangle=|N,0\rangle$, $\varphi\in[0,2\pi]$, and $\theta\in[0,\pi]$. This spin coherent state is a double rotation of a maximally polarized state, where all atoms are in the state $a$. By substituting quantum mechanical operators with complex numbers, $\hat{a}\to\sqrt{N_{a}}e^{i\varphi_{a}}$ ($\hat{b}\to\sqrt{N_{b}}e^{i\varphi_{b}}$), we obtain
+
+$$H_{\rm BI}=\frac{\Lambda}{2}z^{2}-\sqrt{1-z^{2}}{\rm cos}\varphi,$$
+where $z={\rm cos}\theta$ and $\Lambda=\chi N/\Omega$. The parameters $(z,\varphi)$ are conjugate coordinates that draw trajectories in the mean-field phase space, resulting from the Hamilton equations $\dot{z}=-\sqrt{1-z^{2}}{\rm sin}\varphi$ and $\dot{\varphi}=\Lambda z+\frac{z}{\sqrt{1-z^{2}}}{\rm cos}\varphi$. The desired feature of these mean-field phase space trajectories is the presence of suitable configurations of stable and unstable fixed points. The positions of fixed points are solutions of $(\dot{z}=0, \dot{\varphi}=0)$. The resulting structure of the phase space is shown in Fig. 2. Three principal regimes can be distinguished based on the value of $\Lambda$ and characterized by different positions and numbers of fixed points. Leggett (2001). The first is the “Rabi” regime for $\Lambda<1$, where the linear term governs the time evolution of the system. In the limit $\Lambda\to 0$, the evolution is similar to resonant Rabi oscillations with $N$ independent particles. The two stable center fixed points are located at $(z,\varphi)=(0,0)$ and $(z,\varphi)=(0,\pi)$. The second is the “Josephson” regime, appearing for $\Lambda>1$. In this regime, the fixed point at $(z,\varphi)=(0,\pi)$ becomes unstable, and the two new stable fixed points appear at $(z,\varphi)=(\pm\sqrt{1-\frac{1}{\Lambda^{2}}},\pi)$. The transition occurs just after the bifurcation point at $\Lambda=1$. In this regime, the characteristic “ $\infty$ ” shape is traced by trajectories around the unstable fixed point at $(z,\varphi)=(0,\pi)$, which enables the storage of entanglement. Finally, the third “Fock” regime occurs for $\Lambda\gg 1$, when the phase portrait resembles the one-axis twisting (OAT) model Kitagawa and Ueda (1993). It is composed of two stable fixed points at $(z,\varphi)=(\pm 1,\varphi)$ and the unstable one at $(z,\varphi)=(0,\varphi)$.
+
+
+II.2 Spinor condensate
+
+The same structure as the mean-field phase space can be found in spinor Bose-Einstein condensates with three internal levels, as previously discussed. This is evident in the single mode approximation (SMA), where all atoms in different Zeeman states occupy the same spatial mode, $\phi(\mathbf{r})$, which satisfies the Gross-Pitaevskii equation. The many-body Hamiltonian is represented in terms of annihilation (creation) operators, $\hat{a}_{m_{F}}(\hat{a}_{m_{F}}^{\dagger})$, of an atom in the $m_{F}$ Zeeman state, and spin-1 operators, collected in the vector $\vec{\Lambda}=\{\hat{J}_{x},\hat{Q}_{yz},\hat{J}_{y},\hat{Q}_{zx},\hat{D}_{xy},\hat{Q}_{xy},\hat{Y},\hat{J}_{z}\}$. After dropping constant terms, the Hamiltonian can be expressed as
+
+ $\displaystyle\frac{\hat{H}_{\rm S}}{c_{2}^{\prime}}=-\frac{1}{2N}\hat{J}^{2}+q\hat{N}_{s},$  (4)
+
+where $c^{\prime}_{2}=N\frac{|c_{2}|}{2}\int d^{3}r|\phi(\mathbf{r})|^{4}$ is the energy unit associated with the spin interaction energy, $\hat{J}^{2}=\hat{J}_{x}^{2}+\hat{J}_{y}^{2}+\hat{J}_{z}^{2}$ and $\hat{N}_{s}=\hat{a}^{\dagger}_{1}\hat{a}_{1}+\hat{a}^{\dagger}_{-1}\hat{a}_{-1}$ (Ho, 1998). The last term in (4) is due to the quadratic Zeeman effect, which can originate from an external magnetic field or a microwave light field (Gerbieret et al., 2006). The value of $q$ can be either positive or negative. The Hamiltonian (4) conserves the $z$-component of the collective angular momentum operator, $[\hat{H}_{\rm S},\hat{J}_{z}]=0$; thus, the linear Zeeman energy term is irrelevant and omitted here. The magnetization, $M$, which is the eigenvalue of the $\hat{J}_{z}$ operator, is a conserved quantity with a range of $-N$ to $N$. This Hamiltonian can be created, for example, in the $F=1$ hyperfine manifold using Rb \textsuperscript{87} atoms (Hamley et al., 2012).
+
+
+For our purposes it is convenient to introduce the symmetric and anti-symmetric bosonic annihilation operators, $\hat{g}_{s}=(\hat{a}_{1}+\hat{a}_{-1})/\sqrt{2}$ and $\hat{g}_{a}=(\hat{a}_{1}-\hat{a}_{-1})/\sqrt{2}$ , and the corresponding pseudo-spin operators 
+ 
+ $\displaystyle\hat{J}_{x,\sigma}=\hat{a}^{\dagger}_{0}\hat{g}_{\sigma}+\hat{a}_{0}\hat{g}^{\dagger}_{\sigma},$  (5) 
+ 
+ $\displaystyle\hat{J}_{y,\sigma}=i(\hat{a}^{\dagger}_{0}\hat{g}_{\sigma}-\hat{a}_{0}\hat{g}^{\dagger}_{\sigma}),$  (6) 
+ 
+ $\displaystyle\hat{J}_{z,\sigma}=\hat{g}_{\sigma}^{\dagger}\hat{g}_{\sigma}-\hat{a}^{\dagger}_{0}\hat{a}_{0},$  (7) 
+ where indices $\sigma=s$ and $\sigma=a$ refer to symmetric and anti-symmetric subspace. The above operators have cyclic commutation relations, e.g. $[\hat{J}_{x,\sigma},\hat{J}_{y,\sigma}]=2i\hat{J}_{z,\sigma}$ . Note, the symmetric subspace is spanned by $\{\hat{J}_{x,s},\hat{J}_{y,s},\hat{J}_{z,s}\}=\{\hat{J}_{x},\hat{Q}_{yz},\frac{1}{2}(\sqrt{3}\hat{Y}+\hat{D}_{xy})\}$ while the anti-symmetric subspace by $\{\hat{J}_{x,a},\hat{J}_{y,a},\hat{J}_{z,a}\}=\{\hat{Q}_{zx},\hat{J}_{y},\frac{1}{2}(\sqrt{3}\hat{Y}-\hat{D}_{xy})\}$ . The spin-1 Hamiltonian ( 4 ) can be expressed in terms of symmetric and anti-symmetric operators Duanet al.(2002) as 
+ 
+ $\displaystyle\frac{\hat{H}_{\rm S}}{|c_{2}^{\prime}|}$ $\displaystyle=$ $\displaystyle-\frac{1}{2N}\hat{J}^{2}_{x,s}+\frac{q}{3}\hat{J}_{z,s}-\frac{1}{2N}\hat{J}^{2}_{y,a}+\frac{q}{3}\hat{J}_{z,a}$  (8) 
+ $\displaystyle-$ $\displaystyle\frac{1}{2N}\left(\hat{g}^{\dagger}_{s}\hat{g}_{a}+\hat{g}^{\dagger}_{a}\hat{g}_{s}\right)^{2}$ 
+ up to constant terms. The Hamiltonian ( 8 ) is a sum of two (non-commuting) bimodal Hamiltonians for symmetric and anti-symmetric operators, as in ( 1 ), provided that they are rotated in respect to each other, plus a mixing term which comes from the $\hat{J}_{z}^{2}$ operator. Therefore, the mean-field phase space of the spinor system in each subspace is expected to have the same structure as the bimodal condensate ( 1 ).
+
+To show this, we concentrate here on the symmetric subspace spanned by the symmetric pseudo-spin operators $\hat{J}_{x,s},\hat{J}_{y,s},\hat{J}_{z,s}$ (the anti-symmetric mean-field subspace is provided in Appendix B ). The structure of mean-field phase space can be obtained by calculating an average value of ( 4 ) over the spin coherent state defined for the symmetric subspace as 
+ 
+ $|\varphi,\theta\rangle_{\rm S}=e^{-i\varphi\hat{J}_{z,s}/2}e^{-i\theta\hat{J}_{y,s}/2}|N0\rangle_{s}$  (9) 
+ where $|N0\rangle_{s}=\frac{\hat{g}_{s}^{\dagger}{}^{N}}{\sqrt{N!}}|000\rangle$ and once again $\varphi\in(0,2\pi),\,\theta\in(0,\pi)$ . The spin coherent state ( 9 ) can be interpreted as a double rotation of maximally polarized state $|N0\rangle_{s}$ in the symmetric subspace, when all atoms are in the symmetric mode. The state $|N0\rangle_{s}$ is an eigenstate of $\hat{J}_{z,s}$ such that $\hat{J}_{z,s}|N0\rangle_{s}=N|N0\rangle_{s}$ , and is located on the north pole of the Bloch sphere in the symmetric subspace. In terms of spin-1 operators it reads $|N0\rangle_{s}=e^{-i\pi/4\hat{Q}_{xy}}|N00\rangle$ . On the contrary, the state with N atoms in the $m_{F}=0$ mode, $\frac{\hat{a}_{0}^{\dagger}{}^{N}}{\sqrt{N!}}|000\rangle=|0N0\rangle$ , lies on the south pole of the same Bloch sphere. In addition, one can show that 
+ 
+ $|\varphi,\theta\rangle_{S}=\frac{1}{\sqrt{N!}}\left[\hat{g}_{s}^{\dagger}{\rm cos}\frac{\theta}{2}+\hat{a}_{0}^{\dagger}{\rm sin}\frac{\theta}{2}e^{i\varphi}\right]^{N}|000\rangle,$  (10) 
+ up to the constant phase factor. We use the above expression while illustrating an arbitrary state $|\Psi\rangle$ on the Bloch sphere in the symmetric subspace with the help of the Husimi function $Q_{S}(\varphi,\theta)=|\langle\Psi|\varphi,\theta\rangle_{S}|^{2}$ .
+
+An average value of the spin-1 Hamiltonian ( 4 ) over the spin coherent state ( 9 ) leads to 
+ 
+ $H_{\rm S}=\frac{\Lambda}{2}(1-z^{2})\cos^{2}{\varphi}+z+1,$  (11) 
+ by keeping the leading terms and omitting the constant ones, and once again $z={\rm cos}\theta$ while $\Lambda=-2/q$ . Note, the values of $\Lambda$ can be both negative and positive depending on the value of $q$ . The negative value of $\Lambda$ does not change the structure of the mean-field phase space as discussed in Fig. 3 .
+
+In the context of the symmetric (anti-symmetric) subspace of the spinor system, the three distinct regimes also emerge. To locate the fixed points, one can employ Hamilton's equations for the conjugate variables $(z, \varphi)$ using equation (11), resulting in $\dot{\varphi} = -\Lambda z \cos^2 \varphi + 1 = 0$ and $\dot{z} = 2\Lambda(1 - z^2) \cos \varphi \sin \varphi = 0$. Solving for the solutions of $(\dot{z}, \dot{\varphi}) = (0, 0)$ provides the locations of the fixed points.
+
+For negative values of $\Lambda$, the three regimes can be separated as follows:
+
+1. The "Rabi" regime is approached as $\Lambda \to 0$, where the evolution is controlled by the linear term in the Hamiltonian. In this regime, there are two stable center fixed points at the poles of the Bloch sphere, i.e., $z = \pm 1$. This scenario holds until a bifurcation occurs at $\Lambda = 1$.
+
+2. The "Josephson" regime emerges immediately after the bifurcation. In this regime, the fixed point at $z = -1$ becomes unstable, and two new stable center fixed points emerge at $(z, \varphi) = (1/\Lambda, 0)$ and $(z, \varphi) = (1/\Lambda, \pi)$.
+
+3. The "Fock" regime occurs when the interaction term takes precedence over the linear one. In this regime, the two stable center fixed points are located at $(z, \varphi) = (0, \pi/2)$ and $(z, \varphi) = (0, 3\pi/2)$, while the fixed point is unstable along the meridian of the Bloch sphere at $\varphi = 0, \pi$.
+
+
+In our work we focus on the Josephson regime for $|\Lambda|=2$ . The desired “ $\infty$ ” shape is draw up by trajectories centered around an unstable fixed point. Moreover, the angle among constant energy lines incoming and outgoing from the saddle fixed point equals to $\pi/2$ , see Figs. 2 and 3 . It means that the level of entanglement generated is the largest and the fastest, see Sorelliet al.(2019) and Fig. 5 (c). The phase portrait consists of one unstable and three stable fixed points among which two are symmetrically located around the unstable one. These two stable center fixed points serve to our protocol as we will use them to stabilize entanglement dynamics by locating the state around them.
+
+III Twist-and-store Protocol
+
+The interferometric protocol we consider consists of four steps in general, see Fig. 4 . The scheme starts with the dynamical state preparation by the unitary evolution determined by the system Hamiltonian followed by the state rotation at a given moment of time. The unitary evolution continues and eventually leads to the stabilization of dynamics around the two stable fixed points located symmetrically around the unstable saddle fixed point. This state can further be used in quantum interferometry protocol, which consists of the phase $\theta$ accumulation during an interrogation time $T$ under the generalized generator $\hat{\Lambda}_{\bf n}$ of interferometric rotation $e^{-i\theta\hat{\Lambda}_{\bf n}}$ . In particular, this is the phase encoding step in which the unitary transformation $e^{-i\theta\hat{\Lambda}_{\bf n}}$ describes our interferometer in the language of the quantum mechanics. The phase $\theta$ depends on the physical parameter to be measured, e.g. a magnetic field, and we assume that it is imprinted onto the state in the most general way. At the end, a readout measurement (RM) is performed.
+
+In this paper, we consider the system at zero temperature and therefor its unitary evolution is given by the $\hat{U}_{\rm BI}=e^{-it\hat{H}_{\rm BI}}$ operator for the bimodal and by $\hat{U}_{\rm S}=e^{-it\hat{H}_{\rm S}}$ for the spin-1 systems. The initial state is the spin coherent state located around the unstable saddle fixed point, $|\psi(0)\rangle_{\rm BI}=|0,\pi/2\rangle_{\rm BI}$ for the bimodal system and $|\psi(0)\rangle_{\rm S}=|0,\pi\rangle_{\rm S}$ for the spin-1 system. Note, in the latter case the state is located on the south pole of the symmetric Bloch sphere and it is the polar state $|0,N,0\rangle$ . The corresponding Schrödinger equations are solved numerically in the Fock state basis where operators are represented by matrices and states are represented by vectors.
+
+IV Quantifying entanglement
+
+We measure the level of entanglement using the quantum Fisher information (QFI) because we consider the protocol in the context of quantum interferometry, as illustrated in Fig. 4 . It is already well established that the QFI is a good certification of entanglement useful for quantum interferometry Hylluset al.(2012) .
+
+In a general linear quantum interferometer, the output state $|\psi(\theta)\rangle$ can be considered as the action of the rotation performed on the input state $|\psi(t)\rangle$ , namely $|\psi(\theta)\rangle=e^{-i\theta\hat{\Lambda}_{\mathbf{n}}}|\psi(t)\rangle$ . The QFI quantifies the minimal possible precision of estimating the imprinted phase $\theta$ in quantum interferometry Braunstein and Caves (1994) . The minimal precision is given by the inverse of the quantum Fisher information $F_{Q}$ , $\Delta\theta\geqslant 1/\sqrt{F_{Q}}$ . In general, the QFI value depends on the input state and generator of an interferometric rotation. The generator can be considered as the scalar product $\hat{\Lambda}_{\bf n}=\vec{\Lambda}\cdot{\bf n}$ . The vector $\vec{\Lambda}$ is composed of bosonic Lie algebra generators describing a given system. Specifically, it is $\vec{{\Lambda}}_{\rm BI}=\{\hat{S}_{x},\hat{S}_{y},\hat{S}_{y}\}$ for bimodal and $\vec{{\Lambda}}_{\rm S}=\{\hat{J}_{x},\hat{Q}_{yz},\hat{J}_{y},\hat{Q}_{zx},\hat{D}_{xy},\hat{Q}_{xy},\hat{Y},\hat{J}_{z}\}$ for spinor condensates. The unit vector ${\bf n}$ determines the direction of rotation in the generalized Bloch sphere.
+
+The QFI value is given by the variance 
+ 
+ $F_{Q}=4\Delta^{2}\hat{\Lambda}_{\bf n},$  (12) 
+ for pure states Pezzé and Smerzi (2014) . It is possible to find the generator $\hat{\Lambda}_{\bf n}$ , for which the QFI reaches its maximum value Hylluset al.(2010) . For pure states, this problem can be solved by noticing that the variance in ( 12 ) can be written in terms of the covariance matrix 
+ 
+ $\displaystyle\Gamma_{ij}[|\psi(t)\rangle]=\frac{1}{2}\langle\hat{\Lambda}_{i}\hat{\Lambda}_{j}+\hat{\Lambda}_{j}\hat{\Lambda}_{i}\rangle-\langle\hat{\Lambda}_{i}\rangle\langle\hat{\Lambda}_{j}\rangle,$  (13) 
+ and then 
+ 
+ $F_{Q}=4\mathbf{n}^{T}\cdot\Gamma[|\psi(t)\rangle]\cdot\mathbf{n}.$  (14) 
+ Therefore, one concludes that the maximal value of the QFI is given by the largest eigenvalue $\lambda_{\rm max}$ of ( 13 ) while the direction of rotation ${\bf n}_{max}$ by the eigenvector corresponding to $\lambda_{\rm max}$ .
+
+There are two characteristic limits for the QFI value. The first one is the standard quantum limit (SQL) typical for coherent states where the QFI is equal to $N$ for bimodal system and to $4N$ for spinor system Pezzé and Smerzi (2014) . Whenever the QFI value is larger than the SQL, the state is entangled Giovannettiet al.(2006) . The second is the Heisenberg limit which bounds the value of the QFI from above, and it is equal to $N^{2}$ for bimodal system and $4N^{2}$ for spinor system Pezzé and Smerzi (2014) .
+
+Here, we focus on the maximal value of ( 12 ) optimized over ${\bf n}$ at a given moment of time $t$ and the given input state $|\psi(t)\rangle_{\rm BI/S}$ . In the case of bimodal system, the maximal QFI is 
+ 
+ $F_{Q,{\rm BI}}=4\lambda_{\rm max,BI},$  (15) 
+ where $\lambda_{\rm max,BI}$ is the maximal eigenvalue of the $3\times 3$ covariance matrix when $\hat{\Lambda}_{i}$ in ( 13 ) is replaced by $\hat{\Lambda}_{{\rm BI},i}$ . In Appendix C we discuss the direction of interferometric rotation leading to the maximal value of the QFI. In the case of spinor condensate, the QFI reads 
+ 
+ $F_{Q,{\rm S}}=4\lambda_{\rm max,S},$  (16) 
+ where this time $\lambda_{\rm max,S}$ is the maximal eigenvalue of $8\times 8$ matrix ( 13 ) when $\hat{\Lambda}_{i}$ is replaced by $\hat{\Lambda}_{{\rm S},i}$ . Although there are eight possible eigenvalues, only a few of them contribute to the maximal QFI value. It is because of the additional constant of motion, namely magnetization, which introduces symmetry of covariance matrix, simplifies its form and diminishes the number of various values of $\lambda_{S}$ and directions of interferometric rotations ${\bf n}$ , see Appendix C for details of calculations.
+
+In Fig. 5 we show an example of the QFI evolution in the Josephson regime for $|\Lambda|=2$ when $|\psi(t)\rangle_{\rm BI/S}=\hat{U}_{\rm BI/S}|\psi(0)\rangle_{\rm BI/S}$ (without optional rotation discussed in Fig. 4 and in Section V ). It was shown for bimodal condensates that for $|\Lambda|=2$ the unitary evolution generates the fastest speed and amount of entanglement Sorelliet al.(2019) . This is because of the characteristic “ $\infty$ ” shape in the mean-field phase portrait with the angle between in- and out-going constant energy lines equals to $\pi/2$ Sorelliet al.(2019) . It is expected that this also holds true for spinor condensate due to the same characteristic shape drawn up by constant energy lines in the mean-field phase space.
+
+It is interesting to note that the short time dynamics of the QFI exhibit a scaling behavior for a different number of particles, provided that the time axis is properly re-scaled as $Nt/{\rm ln}(2N)$ for bimodal system and as $t/{\rm ln}(8N/3)$ for spinor system (the difference in $N$ comes from the energy unit chosen for both systems). This can be interpreted as the appearance of the first maximum of $F_{Q}$ with Heisenberg scaling at $t\simeq\frac{\ln(2N)}{N}$ ( $t\simeq\ln(8N/3)$ ) for the bimodal (spinor) condensate. The scaling is demonstrated in Fig. 5 . Indeed, curves corresponding to different number of atoms overlap for both bimodal and spinor systems. The scaling can be explained using a theory developed in André and Lukin (2002) under two approximations. The first is the truncation of the Bogoliubov-Born-Green-Kirkwood-Yvon (BBGKY) hierarchy of equations of motion for expectation values of spin operators’ products. We truncate the hierarchy by keeping the first- and the second-order moments, which is equivalent to the Gaussian approximation. The second approximation is the short-time expansion. The details of calculations are presented in Appendix D for the bimodal and in Appendix E for the spinor systems.
+
+V Entanglement stabilization and storage around stable fixed points
+
+The initial evolution and structure of the mean-field phase space provide an opportunity for a stabilization scheme that maintains a near-constant high value of the quantum Fisher information (QFI). This scheme, as outlined in Fig. 4, consists of three stages. In the first stage, the system undergoes unitary evolution until the QFI approaches its first peak. The second stage involves an instantaneous pulse rotating the state around the $\hat{S}_{x}$ axis by an angle $\alpha_{\rm BI}$ for the bimodal system, and around the $\hat{J}_{zs}$ axis by an angle $\alpha_{\rm S}$ for the spin-1 system. This rotation occurs at time $t_{1}^{+}$, immediately following the time $t_{1}^{-}$ just before the rotation. At the time of rotation, the Husimi function of the state is highly elongated. The rotation moves the most elongated part of the state towards stable regions of the phase space. After the rotation, for $t>t_{1}^{+}$, the state's dynamics is governed by unitary evolution without any further manipulations. However, it remains trapped around the two stable fixed points.
+
+
+An example of the QFI is presented in Fig. 6 . An animation for time evolution of the Husimi function is shown in the Supplement Materials for the spinor system. A roughly stationary value of the QFI is obtained in the long time limit. More interestingly, the twofold increase of the QFI value can be observed just after the rotation. One might expect that the best rotation angle is $\pi/4$ as it is the intersection angle of the in- and out-going constant energy lines at the saddle fixed point. It is true if the rotation takes place much before the QFI reaches its maximum, see Fig. 6 (a). At later times, a higher QFI value can be obtained for smaller values of the rotation angle, as demonstrated in Fig. 6 (c). This result does not depend much on the number of atoms while deviation from the optimal rotation time $t_{1}$ up to $20\%$ does not spoil the scheme, but rather lowers the QFI value. Finally, we note that the rotation can also be performed after the QFI reaches the maximum. The slight increase of the QFI value is observed as well. This is illustrated in Fig. 6 . All in all, we conclude, that it is advantageous to rotate the state in shorter times because of the fast gain in the QFI value.
+
+It is intuitive that the QFI value stabilizes in the long time limit. When the state is located around the stable fixed point, the further dynamics are limited in this area of phase space and are approximately ”frozen”. However, from the mathematical point of view it is non-trivial to show that indeed the value of the QFI, and therefore the entanglement, does not decrease in time. In below, we prove this for the bimodal condensate.
+
+We assume that the direction of interferometric rotation just before the rotation is $\hat{\Lambda}_{{\rm BI},{\bf n}_{max}}(t_{1}^{-})\approx\frac{1}{\sqrt{2}}(\hat{S}_{z}-\hat{S}_{y})$ and therefore $F_{Q,{\rm BI}}(t_{1}^{-})=4\Delta^{2}\left(\frac{\hat{S}_{z}-\hat{S}_{y}}{\sqrt{2}}\right)$ , while after the rotation for $t\geq t_{1}^{+}$ one has $\hat{\Lambda}_{{\rm BI},{\bf n}_{max}}(t)\approx\hat{S}_{z}$ and $F_{Q,{\rm BI}}(t)=4\Delta^{2}\hat{S}_{z}$ . This is a fairly good approximation, as one can see in Appendix C.1 . The QFI after rotation can be also written as 
+ 
+ $F_{Q,{\rm BI}}(t)=\frac{4}{\hbar\chi}\left[\langle\hat{H}_{\rm BI}(t)\rangle+\hbar\Omega\langle\hat{S}_{x}(t)\rangle\right],$  (19) 
+ where we used the relation $\hbar\chi\langle\hat{S}_{z}^{2}\rangle=\hat{H}_{\rm BI}+\hbar\Omega\hat{S}_{x}$ employing ( 1 ) and $\langle\hat{S}_{z}\rangle=0$ . Next, we note that an average energy is conserved after rotation, $\langle\hat{H}_{\rm BI}(t)\rangle=\langle\hat{H}_{\rm BI}(t_{1}^{+})\rangle$ , while an average value of the $\hat{S}_{x}$ operator is bounded from below and above, namely $\frac{N}{2}\geq\langle\hat{S}_{x}\rangle\geq-\frac{N}{2}$ . This two properties lead to the inequality 
+ 
+ $F_{Q,{\rm BI}}(t)\geq\frac{4}{\hbar\chi}\left[\langle\hat{H}_{\rm BI}(t_{1}^{+})\rangle-\hbar\Omega\frac{N}{2}\right].$  (20) 
+ The energy of the bimodal system after the rotation ( 17 ) reads $\langle\hat{H}_{\rm BI}(t_{1}^{+})\rangle=\hbar\chi\langle(\hat{S}_{z}(t_{1}^{-}){\rm cos}\alpha_{\rm BI}+\hat{S}_{y}(t_{1}^{-}){\rm sin}\alpha_{\rm BI})^{2}\rangle-\hbar\Omega\langle\hat{S}_{x}(t_{1}^{-})\rangle$ , and for $\alpha_{\rm BI}=\pi/4$ , it equals to $\langle\hat{H}_{\rm BI}(t_{1}^{+})\rangle=F_{Q,{\rm BI}}(t_{1}^{-})-\hbar\Omega\langle\hat{S}_{x}(t_{1}^{-})\rangle$ . Finally, one considers the latter term in ( 20 ) to show that 
+ 
+ $F_{Q,{\rm BI}}(t)\geq F_{Q,{\rm BI}}(t^{-}_{1}),$  (21) 
+ for $t\geq t_{1}^{+}$ as $\langle\hat{S}_{x}(t_{1}^{-})\rangle\geq-\frac{N}{2}$ as well.
+
+We can extend the same reasoning to show that $F_{Q,{\rm S}}(t)\geq F_{Q,{\rm S}}(t^{-}_{1})$ holds for the spinor system, and the detailed calculation is provided in Appendix F.
+
+
+VI The parity operator as an efficient readout measurement
+
+The precision of the unknown phase $\theta$ can be estimated using the signal-to-noise ratio as
+
+$\delta\theta^{2} = \frac{\Delta^{2}{\hat{\mathcal{S}}}}{|\partial_{\theta}\langle{\hat{\mathcal{S}}}\rangle|^{2}}$ (Eq. 22),
+
+where $\Delta^{2}{\hat{\mathcal{S}}} = \langle{\hat{\mathcal{S}}^{2}}\rangle - \langle{\hat{\mathcal{S}}}\rangle^{2}$ represents the variance of the signal ${\hat{\mathcal{S}}}$, the average value of which is to be measured. Generally, the precision in the $\theta$ estimation satisfies
+
+$\frac{1}{\delta\theta^{2}} \leq F_{Q}$ (Eq. 23).
+
+As previously stated, the Quantum Fisher Information (QFI) provides the highest possible precision for the estimation of $\theta$, but its measurement requires the complete state tomography as described by Pezzè et al. (2018). In contrast, the inverse of the signal-to-noise ratio provides the lowest precision, but it only requires the measurement of the first and second moments of the observable ${\hat{\mathcal{S}}}$, which is advantageous from an experimental perspective.
+
+
+On the one hand, in general $\hat{\mathcal{S}}$ is unknown. On the other hand, in some cases it is known as for example the parity operator for the Greenberger-Horne-Zeilinger (GHZ) state Greenbergeret al.(1989) or $\hat{J}_{z}^{2}$ for the spinor system Niezgodaet al.(2018) . Instead, the nonlinear squeezing parameter was recently proposed Gessneret al.(2019) to saturate the QFI value at short times for bimodal condensates. However, the measurement of nonlinear squeezing parameter is related to the measurements of higher order moments and correlations.
+
+We demonstrate that the inverse of the signal-to-noise ratio, with the parity operator replacing $\hat{\mathcal{S}}$ in Equation (22), reaches the quantum Fisher information limit as $\theta\to 0$, for both bimodal and spinor systems. The parity operator is a quantum mechanical observable, distinct from other observables in that it lacks a classical counterpart. Its utility in quantum metrology was recognized by Gerry and Mimih (2010) in both the optical and atomic domains, when non-Gaussian quantum states are employed. However, measuring parity remains an experimental challenge due to the need for single-particle resolution, although experimental demonstrations have been partially achieved by Songet et al. (2019).
+
+
+First, let's focus on the bimodal system. The parity operator we consider, $\hat{\mathcal{S}}_{\rm BI} = (-1)^{\hat{S}_{x} - N/2}$, commutes with the bimodal Hamiltonian, $\left[\hat{\mathcal{S}}_{\rm BI}, \hat{H}_{\rm BI}\right] = 0$, and also with the rotation operator (17), $\left[\hat{\mathcal{S}}_{\rm BI}, e^{-i\alpha_{\rm BI} \hat{S}_{x}}\right] = 0$. If the initial state $|\psi(0)\rangle_{\rm BI}$ is an eigenstate of $\hat{\mathcal{S}}_{\rm BI}$, then $\hat{\mathcal{S}}_{\rm BI}|\psi(0)\rangle_{\rm BI} = |\psi(0)\rangle_{\rm BI}$, implying that $\hat{\mathcal{S}}_{\rm BI}|\psi(t)\rangle_{\rm BI} = |\psi(t)\rangle_{\rm BI}$. It can be easily demonstrated that $\hat{\Lambda}_{\rm BI, {\bf n}_{max}} \hat{\mathcal{S}}_{\rm BI} = -\hat{\mathcal{S}}_{\rm BI} \hat{\Lambda}_{\rm BI, {\bf n}_{max}}$ holds true, even for a general form of the generator of interferometric rotation $\hat{\Lambda}_{\rm BI, {\bf n}_{max}} = a \hat{S}_{z} + b \hat{S}_{y}$ with any $a^{2} + b^{2} = 1$. This relationship is further elaborated in Appendix C.1.
+
+
+We use all the above-mentioned properties of the state and parity operator to calculate ( 22 ). To do this we expand an average value of the parity operator up to the leading terms in $\theta$ , obtaining ${}_{\rm BI}\langle\psi(\theta)|\hat{\mathcal{S}}_{\rm BI}|\psi(\theta)\rangle_{\rm BI}=1-2\theta^{2}{}_{\rm BI}\langle\psi(t)|\hat{\Lambda}_{\rm BI,{\bf n}_{max}}^{2}|\psi(t)\rangle_{\rm BI}+0(\theta^{3})$ . Having that, the variance in ( 22 ) can be expressed as 
+ 
+ $\Delta^{2}{\hat{\mathcal{S}}_{\rm BI}}=4\theta^{2}{}\langle\hat{\Lambda}_{\rm BI,{\bf n}_{max}}^{2}\rangle+0(\theta^{3}),$  (24) 
+ because $\langle\hat{\mathcal{S}}_{\rm BI}^{2}\rangle=1$ . The leading terms of the derivative in respect to $\theta$ of an average value of the parity is simply 
+ 
+ $\partial_{\theta}\langle\hat{\mathcal{S}}_{\rm BI}\rangle=-4\theta\langle\hat{\Lambda}_{\rm BI,{\bf n}_{max}}^{2}\rangle+0(\theta^{2}).$  (25) 
+ Therefore, by inserting ( 24 ) and ( 25 ) into ( 22 ) it is possible to show that the leading terms in $\theta$ of the inverse of the signal-to-noise ratio 
+ 
+ $\delta\theta^{-2}|_{\theta=0}=4\Delta^{2}\hat{\Lambda}_{\rm BI,{\bf n}_{max}},$  (26) 
+ saturate the QFI value according to ( 12 ) due to the fact that $\langle{\hat{\Lambda}_{\rm BI,{\bf n}_{max}}}\rangle=0$ . Note, the above derivation holds also with optional rotation of the state because the parity and rotation operators commute.
+
+In Figure 7, we showcase our findings for the most optimal interferometer, denoted as $\hat{\Lambda}_{\rm BI,{\bf n}_{max}}$, which is presented numerically in Appendix C.1 (yellow dotted line), and a simpler interferometer operator, denoted as $\hat{\Lambda}_{\rm BI}=\hat{S}_{z}$ (blue dashed line). These are depicted without (a) and with (b) the optional rotation that positions the state around stable fixed points. A perfect agreement between the two can be observed.
+
+
+The parity operator for the spinor system is defined as $\hat{\mathcal{S}}_{\rm S}=(-1)^{\hat{J}_{z,s}-N}$, where $\hat{J}_{z,s}$ is the z-component of the spinor's angular momentum and $N$ is the total number of spinors. This operator commutes with both the spinor Hamiltonian, $\left[\hat{\mathcal{S}}_{\rm S},\hat{H}_{\rm S}\right]=0$, and the optional rotation operator, $\left[\hat{\mathcal{S}}_{\rm S},e^{-i\alpha_{\rm S}\hat{J}_{z,s}}\right]=0$. The initial state and any state produced by unitary evolution are eigenstates of the parity operator, $\hat{\mathcal{S}}_{\rm S}|\psi(0)\rangle_{\rm S}=|\psi(0)\rangle_{\rm S}$ and $\hat{\mathcal{S}}_{\rm S}|\psi(t)\rangle_{\rm S}=|\psi(t)\rangle_{\rm S}$, respectively. The generator of interferometric rotation for the spinor system is $\hat{\Lambda}_{\rm S,{\bf n}_{max}}=a\hat{J}_{x,s}+b\hat{J}_{y,s}$ with $a^{2}+b^{2}=1$, and the leading terms in $\theta$ of the inverse of the signal-to-noise ratio can be written as $\delta\theta^{-2}|_{\theta=0}=4\Delta^{2}\hat{\Lambda}_{\rm S,{\bf n}_{max}}$. This saturates the QFI value because $\langle{\hat{\Lambda}_{\rm BI,{\bf n}_{max}}}\rangle=0$. The derivation also holds true when the optional rotation of the state (18) is considered, as the parity and rotation operators commute. We illustrate our findings in Fig. 7 without and with the optional rotation that locates the state around stable fixed points using various interferometers. Additionally, we show that the simple signal $\hat{\mathcal{S}}_{\rm S}=\hat{J}_{z}^{2}$ saturates the QFI value when the optional rotation is not taken into account, as indicated by the dashed green lines in Fig. 7 (c) and (d). This is effective because the variance of magnetization is a constant of motion.
+
+
+Finally, note that the sensitivity from the inverse of signal-to-noise ratio might be resistance against phase noise. This is the case when the operator describing the phase noise does commute with the parity operator. Then, the sensitivity from ( 22 ) does not change even for a convex mixture of quantum states, see calculation in Kajtochet al.(2016) . This fact is not in contradiction with the convexity of the QFI Cohen (1968) , which states that a convex mixture of quantum states contains fewer quantum correlations than the ensemble average.
+
+VII Discussion and conclusion
+
+In this work we have investigated theoretically the possibility of the entanglement stabilization in bimodal and spin-1 condensates. Our method utilizes the structure of the mean-field phase space. In particular, twisting dynamics of the spin coherent state initiated around an unstable saddle fixed point is enriched by a single rotation which locates the state around stable center fixed points. This allows for the generation of non-Gaussian states with the stable value of the QFI which exhibits Heisenberg scaling with a pre-factor of the order of one. We analyzed the method numerically and analytically proving $(i)$ the scaling of the QFI and time with total atoms number, $(ii)$ the lower bound of the QFI after optional rotation and $(iii)$ the optimal parity enhanced readout measurement.
+
+This study disregards the impacts of decoherence sources, such as interaction with a heat reservoir or atomic loss. Decoherence effects can deteriorate the accuracy in $\theta$ estimation. While our proposed scheme can stabilize an entangled state to increase resolution, it's important to note that decoherence effects will degrade all proposed schemes to improve interferometric measurements. Consequently, it may be essential to conduct comprehensive comparisons between schemes, considering the inclusion of decoherence.
+
+
+In addition to environmental decoherence, detection noise is another source of decoherence that is particularly relevant to our discussion of parity measurement. This noise manifests in the signal-to-noise ratio (22) such that the impact of detection noise on the operator $\hat{\mathcal{S}}$ in the large atoms number limit is equivalent to replacing it with $\hat{\tilde{\mathcal{S}}}=\hat{\mathcal{S}}+\hat{\delta}_{\mathcal{S}}$, where $\hat{\delta}_{\mathcal{S}}$ is an independent Gaussian operator with zero average and variance $\sigma^{2}$. To maintain high sensitivity, the detection resolution, represented by $\sigma^{2}$, should be less than or equal to 1. Notably, recent experiments with cold atoms have demonstrated single atom imaging resolution in both single trapped atoms and optical lattices using fluorescence imaging (Streedet al., 2012) and in mesoscopic ensembles in a cavity by determining the number of atoms from the shift in the cavity frequency (Zhanget al., 2012). More recently, near single atom resolution has been achieved in bimodal and spinor systems (Humeet al., 2013), offering the potential for even higher resolution. This level of resolution should be sufficient for a proof-of-principle demonstration of our proposed measurement scheme.
+
+
+The scheme we propose demonstrates yet another possibility for enhancement and storage of entanglement making use of the abstract nature of the mean-field phase space without turning-off interaction among atoms. Moreover, the inter-atomic interaction is desirable for the entanglement stabilization and storage. We argued possibility of the scheme resistance against phase noise. However, due to the non-ideal structure of the states stored they might lead to robust interferometric application Oszmaniecet al.(2016) , which provides an interesting direction for a further work.
+
+ACKNOWLEDGMENTS
+
+We express our gratitude to K. Pawłowski, A. Smerzi, and P. Treutlein for their valuable discussions. Our work is financially supported by the Polish National Science Center through Grants DEC-2015/18/E/ST2/00760 (EW and SM) and Project no. 2017/25/Z/ST2/03039 (AN). The latter project is funded under the QuantERA programme.
+
+
+Appendix A Spin-1 operators
+
+
+ 
+ $\displaystyle\hat{J}_{x}$ $\displaystyle\ =\ \frac{1}{\sqrt{2}}\left(\hat{a}^{{\dagger}}_{\scriptscriptstyle{-1}}\hat{a}_{\scriptscriptstyle{0}}+\hat{a}^{{\dagger}}_{\scriptscriptstyle{0}}\hat{a}_{\scriptscriptstyle{-1}}+\hat{a}^{{\dagger}}_{\scriptscriptstyle{0}}\hat{a}_{\scriptscriptstyle{+1}}+\hat{a}^{{\dagger}}_{\scriptscriptstyle{+1}}\hat{a}_{\scriptscriptstyle{0}}\right),$  (27) 
+ 
+ $\displaystyle\hat{Q}_{zx}$ $\displaystyle\ =\ \frac{1}{\sqrt{2}}\left(-\hat{a}^{{\dagger}}_{\scriptscriptstyle{-1}}\hat{a}_{\scriptscriptstyle{0}}-\hat{a}^{{\dagger}}_{\scriptscriptstyle{0}}\hat{a}_{\scriptscriptstyle{-1}}+\hat{a}^{{\dagger}}_{\scriptscriptstyle{0}}\hat{a}_{\scriptscriptstyle{+1}}+\hat{a}^{{\dagger}}_{\scriptscriptstyle{+1}}\hat{a}_{\scriptscriptstyle{0}}\right),$  (28) 
+ 
+ $\displaystyle\hat{J}_{y}$ $\displaystyle\ =\ \frac{i}{\sqrt{2}}\left(\hat{a}^{{\dagger}}_{\scriptscriptstyle{-1}}\hat{a}_{\scriptscriptstyle{0}}-\hat{a}^{{\dagger}}_{\scriptscriptstyle{0}}\hat{a}_{\scriptscriptstyle{-1}}+\hat{a}^{{\dagger}}_{\scriptscriptstyle{0}}\hat{a}_{\scriptscriptstyle{+1}}-\hat{a}^{{\dagger}}_{\scriptscriptstyle{+1}}\hat{a}_{\scriptscriptstyle{0}}\right),$  (29) 
+ 
+ $\displaystyle\hat{Q}_{yz}$ $\displaystyle\ =\ \frac{i}{\sqrt{2}}\left(-\hat{a}^{{\dagger}}_{\scriptscriptstyle{-1}}\hat{a}_{\scriptscriptstyle{0}}+\hat{a}^{{\dagger}}_{\scriptscriptstyle{0}}\hat{a}_{\scriptscriptstyle{-1}}+\hat{a}^{{\dagger}}_{\scriptscriptstyle{0}}\hat{a}_{\scriptscriptstyle{+1}}-\hat{a}^{{\dagger}}_{\scriptscriptstyle{+1}}\hat{a}_{\scriptscriptstyle{0}}\right),$  (30) 
+ 
+ $\displaystyle\hat{D}_{xy}$ $\displaystyle\ =\ \hat{a}^{{\dagger}}_{\scriptscriptstyle{-1}}\hat{a}_{\scriptscriptstyle{+1}}+\hat{a}^{{\dagger}}_{\scriptscriptstyle{+1}}\hat{a}_{\scriptscriptstyle{-1}},$  (31) 
+ 
+ $\displaystyle\hat{Q}_{xy}$ $\displaystyle\ =\ i\left(\hat{a}^{{\dagger}}_{\scriptscriptstyle{-1}}\hat{a}_{\scriptscriptstyle{+1}}-\hat{a}^{{\dagger}}_{\scriptscriptstyle{+1}}\hat{a}_{\scriptscriptstyle{-1}}\right),$  (32) 
+ 
+ $\displaystyle\hat{Y}$ $\displaystyle\ =\ \frac{1}{\sqrt{3}}\left(\hat{a}^{{\dagger}}_{\scriptscriptstyle{-1}}\hat{a}_{\scriptscriptstyle{-1}}-2\hat{a}^{{\dagger}}_{\scriptscriptstyle{0}}\hat{a}_{\scriptscriptstyle{0}}+\hat{a}^{{\dagger}}_{\scriptscriptstyle{+1}}\hat{a}_{\scriptscriptstyle{+1}}\right),$  (33) 
+ 
+ $\displaystyle\hat{J}_{z}$ $\displaystyle\ =\ \hat{a}^{{\dagger}}_{\scriptscriptstyle{+1}}\hat{a}_{\scriptscriptstyle{+1}}-\hat{a}^{{\dagger}}_{\scriptscriptstyle{-1}}\hat{a}_{\scriptscriptstyle{-1}},$  (34) 
+ where $\hat{a}_{m_{F}}$ is the annihilation operator of the particle in the $m_{F}$ Zeeman component.
+
+Appendix B Anti-symmetric mean-field phase space
+
+We will now address the equivalence of the anti-symmetric subspace. Similarly to the symmetric case, we are calculating an average value of ( 4 ) over the spin coherent state defined for the anti-symmetric subspace as 
+ 
+ $|\varphi,\theta\rangle_{a}=e^{-i\varphi\hat{J}_{z,a}/2}e^{-i\theta\hat{J}_{y,a}/2}|N0\rangle_{a}$  (35) 
+ where $|N0\rangle_{a}=\frac{\hat{g}_{a}^{\dagger}{}^{N}}{\sqrt{N!}}|000\rangle$ with $\varphi\in(0,2\pi),\,\theta\in(0,\pi)$ . The spin coherent state ( 9 ) can be interpreted as a double rotation of the maximally polarized state $|N0\rangle_{a}$ in the anti-symmetric subspace and is an eigenstate of $\hat{J}_{z,a}$ with the eigenvalue $N$ . Similarly to symmetric sphere, it is located on the north pole of the Bloch sphere. In terms of spin-1 operators it reads $|N0\rangle_{a}=e^{-i\pi/4\hat{Q}_{xy}}|00N\rangle$ . Just as in the symmetric case the state with N atoms in the $m_{F}=0$ mode is located on the south pole of the same Bloch sphere. To illustrate an arbitrary state $|\Psi\rangle$ on the Bloch sphere we use Husimi function $Q_{a}(\varphi,\theta)=|\langle\Psi|\varphi,\theta\rangle_{a}|^{2}$ .
+
+An average value of the spin-1 Hamiltonian ( 4 ) over the spin coherent state ( 35 ) leads to 
+ 
+ $H_{a}=\frac{\Lambda}{2}(1-z^{2})\sin^{2}{\varphi}+z-1,$  (36) 
+ by keeping the leading and omitting the constant terms, and once again $z={\rm cos}\theta$ while $\Lambda=-2/q$ . Based on the difference between ( 36 ) and  ( 11 ), as well as the form of  ( 8 ), one can see that phase portrait for anti-symmetrical subspace will be rotated by $\pi/2$ around $z-$ axis.
+
+Appendix C Structure of covariance matrix
+
+The calculation of eigenvalues and eigenvectors for the covariance matrix is intriguing in both systems. For the bimodal system, it is a general $3 \times 3$ real matrix, while for the spinor system, it is an $8 \times 8$ real matrix. However, the spinor system's matrix structure can be greatly simplified due to the constraint of a fixed magnetization during evolution. Here, we consider two distinct cases: one with zero fluctuations in the magnetization value and another with non-zero fluctuations.
+
+
+C.1 Bimodal system
+
+For a bimodal system, the optimal generator interferometric rotation can be analytically determined when $\Omega$ equals zero, as stated in Ferrini (2011). In all other cases, analysis must be conducted numerically. The following section presents the numerical results.
+
+
+In Fig. 8 (a) the black solid line shows the QFI ( 12 ) given by the maximal eigenvalue of the covariance matrix ( 13 ), and variances of various generators of interferometric rotation $\hat{\Lambda}_{\bf n}$ in direction ${\bf n}$ as indicated in the figure caption. Indeed one can see that in the case without optional rotation, Fig. 8 (c), initially the generator of interferometric rotation is a superposition of $\hat{S}_{y}$ and $\hat{S}_{z}$ (purple dot-dashed line in (a)) which saturates the QFI value. On the other hand, we also observe that the variance of $\hat{S}_{z}$ estimates well overall variation of the QFI in time. When the optional rotation ( 17 ) is applied, see Fig. 8 (b), the optimal rotation axis is also given by $\hat{S}_{z}$ (dashed line). Therefore we conclude that the QFI is well estimated by $4\Delta^{2}\hat{S}_{z}$ while the optimal interferometric rotation is the $z$ -axis of the Bloch sphere.
+
+C.2 Spinor system: fixed magnetization
+
+The Hamiltonian given by (4) preserves magnetization, as indicated by $[\hat{H},\hat{J}_{z}]=0$. This implies that the following holds for any state:
+
+\[|\Psi_{\varphi}\rangle = e^{-i\varphi\hat{J}_{z}}e^{-i\hat{H}t}|\Psi\rangle = e^{-i\hat{H}t}e^{-i\varphi M}|\Psi\rangle.\] (37)
+
+The application of the rotation operator $e^{-i\varphi\hat{J}_{z}}$ yields a phase factor that is the product of the rotation angle and the magnetization. In contrast, the quantum Fisher information has the same value for both $|\Psi\rangle$ and $|\Psi_{\varphi}\rangle$, leading to the condition:
+
+\[4\mathbf{n}^{T}\cdot\Gamma[|\Psi\rangle]\cdot\mathbf{n} = 4\mathbf{n}^{T}\cdot\Gamma[|\Psi_{\varphi}\rangle]\cdot\mathbf{n},\]
+
+which implies that $\Gamma[|\Psi\rangle] = \Gamma[|\Psi_{\varphi}\rangle]$. Using the definition of the covariance matrix (13), the covariance matrix for the rotated state can be expressed as:
+
+\[\Gamma[|\Psi_{\varphi}\rangle]_{ij} = \langle\Psi|\frac{1}{2}(\hat{\tilde{\Lambda}}_{i}\hat{\tilde{\Lambda}}_{j}+\hat{\tilde{\Lambda}}_{j}\hat{\tilde{\Lambda}}_{i})|\Psi\rangle-\langle\Psi|\hat{\tilde{\Lambda}}_{i}|\Psi\rangle\langle\Psi|\hat{\tilde{\Lambda}}_{j}|\Psi\rangle,\] (38)
+
+where $\hat{\tilde{\Lambda}}_{i} = e^{i\varphi\hat{J}_{z}}\hat{\Lambda}_{i}e^{-i\varphi\hat{J}_{z}}$. The rotation of the vector $\vec{\Lambda}_{\rm S}$ components results in:
+
+\[\begin{aligned}
+e^{i\varphi\hat{J}_{z}}\hat{J}_{x}e^{-i\varphi\hat{J}_{z}} &= \hat{J}_{x}\cos{\varphi}-\hat{J}_{y}\sin{\varphi}, \\
+e^{i\varphi\hat{J}_{z}}\hat{J}_{y}e^{-i\varphi\hat{J}_{z}} &= \hat{J}_{y}\cos{\varphi}+\hat{J}_{x}\sin{\varphi}, \\
+e^{i\varphi\hat{J}_{z}}\hat{J}_{z}e^{-i\varphi\hat{J}_{z}} &= \hat{J}_{z}, \\
+e^{i\varphi\hat{J}_{z}}\hat{Q}_{xy}e^{-i\varphi\hat{J}_{z}} &= \hat{Q}_{xy}\cos{2\varphi}+\hat{D}_{xy}\sin{2\varphi}, \\
+e^{i\varphi\hat{J}_{z}}\hat{D}_{xy}e^{-i\varphi\hat{J}_{z}} &= \hat{D}_{xy}\cos{2\varphi}-\hat{D}_{xy}\sin{2\varphi}, \\
+e^{i\varphi\hat{J}_{z}}\hat{Q}_{yz}e^{-i\varphi\hat{J}_{z}} &= \hat{Q}_{yz}\cos{\varphi}+\hat{Q}_{zx}\sin{\varphi}, \\
+e^{i\varphi\hat{J}_{z}}\hat{Q}_{zx}e^{-i\varphi\hat{J}_{z}} &= \hat{Q}_{zx}\cos{\varphi}-\hat{Q}_{yz}\sin{\varphi}, \\
+e^{i\varphi\hat{J}_{z}}\hat{Y}e^{-i\varphi\hat{J}_{z}} &= \hat{Y}.
+\end{aligned}\] (39)
+
+These rotations can be described using the operator:
+
+\[\hat{\mathcal{R}}_{\varphi}=\left(\begin{array}[]{cc}\cos{\phi}&-\sin{\phi}\\ \sin{\phi}&\cos{\phi}\end{array}\right).\]
+
+One can observe that:
+
+\[\Gamma[|\Psi_{\varphi}\rangle] = M_{\varphi}\cdot\Gamma[|\Psi\rangle]\cdot M_{\varphi}^{T},\] (40)
+
+where the rotation matrix $M_{\varphi}$ is given by:
+
+\[M_{\varphi} = \left(\begin{array}[]{cccccccc}\cos{\phi}&0&-\sin
+
+Diagonalizing the provided matrix yields four potential generators of interferometric rotation, as presented by Niezgodaet et al. (2019). These are:
+
+$\hat{\Lambda}_{{\rm S},12} = \frac{\hat{\Lambda}_{1} - \gamma_{12}\hat{\Lambda}_{2}}{\sqrt{1 + \gamma_{12}^{2}}}$ (Equation 43)
+
+$\hat{\Lambda}_{{\rm S},55} = \hat{\Lambda}_{5}$ (Equation 44)
+
+$\hat{\Lambda}_{{\rm S},77} = \hat{\Lambda}_{7}$ (Equation 45)
+
+where $\gamma_{ij} = \frac{\Gamma_{jj} - \Gamma_{ii} - \sqrt{(\Gamma_{ii} - \Gamma_{jj})^{2} + 4\Gamma_{ij}}}{2\Gamma_{ij}}$. The corresponding quantum Fisher information (QFI) values are obtained from the variance:
+
+$F_{Q,{\rm S}} = 4\Delta^{2}\hat{\Lambda}_{{\rm S},ij}$ (Equation 46)
+
+These QFI values depend on time and can take on three distinct values. It is noteworthy that in the short-time dynamics, the QFI value is determined by $\hat{\Lambda}_{{\rm S},12}$ (or equivalently, $\hat{\Lambda}_{{\rm S},34}$) . Furthermore, it can be approximated as $\hat{\Lambda}_{{\rm S},12} \approx \hat{\Lambda}_{1} = \hat{J}_{x}$ without a significant loss in the QFI value, as demonstrated in Figure 9.
+
+
+C.3 Spinor system: non-zero fluctuations of magnetization
+
+We consider here the more general case of the rotated state 
+ 
+ $\displaystyle|\Psi_{\varphi}\rangle=e^{-i\varphi\hat{J}_{z,s}}e^{-i\hat{H}t}|\Psi\rangle,$ 
+ used by us in the main text to locate dynamics around stable fixed points. Here, $\hat{J}_{z,s}=\frac{1}{2}(\hat{D}_{xy}+\sqrt{3}\hat{Y})$ . The analysis presented in the previous subsection is not valid because $[\hat{J}_{z,s},\hat{H}]\neq 0$ . Moreover, the state after rotation is no longer in the subspace of zero magnetization but it is spread over all subspaces of even magnetization. Therefore, it has non-zero fluctuations of magnetization.
+
+To compute the elements of the covariance matrix, we employ Eq. (13), which involves an average over a general state $|k\rangle$ that is decomposed in the Fock state basis with coefficients $C_{M,n}$ derived from the rotation symmetry around $\hat{J}_{z,s}$. The summation over $n$ in this average is contingent upon the sign of $M$, spanning from the maximum value of $\max(0,M/2,M)$ to the minimum value of $\min(M,(N+M)/2,M+N)$ for $-N < M < N$. Due to the rotation, the system exhibits a non-zero time-invariant variance of magnetization $\Delta\hat{J}_{z}$. Furthermore, the possible eigenvalues of $\hat{J}_{z}$ can only be even, i.e., $M \in \{-N, -N+2, ..., N-2, N\}$, given that $N$ is even as a result of the rotation operator symmetry $\hat{J}_{z,s}$. Consequently, $C_{M,n} = C_{-M,n-M}$.
+
+
+We can categorize operators that alter magnetization by $\pm 1$, $\pm 2$, and $0$. Specifically, operators that change magnetization by $\pm 1$ belong to the group $\{\hat{J}_{x},\hat{Q}_{yz},\hat{J}_{y},\hat{Q}_{zx}\}$, those that change magnetization by $\pm 2$ belong to $\{\hat{D}_{xy},\hat{Q}_{xy}\}$, and those that do not change magnetization belong to $\{\hat{Y},\hat{J}_{z}\}$. The average value of operators in the group $\{\hat{J}_{x},\hat{Q}_{yz},\hat{J}_{y},\hat{Q}_{zx}\}$ is zero as the state is spread across subspaces of even magnetization. Furthermore, the average value of products of operators that change magnetization by an odd number are zero. When calculating the covariance matrix elements $\Gamma_{ij}$, we use this property: the subscript $i$ represents an operator from the group $\{\hat{J}_{x},\hat{Q}_{yz},\hat{J}_{y},\hat{Q}_{zx}\}$, and $j$ represents an operator from $\{\hat{D}_{xy},\hat{Q}_{xy},\hat{Y},\hat{J}_{z}\}$. The second key consideration is the symmetry of the state, which is represented by $C_{M,n}=C_{-M,n-M}$, implying that elements such as $\Gamma_{14}$ or $\Gamma_{58}$ are zero.
+
+
+After careful consideration of all covariance matrix elements, one can show that it simplifies to 
+ 
+ $\Gamma_{\rm S}=\Gamma_{s}\oplus\Gamma_{a}\oplus\Gamma_{r},$  (47) 
+ for the spinor system, where 
+ 
+ $\Gamma_{s}=\left(\begin{array}[]{cc}\Gamma_{11}&\Gamma_{12}\\
+\Gamma_{12}&\Gamma_{22}\end{array}\right),\ \ \ \Gamma_{a}=\left(\begin{array}[]{cc}\Gamma_{33}&\Gamma_{34}\\
+\Gamma_{34}&\Gamma_{44}\end{array}\right),$ 
+ 
+ 
+ $\centering\Gamma_{r}=\left(\begin{array}[]{cccc}\Gamma_{55}&0&\Gamma_{57}&0\\
+0&\Gamma_{66}&0&\Gamma_{68}\\
+\Gamma_{57}&0&\Gamma_{77}&0\\
+0&\Gamma_{68}&0&\Gamma_{88}\end{array}\right).\@add@centering$ 
+
+
+Diagonalization of ( 47 ) gives the following eigenvalues: 
+ 
+ $\displaystyle\lambda^{(\pm)}_{{\rm S},ij}=\frac{\Gamma_{{\rm S},ii}+\Gamma_{{\rm S},jj}\pm\sqrt{(\Gamma_{{\rm S},ii}-\Gamma_{{\rm S},jj})^{2}+4\Gamma_{{\rm S},ij}^{2}}}{2},$  (48) 
+ where the pairs of indexes $(i,j)$ are one of $(1,2),(3,4),(5,7),(6,8)$ . The contribution to the maximal value of the QFI can be from $\lambda^{(+)}_{{S},ij}$ for which the four possible generators of interferometric rotation are 
+ 
+ $\hat{\Lambda}_{{\rm S},ij}=\frac{\hat{\Lambda}_{j}-\gamma_{ij}\hat{\Lambda}_{j}}{\sqrt{1+\gamma_{ij}^{2}}}$  (49) 
+ where $\gamma_{ij}=(\Gamma_{jj}-\Gamma_{ii}-\sqrt{(\Gamma_{ii}-\Gamma_{jj})^{2}+4\Gamma_{ij}})/(2\Gamma_{ij})$ . The corresponding values of the QFI determined by ( 49 ), namely 
+ 
+ $F_{Q,\,{\rm S}}=4\Delta^{2}\hat{\Lambda}_{{\rm S},ij},$  (50) 
+ are demonstrated in Fig. 10 .
+
+Appendix D Scaling of the QFI for bimodal system
+
+In order to analyze scaling of the QFI with the system size, we use a general theory developed in André and Lukin (2002) . One starts with equations of motion for operators of spin components which involve terms that depend on the first-order and second-order moments. Then, the time evolution of the second-order moments depends on second- and third-order moments, and so on. It leads to the Bogoliubov-Born-Green-Kirkwood-Yvon hierarchy of equations of motion for expectation values of operator products. We truncate the hierarchy by keeping the first- and the second-order moments. 
+ 
+ $\displaystyle\langle\hat{S}_{i}\hat{S}_{j}\hat{S}_{k}\rangle$ $\displaystyle\simeq\langle\hat{S}_{i}\hat{S}_{j}\rangle\langle\hat{S}_{k}\rangle+\langle\hat{S}_{j}\hat{S}_{k}\rangle\langle\hat{S}_{i}\rangle+\langle\hat{S}_{k}\hat{S}_{i}\rangle\langle\hat{S}_{j}\rangle$ 
+ 
+ $\displaystyle-2\langle\hat{S}_{i}\rangle\langle\hat{S}_{j}\rangle\langle\hat{S}_{k}\rangle.$  (51) 
+
+
+Initially, we rotate the Hamiltonian (1) by $\pi/4$ around the $x$-axis of the Bloch sphere. This rotation is necessary because the constant energy line emanating from the saddle fixed point forms a non-zero angle with the $z$-axis, which is approximately $\pi/4$ for $\Lambda=2$. The rotation of the Hamiltonian corresponds to the same rotation of the mean-field phase portrait, resulting in the constant energy line emanating from the saddle fixed point lying along the $y$-axis, as shown in Fig. 2. Notably, the largest fluctuations that contribute to the QFI value are now aligned along the $y$-axis.
+
+Subsequently, we introduce a small parameter $\varepsilon=1/N$ and transform the spin components into $\hat{h}_{j}=\sqrt{\varepsilon}\hat{S}_{j}$, while the commutation relations become $[\hat{h}_{i},\hat{h}_{j}]=i\sqrt{\varepsilon}\hat{h}_{k}\epsilon_{ijk}$. The rotated Hamiltonian (1) takes the form:
+
+$\hat{H}=\frac{1}{\sqrt{\varepsilon}}\left(\hat{h}_{z}^{2}+\hat{h}_{y}^{2}+\hat{h}_{z}\hat{h}_{y}+\hat{h}_{y}\hat{h}_{z}-a\hat{h}_{x}\right),$ (52)
+
+where $a=2\varepsilon\Omega/\chi$, the energy unit is set to $\hbar\chi/(2\sqrt{\varepsilon})$ and we have introduced a dimensionless time $\tau=\chi t/(2\sqrt{\varepsilon})$.
+
+
+
+For our purposes, we consider the equations of motion for the expectation values, denoted as $s_{j} = \langle \hat{h}_{j} \rangle$, and second-order moments, denoted as $\delta_{jk} = \langle \hat{h}_{j} \hat{h}_{k} + \hat{h}_{k} \hat{h}_{j} \rangle - 2 \langle \hat{h}_{j} \rangle \langle \hat{h}_{k} \rangle$. The pertinent equations of motion are as follows:
+
+$\dot{s}_{x} = \delta_{zz} - \delta_{yy}$ (53)
+
+$\dot{\delta}_{zz} = -4\delta_{zz}s_{x} - 2a\delta_{yz}$ (54)
+
+$\dot{\delta}_{yy} = 4\delta_{yy}s_{x} + 2a\delta_{yz}$ (55)
+
+With the initial spin coherent state $|0,\pi/2\rangle_{\rm BI}$, we have the following initial conditions: $s_{x}(0) = \frac{1}{2\sqrt{\varepsilon}}$ and $\delta_{zz}(0) = \delta_{yy}(0) = \frac{1}{2}$.
+
+
+Equation (54) is non-homogeneous. Its homogeneous solution is $\delta_{zz}(\tau) = \delta_{zz}(0)e^{-f(\tau)}$ with $f(\tau) = 4\int_{0}^{\tau}s_{x}(t)\,\mathrm{d}t$. The non-homogeneous solution can be found by setting $\delta_{zz}(\tau) = Ce^{-f(\tau)}$ where $C(\tau) = C(0) - a\int_{0}^{\tau}\delta_{yz}(t)e^{f(t)}\,\mathrm{d}t = \delta_{zz}(0) + \Phi(\tau)$. Since $\Phi(\tau)$ is small and of the order of the small parameter $\varepsilon$, it can be neglected. In the short-time expansion (up to the second order), $\Phi(\tau) \simeq \Phi(0) + \dot{\Phi}(0)\tau = 0$ due to $\delta_{yz}(0) = 0$. Thus, the solution of (54) can be approximated well by the solution of its homogeneous part. The same analysis can be applied to Eq. (55), yielding $\delta_{yy}(\tau) = \delta_{yy}(0)e^{f(\tau)}$. Equation (53) becomes $\dot{s}_{x}(\tau) = -\sinh\left[f(\tau)\right]$, which has an analytical solution when expanded up to the first order in a Taylor series, $f(\tau) \simeq f(0) + \dot{f}(0)\tau$. The self-consistency condition provides $f(0) = 0$ and $\dot{f}(0) = 4s_{x}(0)$. The approximate solutions for $s_{x}$ and $\delta_{yy}$ are given as
+
+\begin{align}
+s_{x}(\tau) &= s_{x}(0) - \frac{\cosh(4s_{x}(0)\tau) - 1}{4s_{x}(0)}, \tag{56} \\
+\delta_{yy}(\tau) &= \delta_{yy}(0)e^{4s_{x}(0)\tau - \frac{\sinh(4s_{x}(0)\tau) - 4s_{x}(0)\tau}{[4s_{x}(0)]^{2}}}. \tag{57}
+\end{align}
+
+
+
+The scaling of the first maximum in QFI can be demonstrated by maximizing it over different time resolutions, which results in $\chi t_{max} \approx \frac{\ln(2N)}{N}$. The leading term of the QFI maximum at the optimal time is approximately $F_{Q,{\rm BI}} \simeq 4\Delta^{2}\hat{S}_{y} \simeq \frac{2}{\varepsilon}\delta_{yy} \simeq \frac{2}{e}\frac{1}{\varepsilon^{2}} \approx 0.7N^{2}$.
+
+
+Appendix E Scaling of the QFI for spinor system
+
+In the case of spinor system we follow the same track of calculations as presented in the previous Appendix. First we rotate the spin-1 Hamiltonian ( 4 ) around the $\hat{J}_{z,s}$ by $\pi/8$ angle. It is to locate the constant energy lines outgoing from a saddle fixed point along the $\hat{J}_{y,s}$ axis of the Bloch sphere in the symmetric subspace. However, this time the angle is two times smaller because commutation relations $[\hat{J}_{i,s},\hat{J}_{j,s}]=i2\hat{J}_{k,s}\epsilon_{ijk}$ contain the factor $2$ . After the rotation of Hamiltonian, one introduces the small parameter $\varepsilon=1/N$ , transforming spin components into $\hat{h}_{j}=\sqrt{\varepsilon}\hat{J}_{j}$ , $\hat{q}_{j}=\sqrt{\varepsilon}\hat{Q}_{j}$ . The rotated and re-scaled Hamiltonian reads 
+ 
+ $\displaystyle\hat{H}$ $\displaystyle=-\frac{1}{\sqrt{\varepsilon}}\left[\frac{1}{2}\left(\hat{h}_{x,s}+\hat{h}_{y,s}\right)^{2}+\left(\hat{h}_{y,a}{\rm cos}\frac{\pi}{8}+\hat{h}_{z,a}{\rm sin}\frac{\pi}{8}\right)^{2}\right.$ 
+ 
+ $\displaystyle+\left.\left(\hat{h}_{z}{\rm cos}\frac{\pi}{8}+\hat{q}_{xy}{\rm sin}\frac{\pi}{8}\right)^{2}+a\hat{n}_{0}-a\hat{n}\right],$  (58) 
+ where $\hat{n}_{0}=\sqrt{\varepsilon}\hat{N}_{0}$ , $\hat{n}=\sqrt{\varepsilon}\hat{N}$ , $a=2q/\varepsilon$ while the energy unit is $\sqrt{\varepsilon}|c^{\prime}_{2}|/2$ and we introduced dimensionless time $\tau=\sqrt{\varepsilon}t|c^{\prime}_{2}|/2\hbar$ .
+
+Equations of motion for expectation values $s_{j}=\langle\hat{h}_{j}\rangle$ and second order moments $\delta_{j,k}=\langle\hat{h}_{j}\hat{h}_{k}+\hat{h}_{k}\hat{h}_{j}\rangle-2\langle\hat{h}_{j}\rangle\langle\hat{h}_{k}\rangle$ are much more complex as for bimodal condensates, but one can find the general structure quite similar. The relevant for our purposes are 
+ 
+ $\displaystyle\dot{s}_{zs}=-(\delta_{ys,ys}-\delta_{xs,xs})-\frac{\sqrt{2}}{4}(\delta_{ya,ya}-\delta_{xa,xa}),$  (59) 
+ 
+ $\displaystyle\dot{\delta}_{xs,xs}=-2\delta_{xs,xs}s_{zs}-a\delta_{xs,ys},$  (60) 
+ 
+ $\displaystyle\dot{\delta}_{ys,ys}=2\delta_{ys,ys}s_{zs}+a\delta_{xs,ys},$  (61) 
+ for symmetric operators, and 
+ 
+ $\displaystyle\dot{s}_{za}=-\frac{1}{2}(\delta_{ys,ys}-\delta_{xs,xs})-\frac{\sqrt{2}}{2}(\delta_{ya,ya}-\delta_{xa,xa}),$  (62) 
+ 
+ $\displaystyle\dot{\delta}_{xa,xa}=-\sqrt{2}\delta_{xa,xa}s_{za}-a\delta_{xa,ya},$  (63) 
+ 
+ $\displaystyle\dot{\delta}_{ya,ya}=\sqrt{2}\delta_{ya,ya}s_{za}+a\delta_{xa,ya},$  (64) 
+ for anti-symmetric operators. In Table 1 we listed commutation relations useful to obtain ( 59 ) - ( 64 ).
+
+The initial spin coherent state $|0,\pi\rangle_{\rm S}$ gives the following non-zero initial values for $s_{z\sigma}(0)=-1/\sqrt{\varepsilon}$ and $\delta_{x\sigma,x\sigma}(0)=\delta_{y\sigma,y\sigma}(0)=1$ for $\sigma=s,a$ . Equations for expectation values for first and second moments in the short-time expansion show that some terms appearing in the above equations are zero if their average values are initially zero, e.g. $\delta_{z,z}=0,\,\delta^{q}_{xy,xy}\simeq 0$ . We did not put such terms in the final forms of Eqs.  ( 53 ) - ( 55 ). The equations for symmetric and anti-symmetric operators are very similar to the one obtained for the bimodal system. There are two differences: (i) $s_{z\sigma}$ (with $\sigma=s,a$ ) in ( 59 ) and ( 62 ) play the role of $s_{x}$ in ( 53 ) and (ii) symmetric and anti-symmetric subspaces are coupled to each other in ( 59 ) and ( 62 ). The coupling makes the scaling analysis a little more intricate. Taking both into account, one can use solutions from the previous Appendix and find 
+ 
+ $\displaystyle s_{zs}(\tau)$ $\displaystyle=s_{zs}(0)-$ 
+ 
+ $\displaystyle-\frac{{\rm cosh}(2s_{zs}(0)\tau)-1}{2s_{zs}(0)}-\frac{\sqrt{2}}{4}\frac{{\rm cosh}(\sqrt{2}s_{za}(0)\tau)-1}{\sqrt{2}s_{za}(0)},$  (65) 
+ 
+ $\displaystyle s_{za}(\tau)$ $\displaystyle=s_{za}(0)-$ 
+ 
+ $\displaystyle-\frac{1}{2}\frac{{\rm cosh}(2s_{zs}(0)\tau)-1}{2s_{zs}(0)}-\frac{\sqrt{2}}{2}\frac{{\rm cosh}(\sqrt{2}s_{za}(0)\tau)-1}{\sqrt{2}s_{za}(0)}.$  (66) 
+ Note, the symmetric and anti-symmetric subspaces are coupled to each other and this has to be taken into account while explaining the scaling of $\delta_{x\sigma,x\sigma}$ .
+
+In order to explain the scaling of the first maximum, one needs to find a derivative of the variances in respect to time. Now, there are two equations for $\sigma=s$ and $\sigma=a$ that help to express relations among ${\rm cosh}$ having different arguments. The maximization of the QFI over the time provides the scaling of the maximum to be $|c^{\prime}_{2}|t_{max}/\hbar={\rm ln}(8N/3)$ by keeping leading terms in $\varepsilon$ . Finally, the value of the maximum of the QFI gives $F_{Q,{\rm S}}\simeq 4\Delta^{2}\hat{J}_{xs}\simeq\frac{16}{3}e^{-2/3}N^{2}\approx 2.8N^{2}$ when considering the leading terms in $\varepsilon$ .
+
+Appendix F Explanation of the QFI stabilization after rotation in the long times limit for spinor system
+
+We follow the same logic presented in Section V's closing argument regarding the bimodal system. Before the spinor system's rotation, the interferometric rotation direction is approximately $\hat{\Lambda}_{{\rm S},{\bf n}_{max}}(t_{1}^{-})\approx\frac{\hat{J}_{x\sigma}\pm\hat{J}_{y\sigma}}{\sqrt{2}}$, with a "+" sign for $\sigma=s$ and a "-" sign for $\sigma=a$. This leads to $F_{Q,{\rm S}}(t_{1}^{-})=4\Delta^{2}\left(\frac{\hat{J}_{x\sigma}\pm\hat{J}_{y\sigma}}{\sqrt{2}}\right)$. After the rotation, for $t\geq t_{1}^{+}$, we have $\hat{\Lambda}_{{\rm S},{\bf n}_{max}}(t)\approx\hat{J}_{ya}$, and $F_{Q,{\rm BI}}(t)=4\Delta^{2}\hat{J}_{ya}$. This is a reasonable approximation, as shown in Appendix C and Figures 9 and 10.
+
+
+[ORIGINAL PARAGRAPH]
+Here we use the same reasoning as presented in the main text concerning the bimodal system at the end of Section V. We assume that the direction of interferometric rotation just before the rotation for spinor system is $\hat{\Lambda}_{{\rm S},{\bf n}_{max}}(t_{1}^{-})\approx\frac{\hat{J}_{x\sigma}\pm\hat{J}_{y\sigma}}{\sqrt{2}}$ , with sign ”+” for $\sigma=s$ and sign ”-” for $\sigma=a$ , and therefore $F_{Q,{\rm S}}(t_{1}^{-})=4\Delta^{2}\left(\frac{\hat{J}_{x\sigma}\pm\hat{J}_{y\sigma}}{\sqrt{2}}\right)$ , while after the rotation for $t\geq t_{1}^{+}$ one has $\hat{\Lambda}_{{\rm S},{\bf n}_{max}}(t)\approx\hat{J}_{ya}$ and $F_{Q,{\rm BI}}(t)=4\Delta^{2}\hat{J}_{ya}$ . It is a fairly good approximation, as demonstrated in Appendix C and in Figs. 9 and 10.
+
+For $t\leq t_{1}^{+}$, the QFI $F_{Q,\text{S}}(t)$ can be expressed as
+
+$F_{Q,\text{S}}(t) = 4\left[-2N\frac{\langle\hat{H}_{\text{S}}(t)\rangle}{c_{2}^{\prime}}-\langle\hat{J}_{xs}^{2}(t)\rangle-\langle\hat{J}_{z}^{2}(t)\rangle+q\langle\hat{N}_{0}(t)\rangle\right],$
+(67)
+where we have utilized Eq. (4). We point out that the total energy is conserved during rotation, $\langle\hat{H}_{\text{S}}(t)\rangle = \langle\hat{H}_{\text{S}}(t_{1}^{+})\rangle$, while the average values of $\hat{J}_{xs}^{2}(t),\, \hat{J}_{z}^{2}(t),\, \hat{N}_{0}(t)$ are non-negative. These properties result in the inequality
+
+$F_{Q,\text{S}}(t) \geq -8N\langle\hat{H}_{\text{S}}(t_{1}^{+})\rangle,$
+(68)
+The energy of the spinor system after rotation (18) with $\alpha_{\text{S}} = \pi/4$ is $\langle\hat{H}_{\text{S}}(t_{1}^{+})\rangle = -\frac{1}{2N}\left[\langle\hat{J}_{xs}^{2}(t_{1}^{-})\rangle + \frac{\langle\left(\hat{J}_{ya}(t_{1}^{-}) - \hat{J}_{xa}(t_{1}^{-})\right)^{2}\rangle}{2} + \frac{\langle Q_{xy}^{2}\rangle}{2}\right]$. Using this in Eq. (68), we can demonstrate that
+
+$F_{Q,\text{S}}(t) \geq F_{Q,\text{S}}(t_{1}^{-}),$
+(69)
+for $t\geq t_{1}^{+}$, as $\langle\hat{J}_{xs}^{2}(t_{1}^{-})\rangle \geq 0$ and $\langle Q_{xy}^{2}\rangle \geq 0$ as well.
+
+
+References
+
+Giovannettiet al.(2006) V. Giovannetti, S. Lloyd,  and L. Maccone,Phys. Rev. Lett.96, 010401 (2006).
+Hylluset al.(2010) P. Hyllus, O. Gühne,  and A. Smerzi,Phys. Rev. A82, 012337 (2010).
+Tóth (2012) G. Tóth,Phys. Rev. A85, 022322 (2012).
+Mandel and Wolf (1995) L. Mandel and E. Wolf,Optical Coherence and Quantum Optics(Cambridge University Press, 1995).
+Barsottiet al.(2018) L. Barsotti, J. Harms,  and R. Schnabel,Reports on Progress in Physics82, 016905 (2018).
+Tse et al. (2019) M. Tse et al. (LIGO Collaboration),Phys. Rev. Lett.123, 231107 (2019).
+Acernese et al. (2019) F. Acernese et al. (Virgo Collaboration),Phys. Rev. Lett.123, 231108 (2019).
+Pezzèet al.(2018) L. Pezzè, A. Smerzi, M. K. Oberthaler, R. Schmied,  and P. Treutlein,Rev. Mod. Phys.90, 035005 (2018).
+Kitagawa and Ueda (1993) M. Kitagawa and M. Ueda,Phys. Rev. A47, 5138 (1993).
+Yukawaet al.(2013) E. Yukawa, M. Ueda,  and K. Nemoto, Phys. Rev. A88, 033629 (2013).
+Schleier-Smithet al.(2010) M. H. Schleier-Smith, I. D. Leroux,  and V. Vuletić,Phys. Rev. Lett.104, 073604 (2010).
+Bohnetet al.(2014) J. G. Bohnet, K. C. Cox, M. A. Norcia, J. M. Weiner, Z. Chen,  and J. K. Thompson,Nature Photonics8, 731–736 (2014).
+Haaset al.(2014) F. Haas, J. Volz, R. Gehr, J. Reichel,  and J. Estève,Science344, 180 (2014).
+Riedelet al.(2010) M. Riedel, P. Böhi, Y. Li, T. W. Hänsch, A. Sinatra,  and P. Treutlein, Nature464, 1170 (2010).
+Grosset al.(2010) C. Gross, T. Zibold, E. Nicklas, J. Estéve,  and M. K. Oberthaler, Nature464, 1165 (2010).
+Laudatet al.(2018) T. Laudat, V. Dugrain, T. Mazzoni, M.-Z. Huang, C. L. G. Alzar, A. Sinatra, P. Rosenbusch,  and J. Reichel,New Journal of Physics20, 073018 (2018).
+Hamleyet al.(2012) C. D. Hamley, C. S. Gerving, T. M. Hoang, E. M. Bookjans,  and M. S. Chapman, Nature Physics8(2012).
+Lückeet al.(2011) B. Lücke, M. Scherer, J. Kruse, L. Pezzé, F. Deuretzbacher, P. Hyllus, O. Topic, J. Peise, W. Ertmer, J. Arlt, L. Santos, A. Smerzi,  and C. Klempt, Science334, 773 (2011).
+Kruseet al.(2016) I. Kruse, K. Lange, J. Peise, B. Lücke, L. Pezzè, J. Arlt, W. Ertmer, C. Lisdat, L. Santos, A. Smerzi,  and C. Klempt, Phys. Rev. Lett.117, 143004 (2016).
+Zouet al.(2018) Y.-Q. Zou, L.-N. Wu, Q. Liu, X.-Y. Luo, S.-F. Guo, J.-H. Cao, M. K. Tey,  and L. You,Proceedings of the National Academy of Sciences115, 6381 (2018).
+Quet al.(2020) A. Qu, B. Evrard, J. Dalibard,  and F. Gerbier, “Probing spin correlations in a bose-einstein condensate near the single atom level,”  (2020),arXiv:2004.09003 [cond-mat.quant-gas].
+Hylluset al.(2012) P. Hyllus, W. Laskowski, R. Krischek, C. Schwemmer, W. Wieczorek, H. Weinfurter, L. Pezzé,  and A. Smerzi,Phys. Rev. A85, 022321 (2012).
+Braunstein and Caves (1994) S. L. Braunstein and C. M. Caves, Phys. Rev. Lett.72, 3439 (1994).
+Gessneret al.(2019) M. Gessner, A. Smerzi,  and L. Pezzè,Phys. Rev. Lett.122, 090503 (2019).
+Chiruvelli and Lee (2011) A. Chiruvelli and H. Lee,Journal of Modern Optics58, 945 (2011).
+Kajtochet al.(2016) D. Kajtoch, K. Pawłowski,  and E. Witkowska,Phys. Rev. A93, 022331 (2016).
+Trenkwalderet al.(2016) A. Trenkwalder, G. Spagnolli, G. Semeghini, S. Coop, M. Landini, P. Castilho, L. Pezzè, G. Modugno, M. Inguscio, A. Smerzi,  and M. Fattori, Nature Physics12, 826 (2016).
+Milburnet al.(1997) G. J. Milburn, J. Corney, E. M. Wright,  and D. F. Walls,Phys. Rev. A55, 4318 (1997).
+Leggett (2001) A. J. Leggett,Rev. Mod. Phys.73, 307 (2001).
+Smerziet al.(1997) A. Smerzi, S. Fantoni, S. Giovanazzi,  and S. R. Shenoy,Phys. Rev. Lett.79, 4950 (1997).
+Kawaguchi and Ueda (2012) Y. Kawaguchi and M. Ueda,Physics Reports520, 253  (2012), spinor Bose–Einstein condensates.
+Stamper-Kurn and Ueda (2013) D. M. Stamper-Kurn and M. Ueda,Rev. Mod. Phys.85, 1191 (2013).
+Ho (1998) T. L. Ho, Phys. Rev. Lett.81, 742 (1998).
+Ohmi and Machida (1998) T. Ohmi and K. Machida, Journal of the Physical Society of Japan67, 1822 (1998).
+Gerbieret al.(2006) F. Gerbier, A. Widera, S. Fölling, O. Mandel,  and I. Bloch, Phys. Rev. A73, 041602(R) (2006).
+Gervinget al.(2012) C. S. Gerving, T. M. Hoang, B. J. Land, M. Anquez, C. D. Hamley,  and M. S. Chapman, Nature Communications3, 1169 EP  (2012).
+Langeet al.(2018) K. Lange, J. Peise, B. Lücke, I. Kruse, G. Vitagliano, I. Apellaniz, M. Kleinmann, G. Tóth,  and C. Klempt,Science360, 416 (2018).
+Lückeet al.(2014) B. Lücke, J. Peise, G. Vitagliano, J. Arlt, L. Santos, G. Tóth,  and C. Klempt,Phys. Rev. Lett.112, 155304 (2014).
+Duanet al.(2002) L.-M. Duan, J. I. Cirac,  and P. Zoller, Phys. Rev. A65, 033619 (2002).
+Feldmannet al.(2018) P. Feldmann, M. Gessner, M. Gabbrielli, C. Klempt, L. Santos, L. Pezzè,  and A. Smerzi,Phys. Rev. A97, 032339 (2018).
+Sorelliet al.(2019) G. Sorelli, M. Gessner, A. Smerzi,  and L. Pezzé,Physical Review A99, 022329 (2019).
+Pezzé and Smerzi (2014) L. Pezzé and A. Smerzi, inAtom Interferometry (Proceedings of the International School of Physics)(Societa Italiana di Fisica, 2014).
+Kajtoch and Witkowska (2015) D. Kajtoch and E. Witkowska,Phys. Rev. A92, 013623 (2015).
+André and Lukin (2002) A. André and M. D. Lukin,Phys. Rev. A65, 053819 (2002).
+Greenbergeret al.(1989) D. M. Greenberger, M. A. Horne,  and A. Zeilinger, (Springer)  (1989).
+Greenbergeret al.(1990) D. M. Greenberger, M. A. Horne, A. Shimony,  and A. Zeilinger,American Journal of Physics58, 1131 (1990).
+Niezgodaet al.(2018) A. Niezgoda, D. Kajtoch,  and E. Witkowska,Physical Review A98, 013610 (2018).
+Gerry and Mimih (2010) C. C. Gerry and J. Mimih,Contemporary Physics51, 497 (2010).
+Songet al.(2019) C. Song, K. Xu, H. Li, Y.-R. Zhang, X. Zhang, W. Liu, Q. Guo, Z. Wang, W. Ren, J. Hao, H. Feng, H. Fan, D. Zheng, D.-W. Wang, H. Wang,  and S.-Y. Zhu,Science365, 574 (2019).
+Sunet al.(2014) L. Sun, A. Petrenko, Z. Leghtas, B. Vlastakis, G. Kirchmair, K. M. Sliwa, A. Narla, M. Hatridge, S. Shankar, J. Blumoff, L. Frunzio, M. Mirrahimi, M. H. Devoret,  and R. J. Schoelkopf,Nature511, 444 (2014).
+Ballanceet al.(2016) C. J. Ballance, T. P. Harty, N. M. Linke, M. A. Sepiol,  and D. M. Lucas,Phys. Rev. Lett.117, 060504 (2016).
+Meyeret al.(2001) V. Meyer, M. A. Rowe, D. Kielpinski, C. A. Sackett, W. M. Itano, C. Monroe,  and D. J. Wineland,Phys. Rev. Lett.86, 5870 (2001).
+Andersenet al.(2019) C. K. Andersen, A. Remm, S. Lazar, S. Krinner, J. Heinsoo, J.-C. Besse, M. Gabureac, A. Wallraff,  and C. Eichler,npj Quantum Information5, 69 (2019).
+Gaoet al.(2019) Y. Y. Gao, B. J. Lester, K. S. Chou, L. Frunzio, M. H. Devoret, L. Jiang, S. M. Girvin,  and R. J. Schoelkopf,Nature566, 509 (2019).
+van Damet al.(2019) S. B. van Dam, J. Cramer, T. H. Taminiau,  and R. Hanson,Phys. Rev. Lett.123, 050401 (2019).
+Besseet al.(2020) J.-C. Besse, S. Gasparinetti, M. C. Collodo, T. Walter, A. Remm, J. Krause, C. Eichler,  and A. Wallraff,Phys. Rev. X10, 011046 (2020).
+Cohen (1968) M. Cohen, IEEE Transactions on Information Theory14, 591 (1968).
+Eckertet al.(2006) K. Eckert, P. Hyllus, D. Bruß, U. V. Poulsen, M. Lewenstein, C. Jentsch, T. Müller, E. M. Rasel,  and W. Ertmer,Phys. Rev. A73, 013814 (2006).
+Streedet al.(2012) E. W. Streed, A. Jechow, B. G. Norton,  and D. Kielpinski, Nat. Comm.3, 1 (2012).
+Shersonet al.(2010) J. F. Sherson, C. Weitenberg, M. Endres, M. Cheneau, I. Bloch,  and S. Kuhr, Nature467, 68 (2010).
+Zhanget al.(2012) H. Zhang, R. McConnell, S. Ćuk, Q. Lin, M. H. Schleier-Smith, I. D. Leroux,  and V. Vuletić, Physical review letters109, 133603 (2012).
+Humeet al.(2013) D. B. Hume, I. Stroescu, M. Joos, W. Muessel, H. Strobel,  and M. K. Oberthaler,Phys. Rev. Lett.111, 253001 (2013).
+Oszmaniecet al.(2016) M. Oszmaniec, R. Augusiak, C. Gogolin, J. Kołodyński, A. Acín,  and M. Lewenstein,Phys. Rev. X6, 041044 (2016).
+Ferrini (2011) J. Ferrini,Macroscopic Quantum Coherent Phenomena in Bose Josephson Junctions, Ph.D. thesis, l’Universit’e de Grenoble (2011).
+Schulteet al.(2020) M. Schulte, V. J. Martínez-Lahuerta, M. S. Scharnagl,  and K. Hammerer,Quantum4, 268 (2020).
+Niezgodaet al.(2019) A. Niezgoda, D. Kajtoch, J. Dziekańska,  and E. Witkowska,New Journal of Physics21, 093037 (2019).

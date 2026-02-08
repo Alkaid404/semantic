@@ -1,0 +1,1116 @@
+A Path to Simpler Models Starts With Noise
+
+By Lesia Semenova and Harry Chen and Ronald Parr and Cynthia Rudin
+
+Abstract
+
+Within the boosting framework, we establish that all impurity-based decision tree learning algorithms, such as ID3, C4.5, and CART, exhibit strong robustness against noisy data. Our findings are supported under the most stringent noise model, known as nasty noise, and we provide closely aligned upper and lower bounds for permissible noise levels. Additionally, we demonstrate that these straightforward and widely utilized algorithms maintain theoretical advantages in noisy environments that surpass those of other existing decision tree methods in the literature. Collectively, our results contribute to the ongoing effort to bridge the gap between the empirical success of these practical decision tree algorithms and their theoretical foundations.
+
+1 Introduction
+
+Decision trees have long been a cornerstone of machine learning, offering a straightforward approach to represent datasets through a structured, hierarchical framework. These models are celebrated for their interpretability, providing insights into the decision-making process while maintaining computational efficiency. Their evaluation time is directly tied to the tree's depth, which is often significantly smaller than the total number of nodes, making them highly practical. Notable algorithms like ID3, C4.5, and CART, alongside ensemble methods such as random forests and XGBoost, have solidified decision trees as essential tools in contemporary machine learning.
+
+In their groundbreaking work, Kearns and Mansour (1996) pioneered the analytical approach to impurity-based decision tree learning algorithms through the lens of boosting theory. Their key insight, though deceptively straightforward, was transformative: the splitting criteria at internal nodes in a decision tree can be interpreted as weak classifiers, with the tree's construction acting as an ensemble method that synthesizes these weak classifiers into a robust predictive model. This perspective aligns with the foundational principle of boosting, which posits that a collection of weak learners can be aggregated to form a highly accurate strong learner.
+
+The impact of adversarial perturbation on machine learning models is contingent upon the specific corruption mechanisms permitted and the timing of their application. Among the various noise models, the most formidable is "nasty noise," as defined by Bshouty et al. (2002). In this context, the objective is to develop a binary classification algorithm capable of learning from a distribution $\mathcal{D}$ over $\mathcal{X}\times\{0,1\}$. However, rather than receiving an uncontaminated sample set $S\sim\mathcal{D}^{n}$, the learning process is challenged by an adversary that substitutes up to $\eta$-fraction of the original points in $S$ with arbitrary values, resulting in a corrupted dataset $\widehat{S}$. This adversarial manipulation significantly complicates the learning task, as the algorithm must now operate on the distorted sample $\widehat{S}$.
+
+Impurity-based decision tree learning algorithms utilize an impurity function $\mathcal{G}$ and a class $\mathcal{H}$ of permissible splitting functions. For a given tree $T$, leaf $\ell$, and labeling function $h \in \mathcal{H}$, the notation $T_{\ell,h}$ represents the tree obtained by replacing leaf $\ell$ with an internal node that splits based on $h$. At each iteration, the algorithm examines all possible leaves and labeling functions $h \in \mathcal{H}$, searching for the split that maximizes the reduction $\mathcal{G}(T) - \mathcal{G}(T_{\ell,h})$ in the impurity function. This process aims to minimize the impurity, and consequently, the error of the resulting tree.
+
+Within the boosting framework, we establish that all impurity-based decision tree algorithms exhibit exceptional resilience to noise under a completely general setting. Our findings are applicable to any distribution of features and labels, and we examine the most stringent noise model, encompassing adversarial alterations of both features and labels—a model akin to the "nasty noise" framework introduced by Bshouty et al. (2002), also referred to as strong contamination. Equivalently, our work provides the first rigorous proof of the robustness of impurity-based decision trees in the face of distributional shifts, a perspective we expand upon in the main text. Additionally, we present nearly tight upper and lower bounds on permissible noise rates, demonstrating that our analysis achieves optimal performance within the given constraints.
+
+Finally, when applying this result to product distributions over features, we demonstrate that these algorithms provide strong performance guarantees in noisy environments, surpassing the capabilities of existing methods in the extensive body of decision tree learning theory. Interestingly, most of these advanced algorithms were developed after ID3, C4.5, and CART in the 1980s, and despite their complexity, they are rarely used in practical applications.
+
+Our research diverges from existing studies in two key aspects. First, our findings are specifically tailored to impurity-based decision tree algorithms, including ID3, CART, and C4.5, which are widely utilized in practical applications. Our primary objective is to examine and confirm the noise tolerance characteristics of these algorithms, as opposed to branching programs, which are not commonly employed. Second, we focus on the most robust noise model, known as nasty noise, which allows for corruptions in both labels and features. In contrast, prior works only addressed noise affecting labels, not the features themselves.
+
+2 Related Work
+
+Kearns and Mansour (1996) were the first to introduce the perspective of interpreting impurity-based decision tree algorithms as boosting algorithms. Their foundational analysis operates under the assumption of a noiseless environment. Building on this, Mansour and McAllester (2002) diverged from Kearns and Mansour's original focus on practical decision tree algorithms to explore boosting through branching programs. These programs represent a variation of decision trees where the underlying structure is a directed acyclic graph (DAG) instead of a traditional tree. While Mansour and McAllester's work also assumes a noiseless setting, subsequent research by Kalai (2004) addressed various forms of random label noise, and Kalai et al. (2008b) further extended this to handle agnostic noise.
+
+Random variables are denoted using boldface (e.g., $\boldsymbol{x}\sim\mathcal{D}$). In the context of binary classification, we work with a distribution $\mathcal{D}_{X}$ defined over an arbitrary domain $\mathcal{X}$ and a (potentially randomized) classification function $\mathcal{D}_{Y=1|X}:\mathcal{X}\to[0,1]$. These components collectively define a distribution $\mathcal{D}$ over $\mathcal{X}\times\{0,1\}$. A learning algorithm aims to utilize independent and identically distributed (i.i.d.) samples $(\boldsymbol{x},\boldsymbol{y})\sim\mathcal{D}$ to construct a hypothesis $T:\mathcal{X}\to\{0,1\}$ that attains minimal error with respect to $\mathcal{D}$, where error is specified as:
+
+The existing results, however, are either valid only under noiseless conditions or rely on restrictive and stylized assumptions, thereby limiting their practical applicability. For instance, the work by Blanc et al. (2020a) is grounded in several key assumptions: examples follow a product distribution, noise affects only the labels (agnostic noise, as defined by Haussler (1992)), and the corrupted labels exhibit monotonicity with respect to the features.
+
+3 Notation and Definitions
+
+Let $f:\mathcal{X}\to\{0,1\}$ denote a target function and let $\mathcal{H}$ represent a hypothesis class mapping $\mathcal{X}$ to $\{0,1\}$. For $\gamma>0$, the class $\mathcal{H}$ is said to satisfy the $\gamma$-weak learning condition (independently of the distribution) with respect to $f$ if, for every probability measure $\mathcal{D}_{X}$ on $\mathcal{X}$, there exists a hypothesis $h\in\mathcal{H}$ such that the probability of $h(\boldsymbol{x})$ differing from $f(\boldsymbol{x})$ under $\mathcal{D}_{X}$ is at most $\frac{1}{2}-\gamma$.
+
+The Rashomon set contains all models that achieve near-optimal performance and can be defined as:
+
+Let $f: \mathcal{X} \to \{0,1\}$ denote a target function and $\mathcal{H}$ represent a family of hypotheses mapping $\mathcal{X}$ to $\{0,1\}$. For $\gamma > 0$, we state that $\mathcal{H}$ fulfills the distribution-independent $\gamma$-weak learning assumption with respect to $f$ if, for every distribution $\mathcal{D}_X$ over $\mathcal{X}$, there exists an $h \in \mathcal{H}$ such that $\mathop{\operatorname{Pr}}_{\boldsymbol{x} \sim \mathcal{D}_X}[h(\boldsymbol{x}) \neq f(\boldsymbol{x})] \leq \frac{1}{2} - \gamma$.
+
+For any $\varepsilon, \gamma > 0$ with $\gamma^{1/\gamma} \leq \varepsilon$, where $d \in \mathds{N}$, and $\eta \geq \Omega(\gamma \varepsilon \log(1/\varepsilon))$, there exists a distribution $\mathcal{D}$ whose marginal over $\mathcal{X} \coloneqq \{\pm 1\}^d$ is uniform. This distribution is subject to an $\eta$-nasty noise corruption $\widehat{\mathcal{D}}$. Additionally, there is a hypothesis class $\mathcal{H}$ that satisfies the $\gamma$-weak learning assumption with respect to $\mathcal{D}$. For all impurity functions $\mathcal{G}$, the algorithm $\textsc{TopDownDT}_{\mathcal{H}, \mathcal{G}, \widehat{\mathcal{D}}}(t)$ fails to construct an $\varepsilon$-error tree for $\mathcal{D}$ unless $t \geq 2^{d - O(\log(1/\gamma)/\gamma)}$.
+
+We utilize boldface notation (e.g., $\boldsymbol{x}\sim\mathcal{D}$) to represent random variables. Our framework is based on binary classification, where we have a distribution $\mathcal{D}_{X}$ defined over an arbitrary domain $\mathcal{X}$, along with a (potentially randomized) classification function $\mathcal{D}_{Y=1|X}:\mathcal{X}\to[0,1]$. These components collectively define a joint distribution $\mathcal{D}$ over $\mathcal{X}\times\{0,1\}$. The primary objective of a learning algorithm is to employ independent and identically distributed (i.i.d.) samples $(\boldsymbol{x},\boldsymbol{y})\sim\mathcal{D}$ to develop a hypothesis $T:\mathcal{X}\to\{0,1\}$ that minimizes the error with respect to $\mathcal{D}$, where the error is defined as:
+
+All conditional distributions $\mathcal{D}_{\ell}$ at the terminal nodes of a decision tree are derived from the original distribution $\mathcal{D}$, conditioned on the hypothesis space $\mathcal{H}$. Furthermore, if $\mathcal{D}$ has the property that its feature distribution $\mathcal{D}_{X}$ is a product distribution, and if $\mathcal{H}$ consists of hypotheses that apply a threshold to a single feature (i.e., $h(x) = \mathds{1}[x_{i} \geq \theta]$), then any distribution $\mathcal{D}^{\prime}$ obtained by conditioning $\mathcal{D}$ on $\mathcal{H}$ will retain the structure of a product distribution for $\mathcal{D}^{\prime}_{X}$.
+
+To elaborate further, our initial finding can be summarized as follows:
+
+4 Increase in Variance due to Noise Leads to Larger Rashomon Ratios
+
+Adversarial noise can vary significantly in both magnitude and form, contingent upon the types of corruptions permitted and the timing of their application. We concentrate on the most robust noise model, referred to as nasty noise, as introduced by Bshouty et al. (2002). In this context, our objective is to learn a binary classifier from a distribution $\mathcal{D}$ over $\mathcal{X}\times\{0,1\}$. Instead of obtaining a clean sample set $S\sim\mathcal{D}^{n}$, an adversary is permitted to alter an $\eta$-fraction of points in $S$ with arbitrary values, resulting in a corrupted sample $\widehat{S}$. The learning algorithm subsequently receives this corrupted sample $\widehat{S}$.
+
+Let $\mathcal{E}$ and $\widehat{\mathcal{E}}$ be two probability distributions defined over a domain $\mathcal{V}$, where the total variation distance satisfies $\operatorname{dist}_{\mathrm{TV}}(\mathcal{E},\widehat{\mathcal{E}})\leq\eta$. Consider a function $f:\mathcal{V}\to[0,1]$. Then, the absolute difference between the variances of $f(\boldsymbol{x})$ under these two distributions is bounded by
+
+\[
+\left|\operatorname{{Var}}_{\mathcal{E}}[f(\boldsymbol{x})]-\operatorname{{Var}}_{\widehat{\mathcal{E}}}[f(\boldsymbol{x})]\right|\leq\eta.
+\]
+
+Let $\mathcal{D}$ be a distribution over $\mathcal{X}\times\{0,1\}$ and $\mathcal{H}$ be a hypothesis class mapping $\mathcal{X}$ to $\{0,1\}$. For $\gamma>0$, the hypothesis class $\mathcal{H}$ is said to satisfy the $\gamma$-weak learning assumption with respect to $\mathcal{D}$ if, for any distribution $\mathcal{D}^{\prime}$ induced by conditioning $\mathcal{D}$ on $\mathcal{H}$, there exists an $h\in\mathcal{H}$ such that:
+\[
+\left|\operatorname{{Cov}}_{\mathcal{D}^{\prime}}[h(\boldsymbol{x}),\boldsymbol{y}]\right|\geq\gamma\operatorname{{Var}}_{\mathcal{D}^{\prime}}[\boldsymbol{y}].
+\]
+Such a hypothesis $h$ is referred to as a $\gamma$-advantage hypothesis with respect to $\mathcal{D^{\prime}}$.
+
+This noise model accommodates several weaker noise forms. For instance, if an adversary can only alter the labels of an η fraction of the data, it corresponds to the agnostic noise setting. Similarly, if the adversary must commit to a corruption strategy before observing the sample S, this is equivalent to selecting a distribution $\widehat{\mathcal{D}}$ that differs from $\mathcal{D}$ by an η Total Variation (TV) distance and sampling $\widehat{S}$ from it. This scenario is commonly referred to as the distributional shift setting.
+
+Let \( f: \{\pm 1\}^d \to \{\pm 1\} \) be a function, and \( \mathcal{D}_X = \mathcal{D}_X^{(1)} \times \ldots \times \mathcal{D}_X^{(d)} \) be a product distribution over \( \{\pm 1\}^d \). For \( i \in [d] \), the influence of feature \( i \) on \( f \), denoted as \( \mathrm{Inf}_i(f) \), is defined as \( 2 \cdot \mathop{\operatorname{Pr}}_{\boldsymbol{x} \sim \mathcal{D}_X, \boldsymbol{b} \sim \mathcal{D}_X^{(i)}}[f(\boldsymbol{x}) \neq f(\boldsymbol{x}_{i=\boldsymbol{b}})] \), where \( \boldsymbol{x}_{i=\boldsymbol{b}} \) rerandomizes the \( i \)-th bit of \( \boldsymbol{x} \) with a sample from \( \mathcal{D}_X^{(i)} \).
+
+If the total variation distance between distributions $\mathcal{E}$ and $\widehat{\mathcal{E}}$ satisfies $\operatorname{dist}_{\mathrm{TV}}(\mathcal{E},\widehat{\mathcal{E}})\leq\eta$, then it follows immediately that the total variation distance between their product distributions, $\mathcal{E}^{2}$ and $\widehat{\mathcal{E}}^{2}$, satisfies $\operatorname{dist}_{\mathrm{TV}}(\mathcal{E}^{2},\widehat{\mathcal{E}}^{2})\leq 2\eta$, where $\mathcal{E}^{2}$ represents the distribution resulting from two independent draws from $\mathcal{E}$. Furthermore, since $(f(\boldsymbol{x})-f(\boldsymbol{x}^{\prime}))^{2}\leq 1$, applying Lemma B.1 to Equation 12 with $\mathcal{E}^{2}$ and $\widehat{\mathcal{E}}^{2}$ yields $\left|\operatorname{{Var}}_{\mathcal{E}}[f(\boldsymbol{x})]-\operatorname{{Var}}_{\widehat{\mathcal{E}}}[f(\boldsymbol{x})]\right|\leq\eta.$ ∎
+
+The next step is to show that this increased maximum variance leads to worse generalization.
+
+In essence, nearly all practical decision tree learning algorithms, such as the well-known ID3, C4.5, and CART, employ a greedy, top-down approach to construct decision trees. These algorithms rely on an impurity metric to gauge their progress during the learning process.
+
+Decision trees are a concept class that has been extensively explored within machine learning theory. The body of research on this topic is extensive, covering over three decades, and continues to expand. However, most of the algorithms discussed in this literature do not align with the practical impurity-based decision tree algorithms commonly used today. In fact, many of these algorithms are improper, meaning they do not generate decision trees as their hypotheses. As Kearns and Mansour noted in 1996, "Despite their other achievements, the models of computational learning theory have yet to provide significant insights into the empirical success of programs like C4.5 and CART."
+
+Let $\mathcal{D}$ represent a probability distribution defined over the space $\mathcal{X} \times \{0,1\}$, and let $\mathcal{H}$ denote a set of hypotheses that map elements from $\mathcal{X}$ to $\{0,1\}$. For a given $\gamma > 0$, the class $\mathcal{H}$ is said to satisfy the $\gamma$-weak learning condition with respect to $\mathcal{D}$ if, for any distribution $\mathcal{D}'$ that results from conditioning $\mathcal{D}$ on $\mathcal{H}$, there exists a hypothesis $h \in \mathcal{H}$ such that:
+
+$$
+\left|\operatorname{Cov}_{\mathcal{D}'}[h(\boldsymbol{x}), \boldsymbol{y}]\right| \geq \gamma \operatorname{Var}_{\mathcal{D}'}[\boldsymbol{y}].
+$$
+
+Such a hypothesis $h$ is referred to as a $\gamma$-advantage hypothesis with respect to $\mathcal{D}'$.
+
+The KKL inequality will enable us to demonstrate that a wide range of distributions meet the weak-learning assumption.
+
+Our weak learning assumption as defined in Definition 2.7 is less restrictive than the standard assumption outlined in Definition 2.4. This is due to the equivalence of Equation 2 to the condition $\operatorname{{Pr}}_{(\boldsymbol{x},\boldsymbol{y})\sim\mathcal{D}^{\prime}_{\text{bal}}}[h(\boldsymbol{x})\neq\boldsymbol{y}]\leq 1/2-\gamma$, where $\mathcal{D}^{\prime}_{\text{bal}}$ represents the balanced version of $\mathcal{D}^{\prime}$, ensuring equal likelihood for positive and negative labels through reweighting. Since Definition 2.4 must hold for all distributions over $\mathcal{X}$, it inherently applies to the marginal distribution of $\mathcal{D}^{\prime}_{\text{bal}}$ over $\mathcal{X}$. Consequently, Definition 2.4 entails Definition 2.7.
+
+The feature space is defined as $\mathcal{X} = \{\pm 1\}^d$, and the noise parameter satisfies $\eta \geq \tilde{\Omega}(\varepsilon \gamma)$. There exists a distribution $\mathcal{D}$ with a uniform marginal over $\mathcal{X}$ such that, for any impurity function $\mathcal{G}$, with high probability over a sample $\boldsymbol{S}$ drawn from $\mathcal{D}$, there is an $\eta$-nasty-noise corruption $\widehat{\boldsymbol{S}}$ of $\boldsymbol{S}$. If the algorithm $\mathcal{A}_{\mathcal{G}}$ is trained on $\widehat{\boldsymbol{S}}$, even when all internal nodes of the resulting tree are $\gamma$-advantage hypotheses, the tree must grow to a size of $2^{\Omega(d)}$ to achieve an error rate of $\leq \varepsilon$.
+
+For any impurity function $\mathcal{G}$ and distribution $\mathcal{D}$ over features and labels, with high probability over a sample $\boldsymbol{S}$ drawn from $\mathcal{D}$, if $\mathcal{A}_{\mathcal{G}}$ is trained on an $\eta$-nasty-noise perturbation $\widehat{\boldsymbol{S}}$ of $\boldsymbol{S}$ where $\eta \leq O(\varepsilon \gamma)$, and provided that the internal nodes of the tree are $\gamma$-advantage hypotheses, then growing the tree to size $\exp(O(1/(\gamma^{2}\varepsilon^{2})))$ ensures an error rate of at most $\varepsilon$.
+
+We establish the first noise tolerance guarantees for impurity-based decision tree learning algorithms, applicable in a completely general setting. Theorem 3.1 demonstrates that these algorithms are noise-tolerant boosting methods capable of combining weak hypotheses with a $\gamma$-advantage into a strong hypothesis with an error rate of $\leq \varepsilon$, even when faced with adversarial noise at a rate as high as $\eta \leq O(\varepsilon\gamma)$. Theorem 4.1 provides a nearly matching lower bound, effectively precluding any such guarantee for noise rates $\eta \geq \tilde{\Omega}(\varepsilon\gamma)$. Furthermore, by applying Theorem 3.1 to the context of product distributions over binary features—a setting extensively studied in theoretical literature—we demonstrate that these classic, widely adopted algorithms achieve guarantees surpassing those of any existing theoretical counterparts. Collectively, our findings provide a strong theoretical foundation for the popularity and empirical success of impurity-based decision tree learning algorithms.
+
+We aim to construct a function $f:\{\pm 1\}^{d}\to\{\pm 1\}$ that solely relies on its initial $k$ features, such that $f(x)=g(x_{[1:k]})$ for some function $g:\{\pm 1\}^{k}\to\{\pm 1\}$, where $k$ is significantly smaller than $d$. The distribution $\mathcal{D}$ will then be defined as $(\boldsymbol{x},f(\boldsymbol{x}))$, with $\boldsymbol{x}$ uniformly sampled from $\{\pm 1\}^{d}$. This function will be meticulously crafted to induce an $\eta$-corruption $\widehat{\mathcal{D}}$ of $\mathcal{D}$, ensuring that every hypothesis $h\in\mathcal{H}$ experiences a local reduction in $\mathcal{G}$ of $0$. Consequently, TopDownDT will fail to identify the critical $k$ hypotheses and may instead opt for one of the $d-k$ ineffective hypotheses, which are irrelevant to the label. This process persists until all $d-k$ extraneous hypotheses are exhausted, necessitating a tree depth of $d-k$ and resulting in a tree size of $2^{d-k}$.
+
+We examine binary decision trees $T:\mathcal{X}\to\{0,1\}$ where each internal node $v$ is associated with a function $h_{v}:\mathcal{X}\to\{0,1\}$ from a specified set $\mathcal{H}$ of permissible splitting functions. While the most commonly used splitting functions are threshold-based on a single feature, i.e., $h(x)=\mathds{1}[x_{i}\geq\theta]$, our analysis extends to any arbitrary class $\mathcal{H}$. For each instance $x\in\mathcal{X}$, there exists a distinct path from the root to a leaf in $T$: at each internal node $v$, the instance follows either the left or right branch based on the outcome of $h_{v}(x)$, continuing until a leaf $\ell$ is reached. Consequently, the collection of leaves $\ell\in\mathrm{leaves}(T)$ forms a partition of the input space $\mathcal{X}$. The term $w_{\mathcal{D}}(\ell)$ represents the probability that a random instance $\boldsymbol{x}\sim\mathcal{D}_{X}$ terminates at leaf $\ell$, while $\mathcal{D}_{\ell}$ denotes the distribution $\mathcal{D}$ conditioned on $\boldsymbol{x}$ reaching $\ell$. The notation ${\boldsymbol{\ell}}\sim(T,\mathcal{D})$ indicates a random leaf drawn according to the weights $w_{\mathcal{D}}(\ell)$ assigned to each leaf $\ell\in\mathrm{leaves}(T)$.
+
+We examine binary decision trees $T:\mathcal{X}\to\{0,1\}$, where each internal node $v$ is assigned a function $h_{v}:\mathcal{X}\to\{0,1\}$ from a designated family $\mathcal{H}$ of permissible splitting criteria. While the conventional choice for splitting functions involves univariate thresholding of the form $h(x)=\mathds{1}[x_{i}\geq\theta]$, our analysis extends to any arbitrary family $\mathcal{H}$. For any instance $x\in\mathcal{X}$, traversal through $T$ begins at the root and proceeds via left or right branches at each internal node $v$, depending on the evaluation of $h_{v}(x)$, continuing until a terminal node $\ell$ is attained. Consequently, the collection of leaves $\ell\in\mathrm{leaves}(T)$ partitions the input space $\mathcal{X}$. The term $w_{\mathcal{D}}(\ell)$ signifies the probability that a random variable $\boldsymbol{x}\sim\mathcal{D}_{X}$ terminates at leaf $\ell$, while $\mathcal{D}_{\ell}$ represents the conditional distribution of $\mathcal{D}$ given that $\boldsymbol{x}$ reaches $\ell$. The notation ${\boldsymbol{\ell}}\sim(T,\mathcal{D})$ indicates a stochastic selection of a leaf, with the probability weight assigned to each leaf $\ell\in\mathrm{leaves}(T)$ being proportional to $w_{\mathcal{D}}(\ell)$.
+
+The proof of Proposition 6 is in Appendix E . Both assumptions are typically satisfied in practice.
+
+Decision trees occupy a prominent position among extensively researched concept classes within the realm of learning theory. Over the past three decades, a substantial and ever-expanding body of literature has been dedicated to this subject. Notably, however, a significant portion of this research has not closely mirrored the practical impurity-based decision tree algorithms commonly employed in real-world applications. Many of the analyzed algorithms are improper, meaning that their underlying hypotheses do not conform to the structure of decision trees. As Kearns and Mansour (1996) aptly observed, "Despite the many achievements of computational learning theory, it remains true that these theoretical models have not yet provided substantial insights into the empirical success of programs like C4.5 and CART."
+
+Dachman-Soled et al. (2015) established a lower bound of $\eta \geq \Omega(\sqrt{\gamma})$ under a constant $\varepsilon$, which has since been surpassed by Theorem 1.2, achieving the near-optimal bound of $\eta \geq \tilde{\Omega}(\varepsilon \gamma)$. A pivotal element in our analysis is the Kahn-Kalai-Linial theorem (Kahn et al., 1988), a cornerstone of discrete Fourier analysis. Theorem 1.1 presents a dimension-independent bound on the size of a tree, expressed as $\exp(O(1/(\gamma^2 \varepsilon^2)))$, whereas Theorem 1.2 establishes a significantly stronger lower bound of $2^{\Omega(d)}$.
+
+Before our work, the only algorithms known to be provably resilient to malicious noise had a runtime of $d^{O(\log s)}$ as demonstrated by Linial et al. (1993), which is polynomial in $d$ only when $s$ is constant. These algorithms are fundamentally different from the impurity-based methods commonly used in practice. Theorem 1.3 presents the first $\mathrm{poly}(d)$-time algorithm applicable for any $s=\omega_{d}(1)$; our runtime remains polynomial in $d$ even for $s$ as large as $2^{O(\sqrt{\log d})}$. In the context of the agnostic noise model, Blanc et al. (2020a) recently developed a $\mathrm{poly}(d)\cdot s^{O(\log s)}$ time algorithm.
+
+Our formulation leverages a significant finding from Blanc et al. (2022), which establishes that the process of learning in the presence of $\eta$-nasty-noise corruption is fundamentally equivalent to learning under $\eta$ distribution shift, measured in terms of Total Variation distance ($\operatorname{dist}_{\mathrm{TV}}$). This equivalence holds provided that the learner's interaction with its training data is limited to computing expectations. For a comprehensive exploration of the theoretical connection between Theorems 1.1 and 3.1, along with a detailed runtime analysis of the TopDownDT algorithm, please consult the supplementary materials in Appendix D.
+
+4.1 Step 1. Noise Increases Variance
+
+To establish the optimality of the quantitative parameters in Theorem 1.1, we present two key observations. First, even in the absence of noise, there exist specific target functions that necessitate the growth of the decision tree to a size of $\exp(\Omega(1/\gamma^{2}))$ to attain high accuracy—a finding previously noted in Kearns & Mansour (1996). Second, we demonstrate that the performance guarantees outlined in Theorem 1.1 are invalid for noise rates $\eta\geq\tilde{\Omega}(\varepsilon\gamma)$, even when stringent assumptions about the feature space and data distribution are imposed.
+
+Let $\mathcal{D}$ be a probability distribution where the marginal distribution $\mathcal{D}_{X}$ is defined as a product distribution over the hypercube $\mathcal{X}=\{\pm 1\}^{d}$. The conditional distribution $\mathcal{D}_{Y|X}$ corresponds to a monotonic target function that can be expressed as a decision tree of size $s$. For any impurity measure $\mathcal{G}$, noise level $\eta$ not exceeding $O(\varepsilon/\log s)$, and an approximate distribution $\widehat{\mathcal{D}}$ such that the total variation distance between $\widehat{\mathcal{D}}$ and $\mathcal{D}$ is at most $\eta$, the algorithm $\textsc{TopDownDT}_{\mathcal{H,\mathcal{G},\widehat{S}}}(t)$, where $t$ is set to $s^{O((\log s)/\varepsilon^{2})}$, operates in $\mathrm{poly}(d)\cdot s^{O((\log s)/\varepsilon^{2})}$ time complexity. This algorithm constructs a decision tree hypothesis $T$ of size $t$ that achieves an error rate of at most $\varepsilon$ under the distribution $\mathcal{D}$.
+
+Let $\mathcal{D}^{\prime}$ be an arbitrary induced distribution of $\mathcal{D}$ under $\mathcal{H}$. Our aim is to demonstrate that Equation 2 holds, or equivalently, that there exists some $i \in [d]$ for which
+
+\[
+\operatorname{{Cov}}_{\boldsymbol{x}\sim\mathcal{D}_{X}^{\prime}}[\boldsymbol{x}_{i},f(\boldsymbol{x})]\geq\gamma\operatorname{{Var}}_{\boldsymbol{x}\sim\mathcal{D}_{X}^{\prime}}[f(\boldsymbol{x})].
+\]
+
+Since $\mathcal{H}$ comprises coordinate projections and $\mathcal{D}_{X}$ is uniform over $\{\pm 1\}^{d}$, every induced distribution $\mathcal{D}^{\prime}_{X}$ corresponds to the uniform distribution over all elements of $\mathcal{X}$ consistent with some restriction $\rho$. Given this restriction $\rho$, we define the function $f_{\rho}:\{\pm 1\}^{d-|\rho|}\to\{\pm 1\}$ by $f_{\rho}(x)=f(\mathrm{proj}_{\rho}(x))$.
+
+This noise model encompasses various weaker forms of noise. For instance, if an adversary can only alter the labels of a fraction $\eta$ of the data, it corresponds to agnostic noise. Similarly, if the adversary must commit to a corruption strategy without observing the sample $S$, this is equivalent to selecting a distribution $\widehat{\mathcal{D}}$ that is within $\eta$ Total Variation (TV) distance from the original distribution $\mathcal{D}$, and drawing $\widehat{S}$ from this new distribution. This scenario is commonly referred to as the distributional shift setting.
+
+For any function \( f: \{\pm 1\}^k \to \{\pm 1\} \) and \( \mathcal{D}_X \) being the uniform distribution over \( \{\pm 1\}^k \), there exists a coordinate \( i \in [k] \) such that
+
+\[
+\mathrm{Inf}_i(f) \geq \Omega\left( \frac{\log k}{k} \cdot \operatorname{Var}_{\boldsymbol{x} \sim \mathcal{D}_X}[f(\boldsymbol{x})] \right).
+\]
+
+Let $\mathcal{D}$ be a distribution defined over $\mathcal{X} \times \{0,1\}$ and $\mathcal{H}$ be a hypothesis class mapping from $\mathcal{X}$ to $\{0,1\}$. We define $\mathcal{D}'$ as the distribution induced by conditioning $\mathcal{D}$ on $\mathcal{H}$ if $\mathcal{D}'$ can be expressed as $\mathcal{D}$ conditioned on $\boldsymbol{x} \sim \mathcal{D}_X$ satisfying $h_1(\boldsymbol{x}) \wedge \cdots \wedge h_k(\boldsymbol{x})$ for $h_i \in \mathcal{H}$.
+
+The next step is to show that this increased maximum variance leads to worse generalization.
+
+4.2 Step 2. Higher Variance Leads to Worse Generalization
+
+Most decision tree learning algorithms employed in practice, such as the well-known ID3, C4.5, and CART, utilize a top-down, greedy approach to construct decision trees, employing an impurity function to gauge progress.
+
+The function $f$ will be constructed according to the principles of the Tribes function.
+
+Let D represent a probability distribution over the space X × {0,1}, and let H denote a collection of splitting functions that map elements from X to {0,1}. This class H satisfies the γ-weak learning condition with respect to the distribution D. For any noise level η that is at most O(εγ) and any perturbed distribution D̂ such that the total variation distance between D and D̂ is bounded by η, the decision tree model T, which is constructed using the TopDownDT algorithm with inputs H, G, D̂, achieves an error rate of at most ε under D after t iterations, provided that t is at least exponential in O(1/(γ²ε²)).
+
+We observe that there exists an $h\in\mathcal{H}$ which is a $\gamma$-advantage hypothesis with respect to $\mathcal{D}$. Specifically, 
+
+$\operatorname{{Cov}}[f(\boldsymbol{x}),\boldsymbol{x}_{i}]=\mathrm{Inf}_{i}(f)\geq\frac{\operatorname{{Var}}[f]}{\log s},$ 
+
+where the equality follows from Lemma 5.1 and the inequality from Theorem 5.2. Since $\mathcal{H}$ consists of projection functions, any distribution $\mathcal{D}^{\prime}$ obtained by conditioning $\mathcal{D}$ on $\mathcal{H}$ results in $\mathcal{D}^{\prime}_{X}$ being a product distribution over $\{\pm 1\}^{S}$ for some $S\subseteq[d]$. Moreover, as $f$ is monotone and represented by a size-$s$ decision tree, the same property holds under any restriction imposed by projection functions in $\mathcal{H}$. Consequently, Lemma 5.1 and Theorem 5.2 can be reapplied to establish the existence of a $\gamma$-advantage hypothesis $h\in\mathcal{H}$ with respect to $\mathcal{D}^{\prime}$. ∎
+
+Let $\mathcal{D}$ be a probability distribution where the marginal distribution $\mathcal{D}_{X}$ is a product distribution over the binary space $\mathcal{X}=\{\pm 1\}^{d}$, and the target function $f\coloneqq\mathcal{D}_{Y|X}$ is both monotonic and can be expressed as a decision tree of size $s$. The hypothesis class $\mathcal{H}=\{\mathrm{proj}_{i}:i\in[d]\}$, consisting of projection functions, satisfies the $\gamma$-weak learning assumption with respect to $\mathcal{D}$, where $\gamma$ is set to $1/\log s$.
+
+Definition 2.2 ensures that $\mathcal{G}(p) \geq \min\{p, 1-p\}$ for all $p \in [0,1]$, enabling us to interpret $\mathcal{G}(\mu(\mathcal{D}_{\ell}))$ as an upper bound for $\varepsilon(\mathcal{D}_{\ell})$. By defining $\mathcal{G}_{\mathcal{D}}(T) \coloneqq \operatorname{{\mathds{E}}}_{\boldsymbol{\ell} \sim \mathcal{D}}[\mathcal{G}(\mu(\mathcal{D}_{\boldsymbol{\ell}}))]$, we establish that $\mathcal{G}_{\mathcal{D}}(T)$ serves as an upper bound on $\operatorname{error}_{\mathcal{D}}[T]$. Notable impurity functions include $\mathcal{G}(p) = \textnormal{H}_{2}(p)$ (binary cross-entropy, utilized by ID3 and C4.5), $\mathcal{G}(p) = 4p(1-p)$ (Gini impurity or variance, employed by CART), and $\mathcal{G}(p) = 2\sqrt{p(1-p)}$ (as introduced and analyzed in Kearns & Mansour (1996)). In this paper, we adopt $\mathcal{G}(p) = 4p(1-p)$ for simplicity, though our findings are applicable to all impurity functions with a second derivative bounded away from zero (see Remark C.1 in the appendix).
+
+At each leaf node $\ell$, the prediction is determined by the majority class of the data points that reach that leaf, which can be expressed as $\mathds{1}[\mu(\mathcal{D}_{\ell}) \geq \frac{1}{2}]$. The overall error of the decision tree $T$ on the dataset $\mathcal{D}$ is calculated as the weighted sum of errors at each leaf, where the weight corresponds to the probability of reaching that leaf. Mathematically, this is represented as:
+
+ $$\operatorname{error}_{\mathcal{D}}[T] = \sum_{\ell \in \mathrm{leaves}(T)} w_{\mathcal{D}}(\ell) \varepsilon(\mathcal{D}_{\ell}) = \mathop{{\mathds{E}}\/}_{\mathbf{\boldsymbol{\ell}} \sim (T, \mathcal{D})}[\varepsilon(\mathcal{D}_{\mathbf{\boldsymbol{\ell}}})].$$
+
+4.3 Step 3. Practitioner Chooses a Simpler Hypothesis Space
+
+Impurity-based decision tree learning algorithms are defined by an impurity function $\mathcal{G}$ and a class $\mathcal{H}$ of permissible splitting functions. For a given tree $T$, leaf $\ell$, and label function $h\in\mathcal{H}$, the notation $T_{\ell,h}$ represents the extended version of $T$ obtained by replacing leaf $\ell$ with an internal node that splits using $h$. At each iteration, the algorithm exhaustively evaluates all possible leaves and splitting functions $h\in\mathcal{H}$, typically a finite and small set in practical implementations (e.g., as in scikit-learn), to identify the split that maximizes the reduction $\mathcal{G}(T)-\mathcal{G}(T_{\ell,h})$ in impurity, and consequently, the error of the resulting tree.
+
+4.4 Step 4. Rashomon Ratio is Larger for Simpler Spaces
+
+Kearns and Mansour (1996) were the first to introduce the perspective of interpreting impurity-based decision tree algorithms as boosting algorithms. Their work is grounded in the assumption of a noiseless environment. Building on this foundation, Mansour and McAllester (2002) expanded the research to focus on boosting through branching programs, a specialized form of decision trees characterized by their use of directed acyclic graphs (DAGs) instead of traditional tree structures. While Mansour and McAllester (2002) maintained the noiseless assumption, subsequent studies by Kalai (2004) addressed various forms of random label noise, and Kalai et al. (2008b) further explored the handling of agnostic noise.
+
+A diverse array of decision tree algorithms, including ID3, C4.5, and CART, falls under the umbrella of impurity-based methodologies. These algorithms construct binary decision trees through a greedy, top-down approach for a given labeled dataset $S$. Each algorithm $\mathcal{A}_{\mathcal{G}}$ is characterized by an impurity function $\mathcal{G}:[0,1]\to[0,1]$ and a set $\mathcal{H}$ of permissible splitting functions. The tree's root corresponds to the optimal partition of $S$ into subsets $S_{0}$ and $S_{1}$ via a function $h\in\mathcal{H}$ that maximizes the gain in purity according to $\mathcal{G}$. This process is recursively applied to $S_{0}$ and $S_{1}$ to form the left and right subtrees, respectively. In this paper, we explore this framework in detail, noting that ID3 and C4.5 employ the binary entropy function $\mathcal{G}(p)=\textnormal{H}_{2}(p)$, where the associated purity gain is referred to as information gain, while CART utilizes the Gini impurity measure $\mathcal{G}(p)=4p(1-p)$.
+
+The prediction made at a leaf $\ell$ is determined by the majority label of the data points that reach that leaf, specifically $\mathds{1}[\mu(\mathcal{D}_{\ell}) \geq \frac{1}{2}]$. Consequently, the error of the decision tree $T$ on the dataset $\mathcal{D}$ is calculated as the weighted sum of the errors at each leaf, where the weights correspond to the probability of reaching each leaf. This can be expressed as $\operatorname{error}_{\mathcal{D}}[T] = \sum_{\ell \in \mathrm{leaves}(T)} w_{\mathcal{D}}(\ell) \varepsilon(\mathcal{D}_{\ell}) = \mathop{{\mathds{E}}\/}_{\mathbf{\boldsymbol{\ell}} \sim (T, \mathcal{D})}[\varepsilon(\mathcal{D}_{\mathbf{\boldsymbol{\ell}}})]$.
+
+The proof of Proposition 6 is in Appendix E . Both assumptions are typically satisfied in practice.
+
+All conditional distributions $\mathcal{D}_{\ell}$ at the leaves of a decision tree are derived from $\mathcal{D}$ under the condition of $\mathcal{H}$. Furthermore, if $\mathcal{D}$ has a product distribution $\mathcal{D}_{X}$ and $\mathcal{H}$ consists of hypotheses that apply a threshold to a single feature (i.e., $h(x)=\mathds{1}[x_{i}\geq\theta]$), then $\mathcal{D}^{\prime}_{X}$ retains the structure of a product distribution for any induced distribution $\mathcal{D}^{\prime}$ resulting from conditioning $\mathcal{D}$ on $\mathcal{H}$.
+
+The distinction between our research and previous studies lies in two critical aspects. First, our findings are specifically tailored to impurity-based decision tree algorithms, including ID3, CART, and C4.5, which are prominent and widely implemented in practical applications. Our primary objective is to investigate and validate the noise tolerance characteristics of these algorithms, as opposed to branching programs, which are far less prevalent in real-world usage. Second, our approach addresses the most stringent noise model, referred to as nasty noise, encompassing both label and feature corruptions, unlike prior works that are limited to handling label distortions alone.
+
+In this section, we provide a proof of Proposition 4.6, which is restated here for ease of reference.
+
+We discuss other related work in Appendix A.
+
+5 Rashomon Ratio for Ridge Regression Increases under Additive Attribute Noise
+
+The theorem can now be demonstrated conclusively.
+
+For any integer \( k \leq d \) and a monotone function \( g: \{\pm 1\}^k \to \{\pm 1\} \), consider the function \( f: \{\pm 1\}^d \to \{\pm 1\} \) defined by \( f(x) = g(x_{[1:k]}) \), where \( x_{[1:k]} \) represents the first \( k \) bits of \( x \). Let \( \mathcal{D} \) denote the distribution over pairs \( (\boldsymbol{x}, f(\boldsymbol{x})) \), with \( \boldsymbol{x} \) uniformly distributed over \( \mathcal{X} \coloneqq \{\pm 1\}^d \). The set of coordinate projections \( \mathcal{H} \coloneqq \{\mathrm{proj}_i : i \in [d]\} \) satisfies the \( (\gamma = O((\log k)/k)) \)-weak learning assumption (as per Definition 2.7) with respect to \( \mathcal{D} \).
+
+The weak learning assumption outlined in Definition 2.7 is less restrictive than the standard assumption presented in Definition 2.4. This is due to the equivalence of Equation 2 to the condition $\operatorname{{Pr}}_{(\boldsymbol{x},\boldsymbol{y})\sim\mathcal{D}^{\prime}_{\text{bal}}}[h(\boldsymbol{x})\neq\boldsymbol{y}]\leq 1/2-\gamma$, where $\mathcal{D}^{\prime}_{\text{bal}}$ represents the balanced variant of $\mathcal{D}^{\prime}$, ensuring that positive and negative labels are equally likely by adjusting the weights of points in $\mathcal{X}$. Since Definition 2.4 must hold for all distributions over $\mathcal{X}$, it inherently applies to the marginal distribution of $\mathcal{D}^{\prime}_{\text{bal}}$ over $\mathcal{X}$. Consequently, Definition 2.4 implies Definition 2.7.
+
+To analyze the impact of binary features, it is essential to establish a concept of feature influence.
+
+Next, we show that under additive attribute noise, the Rashomon ratio increases:
+
+Let $\mathcal{D}$ denote a probability distribution defined over the Cartesian product $\mathcal{X}\times\{0,1\}$, and suppose $\mathcal{H}$ represents a collection of hypotheses mapping elements from $\mathcal{X}$ to the set $\{0,1\}$. The distribution $\mathcal{D^{\prime}}$ is considered to be induced by conditioning $\mathcal{D}$ on $\mathcal{H}$ if it can be expressed as $\mathcal{D}$ restricted to those instances $\boldsymbol{x}\sim\mathcal{D}_{X}$ that satisfy the conjunction of hypotheses $h_{1}(\boldsymbol{x})\wedge\cdots\wedge h_{k}(\boldsymbol{x})$, where each $h_{i}$ belongs to the hypothesis class $\mathcal{H}$.
+
+The class of distributions outlined at the start of this section allows Lemma 5.1 and Theorem 5.2 to collectively establish that the weak learning condition of Theorem 3.1 can be fulfilled by the set $\mathcal{H} = \{\mathrm{proj}_i : i \in [d]\}$ of projection functions.
+
+Theorem 1.3 follows directly from the combined results of Theorem 3.1 and Lemma 5.3.
+
+6 Rashomon Set Characteristics in the Presence of Noise
+
+The result is directly derived from the definition of total variation distance.
+
+6.1 Pattern Diversity: Definition, Properties and Upper Bound
+
+Let $f:\{\pm 1\}^{d}\to\{\pm 1\}$ be a function and $\mathcal{D}_{X}=\mathcal{D}_{X}^{(1)}\times\ldots\times\mathcal{D}_{X}^{(d)}$ be a product distribution over $\{\pm 1\}^{d}$. For each $i\in[d]$, the influence of feature $i$ on $f$, denoted as $\mathrm{Inf}_{i}(f)$, is defined as the quantity $2\mathop{{\operatorname{{Pr}}}\/}_{\boldsymbol{x}\sim\mathcal{D}_{X},\boldsymbol{b}\sim\mathcal{D}_{X}^{(i)}}[f(\boldsymbol{x})\neq f(\boldsymbol{x}_{i=\boldsymbol{b}})]$, where $\boldsymbol{x}_{i=\boldsymbol{b}}$ represents the rerandomization of the $i$-th bit of $\boldsymbol{x}$ using a sample drawn from $\mathcal{D}_{X}^{(i)}$.
+
+We conclude by demonstrating that $\mathrm{Inf}_{i}(f)$ is equivalent to the expression:
+
+$$
+\mathrm{Inf}_{i}(f) = 2 \cdot \mathop{\operatorname{Pr}}_{\substack{\boldsymbol{x} \sim \mathcal{D}_{X} \\ \boldsymbol{b} \sim \mathcal{D}_{X}^{(i)}}} \left[f(\boldsymbol{x}) \neq f(\boldsymbol{x}_{i=b})\right]
+$$
+
+$$
+= \mathop{\mathds{E}}_{\substack{\boldsymbol{x} \sim \mathcal{D}_{X} \\ \boldsymbol{b} \sim \mathcal{D}_{X}^{(i)}}} \left[\left|f(\boldsymbol{x}) - f(\boldsymbol{x}_{i=b})\right|\right]
+$$
+
+$$
+= \operatorname{Pr}_{\substack{\boldsymbol{x} \sim \mathcal{D}_{X} \\ \boldsymbol{b} \sim \mathcal{D}_{X}^{(i)}}}[\boldsymbol{b} \neq \boldsymbol{x}_{i}] \cdot \mathop{\mathds{E}}_{\substack{\boldsymbol{x} \sim \mathcal{D}_{X} \\ \boldsymbol{b} \sim \mathcal{D}_{X}^{(i)}}} \left[\left|f(\boldsymbol{x}) - f(\boldsymbol{x}_{i=\boldsymbol{b}})\right| \mid \boldsymbol{b} \neq \boldsymbol{x}_{i}\right]
+$$
+
+$$
+= 2p_{i}(1-p_{i}) \mathop{\mathds{E}}_{\boldsymbol{x} \sim \mathcal{D}_{X}} \left[f(\boldsymbol{x}_{i=1}) - f(\boldsymbol{x}_{i=-1})\right] \quad \text{($f$ is monotone)}
+$$
+
+$$
+= 2p_{i}(1-p_{i}) \left(\mathop{\mathds{E}}_{\boldsymbol{x} \sim \mathcal{D}_{X}} \left[f(\boldsymbol{x}) \mid \boldsymbol{x}_{i}=1\right] - \mathop{\mathds{E}}_{\boldsymbol{x} \sim \mathcal{D}_{X}} \left[f(\boldsymbol{x}) \mid \boldsymbol{x}_{i}=-1\right]\right)
+$$
+
+$$
+= 2p_{i}q_{i}(\alpha - \beta). \quad \boxed{}
+$$
+
+There are multiple equivalent definitions of total variation distance. For our purposes, we adopt the following formulation: for two distributions $\mathcal{D}$ and $\widehat{\mathcal{D}}$ defined over a domain $\Omega$, the total variation distance is given by
+
+$$
+\operatorname{dist}_{\mathrm{TV}}(\mathcal{D}, \widehat{\mathcal{D}}) \coloneqq \sup_{A \subseteq \Omega} \left( \mathcal{D}(A) - \widehat{\mathcal{D}}(A) \right),
+$$
+
+where $\mathcal{D}(A)$ represents $\operatorname{{Pr}}_{\boldsymbol{x} \sim \mathcal{D}}[\boldsymbol{x} \in A]$.
+
+We define $\mu(\mathcal{D}) \coloneqq \operatorname{{Pr}}_{\mathcal{D}}[\boldsymbol{y}=1]$, representing the bias of distribution $\mathcal{D}$ toward the label $1$, and $\varepsilon(\mathcal{D}) \coloneqq \min\{\mu(\mathcal{D}), 1-\mu(\mathcal{D})\}$, which quantifies the error rate of predicting the majority label in $\mathcal{D}$.
+
+Given that $\mathcal{H}$ adheres to the weak learning assumption relative to $\mathcal{D}$ and $\mathcal{D}_{\ell}$ is a distribution derived from $\mathcal{D}$, there exists a hypothesis $h_{\ell} \in \mathcal{H}$ such that the absolute covariance between $h_{\ell}(\boldsymbol{x})$ and $\boldsymbol{y}$ under $\mathcal{D}_{\ell}$ satisfies $|\operatorname{{Cov}}_{\mathcal{D}_{\ell}}[h_{\ell}(\boldsymbol{x}),\boldsymbol{y}]| \geq \gamma \operatorname{{Var}}_{\mathcal{D}_{\ell}}[\boldsymbol{y}]$.
+
+The proof of Proposition 4.6 is provided in Appendix E.
+
+Let $\mathcal{D}$ denote a probability distribution defined over the product space $\mathcal{X} \times \{0,1\}$, and let $\mathcal{H}$ represent a family of binary classifiers mapping $\mathcal{X}$ to $\{0,1\}$ that adheres to the $\gamma$-weak learning condition with respect to $\mathcal{D}$. For a decision tree $T$ with leaf node $\ell$, consider a distribution $\widehat{\mathcal{D}}_{\ell}$ such that the total variation distance between $\mathcal{D}_{\ell}$ and $\widehat{\mathcal{D}}_{\ell}$ is bounded by $\eta_{\ell}$. There exists a function $h_{\ell} \in \mathcal{H}$ satisfying
+
+\[
+|\operatorname{Cov}_{\widehat{\mathcal{D}}_{\ell}}[h_{\ell}(\boldsymbol{x}), \boldsymbol{y}]| \geq \gamma \operatorname{Var}_{\widehat{\mathcal{D}}_{\ell}}[\boldsymbol{y}] - 3\eta_{\ell}.
+\]
+
+Definition 2.4 is often difficult to fulfill due to its stringent requirement of a $\gamma$-advantage hypothesis for every possible distribution $\mathcal{D}_{X}$ over $\mathcal{X}$. Instead of adhering to this demanding condition, our analysis will be grounded in a more lenient, distribution-specific weak learning assumption that is considerably simpler to meet. The ease with which this weak assumption can be satisfied will play a pivotal role in our subsequent proof of Theorem 1.3. To proceed, we must first introduce the concept of an induced distribution.
+
+6.2 Label Noise is Likely to Increase Pattern Diversity
+
+For any integer \( w \geq 1 \), define \( s_w \) as the maximal integer \( s \) satisfying \( (1 - 2^{-w})^s \geq \varepsilon \), and let \( w^\star \) denote the largest integer such that \( w s_w \leq d \). Since \( d \geq \log(1/\varepsilon) \), it follows that \( w^\star \geq 1 \). Our objective is to demonstrate that \( \textsc{Tribes}_{w^\star, s_{w^\star}} \) fulfills all conditions stipulated in Proposition 4.6. Prior to this, we must establish bounds on \( s_w \). By leveraging the Taylor expansion of \( \log(1 - x) \), we obtain
+
+\[
+(1 - 2^{-w})^s = \exp\left(-s \left(2^{-w} + o(2^{-w})\right)\right).
+\]
+
+Consequently, we find that
+
+\[
+s_w = \left\lfloor \frac{\ln(1/\varepsilon)}{2^{-w} + o(2^{-w})} \right\rfloor = \ln(1/\varepsilon) 2^w \cdot (1 + o_w(1)).
+\]
+
+Let \( k_w = w s_w \). It can be shown that \( k_{w+1} = k_w \cdot (2 + o_w(1)) \). Therefore, the selected value \( k = w^\star s_{w^\star} \) adheres to \( k = \Theta(d) \).
+
+Let $\mathcal{X}\coloneqq\{\pm 1\}^{d}$ be a domain. A restriction of this domain is a vector $\rho\in\{-1,+1,\star\}^{d}$, where each coordinate is assigned a value. An input $x\in\mathcal{X}$ is consistent with a restriction $\rho$ if $x_{i}=\rho_{i}$ for all $i\in[d]$, with $\star$ representing both $+1$ and $-1$. Coordinates $i$ where $\rho_{i}\in\{\pm 1\}$ are specified, and $|\rho|$ denotes the number of specified coordinates. The number of inputs consistent with $\rho$ is $2^{d-|\rho|}$. There exists a natural projection $\mathrm{proj}_{\rho}$ from $\{\pm 1\}^{d-|\rho|}$ to the subset of $\mathcal{X}$ consistent with $\rho$, which uses the input to $\mathrm{proj}_{\rho}$ for unspecified coordinates and assigns specified coordinates according to $\rho$.
+
+The following is a valuable fact regarding the impact of features on monotonic functions. A proof can be found in Appendix F.
+
+6.3 Experiment for Pattern Diversity and Label Noise
+
+The algorithm TopDownDT requires computing at most $O(t^{2}|\mathcal{H}|)$ expectations, and standard concentration inequalities establish that a sample of size $\tilde{O}(1/\tau^{2}\cdot t^{2}\cdot|\mathcal{H}|)$ suffices to estimate all expectations with accuracy $\tau$ with high probability. However, the introduction of noise complicates this scenario, as the adversary observes the sample $\boldsymbol{S}\sim\mathcal{D}^{n}$ before applying an $\eta$-nasty-noise corruption to form $\hat{\boldsymbol{S}}$. This allows the adversary to strategically alter empirical estimates based on the observed sample $\boldsymbol{S}$. Fortunately, Blanc et al. (2022) address this exact scenario in Theorem 5, which asserts that with a sample size of $\tilde{O}(1/\tau^{2}\cdot t^{2}\cdot|\mathcal{H}|)$, all empirical estimates derived from the corrupted sample $\hat{\boldsymbol{S}}$ will lie within $\pm\tau$ of the true expectations of some distribution $\hat{\mathcal{D}}$ that is $\eta$-close to $\mathcal{D}$, with high probability. By demonstrating in Theorem 3.1 that TopDownDT succeeds for any $\hat{\mathcal{D}}$ within $\eta$ of $\mathcal{D}$, we ensure the algorithm's robustness against adversarial modifications of up to $\eta$-fraction of the sample after it has been observed.
+
+Several promising directions for future research exist. A logical next step is to extend formal noise tolerance guarantees to tree-based ensemble methods like random forests and XGBoost. While our work has focused on analyzing impurity-based decision tree learning algorithms as they are used in practice, it would be valuable to explore potential modifications that enhance resilience to adversarial noise—specifically, whether such adaptations could surpass our established lower bounds.
+
+Combining equation (4.2) with Lemma 5.1 directly yields the following result.
+
+7 Limitations
+
+Guy and Li-Yang are recipients of the NSF CAREER Award, specifically under grant number 1942123. Jane is supported by the NSF Award CCF-2006664. Ali has been awarded a graduate fellowship through the Knight-Hennessy Scholars program at Stanford University.
+
+In one of the earliest studies to theoretically analyze impurity-based decision tree algorithms, Kearns and Mansour (1996) demonstrated that they can be interpreted as boosting algorithms. Building on this, Theorem 1.1 extends their findings to the context of adversarial noise, revealing that these algorithms exhibit strong noise tolerance, effectively functioning as robust boosting methods.
+
+Conclusion
+
+A critical component in our proof of Theorem 1.3 is a theorem established by O’Donnell, Saks, Schramm, and Servedio in discrete Fourier analysis, as detailed in O’Donnell et al. (2005).
+
+Acknowledgments
+
+Finally, we establish the key theorem of this section.
+
+Appendix A Proof for Theorem 2
+
+We state and prove Theorem 2 below.
+
+Let $\mathcal{E},\widehat{\mathcal{E}}$ be two probability distributions defined on a domain $\mathcal{V}$, with the total variation distance between them satisfying $\operatorname{dist}_{\mathrm{TV}}(\mathcal{E},\widehat{\mathcal{E}})\leq\eta$. Suppose also that there exists a function $f:\mathcal{V}\to[0,1]$ that maps elements of $\mathcal{V}$ to the unit interval. Under these conditions, we have
+
+As \( f \) is monotonic in the first \( k \) coordinates of its input, \( f_{\rho} \) is monotonic in the first (up to \( k \)) coordinates of its input. Consequently, there exists some \( k' \leq k \) and a monotonic function \( g_{\rho}: \{\pm 1\}^{k'} \to \{\pm 1\} \) such that \( f_{\rho}(x) = g_{\rho}(x_{[1:k']}) \). Then,
+
+\[
+\max_{i \in [d]} \left( \operatorname{Cov}_{\boldsymbol{x} \sim \mathcal{D}_{X}'}[\boldsymbol{x}_i, f(\boldsymbol{x})] \right) = \max_{i \in [d - |\rho|]} \left( \operatorname{Cov}_{\boldsymbol{x} \sim \{\pm 1\}^{d - |\rho|}}[\boldsymbol{x}_i, f_{\rho}(\boldsymbol{x})] \right)
+\]
+
+\[
+= \max_{i \in [k']} \left( \operatorname{Cov}_{\boldsymbol{x} \sim \{\pm 1\}^{k'}}[\boldsymbol{x}_i, g_{\rho}(\boldsymbol{x})] \right) \geq \Omega\left( \frac{\log k'}{k'} \cdot \operatorname{Var}_{\boldsymbol{x} \sim \{\pm 1\}^{k'}}[g_{\rho}(\boldsymbol{x})] \right) \quad \text{(Corollary 4.4)}
+\]
+
+\[
+\geq \gamma \operatorname{Var}_{\boldsymbol{x} \sim \mathcal{D}_{X}'}[f(\boldsymbol{x})]. \quad \text{(since \( k' \leq k \), \( \gamma = O((\log k)/k) \))}
+\]
+
+This demonstrates that \( \mathcal{H} \) satisfies the weak learning assumption with respect to \( \mathcal{D} \). ∎
+
+We define a distribution $\mathcal{D}^{\prime}$ that combines $\mathcal{D}$ and $\widehat{\mathcal{D}}$ as follows: To sample $({\boldsymbol{\ell}},\boldsymbol{x})\sim\mathcal{D}^{\prime}$, we first draw ${\boldsymbol{\ell}}\sim\mathcal{D}_{\ell}$ and then $\boldsymbol{x}\sim\widehat{\mathcal{D}}_{x|{\boldsymbol{\ell}}}$. We will demonstrate that the left-hand side of Equation 14 corresponds to $\operatorname{dist}_{\mathrm{TV}}(\mathcal{D},\mathcal{D}^{\prime})$.
+
+For ease of technical handling, both in this section and Section 5, we adopt functions that output $\{\pm 1\}$ instead of $\{0,1\}$. It is important to note that these two formulations are equivalent.
+
+Let $\mathcal{E}, \widehat{\mathcal{E}}$ denote two probability distributions defined over a common domain $\mathcal{V}$, where the total variation distance between them satisfies $\operatorname{dist}_{\mathrm{TV}}(\mathcal{E}, \widehat{\mathcal{E}}) \leq \eta$. Consider two measurable functions $f, g: \mathcal{V} \to [0, 1]$. Under these conditions, the following inequalities hold:
+
+1. The absolute difference between the variances of $f(\boldsymbol{x})$ under $\mathcal{E}$ and $\widehat{\mathcal{E}}$ is bounded as
+\[
+\big|\operatorname{Var}_{\mathcal{E}}[f(\boldsymbol{x})] - \operatorname{Var}_{\widehat{\mathcal{E}}}[f(\boldsymbol{x})]\big| \leq \eta. \quad (4)
+\]
+
+2. Similarly, the absolute difference between the covariances of $f(\boldsymbol{x})$ and $g(\boldsymbol{x})$ under the two distributions is bounded by
+\[
+\big|\operatorname{Cov}_{\mathcal{E}}[f(\boldsymbol{x}), g(\boldsymbol{x})] - \operatorname{Cov}_{\widehat{\mathcal{E}}}[f(\boldsymbol{x}), g(\boldsymbol{x})]\big| \leq 2\eta. \quad (5)
+\]
+
+If $\operatorname{dist}_{\mathrm{TV}}(\mathcal{E},\widehat{\mathcal{E}})\leq\eta$, it follows directly that $\operatorname{dist}_{\mathrm{TV}}(\mathcal{E}^{2},\widehat{\mathcal{E}}^{2})\leq 2\eta$, where $\mathcal{E}^{2}$ denotes the product distribution resulting from two independent draws from $\mathcal{E}$. Additionally, since $f,g:\mathcal{V}\to\{0,1\}$, the expression $((f(\boldsymbol{x})-f(\boldsymbol{x}^{\prime}))(g(\boldsymbol{x})-g(\boldsymbol{x}^{\prime})))$ is bounded within $[-1,1]$. Consequently, applying Lemma B.1 to Equation 13 with $\mathcal{E}^{2}$ and $\widehat{\mathcal{E}}^{2}$ yields $\left|\operatorname{{Cov}}_{\mathcal{E}}[f(\boldsymbol{x}),g(\boldsymbol{x})]-\operatorname{{Cov}}_{\widehat{\mathcal{E}}}[f(\boldsymbol{x}),g(\boldsymbol{x})]\right|\leq 2\eta$. ∎
+
+By E.3, the probability that \( f(\boldsymbol{x}) = -1 \) satisfies \( \operatorname{{Pr}}[f(\boldsymbol{x}) = -1] \geq \varepsilon \). Additionally, since \( (1 - 2^{-w^{\star}})^{s_{w^{\star}} + 1} < \varepsilon \), we can express the probability that \( f(\boldsymbol{x}) = 1 \) as follows:
+
+\[
+\operatorname{{Pr}}[f(\boldsymbol{x}) = 1] = 1 - \operatorname{{Pr}}[f(\boldsymbol{x}) = -1]
+\]
+\[
+= 1 - (1 - 2^{-w^{\star}})^{s_{w^{\star}}}
+\]
+\[
+= 1 - \frac{(1 - 2^{-w^{\star}})^{s_{w^{\star}} + 1}}{1 - 2^{-w^{\star}}}
+\]
+\[
+> 1 - \frac{\varepsilon}{1/2}
+\]
+\[
+\geq \frac{1}{3} \geq \varepsilon.
+\]
+
+Next, we confirm Equation (16). Given that \( k = \Theta(d) \), we have:
+
+\[
+\frac{\log d}{d} = \Theta\left( \frac{\log k}{k} \right)
+\]
+\[
+= \Theta\left( \frac{\log(\log(1/\varepsilon) \cdot w^{\star} \cdot 2^{w^{\star}})}{\log(1/\varepsilon) \cdot w^{\star} \cdot 2^{w^{\star}}} \right)
+\]
+\[
+\geq \Omega\left( \frac{\log(2^{w^{\star}})}{\log(1/\varepsilon) \cdot w^{\star} \cdot 2^{w^{\star}}} \right)
+\]
+\[
+= \Omega\left( \frac{1}{\log(1/\varepsilon) \cdot 2^{w^{\star}}} \right).
+\]
+
+Applying the above result, along with E.3 and the fact that \( \operatorname{{Pr}}[f(\boldsymbol{x}) = -1] \leq 2\varepsilon \), we find:
+
+\[
+\mathop{{\mathds{E}}\/}[\boldsymbol{x}_{1}f(\boldsymbol{x})] = \cdots = \mathop{{\mathds{E}}\/}[\boldsymbol{x}_{k}f(\boldsymbol{x})] = \frac{1}{2^{w^{\star}} - 1} \cdot \operatorname{{Pr}}[f(\boldsymbol{x}) = -1]
+\]
+\[
+= O\left( \varepsilon \log(1/\varepsilon) \cdot \frac{\log d}{d} \right).\qed
+\]
+
+The classification error of a classifier \( T \) with respect to a distribution \( \mathcal{D} \) is defined as \( \operatorname{error}_{\mathcal{D}}[T] \coloneqq \mathop{{\operatorname{{Pr}}}\/}_{(\boldsymbol{x},\boldsymbol{y})\sim\mathcal{D}}[T(\boldsymbol{x}) \neq \boldsymbol{y}] \). Additionally, we define the bias of \( \mathcal{D} \) as \( \mu(\mathcal{D}) \coloneqq \operatorname{{Pr}}_{\mathcal{D}}[\boldsymbol{y}=1] \), representing the probability of the positive label, and the minimal error achievable by predicting the majority label as \( \varepsilon(\mathcal{D}) \coloneqq \min\{\mu(\mathcal{D}),1-\mu(\mathcal{D})\} \).
+
+∎
+
+To establish a class of distributions adhering to the weak-learning assumption, we employ the aforementioned corollary. Prior to this, we must introduce the concept of a restriction.
+
+We will demonstrate that $\operatorname{dist}_{\mathrm{TV}}(\mathcal{D}^{\prime},\widehat{\mathcal{D}})=\operatorname{dist}_{\mathrm{TV}}(\mathcal{D}_{\ell},\widehat{\mathcal{D}}_{\ell}) \leq \operatorname{dist}_{\mathrm{TV}}(\mathcal{D},\widehat{\mathcal{D}})$. Finally, by applying the triangle inequality, we can establish that $\operatorname{dist}_{\mathrm{TV}}(\mathcal{D},\mathcal{D}^{\prime}) \leq \operatorname{dist}_{\mathrm{TV}}(\mathcal{D},\widehat{\mathcal{D}}) + \operatorname{dist}_{\mathrm{TV}}(\mathcal{D}^{\prime},\widehat{\mathcal{D}})$.
+
+Let $\mathcal{E}$ and $\widehat{\mathcal{E}}$ be two probability distributions over a domain $\mathcal{V}$ with total variation distance $\operatorname{dist}_{\mathrm{TV}}(\mathcal{E}, \widehat{\mathcal{E}}) \leq \eta$, and let $f,g:\mathcal{V} \to [0,1]$ be two functions. Then,
+
+$$
+\left| \operatorname{Cov}_{\mathcal{E}}[f(\boldsymbol{x}), g(\boldsymbol{x})] - \operatorname{Cov}_{\widehat{\mathcal{E}}}[f(\boldsymbol{x}), g(\boldsymbol{x})] \right| \leq 2\eta.
+$$
+
+∎
+
+We apply Lemma 3.3 in conjunction with our weak learning assumption to establish the existence of a hypothesis \( h \) that exhibits high covariance with the adversarially corrupted distribution at a specified leaf.
+
+For any finite set \( L \), (possibly infinite) set \( X \), and distributions \( \mathcal{D},\widehat{\mathcal{D}} \) each defined over the product space \( L \times X \), the following inequality holds:
+\[
+\mathop{{\mathds{E}}\/}_{{\boldsymbol{\ell}}\sim\mathcal{D}_{\ell}}\left[\operatorname{dist}_{\mathrm{TV}}(\mathcal{D}_{x|{\boldsymbol{\ell}}},\widehat{\mathcal{D}}_{x|{\boldsymbol{\ell}}})\right] \leq 2\operatorname{dist}_{\mathrm{TV}}(\mathcal{D},\widehat{\mathcal{D}})
+\]
+Here, \( \mathcal{D}_{\ell} \) represents the marginal distribution of \( {\boldsymbol{\ell}} \) for \( (\boldsymbol{x},{\boldsymbol{\ell}})\sim\mathcal{D} \), and \( \mathcal{D}_{x|\ell} \) is the conditional distribution of \( \boldsymbol{x} \) under \( (\boldsymbol{x},{\boldsymbol{\ell}})\sim\mathcal{D} \) given \( {\boldsymbol{\ell}} = \ell \).
+
+By invoking Lemma 3.3, the stated relationship $\operatorname{dist}_{\mathrm{TV}}(\mathcal{D}_{\ell},\widehat{\mathcal{D}}_{\ell})\leq\eta_{\ell}$ ensures the following inequality:
+
+$\displaystyle|\operatorname{{Cov}}_{\widehat{\mathcal{D}}_{\ell}}[h_{\ell}(\boldsymbol{x}),\boldsymbol{y}]|$ $\displaystyle\geq|\operatorname{{Cov}}_{\mathcal{D}_{\ell}}[h_{\ell}(\boldsymbol{x}),\boldsymbol{y}]|-2\eta_{\ell}$  (Lemma 3.3)
+
+$\displaystyle\geq\gamma\operatorname{{Var}}_{\mathcal{D}_{\ell}}[\boldsymbol{y}]-2\eta_{\ell}$  (weak learning assumption)
+
+$\displaystyle\geq\gamma\operatorname{{Var}}_{\widehat{\mathcal{D}}_{\ell}}[\boldsymbol{y}]-3\eta_{\ell}.$  (Lemma 3.3)
+
+∎
+
+The expectation $\displaystyle\mathop{{\mathds{E}}\/}_{{\boldsymbol{\ell}}\sim(T,\widehat{\mathcal{D}})}[\Delta_{\widehat{\mathcal{D}}_{{\boldsymbol{\ell}}}}(h_{{\boldsymbol{\ell}}})]$ is bounded below by $\displaystyle 16\cdot\mathop{{\mathds{E}}\/}_{{\boldsymbol{\ell}}\sim(T,\widehat{\mathcal{D}})}\left[\operatorname{{Cov}}_{\widehat{\mathcal{D}}_{\boldsymbol{\ell}}}[h_{\boldsymbol{\ell}}(\boldsymbol{x}),\boldsymbol{y}]^{2}\right]$, as per Lemma 3.2. Applying Jensen's inequality, this further implies $\displaystyle 16\cdot\operatorname{{\mathds{E}}}_{{\boldsymbol{\ell}}\sim(T,\widehat{\mathcal{D}})}\left[|\operatorname{{Cov}}_{\widehat{\mathcal{D}}_{\boldsymbol{\ell}}}[h_{\boldsymbol{\ell}}(\boldsymbol{x}),\boldsymbol{y}]|\right]^{2}$. Noting that $x^{2}\geq\left({x}\right)_{+}^{2}$, the expression is at least $\displaystyle 16\cdot\left({\operatorname{{\mathds{E}}}_{{\boldsymbol{\ell}}\sim(T,\widehat{\mathcal{D}})}\left[|\operatorname{{Cov}}_{\widehat{\mathcal{D}}_{\boldsymbol{\ell}}}[h_{\boldsymbol{\ell}}(\boldsymbol{x}),\boldsymbol{y}]|\right]}\right)_{+}^{2}$. Leveraging Lemma 3.4, this becomes $\displaystyle 16\cdot\left({\operatorname{{\mathds{E}}}_{{\boldsymbol{\ell}}\sim(T,\widehat{\mathcal{D}})}\left[\gamma\operatorname{{Var}}_{\widehat{\mathcal{D}}_{{\boldsymbol{\ell}}}}[\boldsymbol{y}]-3\eta_{{\boldsymbol{\ell}}}\right]}\right)_{+}^{2}$. Finally, by the linearity of expectation, this simplifies to $\displaystyle 16\cdot\left({\gamma\operatorname{{\mathds{E}}}_{\widehat{\mathcal{D}}}[\operatorname{{Var}}_{\widehat{\mathcal{D}}_{{\boldsymbol{\ell}}}}[\boldsymbol{y}]]-3\operatorname{{\mathds{E}}}_{\widehat{\mathcal{D}}}[\eta_{{\boldsymbol{\ell}}}]}\right)_{+}^{2}$.
+
+Let $\mathcal{D}_{X}$ denote an arbitrary product distribution over $\{\pm 1\}^{d}$, specifically $\mathcal{D}_{X} = \mathcal{D}_{X}^{(1)} \times \ldots \times \mathcal{D}_{X}^{(d)}$. For a given monotonic function $f: \{\pm 1\}^{d} \to \{\pm 1\}$ and a feature $i \in [d]$, the identity $\mathrm{Inf}_{i}(f) = \operatorname{Cov}_{\mathcal{D}_{X}}[f(\boldsymbol{x}), \boldsymbol{x}_{i}]$ holds true.
+
+To define the corrupted distribution $\widehat{\mathcal{D}}$, consider the auxiliary distribution $\mathcal{E}$, which is constructed as follows: to sample $(\boldsymbol{x},\boldsymbol{y})\sim\mathcal{E}$, first select $\boldsymbol{y}$ uniformly from $\{\pm 1\}$ and $\boldsymbol{z}$ uniformly from $\{\pm 1\}^{d-k}$. The feature vector $\boldsymbol{x}$ is then formed by concatenating $k$ copies of $-\boldsymbol{y}$ with $\boldsymbol{z}$, resulting in 
+
+$\boldsymbol{x} = (\underbrace{-\boldsymbol{y}, \ldots, -\boldsymbol{y}}_{k \text{ copies}}) \circ \boldsymbol{z}$ 
+
+where $\circ$ denotes concatenation. The corrupted distribution $\widehat{\mathcal{D}}$ is defined as a mixture: $\widehat{\mathcal{D}} \coloneqq (1-\eta)\mathcal{D} + \eta\mathcal{E}$, where $\eta$ is uniquely determined by solving the equation $(1-\eta)v - \eta = 0$, with $v$ as specified in Equation 9. Notably, this value of $\eta$ satisfies $\eta \leq v = O(\varepsilon \log(1/\varepsilon) \gamma)$. As $\widehat{\mathcal{D}}$ consists of $(1-\eta)$ fraction from $\mathcal{D}$, it constitutes an $\eta$-nasty noise perturbation of $\mathcal{D}$. Additionally, the contribution of $\mathcal{E}$ is precisely calibrated to nullify the correlations inherent in $\mathcal{D}$, ensuring that for all $i \in [d]$,
+
+$\operatorname{{\mathds{E}}}_{\widehat{\mathcal{D}}}[\boldsymbol{y}] = \operatorname{{\mathds{E}}}_{\widehat{\mathcal{D}}}[\boldsymbol{y} \mid \boldsymbol{x}_{i} = -1] = \operatorname{{\mathds{E}}}_{\widehat{\mathcal{D}}}[\boldsymbol{y} \mid \boldsymbol{x}_{i} = +1] = 0.$
+
+∎
+
+We require the following essential results concerning the variance and covariance of bounded functions across two distributions that are close in total variation (TV) distance. We focus on an arbitrary domain $\mathcal{V}$ and, without loss of generality, consider functions mapping from $\mathcal{V}$ to $[0,1]$. The proofs are deferred to Appendix B.
+
+Let $\mathcal{E}$ be an arbitrary distribution over $\mathcal{X}\times\{0,1\}$, and let $h:\mathcal{X}\to\{0,1\}$ denote a splitting function. It follows that:
+
+$\Delta_{\mathcal{E}}(h)\geq 16\cdot\operatorname{{Cov}}_{\mathcal{E}}[h(\boldsymbol{x}),\boldsymbol{y}]^{2}$ (17)
+
+The concept of covariance is initially broadened as follows:
+
+$\displaystyle\operatorname{{Cov}}_{\mathcal{D}_{X}}[f(\boldsymbol{x}),\boldsymbol{x}_{i}]$ $\displaystyle=\mathop{{\mathds{E}}\/}_{\boldsymbol{x}\sim{\mathcal{D}_{X}}}[f(\boldsymbol{x})\boldsymbol{x}_{i}]-\mathop{{\mathds{E}}\/}_{\boldsymbol{x}\sim{\mathcal{D}_{X}}}[f(\boldsymbol{x})]\mathop{{\mathds{E}}\/}_{\boldsymbol{x}\sim{\mathcal{D}_{X}}}[\boldsymbol{x}_{i}]$  (covariance definition) 
+
+$\displaystyle=p_{i}\alpha-q_{i}\beta-(p_{i}\alpha+q_{i}\beta)(p_{i}-q_{i})$  (abbreviated form) 
+
+$\displaystyle=\alpha(p_{i}-p_{i}(p_{i}-q_{i}))-\beta(q_{i}+q_{i}(p_{i}-q_{i}))$ 
+
+$\displaystyle=\alpha p_{i}(1-p_{i}+q_{i})-\beta q_{i}(1-q_{i}+p_{i})$ 
+
+$\displaystyle=2p_{i}q_{i}(\alpha-\beta).$  (simplified result)
+
+Definition 2.2 ensures that $\mathcal{G}(p) \geq \min\{p, 1-p\}$ for all $p \in [0, 1]$, which allows us to interpret $\mathcal{G}(\mu(\mathcal{D}_{\ell}))$ as an upper limit for $\varepsilon(\mathcal{D}_{\ell})$. By defining $\mathcal{G}_{\mathcal{D}}(T) \coloneqq \operatorname{{\mathds{E}}}_{\boldsymbol{\ell} \sim \mathcal{D}}[\mathcal{G}(\mu(\mathcal{D}_{\boldsymbol{\ell}}))]$, we can establish that $\mathcal{G}_{\mathcal{D}}(T)$ serves as an upper bound on $\operatorname{error}_{\mathcal{D}}[T]$. Notable examples of impurity functions include $\mathcal{G}(p) = \textnormal{H}_{2}(p)$ (binary cross-entropy, as used in ID3 and C4.5), $\mathcal{G}(p) = 4p(1-p)$ (the Gini impurity function or variance measure, utilized by CART), and $\mathcal{G}(p) = 2\sqrt{p(1-p)}$ (introduced and studied in Kearns & Mansour (1996)). For this work, we will use $\mathcal{G}(p) = 4p(1-p)$ for simplicity, although our findings apply more broadly to any impurity function with a second derivative that remains bounded away from zero (see Remark C.1 in the appendix).
+
+For any monotonic function \( g: \{\pm 1\}^k \to \{\pm 1\} \), there exists a coordinate \( i \in [k] \) such that, when \( \boldsymbol{x} \) is uniformly distributed over \( \{\pm 1\}^k \), the covariance between \( \boldsymbol{x}_i \) and \( g(\boldsymbol{x}) \) satisfies
+
+\[
+\operatorname{{Cov}}\left[\boldsymbol{x}_{i},g(\boldsymbol{x})\right] \geq \Omega\left(\frac{\log k}{k} \cdot \operatorname{{Var}}[g(\boldsymbol{x})]\right).
+\]
+
+Let $\mathcal{D}_{X}$ be an arbitrary product distribution over $\{\pm 1\}^{d}$, expressed as $\mathcal{D}_{X} = \mathcal{D}_{X}^{(1)} \times \ldots \times \mathcal{D}_{X}^{(d)}$. For a monotonic function $f: \{\pm 1\}^{d} \to \{\pm 1\}$ and a feature index $i \in [d]$, the identity $\mathrm{Inf}_{i}(f) = \operatorname{{Cov}}_{\mathcal{D}_{X}}[f(\boldsymbol{x}), \boldsymbol{x}_{i}]$ holds true.
+
+Let \( p_{i} = \operatorname{{Pr}}_{\mathcal{D}_{X}^{(i)}}[\boldsymbol{x}_{i} = 1] \) and \( q_{i} = 1 - p_{i} \). We define \( \alpha = \mathop{{\mathds{E}}\/}_{\boldsymbol{x} \sim \mathcal{D}_{X}}\left[f(\boldsymbol{x}) \mid \boldsymbol{x}_{i} = 1\right] \) and \( \beta = \mathop{{\mathds{E}}\/}_{\boldsymbol{x} \sim \mathcal{D}_{X}}\left[f(\boldsymbol{x}) \mid \boldsymbol{x}_{i} = -1\right] \). It is observed that \( \mathop{{\mathds{E}}\/}_{\mathcal{D}_{X}}[f(\boldsymbol{x})\boldsymbol{x}_{i}] = p_{i}\alpha - q_{i}\beta \), \( \mathop{{\mathds{E}}\/}_{\mathcal{D}_{X}}[f(\boldsymbol{x})] = p_{i}\alpha + q_{i}\beta \), and \( \mathop{{\mathds{E}}\/}_{\mathcal{D}_{X}}[\boldsymbol{x}_{i}] = p_{i} - q_{i} \).
+
+Now, we show that the variance of losses increases under margin noise in the theorem below:
+
+In this section, we analyze distributions $\mathcal{D}$ where the marginal $\mathcal{D}_{X}$ is a general product distribution $\mathcal{D}_{X} = \mathcal{D}_{X}^{(1)} \times \ldots \times \mathcal{D}_{X}^{(d)}$ over $\{\pm 1\}^{d}$ (i.e., each bit is independent). Additionally, the deterministic target function $\mathcal{D}_{Y|X}$ is monotonic and can be expressed using a decision tree of size $s$.
+
+Let \( h \) represent a splitting function, \( \ell \) denote a leaf of tree \( T \), and \( \mathcal{D}_{\ell} \) signify the conditional distribution \( \mathcal{D} \) given that \( \boldsymbol{x} \) reaches leaf \( \ell \). Let \( \ell_{0} \) and \( \ell_{1} \) represent the leaves of \( T_{\ell,h} \) corresponding to \( h(\boldsymbol{x}) = 0 \) and \( h(\boldsymbol{x}) = 1 \), respectively, with \( \mathcal{D}_{\ell_{0}} \) and \( \mathcal{D}_{\ell_{1}} \) denoting their respective conditional distributions.
+
+For a function \( f: \{\pm 1\}^d \to \{\pm 1\} \) that can be represented by a decision tree of size \( s \) and under a product distribution \( \mathcal{D}_X \) over \( \{\pm 1\}^d \), it holds that 
+
+\[
+\max_{i \in [d]} \{\mathrm{Inf}_i(f)\} \geq \frac{\operatorname{Var}[f]}{\log s},
+\]
+
+where \( \mathrm{Inf}_i(f) \) and \( \operatorname{Var}[f] \) are computed with respect to \( \mathcal{D}_X \).
+
+As the mapping $\mathcal{G}_{\widehat{\mathcal{D}}}$ assumes values within the interval $[0,1]$, it follows that after $t=\exp(O(1/\gamma^{2}\varepsilon^{2}))$ iterations, the process terminates. Specifically, the error $\operatorname{error}_{\widehat{\mathcal{D}}}[T]$ is bounded above by $\frac{12\eta}{\gamma}+\varepsilon$, and consequently, $\operatorname{error}_{\mathcal{D}}[T]$ is $O(\varepsilon)$, given that $\eta\leq O(\varepsilon\gamma)$. $\square$
+
+For any $\varepsilon \in (0, 1/3]$ and $d \geq \log_{2}(1/\varepsilon)$, there exists an integer $k \leq d$ such that there is a monotone function $f: \{\pm 1\}^{k} \to \{\pm 1\}$. For $\boldsymbol{x} \sim \{\pm 1\}^{k}$ chosen uniformly, 
+
+$\min_{b \in \{\pm 1\}} \operatorname{Pr}[f(\boldsymbol{x}) = b] \geq \varepsilon$ 
+
+and 
+
+$\mathds{E}[\boldsymbol{x}_{1}f(\boldsymbol{x})] = \cdots = \mathds{E}[\boldsymbol{x}_{k}f(\boldsymbol{x})] = O\left(\varepsilon \log\left(\frac{1}{\varepsilon}\right) \cdot \frac{\log d}{d}\right)$.
+
+Let \( f: \{\pm 1\}^d \to \{\pm 1\} \) denote the function defined by \( f(x) = g(x_{[1:k]}) \), and let \( \mathcal{D} \) represent the distribution over \( (\boldsymbol{x}, f(\boldsymbol{x})) \), where \( \boldsymbol{x} \) is uniformly distributed over \( \mathcal{X} \coloneqq \{\pm 1\}^d \). According to Proposition 4.5, the class of coordinate projections \( \mathcal{H} \coloneqq \{\mathrm{proj}_i: i \in [d]\} \) satisfies the \( \gamma \)-weak learning assumption (as per Definition 2.7) with respect to \( \mathcal{D} \).
+
+Let $\tau = \operatorname{\mathds{E}}_{\mathcal{E}}[h(\boldsymbol{x})]$ and $\delta = \operatorname{\mathds{E}}_{\mathcal{E}}[\boldsymbol{y} \mid h(\boldsymbol{x})=1] - \operatorname{\mathds{E}}_{\mathcal{E}}[\boldsymbol{y} \mid h(\boldsymbol{x})=0]$. According to Equation 20 of Kearns & Mansour (1996), we have $\Delta_{\mathcal{E}}(h) \geq 4\tau(1-\tau)\delta^2$. To establish this lemma, it is sufficient to demonstrate that $16\operatorname{Cov}_{\mathcal{E}}[h(\boldsymbol{x}),\boldsymbol{y}]^2 \leq 4\tau(1-\tau)\delta^2$. Expanding the definition of covariance:
+
+\[
+\operatorname{Cov}[h(\boldsymbol{x}),\boldsymbol{y}] = \operatorname{\mathds{E}}[h(\boldsymbol{x})\boldsymbol{y}] - \operatorname{\mathds{E}}[h(\boldsymbol{x})]\operatorname{\mathds{E}}[\boldsymbol{y}],
+\]
+
+which simplifies to
+
+\[
+\operatorname{\mathds{E}}[h(\boldsymbol{x})](\operatorname{\mathds{E}}[\boldsymbol{y} \mid h(\boldsymbol{x})=1] - \operatorname{\mathds{E}}[\boldsymbol{y}]).
+\]
+
+Further expanding,
+
+\[
+\operatorname{\mathds{E}}[h(\boldsymbol{x})](\operatorname{\mathds{E}}[\boldsymbol{y} \mid h(\boldsymbol{x})=1] - \operatorname{\mathds{E}}[\boldsymbol{y} \mid h(\boldsymbol{x})=1]\operatorname{\mathds{E}}[h(\boldsymbol{x})] - \operatorname{\mathds{E}}[\boldsymbol{y} \mid h(\boldsymbol{x})=0](1-\operatorname{\mathds{E}}[h(\boldsymbol{x})])),
+\]
+
+which reduces to
+
+\[
+\operatorname{\mathds{E}}[h(\boldsymbol{x})](1-\operatorname{\mathds{E}}[h(\boldsymbol{x})])(\operatorname{\mathds{E}}[\boldsymbol{y} \mid h(\boldsymbol{x})=1] - \operatorname{\mathds{E}}[\boldsymbol{y} \mid h(\boldsymbol{x})=0]).
+\]
+
+Hence,
+
+\[
+\operatorname{Cov}[h(\boldsymbol{x}),\boldsymbol{y}] = \tau(1-\tau)\delta.
+\]
+
+To further elaborate, we apply Theorem 1.1 to the context of product distributions defined over binary features, thereby establishing the following result:
+
+To establish the formal proof, we must demonstrate that the distribution $\mathcal{D}$ we construct satisfies the weak-learning hypothesis. Our approach leverages the well-known Kahn–Kalai–Linial inequality from the field of Boolean function analysis.
+
+Appendix B Bernstein’s and Hoeffding’s inequalities
+
+This result is almost directly derived from the work of Kearns and Mansour (1996). For further details, refer to Appendix G. ∎
+
+For any $\varepsilon\in(0,1/3]$ and $d\geq\log_{2}(1/\varepsilon)$, there exists an integer $k\leq d$ and a monotone function $f:\{\pm 1\}^{k}\to\{\pm 1\}$ such that, when $\boldsymbol{x}$ is uniformly selected from $\{\pm 1\}^{k}$, the following conditions hold: 
+1. $\min_{b\in\{\pm 1\}}\operatorname{{Pr}}[f(\boldsymbol{x})=b]\geq\varepsilon$, and
+2. $\mathop{{\mathds{E}}\/}[\boldsymbol{x}_{1}f(\boldsymbol{x})]=\cdots=\mathop{{\mathds{E}}\/}[\boldsymbol{x}_{k}f(\boldsymbol{x})]=O\left(\varepsilon\log(1/\varepsilon)\cdot\frac{\log d}{d}\right)$, as shown in equation (16).
+
+Theorem 3.1 establishes that TopDownDT can construct a decision tree with error $\leq \varepsilon$ only if the corruption level $\eta$ satisfies $\eta \leq O(\varepsilon \gamma)$, where $\gamma$ denotes the weak learning advantage. In this work, we demonstrate that this bound is tight: by setting $\eta = \tilde{O}(\varepsilon \gamma)$, we can construct distributions $\widehat{\mathcal{D}}$ for which TopDownDT fails to achieve an error of $\leq \varepsilon$.
+
+Definition 2.4 may be challenging to fulfill due to the requirement of a $\gamma$-advantage hypothesis for every distribution $\mathcal{D}_{X}$ over $\mathcal{X}$. Our analysis is based on a more lenient, distribution-specific weak learning assumption that is significantly easier to meet. The leniency of our weak learning assumption will be pivotal in establishing Theorem 1.3. First, we require the concept of an induced distribution:
+
+If the error of the hypothesis \( T \) with respect to \( \widehat{\mathcal{D}} \) satisfies \( \operatorname{error}_{\widehat{\mathcal{D}}}[T] < \frac{12\eta}{\gamma} + \varepsilon \), then we can conclude that \( \operatorname{error}_{\mathcal{D}}[T] < \eta + \frac{12\eta}{\gamma} + \varepsilon \leq O(\varepsilon) \), given our assumption that \( \eta \leq O(\varepsilon\gamma) \).
+
+To demonstrate the efficiency of the TopDownDT algorithm before establishing that it constructs decision trees with low error, we first analyze its runtime complexity. Let $\zeta$ denote the time required to compute $\mu(\mathcal{D}_{\ell})$ and $\operatorname{{Pr}}_{\mathcal{D}_{\ell}}[h(x)=1]$ for a leaf $\ell$ in the tree. In most cases, $\zeta$ scales with the size of the dataset. Since each iteration of TopDownDT can process at most $t$ leaves, the time complexity for one iteration is $O(\zeta t \cdot |\mathcal{H}|)$. Running the algorithm for $t$ iterations results in a total runtime of $O(\zeta t^{2} \cdot |\mathcal{H}|)$.
+
+Let $\ell$ be defined as $\left\lceil O\left(\frac{\log(1/\gamma)}{\gamma}\right)\right\rceil$. Given that $\gamma^{1/\gamma} \leq \varepsilon$, it follows that $\ell \geq \log_{2}(1/\varepsilon)$. Applying Proposition 4.6, we deduce that for some $k \leq \ell$, there exists a monotone function $g:\{\pm 1\}^{k} \to \{\pm 1\}$ with the property that, for uniformly random $\boldsymbol{x} \in \{\pm 1\}^{k}$,
+
+\[
+\min_{b \in \{\pm 1\}} \operatorname{Pr}[g(\boldsymbol{x}) = b] \geq 2\varepsilon \quad \text{(8)}
+\]
+
+Furthermore, we have
+
+\[
+v \coloneqq \mathds{E}[\boldsymbol{x}_{1}g(\boldsymbol{x})] = \cdots = \mathds{E}[\boldsymbol{x}_{k}g(\boldsymbol{x})] = O\left(\varepsilon \log(1/\varepsilon) \cdot \frac{\log \ell}{\ell}\right) = O\left(\varepsilon \log(1/\varepsilon) \cdot \gamma\right).
+\]
+
+The covariance between functions \( f(\boldsymbol{x}) \) and \( g(\boldsymbol{x}) \) with respect to distribution \( \mathcal{E} \) is defined as:
+
+\[
+Cov_{\mathcal{E}}[f(\boldsymbol{x}),g(\boldsymbol{x})] = \mathop{{\mathds{E}}\/}_{\begin{subarray}{c}\boldsymbol{x}\sim\mathcal{E}\\ \boldsymbol{x}^{\prime}\sim\mathcal{E}\end{subarray}}\left[\frac{(f(\boldsymbol{x}) - f(\boldsymbol{x}^{\prime}))(g(\boldsymbol{x}) - g(\boldsymbol{x}^{\prime}))}{2}\right]
+\]
+
+The proof of the lemma is grounded in the observation that the expression $\tau(1-\tau)$ is bounded above by $1/4$. ∎
+
+Appendix C Proof for Theorem 4
+
+Impurity-based decision tree algorithms can efficiently learn monotone decision trees of size $s$ over the product distribution $\{\pm 1\}^{d}$, even when the data is corrupted by nasty noise. The time complexity required for this learning task is polynomial in $d$ multiplied by $s^{O(\log s)}$.
+
+The expectation can be rewritten as:
+
+\[
+\sum_{\ell\in T}w_{\widehat{\mathcal{D}}}(\ell^{*})\Delta_{\widehat{\mathcal{D}}_{\ell^{*}}}(h_{\ell^{*}})\geq 4\gamma^{2}\varepsilon^{2}.
+\]
+
+If the current number of leaves in \( T \) is \( s \), then at least one leaf \( \ell^{\star} \) must satisfy:
+
+\[
+w_{\widehat{\mathcal{D}}}(\ell^{*})\Delta_{\widehat{\mathcal{D}}_{\ell^{*}}}(h_{\ell^{*}})\geq\frac{4\gamma^{2}\varepsilon^{2}}{s}.
+\]
+
+Since TopDownDT selects the leaf that leads to the maximum reduction in \( \mathcal{G}_{\widehat{\mathcal{D}}}(T) \) at each step, the reduction in \( \mathcal{G} \) at step \( s \) is at least \( \frac{4\gamma^{2}\varepsilon^{2}}{s} \). Consequently, after \( t \) steps, the total reduction is at least:
+
+\[
+4\gamma^{2}\varepsilon^{2}\left({1+\frac{1}{2}+\frac{1}{3}+\ldots+\frac{1}{t}}\right)\geq 4\gamma^{2}\varepsilon^{2}\log t.
+\]
+
+In aggregate, the expectation is bounded below by a quadratic function:
+
+\[
+\mathop{\mathds{E}}\limits_{{\boldsymbol{\ell}} \sim (T, \widehat{\mathcal{D}})} \left[ \Delta_{\widehat{\mathcal{D}}_{{\boldsymbol{\ell}}}}(h_{{\boldsymbol{\ell}}}) \right] \geq 16 \cdot \left( \gamma \mathds{E}_{\widehat{\mathcal{D}}} \left[ \operatorname{Var}_{\widehat{\mathcal{D}}_{{\boldsymbol{\ell}}}}[\boldsymbol{y}] \right] - 3 \mathds{E}_{\widehat{\mathcal{D}}} [\eta_{{\boldsymbol{\ell}}}] \right)_{+}^{2}
+\]
+
+This is further refined through successive inequalities:
+
+\[
+\geq 16 \cdot \left( \frac{\gamma}{2} \cdot \operatorname{error}_{\widehat{\mathcal{D}}}[T] - 3 \mathds{E}_{\widehat{\mathcal{D}}} [\eta_{{\boldsymbol{\ell}}}] \right)_{+}^{2} \quad \text{(Equation 6)}
+\]
+
+\[
+\geq 16 \cdot \left( \frac{\gamma}{2} \cdot \operatorname{error}_{\widehat{\mathcal{D}}}[T] - 6 \eta \right)_{+}^{2} \quad \text{($\mathds{E}_{\widehat{\mathcal{D}}} [\eta_{{\boldsymbol{\ell}}}] \leq 2 \eta$ by Lemma B.4)}
+\]
+
+\[
+\geq 16 \cdot \left( \frac{\gamma \varepsilon}{2} + 6 \eta - 6 \eta \right)_{+}^{2} \quad \text{(by assumption)}
+\]
+
+\[
+\geq 4 \gamma^{2} \varepsilon^{2}.
+\]
+
+The variance of a function \( f(\boldsymbol{x}) \) with respect to distribution \( \mathcal{E} \) is defined as \( \operatorname{{Var}}_{\mathcal{E}}[f(\boldsymbol{x})] = \mathop{{\mathds{E}}\/}_{\boldsymbol{x}\sim\mathcal{E}, \boldsymbol{x}^{\prime}\sim\mathcal{E}}\left[\frac{(f(\boldsymbol{x}) - f(\boldsymbol{x}^{\prime}))^{2}}{2}\right] \).
+
+Appendix D Proof for Proposition 5
+
+We recall and provide proof for Proposition 5 below.
+
+The concept of feature influence becomes integral when considering dichotomous attributes.
+
+The local drop in $\mathcal{G}$ at this leaf, following a split using $h$, is defined as:
+
+Learning decision trees in the context of product distributions has been a focal point of extensive research in learning theory, as evidenced by Hancock (1993). Real-world learning scenarios frequently exhibit monotonicity, a property that has garnered significant attention in theoretical studies.
+
+∎
+
+Appendix E Proof for Proposition 6
+
+Kearns and Mansour (1996) were the first to examine impurity-based decision tree learning algorithms through the lens of boosting. Their crucial yet straightforward insight was that the splitting criteria at the internal nodes of a decision tree can be interpreted as weak hypotheses, and the tree's construction process can be viewed as a method for creating a strong learner by aggregating these weak hypotheses. In this context, we revisit the standard assumption of weak learning as outlined in the boosting literature.
+
+For any impurity function $\mathcal{G}$, the local drop in $\mathcal{G}$ is $0$ for all hypotheses. Additionally, all projections beyond the first $k$ are entirely independent of each other and the label. Consequently, if all internal nodes in the tree correspond to projections for the final $d-k$ coordinates, all hypotheses at every leaf node will exhibit impurity gain.
+
+Consequently, at each iteration, TopDownDT will arbitrarily select a pair $(\ell^{\star},h^{\star})$. Until $t$ reaches or exceeds $2^{d-k}$, such arbitrary selections can result in the construction of a complete binary tree with a depth of $\log(t)$, where every internal node corresponds to a hypothesis based on one of the $d-k$ projection functions that are entirely independent of the target variable $\boldsymbol{y}$.
+
+In that case, according to Equation 8, for every leaf ℓ, the minimum probability over {±1} that the hypothesis g(𝐱) equals b under distribution D_ℓ satisfies \min_{b\in\{\pm 1\}} \operatorname{{Pr}}_{\mathcal{D}_{\ell}}[g(\boldsymbol{x})=b] \geq 2\varepsilon. Consequently, irrespective of how TopDownDT assigns labels to the leaves, the resulting decision tree will incur an error of at least 2ε. ∎
+
+The significant achievements of impurity-based decision tree algorithms have inspired sustained research efforts aimed at providing rigorous performance guarantees across various models and scenarios, as demonstrated by Kearns & Mansour (1996).
+
+For any \( s, w \in \mathbb{N} \) and \( \boldsymbol{x} \) uniformly distributed over \( \{\pm 1\}^{ws} \), the probability that \( \textsc{Tribes}_{w,s}(\boldsymbol{x}) = -1 \) is \( (1 - 2^{-w})^{s} \). Additionally, for each \( i \in [sw] \), the expectation \( \mathbb{E}[x_{i} \cdot \textsc{Tribes}_{w,s}(\boldsymbol{x})] \) equals \( \frac{1}{2^{w} - 1} \) multiplied by \( \Pr[\textsc{Tribes}_{w,s}(\boldsymbol{x}) = -1] \).
+
+Let $h$ denote a splitting function, $\ell$ represent a leaf of the tree $T$, and $\mathcal{D}_{\ell}$ be the conditional distribution of $\mathcal{D}$ given that $\boldsymbol{x}$ reaches $\ell$. Let $\ell_{0}$ and $\ell_{1}$ denote the leaves of the subtree $T_{\ell,h}$ corresponding to $h(\boldsymbol{x})=0$ and $h(\boldsymbol{x})=1$, respectively, with $\mathcal{D}_{\ell_{0}}$ and $\mathcal{D}_{\ell_{1}}$ representing their respective conditional distributions.
+
+∎
+
+Appendix F Proof for Theorem 7
+
+Recall Theorem 7 :
+
+We calculate the expectation of the total variation distance between two conditional distributions, $\mathcal{D}_{x|{\boldsymbol{\ell}}}$ and $\widehat{\mathcal{D}}_{x|{\boldsymbol{\ell}}}$, under the distribution $\mathcal{D}_{\ell}$. This is expressed as:
+
+\[
+\mathop{{\mathds{E}}\/}_{{\boldsymbol{\ell}}\sim\mathcal{D}_{\ell}}\left[\operatorname{dist}_{\mathrm{TV}}(\mathcal{D}_{x|{\boldsymbol{\ell}}},\widehat{\mathcal{D}}_{x|{\boldsymbol{\ell}}})\right] = \mathop{{\mathds{E}}\/}_{{\boldsymbol{\ell}}\sim\mathcal{D}_{\ell}}\left[\sup_{X_{{\boldsymbol{\ell}}}\subseteq X}\left(\mathcal{D}_{x|{\boldsymbol{\ell}}}(X_{{\boldsymbol{\ell}}})-\widehat{\mathcal{D}}_{x|{\boldsymbol{\ell}}}(X_{{\boldsymbol{\ell}}})\right)\right] \quad \text{(Equation 15)}
+\]
+
+By leveraging the commutativity of the supremum and expectation operators (valid due to the finiteness of $L$), this expression simplifies to:
+
+\[
+\sup_{X_{{\boldsymbol{\ell}}}\subseteq X\text{ for each }\ell\in L}\left(\mathop{{\mathds{E}}\/}_{{\boldsymbol{\ell}}\sim\mathcal{D}_{\ell}}\left[\mathcal{D}_{x|{\boldsymbol{\ell}}}(X_{{\boldsymbol{\ell}}})-\widehat{\mathcal{D}}_{x|{\boldsymbol{\ell}}}(X_{{\boldsymbol{\ell}}})\right]\right)
+\]
+
+Further, by defining $A_{\ell} \coloneqq \{x \mid (x, \ell) \in A\}$, this becomes:
+
+\[
+\sup_{A\subseteq L\times X}\left(\mathop{{\mathds{E}}\/}_{{\boldsymbol{\ell}}\sim\mathcal{D}_{\ell}}\left[\mathcal{D}_{x|{\boldsymbol{\ell}}}(A_{{\boldsymbol{\ell}}}) - \widehat{\mathcal{D}}_{x|{\boldsymbol{\ell}}}(A_{{\boldsymbol{\ell}}})\right]\right)
+\]
+
+Applying the triangle inequality, this is split into two terms:
+
+\[
+\sup_{A\subseteq L\times X}\left(\mathop{{\mathds{E}}\/}_{{\boldsymbol{\ell}}\sim\mathcal{D}_{\ell}}\left[\mathcal{D}_{x|{\boldsymbol{\ell}}}(A_{{\boldsymbol{\ell}}})\right] - \mathop{{\mathds{E}}\/}_{\widehat{{\boldsymbol{\ell}}}\sim\widehat{\mathcal{D}}_{\ell}}\left[\widehat{\mathcal{D}}_{x|\widehat{{\boldsymbol{\ell}}}}(A_{\widehat{{\boldsymbol{\ell}}}})\right]\right) + \sup_{A\subseteq L\times X}\left(\mathop{{\mathds{E}}\/}_{{\boldsymbol{\ell}}\sim\mathcal{D}_{\ell}}\left[\widehat{\mathcal{D}}_{x|{\boldsymbol{\ell}}}(A_{{\boldsymbol{\ell}}})\right] - \mathop{{\mathds{E}}\/}_{\widehat{{\boldsymbol{\ell}}}\sim\widehat{\mathcal{D}}_{\ell}}\left[\widehat{\mathcal{D}}_{x|\widehat{{\boldsymbol{\ell}}}}(A_{\widehat{{\boldsymbol{\ell}}}})\right]\right)
+\]
+
+Analyzing the first term:
+
+\[
+\sup_{A\subseteq L\times X}\left(\mathcal{D}(A) - \widehat{\mathcal{D}}(A)\right) = \operatorname{dist}_{\mathrm{TV}}(\mathcal{D}, \widehat{\mathcal{D}})
+\]
+
+For the second term, using $p_{\mathcal{D}}(\ell)$ to denote $\operatorname{{Pr}}_{{\boldsymbol{\ell}}\sim\mathcal{D}_{\ell}}[{\boldsymbol{\ell}}=\ell]$, we have:
+
+\[
+\sup_{A\subseteq L\times X}\sum_{\ell\in L}\left(p_{\mathcal{D}}(\ell) \cdot \widehat{\mathcal{D}}_{x|\ell}(A_{\ell}) - p_{\widehat{\mathcal{D}}}(\ell) \cdot \widehat{\mathcal{D}}_{x|\ell}(A_{\ell})\right)
+\]
+
+This is maximized when $A_{\ell} = X$ if $p_{\mathcal{D}}(\ell) \geq p_{\widehat{\mathcal{D}}}(\ell)$ and $A_{\ell} = \emptyset$ otherwise, yielding:
+
+\[
+\sup_{A^{\prime}\subseteq L}\left(\mathcal{D}_{\ell}(A^{\prime}) - \widehat{\mathcal{D}}_{\ell}(A^{\prime})\right) = \operatorname{dist}_{\mathrm{TV}}(\mathcal{D}_{\ell}, \widehat{\mathcal{D}}_{\ell})
+\]
+
+Noting that $\operatorname{dist}_{\mathrm{TV}}(\mathcal{D}_{\ell}, \widehat{\mathcal{D}}_{\ell}) \leq \operatorname{dist}_{\mathrm{TV}}(\mathcal{D}, \widehat{\mathcal{D}})$, we combine the results to obtain:
+
+\[
+\mathop{{\mathds{E}}\/}_{{\boldsymbol{\ell}}\sim\mathcal{D}_{\ell}}\left[\operatorname{dist}_{\mathrm{TV}}(\mathcal{D}_{x|{\boldsymbol{\ell}}}, \widehat{\mathcal{D}}_{x|{\boldsymbol{\ell}}})\right] \leq 2 \operatorname{dist}_{\mathrm{TV}}(\mathcal{D}, \widehat{\mathcal{D}}). \quad \blacksquare
+\]
+
+The total variation distance between distributions $\mathcal{E}$ and $\widehat{\mathcal{E}}$ is defined as $\operatorname{dist}_{\mathrm{TV}}(\mathcal{E},\widehat{\mathcal{E}})=\sup_{T:\mathcal{V}\to[0,1]}\left({\mathop{{\mathds{E}}\/}_{\boldsymbol{x}\sim\mathcal{E}}[T(\boldsymbol{x})]-\mathop{{\mathds{E}}\/}_{\boldsymbol{x}\sim\widehat{\mathcal{E}}}[T(\boldsymbol{x})]}\right).$
+
+A concave function $\mathcal{G}:[0,1]\to[0,1]$ is defined as an impurity function if it is symmetric about $\frac{1}{2}$, with boundary conditions $\mathcal{G}(0)=\mathcal{G}(1)=0$ and $\mathcal{G}\left(\frac{1}{2}\right)=1$.
+
+For any integers \( s, w \in \mathbb{N} \), the function \( \textsc{Tribes}_{w,s}: \{\pm 1\}^{ws} \rightarrow \{\pm 1\} \) is defined as the Boolean function computed by a read-once disjunctive normal form with \( s \) terms (each over distinct variable sets) and width exactly \( w \). The function is expressed as:
+
+\[
+\textsc{Tribes}_{w,s}(x) = (x_{1,1} \wedge \cdots \wedge x_{1,w}) \vee \cdots \vee (x_{s,1} \wedge \cdots \wedge x_{s,w}),
+\]
+
+where \( -1 \) denotes logical False and \( 1 \) denotes logical True.
+
+The absolute difference between the expected value of a function \( f(\boldsymbol{x}) \) under distribution \( \mathcal{E} \) and its expected value under distribution \( \widehat{\mathcal{E}} \) is bounded above by \( \eta \). This relationship is expressed as:
+
+\[
+\left|\mathop{{\mathds{E}}\/}_{\boldsymbol{x}\sim\mathcal{E}}[f(\boldsymbol{x})]-\mathop{{\mathds{E}}\/}_{\boldsymbol{x}\sim\widehat{\mathcal{E}}}[f(\boldsymbol{x})]\right|\leq\eta. \quad (11)
+\]
+
+Since the variance of $\boldsymbol{y}$ under $\widehat{\mathcal{D}}_{\boldsymbol{\ell}}$ is given by $\operatorname{{Var}}_{\widehat{\mathcal{D}}_{{\boldsymbol{\ell}}}}[\boldsymbol{y}]=\mu(\widehat{\mathcal{D}}_{{\boldsymbol{\ell}}})(1-\mu(\widehat{\mathcal{D}}_{{\boldsymbol{\ell}}}))$, it follows that $\operatorname{{Var}}_{\widehat{\mathcal{D}}_{{\boldsymbol{\ell}}}}[\boldsymbol{y}]\geq 1/2\cdot\varepsilon(\widehat{\mathcal{D}}_{{\boldsymbol{\ell}}})$. Consequently,
+
+ $\mathop{{\mathds{E}}\/}_{{\boldsymbol{\ell}}\sim(T,\widehat{\mathcal{D}})}[\operatorname{{Var}}_{\widehat{\mathcal{D}}_{{\boldsymbol{\ell}}}}[\boldsymbol{y}]]\geq\operatorname{error}_{\widehat{\mathcal{D}}}[T]/2.$  (6)
+
+Let $\mathcal{E}$ be an arbitrary distribution over $\mathcal{X}\times\{0,1\}$, and let $h:\mathcal{X}\to\{0,1\}$ represent a splitting function. It then holds that:
+
+\[
+\Delta_{\mathcal{E}}(h) \geq 16 \cdot \operatorname{{Cov}}_{\mathcal{E}}[h(\boldsymbol{x}),\boldsymbol{y}]^{2}.
+\]
+
+∎
+
+Otherwise, if $\operatorname{error}_{\widehat{\mathcal{D}}}[T]\geq\frac{12\eta}{\gamma}+\varepsilon$ , we demonstrate the existence of a leaf $\ell^{*}\in T$ and a splitting function $h_{\ell^{*}}\in\mathcal{H}$ such that partitioning $\ell^{*}$ using $h_{\ell^{*}}$ leads to a significant decrease in $\mathcal{G}_{\widehat{\mathcal{D}}}(T)$. Specifically, we analyze the expected reduction in $\mathcal{G}_{\widehat{\mathcal{D}}}(T)$ when a random leaf ${\boldsymbol{\ell}}\sim(T,\widehat{\mathcal{D}})$ is split using the corresponding $h_{{\boldsymbol{\ell}}}$ from Lemma 3.4:
+
+We now establish several lemmas that will support the proof of Theorem 3.1. We start by analyzing the reduction in impurity when splitting at a specific leaf using a splitting function \( h: \mathcal{X} \to \{0,1\} \). The following lemma provides a lower bound on this reduction, \( \Delta_{\widehat{\mathcal{D}}_{\ell}}(h) \), expressed in terms of the covariance between \( h(\boldsymbol{x}) \) and \( \boldsymbol{y} \). For generality, we present the lemma for an arbitrary distribution \( \mathcal{E} \), as it will be applied to the distributions \( \widehat{\mathcal{D}}_{\ell} \) at each leaf.
+
+A Boolean function \( f: \{\pm 1\}^n \to \{\pm 1\} \) is considered monotone if, for any two inputs \( x, y \in \{\pm 1\}^n \), whenever \( x_i \leq y_i \) for all \( i \in [n] \), it follows that \( f(x) \leq f(y) \).
+
+Our weak learning assumption (Definition 2.7) establishes lower bounds on the covariance between $h(\boldsymbol{x})$ and $\boldsymbol{y}$ under the uncorrupted distribution $\mathcal{D}_{\ell}$. Our goal is to connect this covariance to that observed under an adversarially corrupted distribution $\widehat{\mathcal{D}}_{\ell}$, which is $\eta_{\ell}$-close to $\mathcal{D}_{\ell}$.
+
+The pseudocode presented in Figure 1 is predicated on the assumption that the impurity reduction can be calculated precisely, thereby enabling exact computation of expectations of the form $\mu(\mathcal{D}_{\ell}) = \mathop{{\mathds{E}}\/}_{\boldsymbol{x},\boldsymbol{y} \sim \mathcal{D}_{\ell}}[\boldsymbol{y}]$. However, if these expectations are instead approximated through random sampling, as outlined in Theorems 1.1 and 1.3 in the introduction, the algorithm's accuracy becomes limited to within a tolerance $\pm\tau$. Importantly, the proofs of Theorems 3.1 and 5.4 remain valid under this approximated framework, provided that the tolerance $\tau$ satisfies $\tau \leq O\left(\frac{\gamma^{2}\varepsilon^{2}}{t}\right)$.
+
+
+ 
+ $\mathbb{E}_{\bar{\epsilon}}\left[\epsilon^{T}\omega\right]=0,$ 
+
+
+We define the local drop in $\mathcal{G}$ at this leaf, following the split with $h$, as:
+
+\[
+\Delta_{\mathcal{D}_{\ell}}(h) \coloneqq \mathcal{G}(\mu(\mathcal{D}_{\ell})) - \Pr_{\mathcal{D}_{\ell}}[h(\boldsymbol{x}) = 0] \cdot \mathcal{G}(\mu(\mathcal{D}_{\ell_{0}})) - \Pr_{\mathcal{D}_{\ell}}[h(\boldsymbol{x}) = 1] \cdot \mathcal{G}(\mu(\mathcal{D}_{\ell_{1}})).
+\]
+
+The only dependency of the proof of Theorem 3.1 on the specific impurity function $\mathcal{G}$ is encapsulated in Lemma 3.2. This lemma holds true for any impurity function that satisfies $\mathcal{G}^{\prime\prime}(x) \leq -\kappa$ for all $x \in (0,1)$, where $\kappa$ is a constant. In such cases, while the value $16$ in Equation 3 is adjusted to $2\kappa$, the core reasoning remains intact. The key insight stems from the expression for $\mu(\mathcal{D}_{\ell})$, which is a weighted average of $\mu(\mathcal{D}_{\ell_{0}})$ and $\mu(\mathcal{D}_{\ell_{1}})$ based on the probabilities of $h(\boldsymbol{x})$ being 0 or 1 under $\mathcal{D}_{\ell}$. Using this, the local decrease in $\mathcal{G}$ can be bounded as 
+
+$$
+\Delta_{\mathcal{D}_{\ell}}(h) \geq \frac{\kappa}{2} \left( \operatorname{{Pr}}_{\mathcal{D}_{\ell}}[h(\boldsymbol{x})=0] \cdot (\mu(\mathcal{D}_{\ell_{0}})-\mu(\mathcal{D}_{\ell}))^{2} + \operatorname{{Pr}}_{\mathcal{D}_{\ell}}[h(\boldsymbol{x})=1] \cdot (\mu(\mathcal{D}_{\ell_{1}})-\mu(\mathcal{D}_{\ell}))^{2} \right).
+$$
+
+Equality in this bound is achieved when $\mathcal{G}'(x) = 4x(1-x)$ with $\kappa = 8$. Consequently, the local drop in $\mathcal{G}$ is at least $\frac{\kappa}{8}$ times the drop observed for $\mathcal{G}'$. Beyond this adjustment, the rest of the proof for Theorem 3.1 remains unchanged, except for minor modifications to the constants represented by $O(\cdot)$.
+
+We adopt the notation $\left({x}\right)_{+}\coloneqq\max\{0,x\}$ for this context.
+
+Let’s focus on the first term of the variance equation ( 6 ):
+
+We can write.
+
+We can write.
+
+To establish the distribution $\mathcal{D}$ for Theorem 4.1, we will utilize the following proposition.
+
+A concave impurity function $\mathcal{G}:[0,1]\to[0,1]$ is symmetric about $\frac{1}{2}$, with $\mathcal{G}(0)=\mathcal{G}(1)=0$ and $\mathcal{G}(\frac{1}{2})=1$.
+
+∎
+
+The formal articulation of Theorem 1.1 can now be presented, asserting that decision tree learning algorithms, which are based on impurity measures, inherently possess the characteristics of boosting algorithms and demonstrate robustness against adversarial noise.
+
+We will utilize the following straightforward, verifiable facts about Tribes, as outlined in Section 4.2 of O’Donnell (2014).
+
+Consider data distribution $\mathcal{D}$ over $\mathcal{Z}=\mathcal{X}\times\mathcal{Y}$ , dataset $S=\{z_{i}\}_{i=1}^{n}\sim\mathcal{D}$ , hypothesis space $\operatorname{\mathcal{F}}$ , and the least squares loss $l(f,z)=(f(x)-y)^{2}$ . Let the loss be bounded by $C^{2}>0$ such that $l(f,z)\leq C^{2}$ for every $z\in\mathcal{Z}$ . For any $\epsilon>0$ : 
+ 
+ $P\left(\sup_{f\in R_{set}(\operatorname{\mathcal{F}},\gamma)}L(f)-\hat{L}(f)>\varepsilon\right)\leq N\left(R_{set}(\operatorname{\mathcal{F}},\gamma),\frac{\epsilon}{8C}\right)e^{\frac{-n(\varepsilon/2)^{2}}{2\sigma^{2}+C^{2}\varepsilon/3}},$ 
+ where $\sigma^{2}=\sup_{R_{set}(\operatorname{\mathcal{F}},\gamma)}Var_{z\in\mathcal{D}}l(f,z)$ .
+
+
+
+To analyze the impact of binary features within a given framework, we must consider the concept of feature influences.
+
+Kearns and Mansour (1996) were pioneers in examining impurity-based decision tree learning algorithms through the lens of boosting. Their critical yet straightforward insight was that the splitting functions at internal nodes of the tree can be interpreted as weak hypotheses, with the construction of the decision tree serving as a mechanism to create a strong learner by aggregating these weak hypotheses. As a reminder, this aligns with the standard weak learning assumption commonly referenced in boosting literature.
+
+In aggregate, the expectation is bounded below by 
+
+$\displaystyle\mathop{{\mathds{E}}\/}_{{\boldsymbol{\ell}}\sim(T,\widehat{\mathcal{D}})}[\Delta_{\widehat{\mathcal{D}}_{{\boldsymbol{\ell}}}}(h_{{\boldsymbol{\ell}}})]$ $\displaystyle\geq 16\cdot\left({\gamma\operatorname{{\mathds{E}}}_{\widehat{\mathcal{D}}}[\operatorname{{Var}}_{\widehat{\mathcal{D}}_{{\boldsymbol{\ell}}}}[\boldsymbol{y}]]-3\operatorname{{\mathds{E}}}_{\widehat{\mathcal{D}}}[\eta_{{\boldsymbol{\ell}}}]}\right)_{+}^{2}$ 
+
+$\displaystyle\geq 16\cdot\left({\frac{\gamma}{2}\cdot\operatorname{error}_{\widehat{\mathcal{D}}}[T]-3\operatorname{{\mathds{E}}}_{\widehat{\mathcal{D}}}[\eta_{{\boldsymbol{\ell}}}]}\right)_{+}^{2}$  ( Equation6 ) 
+
+$\displaystyle\geq 16\cdot\left({\frac{\gamma}{2}\cdot\operatorname{error}_{\widehat{\mathcal{D}}}[T]-6\eta}\right)_{+}^{2}$  ( $\operatorname{{\mathds{E}}}_{\widehat{\mathcal{D}}}[\eta_{{\boldsymbol{\ell}}}]\leq 2\eta$ by LemmaB.4 ) 
+
+$\displaystyle\geq 16\cdot\left({\frac{\gamma\varepsilon}{2}+6\eta-6\eta}\right)_{+}^{2}$  (by assumption) 
+
+$\displaystyle\geq 4\gamma^{2}\varepsilon^{2}.$
+
+Appendix G Pattern Diversity and Other Metrics of the Rashomon set
+
+Let $\mathcal{D}$ be a distribution defined over $\mathcal{X}\times\{0,1\}$ and $\mathcal{H}$ be a family of splitting functions mapping $\mathcal{X}$ to $\{0,1\}$ that satisfies the $\gamma$-weak learning condition with respect to $\mathcal{D}$. For a decision tree $T$ and a leaf $\ell$ of $T$, let $\widehat{\mathcal{D}}_{\ell}$ be any distribution such that $\operatorname{dist}_{\mathrm{TV}}(\mathcal{D}_{\ell},\widehat{\mathcal{D}}_{\ell})\leq\eta_{\ell}$. Then, there exists an $h_{\ell}\in\mathcal{H}$ satisfying 
+
+\[
+|\operatorname{{Cov}}_{\widehat{\mathcal{D}}_{\ell}}[h_{\ell}(\boldsymbol{x}),\boldsymbol{y}]|\geq\gamma\operatorname{{Var}}_{\widehat{\mathcal{D}}_{\ell}}[\boldsymbol{y}]-3\eta_{\ell}.
+\]
+
+In the context of graph theory, the local drop in $\mathcal{G}$ at a leaf node following a split by $h$ is defined as:
+
+$\displaystyle\Delta_{\mathcal{D}_{\ell}}(h) = \mathcal{G}(\mu(\mathcal{D}_{\ell})) - \mathop{{\operatorname{{Pr}}}\/}_{\mathcal{D}_{\ell}}[h(\boldsymbol{x})=0] \cdot \mathcal{G}(\mu(\mathcal{D}_{\ell_{0}})) - \mathop{{\operatorname{{Pr}}}\/}_{\mathcal{D}_{\ell}}[h(\boldsymbol{x})=1] \cdot \mathcal{G}(\mu(\mathcal{D}_{\ell_{1}})).$
+
+An impurity function $\mathcal{G}:[0,1]\to[0,1]$ is a concave function that exhibits symmetry around $\frac{1}{2}$, with boundary conditions $\mathcal{G}(0)=\mathcal{G}(1)=0$ and attains a maximum value of $\mathcal{G}(\frac{1}{2})=1$.
+
+We define the local drop in $\mathcal{G}$ at this leaf, following a split using $h$, as:
+
+$\displaystyle\Delta_{\mathcal{D}_{\ell}}(h)$ $\displaystyle\coloneqq\mathcal{G}(\mu(\mathcal{D}_{\ell}))-\mathop{{\operatorname{{Pr}}}\/}_{\mathcal{D}_{\ell}}[h(\boldsymbol{x})=0]\cdot\mathcal{G}(\mu(\mathcal{D}_{\ell_{0}}))$
+
+$\displaystyle\quad-\mathop{{\operatorname{{Pr}}}\/}_{\mathcal{D}_{\ell}}[h(\boldsymbol{x})=1]\cdot\mathcal{G}(\mu(\mathcal{D}_{\ell_{1}})).$
+
+An impurity function $\mathcal{G}:[0,1]\to[0,1]$ is defined as a concave function that exhibits symmetry around $\frac{1}{2}$, with boundary conditions $\mathcal{G}(0)=\mathcal{G}(1)=0$ and attains its maximum value of 1 at $\mathcal{G}(\frac{1}{2})$.
+
+An impurity function $\mathcal{G}:[0,1]\to[0,1]$ is a concave function that is symmetric about $\frac{1}{2}$ and satisfies $\mathcal{G}(0)=\mathcal{G}(1)=0$ and $\mathcal{G}(\frac{1}{2})=1$.
+
+We will utilize the following straightforward and verifiable facts about Tribes, as outlined in Chapter §4.2 of O’Donnell (2014).
+
+The proof proceeds in two steps.
+
+The formal statement of Theorem 1.1 can now be presented, which asserts that impurity-based decision tree learning algorithms operate as boosting algorithms that are robust against adversarial noise.
+
+Guy and Li-Yang have received financial backing through the NSF CAREER Award under grant number 1942123. Jane's research is supported by the NSF Award under the identifier CCF-2006664. Meanwhile, Ali is the recipient of a graduate fellowship provided by the Knight-Hennessy Scholars program at Stanford University.
+
+Building upon the demonstrated effectiveness of impurity-based decision tree algorithms, substantial research effort has been dedicated to rigorously analyzing their theoretical underpinnings and performance across diverse modeling frameworks and practical scenarios, as initially explored by Kearns & Mansour (1996).
+
+The significant achievements of impurity-based decision tree algorithms have inspired extensive research aimed at providing rigorous performance guarantees across various models and scenarios, as initially explored by Kearns & Mansour (1996).
+
+Guy and Li-Yang receive financial backing through the NSF CAREER Award under grant number 1942123. Jane’s research is funded by the NSF CCF-2006664 award. Ali is the recipient of a graduate fellowship from the Knight-Hennessy Scholars program at Stanford University.
+
+Appendix H Proof for Theorem 9
+
+A concave function $\mathcal{G}:[0,1]\to[0,1]$ is defined as an impurity function if it exhibits symmetry around the midpoint $0.5$ and adheres to the boundary conditions $\mathcal{G}(0)=\mathcal{G}(1)=0$ while attaining a maximum value of $1$ at $\mathcal{G}(\frac{1}{2})$.
+
+In this context, we will utilize several verifiable facts regarding Tribes, as outlined in Chapter §4.2 of O’Donnell’s 2014 work. These facts provide a solid foundation for understanding the intricacies of Tribal structures.
+
+The strong empirical performance of impurity-based decision tree algorithms has motivated extensive research aimed at providing theoretical guarantees regarding their effectiveness across various model frameworks and practical scenarios, as initially explored by Kearns and Mansour (1996).
+
+Using Lemma 3.3 in conjunction with our weak learning assumption, we demonstrate the existence of a hypothesis \( h \) that exhibits high covariance on the adversarially corrupted distribution at a specified leaf.
+
+Kearns and Mansour (1996) were the first to examine impurity-based decision tree learning algorithms through the lens of boosting. Their pivotal insight was that the splitting criteria at internal nodes in a decision tree can be interpreted as weak hypotheses, with the construction of the decision tree serving as a mechanism to aggregate these weak hypotheses into a robust learner. As a reminder, this aligns with the standard weak learning assumption from the boosting literature:
+
+We can now present the formal statement of Theorem 1.1, asserting that impurity-based decision tree learning algorithms possess the properties of boosting methods while exhibiting robustness against adversarial noise.
+
+Therefore we get:
+
+We can now present the formal statement of Theorem 1.1, which asserts that impurity-based decision tree learning algorithms function as boosting algorithms that are robust against adversarial noise.
+
+∎
+
+Appendix I Proof for Theorem 10
+
+A concave function $\mathcal{G}: [0,1] \to [0,1]$ is defined as an impurity measure if it is symmetric about $\frac{1}{2}$, with boundary conditions $\mathcal{G}(0) = \mathcal{G}(1) = 0$ and attains a maximum value of $1$ at $\mathcal{G}(\frac{1}{2})$.
+
+Guy and Li-Yang are recipients of NSF CAREER Award 1942123. Jane is supported by NSF Award CCF-2006664. Ali is the beneficiary of a graduate fellowship award from the Knight-Hennessy Scholars program at Stanford University.
+
+Guy and Li-Yang have received financial support through the NSF CAREER Award under grant number 1942123. Jane's research is funded by the NSF's CCF program, specifically award CCF-2006664. Additionally, Ali is the recipient of a graduate fellowship from the Knight-Hennessy Scholars program at Stanford University.
+
+Guy and Li-Yang are recipients of the NSF CAREER Award 1942123. Jane is supported by the NSF Award CCF-2006664. Ali is the recipient of a graduate fellowship award from the Knight-Hennessy Scholars program at Stanford University.
+
+Kearns and Mansour (1996) were the first to examine impurity-based decision tree learning algorithms through the lens of boosting. Their pivotal yet straightforward insight was that the splitting functions at internal nodes of the tree can be interpreted as weak hypotheses, and the construction of the decision tree can be viewed as a process of creating a strong learner by combining these weak hypotheses. As a reminder, the standard weak learning assumption from the boosting literature is as follows:
+
+A concave function $\mathcal{G}:[0,1]\to[0,1]$ is termed an impurity function if it is symmetric about the midpoint $\frac{1}{2}$ and satisfies the boundary conditions $\mathcal{G}(0)=\mathcal{G}(1)=0$, with the peak value $\mathcal{G}(\frac{1}{2})=1$.
+
+We define the local drop in $\mathcal{G}$ at this leaf, following a split with $h$, as:
+
+\[
+\Delta_{\mathcal{D}_{\ell}}(h) \coloneqq \mathcal{G}(\mu(\mathcal{D}_{\ell})) - \operatorname{Pr}_{\mathcal{D}_{\ell}}[h(\boldsymbol{x})=0] \cdot \mathcal{G}(\mu(\mathcal{D}_{\ell_{0}})) - \operatorname{Pr}_{\mathcal{D}_{\ell}}[h(\boldsymbol{x})=1] \cdot \mathcal{G}(\mu(\mathcal{D}_{\ell_{1}})).
+\]
+
+A concave function $\mathcal{G}$ defined on the interval $[0,1]$ is referred to as an impurity function if it meets specific criteria: it must be symmetric about the point $\frac{1}{2}$, and it must satisfy the boundary conditions $\mathcal{G}(0) = \mathcal{G}(1) = 0$ while achieving a maximum value of $1$ at $\mathcal{G}(\frac{1}{2})$.
+
+Finally, we provide proof for Theorem 10 .
+
+The following verifiable facts, drawn from O’Donnell’s (2014) analysis in Chapter §4.2, provide insights into the characteristics of Tribes.
+
+The perspective of interpreting impurity-based decision tree algorithms as boosting algorithms was first introduced by Kearns and Mansour in 1996, with Kearns also contributing additional insights in the same year. Their foundational work was conducted under the assumption of a noiseless environment. Building on this, Mansour and McAllester in 2002 shifted focus from analyzing practical decision trees to exploring boosting through branching programs—a specific type of decision trees where the underlying structure is represented as a directed acyclic graph (DAG) rather than a traditional tree. While their initial framework also operated in a noiseless setting, subsequent research by Kalai in 2004 addressed various forms of random (non-adversarial) label noise, and Kalai et al. (2008b) further expanded this to handle agnostic noise, broadening the applicability of these methods.
+
+We can now present the formal statement of Theorem 1.1, which asserts that decision tree learning algorithms based on impurity measures are boosting algorithms inherently robust against adversarial noise.
+
+In a seminal work that among the first to examine impurity-based decision trees from a theoretical standpoint, Kearns and Mansour (1996) demonstrated that such algorithms can be interpreted as boosting methods. Building on this foundation, Theorem 1.1 extends their findings to accommodate adversarial noise, thereby establishing that these algorithms possess robust noise-tolerance capabilities inherent to boosting frameworks.
+
+Appendix J Proof for Theorem 11
+
+We state and prove Theorem 11 below.
+
+We will utilize the following straightforward and verifiable properties of Tribes, as detailed in Chapter §4.2 of O’Donnell (2014).
+
+We will utilize the following straightforward, verifiable facts (referenced in Chapter §4.2 of O'Donnell (2014)) regarding Tribes.
+
+The formal articulation of Theorem 1.1 asserts that decision tree learning methodologies, which utilize impurity measures, inherently function as boosting techniques that exhibit robustness against adversarial noise.
+
+The local decrease in $\mathcal{G}$ at this terminal node, resulting from the partitioning induced by $h$, is expressed as:
+
+ $\displaystyle\Delta_{\mathcal{D}_{\ell}}(h)$ $\displaystyle\coloneqq\mathcal{G}(\mu(\mathcal{D}_{\ell}))-\mathop{{\operatorname{{Pr}}}\/}_{\mathcal{D}_{\ell}}[h(\boldsymbol{x})=0]\cdot\mathcal{G}(\mu(\mathcal{D}_{\ell_{0}}))$ 
+ 
+ $\displaystyle\quad-\mathop{{\operatorname{{Pr}}}\/}_{\mathcal{D}_{\ell}}[h(\boldsymbol{x})=1]\cdot\mathcal{G}(\mu(\mathcal{D}_{\ell_{1}})).$
+
+We will utilize the following readily verifiable facts (refer to Chapter §4.2 of O’Donnell, 2014) regarding Tribes.
+
+Appendix K Setup for experiments
+
+Our weak learning assumption (Definition 2.7) establishes lower bounds on the covariance between \( h(\boldsymbol{x}) \) and \( \boldsymbol{y} \) under the uncorrupted distribution \( \mathcal{D}_{\ell} \). The goal is to connect this covariance to that observed under an adversarially corrupted distribution \( \widehat{\mathcal{D}}_{\ell} \), which is \( \eta_{\ell} \)-close to \( \mathcal{D}_{\ell} \).
+
+Dr. Guy and Dr. Li-Yang are funded through the National Science Foundation's CAREER Award under grant number 1942123. Professor Jane receives support from the NSF's CCF program, specifically under grant CCF-2006664. Meanwhile, Ali is the recipient of a graduate fellowship from the Knight-Hennessy Scholars program at Stanford University.
+
+A concave impurity function $\mathcal{G}:[0,1]\to[0,1]$ exhibits symmetry about $\frac{1}{2}$, with boundary values $\mathcal{G}(0)=\mathcal{G}(1)=0$ and attains its maximum at $\mathcal{G}(\frac{1}{2})=1$.
+
+The decrease in $\mathcal{G}$ at this specific leaf within the decision tree, following the application of the splitting rule $h$, is formally denoted as:
+
+\[
+\Delta_{\mathcal{D}_{\ell}}(h) = \mathcal{G}(\mu(\mathcal{D}_{\ell})) - \mathop{{\operatorname{{Pr}}}\/}_{\mathcal{D}_{\ell}}[h(\boldsymbol{x})=0] \cdot \mathcal{G}(\mu(\mathcal{D}_{\ell_{0}})) - \mathop{{\operatorname{{Pr}}}\/}_{\mathcal{D}_{\ell}}[h(\boldsymbol{x})=1] \cdot \mathcal{G}(\mu(\mathcal{D}_{\ell_{1}})).
+\]
+
+A concave function $\mathcal{G}:[0,1]\to[0,1]$ is termed an impurity function if it exhibits symmetry about the midpoint $\frac{1}{2}$, attains zero at both endpoints $\mathcal{G}(0)=\mathcal{G}(1)=0$, and reaches its maximum value of $\mathcal{G}(\frac{1}{2})=1$ at the center.
+
+An impurity measure $\mathcal{G}:[0,1]\to[0,1]$ is a concave function characterized by symmetry about $\frac{1}{2}$, with boundary conditions $\mathcal{G}(0)=\mathcal{G}(1)=0$ and attaining a maximum value of $1$ at $\frac{1}{2}$.
+
+A function $\mathcal{G}:[0,1]\to[0,1]$ is defined as impure if it satisfies three conditions: concavity, symmetry about $\frac{1}{2}$, and boundary values of $\mathcal{G}(0)=\mathcal{G}(1)=0$ with $\mathcal{G}(\frac{1}{2})=1$.
+
+and then check if $w^{T}x$ is in the Rashomon set defined by 0-1 loss.
+
+Collectively, we establish the following inequality:
+
+\[
+\mathop{\mathds{E}}_{{\boldsymbol{\ell}} \sim (T, \widehat{\mathcal{D}})}[\Delta_{\widehat{\mathcal{D}}_{{\boldsymbol{\ell}}}}(h_{{\boldsymbol{\ell}}})] \geq 16 \cdot \left( \gamma \mathop{\mathds{E}}_{\widehat{\mathcal{D}}}[\mathop{\mathds{Var}}_{\widehat{\mathcal{D}}_{{\boldsymbol{\ell}}}}[\boldsymbol{y}]] - 3 \mathop{\mathds{E}}_{\widehat{\mathcal{D}}}[\eta_{{\boldsymbol{\ell}}}] \right)^2_+
+\]
+
+\[
+\geq 16 \cdot \left( \frac{\gamma}{2} \cdot \operatorname{error}_{\widehat{\mathcal{D}}}[T] - 3 \mathop{\mathds{E}}_{\widehat{\mathcal{D}}}[\eta_{{\boldsymbol{\ell}}}] \right)^2_+ \quad (\text{Equation 6})
+\]
+
+\[
+\geq 16 \cdot \left( \frac{\gamma}{2} \cdot \operatorname{error}_{\widehat{\mathcal{D}}}[T] - 6\eta \right)^2_+ \quad (\mathop{\mathds{E}}_{\widehat{\mathcal{D}}}[\eta_{{\boldsymbol{\ell}}}] \leq 2\eta \text{ by Lemma B.4})
+\]
+
+\[
+\geq 16 \cdot \left( \frac{\gamma \varepsilon}{2} + 6\eta - 6\eta \right)^2_+ \quad (\text{by assumption})
+\]
+
+\[
+\geq 4\gamma^2 \varepsilon^2.
+\]
+
+The variance of the response variable $\boldsymbol{y}$ under the distribution $\widehat{\mathcal{D}}_{{\boldsymbol{\ell}}}$ is given by $\operatorname{{Var}}_{\widehat{\mathcal{D}}_{{\boldsymbol{\ell}}}}[\boldsymbol{y}]=\mu(\widehat{\mathcal{D}}_{{\boldsymbol{\ell}}})(1-\mu(\widehat{\mathcal{D}}_{{\boldsymbol{\ell}}}))$, which implies that $\operatorname{{Var}}_{\widehat{\mathcal{D}}_{{\boldsymbol{\ell}}}}[\boldsymbol{y}]\geq 1/2\cdot\varepsilon(\widehat{\mathcal{D}}_{{\boldsymbol{\ell}}})$. Consequently, the expected variance across all $\boldsymbol{\ell}$ sampled from $(T,\widehat{\mathcal{D}})$ satisfies 
+
+$\mathop{{\mathds{E}}\/}_{{\boldsymbol{\ell}}\sim(T,\widehat{\mathcal{D}})}[\operatorname{{Var}}_{\widehat{\mathcal{D}}_{{\boldsymbol{\ell}}}}[\boldsymbol{y}]]\geq\operatorname{error}_{\widehat{\mathcal{D}}}[T]/2.$
+
+Our weak learning assumption (Definition 2.7) establishes minimum thresholds for the covariance between $h(\boldsymbol{x})$ and $\boldsymbol{y}$ under the uncorrupted distribution $\mathcal{D}_{\ell}$. The objective is to extend this understanding to a distribution $\widehat{\mathcal{D}}_{\ell}$ that has been adversarially altered but remains within an $\eta_{\ell}$ margin of $\mathcal{D}_{\ell}$.
+
+Given that the variance of the label distribution $\boldsymbol{y}$ under $\widehat{\mathcal{D}}_{{\boldsymbol{\ell}}}$ is $\mu(\widehat{\mathcal{D}}_{{\boldsymbol{\ell}}})(1-\mu(\widehat{\mathcal{D}}_{{\boldsymbol{\ell}}}))$, it follows that $\operatorname{{Var}}_{\widehat{\mathcal{D}}_{{\boldsymbol{\ell}}}}[\boldsymbol{y}]$ is at least $1/2 \cdot \varepsilon(\widehat{\mathcal{D}}_{{\boldsymbol{\ell}}})$. Consequently, the expected variance over the distribution $(T,\widehat{\mathcal{D}})$ is bounded below by half of the error of $T$ with respect to $\widehat{\mathcal{D}}$:
+
+$
+\mathop{{\mathds{E}}\/}_{{\boldsymbol{\ell}}\sim(T,\widehat{\mathcal{D}})}[\operatorname{{Var}}_{\widehat{\mathcal{D}}_{{\boldsymbol{\ell}}}}[\boldsymbol{y}]] \geq \frac{1}{2} \operatorname{error}_{\widehat{\mathcal{D}}}[T].
+$
+
+The variance of $\boldsymbol{y}$ with respect to $\widehat{\mathcal{D}}_{{\boldsymbol{\ell}}}$ is given by $\mu(\widehat{\mathcal{D}}_{{\boldsymbol{\ell}}})(1-\mu(\widehat{\mathcal{D}}_{{\boldsymbol{\ell}}}))$, and it follows that this variance is at least $1/2$ times the error of $\widehat{\mathcal{D}}_{{\boldsymbol{\ell}}}$. Consequently, the expected value of the variance over all $\widehat{\mathcal{D}}_{{\boldsymbol{\ell}}}$ distributed according to $(T,\widehat{\mathcal{D}})$ satisfies:
+
+\[
+\mathop{{\mathds{E}}\/}_{{\boldsymbol{\ell}}\sim(T,\widehat{\mathcal{D}})}[\operatorname{{Var}}_{\widehat{\mathcal{D}}_{{\boldsymbol{\ell}}}}[\boldsymbol{y}]]\geq\frac{\operatorname{error}_{\widehat{\mathcal{D}}}[T]}{2}.
+\]
+
+This result, labeled as equation (6), establishes a relationship between the expected variance of $\boldsymbol{y}$ under the given distribution and the error associated with the decision tree $T$ over the dataset $\widehat{\mathcal{D}}$.
+
+Our weak learning assumption (Definition 2.7) establishes lower bounds on the covariance between $h(\boldsymbol{x})$ and $\boldsymbol{y}$ under the uncorrupted distribution $\mathcal{D}_{\ell}$. The goal is to connect this to the covariance under an adversarially corrupted distribution $\widehat{\mathcal{D}}_{\ell}$, which is $\eta_{\ell}$-close to $\mathcal{D}_{\ell}$.
+
+Guy and Li-Yang are beneficiaries of the NSF CAREER Award under the grant number 1942123. Jane is supported by the NSF award CCF-2006664. Ali is a recipient of a graduate fellowship from the Knight-Hennessy Scholars program at Stanford University.
+
+A concave impurity function $\mathcal{G}:[0,1]\to[0,1]$ is symmetric about $\frac{1}{2}$, with boundary conditions $\mathcal{G}(0)=\mathcal{G}(1)=0$ and attains a maximum value of $\mathcal{G}(\frac{1}{2})=1$.
+
+If $\operatorname{error}_{\widehat{\mathcal{D}}}[T]<\frac{12\eta}{\gamma}+\varepsilon$, the proof is complete as it directly implies that $\operatorname{error}_{\mathcal{D}}[T]<\eta+\frac{12\eta}{\gamma}+\varepsilon \leq O(\varepsilon)$, given our initial assumption that $\eta\leq O(\varepsilon\gamma)$.
+
+The variance of the target variable under the distribution $\widehat{\mathcal{D}}_{\boldsymbol{\ell}}$ is given by $\operatorname{{Var}}_{\widehat{\mathcal{D}}_{\boldsymbol{\ell}}}[\boldsymbol{y}] = \mu(\widehat{\mathcal{D}}_{\boldsymbol{\ell}})(1 - \mu(\widehat{\mathcal{D}}_{\boldsymbol{\ell}}))$, which implies that $\operatorname{{Var}}_{\widehat{\mathcal{D}}_{\boldsymbol{\ell}}}[\boldsymbol{y}] \geq \frac{1}{2} \cdot \varepsilon(\widehat{\mathcal{D}}_{\boldsymbol{\ell}})$. Consequently, we have
+
+\[
+\mathop{{\mathds{E}}}_{\boldsymbol{\ell} \sim (T, \widehat{\mathcal{D}})} [\operatorname{{Var}}_{\widehat{\mathcal{D}}_{\boldsymbol{\ell}}}[\boldsymbol{y}]] \geq \frac{\operatorname{error}_{\widehat{\mathcal{D}}}[T]}{2}.
+\]
+
+(6)
+
+K.1 Datasets Description
+
+Our assumption regarding the weak learning framework (as outlined in Definition 2.7) establishes minimum thresholds for the covariance between the hypothesis function $h(\boldsymbol{x})$ and the target variable $\boldsymbol{y}$ under the pristine distribution $\mathcal{D}_{\ell}$. The objective is to analyze how this covariance metric translates to a corrupted distribution $\widehat{\mathcal{D}}_{\ell}$, which is within a discrepancy measure of $\eta_{\ell}$ from $\mathcal{D}_{\ell}$.
+
+K.2 Illustration of Cross-Validation Process in Step 3
+
+Guy and Li-Yang are funded through the NSF CAREER Award under grant number 1942123. Jane receives support from the NSF CCF-2006664 award. Ali is supported by a graduate fellowship from the Knight-Hennessy Scholars program at Stanford University.
+
+We will utilize the following straightforward and verifiable facts (refer to Chapter §4.2 of O’Donnell, 2014) concerning Tribes.
+
+Lemma 3.2 is the sole component of the proof for Theorem 3.1 that hinges on the specific impurity function $\mathcal{G}$. This lemma holds true for any impurity function satisfying $\mathcal{G}^{\prime\prime}(x) \leq -\kappa$ for all $x \in (0,1)$, with the constant $16$ in Equation 3 being substituted by $2\kappa$. The reasoning stems from the expression $\mu(\mathcal{D}_{\ell}) = \operatorname{Pr}_{\mathcal{D}_{\ell}}[h(\boldsymbol{x})=0] \cdot \mu(\mathcal{D}_{\ell_{0}}) + \operatorname{Pr}_{\mathcal{D}_{\ell}}[h(\boldsymbol{x})=1] \cdot \mu(\mathcal{D}_{\ell_{1}})$, which allows us to establish a bound on the local decrease in $\mathcal{G}$ as follows:
+
+\[
+\Delta_{\mathcal{D}_{\ell}}(h) \geq \frac{\kappa}{2} \cdot \left( \operatorname{Pr}_{\mathcal{D}_{\ell}}[h(\boldsymbol{x})=0] \cdot (\mu(\mathcal{D}_{\ell_{0}}) - \mu(\mathcal{D}_{\ell}))^{2} + \operatorname{Pr}_{\mathcal{D}_{\ell}}[h(\boldsymbol{x})=1] \cdot (\mu(\mathcal{D}_{\ell_{1}}) - \mu(\mathcal{D}_{\ell}))^{2} \right).
+\]
+
+Equality in this bound is achieved when $\mathcal{G}^{\prime}(x) = 4x(1-x)$ with $\kappa = 8$. Consequently, the local decrease in $\mathcal{G}$ is guaranteed to be at least $\frac{\kappa}{8}$ times its value for $\mathcal{G}^{\prime}$. The rest of the proof for Theorem 3.1 remains unchanged, barring minor adjustments to the constants encapsulated by $O(\cdot)$.
+
+Guy and Li-Yang are recipients of the NSF CAREER Award 1942123. Jane is supported by the NSF Award CCF-2006664. Ali has been awarded a graduate fellowship through the Knight-Hennessy Scholars program at Stanford University.
+
+K.3 Branch and Bound Method to Compute Patterns in the Rashomon set
+
+A contamination metric $\mathcal{G}:[0,1]\to[0,1]$ is defined as a concave function that exhibits reflection symmetry across $\frac{1}{2}$ and fulfills $\mathcal{G}(0)=\mathcal{G}(1)=0$ with its maximum at $\mathcal{G}(\frac{1}{2})=1$.
+
+An impurity function $\mathcal{G}:[0,1]\to[0,1]$ is a concave function that is symmetric about $\frac{1}{2}$, meaning it mirrors itself around this point. It satisfies the conditions $\mathcal{G}(0)=\mathcal{G}(1)=0$ and $\mathcal{G}(\frac{1}{2})=1$, indicating that the function reaches its minimum values at the endpoints and attains its peak value at the midpoint.
+
+In total, we have
+
+$$
+\mathop{\mathds{E}}_{{\boldsymbol{\ell}} \sim (T, \widehat{\mathcal{D}})}\left[\Delta_{\widehat{\mathcal{D}}_{{\boldsymbol{\ell}}}}(h_{{\boldsymbol{\ell}}})\right] \geq 16 \cdot \left(\gamma \mathds{E}_{\widehat{\mathcal{D}}}\left[\operatorname{Var}_{\widehat{\mathcal{D}}_{{\boldsymbol{\ell}}}}[\boldsymbol{y}]\right] - 3 \mathds{E}_{\widehat{\mathcal{D}}}[\eta_{{\boldsymbol{\ell}}}]\right)_{+}^{2}
+$$
+
+$$
+\geq 16 \cdot \left(\frac{\gamma}{2} \cdot \operatorname{error}_{\widehat{\mathcal{D}}}[T] - 3 \mathds{E}_{\widehat{\mathcal{D}}}[\eta_{{\boldsymbol{\ell}}}]\right)_{+}^{2} \quad \text{(Equation 6)}
+$$
+
+$$
+\geq 16 \cdot \left(\frac{\gamma}{2} \cdot \operatorname{error}_{\widehat{\mathcal{D}}}[T] - 6 \eta\right)_{+}^{2} \quad \text{($\mathds{E}_{\widehat{\mathcal{D}}}[\eta_{{\boldsymbol{\ell}}}] \leq 2 \eta$ by Lemma B.4)}
+$$
+
+$$
+\geq 16 \cdot \left(\frac{\gamma \varepsilon}{2} + 6 \eta - 6 \eta\right)_{+}^{2} \quad \text{(by assumption)}
+$$
+
+$$
+\geq 4 \gamma^{2} \varepsilon^{2}.
+$$
+
+The only part of the proof of Theorem 3.1 that relies on the specific impurity function $\mathcal{G}$ is Lemma 3.2. This lemma holds true for any impurity function that satisfies $\mathcal{G}^{\prime\prime}(x) \leq -\kappa$ for all $x \in (0,1)$ and any constant $\kappa$, although the value $16$ in Equation 3 is adjusted to $2\kappa$. This adjustment stems from the fact that $\mu(\mathcal{D}_{\ell})$ can be expressed as a weighted sum of $\mu(\mathcal{D}_{\ell_0})$ and $\mu(\mathcal{D}_{\ell_1})$ based on the probabilities of $h(\boldsymbol{x}) = 0$ and $h(\boldsymbol{x}) = 1$ under $\mathcal{D}_{\ell}$. Consequently, the local decrease in $\mathcal{G}$ can be bounded as
+
+$$
+\Delta_{\mathcal{D}_{\ell}}(h) \geq \frac{\kappa}{2} \cdot \left( \operatorname{{Pr}}_{\mathcal{D}_{\ell}}[h(\boldsymbol{x}) = 0] \cdot (\mu(\mathcal{D}_{\ell_0}) - \mu(\mathcal{D}_{\ell}))^2 + \operatorname{{Pr}}_{\mathcal{D}_{\ell}}[h(\boldsymbol{x}) = 1] \cdot (\mu(\mathcal{D}_{\ell_1}) - \mu(\mathcal{D}_{\ell}))^2 \right).
+$$
+
+This bound is tight when $\mathcal{G}^{\prime}(x) = 4x(1 - x)$ with $\kappa = 8$. Thus, the local decrease in $\mathcal{G}$ is always at least $\frac{\kappa}{8}$ times the corresponding decrease for $\mathcal{G}^{\prime}$. The rest of the proof for Theorem 3.1 remains unchanged except for minor adjustments to the constants within the $O(\cdot)$ notation.
+
+Since the variance of $\boldsymbol{y}$ under $\widehat{\mathcal{D}}_{{\boldsymbol{\ell}}}$ is given by $\mu(\widehat{\mathcal{D}}_{{\boldsymbol{\ell}}})(1-\mu(\widehat{\mathcal{D}}_{{\boldsymbol{\ell}}}))$, it follows that $\operatorname{{Var}}_{\widehat{\mathcal{D}}_{{\boldsymbol{\ell}}}}[\boldsymbol{y}]$ is at least $\frac{1}{2}\cdot\varepsilon(\widehat{\mathcal{D}}_{{\boldsymbol{\ell}}})$. Consequently, the expected variance over $\boldsymbol{\ell}$ distributed according to $(T,\widehat{\mathcal{D}})$ satisfies:
+
+\[
+\mathop{{\mathds{E}}\/}_{{\boldsymbol{\ell}}\sim(T,\widehat{\mathcal{D}})}[\operatorname{{Var}}_{\widehat{\mathcal{D}}_{{\boldsymbol{\ell}}}}[\boldsymbol{y}]]\geq\frac{\operatorname{error}_{\widehat{\mathcal{D}}}[T]}{2}.
+\]
+
+K.4 Computation of Rashomon Ratio and Pattern Rashomon Ratio for Step 4
+
+Since $\operatorname{{Var}}_{\widehat{\mathcal{D}}_{{\boldsymbol{\ell}}}}[\boldsymbol{y}]=\mu(\widehat{\mathcal{D}}_{{\boldsymbol{\ell}}})(1-\mu(\widehat{\mathcal{D}}_{{\boldsymbol{\ell}}}))$ , it is evident that $\operatorname{{Var}}_{\widehat{\mathcal{D}}_{{\boldsymbol{\ell}}}}[\boldsymbol{y}]\geq 1/2\cdot\varepsilon(\widehat{\mathcal{D}}_{{\boldsymbol{\ell}}})$ . Consequently, 
+
+ $\mathop{{\mathds{E}}\/}_{{\boldsymbol{\ell}}\sim(T,\widehat{\mathcal{D}})}[\operatorname{{Var}}_{\widehat{\mathcal{D}}_{{\boldsymbol{\ell}}}}[\boldsymbol{y}]]\geq\operatorname{error}_{\widehat{\mathcal{D}}}[T]/2.$  (6)
+
+The variance of the target variable $\boldsymbol{y}$ with respect to the distribution $\widehat{\mathcal{D}}_{{\boldsymbol{\ell}}}$ is given by $\operatorname{{Var}}_{\widehat{\mathcal{D}}_{{\boldsymbol{\ell}}}}[\boldsymbol{y}]=\mu(\widehat{\mathcal{D}}_{{\boldsymbol{\ell}}})(1-\mu(\widehat{\mathcal{D}}_{{\boldsymbol{\ell}}}))$. This implies that $\operatorname{{Var}}_{\widehat{\mathcal{D}}_{{\boldsymbol{\ell}}}}[\boldsymbol{y}]$ is at least $1/2\cdot\varepsilon(\widehat{\mathcal{D}}_{{\boldsymbol{\ell}}})$. Consequently, the expected value of the variance over all $\boldsymbol{\ell}$ drawn from the joint distribution of $(T,\widehat{\mathcal{D}})$ satisfies 
+
+$\mathop{{\mathds{E}}\/}_{{\boldsymbol{\ell}}\sim(T,\widehat{\mathcal{D}})}[\operatorname{{Var}}_{\widehat{\mathcal{D}}_{{\boldsymbol{\ell}}}}[\boldsymbol{y}]]\geq\operatorname{error}_{\widehat{\mathcal{D}}}[T]/2. \quad (6)$
+
+The foundational assumption of weak learning (as outlined in Definition 2.7) establishes minimal thresholds for the covariance between the function $h(\boldsymbol{x})$ and the target variable $\boldsymbol{y}$ under the pristine distribution $\mathcal{D}_{\ell}$. Our objective is to extend this understanding to a perturbed distribution $\widehat{\mathcal{D}}_{\ell}$, which deviates from $\mathcal{D}_{\ell}$ by a margin of $\eta_{\ell}$, thereby accounting for adversarial corruption.
+
+The research of Guy and Li-Yang is supported by the NSF CAREER Award 1942123, while Jane's work is funded through the NSF Award CCF-2006664. Ali is supported by a graduate fellowship from the Knight-Hennessy Scholars program at Stanford University.
+
+K.5 Experiments for Pattern Diversity and Label Noise for Linear Models
+
+An impurity function $\mathcal{G}:[0,1]\to[0,1]$ is defined as a concave function that is symmetric about $\frac{1}{2}$, satisfying the conditions $\mathcal{G}(0)=\mathcal{G}(1)=0$ and $\mathcal{G}(\frac{1}{2})=1$.
+
+K.6 The Choice of the Rashomon Parameter does not Influence Results
+
+If $\operatorname{error}_{\widehat{\mathcal{D}}}[T] < \frac{12\eta}{\gamma} + \varepsilon$, the proof is complete. This is because, under the assumption that $\eta \leq O(\varepsilon\gamma)$, it follows that $\operatorname{error}_{\mathcal{D}}[T] < \eta + \frac{12\eta}{\gamma} + \varepsilon \leq O(\varepsilon)$.
+
+K.7 Computation Resources
+
+Since $\operatorname{{Var}}_{\widehat{\mathcal{D}}_{{\boldsymbol{\ell}}}}[\boldsymbol{y}]=\mu(\widehat{\mathcal{D}}_{{\boldsymbol{\ell}}})(1-\mu(\widehat{\mathcal{D}}_{{\boldsymbol{\ell}}}))$ , it follows that $\operatorname{{Var}}_{\widehat{\mathcal{D}}_{{\boldsymbol{\ell}}}}[\boldsymbol{y}]\geq 1/4\cdot\varepsilon(\widehat{\mathcal{D}}_{{\boldsymbol{\ell}}})$ . Consequently, 
+
+ $\mathop{{\mathds{E}}\/}_{{\boldsymbol{\ell}}\sim(T,\widehat{\mathcal{D}})}[\operatorname{{Var}}_{\widehat{\mathcal{D}}_{{\boldsymbol{\ell}}}}[\boldsymbol{y}]]\geq\operatorname{error}_{\widehat{\mathcal{D}}}[T]/4.$  (6)
+
+References
+
+Ahanor et al. [2023] Izuwa Ahanor, Hugh Medal, and Andrew C Trapp. DiversiTree: A new method to efficiently compute diverse sets of near-optimal solutions to mixed-integer optimization problems. INFORMS Journal on Computing, 2023.
+Aïvodji et al. [2021] Ulrich Aïvodji, Hiromi Arai, Sébastien Gambs, and Satoshi Hara. Characterizing the risk of fairwashing. InAdvances in Neural Information Processing Systems, volume 34, pages 14822–14834, 2021.
+Angelino et al. [2017] Elaine Angelino, Nicholas Larus-Stone, Daniel Alabi, Margo Seltzer, and Cynthia Rudin. Learning certifiably optimal rule lists. InProceedings of the 23rd ACM SIGKDD International Conference on Knowledge Discovery and Data Mining, pages 35–44, 2017.
+Bartlett et al. [1998] Peter Bartlett, Yoav Freund, Wee Sun Lee, and Robert E Schapire. Boosting the margin: A new explanation for the effectiveness of voting methods. The Annals of Statistics, 26(5):1651–1686, 1998.
+Bishop [1995] Chris M Bishop. Training with noise is equivalent to Tikhonov regularization. Neural Computation, 7(1):108–116, 1995.
+Black et al. [2022] Emily Black, Manish Raghavan, and Solon Barocas. Model multiplicity: Opportunities, concerns, and solutions. In2022 ACM Conference on Fairness, Accountability, and Transparency, pages 850–863, 2022.
+Breiman [2001] Leo Breiman. Statistical modeling: The two cultures (with comments and a rejoinder by the author). Statistical Science, 16(3):199–231, 2001.
+Brunet et al. [2022] Marc-Etienne Brunet, Ashton Anderson, and Richard Zemel. Implications of model indeterminacy for explanations of automated decisions. InAdvances in Neural Information Processing Systems, volume 35, pages 7810–7823, 2022.
+Coston et al. [2021] Amanda Coston, Ashesh Rambachan, and Alexandra Chouldechova. Characterizing fairness over the set of good models under selective labels. InInternational Conference on Machine Learning, pages 2144–2155. PMLR, 2021.
+Cover [1965] Thomas M. Cover. Geometrical and statistical properties of systems of linear inequalities with applications in pattern recognition. IEEE Trans. Electron. Comput., 14:326–334, 1965.
+Cucker and Smale [2002] Felipe Cucker and Steve Smale. On the mathematical foundations of learning. Bulletin of the American mathematical society, 39(1):1–49, 2002.
+Damian et al. [2021] Alex Damian, Tengyu Ma, and Jason D Lee. Label noise sgd provably prefers flat global minimizers. InAdvances in Neural Information Processing Systems, volume 34, pages 27449–27461, 2021.
+D’Amour et al. [2022] Alexander D’Amour, Katherine Heller, Dan Moldovan, Ben Adlam, Babak Alipanahi, Alex Beutel, Christina Chen, Jonathan Deaton, Jacob Eisenstein, Matthew D Hoffman, et al. Underspecification presents challenges for credibility in modern machine learning. The Journal of Machine Learning Research, 23(1):10237–10297, 2022.
+Dong and Rudin [2020] Jiayun Dong and Cynthia Rudin. Exploring the cloud of variable importance for the set of all good models. Nature Machine Intelligence, 2(12):810–824, 2020.
+Fisher et al. [2019] Aaron Fisher, Cynthia Rudin, and Francesca Dominici. All models are wrong, but many are useful: Learning a variable’s importance by studying an entire class of prediction models simultaneously. Journal of Machine Learning Research, 20(177):1–81, 2019.
+Ghosh et al. [2017] Aritra Ghosh, Himanshu Kumar, and P Shanti Sastry. Robust loss functions under label noise for deep neural networks. InProceedings of the AAAI Conference on Artificial Intelligence, volume 31, 2017.
+Holte [1993] Robert C. Holte. Very simple classification rules perform well on most commonly used datasets. Machine Learning, 11(1):63–91, 1993.
+Hsu and Calmon [2022] Hsiang Hsu and Flavio Calmon. Rashomon capacity: A metric for predictive multiplicity in classification. InAdvances in Neural Information Processing Systems, volume 35, pages 28988–29000, 2022.
+Hu et al. [2020] Wei Hu, Zhiyuan Li, and Dingli Yu. Simple and effective regularization methods for training on noisily labeled data with generalization guarantee. InInternational Conference on Learning Representations, 2020.
+Kearns [1995] Michael Kearns. A bound on the error of cross validation using the approximation and estimation rates, with consequences for the training-test split. InAdvances in Neural Information Processing Systems, volume 8, 1995.
+Khozeimeh et al. [2017a] Fahime Khozeimeh, Roohallah Alizadehsani, Mohamad Roshanzamir, Abbas Khosravi, Pouran Layegh, and Saeid Nahavandi. An expert system for selecting wart treatment method. Computers in biology and medicine, 81:167–175, 2017a.
+Khozeimeh et al. [2017b] Fahime Khozeimeh, Farahzad Jabbari Azad, Yaghoub Mahboubi Oskouei, Majid Jafari, Shahrzad Tehranian, Roohallah Alizadehsani, and Pouran Layegh. Intralesional immunotherapy compared to cryotherapy in the treatment of warts. International journal of dermatology, 56(4):474–478, 2017b.
+Kowal [2022] Daniel R Kowal. Fast, optimal, and targeted predictions using parameterized decision analysis. Journal of the American Statistical Association, 117(540):1875–1886, 2022.
+Lee et al. [2018] Kuang-Huei Lee, Xiaodong He, Lei Zhang, and Linjun Yang. Cleannet: Transfer learning for scalable image classifier training with label noise. InProceedings of the IEEE Conference on Computer Vision and Pattern Recognition, pages 5447–5456, 2018.
+Lee et al. [2023] Yoonho Lee, Huaxiu Yao, and Chelsea Finn. Diversify and disambiguate: Out-of-distribution robustness via disagreement. InThe Eleventh International Conference on Learning Representations, 2023.
+Li et al. [2018] Hao Li, Zheng Xu, Gavin Taylor, Christoph Studer, and Tom Goldstein. Visualizing the loss landscape of neural nets. InAdvances in Neural Information Processing Systems, volume 31, 2018.
+Li et al. [2020] Mingchen Li, Mahdi Soltanolkotabi, and Samet Oymak. Gradient descent with early stopping is provably robust to label noise for overparameterized neural networks. InInternational conference on artificial intelligence and statistics, pages 4313–4324. PMLR, 2020.
+Li et al. [2017] Wen Li, Limin Wang, Wei Li, Eirikur Agustsson, and Luc Van Gool. Webvision database: Visual learning and understanding from web data. arXiv preprint arXiv:1708.02862, 2017.
+Lin et al. [2020] Jimmy Lin, Chudi Zhong, Diane Hu, Cynthia Rudin, and Margo Seltzer. Generalized and scalable optimal sparse decision trees. InInternational Conference on Machine Learning, pages 6150–6160. PMLR, 2020.
+Marx et al. [2020] Charles Marx, Flavio Calmon, and Berk Ustun. Predictive multiplicity in classification. InInternational Conference on Machine Learning, pages 6765–6774. PMLR, 2020.
+Mason et al. [2022] Blake Mason, Lalit Jain, Subhojyoti Mukherjee, Romain Camilleri, Kevin Jamieson, and Robert Nowak. Nearly optimal algorithms for level set estimation. InInternational Conference on Artificial Intelligence and Statistics, pages 7625–7658. PMLR, 2022.
+Mata et al. [2022] Kota Mata, Kentaro Kanamori, and Hiroki Arimura. Computing the collection of good models for rule lists. arXiv preprint arXiv:2204.11285, 2022.
+Mukherjee et al. [2006] Sayan Mukherjee, Partha Niyogi, Tomaso Poggio, and Ryan Rifkin. Learning theory: stability is sufficient for generalization and necessary and sufficient for consistency of empirical risk minimization. Advances in Computational Mathematics, 25:161–193, 2006.
+Natarajan et al. [2013] Nagarajan Natarajan, Inderjit S Dhillon, Pradeep K Ravikumar, and Ambuj Tewari. Learning with noisy labels. InAdvances in Neural Information Processing Systems, volume 26, 2013.
+Noh et al. [2017] Hyeonwoo Noh, Tackgeun You, Jonghwan Mun, and Bohyung Han. Regularizing deep neural networks by noise: Its interpretation and optimization. InAdvances in Neural Information Processing Systems, volume 30, 2017.
+Pawelczyk et al. [2020] Martin Pawelczyk, Klaus Broelemann, and Gjergji Kasneci. On counterfactual explanations under predictive multiplicity. InConference on Uncertainty in Artificial Intelligence, pages 809–818. PMLR, 2020.
+Ross et al. [2020] Andrew Ross, Weiwei Pan, Leo Celi, and Finale Doshi-Velez. Ensembles of locally independent prediction models. InProceedings of the AAAI Conference on Artificial Intelligence, volume 34, pages 5527–5536, 2020.
+Rudin et al. [2022] Cynthia Rudin, Chaofan Chen, Zhi Chen, Haiyang Huang, Lesia Semenova, and Chudi Zhong. Interpretable machine learning: Fundamental principles and 10 grand challenges. Statistics Surveys, 16:1–85, 2022.
+Semenova et al. [2022] Lesia Semenova, Cynthia Rudin, and Ronald Parr. On the existence of simpler machine learning models. In2022 ACM Conference on Fairness, Accountability, and Transparency, pages 1827–1858, 2022.
+Shahin Shamsabadi et al. [2022] Ali Shahin Shamsabadi, Mohammad Yaghini, Natalie Dullerud, Sierra Wyllie, Ulrich Aïvodji, Aisha Alaagib, Sébastien Gambs, and Nicolas Papernot. Washing the unwashable : On the (im)possibility of fairwashing detection. InAdvances in Neural Information Processing Systems, volume 35, pages 14170–14182, 2022.
+Shallue et al. [2018] Christopher J Shallue, Jaehoon Lee, Joseph Antognini, Jascha Sohl-Dickstein, Roy Frostig, and George E Dahl. Measuring the effects of data parallelism on neural network training. arXiv preprint arXiv:1811.03600, 2018.
+Smith et al. [2020] Gavin Smith, Roberto Mansilla, and James Goulding. Model class reliance for random forests. InAdvances in Neural Information Processing Systems, volume 33, pages 22305–22315, 2020.
+Song et al. [2019] Hwanjun Song, Minseok Kim, and Jae-Gil Lee. Selfie: Refurbishing unclean samples for robust deep learning. InInternational Conference on Machine Learning, pages 5907–5915. PMLR, 2019.
+Song et al. [2022] Hwanjun Song, Minseok Kim, Dongmin Park, Yooju Shin, and Jae-Gil Lee. Learning from noisy labels with deep neural networks: A survey. IEEE Transactions on Neural Networks and Learning Systems, 2022.
+Teney et al. [2022] Damien Teney, Maxime Peyrard, and Ehsan Abbasnejad. Predicting is not understanding: Recognizing and addressing underspecification in machine learning. InComputer Vision–ECCV 2022: 17th European Conference, Tel Aviv, Israel, October 23–27, 2022, Proceedings, Part XXIII, pages 458–476. Springer, 2022.
+Tulabandhula and Rudin [2014] Theja Tulabandhula and Cynthia Rudin. Robust optimization using machine learning for uncertainty sets. InProceedings of the International Symposium on Artificial Intelligence and Mathematics (ISAIM), 2014.
+Verwer and Zhang [2017] Sicco Verwer and Yingqian Zhang. Learning decision trees with flexible constraints and objectives using integer optimization. InIntegration of AI and OR Techniques in Constraint Programming: 14th International Conference, CPAIOR 2017, Padua, Italy, June 5-8, 2017, Proceedings 14, pages 94–103. Springer, 2017.
+Wang et al. [2022] Zijie J Wang, Chudi Zhong, Rui Xin, Takuya Takagi, Zhi Chen, Duen Horng Chau, Cynthia Rudin, and Margo Seltzer. TimberTrek: Exploring and curating sparse decision trees with interactive visualization. In2022 IEEE Visualization and Visual Analytics (VIS), pages 60–64. IEEE, 2022.
+Watson-Daniels et al. [2023] Jamelle Watson-Daniels, David C Parkes, and Berk Ustun. Predictive multiplicity in probabilistic classification. InProceedings of the AAAI Conference on Artificial Intelligence, volume 37, pages 10306–10314, 2023.
+Wen et al. [2019] Yeming Wen, Kevin Luk, Maxime Gazeau, Guodong Zhang, Harris Chan, and Jimmy Ba. An empirical study of large-batch stochastic gradient descent with structured covariance noise. arXiv preprint arXiv:1902.08234, 2019.
+Xiao et al. [2015] Tong Xiao, Tian Xia, Yi Yang, Chang Huang, and Xiaogang Wang. Learning from massive noisy labeled data for image classification. InProceedings of the IEEE Conference on Computer Vision and Pattern Recognition, pages 2691–2699, 2015.
+Xin et al. [2022] Rui Xin, Chudi Zhong, Zhi Chen, Takuya Takagi, Margo Seltzer, and Cynthia Rudin. Exploring the whole rashomon set of sparse decision trees. InAdvances in Neural Information Processing Systems, volume 35, pages 14071–14084, 2022.
+Yan and Zhang [2022] Tom Yan and Chicheng Zhang. Margin-distancing for safe model explanation. InProceedings of The 25th International Conference on Artificial Intelligence and Statistics, volume 151 ofProceedings of Machine Learning Research, pages 5104–5134. PMLR, 28–30 Mar 2022.
+Zhong et al. [2023] Chudi Zhong, Zhi Chen, Jiachang Liu, Margo Seltzer, and Cynthia Rudin. Exploring and interacting with the set of good sparse generalized additive models. Advances in Neural Information Processing Systems, 2023.

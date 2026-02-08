@@ -1,0 +1,479 @@
+Locally Optimal Fixed-Budget Best Arm Identification in Two-Armed Gaussian Bandits with Unknown Variances
+
+By Masahiro Kato
+
+Abstract
+
+We address the problem of best arm identification (BAI) with a fixed budget for two-armed Gaussian bandits. In BAI, given multiple arms, we aim to find the best arm, an arm with the highest expected reward, through an adaptive experiment. Kaufmann et al. (2016) develops a lower bound for the probability of misidentifying the best arm. They also propose a strategy, assuming that the variances of rewards are known, and show that it is asymptotically optimal in the sense that its probability of misidentification matches the lower bound as the budget approaches infinity. However, an asymptotically optimal strategy is unknown when the variances are unknown. For this open issue, we propose a strategy that estimates variances during an adaptive experiment and draws arms with a ratio of the estimated standard deviations. We refer to this strategy as the Neyman Allocation (NA)-Augmented Inverse Probability weighting (AIPW) strategy. We then demonstrate that this strategy is asymptotically optimal by showing that its probability of misidentification matches the lower bound when the budget approaches infinity, and the gap between the expected rewards of two arms approaches zero ( small-gap regime ). Our results suggest that under the worst-case scenario characterized by the small-gap regime, our strategy, which employs estimated variance, is asymptotically optimal even when the variances are unknown.
+
+1 Introduction
+
+This study investigates the problem of best arm identification (BAI) with a fixed budget in stochastic two-armed Gaussian bandits. In this problem, we consider an adaptive experiment with a fixed number of rounds, called a budget . At each round, we can draw an arm and observe the reward. The goal of the problem is to identify the best arm with the highest expected reward at the end of the experiment Bubeck et al. (2009) .
+
+Formally, we consider the following adaptive experiment with two arms and Gaussian rewards. There are two arms $1$ and $2$ , and an arm $a\in\{1,2\}$ has an $\mathbb{R}$ -valued Gaussian reward $Y_{a}\sim\mathcal{N}(\mu_{a},\sigma_{a}^{2})$ with the mean $\mu_{a}\in\mathbb{R}$ and the variance $\sigma_{a}^{2}>0$ . Let $P=P(\mu_{1},\mu_{2},\sigma_{1}^{2},\sigma_{2}^{2})=(\mathcal{N}(\mu_{1},\sigma^{2}_{1}),\mathcal{N}(\mu_{2},\sigma^{2}_{2}))$ be a pair of distributions that generate $(Y_{1},Y_{2})$ , where $\mathcal{N}(\mu,\sigma^{2})$ is a Gaussian distribution with a mean $\mu$ and a variance $\sigma^{2}$ . Let $\mathcal{P}^{\mathrm{G}}=\{P(\mu_{1},\mu_{2},\sigma_{1}^{2},\sigma_{2}^{2}):\mu_{1}\neq\mu_{2}\}$ be a set of the distributions, which is referred to as the Gaussian bandit models . For an instance $P$ , the best arm $a^{\star}(P)\in\{1,2\}$ is defined as $a^{\star}(P)=\operatorname*{arg\,max}_{a\in\{1,2\}}\mu_{a}$ , which is assumed to exist uniquely.
+
+In the adaptive experiment, we consider a strategy to identify the best arm. A fixed budget $T$ is given. For each round $t\in[T]:=\{1,2,\dots,T\}$ , let $(Y_{1,t},Y_{2,t})$ be an independent and identically distributed (i.i.d.) copy of $(Y_{1},Y_{2})$ . At each round $t$ , we draw arm $A_{t}\in\{1,2\}$ and observe a reward $Y_{t}=\sum_{a\in\{1,2\}}\mathbbm{1}[A_{t}=a]Y_{a,t}$ . At the end of the experiment (after round $T$ ), we recommend an estimated best arm $\widehat{a}_{T}\in\{1,2\}$ . During an experiment, we follow a strategy that determines which arm to draw and which arm to recommend as the best arm. The performance of strategies is evaluated by a minimal probability of misidentification $\mathbb{P}_{P}(\widehat{a}_{T}\neq a^{\star}(P))$ , where $\mathbb{P}_{P}$ is the probability law under $P$ .
+
+Background.
+
+In fixed-budget BAI, it has been an important question of interest to investigate the probability of misidentification $\mathbb{P}_{P}(\widehat{a}_{T}\neq a^{\star}(P))$ in the limit $T\to\infty$ . For the interest, a typical approach is to derive an upper and lower bound of the probability separately and specify its value.
+
+The question of whether asymptotically optimal strategies exist for minimizing misidentification probability has long been unresolved, as highlighted by Kaufmann et al. (2016). Komiyama et al. (2022) established the minimax optimal approach, while Atsidakou et al. (2023) advanced the Bayes optimal strategy. Regarding expected simple regret minimization, Bubeck et al. (2009) analyzed the worst-case optimality of uniform allocation, and Komiyama et al. (2022) identified the corresponding Bayes optimal strategy. Russo (2020) demonstrated the posterior convergence optimality of Bayesian strategies, which, however, do not directly extend to our problem's context.
+
+In contrast, an upper bound of the misidentification probability has not been fully clarified. A typical way to derive upper bounds is to construct a specific strategy and evaluate its misidentification probability. Kaufmann et al. (2016) develops a strategy under a setting in which the variance $(\sigma^{2}_{1},\sigma^{2}_{2})$ of the reward is known and shows its misidentification probability corresponds to the lower bound. However, this strategy is not available under the usual setting with unknown variance. Based on these situations, the current results are insufficient to establish an upper bound for the misidentification probability when the variances are unknown.
+
+Based on the situation above, our interest is in strategies for identifying misidentification probabilities in the adaptive experimental setting described above. Specifically, we need a strategy such that an upper bound on its misidentification probability is aligns with the lower bound proposed in Kaufmann et al. (2016) . Further, this strategy must be valid when the variance is unknown.
+
+Our approach and contribution.
+
+In this study, we develop a strategy whose probability of misidentification aligns with the lower bound under an additional setting. To accomplish this, we develop the Neyman allocation-augmented inverse probability weight (NA-AIPW) strategy. Then, we show that the probability of misidentification aligns with the lower bound under a small-gap regime . The details of each are described below.
+
+The Generalized-Neyman-Allocation (GNA)-Empirical-Best-Arm (EBA) strategy is developed as an extension of the Neyman allocation introduced by Neyman (1934). The corresponding algorithm is presented in Algorithm 1.
+
+The small-gap regime considers a situation $\mu_{1}-\mu_{2}\to 0$ as $T\to\infty$ . Although this additional setting slightly simplifies the problem with BAI, the problem is still sufficiently complicated since the small gap makes it difficult to identify the best arm. This setting has been utilized in BAI with fixed confidence, such as the analysis of lil’UCB Jamieson et al. (2014) . In statistical test, such an evaluation framework is known as the local Bahadur efficiency Bahadur (1960) . . From a technical perspective, the small-gap regime is a situation where we can ignore the estimation error of the variances compared to the difficulty of identifying the best arm. Since the error of the estimation of the variance is relatively negligible in the small-gap setting, we can show that the misidentification probability of the NA-AIPW strategy matches the lower bound.
+
+We summarize the backgrounds and our contributions. In BAI with two-armed Gaussian rewards and a fixed budget, a strategy has been needed in which its misidentification probability achieves the lower bound derived by Kaufmann et al. (2016) . Although Kaufmann et al. (2016) demonstrates an asymptotically optimal strategy that satisfies the requirement with known variances, it remains an unresolved issue to find a strategy whose upper bound matches their derived lower bound when variances are unknown. For this issue, this study proposes the NA-AIPW strategy whose probability of misidentification matches the lower bound under the small-gap regime.
+
+Kato et al. (2023b) extends our findings by demonstrating that the lower bounds can be characterized using variance when the differences between the best and suboptimal arms diminish (small-gap regime). This is attributed to the ability to approximate the KL divergence of various distributions through the semiparametric influence function, akin to the Fisher information in parametric models, under the small-gap regime. The authors further highlight that in the small-gap regime, when $K=2$ and outcomes adhere to a two-armed one-parameter exponential family distribution, uniform sampling emerges as asymptotically optimal for consistent strategies. Similarly, for $K\geq 3$ under the same conditions, uniform sampling is asymptotically optimal for strategies that are both consistent and asymptotically invariant. This insight refines a prior comment by Kaufmann et al. (2016). Additionally, Wang et al. (2023) builds on these observations to reinforce the optimality of uniform sampling.
+
+Organization.
+
+In Section 2, we establish lower bounds for strategies based on the information that is available. Our primary focus is on understanding how the availability of information influences these lower bounds and the existence of strategies where the probability of misidentification matches these bounds. Our findings indicate that the lower bounds are highly dependent on the extent of information available regarding the reward distributions of treatment arms before the experiment commences.
+
+We formalize a decision-maker's strategy as a pair $((A_{t})_{t\in[K]},\widehat{a}_{T})$, where $(A_{t})_{t\in[K]}$ represents the allocation rule and $\widehat{a}_{T}$ denotes the recommendation rule. Specifically, under the sigma-algebras $\mathcal{F}_{t}=\sigma(A_{1},Y_{1},\ldots,A_{t},Y_{t})$, a strategy consists of $((A_{t})_{t\in[T]},\widehat{a}_{T})$, with the following components: (i) $(A_{t})_{t\in[T]}$ is an allocation rule that is $\mathcal{F}_{t-1}$-measurable and assigns a treatment arm $A_{t}\in[K]$ in each round $t$ based on observations up to round $t-1$; and (ii) $\widehat{a}_{T}$ is a recommendation rule, serving as an $\mathcal{F}_{T}$-measurable estimator of the optimal treatment arm $a^{*}$ using data up to round $T$. We denote a strategy by $\pi$ and, when highlighting the dependency on $\pi$, we use $A^{\pi}_{t}$ and $\widehat{a}^{\pi}_{T}$ to denote $A_{t}$ and $\widehat{a}_{T}$, respectively.
+
+2 Lower Bound of Probability of Misidentification
+
+As a preparation, we introduce a lower bound for the probability of misidentification in BAI with a fixed budget. We call a strategy is consistent , if for any $P\in\mathcal{P}^{\mathrm{G}}$ , $\mathbb{P}_{P}(\widehat{a}_{T}\neq a^{\star}(P))\to 0$ as $T\to\infty$ . To evaluate the performance of strategies for each $P\in\mathcal{P}^{\mathrm{G}}$ , we focus on the following metric for $\mathbb{P}_{P}(\widehat{a}_{T}\neq a^{\star}(P))$ used in many studies, such as Kaufmann et al. (2016) : 
+ 
+ $\displaystyle-\frac{1}{T}\log\mathbb{P}_{P}(\widehat{a}_{T}\neq a^{\star}(P)).$ 
+ Note that the upper bound (resp. lower bound) of this term works as a lower bound (resp. upper bound) of the probability of misidentification $\mathbb{P}_{P}(\widehat{a}_{T}\neq a^{\star}(P))$ since $x\mapsto-\log x$ is a strictly decreasing function.
+
+The question of whether asymptotically optimal strategies exist has remained unresolved, as noted by Kaufmann in 2020. Kaufmann and colleagues (2016) established a theoretical lower bound for two-arm bandit problems and developed an asymptotically optimal approach for Gaussian bandits with two arms, assuming known variances. However, for scenarios involving three or more treatment arms (where \( K \geq 3 \)), even the fundamental lower bounds have yet to be determined.
+
+For each $P^{*}=(\mathcal{N}(\mu^{*}_{1},\sigma^{2}_{1}),\mathcal{N}(\mu^{*}_{2},\sigma^{2}_{2})\in\mathcal{P}^{\mathrm{G}}$ and $\Delta=\mu^{*}_{1}-\mu^{*}_{2}$ , any consistent strategy satisfies 
+ 
+ $\displaystyle\limsup_{T\to\infty}-\frac{1}{T}\log\mathbb{P}_{P^{*}}(\widehat{a}_{T}\neq a^{\star}(P^{*}))\leq\frac{\Delta^{2}}{2\big{(}\sqrt{\sigma^{2}_{1}}+\sqrt{\sigma^{2}_{2}}\big{)}^{2}}.$ 
+
+
+From Lemma 2.2 and (1) in Definition 2.3, there exists a weight vector \( w^{\pi} \) such that
+
+\[
+\limsup_{T\to\infty}-\frac{1}{T}\log\mathbb{P}_{P_{0}}(\widehat{a}^{\pi}_{T}\neq a^{*}) \leq \inf_{Q\in\cup_{b\neq a^{*}}\mathcal{P}(b,\underline{\Delta},\overline{\Delta})}\sum_{a\in[K]}w^{\pi}(a)\mathrm{KL}(Q^{a},P^{a}_{0}).
+\]
+
+Next, we bound the probability as
+
+\[
+\limsup_{T\to\infty}-\frac{1}{T}\log\mathbb{P}_{P_{0}}(\widehat{a}^{\pi}_{T}\neq a^{*}) \leq \sup_{w\in\mathcal{W}}\inf_{Q\in\cup_{b\neq a^{*}}\mathcal{P}(b,\underline{\Delta},\overline{\Delta})}\sum_{a\in[K]}w(a)\mathrm{KL}(Q^{a},P^{a}_{0}).
+\]
+
+Since \( w^{\pi}(a) \) is independent of \( Q \), and given that \( \mathrm{KL}(Q^{a},P^{a}_{0}) = \frac{\left(\mu^{a}(Q)-\mu^{a}(P_{0})\right)^{2}}{2\left(\sigma^{a}\right)^{2}} \) for \( P,Q\in\cup_{b\neq a^{*}}\mathcal{P}(b,\underline{\Delta},\overline{\Delta}) \), we obtain
+
+\[
+\limsup_{T\to\infty}-\frac{1}{T}\log\mathbb{P}_{P_{0}}(\widehat{a}^{\pi}_{T}\neq a^{*}) \leq \sup_{w\in\mathcal{W}}\inf_{\substack{(\mu^{b})\in\mathbb{R}^{K}: \\ \operatorname*{arg\,max}_{b\in[K]}\mu^{b}\neq a^{*}}} \sum_{a\in[K]}w(a)\frac{\left(\mu^{a}-\mu^{a}(P_{0})\right)^{2}}{2\left(\sigma^{a}\right)^{2}}.
+\]
+
+Here, we have
+
+\[
+\inf_{\substack{(\mu^{b})\in\mathbb{R}^{K}: \\ \operatorname*{arg\,max}_{b\in[K]}\mu^{b}\neq a^{*}}} \sum_{a\in[K]}w(a)\frac{\left(\mu^{a}-\mu^{a}(P_{0})\right)^{2}}{2\left(\sigma^{a}\right)^{2}}
+\]
+
+\[
+= \min_{a\in[K]\setminus\{a^{*}\}} \inf_{\substack{(\mu^{b})\in\mathbb{R}^{K}: \\ \mu^{a}>\mu^{a^{*}}}} \sum_{a\in[K]}w(a)\frac{\left(\mu^{a}-\mu^{a}(P_{0})\right)^{2}}{2\left(\sigma^{a}\right)^{2}}
+\]
+
+\[
+= \min_{a\in[K]\setminus\{a^{*}\}} \inf_{\substack{(\mu^{b})\in\mathbb{R}^{K}: \\ \mu^{a}>\mu^{a^{*}},\ \mu^{c}=\mu^{c}(P_{0})}} \sum_{a\in[K]}w(a)\frac{\left(\mu^{a}-\mu^{a}(P_{0})\right)^{2}}{2\left(\sigma^{a}\right)^{2}}
+\]
+
+\[
+= \min_{a\in[K]\setminus\{a^{*}\}} \inf_{\substack{(\mu^{a^{*}},\mu^{a})\in\mathbb{R}^{K}: \\ \mu^{a}>\mu^{a^{*}}}} \left\{w(a^{*})\frac{\left(\mu^{a^{*}}-\mu^{a^{*}}(P_{0})\right)^{2}}{2\left(\sigma^{a^{*}}\right)^{2}} + w(a)\frac{\left(\mu^{a}-\mu^{a}(P_{0})\right)^{2}}{2\left(\sigma^{a}\right)^{2}} \right\}
+\]
+
+\[
+= \min_{a\in[K]\setminus\{a^{*}\}} \min_{\mu\in\left[\mu^{a}(P_{0}),\mu^{a^{*}}\right]} \left\{w(a^{*})\frac{\left(\mu-\mu^{a^{*}}(P_{0})\right)^{2}}{2\left(\sigma^{a^{*}}\right)^{2}} + w(a)\frac{\left(\mu-\mu^{a}(P_{0})\right)^{2}}{2\left(\sigma^{a}\right)^{2}} \right\}.
+\]
+
+Finally, solving the optimization problem yields
+
+\[
+\min_{a\in[K]\setminus\{a^{*}\}} \min_{\mu\in\left[\mu^{a}(P_{0}),\mu^{a^{*}}\right]} \left\{w(a^{*})\frac{\left(\mu-\mu^{a^{*}}(P_{0})\right)^{2}}{2\left(\sigma^{a^{*}}\right)^{2}} + w(a)\frac{\left(\mu-\mu^{a}(P_{0})\right)^{2}}{2\left(\sigma^{a}\right)^{2}} \right\}
+\]
+
+\[
+= \min_{a\in[K]\setminus\{a^{*}\}} \frac{\left(\mu^{a^{*}}(P_{0})-\mu^{a}(P_{0})\right)^{2}}{2\left(\frac{\big{(}\sigma^{a^{*}}\big{)}^{2}}{w(a^{*})} + \frac{\big{(}\sigma^{a}\big{)}^{2}}{w(a)}\right)}.
+\]
+
+Thus, the proof is complete. ∎
+
+As Glynn & Juneja (2004) and we have previously discussed, when complete distributional information is available, an asymptotically optimal strategy can be derived, ensuring that the misidentification probability aligns with the lower bounds established in Lemma 2.4. However, in the absence of complete information, as demonstrated by Ariu et al. (2021), there exists a distribution \( P_0 \in \mathcal{P}(a^*, \underline{\Delta}, \overline{\Delta}) \) whose lower bound exceeds that of Kaufmann et al. (2016).
+
+3 The NA-AIPW Strategy
+
+In this section, we define our strategy. Formally, a strategy gives a pair $((A_{t})_{t\in[T]},\widehat{a}_{T})$ , where (i) $(A_{t})_{t\in[T]}\in\{1,2\}^{T}$ is a sequence of arms generated by a sampling rule that determines which arm $A_{t}$ is chosen in each $t$ based on $\mathcal{F}_{t-1}$ , and (ii) $\widehat{a}_{T}\in\{1,2\}$ is a recommended arm by a recommendation rule based on $\mathcal{F}_{T}$ . Our proposed NA-AIPW strategy consists of (i) a sampling rule with the Neyman Allocation (NA) Neyman (1923) , and (ii) a recommendation rule using the Augmented Inverse Probability Weighting (AIPW) estimator Robins et al. (1994) . Based on these rules, we refer to this strategy as the NA-AIPW strategy \footnote{ 1 Similar strategies are often used in the context of the average treatment effect estimation by an adaptive experiment van der Laan (2008) .} .
+
+3.1 Target Allocation Ratio
+
+As preparation, we introduce the notion of a target allocation ratio, which will be used for the sampling rule. We define target allocation ratios $w_{1}^{*},w_{2}^{*}\in(0,1)$ as 
+ 
+ $\displaystyle w^{*}_{1}=\frac{{\sigma_{1}}}{{\sigma^{2}_{1}}+{\sigma_{2}}},\mbox{~{}~{}and~{}~{}}w^{*}_{2}=1-w^{*}_{1}.$ 
+ A sampling rule following this target allocation ratio is known as the Neyman allocation rule Neyman (1934) . Glynn & Juneja (2004) and Kaufmann et al. (2016) also propose this allocation. This target allocation ratio is characterized by the variances (standard deviations); therefore, the target allocation ratio is unknown when the variances are unknown. Therefore, to use this ratio, we need to estimate it from observations.
+
+3.2 Sampling Rule with Neyman Allocation (NA)
+
+We present the sampling rule with the NA. At each round $t\in[T]$ , our sampling rule randomly draws an arm $a\in\{1,2\}$ with a probability identical to an estimated version of the target allocation ratio $w_{a}^{*}$ . To estimate the target allocation ratio $w_{a}^{*}$ , we estimate the variances during the adaptive experiment. For $a\in\{1,2\}$ , let $\{\widehat{\sigma}_{a}\}_{t\in[T]}$ and $\{\widehat{w}_{a,t}\}$ be sequences of estimators of $\sigma_{a},\mu_{a}$ and $w_{a}^{*}$ , that will be defined bellow.
+
+ We assume that for each arm $a$,  $\hat{\sigma}_{a}$ is a consistent estimator of $\sigma_{a}$ and $\hat{\mu}_{a}$ is a consistent estimator of $\mu_{a}$. Let also $\hat{\omega}_{a}^{*}$ be a consistent estimator of $\omega_{a}^{*}$.
+
+At the round $t\geq 3$ , we estimate the target allocation ratio (variances) $w^{*}_{a}$ for $a\in\{1,2\}$ using past observations $\mathcal{F}_{t-1}$ . For each $t\geq 3$ , we first define an estimator of the expected reward $\mu_{a}$ as 
+ 
+ $\widetilde{\mu}_{a,t}=\frac{1}{\sum^{t-1}_{s=1}\mathbbm{1}[A_{s}=a]}\sum^{t-1}_{s=1}\mathbbm{1}[A_{s}=a]Y_{a,s}.$ 
+ Also, we define a second moment estimator $\widetilde{\zeta}_{a,t}=({\sum^{t-1}_{s=1}\mathbbm{1}[A_{s}=a]})^{-1}\sum^{t-1}_{s=1}\mathbbm{1}[A_{s}=a]Y^{2}_{a,s}$ , and a root of variance estimator $\widetilde{\sigma}_{a,t}=\{\widetilde{\zeta}_{a,t}-\left(\widetilde{\mu}_{a,t}\right)^{2}\}^{1/2}$ . Then, we define the estinator $\widehat{\sigma}_{a,t}=\mathrm{thre}(\widetilde{\sigma}_{a,t};C_{\sigma^{2}}^{1/2})$ with some predetermined constant $C_{\sigma^{2}}>0$ . Also, we define the estimator $\widehat{w}_{1,t}$ and $\widehat{w}_{2,t}$ as 
+ 
+ $\displaystyle\widehat{w}_{1,t}=\frac{{\widehat{\sigma}_{1,t}}}{{\widehat{\sigma}_{1,t}}+{\widehat{\sigma}_{2,t}}},\quad\mathrm{and}\quad\widehat{w}_{2,t}=1-\widehat{w}_{1,t}.$  (1) 
+ At the end of the round $t\geq 3$ , we sample the arm $A_{t}$ ; we generate $\gamma_{t}$ from the uniform distribution on $[0,1]$ and set 
+ 
+ $\displaystyle A_{t}=\begin{cases}1&\mbox{if~{}}\gamma_{t}\leq\widehat{w}_{1,t}\\
+2&\mbox{otherwise}.\end{cases}$ 
+
+
+A representative example of this category of strategies involves uniform sampling, such as the Uniform-EBA approach proposed by Bubeck et al. (2011). Another notable strategy employs an allocation rule based solely on variances, exemplified by Neyman's allocation as outlined in Neyman (1934).
+
+3.3 Recommendation Rule with the Augmented Inverse Probability Weighting (AIPW) Estimator
+
+Following the completion of the final round $T$, we propose $\widehat{a}_{T}\in[K]$ as an estimate of the optimal treatment arm, defined by the equation
+
+$\displaystyle\widehat{a}^{\mathrm{EBA}}_{T}=\operatorname*{arg\,max}_{a\in[K]}\widehat{\mu}^{a}_{T},\qquad\widehat{\mu}^{a}_{T}=\frac{1}{\left\lceil w^{\mathrm{GNA}}(a)T\right\rceil}\sum^{T}_{t=1}\mathbbm{1}[A_{t}=a]Y_{t}.$  (5) 
+
+This formulation seeks to identify the arm with the highest estimated mean performance based on the cumulative observations up to round $T$.
+
+We adopt the AIPW estimator for our strategy because it has several advantages. First, the AIPW estimator has the property of semiparametric efficiency, which indicates that it has the smallest asymptotic variance among a certain class Hahn (1998) . The property is necessary to prove that the strategy using the AIPW estimator is optimal, which means the misidentification probability is small enough to achieve its lower bound. The second reason is more technical; the AIPW estimator simplifies a proof for theoretical analysis. Specifically, we can decomposed an error by the AIPW estimator into a sum of random variables with martingale properties, making it suitable for analysis using the central limit theorem. This property is unique to the AIPW estimator, but not to naive estimators such as an empirical average. Details will be given in Section 5 .
+
+We provide the pseudo-code for our proposed strategy in Algorithm 1 . Note that we introduce $C_{\mu}$ and $C_{\sigma^{2}}$ for technical purposes to bound the estimators and any large positive value can be used.
+
+4 Misidentification Probability and Asymptotic Optimality
+
+In this section, we establish an upper bound on the misspecification probability associated with the GNA-EBA strategy.
+
+For each $P^{*}\in\mathcal{P}^{\mathrm{G}}$ , the following holds as $\Delta\to 0$ : 
+ 
+ $\displaystyle\liminf_{T\to\infty}-\frac{1}{T}\log\mathbb{P}_{P^{*}}\left(\widehat{a}^{\mathrm{AIPW}}_{T}\neq a^{\star}(P^{*})\right)\geq\frac{\Delta^{2}}{2(\sigma_{1}+\sigma_{2})^{2}}+O\left(\Delta^{3}\right).$ 
+
+
+In Theorem 4.2 of Section 4, we establish that the upper bound for the probability of misidentification under the GNA-EBA strategy is given by:
+\[
+\displaystyle\min_{a^{*}\in[K]}\inf_{P_{0}\in\mathcal{P}(a^{*},\underline{\Delta},\overline{\Delta})}\liminf_{T\to\infty}-\frac{1}{T}\log\mathbb{P}_{P_{0}}\left(\widehat{a}^{\mathrm{EBA}}_{T}\neq a^{*}\right)\geq\mathrm{UpperBound}(\underline{\Delta}):=\max_{w\in\mathcal{W}}\min_{a^{*}\in[K],\ a\in[K]\backslash\{a^{*}\}}\frac{\underline{\Delta}^{2}}{2\Omega^{a^{*},a}(w)}.
+\]
+
+We establish the asymptotic optimality of the GNA-EBA strategy by demonstrating that the lower bound from Theorem 2.7 aligns with the upper bound from Theorem 4.2 when $\underline{\Delta}-\overline{\Delta}\to 0$, as shown in the following theorem. This result underscores the strategy's optimal performance under conditions where $\underline{\Delta}-\overline{\Delta}\to 0$.
+
+Although studies, such as Ariu et al. (2021) , Qin (2022) , and Degenne (2023) , point out the non-existence of the optimal strategies in fixed-budget BAI against the lower bound shown by Kaufmann et al. (2016) , our result does not yield a contradiction. Existing impossibility results discuss the existence of a strategy that violates the lower bound. Note that the lower bounds in Kaufmann et al. (2016) are applicable to any instances in the bandit models (with some regularity conditions). In other words, if we consider the lower bound in Kaufmann et al. (2016) for all instances, there exists an instance under which there exists a strategy whose lower bound is larger than the lower bound derived by Kaufmann et al. (2016) . In contrast, we only consider bandit models where $\Delta\to 0$ . Our result implies that if we restrict bandit models, the upper bounds of our strategy within the restricted bandit models match the lower bound. Because our optimality is limited to a case where $\Delta\to 0$ , we refer to our optimality as asymptotic optimality under the small-gap regime or local asymptotic optimality.
+
+For the asymptotically invariant strategy, the feasibility of Glynn & Juneja's (2004) proposed approach is contingent upon the ability to compute $\mathrm{KL}(Q^{a},P^{a}_{0})$. Under this strategy, the probability of misidentification aligns with the lower bound associated with asymptotically invariant strategies. This finding is corroborated by Degenne (2023) for a broader class of distributions.
+
+5 Proof of Theorem 4.1
+
+Finally, we observe that 
+
+$$
+\displaystyle-\frac{1}{T}\log\mathbb{P}_{P_{0}}\left(\widehat{\mu}^{a^{*}}_{T}\leq\widehat{\mu}^{a}_{T}\right)\geq\frac{(\Delta^{a}(P_{0}))^{2}}{2\Omega^{a^{*},a}(\widetilde{w})}.
+$$
+
+Given that $\widetilde{w}$ approaches $w^{\mathrm{GNA}}(a)$ as $T$ tends to infinity, it follows that 
+
+$$
+\displaystyle\liminf_{T\to\infty}-\frac{1}{T}\log\mathbb{P}_{P_{0}}(\widehat{a}^{\mathrm{EBA}}_{T}\neq a^{*})\geq\liminf_{T\to\infty}-\frac{1}{T}\log\sum_{a\neq a^{*}}\mathbb{P}_{P_{0}}(\widehat{\mu}^{a^{*}}_{T}\leq\widehat{\mu}^{a}_{T}),
+$$
+
+which further satisfies
+
+$$
+\displaystyle\geq\liminf_{T\to\infty}-\frac{1}{T}\log\left\{(K-1)\max_{a\neq a^{*}}\mathbb{P}_{P_{0}}(\widehat{\mu}^{a^{*}}_{T}\leq\widehat{\mu}^{a}_{T})\right\}\geq\min_{a\neq a^{*}}\frac{\left(\Delta^{a}(P_{0})\right)^{2}}{2\Omega^{a^{*},a}(w^{\mathrm{GNA}})}\geq\min_{a\neq a^{*}}\frac{\underline{\Delta}^{2}}{2\Omega^{a^{*},a}(w^{\mathrm{GNA}})}.
+$$
+
+Hence, the proof of Theorem 4.1 is concluded. ∎
+
+First, because there exists a constant $C>0$ independent of $T$ such that $\widehat{w}_{a,t}>C$ by construction, the following lemma holds.
+
+For each $t \in [T]$ where $A_t \neq a^*$, the expectation $\mathbb{E}_{P_0}\left[\left(\Psi^{a^*}_t(P_0)\right)^k\right]$ equals zero for all $k \geq 1$.
+
+Let $\mathcal{W}$ be a collection of functions $w:[K]\to(0,1)$ satisfying $\sum_{a\in[K]}w(a)=1$, explicitly,
+
+ $\displaystyle\mathcal{W}=\left\{w:[K]\to(0,1)\mid\sum_{a\in[K]}w(a)=1\right\}.$
+
+In addition, Theorem 2.7 from Section 2 establishes the following bound\footnote{ Notably, lower bounds (respectively upper bounds) for $\mathbb{P}_{P_{0}}(\widehat{a}^{\pi}_{T}\neq a^{*})$ correspond to upper bounds (respectively lower bounds) for $-\frac{1}{T}\log\mathbb{P}_{P_{0}}(\widehat{a}^{\pi}_{T}\neq a^{*})$.}:
+
+ $\displaystyle\min_{a^{*}\in[K]}\inf_{P_{0}\in\mathcal{P}(a^{*},\underline{\Delta},\overline{\Delta})}\limsup_{T\to\infty}-\frac{1}{T}\log\mathbb{P}_{P_{0}}(\widehat{a}^{\pi}_{T}\neq a^{*})\leq\mathrm{LowerBound}(\overline{\Delta}):=\max_{w\in\mathcal{W}}\min_{a^{*}\in[K],\ a\in[K]\setminus\{a^{*}\}}\frac{\overline{\Delta}^{2}}{2\Omega^{a^{*},a}(w)},$
+
+where $\Omega^{a^{*},a}(w)=\frac{\big{(}\sigma^{a^{*}}\big{)}^{2}}{w(a^{*})}+\frac{\big{(}\sigma^{a}\big{)}^{2}}{w(a)}$.
+
+Step 1: Sequence $\{\Psi_{t}\}^{T}_{t=1}$ is an MDS
+
+We prove that $\{\Psi_{t}\}^{T}_{t=1}$ is an MDS; that is, $\mathbb{E}_{P^{*}}\left[\Psi_{t}|\mathcal{F}_{t-1}\right]=0$ . Although this fact is well-known in the literature of causal inference van der Laan (2008) , we show the proof for the sake of completeness.
+
+For any $P^{*}\in\mathcal{P}^{\mathrm{G}}$ , $\{\Psi_{t}\}^{T}_{t=1}$ is an MDS.
+
+For $t\in[T]$ where $A_t = a^*$, the following hold:
+
+\[
+\mathbb{E}_{P_0}\left[\Psi^{a^*}_t(P_0)\right] = \mathbb{E}_{P_0}\left[\frac{1}{\widetilde{w}(a^*)}\left\{Y^{a^*}_t - \mu^{a^*}(P_0)\right\}\right] = 0,
+\]
+
+and
+
+\[
+\mathbb{E}_{P_0}\left[\left(\Psi^{a^*}_t(P_0)\right)^2\right] = \mathbb{E}_{P_0}\left[\frac{1}{(\widetilde{w}(a^*))^2}\left\{Y^{a^*}_t - \mu^{a^*}(P_0)\right\}^2\right] = \frac{(\sigma^{a^*})^2}{(\widetilde{w}(a^*))^2}.
+\]
+
+Furthermore, $\mathbb{E}_{P_0}\left[\left(\Psi^{a^*}_t(P_0)\right)^k\right] = 0$ for $k \geq 3$ since $Y^{a^*}$ follows a Gaussian distribution.
+
+Step 2: Evaluation by using the Chernoff Bound with Martingales
+
+By applying the Chernoff bound, for any $v<0$ and any $\lambda<0$ , it holds that 
+ 
+ $\displaystyle\mathbb{P}_{P^{*}}\left(\frac{1}{T}\sum^{T}_{t=1}\Psi_{t}\leq v\right)\leq\mathbb{E}_{P^{*}}\left[\exp\left(\lambda\sum^{T}_{t=1}\Psi_{t}\right)\right]\exp\left(-T\lambda v\right).$ 
+ From the Chernoff bound and a property of an MDS, we have 
+ 
+ $\displaystyle\mathbb{E}_{P^{*}}\left[\exp\left(\lambda\sum^{T}_{t=1}\Psi_{t}\right)\right]=\mathbb{E}_{P^{*}}\left[\prod^{T}_{t=1}\mathbb{E}_{P^{*}}\left[\exp\left(\lambda\Psi_{t}\right)|\mathcal{F}_{t-1}\right]\right]=\mathbb{E}_{P^{*}}\left[\exp\left(\sum^{T}_{t=1}\log\mathbb{E}_{P^{*}}\left[\exp\left(\lambda\Psi_{t}\right)|\mathcal{F}_{t-1}\right]\right)\right].$  (4) 
+ Then, the Taylor expansion around $\lambda=0$ yields 
+ 
+ $\displaystyle\log\mathbb{E}_{P^{*}}\left[\exp\left(\lambda\Psi_{t}\right)|\mathcal{F}_{t-1}\right]=\frac{\lambda^{2}}{2}\mathbb{E}_{P^{*}}\left[\Psi^{2}_{t}|\mathcal{F}_{t-1}\right]+O\left(\lambda^{3}\right).$  (5) 
+ Here, $\mathbb{E}_{P^{*}}\left[\exp\left(\lambda\Psi_{t}\right)|\mathcal{F}_{t-1}\right]=1+\sum^{\infty}_{k=1}\lambda^{k}\mathbb{E}_{P^{*}}\left[\Psi^{k}_{t}/k!|\mathcal{F}_{t-1}\right]$ . Because $\mathbb{E}_{P^{*}}\left[\Psi^{k}_{t}/k!|\mathcal{F}_{t-1}\right]$ is bounded by a constant that is independent of $T$ for all $k\geq 1$ , 
+ 
+ $\mathbb{E}_{P^{*}}\left[\exp\left(\lambda\Psi_{t}\right)|\mathcal{F}_{t-1}\right]=1+\sum^{2}_{k=1}\lambda^{k}\mathbb{E}_{P^{*}}\left[\Psi^{k}_{t}/k!|\mathcal{F}_{t-1}\right]+O\left(\lambda^{3}\right).$ 
+ Note that the Taylor series expansion of $\log(1+z)$ around $z=0$ is given as $\log(1+z)=z-z^{2}/2+z^{3}/3-\cdots$ . Therefore, we have 
+ 
+ $\displaystyle\log\mathbb{E}_{P^{*}}\left[\exp\left(\lambda\Psi_{t}\right)|\mathcal{F}_{t-1}\right]$ 
+ 
+ $\displaystyle=\Big{\{}\lambda\mathbb{E}_{P^{*}}\left[\Psi_{t}|\mathcal{F}_{t-1}\right]+\frac{\lambda^{2}}{T}\mathbb{E}_{P^{*}}\left[\Psi^{2}_{t}/2!|\mathcal{F}_{t-1}\right]+O\left(\lambda^{3}\right)\Big{\}}-\frac{1}{2}\left\{\lambda\mathbb{E}_{P^{*}}\left[\Psi_{t}|\mathcal{F}_{t-1}\right]+O\left(\lambda^{2}\right)\right\}^{2}$ 
+ 
+ $\displaystyle=\frac{\lambda^{2}}{T}\mathbb{E}_{P^{*}}\left[\Psi^{2}_{t}/2!|\mathcal{F}_{t-1}\right]+O\left(\lambda^{3}\right).$ 
+ Here, we used $\mathbb{E}_{P^{*}}\left[\Psi_{t}|\mathcal{F}_{t-1}\right]=0$ . Thus, the ( 5 ) holds.
+
+Step 3: Convergence of the Second Moment
+
+We next show $\mathbb{E}_{P^{*}}\left[\Psi^{2}_{t}|\mathcal{F}_{t-1}\right]-1\xrightarrow{\mathrm{a.s}}0$ . This result is a direct consequence of Lemma 5.1 .
+
+For any $P^{*}\in\mathcal{P}^{\mathrm{G}}$ , 
+ 
+ $\displaystyle\mathbb{E}_{P^{*}}\left[\Psi^{2}_{t}|\mathcal{F}_{t-1}\right]-1\xrightarrow{\mathrm{a.s}}0\qquad\mathrm{as}\ \ t\to\infty.$ 
+
+
+We have 
+ 
+ $\displaystyle V\mathbb{E}_{P^{*}}\left[\Psi^{2}_{t}|\mathcal{F}_{t-1}\right]=\mathbb{E}_{P^{*}}\left[\left(\psi_{1,t}-\psi_{2,t}-\Delta\right)^{2}\Big{|}\mathcal{F}_{t-1}\right]$ 
+ 
+ $\displaystyle=\mathbb{E}_{P^{*}}\Bigg{[}\Bigg{(}\frac{\mathbbm{1}[A_{t}=1]\big{(}Y_{1,t}-\widehat{\mu}_{1,t}\big{)}}{\widehat{w}_{1,t}}-\frac{\mathbbm{1}[A_{t}=2]\big{(}Y_{2,t}-\widehat{\mu}_{2,t}\big{)}}{\widehat{w}_{2,t}}\Bigg{)}^{2}$ 
+ 
+ $\displaystyle\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ +2\Bigg{(}\frac{\mathbbm{1}[A_{t}=a^{\star}(P^{*})]\big{(}Y_{1,t}-\widehat{\mu}_{1,t}\big{)}}{\widehat{w}_{1,t}}-\frac{\mathbbm{1}[A_{t}=a]\big{(}Y_{2,t}-\widehat{\mu}_{2,t}\big{)}}{\widehat{w}_{2,t}}\Bigg{)}\times\left(\widehat{\mu}_{1,t}-\widehat{\mu}_{2,t}-(\mu^{*}_{1}-\mu^{*}_{2})\right)$ 
+ 
+ $\displaystyle\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ +\left(\widehat{\mu}_{1,t}-\widehat{\mu}_{2,t}-(\mu^{*}_{1}-\mu^{*}_{2})\right)^{2}|\mathcal{F}_{t-1}\Bigg{]}$ 
+ 
+ $\displaystyle=\mathbb{E}_{P^{*}}\Bigg{[}\frac{\mathbbm{1}[A_{t}=1]\big{(}Y_{1,t}-\widehat{\mu}_{1,t}\big{)}^{2}}{\big{(}\widehat{w}_{1,t}\big{)}^{2}}+\frac{\mathbbm{1}[A_{t}=2]\big{(}Y_{2,t}-\widehat{\mu}_{2,t}\big{)}^{2}}{\big{(}\widehat{w}_{2,t}\big{)}^{2}}$ 
+ 
+ $\displaystyle\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ +2\left(\frac{\mathbbm{1}[A_{t}=1]\big{(}Y_{1,t}-\widehat{\mu}_{1,t}\big{)}}{\widehat{w}_{1,t}}-\frac{\mathbbm{1}[A_{t}=a]\big{(}Y_{2,t}-\widehat{\mu}_{2,t}\big{)}}{\widehat{w}_{2,t}}\right)\left(\widehat{\mu}_{1,t}-\widehat{\mu}_{2,t}-(\mu^{*}_{1}-\mu^{*}_{2})\right)$ 
+ 
+ $\displaystyle\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ +\left(\big{(}\widehat{\mu}_{1,t}-\widehat{\mu}_{2,t}\big{)}-(\mu^{*}_{1}-\mu^{*}_{2})\right)^{2}|\mathcal{F}_{t-1}\Bigg{]}$ 
+ 
+ $\displaystyle=\sum_{a\in\{1,2\}}\mathbb{E}_{P^{*}}\left[\frac{\big{(}Y_{a,t}-\widehat{\mu}_{a,t}\big{)}^{2}}{\big{(}\widehat{w}_{a,t}\big{)}^{2}}|\mathcal{F}_{t-1}\right]-\mathbb{E}_{P^{*}}\left[\left(\big{(}\widehat{\mu}_{1,t}-\widehat{\mu}_{2,t}\big{)}-\big{(}\mu^{*}_{1}-\mu^{*}_{2}\big{)}\right)^{2}|\mathcal{F}_{t-1}\right].$ 
+ Here, for $a\in\{1,2\}$ , the followings hold: 
+ 
+ $\displaystyle\mathbb{E}_{P^{*}}\Bigg{[}\frac{\mathbbm{1}[A_{t}=a]\big{(}Y_{a,t}-\widehat{\mu}_{a,t}\big{)}^{2}}{\big{(}\widehat{w}_{a,t}\big{)}^{2}}|\mathcal{F}_{t-1}\Bigg{]}=\mathbb{E}_{P^{*}}\Bigg{[}\frac{\big{(}Y_{a,t}-\widehat{\mu}_{a,t}\big{)}^{2}}{\widehat{w}_{a,t}}|\mathcal{F}_{t-1}\Bigg{]}=\frac{\mathbb{E}_{P^{*}}[(Y_{a,t})^{2}]-2\mu^{*}_{a}\widehat{\mu}_{a,t}+(\widehat{\mu}_{a,t})^{2}}{\widehat{w}_{a,t}}$ 
+ 
+ $\displaystyle=\frac{\mathbb{E}_{P^{*}}[(Y_{a,t})^{2}]-(\mu^{*}_{a})^{2}+(\mu^{*}_{a}-\widehat{\mu}_{a,t})^{2}}{\widehat{w}_{a,t}}=\frac{\sigma^{2}_{a}+(\mu^{*}_{a}-\widehat{\mu}_{a,t})^{2}}{\widehat{w}_{a,t}},$ 
+ and 
+ 
+ $\mathbb{E}_{P^{*}}\Bigg{[}\frac{\mathbbm{1}[A_{t}=a]\big{(}Y_{a,t}-\widehat{\mu}_{2,t}\big{)}^{2}}{\big{(}\widehat{w}_{1,t}\big{)}^{2}}\frac{\mathbbm{1}[A_{t}=a]\big{(}Y_{a,t}-\widehat{\mu}_{2,t}\big{)}^{2}}{\big{(}\widehat{w}_{2,t}\big{)}^{2}}|\mathcal{F}_{t-1}\Bigg{]}=0,$ 
+ where we used $\mathbb{E}_{P^{*}}[(Y_{a,t})^{2}|x]-(\mu^{*}_{a})^{2}=\sigma^{2}_{a}$ . Therefore, the following holds: 
+ 
+ $\displaystyle\mathbb{E}_{P^{*}}\left[\frac{\big{(}Y_{1,t}-\widehat{\mu}_{1,t}\big{)}^{2}}{\widehat{w}_{1,t}}|\mathcal{F}_{t-1}\right]+\mathbb{E}_{P^{*}}\left[\frac{\big{(}Y_{2,t}-\widehat{\mu}_{2,t}\big{)}^{2}}{\widehat{w}_{2,t}}|\mathcal{F}_{t-1}\right]-\mathbb{E}_{P^{*}}\left[\left(\big{(}\widehat{\mu}_{1,t}-\widehat{\mu}_{2,t}\big{)}-(\mu^{*}_{1}-\mu^{*}_{2})\right)^{2}|\mathcal{F}_{t-1}\right]$ 
+ 
+ $\displaystyle=\mathbb{E}_{P^{*}}\left[\frac{\sigma^{2}_{1}+(\mu^{*}_{1}-\widehat{\mu}_{1,t})^{2}}{\widehat{w}_{1,t}}\right]+\mathbb{E}_{P^{*}}\left[\frac{\sigma^{2}_{2}+(\mu^{*}_{2}-\widehat{\mu}_{2,t})^{2}}{\widehat{w}_{2,t}}\right]-\mathbb{E}_{P^{*}}\left[\left(\big{(}\widehat{\mu}_{1,t}-\widehat{\mu}_{2,t}\big{)}-(\mu^{*}_{1}-\mu^{*}_{2})\right)^{2}\right].$ 
+ Because $\widehat{\mu}_{a,t}\xrightarrow{\mathrm{a.s.}}\mu^{*}_{a}$ and $\widehat{w}_{a,t}\xrightarrow{\mathrm{a.s.}}w^{*}_{a}$ , we have 
+ 
+ $\displaystyle\lim_{t\to\infty}\Bigg{|}\left(\frac{\sigma^{2}_{1}+(\mu^{*}_{1}-\widehat{\mu}_{1,t})^{2}}{\widehat{w}_{1,t}}\right)+\left(\frac{\sigma^{2}_{2}+(\mu^{*}_{2}-\widehat{\mu}_{2,t})^{2}}{\widehat{w}_{2,t}}\right)-\left(\big{(}\widehat{\mu}_{1,t}-\widehat{\mu}_{2,t}\big{)}-\big{(}\mu^{*}_{1}-\mu^{*}_{2}\big{)}\right)^{2}$ 
+ 
+ $\displaystyle\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ -\left(\frac{\sigma^{2}_{1}}{w^{*}_{1}}+\frac{\sigma^{2}_{a}}{w^{*}_{2}}+\left(\big{(}\mu^{*}_{1}-\mu^{*}_{2}\big{)}-(\mu^{*}_{1}-\mu^{*}_{2})\right)^{2}\right)\Bigg{|}$ 
+ 
+ $\displaystyle\leq\lim_{t\to\infty}\left|\frac{\sigma^{2}_{1}}{\widehat{w}_{1,t}}-\frac{\sigma^{2}_{1}}{w^{*}_{1}}\right|+\lim_{t\to\infty}\left|\frac{\sigma^{2}_{2}}{\widehat{w}_{2,t}}-\frac{\sigma^{2}_{2}}{w^{*}_{2}}\right|+\lim_{t\to\infty}\frac{(\mu^{*}_{1}-\widehat{\mu}_{1,t})^{2}}{\widehat{w}_{1,t}}+\lim_{t\to\infty}\frac{(\mu^{*}_{2}-\widehat{\mu}_{2,t})^{2}}{\widehat{w}_{2,t}}$ 
+ 
+ $\displaystyle\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ +\lim_{t\to\infty}\big{|}\left(\big{(}\widehat{\mu}_{1,t}-\widehat{\mu}_{2,t}\big{)}-\big{(}\mu^{*}_{1}-\mu^{*}_{2}\big{)}\right)^{2}-\left(\big{(}\mu^{*}_{1}-\mu^{*}_{2}\big{)}-\big{(}\mu^{*}_{1}-\mu^{*}_{2}\big{)}\right)^{2}\big{|}=0,$ 
+ with probability $1$ . Therefore, from Lebesgue’s dominated convergence theorem, we obtain 
+ 
+ $\displaystyle V\mathbb{E}_{P^{*}}\left[\Psi^{2}_{t}|\mathcal{F}_{t-1}\right]-V$ 
+ 
+ $\displaystyle=\mathbb{E}_{P^{*}}\left[\frac{\sigma^{2}_{1}+(\mu^{*}_{1}-\widehat{\mu}_{1,t})^{2}}{\widehat{w}_{1,t}}|\mathcal{F}_{t-1}\right]+\mathbb{E}_{P^{*}}\left[\frac{\sigma^{2}_{a}+(\mu^{*}_{2}-\widehat{\mu}_{2,t})^{2}}{\widehat{w}_{2,t}}|\mathcal{F}_{t-1}\right]$ 
+ 
+ $\displaystyle\ \ \ \ \ -\mathbb{E}_{P^{*}}\left[\left(\big{(}\widehat{\mu}_{1,t}-\widehat{\mu}_{2,t}\big{)}-\big{(}\mu^{*}_{1}-\mu^{*}_{2}\big{)}\right)^{2}|\mathcal{F}_{t-1}\right]-\mathbb{E}_{P^{*}}\Bigg{[}\frac{\sigma^{2}_{1}}{w^{*}_{1}}+\frac{\sigma^{2}_{2}}{w^{*}_{2}}+\left(\big{(}\mu^{*}_{1}-\mu^{*}_{2}\big{)}-\big{(}\mu^{*}_{1}-\mu^{*}_{2}\big{)}\right)^{2}|\mathcal{F}_{t-1}\Bigg{]}$ 
+ 
+ $\displaystyle\xrightarrow{\mathrm{a.s.}}0.$ 
+ ∎
+
+This lemma immediately yields the following lemma.
+
+For any $P^{*}\in\mathcal{P}^{\mathrm{G}}$ , any $\epsilon>0$ , there exists $t(\epsilon)>0$ such that for all $T>t(\epsilon)$ , we have 
+ 
+ $\displaystyle\frac{1}{T}\sum^{T}_{t=1}\Big{|}\mathbb{E}_{P^{*}}\left[\Psi^{2}_{t}|\mathcal{F}_{t-1}\right]-1\Big{|}<\epsilon$ 
+ with probability one.
+
+Our proof refers to the proof of Lemma 10 in Hadad et al. (2021) .
+
+Let $u_{t}$ be $u_{t}=\mathbb{E}_{P^{*}}\left[\Psi^{2}_{t}|\mathcal{F}_{t-1}\right]-1$ . Note that $\frac{1}{T}\sum^{T}_{t=1}\mathbb{E}_{P^{*}}\left[\Psi^{2}_{t}|\mathcal{F}_{t-1}\right]-1=\frac{1}{T}\sum^{T}_{t=1}u_{t}$ .
+
+By applying the Chernoff bound, for any \( v < 0 \) and \( \lambda < 0 \), we have
+
+\[
+\mathbb{P}_{P_{0}}\left(\sum^{T}_{t=1}\left\{\Psi^{a^{*}}_{t}(P_{0})+\Psi^{a}_{t}(P_{0})\right\}\leq v\right)
+\]
+
+\[
+\leq \mathbb{E}_{P_{0}}\left[\exp\left(\lambda\sum^{T}_{t=1}\left\{\Psi^{a^{*}}_{t}(P_{0})+\Psi^{a}_{t}(P_{0})\right\}\right)\right]\exp\left(-\lambda v\right)
+\]
+
+\[
+= \mathbb{E}_{P_{0}}\left[\exp\left(\lambda\sum^{T}_{t=1}\Psi^{a^{*}}_{t}(P_{0})\right)\right]\mathbb{E}_{P_{0}}\left[\exp\left(\lambda\sum^{T}_{t=1}\Psi^{a}_{t}(P_{0})\right)\right]\exp\left(-\lambda v\right).
+\]
+(14)
+
+Almost-sure convergence of $u_{t}$ to zero as $t\to\infty$ implies that for any $\epsilon^{\prime}>0$ , there exists $t(\epsilon)$ such that $|u_{t}|<\epsilon^{\prime}$ for all $t\geq t(\epsilon^{\prime})$ with probability one. Let $\mathcal{E}(\epsilon^{\prime})$ denote the event in which this happens; that is, $\mathcal{E}(\epsilon^{\prime})=\{|u_{t}|<\epsilon^{\prime}\quad\forall\ t\geq t(\epsilon^{\prime})\}$ . Under this event, for $T>t(\epsilon^{\prime})$ , the following holds: 
+ 
+ $\displaystyle\frac{1}{T}\sum^{T}_{t=1}|u_{t}|\leq\frac{1}{T}\sum^{t(\epsilon^{\prime})}_{t=1}C+\frac{1}{T}\sum^{T}_{t=t(\epsilon^{\prime})+1}\epsilon=\frac{1}{T}t(\epsilon^{\prime})C+\epsilon^{\prime},$ 
+ where $\frac{1}{T}t(\epsilon^{\prime})C\to 0$ as $T\to\infty$ .
+
+Because there exists $\overline{\Delta}$ such that $\mu^{a^{*}}(P_{0}) - \mu^{a}(P_{0}) \leq \overline{\Delta}$ for all $a \in [K]$, the lower bound is expressed as 
+
+$$
+\min_{a \in [K] \setminus \{a^{*}\}} \frac{\left(\Delta^{a}(P_{0})\right)^{2}}{2\left(\frac{(\sigma^{a^{*}})^{2}}{w(a^{*})} + \frac{(\sigma^{a})^{2}}{w(a)}\right)} \leq \min_{a \in [K] \setminus \{a^{*}\}} \frac{\overline{\Delta}^{2}}{2\left(\frac{(\sigma^{a^{*}})^{2}}{w(a^{*})} + \frac{(\sigma^{a})^{2}}{w(a)}\right)}.
+$$
+
+Step 4: Tail Bound with the Approximated Second Moment
+
+Let $v=\lambda$ . Then, we have 
+ 
+ $\displaystyle\mathbb{P}_{P^{*}}\left(\sum^{T}_{t=1}\Psi_{t}\leq Tv\right)\leq\mathbb{E}_{P^{*}}\left[\exp\left(-\frac{T\lambda^{2}}{2}+\frac{\lambda^{2}}{2}\left\{\sum^{T}_{t=1}\mathbb{E}_{P^{*}}\left[\Psi^{2}_{t}|\mathcal{F}_{t-1}\right]-1\right\}+TO\left(\lambda^{3}\right)\right)\right].$ 
+
+
+To analyze $\mathbb{E}_{P_{0}}\left[\exp\left(\lambda\sum^{T}_{t=1}\Psi^{a^{*}}_{t}(P_{0})\right)\right]$, we note that the sequence $\Psi^{a^{*}}_{1},\Psi^{a^{*}}_{2},\dots,\Psi^{a^{*}}_{T}$ consists of independent and identically distributed random variables. Leveraging this property, the expectation can be expressed as a product:
+
+$\displaystyle\mathbb{E}_{P_{0}}\left[\exp\left(\lambda\sum^{T}_{t=1}\Psi^{a^{*}}_{t}(P_{0})\right)\right]=\prod^{T}_{t=1}\mathbb{E}_{P_{0}}\left[\exp\left(\lambda\Psi^{a^{*}}_{t}(P_{0})\right)\right].$
+
+This product form can be further simplified using logarithmic properties:
+
+$\exp\left(\sum^{T}_{t=1}\log\mathbb{E}_{P_{0}}\left[\exp\left(\lambda\Psi^{a^{*}}_{t}(P_{0})\right)\right]\right).$
+
+Step 5: Final Step of the Proof of Theorem 4.1
+
+From equation ( D ), it follows that
+
+$$
+\mathbb{P}_{P_{0}}\left(\sum_{t=1}^{T}\left\{\Psi_{t}^{a^{*}}(P_{0})+\Psi_{t}^{a}(P_{0})\right\}\leq v\right)\leq \exp\left(T\frac{\lambda^{2}}{2}\frac{\left(\sigma^{a^{*}}\right)^{2}}{\tilde{w}(a^{*})}+T\frac{\lambda^{2}}{2}\frac{\left(\sigma^{a}\right)^{2}}{\tilde{w}(a)}-\lambda v\right).
+$$
+
+Let $\lambda=-\frac{\Delta}{\sqrt{V}}$ . Then, we have 
+ 
+ $\displaystyle-\frac{1}{T}\log\mathbb{P}_{P^{*}}\left(\widehat{\mu}^{\mathrm{AIPW},a^{*}(P)}_{T}\leq\widehat{\mu}^{\mathrm{AIPW},a}_{T}\right)\geq\frac{\Delta^{2}}{2V}-O\left(\frac{\Delta^{3}}{V^{3/2}}\right)-\frac{\epsilon\Delta^{2}}{2V},$ 
+ as $\Delta\to 0$ . Letting $\Delta\to 0$ and $T\to\infty$ , and then letting $\epsilon\to 0$ independently of $T$ and $\Delta$ , then $T\to\infty$ , we have 
+ 
+ $\displaystyle-\frac{1}{T}\log\mathbb{P}_{P^{*}}\left(\widehat{\mu}^{\mathrm{AIPW}}_{1,T}\leq\widehat{\mu}^{\mathrm{AIPW}}_{2,T}\right)$ $\displaystyle\geq\frac{\Delta^{2}}{2V}-o\left(\Delta^{2}\right).$ 
+ Thus, the proof is complete.
+
+6 Discussion and Related Work
+
+This section presents discussions and related works.
+
+6.1 On the Asymptotic Optimality in Fixed-Budget BAI
+
+There is a long debate on the optimal strategies for fixed-budget BAI. Glynn & Juneja (2004) develops their strategies by using the large deviation principles. However, while they justify their strategies using the large deviation principles, they do not provide lower bounds for strategies. Therefore, there remains a question about whether their strategies are truly asymptotically optimal.
+
+For asymptotically invariant strategies, we demonstrate that the approach introduced by Glynn & Juneja (2004) achieves asymptotic optimality for multi-armed bandits under general distributions, a result independently confirmed by Degenne (2023). However, this strategy's practicality hinges on complete knowledge of the underlying distribution. Specifically, in Gaussian bandits, it requires precise information about the mean and variance parameters, as well as prior knowledge of which arm represents the optimal treatment. Consequently, the strategy proposed by Glynn & Juneja (2004) is often impractical in real-world applications, particularly when mean parameters remain unknown.
+
+However, Kaufmann et al. (2016) leaves lower bounds for multi-armed fixed-budget BAI as an open issue. Based on the arguments of Glynn & Juneja (2004) and Russo (2020) , Kasy & Sautmann (2021) attempts to derive an asymptotically optimal strategy, but their attempt does not succeed. As pointed out by Ariu et al. (2021) , without additional assumptions, there exists an instance $P^{*}$ whose lower bound is larger than that of Kaufmann et al. (2016) . This result is based on another lower bound discovered by Carpentier & Locatelli (2016) . These arguments are summarized by Qin (2022) .
+
+To address this issue, Kato et al. (2023b) and Degenne (2023) consider a restriction such that sampling rules do not depend on $P^{*}$ . Under this restriction, we can show the asymptotic optimality of the strategy provided by Glynn & Juneja (2004) , which requires full knowledge about $P^{*}$ and is practically infeasible.
+
+The problem of fixed-budget Bayesian Active Learning (BAI) has been widely investigated, though challenges remain in achieving asymptotic optimality. Notable contributions include conjectured lower bounds proposed by Kaufmann et al. (2016) and Carpentier & Locatelli (2016). Garivier & Kaufmann (2016), Kaufmann (2020), Ariu et al. (2021), and Qin (2022) have provided discussions and summaries of the topic. Concurrently, Komiyama et al. (2022), Degenne (2023), Atsidakou et al. (2023), and Wang et al. (2023) have continued to explore and advance the field.
+
+Note that in the fixed confidence BAI setting, Garivier & Kaufmann (2016) proposes a strategy with an upper bound matching the derived lower bound. However, in the fixed-budget BAI, it remains unclear whether a strategy with an upper bound matching Kaufmann et al. (2016) ’s lower bound exists.
+
+Alternative lower bounds have been proposed by Audibert et al. (2010) , Bubeck et al. (2011) , Komiyama et al. (2021) and Kato et al. (2023a) for the expected simple regret minimization, which is another performance measure different from the probability of misidentification.
+
+Adusumilli (2022) conducted a minimax analysis of bandit strategies for both regret minimization and best arm identification (BAI), drawing on a diffusion process framework introduced by Wager & Xu (2021). Additionally, Armstrong (2022) and Hirano & Porter (2023) extended the findings of Hirano & Porter (2009) to adaptive experimental settings. The methodologies of Adusumilli (2022) and Armstrong (2022) leverage principles of local asymptotic normality, as outlined by Le Cam (1960), with the class of alternative hypotheses represented by "local models." In these models, parameters of interest converge to their true values at a rate of \(1/\sqrt{T}\).
+
+Ordinal optimization in the operations research community is another related field Ahn et al. (2021) .
+
+6.2 Neyman Allocation with Unknown Variances
+
+For two-armed Gaussian bandits, the lower bound can be simplified (see Theorem 12 in Kaufmann et al. (2016)). In this scenario, it is established that allocating treatment arms 1 and 2 with sample sizes proportional to $\frac{\sigma^{1}}{\sigma^{1}+\sigma^{2}}T$ and $\frac{\sigma^{2}}{\sigma^{1}+\sigma^{2}}T$, respectively, results in an asymptotically optimal strategy. Allocation strategies that follow this rule are referred to as Neyman allocation, as introduced by Neyman (1934).
+
+In Section 3, we present a strategy based on the established lower bounds, demonstrating that the probability of misclassification under this approach matches the derived lower bounds. Within this framework, we operate under the assumption that the variances of the outcomes are known. We then introduce the Generalized-Neyman-Allocation (GNA)-Empirical-Best-Arm (EBA) strategy, which extends the original Neyman allocation concept introduced by Neyman in 1934. According to this strategy, each treatment arm \( a \) is allocated \( \lceil w^{*}(a)T \rceil \) units, where
+
+\[
+w^{\mathrm{GNA}} = \left(w^{\mathrm{GNA}}(1), w^{\mathrm{GNA}}(2), \dots, w^{\mathrm{GNA}}(K)\right) = \operatorname*{arg\,max}_{w \in \mathcal{W}} \min_{a^{*} \in [K]} \min_{a \in [K] \setminus \{a^{*}\}} \frac{1}{2\Omega^{a^{*},a}(w)}.
+\]
+
+Jourdan et al. (2023) examines BAI with unknown variances in a fixed-confidence setting. Beyond the difference in settings (we focus on fixed-budget BAI), the methods of deriving lower bounds differ between our approach and theirs. They determine the lower bound while incorporating the assumption that the variances are unknown. Moreover, under a large-gap regime ( $\Delta$ is fixed), they confirm a discrepancy between the lower bounds when variances are known versus unknown. Specifically, they consider alternative hypotheses related to both variances and means. In contrast, the lower bounds presented by Kaufmann et al. (2016) and ourselves are based on alternative hypotheses with fixed variances. While Jourdan et al. (2023) suggests that the upper bounds of strategies with unknown variances cannot align with the lower bound when variances are known, our findings indicate a match under the small-gap regime.
+
+6.3 The AIPW, IPW, and Sample Average Estimators
+
+The problem at hand is deeply connected to foundational theories in statistical decision-making, as established by Wald (1949), the limitations of experimental design, as explored by Le Cam (1972), and semiparametric theory, as detailed by Hahn (1998). Among these, semiparametric theory plays a pivotal role, as it provides the framework for deriving lower bounds through the concept of semiparametric Fisher information, as outlined by van der Vaart (1998).
+
+Experimental design plays a pivotal role in evidence-based decision-making, particularly when dealing with multiple treatment arms, such as online advertisements and medical interventions. This study focuses on identifying the treatment arm with the highest expected outcome, referred to as the best treatment arm, while minimizing the likelihood of misidentification. This problem has been extensively explored in various research domains, including best arm identification (BAI) and ordinal optimization. In our experimental setup, the number of treatment-allocation rounds is predetermined. During each round, a decision-maker assigns a treatment arm to an experimental unit and observes an outcome that follows a Gaussian distribution, with variances potentially differing across treatment arms. At the conclusion of the experiment, one treatment arm is recommended as the best based on the observed outcomes. To develop an effective experimental design, we first establish lower bounds for the probability of misidentification using an information-theoretic framework. Our analysis underscores that the available information on the outcome distribution for each treatment arm, including means, variances, and the identification of the best treatment arm, significantly impacts these lower bounds. In scenarios with limited information, we derive a worst-case lower bound that remains valid even when means and the best treatment arm are unknown. We demonstrate that this worst-case lower bound depends solely on the variances of the outcomes. Furthermore, assuming known variances, we propose the Generalized-Neyman-Allocation (GNA)-empirical-best-arm (EBA) strategy, an extension of Neyman's allocation (1934). We establish that the GNA-EBA strategy is asymptotically optimal, meaning its probability of misidentification converges to the lower bounds as the sample size grows indefinitely and the differences between the expected outcomes of the best and suboptimal arms approach a uniform value. Such strategies are termed asymptotically worst-case optimal.
+
+6.4 Extension to BAI in Multi-Armed Bandit (MAB) Problems
+
+The formulation of strategies enables the creation of adaptive experiments, where decisions regarding $A_{t}$ are informed by historical data. While this investigation introduces lower bounds applicable to both adaptive and non-adaptive experimental frameworks—non-adaptive experiments being synonymous with static ones, where $\{A_{t}\}_{t\in[T]}$ is predetermined and unaltered throughout the study—our proposed approach is non-adaptive in nature, meaning $A_{t}$ is determined without incorporating experimental observations. As demonstrated later, these lower bounds are exclusively contingent upon the variances of potential outcomes. Under the assumption of known variances, a non-adaptive strategy can be devised to achieve asymptotic optimality, ensuring that the probability of misidentification matches the established lower bounds. However, when variances are unknown, variance estimation during the experiment may be considered, transitioning the experiment to an adaptive framework by employing $\mathcal{F}_{t-1}$-measurable variance estimators at each round $t$. Yet, the existence of an optimal strategy under such conditions remains unproven, leaving it as an open question (Section 7).
+
+7 Conclusion
+
+This study investigated fixed-budget BAI for two-armed Gaussian bandits with unknown variances. We first reviewed the lower bound shown by Kaufmann et al. (2016) . Then, we proposed the NA-AIPW strategy and found that its probability of misidentification matches the lower bound when the budget approaches infinity and the gap between the expected rewards of the two arms approaches zero. We referred to this setting as the small-gap regime and the optimality as the local asymptotic optimality. Although there are several remaining open questions, our result provides insight into long-standing open problems in BAI.
+
+References
+
+Adusumilli (2022) Karun Adusumilli. Neyman allocation is minimax optimal for best arm identification with two arms, 2022. arXiv:2204.05527.
+Ahn et al. (2021) Dohyun Ahn, Dongwook Shin, and Assaf Zeevi. Online ordinal optimization under model misspecification, 2021. URLhttps://api.semanticscholar.org/CorpusID:235389954. SSRN.
+Akritas & Kourouklis (1988) Michael G. Akritas and Stavros Kourouklis. Local bahadur efficiency of score tests. Journal of Statistical Planning and Inference, 19(2):187–199, 1988.
+Ariu et al. (2021) Kaito Ariu, Masahiro Kato, Junpei Komiyama, Kenichiro McAlinn, and Chao Qin. Policy choice and best arm identification: Asymptotic analysis of exploration sampling, 2021. arXiv:2109.08229.
+Armstrong (2022) Timothy B. Armstrong. Asymptotic efficiency bounds for a class of experimental designs, 2022. arXiv:2205.02726.
+Atsidakou et al. (2023) Alexia Atsidakou, Sumeet Katariya, Sujay Sanghavi, and Branislav Kveton. Bayesian fixed-budget best-arm identification, 2023. arXiv:2211.08572.
+Audibert et al. (2010) Jean-Yves Audibert, Sébastien Bubeck, and Remi Munos. Best arm identification in multi-armed bandits. InConference on Learning Theory, pp.  41–53, 2010.
+Bahadur (1960) R. R. Bahadur. Stochastic Comparison of Tests. The Annals of Mathematical Statistics, 31(2):276 – 295, 1960.
+Bang & Robins (2005) Heejung Bang and James M. Robins. Doubly robust estimation in missing data and causal inference models. Biometrics, 61(4):962–973, 2005.
+Bubeck et al. (2009) Sébastien Bubeck, Rémi Munos, and Gilles Stoltz. Pure exploration in multi-armed bandits problems. InAlgorithmic Learning Theory, pp.  23–37. Springer Berlin Heidelberg, 2009.
+Bubeck et al. (2011) Sébastien Bubeck, Rémi Munos, and Gilles Stoltz. Pure exploration in finitely-armed and continuous-armed bandits. Theoretical Computer Science, 2011.
+Carpentier & Locatelli (2016) Alexandra Carpentier and Andrea Locatelli. Tight (lower) bounds for the fixed budget best arm identification bandit problem. InCOLT, 2016.
+Chen et al. (2000) Chun-Hung Chen, Jianwu Lin, Enver Yücesan, and Stephen E. Chick. Simulation budget allocation for further enhancing theefficiency of ordinal optimization. Discrete Event Dynamic Systems, 10(3):251–270, 2000.
+Degenne (2023) Rémy Degenne. On the existence of a complexity in fixed budget bandit identification. InConference on Learning Theory, volume 195, pp. 1131–1154. PMLR, 2023.
+Garivier & Kaufmann (2016) Aurélien Garivier and Emilie Kaufmann. Optimal best arm identification with fixed confidence. InConference on Learning Theory, 2016.
+Glynn & Juneja (2004) Peter Glynn and Sandeep Juneja. A large deviations perspective on ordinal optimization. InProceedings of the 2004 Winter Simulation Conference, volume 1. IEEE, 2004.
+Hadad et al. (2021) Vitor Hadad, David A. Hirshberg, Ruohan Zhan, Stefan Wager, and Susan Athey. Confidence intervals for policy evaluation in adaptive experiments. Proceedings of the National Academy of Sciences, 118(15), 2021.
+Hahn (1998) Jinyong Hahn. On the role of the propensity score in efficient semiparametric estimation of average treatment effects. Econometrica, 66(2):315–331, 1998.
+Hahn et al. (2011) Jinyong Hahn, Keisuke Hirano, and Dean Karlan. Adaptive experimental design using the propensity score. Journal of Business and Economic Statistics, 2011.
+He & Shao (1996) Xuming He and Qi-man Shao. Bahadur efficiency and robustness of studentized score tests. Annals of the Institute of Statistical Mathematics, 48(2):295–314, Jun 1996.
+Hirano et al. (2003) Keisuke Hirano, Guido Imbens, and Geert Ridder. Efficient estimation of average treatment effects using the estimated propensity score. Econometrica, 2003.
+Jamieson et al. (2014) Kevin Jamieson, Matthew Malloy, Robert Nowak, and Sébastien Bubeck. lil’ ucb : An optimal exploration algorithm for multi-armed bandits. InConference on Learning Theory, 2014.
+Jourdan et al. (2023) Marc Jourdan, Degenne Rémy, and Kaufmann Emilie. Dealing with unknown variances in best-arm identification. InProceedings of The 34th International Conference on Algorithmic Learning Theory, volume 201, pp.  776–849, 2023.
+Kasy & Sautmann (2021) Maximilian Kasy and Anja Sautmann. Adaptive treatment assignment in experiments for policy choice. Econometrica, 89(1):113–132, 2021.
+Kato (2023) Masahiro Kato. Worst-case optimal multi-armed gaussian best arm identification with a fixed budget, 2023. arXiv:2310.19788.
+Kato et al. (2020) Masahiro Kato, Takuya Ishihara, Junya Honda, and Yusuke Narita. Efficient adaptive experimental design for average treatment effect estimation, 2020. arXiv:2002.05308.
+Kato et al. (2023a) Masahiro Kato, Masaaki Imaizumi, Takuya Ishihara, and Toru Kitagawa. Asymptotically minimax optimal fixed-budget best arm identification for expected simple regret minimization, 2023a. arXiv:2302.02988.
+Kato et al. (2023b) Masahiro Kato, Masaaki Imaizumi, Takuya Ishihara, and Toru Kitagawa. Fixed-budget hypothesis best arm identification: On the information loss in experimental design. InICML Workshop on New Frontiers in Learning, Control, and Dynamical Systems, 2023b.
+Kaufmann (2020) Emilie Kaufmann. Contributions to the Optimal Solution of Several Bandits Problems. Habilitation á Diriger des Recherches, Université de Lille, 2020. URLhttps://emiliekaufmann.github.io/HDR_EmilieKaufmann.pdf.
+Kaufmann et al. (2016) Emilie Kaufmann, Olivier Cappé, and Aurélien Garivier. On the complexity of best-arm identification in multi-armed bandit models. Journal of Machine Learning Research, 17(1):1–42, 2016.
+Komiyama et al. (2021) Junpei Komiyama, Kaito Ariu, Masahiro Kato, and Chao Qin. Optimal simple regret in bayesian best arm identification, 2021.
+Komiyama et al. (2022) Junpei Komiyama, Taira Tsuchiya, and Junya Honda. Minimax optimal algorithms for fixed-budget best arm identification. InAdvances in Neural Information Processing Systems, 2022.
+Lai & Robbins (1985) T.L Lai and Herbert Robbins. Asymptotically efficient adaptive allocation rules. Advances in Applied Mathematics, 1985.
+Neyman (1923) Jerzy Neyman. Sur les applications de la theorie des probabilites aux experiences agricoles: Essai des principes. Statistical Science, 5:463–472, 1923.
+Neyman (1934) Jerzy Neyman. On the two different aspects of the representative method: the method of stratified sampling and the method of purposive selection. Journal of the Royal Statistical Society, 97:123–150, 1934.
+Qin (2022) Chao Qin. Open problem: Optimal best arm identification with fixed-budget. InConference on Learning Theory, 2022.
+Robins et al. (1994) James M. Robins, Andrea Rotnitzky, and Lue Ping Zhao. Estimation of regression coefficients when some regressors are not always observed. Journal of the American Statistical Association, 89(427):846–866, 1994.
+Russo (2020) Daniel Russo. Simple bayesian algorithms for best-arm identification. Operations Research, 68(6):1625–1647, 2020.
+Tabord-Meehan (2018) Max Tabord-Meehan. Stratification trees for adaptive randomization in randomized controlled trials, 2018.
+Tsiatis (2007) Anastasios Tsiatis. Semiparametric Theory and Missing Data. Springer Series in Statistics. Springer New York, 2007.
+van der Laan (2008) Mark J. van der Laan. The construction and analysis of adaptive group sequential designs, 2008. URLhttps://biostats.bepress.com/ucbbiostat/paper232.
+van der Vaart (1998) A.W. van der Vaart. Asymptotic Statistics. Cambridge Series in Statistical and Probabilistic Mathematics. Cambridge University Press, 1998.
+Wang et al. (2023a) Po-An Wang, Kaito Ariu, and Alexandre Proutiere. On uniformly optimal algorithms for best arm identification in two-armed bandits with fixed budget, 2023a. arXiv:2308.12000.
+Wang et al. (2023b) Po-An Wang, Ruo-Chun Tzeng, and Alexandre Proutiere. Best arm identification with fixed budget: A large deviation perspective. InThirty-seventh Conference on Neural Information Processing Systems, 2023b. URLhttps://openreview.net/forum?id=gYetLsNO8x.
+Wieand (1976) Harry S. Wieand. A Condition Under Which the Pitman and Bahadur Approaches to Efficiency Coincide. The Annals of Statistics, 4(5):1003 – 1011, 1976.
+Zhao (2023) Jinglong Zhao. Adaptive neyman allocation, 2023.

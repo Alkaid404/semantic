@@ -1,0 +1,840 @@
+Adaptive estimation of a function from its Exponential Radon Transform in presence of noise
+
+By Anuj Abhishek and Sakshi Arya
+
+Abstract
+
+In this article, we propose a locally adaptive strategy for estimating a function from its Exponential Radon Transform (ERT) data without prior knowledge of the function's smoothness. We construct a non-parametric kernel-type estimator and demonstrate that, for a class of functions encompassing a broad Sobolev regularity scale, our proposed strategy achieves the minimax optimal rate up to a $\log{n}$ factor. Additionally, we establish that no optimally adaptive estimator exists on the Sobolev scale when using pointwise risk, and the rate attained by our estimator represents the adaptive rate of convergence.
+
+1 Introduction
+
+Single Photon Emission Computed Tomography (SPECT) imaging is a valuable diagnostic tool used to detect tumors within a patient’s body. The process involves injecting a small amount of a radioactive tracer attached to a nutrient into the patient’s body. After a brief waiting period (ranging from a few minutes to several hours), a SPECT scanner measures the radioactive emissions from the body in multiple directions by moving around the patient. The data collected along each line represents the intensity of emissions from points along that line, which can be mathematically interpreted as an attenuated Radon transform. From this data, an image of the patient’s body is reconstructed to locate tumors. If the attenuation is assumed to be constant, the attenuated Radon transform simplifies to what is known as the exponential Radon transform. For a more detailed explanation, readers are referred to [19] and [31].
+
+In this article, we investigate the estimation of a function from its stochastic (i.e., noisy) exponential Radon transform (ERT) data. Specifically, the ERT of a compactly supported function \( f(x) \) in \( \mathbb{R}^{2} \) is defined as:
+
+\[
+\displaystyle T_{\mu}f(\theta,s)=\int\limits_{x\cdot\theta=s}e^{\mu x\cdot\theta^{\perp}}f(x)dx. \quad (1)
+\]
+
+Here, \( s \in \mathbb{R} \), \( \theta \in \mathrm{S}^{1} \) (where \( \mathrm{S}^{1} \) is the unit circle in \( \mathbb{R}^{2} \)), \( \mu \) is a constant, and \( \theta^{\perp} \) denotes a unit vector perpendicular to \( \theta \). Lines in \( \mathbb{R}^{2} \) can be parameterized as \( L(\theta,s)=\{x:x\cdot\theta=s\} \). Similar to the classical Radon transform, the ERT maps a function defined on a plane to a function defined over the set of lines parameterized by \( (\theta,s) \). The ERT is a specific example of generalized Radon transforms, as studied in [32]. Inversion methods for the exponential Radon transform (in a noise-free setting) are known from [30] and [35], with additional filtered backprojection (FBP) type formulas provided in [14].
+
+The classical Radon transform has been extensively studied within the stochastic framework. In [15], the problem of positron emission tomography (PET) in the presence of noise was examined. The work in [16] demonstrated that kernel-type non-parametric estimators, closely linked to FBP inversion methods, achieve optimal minimax convergence rates. In [1], the author extended the results from [16] to the stochastic setting of electrical resistance tomography (ERT). Cavalier in [6] obtained results on efficient density estimation in the non-parametric setting for the stochastic PET problem. Beyond non-parametric kernel estimators, Bayesian estimators for the stochastic X-ray tomography problem have been explored by several authors, as seen in [34] and related works. More recently, [28] presented results on efficient Bayesian inference for the attenuated X-ray transform on a Riemannian manifold. In the described tomography results, the stochastic framework typically assumes the smoothness (e.g., Sobolev regularity) of the function to be estimated is known. An interesting challenge is to develop adaptive estimation procedures that can estimate functions without prior knowledge of their smoothness. In [8], the problem of estimating bounded functions from noisy Radon transform data was addressed. The locally adaptive estimation procedure in [8] was based on the method proposed in [20]. Adaptive estimation of functions has a rich history, significantly advanced by a series of articles in [24]. Spatially adaptive estimation procedures were considered in [10], while the problem of optimal pointwise adaptation was explored in [21] for Hölder and Sobolev classes, respectively. Notably, pointwise adaptive estimation over Sobolev classes often incurs a logarithmic loss of efficiency compared to the optimal minimax rate of convergence when the function's Sobolev regularity is assumed known, as also discussed in [4]. A similar efficiency loss for estimating functions from their Radon transform data was conjectured by the author in [8] on the Sobolev scale. Our current article confirms this conjecture in the broader context of function estimation from its exponential Radon transform. It is worth noting that adaptive estimation from ERT data falls under the category of statistical inverse problems, which differ in nature from adaptive estimation in non-parametric regression or probability density estimation from direct observations. Finally, we highlight several key results in the theory of adaptive estimation for inverse problems, such as deconvolution and change point estimation, which have significantly expanded the boundaries of this research area, as seen in [2] and related works.
+
+The article is structured as follows: Section 2 outlines the mathematical framework of the problem and reviews relevant definitions. In Section 3, we apply the adaptive strategy from [8] to the stochastic ERT problem, recovering similar results as those previously established for the ERT case in the Radon transform setting, as demonstrated in [8]. The proofs for the first three theorems are based on the techniques from [8], with necessary modifications to suit the ERT problem. These proofs are included here for completeness. Theorem 4 presents a "no-optimality" result for adaptive estimation of a function from its ERT data, demonstrating that the adaptive strategy used in this article is the "best" among all possible strategies (see Definition 6). The proof of this theorem adapts the method from [4], originally used for density estimation over Sobolev classes in a direct problem, to our specific inverse problem. Finally, the appendix contains the proof of an auxiliary lemma.
+
+2 Problem set-up and definitions
+
+In this section, we will describe the mathematical framework for the problem and review some standard definitions from the literature.
+
+Let $B_{1} = \{x : \|x\| \leq 1\}$ denote the unit ball in $\mathbb{R}^{2}$. We consider a function $f(x) : \mathbb{R}^{2} \to \mathbb{R}$ that is supported within $B_{1}$, continuous almost everywhere, and satisfies $|f(x)| \leq L$ for some $L > 0$. The collection of such functions is denoted by $B(L)$.
+
+Let \( \mathrm{S}^{1} \) denote the unit circle in \( \mathbb{R}^{2} \), and let \( Z = \mathrm{S}^{1} \times [-1,1] \) represent the cylinder, where points are expressed as \( (\theta, s) \) with \( s \in [-1,1] \) and \( \theta \in \mathrm{S}^{1} \). Here, \( \theta^{\perp} \) denotes a unit vector perpendicular to \( \theta \). The exponential Radon transform of \( f \in B(L) \) is defined as a function on \( Z \) given by:
+
+\[
+T_{\mu}f(\theta, s) = \int_{x \cdot \theta = s} e^{\mu x \cdot \theta^{\perp}} f(x) \, dx,
+\]
+
+where \( \mu \) is a fixed constant. Notably, when \( \mu = 0 \), the exponential Radon transform simplifies to the classical Radon transform.
+
+Let \( g(\theta,s) \) be a compactly supported function on \( Z \). The associated dual transform is defined as:
+
+\[
+T_{\mu}^{\sharp}g(x) = \int_{\mathrm{S}^{1}} e^{\mu x \cdot \theta^{\perp}} g(\theta, x \cdot \theta) \, d\theta.
+\]
+
+When \( \mu = 0 \), this reduces to the backprojection operator for the classical Radon transform.
+
+Let $\{(\theta_{i},s_{i})\}_{i=1}^{n}$ be $n$ random points on the observation space $Z$, and let the observations take the form:
+
+$Y_{i}=T_{\mu}f(\theta_{i},s_{i})+\epsilon_{i}.$  (2)
+
+The points $(\theta_{i}, s_{i})$ are assumed to be independent and identically distributed (i.i.d.) on $Z$ and uniformly distributed. The noise, $\epsilon_{i}$, consists of i.i.d. Gaussian random variables with zero mean and finite positive variance $\sigma^{2}$. The stochastic inverse problem for the exponential Radon transform involves estimating the function $f(x)$ based on the observations $Y_{i}$ for $i = \{1, 2, \dots, n\}$. Let $\hat{f}_{n}(x)$ represent any estimator of $f(x)$ constructed from the observed data.
+
+Now we recall some definitions that will be frequently used in this article. In this article, the semi-norm $d$ (e.g. in Definition 3 ) will be given by: $d(f,g)=|f(x_{0})-g(x_{0})|$ where $x_{0}$ is an arbitrary fixed point in $B_{1}$ . From here on, $E_{f}(\cdot)$ and $Var_{f}(\cdot)$ will be used to denote the expectation and variance with respect to the joint distribution of random variables $(s_{i},\theta_{i},Y_{i})$ , $i=\{1,\dots,n\}$ satisfying the model given by ( 2 ).
+
+The risk function of an estimator $\hat{f}_{n}(x)$ is defined as
+
+$$
+\mathcal{R}(\hat{f}_{n},f)=E_{f}(d^{2}(\hat{f}_{n},f)).
+$$
+
+When the distance measure $d$ is as defined above, the risk is also referred to as the Mean Squared Error (MSE).
+
+The overall measure of risk associated to any estimation procedure is given by the minimax risk .
+
+Let $f(x)$ belong to a non-parametric class of functions $\mathcal{F}$. The maximum risk of an estimator $\hat{f}_{n}$ is defined as:
+
+$r(\hat{f}_{n}) = \sup_{f \in \mathcal{F}} \mathcal{R}(\hat{f}_{n}, f).$
+
+The minimax risk on $\mathcal{F}$ is then defined as:
+
+$r_{n}(\mathcal{F}) = \inf_{\hat{f}_{n}} \sup_{f \in \mathcal{F}} \mathcal{R}(\hat{f}_{n}, f),$
+
+where the infimum is taken over all possible estimators $\hat{f}_{n}$ of $f$. It is clear that:
+
+$r_{n}(\mathcal{F}) \leq r(\hat{f}_{n}).$
+
+In the next definition, we recall the concept of minimax optimality.
+
+Let $\{\Psi_{n}^{2}\}_{n=1}^{\infty}$ be a positive sequence converging to zero. An estimator $\hat{f}_{n}^{*}$ is called minimax optimal if there exist finite positive constants $C_{1}$ and $C_{2}$ such that
+
+$$C_{1}\Psi_{n}^{2}\leq r_{n}(\mathcal{F})\leq r(\hat{f}_{n}^{*})\leq C_{2}\Psi_{n}^{2}.$$
+
+In this case, $\Psi_{n}^{2}$ is referred to as the optimal rate of convergence.
+
+A function $f$ belongs to the Sobolev ball $H(\beta,C)$ if 
+
+$$
+\int_{\mathbb{R}^{2}}(1+\|\xi\|^{2})^{\beta}|\widetilde{f}(\xi)|^{2}d\xi \leq C,
+$$
+
+where $\widetilde{f}(\xi)$ is the Fourier transform of $f$. We assume $\beta > 1$ and, for simplicity, denote $H(\beta)$ as $H(\beta,C)$. In [1], we established that the minimax optimal rate of convergence under the MSE risk for estimating a function on $\mathbb{R}^{2}$ from its stochastic ERT is given by:
+
+$$
+\phi_{n,\beta} = \mathcal{O}(n^{-({\beta-1})/({2\beta+1})}).
+$$
+
+This result follows from Theorems 3 and 5 in [1]. Notably, such an optimal minimax rate can be achieved by an estimator if the smoothness of the function to be estimated (specifically, its membership in $H(\beta,C)$) is known. However, in practice, the smoothness is often unknown.
+
+In this article, our goal is to build locally adaptive data driven estimators that do not assume prior knowledge about the smoothness of the functions that are to be estimated. We will test the accuracy of such estimators by looking at their performance over a class of functions encompassing a wide scale of Sobolev regularity. Let us make these ideas precise: assume now that we only know that the function to be estimated belongs to $H(\beta)\cap B(L)$ where $\beta$ lies in a discrete set $B_{n}$ given by $B_{n}=\{\beta_{1}<\dots<\beta_{N_{n}}\}$ such that $\beta_{1}>1$ is fixed and $\lim_{n\to\infty}B_{N_{n}}\to\infty$ . The adaptive rate of convergence (ARC) on a scale of classes $H(\beta)\cap B(L)$ , $\beta\in B_{n}$ is defined as:
+
+[36] A sequence $\psi_{n,\beta}$ is said to be an ARC if:
+
+There exists a rate adaptive estimator $f^{*}(x)$ that does not depend on the smoothness scale $\beta$, satisfying the condition
+
+\[
+\limsup_{n\to\infty}\sup_{\beta\in B_{n}}\sup_{f\in H(\beta)\cap B(L)}(\psi_{n,\beta})^{-2}E_{f}(f^{*}(x)-f(x))^{2}<\infty.
+\]
+
+If there exists another sequence $\gamma_{n,\beta}$ and another adaptive estimator $f^{**}(x)$ such that
+
+\[
+\limsup_{n\to\infty}\sup_{\beta\in B_{n}}\sup_{f\in H(\beta)\cap B(L)}(\gamma_{n,\beta})^{-2}E_{f}(f^{**}(x)-f(x))^{2}<\infty,
+\]
+
+and a $\beta'$ such that
+
+\[
+\frac{\gamma_{n,\beta'}}{\psi_{n,\beta'}} \underset{n\to\infty}{\to} 0,
+\]
+
+then there exists a $\beta''$ such that
+
+\[
+\frac{\gamma_{n,\beta'}}{\psi_{n,\beta'}} \cdot \frac{\gamma_{n,\beta''}}{\psi_{n,\beta''}} \underset{n\to\infty}{\to} \infty.
+\]
+
+If a rate other than $\psi_{n,\beta}$ satisfies a condition analogous to (3) and is faster for some smoothness parameter $\beta'$, then there must exist another smoothness parameter $\beta''$ for which the loss becomes infinitely larger as the sample size $n$ grows.
+
+An adaptive estimator is considered optimally rate adaptive if it achieves minimax optimality for every $\beta \in B_n$, as shown in [36]. If such an optimally rate adaptive estimator exists, it also attains the adaptive rate of convergence.
+
+Next, we outline the procedure for constructing an adaptive strategy and present results that demonstrate its adaptive rate of convergence.
+
+3 Adaptive strategy
+
+To improve clarity and flow, the paragraph has been rewritten as follows:
+
+We start by revisiting some results from [1]. Consider the function
+
+\[
+K_{\delta}(s) = \frac{1}{\pi} \int_{|\mu|}^{\sqrt{(1/\delta^{2}) + \mu^{2}}} r \cos(sr) \, dr,
+\]
+
+which has been utilized in filtered backprojection formulas for Radon transforms, as seen in [18] and [29]. Here, \(\delta\) represents the bandwidth of the filter. The symbol \(\star\) denotes convolution, and for functions \(f\) and \(g\) defined on the cylinder \(Z = \mathrm{S}^{1} \times \mathbb{R}\), the convolution is performed with respect to their second variable, i.e.,
+
+\[
+f \star g(\theta, s) = \int_{\mathbb{R}} f(\theta, s - t) g(\theta, t) \, dt.
+\]
+
+We examine the estimator:
+
+\[
+\bar{f}_{\delta_{n}}(x) = \frac{1}{n} \sum_{i=1}^{n} e^{-\mu x \cdot \theta_{i}^{\perp}} K_{\delta_{n}}(\langle x \cdot \theta_{i} \rangle - s_{i}) Y_{i}, \quad (4)
+\]
+
+where \(Y_{i}\) represents the observed data as defined in equation (2). In [1], the bias of this estimator was evaluated as \(B(\bar{f}_{\delta_{n}}) \leq \tilde{c} \delta_{n}^{\beta - 1}\), with \(\tilde{c}\) being a constant, and its variance was found to be \(\text{Var}_{f}(\bar{f}_{\delta_{n}}) \leq c^{*} (n \delta_{n})^{-3} = v^{2}(\delta_{n})\). By balancing the bias and variance, it was shown that setting \(\delta_{n} = c_{0} \cdot [n^{-1/(2\beta + 1)}]\), where \(c_{0}\) is a constant, results in a minimax optimal estimator. Notably, the choice of this optimal bandwidth depends on the smoothness \(\beta\) of the function to be estimated.
+
+To address scenarios where the smoothness \(\beta\) is unknown, we describe an adaptive bandwidth selection procedure. This method, proposed by Cavalier [8] for adaptive estimation of a function from its stochastic Radon transform data, is based on the approach outlined in [20] by Lepski et al.
+
+The locally adaptive bandwidths $\bar{\delta}(x)$ are selected from a geometric grid $\Delta_{n}$, defined as:
+
+\[
+\Delta_{n} = \left\{\delta \in \left[\delta_{n}^{-}, 1\right] : \delta = a^{-j}, j = 0, 1, 2, \dots \right\}, \quad \text{where } a \geq 2 \text{ and } \frac{a\log{n}}{n} \leq 1, \text{ with } \delta_{n}^{-} = \frac{\log{n}}{n}.
+\]
+
+Let $f_{\delta}(x) = E_{f}[\bar{f}_{\delta}(x)]$. Following methods similar to those in [1] and [8], it can be demonstrated that for some constant $c^{**}$,
+
+\[
+\text{Var}_{f}(\bar{f}_{\delta}(x) - \bar{f}_{\eta}(x)) \leq \frac{c^{**}}{n} \int (K_{\delta}(u) - K_{\eta}(u))^{2} du = v^{2}(\delta, \eta).
+\]
+
+For $\delta > \eta$, we define:
+
+\[
+\psi(\delta, \eta) = v(\delta)\lambda(\delta) + v(\delta,\eta)\lambda(\eta),
+\]
+
+where $\lambda(\delta) = \max\left(1, \sqrt{D_{2}\log\frac{1}{\delta}}\right)$ and $v^{2}(\delta) = c^{*}(n\delta)^{-3} \geq \text{Var}_{f}(\bar{f}_{\delta})$. Here, $D_{2}$ is a real number that can be chosen arbitrarily (its precise value will be specified later). The data-driven adaptive bandwidth $\bar{\delta}(x)$ is determined by:
+
+\[
+\bar{\delta}(x) = \max\left\{\delta \in \Delta_{n} : \left|\bar{f}_{\delta}(x) - \bar{f}_{\eta}(x)\right| \leq \psi(\delta, \eta) \quad \forall \eta \leq \delta, \eta \in \Delta_{n}\right\}.
+\]
+
+The corresponding adaptive estimator is given by:
+
+\[
+f^{*}(x) = \bar{f}_{\bar{\delta}}(x) = \frac{1}{n} \sum_{i=1}^{n} e^{-\mu x \cdot \theta_{i}^{\perp}} K_{\bar{\delta}(x)}(\langle\theta_{i}, x\rangle - s_{i}) Y_{i}.
+\]
+
+It is important to note that $\bar{\delta}(x)$ is defined locally at each point $x$ and does not require prior knowledge of the function $f(x)$, particularly its smoothness. We also define a "locally deterministic bandwidth" $\delta_{n}$, which depends on the unknown function $f(x)$:
+
+\[
+\delta_{n} = \delta_{n}(x,f) = \max\left\{\delta \in \Delta_{n} : \left|f_{\eta}(x) - f(x)\right| \leq \frac{v(\delta)\lambda(\delta)}{2} \quad \forall \eta \in \Delta_{n}, \eta \leq \delta\right\}.
+\]
+
+Finally, following [8], we define the adaptive convergence rate $r_{n}(x,f)$ as:
+
+\[
+r_{n}(x,f) = \inf_{\delta \in [\delta_{n}^{-},1]} \left\{\sup_{0 \leq \eta \leq \delta} (f_{\eta}(x) - f(x))^{2} + c^{*}\delta^{-3}\frac{\log n}{n}\right\}.
+\]
+
+We are now prepared to state our first theorem, which establishes that the estimator constructed using the locally deterministic bandwidth $\delta_{n}$ has its risk bounded by $r_{n}(x,f)$ up to a constant factor. However, it is worth noting that $\delta_{n}$ can only be determined if the function $f(x)$ is known beforehand. In this sense, $\delta_{n}$ represents an ideal bandwidth for the adaptive estimation procedure, and $\bar{f}_{\delta_{n}}(x)$ serves as an oracle.
+
+For any $f \in B(L)$, as $n \to \infty$, we have:
+ 
+ $\displaystyle E_{f}[(\bar{f}_{\delta_{n}}(x)-f(x))^{2}]\leq\frac{5}{4}v^{2}(\delta_{n})\lambda^{2}(\delta_{n})\leq C(a)r_{n}(x,f),$  (10) 
+ where $C(a)$ is a constant depending on $a$, and $a$ is the same as in (5).
+
+To establish the non-emptiness of the set over which the maximum is taken in the definition of $\delta_n$, we begin by analyzing the auxiliary point related to the function $f_{\delta_n^{-}}(x) = \boldsymbol{\delta}^{\frac{1}{\delta_n^{-}}} \star f$. Here, $\boldsymbol{\delta}^{\frac{1}{\delta_n^{-}}}$ is defined as:
+
+\[
+\boldsymbol{\delta}^{\frac{1}{\delta_n^{-}}} = \int_{|\xi| \leq \frac{1}{\delta_n^{-}}} e^{-i\xi \cdot x} d\xi = \int I_{\frac{1}{\delta_n^{-}}}(\xi) e^{-i\xi \cdot x} d\xi.
+\]
+
+We then derive the following inequality:
+
+\[
+|f_{\delta_n^{-}}(x) - f(x)| \leq 2|f_{\delta_n^{-}}(x)|^2 + 2|f(x)|^2 = 2|\boldsymbol{\delta}^{\frac{1}{\delta_n^{-}}} \star f(x)|^2 + 2|f(x)|^2.
+\]
+
+Applying Hölder's inequality, we obtain:
+
+\[
+\begin{aligned}
+|f_{\delta_n^{-}}(x) - f(x)| & \leq 2 \left( \frac{1}{4\pi^2} \right) \left( \int_{\mathbb{R}^2} |\hat{f}(\xi) I_{\frac{1}{\delta_n^{-}}}(\xi)| d\xi \right)^2 + 2|f(x)|^2 \\
+& \leq 2 \left( \frac{1}{4\pi^2} \right) \left( \int_{\mathbb{R}^2} |\hat{f}(\xi)|^2 d\xi \int_{\mathbb{R}^2} |I_{\frac{1}{\delta_n^{-}}}(\xi)| d\xi \right) + 2L^2 \\
+& \leq 2 \left( \frac{1}{4\pi^2} \right) L^2 \pi \cdot \pi \left( \frac{1}{\delta_n^{-}} \right)^2 + 2L^2 \\
+& \leq \frac{5L^2}{2(\delta_n^{-})^2}.
+\end{aligned}
+\]
+
+Additionally, we have:
+
+\[
+\frac{1}{4} v^2(\delta_n^{-}) \lambda^2(\delta_n^{-}) \geq \frac{c^* D_2}{8 (\delta_n^{-})^2}.
+\]
+
+If $D_2 \geq \frac{20L^2}{c^*}$, then:
+
+\[
+\frac{c^* D_2}{8 (\delta_n^{-})^2} \geq \frac{5L^2}{2 (\delta_n^{-})^2}.
+\]
+
+This, combined with the earlier inequality, shows that:
+
+\[
+|f_{\delta_n^{-}}(x) - f(x)| \leq \frac{1}{4} v^2(\delta_n^{-}) \lambda^2(\delta_n^{-}),
+\]
+
+thereby establishing that the set over which the maximum is taken in the definition of $\delta_n$ is non-empty.
+
+Returning to the main theorem, we have:
+
+\[
+\begin{aligned}
+E_f \left[ (\bar{f}_{\delta_n}(x) - f(x))^2 \right] &= (f_{\delta_n}(x) - f(x))^2 + \text{var}_f \bar{f}_{\delta_n}(x) \\
+& \leq \frac{1}{4} v^2(\delta_n) \lambda^2(\delta_n) + v^2(\delta_n) \\
+& \leq \frac{5}{4} v^2(\delta_n) \lambda^2(\delta_n) \quad (\text{since } \lambda^2(\delta_n) \geq 1).
+\end{aligned}
+\]
+
+Let the infimum in the definition of $r_n(x, f)$ be achieved at $\delta = \delta_0$. We consider two cases:
+
+**Case 1:** If $\delta_0 < a \delta_n$, then:
+
+\[
+r_n(x, f) \geq c^* \delta_0^{-3} \frac{\log n}{n} \geq c^* a^3 \delta_n^{-3} \frac{\log n}{n}.
+\]
+
+Given the definitions of $v^2(\delta_n)$ and $\lambda^2(\delta_n)$, we have:
+
+\[
+\frac{5}{4} v^2(\delta_n) \lambda^2(\delta_n) = \max \left\{ \frac{5}{4} \frac{c^* \delta_n^{-3}}{n}, \frac{5}{4} \frac{c^* \delta_n^{-3} D_2}{n} \log \left( \frac{1}{\delta_n} \right) \right\}.
+\]
+
+Since $\delta_n^{-} \leq \delta_n$, for $n \geq 3$, we have:
+
+\[
+\log \left( \frac{1}{\delta_n} \right) \leq \log \left( \frac{1}{\delta_n^{-}} \right) = \log \left( \frac{n}{\log n} \right) \leq \log n.
+\]
+
+Choosing $C_1 = C_1(a, D_2) > \max \left\{ \frac{5}{4 a^3}, \frac{5 D_2}{4 a^3} \right\}$, we obtain:
+
+\[
+E_f \left[ (\bar{f}_{\delta_n}(x) - f(x))^2 \right] \leq \frac{5}{4} v^2(\delta_n) \lambda^2(\delta_n) \leq C_1 r_n(x, f),
+\]
+
+for sufficiently large $n$.
+
+**Case 2:** If $\delta_0 \geq a \delta_n$, then from the definition of $\delta_n$:
+
+\[
+\sup_{0 \leq \eta \leq \delta_0} (f_\eta(x) - f(x))^2 \geq \sup_{0 \leq \eta \leq a \delta_n} (f_\eta(x) - f(x))^2 \geq \frac{v^2(a \delta_n) \lambda^2(a \delta_n)}{4}.
+\]
+
+For some sufficiently large $C_2 = C_2(a)$, we have:
+
+\[
+E_f \left[ (\bar{f}_{\delta_n}(x) - f(x))^2 \right] \leq \frac{5}{4} v^2(\delta_n) \lambda^2(\delta_n) \leq C_2 r_n(x, f).
+\]
+
+This completes the proof.
+
+The next theorem demonstrates that the adaptive estimator proposed in (7) achieves performance comparable to that of the ideal estimator, which utilizes the locally deterministic bandwidth $\delta_{n}$.
+
+For any function \( f \in B(L) \) with \( L > 0 \) and any point \( x \in \mathbb{R}^2 \), as \( n \to \infty \), the following inequality holds:
+\[
+E_f[(f^*(x) - f(x))^2] \leq c(a)v^2(\delta_n)\lambda^2(\delta_n) \leq c'(a)r_n(x,f),
+\]
+where \( c(a) \) and \( c'(a) \) are constants that depend on \( a \).
+
+We decompose the risk into two parts and analyze each part separately:
+
+\[
+E_{f}[(f^{*}(x)-f(x))^{2}] = E_{f}[(f^{*}(x)-f(x))^{2}]I(\bar{\delta}\geq\delta_{n}) + E_{f}[(f^{*}(x)-f(x))^{2}]I(\bar{\delta}\leq\delta_{n}).
+\]
+
+**Case 1:** $\{\bar{\delta}\geq\delta_{n}\}$. For any $\delta^{\prime}\geq\delta$, we have $v(\delta)\geq v(\delta^{\prime})$ and $\lambda(\delta)\geq\lambda(\delta^{\prime})$. This implies $\psi(\delta^{\prime},\delta)\leq v(\delta)\lambda(\delta)+v(\delta,\delta^{\prime})\lambda(\delta)$. Using the inequality $\int(K_{\delta}(s)-K_{\delta^{\prime}}(s))^{2}ds\leq 2\int K^{2}_{\delta}(s)ds+2\int K^{2}_{\delta^{\prime}}(s)ds$, we obtain $v^{2}(\delta,\delta^{\prime})\leq 2[v^{2}(\delta)+v^{2}(\delta^{\prime})]\leq 4v^{2}(\delta)$, which leads to $v(\delta,\delta^{\prime})\leq 2v(\delta)$. Consequently, $\psi(\delta,\delta^{\prime})\leq 3v(\delta)\lambda(\delta)$.
+
+We then have the following sequence of inequalities:
+
+\[
+| f^{*}(x)-\bar{f}_{\delta_{n}}(x) | I(\bar{\delta}\geq\delta_{n}) \leq \psi(\bar{\delta},\delta_{n}) \leq \max(\psi(\delta^{\prime},\delta_{n}):\delta^{\prime}\in\Delta_{n},\delta^{\prime}\geq\delta_{n}) \leq 3v(\delta_{n})\lambda(\delta_{n}).
+\]
+
+Thus,
+
+\[
+E_{f}[(f^{*}(x)-f(x))^{2}]I(\bar{\delta}\geq\delta_{n}) = E_{f}[(f^{*}(x)-\bar{f}_{\delta_{n}}(x)+\bar{f}_{\delta_{n}}(x)-f_{\delta_{n}}(x)+f_{\delta_{n}}(x)-f(x))^{2}]I(\bar{\delta}\geq\delta_{n})
+\]
+
+\[
+\leq 3[E_{f}[(f^{*}(x)-\bar{f}_{\delta_{n}}(x))^{2}]I(\bar{\delta}\geq\delta_{n}) + E_{f}[(\bar{f}_{\delta_{n}}(x)-f_{\delta_{n}}(x))^{2}] + (f_{\delta_{n}}(x)-f(x))^{2}]
+\]
+
+\[
+\leq 3[9v^{2}(\delta_{n})\lambda^{2}(\delta_{n}) + v^{2}(\delta_{n}) + \frac{1}{4}v^{2}(\delta_{n})\lambda^{2}(\delta_{n})] = c_{1}v^{2}(\delta_{n})\lambda^{2}(\delta_{n}),
+\]
+
+where $c_{1}$ is a constant and we have used the fact that $\lambda^{2}(\delta_{n})\geq 1$.
+
+Case 2: $\{\bar{\delta}<\delta_{n}\}$. Consider the set $B_{n}(x,\delta,\eta)=\{\lvert\bar{f}_{\delta}(x)-\bar{f}_{\eta}(x)\rvert>\psi(\delta,\eta)\}$ where $\eta,\delta\in\Delta_{n}$ and $\delta>\eta$. For any $\delta\in\Delta_{n}$, consider the event $\{\bar{\delta}=\delta/a\}$. Since $a>1$, this implies $\delta>\bar{\delta}$. Let $\Delta_{n}(\delta):=\{\eta\in\Delta_{n},\eta<\delta\}$. From the definition of $\bar{\delta}$, we have $\{\bar{\delta}=\delta/a\}\subset\cup_{\eta\in\Delta_{n}(\delta)}B_{n}(x,\delta,\eta)$. It follows that
+
+$$\{\bar{\delta}<\delta_{n}\}\subset\bigcup\{\bar{\delta}=\delta/a:\delta\in\Delta_{n}(a\delta_{n})\}\subset\bigcup_{\delta\in\Delta_{n}(a\delta_{n})}\bigcup_{\eta\in\Delta_{n}(\delta)}B_{n}(x,\delta,\eta).$$
+
+Thus, we have the following series of inequalities:
+
+$$E_{f}\big{[}(f^{*}(x)-f(x))^{2}I(\bar{\delta}<\delta_{n})\big{]}\leq\sum_{\delta\in\Delta_{n}(a\delta_{n})}E_{f}[(\bar{f}_{a^{-1}\delta}(x)-f(x))^{2}I(\bar{\delta}=a^{-1}\delta)]$$
+
+$$\quad\quad\quad\quad\quad\quad\quad\leq\sum_{\delta\in\Delta_{n}(a\delta_{n})}\sum_{\eta\in\Delta_{n}(\delta)}E_{f}[(\bar{f}_{a^{-1}\delta}(x)-f(x))^{2}I(B_{n}(x,\delta,\eta))].$$
+
+Since $\delta/a<\delta_{n}$, $\lvert f_{a^{-1}\delta}(x)-f(x)\rvert\leq v(\delta_{n})\lambda(\delta_{n})/2\leq v(\delta)\lambda(\delta)/2$. Notably, since both $\delta$ and $\delta_{n}$ lie on the geometric grid $\Delta_{n}$ and $\delta<a\delta_{n}$, it follows that $\delta\leq\delta_{n}$. This explains the rightmost inequality in the above expression.
+
+Furthermore, from the definition of $\delta_{n}$ , for any $\eta<\delta\leq\delta_{n}$ we get, 
+ 
+ $\displaystyle\lvert f_{\eta}(x)-f(x)\rvert\leq\frac{v(\delta_{n})\lambda(\delta_{n})}{2}\leq\frac{v(\delta)\lambda(\delta)}{2}.$ 
+ Note that, 
+ 
+ $\displaystyle\lvert\bar{f}_{\delta}(x)-\bar{f}_{\eta}(x)$ $\displaystyle\rvert=\lvert\bar{f}_{\delta}(x)-\bar{f}_{\eta}(x)-(f_{\delta}(x)-f_{\eta}(x))+f_{\delta}(x)-f(x)+f(x)-f_{\eta}(x)\rvert$ 
+ 
+ $\displaystyle\leq\lvert\bar{f}_{\delta}(x)-\bar{f}_{\eta}(x)-(f_{\delta}(x)-f_{\eta}(x))\rvert+\lvert f_{\delta}(x)-f(x)\rvert+\lvert f(x)-f_{\eta}(x)\rvert$ 
+ 
+ $\displaystyle\leq\lvert\frac{1}{n}\sum_{i=1}^{n}\zeta_{i}\rvert+v(\delta)\lambda(\delta),$ 
+ where $\zeta_{i}=e^{-\mu x\cdot\theta_{i}^{\perp}}\bigg{(}K_{\delta}(\langle x\cdot\theta_{i}\rangle-s_{i})-K_{\delta}(\langle x\cdot\theta_{i}\rangle-s_{i})\bigg{)}Y_{i}-(f_{\delta}(x)-f_{\eta}(x))$ . Thus it follows from the definition of $B_{n}(x,\delta,\eta)$ and $\psi(\delta,\eta)$ that 
+ 
+ $B_{n}(x,\delta,\eta)\subset\Big{\{}\Big{\lvert}\frac{1}{n}\sum_{i=1}^{n}\zeta_{i}\Big{\rvert}>v(\delta,\eta)\lambda(\eta)\Big{\}}.$ 
+ Therefore, 
+ 
+ $\displaystyle E_{f}\big{[}(f^{*}(x)-f(x))^{2}I(\bar{\delta}<\delta_{n})\big{]}$ 
+ 
+ $\displaystyle\leq\sum_{\delta\in\Delta_{n}(a\delta_{n})}\sum_{\eta\in\Delta_{n}(\delta)}E_{f}\Big{[}(\bar{f}_{a^{-1}\delta}(x)-f(x))^{2}I\big{(}\{\big{\lvert}\frac{1}{n}\sum_{i=1}^{n}\zeta_{i}\big{\rvert}>v(\delta,\eta)\lambda(\eta)\}\big{)}\Big{]}$ 
+ 
+ $\displaystyle\leq\sum_{\delta\in\Delta_{n}(a\delta_{n})}\sum_{\eta\in\Delta_{n}(\delta)}\bigg{(}E_{f}[(\bar{f}_{a^{-1}\delta}(x)-f(x))]^{4}\bigg{)}^{\frac{1}{2}}\bigg{(}P_{f}\Big{(}\big{\lvert}\frac{1}{n}\sum_{i=1}^{n}\zeta_{i}\big{\rvert}>v(\delta,\eta)\lambda(\eta)\Big{)}\bigg{)}^{\frac{1}{2}},$ 
+ where the last inequality follows on an application of the C-S-B inequality. Also note that 
+ 
+ $\displaystyle P_{f}\Big{(}\Big{\lvert}\frac{1}{n}\sum_{i=1}^{n}\zeta_{i}\Big{\rvert}>v(\delta,\eta)\lambda(\eta)\Big{)}$ $\displaystyle\leq P_{f}\Big{(}\frac{1}{n}\sum_{i=1}^{n}\zeta_{i}>v(\delta,\eta)\lambda(\eta)\Big{)}$ 
+ 
+ $\displaystyle\quad\quad\quad+P_{f}\Big{(}-\frac{1}{n}\sum_{i=1}^{n}\zeta_{i}>v(\delta,\eta)\lambda(\eta)\Big{)}.$  (13) 
+ Let us estimate the first term on the RHS of the previous inequality ( 3 ). For this, note that we have by Markov’s inequality: 
+ 
+ $P_{f}\Big{(}\frac{1}{n}\sum_{i=1}^{n}\zeta_{i}>v(\delta,\eta)\lambda(\eta)\Big{)}\leq E_{f}\Big{(}\exp{(\frac{z}{n}\sum_{i=1}^{n}\zeta_{i})}\Big{)}\exp{\Big{(}-zv(\delta,\eta)\lambda(\eta)\Big{)}}.$ 
+ For the i.i.d variables $\zeta_{i}$ as defined above it is easy to see that 
+ 
+ $E_{f}\Big{(}\frac{1}{n}\sum_{i=1}^{n}\zeta_{i}\Big{)}=0\text{ and }Var_{f}(\zeta_{i})\leq v^{2}(\delta,\eta).$ 
+ Furthermore, by using the fact that $\zeta_{i}$ are i.i.d, we can write 
+ 
+ $\displaystyle E_{f}\Big{[}\exp{\big{(}\frac{z}{n}\sum_{i=1}^{n}\zeta_{i}\big{)}}\Big{]}=\Big{(}E_{f}\big{[}\exp{\big{(}\frac{z}{n}\zeta_{1}\big{)}}\big{]}\Big{)}^{n}.$  (14) 
+ We will denote by $K^{\eta}_{\delta}:=e^{-\mu x\cdot\theta^{\perp}}[K_{\delta}(\langle x\cdot\theta\rangle-s)-K_{\eta}(\langle x\cdot\theta\rangle-s)]$ . In view of equation ( 14 ), let us at first evaluate the following conditional expectation: 
+ 
+ $\displaystyle E_{f}$ $\displaystyle[\exp{\big{(}\frac{z}{n}\zeta_{1}\big{)}}|(\theta,s)]$ 
+ 
+ $\displaystyle=E_{f}\Big{[}\exp{\Big{(}\frac{z}{n}\big{(}K^{\delta}_{\eta}(T_{\mu}f+\epsilon_{1})-(f_{\delta}(x)-f_{\eta}(x))\big{)}\Big{)}}\big{|}(\theta,s)\Big{]}$ 
+ 
+ $\displaystyle=\exp{\Big{(}\frac{z}{n}\big{(}K^{\delta}_{\eta}(T_{\mu}f(\theta,s))-(f_{\delta}(x)-f_{\eta}(x))\big{)}\Big{)}}E_{f}\Big{[}\exp{\big{(}\frac{z}{n}K^{\eta}_{\delta}\epsilon_{1}\big{)}}\big{|}(\theta,s)\Big{]}$ 
+ 
+ $\displaystyle=\exp{\Big{(}\frac{z}{n}\big{(}K^{\eta}_{\delta}T_{\mu}f(\theta,s)-(f_{\delta}(x)-f_{\eta}(x))+\frac{z^{2}\sigma^{2}}{{2}n^{2}}(K^{\eta}_{\delta})^{2}\big{)}\Big{)}}\quad(\epsilon_{1}\text{ is Gaussian})$ 
+ 
+ $\displaystyle=\exp\Big{(}\frac{z}{n}(K^{\eta}_{\delta}T_{\mu}f(\theta,s)-(f_{\delta}(x)-f_{\eta}(x))+\frac{z^{2}\sigma^{2}}{{2}n^{2}}{((K^{\eta}_{\delta})^{2}-E_{(\theta,s)}(K^{\eta}_{\delta})^{2})}$ 
+ 
+ $\displaystyle\quad\quad\quad\quad\quad\quad\quad\quad\quad+\frac{z^{2}\sigma^{2}}{2n^{2}}E_{(\theta,s)}(K^{\eta}_{\delta})^{2}\Big{)}$ 
+ 
+ $\displaystyle=\exp{(U_{1}+U_{2})}\exp{\Big{(}\frac{z^{2}\sigma^{2}}{2n^{2}}E_{(\theta,s)}(K^{\eta}_{\delta})^{2}\Big{)}},$ 
+ where $U_{1}=\frac{z}{n}(K^{\eta}_{\delta}T_{\mu}f(\theta,s)-(f_{\delta}(x)-f_{\eta}(x))$ and $U_{2}=\frac{z^{2}\sigma^{2}}{2n^{2}}((K^{\eta}_{\delta})^{2}-E_{(\theta,s)}(K^{\eta}_{\delta})^{2})$ . Observe here that $E_{(\theta,s)}(U_{1})=0=E_{(\theta,s)}(U_{2})$ . Also one can easily verify that $Var_{(\theta,s)}U_{1}=Var_{(\theta,s)}(\frac{z}{n}\zeta_{1})\leq{(z^{2}/n)v^{2}(\delta,\eta)}$ . For the calculations below we would also need an estimate on $Var_{(\theta,s)}(U_{2})$ . Note that $Var_{(\theta,s)}(U_{2})=\frac{z^{4}\sigma^{4}}{4n^{4}}Var_{(\theta,s)}(K^{\eta}_{\delta})^{2}=\frac{z^{4}\sigma^{4}}{4n^{4}}[E_{(\theta,s)}(K^{\eta}_{\delta})^{4}-(E_{(\theta,s)}(K^{\eta}_{\delta})^{2})^{2}]$ . As $\eta<\delta$ and both belong to the geometric grid $\Delta_{n}$ , $E_{\theta,s}(K^{\eta}_{\delta})^{2}\neq 0$ . Thus, 
+ 
+ $\frac{E_{(\theta,s)}({K^{\eta}_{\delta}})^{4}}{(E_{(\theta,s)}(K^{\eta}_{\delta})^{2})^{2}}=\frac{E_{(\theta,s)}({K^{\eta}_{\delta}})^{4}}{E_{(\theta,s)}({K^{\eta}_{\delta}})^{4}-Var_{(\theta,s)}(K^{\eta}_{\delta})^{2}}=\frac{1}{1-\bigg{(}\frac{Var_{(\theta,s)}(K^{\eta}_{\delta})^{2}}{E_{(\theta,s)}({K^{\eta}_{\delta}})^{4}}\bigg{)}}.$ 
+ Moreover from the fact that $E_{\theta,s}(K^{\eta}_{\delta})^{2}\neq 0$ it follows that, 
+ 
+ $Var_{(\theta,s)}(K^{\eta}_{\delta})^{2}<E_{(\theta,s)}({K^{\eta}_{\delta}})^{4}.$ 
+ Thus we get, $\frac{E_{(\theta,s)}({K^{\eta}_{\delta}})^{4}}{(E_{(\theta,s)}(K^{\eta}_{\delta})^{2})^{2}}=\tilde{C}(\eta,\delta)>1$ where $\tilde{C}(\eta,\delta)$ is some constant depending upon $\eta$ and $\delta$ . This in turn gives us, 
+ 
+ $Var_{(\theta,s)}(U_{2})\leq\frac{z^{4}\sigma^{4}}{4n^{4}}(\tilde{C}(\eta,\delta)-1)(E_{(\theta,s)}(K^{\eta}_{\delta})^{2})^{2}\leq\frac{z^{4}\sigma^{4}}{4n^{2}}(\tilde{C}(\eta,\delta)-1)v^{4}(\eta,\delta).$ 
+ Taking $z=\delta\lambda(\eta)/v(\delta,\eta)$ and $\tilde{C}(\eta,\delta)-1=C(\eta,\delta)$ , we get, 
+ 
+ $Var_{(\theta,s)}U_{2}\leq\delta^{4}\lambda^{4}(\eta)C(\eta,\delta)\sigma^{4}/4n^{2}.$ 
+ Also recall, $E_{(\theta,s)}(K^{\eta}_{\delta})^{2}\leq\frac{4\pi n}{4\pi^{2}L^{2}+\sigma^{2}}v^{2}(\delta,\eta)$ . Finally as $U_{1}$ and $U_{2}$ are bounded (and thus sub-Gaussian), we get: 
+ 
+ $\displaystyle[E_{f}(\exp{(\frac{z}{n}\zeta_{1})})]^{n}\leq\exp{(\delta^{2}\lambda^{2}(\eta))}\exp{\Big{(}\frac{2\pi\delta^{2}\lambda^{2}(\eta)\sigma^{2}}{4\pi^{2}L^{2}+\sigma^{2}}\Big{)}}\exp{\Big{(}\frac{\delta^{4}\sigma^{4}\lambda^{4}(\eta)C(\delta,\eta)}{n}\Big{)}}.$ 
+ With $n\to\infty$ , we get, 
+ 
+ $\displaystyle[E_{f}(\exp{(\frac{z}{n}\zeta_{1})})]^{n}\leq\exp{\Big{(}\delta^{2}\lambda^{2}(\eta)\big{(}1+\big{(}\frac{{2\pi\sigma^{2}}}{4\pi^{2}L^{2}+\sigma^{2}}\big{)}\big{)}\Big{)}}.$  (15) 
+ Using ( 15 ), 
+ 
+ $\displaystyle P_{f}\Big{(}\frac{1}{n}\sum_{i=1}^{n}\zeta_{i}$ $\displaystyle>v(\delta,\eta)\lambda(\eta)\Big{)}\leq\exp{\Big{(}\lambda^{2}(\eta)\Big{(}\delta^{2}\big{(}1+(\frac{2\pi\sigma^{2}}{4\pi^{2}L^{2}+\sigma^{2}})\big{)}-\delta\Big{)}\Big{)}}$ 
+ 
+ $\displaystyle\leq\exp{(\lambda^{2}(\eta)(c_{1}\delta^{2}-\delta))}\quad(\text{where $c>1$ is a constant }).$  (16) 
+ Since ( 3 ) is true for all $\delta$ , in particular it is true for $\delta=1/2c_{1}$ and we get, 
+ 
+ $\displaystyle P_{f}\big{(}\frac{1}{n}\sum_{i=1}^{n}\zeta_{i}$ $\displaystyle>v(\delta,\eta)\lambda(\eta)\big{)}\leq\exp{\Big{(}-\frac{\lambda^{2}(\eta)}{4c_{1}}\Big{)}}.$ 
+ Finally, we get, 
+ 
+ $\displaystyle P_{f}\big{(}\frac{1}{n}\sum_{i=1}^{n}\zeta_{i}$ $\displaystyle>v(\delta,\eta)\lambda(\eta)\big{)}\leq 2\exp{\Big{(}-\frac{\lambda^{2}(\eta)}{4c_{1}}\Big{)}}\leq 2\exp{\Big{(}-\frac{D_{2}\log(1/\eta)}{4c_{1}}\Big{)}}.$ 
+ Now consider, 
+ 
+ $\displaystyle E_{f}(\bar{f}_{a^{-1}\delta}(x)-f(x))^{4}$ $\displaystyle=E_{f}(\bar{f}_{a^{-1}\delta}(x)-f_{a^{-1}\delta}(x)+f_{a^{-1}\delta}(x)-f(x))^{4}$ 
+ 
+ $\displaystyle\leq 8E_{f}[(\bar{f}_{a^{-1}\delta}(x)-f_{a^{-1}\delta}(x))^{4}]+8(f_{a^{-1}\delta}(x)-f(x))^{4}$ 
+ 
+ $\displaystyle\leq 8E_{f}[(\frac{1}{n}\sum_{i=1}^{n}z_{i})^{4}]+2v^{4}(\delta_{n})\lambda^{4}(\delta_{n}),$ 
+ where $z_{i}=e^{-\mu x\cdot\theta_{i}^{\perp}}K_{a^{-1}\delta}(\langle\theta_{i},x\rangle-s_{i})Y_{i}-f_{a^{-1}\delta}(x)$ are i.i.d. random variables. It is easy to see that $E_{f}(z_{i})=0$ and $Var_{f}(z_{i})\leq nv^{2}(a^{-1}\delta)$ . Thus on expanding $(\frac{1}{n}\sum_{i=1}^{n}z_{i})^{4}$ , one can show that, 
+ 
+ $\displaystyle 8E_{f}[(\frac{1}{n}\sum_{i=1}^{n}z_{i})^{4}]\leq 8\bigg{[}\frac{E_{f}(z_{1})^{4}}{n^{3}}+\frac{3{n\choose 2}n^{2}v^{4}(a^{-1}\delta)}{n^{4}}\bigg{]}.$ 
+ As $n\to\infty$ , we get, 
+ 
+ $\displaystyle 8E_{f}[(\frac{1}{n}\sum_{i=1}^{n}z_{i})^{4}]\leq c_{3}v^{4}(a^{-1}\delta),$ 
+ where $c_{3}$ is a positive constant. Recalling that $\eta,\delta\leq\delta_{n}$ , $v^{2}(\delta/a)=c^{*}(\delta/a)^{1-2d}/n$ and $v(\delta_{n})\leq v(a^{-1}\delta)$ we have, 
+ 
+ $\displaystyle E_{f}$ $\displaystyle[(f^{*}(x)-f(x))^{2}I(\bar{\delta}<\delta_{n})]$ 
+ 
+ $\displaystyle\leq{c_{4}}\underset{\delta\in\Delta_{n}(a\delta_{n})}{\sum}\underset{\eta\in\Delta_{n}(\delta)}{\sum}\bigg{(}v^{4}(a^{-1}\delta)+v^{4}(\delta_{n})\lambda^{4}(\delta_{n})\bigg{)}^{\frac{1}{2}}\exp{\Big{(}-\frac{\lambda^{2}(\eta)}{8}\Big{)}}$ 
+ 
+ $\displaystyle\leq c_{5}\underset{\delta\in\Delta_{n}(a\delta_{n})}{\sum}\underset{\eta\in\Delta_{n}(\delta)}{\sum}\frac{\delta^{1-2d}}{n}\lambda^{2}(\eta)(\eta)^{D_{2}/8}.$  (17) 
+ The number of elements in the set $\Delta_{n}$ is less than $\left\lceil{\log n/\log a}\right\rceil=N_{n}$ . Thus, 
+ 
+ $\displaystyle\sum_{\eta\in\Delta_{n}(\delta)}\lambda^{2}(\eta)\eta^{D_{2}/8}$ $\displaystyle\leq\delta^{D_{2}/8-\alpha}\sum_{\eta\in\Delta_{n}(\delta)}D_{2}\log(\frac{1}{\eta})\eta^{\alpha}$ 
+ 
+ $\displaystyle\leq\delta^{D_{2}/8-\alpha}\sum_{j=0}^{N_{n}}{D_{2}}(\frac{1}{a^{\alpha}})^{j}\log a,$  (18) 
+ where we use the fact $\eta=a^{-j}$ for some $j$ as $\eta\in\Delta_{n}$ . Since $a>1$ , then for a small enough $\alpha$ (the choice to be made precise later) the series in ( 3 ) converges. Thus $\sum_{\eta\in\Delta_{n}(\delta)}\lambda^{2}(\eta)\eta^{D_{2}/8}\leq c_{5}(\delta)^{D_{2}/8-\alpha}$ . Finally from ( 3 ), 
+ 
+ $\displaystyle E_{f}[(f^{*}(x)-f(x))^{2}I(\bar{\delta}<\delta_{n})]$ $\displaystyle\leq\frac{c_{6}}{n}\underset{\delta\in\Delta_{n}(a\delta_{n})}{\sum}\delta^{\frac{D_{2}}{8}-\alpha-2d+1}$ 
+ 
+ $\displaystyle\leq\frac{c_{6}}{n}\sum_{j=0}^{N_{n}}\bigg{(}\frac{1}{a^{\alpha}}\bigg{)}^{j}\leq c_{7}v^{2}(\delta_{n})\lambda^{2}(\delta_{n}),$  (19) 
+ where $\alpha$ is chosen such that $2\alpha\leq D_{2}/8-2d+1$ and $c_{7}$ is a constant that depends on $a$ . The proof of the theorem follows from ( 3 ) and ( 3 ). ∎
+
+We now analyze the performance of an adaptive estimator across a class of functions that spans a broad Sobolev regularity scale. Initially, we demonstrate that the convergence rate in this adaptive procedure is only a $\log n$ factor slower than the minimax optimal rate of estimation for a function $f \in H(\beta) \cap B(L)$. Such a loss in efficiency is a common feature in pointwise adaptive estimation of functions, particularly over Sobolev classes (e.g., as shown in [36]), and cannot be avoided. This finding reinforces the validity of applying the adaptive procedure proposed in [8] for the estimation of a function from its stochastic ERT data.
+
+Let \( L > 0 \). For any \( x \in \mathbb{R}^2 \) and any \( \beta > 1 \), we have
+
+\[
+\limsup_{n \to \infty} \sup_{f \in H(\beta,C) \cap B(L)} \left( \frac{n}{\log n} \right)^{\frac{2\beta - d}{2\beta + d - 1}} E_{f} \left( f^{*}(x) - f(x) \right)^2 < \infty.
+\]
+
+From equation (9) in [1], we have that for $f \in H(\beta, C) \cap B(L)$, $(f_{\eta}(x) - f(x))^{2} \leq \tilde{c_{8}}\eta^{2\beta-2}$ for all $\eta$. From the definition,
+
+\[
+r_{n}(x,f) \leq d_{1}\delta_{0}^{2\beta-2}c^{*}\delta_{0}^{-3}\frac{\log n}{n},
+\]
+
+where $\delta_{n}^{-} = \frac{\log n}{n} < \delta_{0} < 1$. If we choose $\delta_{0} = \left(\frac{\log n}{n}\right)^{\frac{1}{2\beta+1}}$, then we obtain
+
+\[
+r_{n}(x,f) \leq d_{1}\left(\frac{\log n}{n}\right)^{\frac{2\beta-2}{2\beta+1}}c^{*}\left(\frac{\log n}{n}\right)^{\frac{-3}{2\beta+1}}\left(\frac{\log n}{n}\right)
+\]
+
+\[
+= (d_{1} + c^{*})\left(\frac{\log n}{n}\right)^{\frac{2\beta-2}{2\beta+1}}.
+\]
+
+Now the result follows from Theorem 2. ∎
+
+A function \( f \in B(L) \) is said to be locally in \( H(\beta, C) \) near \( x_{0} \) if there exists a smooth cutoff function \( \phi \in C_{c}(\mathbb{R}^{2}) \) with \( \phi(x_{0}) \neq 0 \) such that \( \phi f \in H(\beta, C) \). With appropriate modifications, Theorem 3 also holds for functions that are locally in \( H(\beta, C) \cap B(L) \) near any arbitrary fixed point \( x \).
+
+In the following theorem, we demonstrate that no adaptive estimator on the scale \( H(\beta) \cap B(L) \) can achieve optimal rate adaptivity as defined in Remark 1. Additionally, we establish that the estimator described by equation 7 attains the adaptive rate of convergence for \( H(\beta) \cap B(L) \). The proof employs methods from [4].
+
+Let $B_{n}=\{\beta_{1}<\beta_{2}<\dots<\beta_{N_{n}}\}$ be a set where $\beta_{1}>1$ is fixed and $\beta_{N_{n}}\to\infty$ as $n\to\infty$. It follows that no 'optimal adaptive estimator' exists over the class $H(\beta)\cap B(L)$ for the pointwise risk defined in Definition 3. However, the rate $\psi_{n,\beta}=\left(\frac{n}{\log n}\right)^{\frac{\beta-1}{2\beta+1}}$ represents the adaptive rate in the sense of Definition 6.
+
+The first part of the theorem establishes the non-existence of an adaptive estimator that achieves optimality across the entire Sobolev scale. To demonstrate this, we begin by defining the optimal minimax rate of estimation as $\phi_{n,\beta} = n^{\frac{\beta - 1}{2\beta + 1}}$, assuming $\beta$ is known. Suppose, for contradiction, that an adaptive estimator exists which attains the optimal minimax rate for every Sobolev smoothness $\beta$. Then, we have:
+
+\[
+C \geq \limsup_{n \to \infty} \sup_{\beta \in B_n} \sup_{f \in H(\beta, c) \cap B(L)} (\phi_{n,\beta})^{-2} E_f (f^*(x) - f(x))^2
+\]
+
+\[
+\geq \limsup_{n \to \infty} \sup_{\beta \in B_n} \sup_{f \in H(\beta, c) \cap B(L)} \left( \frac{\phi_{n,\beta}}{\psi_{n,\beta}} \right)^{-2} \psi_{n,\beta}^{-2} E_f (f^*(x) - f(x))^2
+\]
+
+\[
+\geq \liminf_{n \to \infty} \left( \sup_{\beta \in B_n} \left( \frac{\psi_{n,\beta}}{\phi_{n,\beta}} \right)^2 \inf_{\hat{f}_n} \sup_{\beta} \sup_{f \in H(\beta, L)} \psi_{n,\beta}^{-2} E_f (\hat{f}_n(x) - f(x))^2 \right). \quad (20)
+\]
+
+To show that inequality (3) leads to a contradiction, we will demonstrate that the right-hand side of the above inequality becomes unbounded. To this end, we first establish the following lemma.
+
+For any estimator $\hat{f}_{n}$ and rate $\psi_{n,\beta}$ as above we have, 
+ 
+ $\liminf_{n\to\infty}\inf_{\hat{f}_{n}}\sup_{\beta}\sup_{f\in H(\beta,L)}\psi_{n,\beta}^{-2}E_{f}(\hat{f}_{n}(x)-f(x))^{2}\geq 1.$ 
+
+
+We denote $\beta_{N_{n}}$ as $\beta_{N}$. Consider the two hypotheses: $f_{n,0}(x) = 0$ and $f_{n,1}(x) = Ah^{\beta_{1}-1}\eta((x-x_{0})/h)$, where $0 < A < 1$ is a constant, $h = \left(\frac{\log n}{n}\right)^{\frac{1}{2\beta_{1}+1}}$, and $\eta(x)$ is a compactly supported function in $H(\beta, L)$ with $\eta(0) = 1$. It is straightforward to verify that $f_{n,1}(x) \in H(\beta_{1}, L)$ and $f_{n,0} \in H(\beta_{N}, L)$. Additionally, one can easily determine $\delta$ such that $d(f_{n,1}, f_{n,0}) > 1 - 2\delta$ for some $0 < \delta < 1/2$. Note the inequality:
+
+\[
+\inf_{\hat{f}_{n}} \sup_{\beta} \sup_{f \in H(\beta, L)} \psi_{n,\beta}^{-2} E_{f}[\hat{f}_{n}(x) - f(x)]^{2} \geq \inf_{\hat{f}_{n}} \max \left\{ E_{f_{n,0}}[\psi_{n,\beta_{N}}^{-2} |\hat{f}_{n}(x_{0}) - f_{n,0}(x_{0})|^{2}], \right.
+\]
+\[
+\left. E_{f_{n,1}}[\psi_{n,\beta_{1}}^{-2} |\hat{f}_{n}(x_{0}) - f_{n,1}(x_{0})|^{2}] \right\}.
+\]
+
+(21)
+
+To establish a lower bound for the expression on the right-hand side of inequality (3) above, we will utilize [37, A1, Theorem 6]. Let $E_{0}[\cdot] := E_{f_{n,0}}[\cdot]$ and $E_{1}[\cdot] := E_{f_{n,1}}[\cdot]$, with the associated probability measures denoted by $P_{0}$ and $P_{1}$, respectively. To apply [37, A1, Theorem 6], we need to show that for $0 < \alpha < 1$ and $\tau > 0$, $P_{1}\left[\frac{dP_{0}}{dP_{1}} \geq \tau\right] \geq 1 - \alpha$.
+
+\[
+P_{1}\left[\frac{dP_{0}}{dP_{1}} \geq \tau\right] = P_{1}\left[\prod_{i=1}^{n} \frac{p_{0}(Y_{i})}{p_{1}(Y_{i})} \geq \tau\right]
+\]
+\[
+= P_{1}\left[\frac{1}{\sqrt{\log n}} \sum_{i=1}^{n} \log \frac{p_{0}(Y_{i})}{p_{1}(Y_{i})} \geq \frac{\log \tau}{\sqrt{\log n}}\right].
+\]
+
+(22)
+
+Let $Z_{n,i} = \frac{1}{\sqrt{\log n}} \log \frac{p_{0}(Y_{i})}{p_{1}(Y_{i})}$, which are i.i.d. random variables. Let $E_{1}[Z_{n,i}]$ and $V_{1}[Z_{n,i}]$ denote the expectation and variance of $Z_{n,i}$ with respect to the probability measure $P_{1}$, corresponding to the experiments with observations generated by $f_{n,1}$. Let $\sigma_{n} = \sum_{i=1}^{n} V_{1}[Z_{n,i}]$ and define $U_{n,i} = \frac{Z_{n,i} - E_{1}[Z_{n,i}]}{\sigma_{n}}$. We state the following lemma, the proof of which will be provided in the appendix.
+
+For $Z_{n,i}$ and $U_{n,i}$ as defined above, the following hold:
+
+(a) $\sum_{i=1}^{n}E_{1}[Z_{n,i}] \geq -c_{8}\sqrt{\log n}$, where $c_{8} > 0$ is a sufficiently small constant.
+
+(b) $\sigma_{n}^{2} \geq c_{9} > 0$.
+
+(c) $\lim_{n\to\infty}\sum_{i=1}^{n}E_{1}[\lvert U_{n,i}\rvert^{3}] = 0$.
+
+From part (c) in Lemma 2 , we conclude that $U_{n}=\sum_{i=1}^{n}U_{n,i}$ converges in law to the Normal Distribution $N(0,1)$ (Lyapunov’s CLT). Thus we can rewrite $P_{1}[\sum_{i=1}^{n}Z_{n,i}\geq\frac{\log\tau}{\sqrt{\log n}}]=P_{1}[U_{n}\geq m_{n}]$ where $m_{n}=\frac{\frac{\log\tau}{\sqrt{\log n}}-\sum_{i=1}^{n}E_{1}[Z_{n,i}]}{\sigma_{n}}$ . Now choose $\tau=n^{-r}$ for some $r>c_{8}>0$ (the choice of $r$ will be made precise below), then using (a,b) of Lemma 2 , we get $m_{n}\leq\frac{-r\sqrt{\log n}+c_{8}\sqrt{\log n}}{\sqrt{c_{9}}}\to-\infty$ as $n\to\infty$ . This shows that, 
+ 
+ $P_{1}\bigg{[}\frac{dP_{0}}{dP_{1}}\geq\tau\bigg{]}=P_{1}\bigg{[}\sum_{i=1}^{n}Z_{n,i}\geq\frac{\log\tau}{\sqrt{\log n}}\bigg{]}=P_{1}[U_{n}\geq m_{n}]\to 1\text{ as }n\to\infty.$ 
+
+
+From [36], it follows that for $q_{n}>0$, $\tau>0$, $0<\alpha<1$, and $0<\delta<1/2$:
+
+$$
+\inf_{\hat{f}_{n}} \max \bigg\{ E_{f_{n,0}}\left[\psi_{n,\beta_{N}}^{-2} \left|\hat{f}_{n}(x_{0}) - f_{n,0}(x_{0})\right|^{2}\right], E_{f_{n,1}}\left[\psi_{n,\beta_{1}}^{-2} \left|\hat{f}_{n}(x_{0}) - f_{n,1}(x_{0})\right|^{2}\right] \bigg\}
+$$
+
+$$
+\geq \frac{(1 - \alpha)(1 - 2\delta)^{2} \tau q_{n}^{2} \delta^{2}}{(1 - 2\delta)^{2} + \tau q_{n}^{2} \delta^{2}}.
+$$
+
+To satisfy the required lower bound, take $q_{n} = \frac{\psi_{n,\beta_{1}}}{\psi_{n,\beta_{N}}}$. Then,
+
+$$
+\liminf_{n \to \infty} \tau q_{n}^{2} = \liminf_{n \to \infty} n^{-r} \left( \frac{\log n}{n} \right)^{\frac{2\beta_{1} - 2}{2\beta_{1} + 1} - \frac{2\beta_{N} - 2}{2\beta_{N} + 1}}
+$$
+
+$$
+= \liminf_{n \to \infty} n^{-r} \left( \frac{\log n}{n} \right)^{\frac{6(\beta_{1} - \beta_{N})}{(2\beta_{1} + 1)(2\beta_{N} + 1)}}.
+$$
+
+(23)
+
+If we choose $r$ such that $\frac{6(\beta_{N} - \beta_{1})}{(2\beta_{1} + 1)(2\beta_{N} + 1)} > r > c_{8} > 0$, then
+
+$$
+\liminf_{n \to \infty} \tau q_{n}^{2} \to \infty \text{ as } n \to \infty.
+$$
+
+Consider,
+
+$$
+\liminf_{n \to \infty} \frac{(1 - \alpha)(1 - 2\delta)^{2} \tau q_{n}^{2} \delta^{2}}{(1 - 2\delta)^{2} + \tau q_{n}^{2} \delta^{2}} \to 1,
+$$
+
+(24)
+
+as $\delta$ and $\alpha$ can be chosen as small as desired. Thus, from [37] [A1, Theorem 6], we get:
+
+$$
+\inf_{\hat{f}_{n}} \max \bigg\{ E_{f_{n,0}}\left[\psi_{n,\beta_{N}}^{-2} \left|\hat{f}_{n}(x_{0}) - f_{n,0}(x_{0})\right|^{2}\right], E_{f_{n,1}}\left[\psi_{n,\beta_{1}}^{-2} \left|\hat{f}_{n}(x_{0}) - f_{n,1}(x_{0})\right|^{2}\right] \bigg\} \geq 1.
+$$
+
+This concludes the proof of Lemma 1. ∎
+
+Returning to the proof of Theorem 4, we first note that 
+
+$$
+\sup_{\beta \in B_n} \left( \frac{\psi_{n,\beta}}{\phi_{n,\beta}} \right)^2 \underset{n \to \infty}{\to} \infty.
+$$
+
+This, combined with Lemma 1 and inequality (3), leads to a contradiction, demonstrating that no adaptive estimator can attain the optimal minimax rate for all $\beta \in B_n$.
+
+Now we prove the second part of Theorem 4. Let there be another adaptive estimator \( f^{**}(x) \) and another sequence \( \gamma_{n,\beta} \) such that for any \( x \in \mathbb{R}^{2} \) and for any \( \beta > 1 \), we have
+
+\[
+\limsup_{n \to \infty} \sup_{f \in H(\beta,c) \cap B(L)} (\gamma_{n,\beta})^{-2} E_{f}(f^{**}(x) - f(x))^{2} < \infty.
+\]
+
+Furthermore, let there exist \( \beta' \) such that \( \frac{\gamma_{n,\beta'}}{\psi_{n,\beta'}} \to 0 \) as \( n \to \infty \). First, note that \( \gamma_{n,\beta'} \geq \left( \frac{1}{n} \right)^{\frac{\beta' - 1}{2\beta' + 1}} \). Define \( \kappa_{n}^{r'} = \left( \frac{1}{n} \right)^{\frac{\beta' - (1 + \epsilon_{0})}{2\beta' + 1}} \), where \( \epsilon_{0} > 0 \) is small. Take any \( \beta'' > \beta' \). We claim that
+
+\[
+\liminf_{n \to \infty} \frac{\gamma_{n,\beta''}}{\kappa_{n}^{r'}} = \infty. \quad (25)
+\]
+
+We will prove this claim later, but assuming its validity for now, we consider
+
+\[
+\frac{\gamma_{n,\beta'}}{\psi_{n,\beta'}} \cdot \frac{\gamma_{n,\beta''}}{\psi_{n,\beta''}} \geq \left( \frac{1}{\log n} \right)^{\frac{\beta' - 1}{2\beta' + 1}} \cdot \frac{\gamma_{n,\beta''}}{\kappa_{n}^{r'}} \cdot \frac{\kappa_{n}^{r'}}{\left( \frac{\log n}{n} \right)^{\frac{\beta'' - 1}{2\beta'' + 1}}}.
+\]
+
+Simplifying further,
+
+\[
+\geq \frac{\gamma_{n,\beta''}}{\kappa_{n}^{r'}} \cdot n^{\frac{\beta'' - 1}{2\beta'' + 1} - \frac{\beta' - (1 + \epsilon_{0})}{2\beta' + 1}} \cdot \left( \frac{1}{\log n} \right)^{\frac{\beta' - 1}{2\beta' + 1} + \frac{\beta'' - 1}{2\beta'' + 1}} \to \infty. \quad (26)
+\]
+
+This follows from the assumption in the claim above (see (25)) and the fact that \( \frac{n^{\alpha_{1}}}{(\log n)^{\alpha_{2}}} \to \infty \) as long as \( \alpha_{1} > 0 \) and \( \alpha_{2} > 0 \). (Note also that \( \frac{\beta'' - 1}{2\beta'' + 1} - \frac{\beta' - (1 + \epsilon_{0})}{2\beta' + 1} > 0 \).) Thus, the only remaining task is to show that (25) holds. 
+
+To this end, assume \( \liminf_{n \to \infty} \frac{\gamma_{n,\beta''}}{\kappa_{n}^{r'}} \leq C < \infty \). We will demonstrate that this leads to a contradiction. Recall,
+
+\[
+\limsup_{n \to \infty} \sup_{\beta \in B_{n}} \sup_{f \in H(\beta,c) \cap B(L)} (\gamma_{n,\beta})^{-2} E_{f}(f^{**}(x) - f(x))^{2} \leq C^{*} < \infty
+\]
+
+implies
+
+\[
+\limsup_{n \to \infty} \sup_{f \in H(\beta,c) \cap B(L)} \max \left\{ \left( \frac{\psi_{n,\beta'}}{\gamma_{n,\beta'}} \right)^{2} (\psi_{n,\beta})^{-2} E_{f}(f^{**}(x) - f(x))^{2}, \right.
+\]
+
+\[
+\left. \left( \frac{\kappa_{n}^{r' - r} \kappa_{n}^{r}}{\gamma_{n,\beta''}} \right)^{2} (\kappa_{n}^{r'})^{-2} E_{f}(f^{**}(x) - f(x))^{2} \right\} \leq C^{*} \quad (r' > r)
+\]
+
+implies
+
+\[
+\limsup_{n \to \infty} \min \left\{ \left( \frac{\psi_{n,\beta'}}{\gamma_{n,\beta'}} \right)^{2}, \left( \frac{\kappa_{n}^{r' - r} \kappa_{n}^{r}}{\gamma_{n,\beta''}} \right)^{2} \right\} \cdot \liminf_{n \to \infty} \inf_{\hat{f}} \sup_{f \in H(\beta,c) \cap B(L)}
+\]
+
+\[
+\max \left\{ (\psi_{n,\beta})^{-2} E_{f}(\hat{f}(x) - f(x))^{2}, (\kappa_{n}^{r'})^{-2} E_{f}(\hat{f}(x) - f(x))^{2} \right\} \leq C^{*}. \quad (27)
+\]
+
+Since \( r' > r \), we have \( \left( \frac{\kappa_{n}^{r' - r} \kappa_{n}^{r}}{\gamma_{n,\beta''}} \right) \to \infty \) and \( \left( \frac{\psi_{n,\beta'}}{\gamma_{n,\beta'}} \right) \to \infty \) by hypothesis. Finally,
+
+\[
+\liminf_{n \to \infty} \inf_{\hat{f}} \sup_{f \in H(\beta,c) \cap B(L)} \max \left\{ \frac{E_{1}(\hat{f}(x) - f_{n,1}(x))^{2}}{(\psi_{n,\beta})^{2}}, \frac{E_{0}(\hat{f}(x) - f_{n,0}(x))^{2}}{(\kappa_{n}^{r'})^{2}} \right\} \geq 1,
+\]
+
+similar to what was done while proving a lower bound for inequality (3). The only change is that we consider \( q_{n} = \frac{\psi_{n,\beta'}}{\kappa_{n}^{r'}} \) while proving the relation (3). This gives us a contradiction by showing that the left-hand side of inequality (3) is \( \infty \). \(\Box\)
+
+4 Appendix
+
+(a) Let the distribution function for noise be given by $p_{\epsilon}(u)=\frac{1}{\sqrt{2\pi\sigma^{2}}}e^{\frac{-u^{2}}{2\sigma^{2}}}$ . For the proof of this part, first consider, 
+ 
+ $\displaystyle E_{1}[$ $\displaystyle Z_{n,i}]=\frac{1}{\sqrt{\log n}}E_{(\theta,s)}\bigg{[}E_{1|(\theta,s)}\bigg{[}\log\frac{p_{\epsilon}(Y_{i})}{p_{\epsilon}(Y_{i}-T_{\mu}f_{n,1}(\theta_{i},s_{i}))}\bigg{]}\bigg{]}$ 
+ 
+ $\displaystyle=\frac{-1}{\sqrt{\log n}}E_{(\theta,s)}\bigg{[}\int\log\frac{p_{\epsilon}(Y_{i}-T_{\mu}f_{n,1}(\theta_{i},s_{i}))}{p_{\epsilon}(Y_{i})}p_{\epsilon}(Y_{i}-T_{\mu}f_{n,1}(\theta_{i},s_{i}))dY_{i}\bigg{]}$ 
+ 
+ $\displaystyle\geq\frac{-1}{\sqrt{\log n}}E_{\theta,s}(T_{\mu}f_{n,1}(\theta_{i},s_{1}))^{2}.$ 
+ Recall that for $f_{n,1}=Ah^{\beta_{1}-1}\eta((x-x_{0})/h)$ where $h=\bigg{(}\frac{\log n}{n}\bigg{)}^{\frac{1}{2\beta+1}}$ , similar to equation (18) in [1] we have, $\int_{Z}(T_{\mu}f_{n,1}(\theta_{i},s_{i}))^{2}dsd\theta\leq c_{8}h^{2\beta+1}$ where $c_{8}$ is a constant that can be made as small as desired by choosing a small enough $A$ . In particular, we will choose $A$ such that $\frac{6(\beta_{N}-\beta_{1})}{(2\beta_{1}+1)(2\beta_{N}+1)}>c_{8}>0$ . We remark here that in deriving the estimate for $\int_{Z}(T_{\mu}f_{n,1}(\theta_{i},s_{i}))^{2}dsd\theta$ as above, we assume that the design points satisfy a certain feasibility condition ( [1] ): $E_{(\theta,s)}\bigg{[}\sum\limits_{i=1}^{n}g(\theta_{i},s_{i})\bigg{]}\leq C_{3}\int\limits_{Z}g(\theta,s)dsd\theta.$ Thus 
+ 
+ $\sum_{i=1}^{n}E_{1}[Z_{n,i}]\geq\frac{-1}{\sqrt{\log n}}nE_{\theta,s}(T_{\mu}f_{n,1}(\theta_{i},s_{1}))^{2}\geq-c_{8}\sqrt{\log n}.$ 
+
+
+To establish the lower bound for $\sigma_{n}^{2} = \sum_{i=1}^{n}V_{1}[Z_{n,i}]$, we utilize the law of total variance, which states that $V_{1}[Z_{n,i}] \geq E_{(\theta,s)}[V_{1|(\theta,s)}[Z_{n,i}]]$. Focusing on the conditional variance, we express it as:
+
+\[
+Var_{1|(\theta,s)}[Z_{n,i}] = \frac{1}{\log n} \left[ E_{1|(\theta,s)}\left[\log^{2}\frac{p_{\epsilon}(Y_{i})}{p_{\epsilon}(Y_{i}-T_{\mu}f_{n,1}(\theta_{i},s_{i}))}\right] - \left(E_{1|(\theta,s)}\left[\log\frac{p_{\epsilon}(Y_{i})}{p_{\epsilon}(Y_{i}-T_{\mu}f_{n,1}(\theta_{i},s_{i}))}\right]\right)^{2} \right].
+\]
+
+Given that the noise follows a Gaussian distribution $\sim N(0,\sigma^{2})$, we compute the expectations:
+
+\[
+E_{1|(\theta,s)}\left[\log^{2}\frac{p_{\epsilon}(Y_{i})}{p_{\epsilon}(Y_{i}-T_{\mu}f_{n,1}(\theta_{i},s_{i}))}\right] = \frac{1}{4\sigma^{4}}\left(T_{\mu}^{4}f_{n,1}(\theta_{i},s_{i}) + 4\sigma^{2}T_{\mu}^{2}f_{n,1}(\theta_{i},s_{i})\right),
+\]
+
+and
+
+\[
+\left(E_{1|(\theta,s)}\left[\log\frac{p_{\epsilon}(Y_{i})}{p_{\epsilon}(Y_{i}-T_{\mu}f_{n,1}(\theta_{i},s_{i}))}\right]\right)^{2} = \frac{T_{\mu}^{4}f_{n,1}(\theta_{i},s_{i})}{4\sigma^{4}}.
+\]
+
+Subtracting these results yields:
+
+\[
+Var_{1|(\theta,s)}[Z_{n,i}] = \frac{4(T_{\mu}f_{n,1}(\theta_{i},s_{i}))^{2}}{\log n \sigma^{2}}.
+\]
+
+Summing over all $i$ and taking the expectation with respect to $\theta$ and $s$, we find:
+
+\[
+\sum_{i=1}^{n}E_{\theta,s}[Var_{1|(\theta,s)}[Z_{n,i}]] = \frac{n}{\sigma^{2}\log n} \int_{Z} (T_{\mu}f_{n,1}(\theta_{i},s_{i}))^{2} ds d\theta = c_{10}\frac{n}{\log n}h^{2\beta+1} > 0.
+\]
+
+Proof of part (c) 
+
+We have 
+\[
+E_{1}\left| U_{n,i}^{3} \right| = \frac{1}{\sigma_{n}^{3}} E_{1} \left| Z_{n,i}^{3} - (E_{1}[Z_{n,i}])^{3} - 3(Z_{n,i})^{2}E_{1}[Z_{n,i}] + 3(Z_{n,i})(E_{1}[Z_{n,i}])^{2} \right| 
+\]
+and
+\[
+\leq \frac{1}{\sigma_{n}^{3}} \left[ E_{1} \left| Z_{n,i} \right|^{3} + (E_{1} \left| Z_{n,i} \right|)^{3} + 3E_{1} \left| Z_{n,i} \right|^{2}E_{1} \left| Z_{n,i} \right| + 3E_{1} \left| Z_{n,i} \right|(E_{1} \left| Z_{n,i} \right|)^{2} \right].
+\]
+This simplifies to
+\[
+\leq \frac{1}{\sigma_{n}^{3}} \left[ E_{1} \left| Z_{n,i} \right|^{3} + (E_{1} \left| Z_{n,i} \right|)^{3} + 3E_{1} \left| Z_{n,i} \right|^{2}E_{1} \left| Z_{n,i} \right| + (E_{1} \left| Z_{n,i} \right|)^{3} \right]. \quad (29)
+\]
+We now analyze each term individually. First, note that
+\[
+E_{1} \left| Z_{n,i} \right| = E_{\theta,s} \left[ E_{1|(\theta,s)} \left| Z_{n,i} \right| \right].
+\]
+Using Pinsker’s second inequality, we find:
+\[
+E_{1|(\theta,s)} \left| Z_{n,i} \right| = \frac{1}{\sqrt{\log n}} \int \left| \log \frac{p_{\epsilon}(Y_{i})}{p_{\epsilon}(Y_{i} - T_{\mu}f_{n,1}(\theta_{i},s_{i}))} \right| p_{\epsilon}(Y_{i} - T_{\mu}f_{n,1}(\theta_{i},s_{i})) dY_{i}
+\]
+and
+\[
+\leq \frac{1}{\sqrt{\log n}} \left[ \frac{T_{\mu}f_{n,1}(\theta_{i},s_{i})}{\sigma} + \frac{T_{\mu}^{2}f_{n,1}(\theta_{i},s_{i})}{2\sigma^{2}} \right]. \quad (30)
+\]
+Additionally, since the cylinder \( Z = [0,2\pi] \times [-1,1] \) has finite measure, it follows that:
+\[
+\left| \int_{Z} T_{\mu}f_{n,1}(\theta,s) dsd\theta \right| \leq \int_{Z} \left| T_{\mu}f_{n,1}(\theta,s) \right| dsd\theta \leq c_{10} \left( \int_{Z} \left| T_{\mu}f_{n,1}(\theta,s) \right|^{2} dsd\theta \right)^{1/2}. \quad (31)
+\]
+Combining inequalities (4) and (31), we obtain:
+\[
+E_{1} \left| Z_{n,i} \right| \leq \frac{c_{11}}{\sqrt{\log n}} \left[ \left( \frac{\log n}{n} \right)^{1/2} + \left( \frac{\log n}{n} \right) \right]
+\]
+and
+\[
+\leq \frac{c_{12}}{\sqrt{\log n}} \left( \frac{\log n}{n} \right)^{1/2} \quad \text{(since } 0 < \frac{\log n}{n} \leq \left( \frac{\log n}{n} \right)^{1/2} < 1 \text{ for } n \geq 3 \text{)}.
+\]
+Finally,
+\[
+\sum_{i=1}^{n} \left( E_{1} \left| Z_{n,i} \right| \right)^{3} \leq c_{12} n \left( \frac{1}{n} \right)^{3/2} \to 0 \quad \text{as } n \to \infty. \quad (32)
+\]
+From (4), we also have:
+\[
+E_{1|(\theta,s)} \left[ \left| Z_{n,i} \right|^{2} \right] \leq \frac{1}{4\sigma^{4}\log n} \left( T_{\mu}^{4}f_{n,1}(\theta_{i},s_{i}) + 4\sigma^{2}T_{\mu}^{2}f_{n,1}(\theta_{i},s_{i}) \right).
+\]
+
+Using the bound $\displaystyle \bigg{\lvert}T_{\mu}f_{n,1}(\theta_{i},s_{i})\bigg{\rvert}\leq c_{13}h^{\beta}=c_{13}\bigg{(}\frac{\log n}{n}\bigg{)}^{\frac{\beta}{2\beta+1}}$, we find that
+
+\[
+E_{1}[\lvert Z_{n,i}\rvert^{2}] \leq \frac{c_{14}}{\log n}\bigg{[}\bigg{(}\frac{\log n}{n}\bigg{)}^{\frac{4\beta}{2\beta+1}}+\bigg{(}\frac{\log n}{n}\bigg{)}^{\frac{2\beta}{2\beta+1}}\bigg{]} \leq \frac{c_{15}}{\log n}\bigg{[}\bigg{(}\frac{\log n}{n}\bigg{)}^{\frac{2\beta}{2\beta+1}}\bigg{]}
+\]
+
+since $\displaystyle \bigg{(}\frac{\log n}{n}\bigg{)}^{\frac{4\beta}{2\beta+1}} \leq \bigg{(}\frac{\log n}{n}\bigg{)}^{\frac{2\beta}{2\beta+1}} < 1$ for $n \geq 3$. Consequently,
+
+\[
+\sum_{i=1}^{n}E_{1}\lvert Z_{n,i}\rvert^{2}E_{1}\lvert Z_{n,i}\rvert \leq c_{16}\frac{n}{\log n}\frac{1}{\sqrt{\log n}}\bigg{(}\frac{\log n}{n}\bigg{)}^{\frac{6\beta+1}{4\beta+2}} \leq c_{16}\frac{1}{\sqrt{\log n}}\bigg{(}\frac{\log n}{n}\bigg{)}^{\frac{2\beta-1}{4\beta+2}} \to 0 \quad \text{as } n \to \infty. \quad (33)
+\]
+
+Next, we consider $\displaystyle \sum_{i=1}^{n}E_{1}\lvert Z_{n,i}\rvert^{3}$. To evaluate this, we first note that
+
+\[
+E_{1|(\theta,s)}\lvert Z_{n,i}\rvert^{3} = \frac{1}{(\log n)^{3/2}}\int\bigg{\lvert}\log\frac{p_{\xi}(Y_{i})}{p_{\epsilon}(Y_{i}-T_{\mu}f_{n,1}(\theta_{i},s_{i}))}\bigg{\rvert}^{3}p_{\epsilon}(Y_{i}-T_{\mu}f_{n,1}(\theta_{i},s_{i}))dY_{i},
+\]
+
+which can be bounded as
+
+\[
+\leq \frac{1}{(\log n)^{3/2}}\int\bigg{[}\bigg{\lvert}T_{\mu}^{2}f_{n,1}(\theta_{i},s_{i}) - 2Y_{i}T_{\mu}f_{n,1}(\theta_{i},s_{i})\bigg{\rvert}\bigg{]}^{3}p_{\epsilon}(Y_{i}-T_{\mu}f_{n,1}(\theta_{i},s_{i}))dY_{i}.
+\]
+
+Expanding and integrating term by term, we obtain
+
+\[
+\leq \frac{1}{(\log n)^{3/2}}\int\bigg{[}\bigg{\lvert}T^{6}_{\mu}f_{n,1}(\theta_{i},s_{i})\bigg{\rvert} + 8\bigg{\lvert}Y_{i}\bigg{\rvert}^{3}\bigg{\lvert}T_{\mu}^{3}f_{n,1}(\theta_{i},s_{i})\bigg{\rvert} + 12\bigg{\lvert}Y_{i}\bigg{\rvert}^{2}\bigg{\lvert}T_{\mu}^{4}f_{n,1}(\theta_{i},s_{i})\bigg{\rvert} + 6\bigg{\lvert}Y_{i}\bigg{\rvert}\bigg{\lvert}T_{\mu}^{5}f_{n,1}(\theta_{i},s_{i})\bigg{\rvert}\bigg{]}\frac{\exp{\big{(}-(Y_{i}-T_{\mu}f_{n,1}(\theta_{i},s_{i}))^{2}/2\sigma^{2}}\big{)}}{\sqrt{2\pi\sigma^{2}}}dY_{i}.
+\]
+
+Using the bound $\displaystyle \lvert T_{\mu}f_{n,1}(\theta_{i},s_{i})\rvert \leq c_{13}\bigg{(}\frac{\log n}{n}\bigg{)}^{\frac{\beta}{2\beta+1}}$ and integrating each term, we find
+
+\[
+\leq \frac{c_{16}}{(\log n)^{3/2}}\bigg{(}\frac{\log n}{n}\bigg{)}^{\frac{6\beta}{2\beta+1}}.
+\]
+
+Thus,
+
+\[
+\sum_{i=1}^{n}E_{1}\lvert Z_{n,i}\rvert^{3} \leq \frac{c_{17}}{(\log n)^{1/2}}\frac{n}{\log n}\bigg{(}\frac{\log n}{n}\bigg{)}^{\frac{6\beta}{2\beta+1}} \leq \frac{c_{17}}{(\log n)^{1/2}}\bigg{(}\frac{\log n}{n}\bigg{)}^{\frac{4\beta-1}{2\beta+1}} \to 0 \quad \text{as } n \to \infty. \quad (34)
+\]
+
+Equations (33), (34), and the given references together establish part (c). ∎
+
+References
+
+[1] Anuj Abhishek. Minimax optimal estimator in the stochastic inverse problem for exponential radon transform.
+[2] C. Butucea and A. B. Tsybakov. Sharp optimality in density deconvolution with dominating bias. I. Teor. Veroyatn. Primen., 52(1):111–128, 2007.
+[3] C. Butucea and A. B. Tsybakov. Sharp optimality in density deconvolution with dominating bias. II. Teor. Veroyatn. Primen., 52(2):336–349, 2007.
+[4] Cristina Butucea. The adaptive rate of convergence in a problem of pointwise density estimation. Statist. Probab. Lett., 47(1):85–90, 2000.
+[5] Cristina Butucea. Exact adaptive pointwise estimation on Sobolev classes of densities. ESAIM Probab. Statist., 5:1–31, 2001.
+[6] L. Cavalier. Asymptotically efficient estimation in a problem related to tomography. Math. Methods Statist., 7(4):445–456 (1999), 1998.
+[7] L. Cavalier, Y. Golubev, O. Lepski, and A. Tsybakov. Block thresholding and sharp adaptive estimation in severely ill-posed inverse problems. Teor. Veroyatnost. i Primenen., 48(3):534–556, 2003.
+[8] Laurent Cavalier. On the problem of local adaptive estimation in tomography. Bernoulli, 7(1):63–78, 2001.
+[9] Laurent Cavalier and Alexandre Tsybakov. Sharp adaptation for inverse problems with random noise. Probab. Theory Related Fields, 123(3):323–354, 2002.
+[10] David L. Donoho and Iain M. Johnstone. Ideal spatial adaptation by wavelet shrinkage. Biometrika, 81(3):425–455, 1994.
+[11] A. Goldenshluger, A. Juditsky, A. Tsybakov, and A. Zeevi. Change-point estimation from indirect observations. II. Adaptation. Ann. Inst. Henri Poincaré Probab. Stat., 44(5):819–836, 2008.
+[12] A. Goldenshluger, A. Juditsky, A. B. Tsybakov, and A. Zeevi. Change-point estimation from indirect observations. I. Minimax complexity. Ann. Inst. Henri Poincaré Probab. Stat., 44(5):787–818, 2008.
+[13] Alexander Goldenshluger. On pointwise adaptive nonparametric deconvolution. Bernoulli, 5(5):907–925, 1999.
+[14] Irene A. Hazou and Donald C. Solmon. Filtered-backprojection and the exponential Radon transform. J. Math. Anal. Appl., 141(1):109–119, 1989.
+[15] Iain M. Johnstone and Bernard W. Silverman. Speed of estimation in positron emission tomography and related inverse problems. Ann. Statist., 18(1):251–280, 1990.
+[16] A. P. Korostelëv and A. B. Tsybakov. Optimal rates of convergence of estimators in a probabilistic setup of tomography problem. Problems of information transmission, 27:73–81, 1991.
+[17] A. P. Korostelëv and A. B. Tsybakov. Asymptotically minimax image reconstruction problems. InTopics in nonparametric estimation, volume 12 ofAdv. Soviet Math., pages 45–86. Amer. Math. Soc., Providence, RI, 1992.
+[18] A. P. Korostelëv and A. B. Tsybakov. Minimax theory of image reconstruction, volume 82 ofLecture Notes in Statistics. Springer-Verlag, New York, 1993.
+[19] Peter Kuchment. The Radon transform and medical imaging, volume 85 ofCBMS-NSF Regional Conference Series in Applied Mathematics. Society for Industrial and Applied Mathematics (SIAM), Philadelphia, PA, 2014.
+[20] O. V. Lepski, E. Mammen, and V. G. Spokoiny. Optimal spatial adaptation to inhomogeneous smoothness: an approach based on kernel estimates with variable bandwidth selectors. Ann. Statist., 25(3):929–947, 1997.
+[21] O. V. Lepski and V. G. Spokoiny. Optimal pointwise adaptive methods in nonparametric estimation. Ann. Statist., 25(6):2512–2546, 1997.
+[22] O. V. Lepski and T. Willer. Lower bounds in the convolution structure density model. Bernoulli, 23(2):884–926, 2017.
+[23] O. V. Lepski and T. Willer. Oracle inequalities and adaptive estimation in the convolution structure density model. Ann. Statist., 47(1):233–287, 2019.
+[24] O. V. Lepskiĭ. A problem of adaptive estimation in Gaussian white noise. Teor. Veroyatnost. i Primenen., 35(3):459–470, 1990.
+[25] O. V. Lepskiĭ. Asymptotically minimax adaptive estimation. I. Upper bounds. Optimally adaptive estimates. Teor. Veroyatnost. i Primenen., 36(4):645–659, 1991.
+[26] O. V. Lepskiĭ. On problems of adaptive estimation in white Gaussian noise. InTopics in nonparametric estimation, volume 12 ofAdv. Soviet Math., pages 87–106. Amer. Math. Soc., Providence, RI, 1992.
+[27] O. V. Lepskiĭ and V. G. Spokoiny. Local adaptation to inhomogeneous smoothness: resolution level. Math. Methods Statist., 4(3):239–258, 1995.
+[28] François Monard, Richard Nickl, and Gabriel P. Paternain. Efficient nonparametric Bayesian inference forX𝑋X-ray transforms. Ann. Statist., 47(2):1113–1147, 2019.
+[29] F. Natterer. The Mathematics of Computerized Tomography. Society for Industrial and Applied Mathematics, 2001.
+[30] Frank Natterer. On the inversion of the attenuated Radon transform. Numer. Math., 32(4):431–438, 1979.
+[31] Frank Natterer and Frank Wübbeling. Mathematical methods in image reconstruction. SIAM Monographs on Mathematical Modeling and Computation. Society for Industrial and Applied Mathematics (SIAM), Philadelphia, PA, 2001.
+[32] E.T. Quinto. The dependence of the generalized Radon transform on defining measures. Trans. Amer. Math. Soc., 257(2):331–346, 1980.
+[33] E.T. Quinto. The invertibility of rotation invariant Radon transforms. J. Math. Anal. Appl., 91(2):510–522, 1983.
+[34] S Siltanen, V Kolehmainen, S J rvenp, J P Kaipio, P Koistinen, M Lassas, J Pirttil, and E Somersalo. Statistical inversion for medical x-ray tomography with few radiographs: I. general theory. Physics in Medicine and Biology, 48(10):1437–1463, may 2003.
+[35] Oleh Tretiak and Charles Metz. The exponential Radon transform. SIAM J. Appl. Math., 39(2):341–354, 1980.
+[36] A. B. Tsybakov. Pointwise and sup-norm sharp adaptive estimation of functions on the Sobolev classes. Ann. Statist., 26(6):2420–2469, 1998.
+[37] A. B. Tsybakov. Pointwise and sup-norm sharp adaptive estimation of functions on the Sobolev classes. Ann. Statist., 26(6):2420–2469, 1998.
+[38] A. B. Tsybakov. Introduction to nonparametric estimation. Springer Series in Statistics. Springer, New York, 2009. Revised and extended from the 2004 French original, Translated by Vladimir Zaiats.
+[39] Simopekka Vänskä, Matti Lassas, and Samuli Siltanen. Statistical X-ray tomography using empirical Besov priors. Int. J. Tomogr. Stat., 11(S09):3–32, 2009.

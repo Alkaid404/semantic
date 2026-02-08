@@ -1,0 +1,169 @@
+A unit of information in black hole evaporation
+
+By Maurice H. P. M. van Putten
+
+Abstract
+
+Black holes evolve by evaporation of their event horizon. While this process is believed to be unitary, there is no consensus on the recovery of information in black hole entropy. A missing link is a unit of information in black hole evaporation. Distinct from Hawking radiation, we identify evaporation in entangled pairs by $\mathbb{P}^{2}$ topology of the event horizon consistent with the Bekenstein-Hawking entropy in a uniformly spaced horizon area, where $k_{B}$ denotes the Boltzmann constant. It derives by continuation of $\mathbb{P}^{2}$ in Rindler spacetime prior to gravitational collapse, subject to a tight correlation of the fundamental frequency of Quasi-Normal-Mode (QNM) ringing in gravitational and electromagnetic radiation. Information extraction from entangled pairs by detecting one over the surface spanned by three faces of a large cube carries a unit of information of $2\log 3$ upon including measurement of spin.
+
+I Introduction
+
+Modern observations have revealed that the Universe is populated by numerous supermassive and stellar-mass black holes, as shown by Genzel et al. [2003], within a cosmological background that is undergoing accelerated expansion on a Hubble scale, as demonstrated by Aghanim [2020].
+
+Governed by gravitation across these astrophysical and cosmological scales, event horizons define a common theme regardless of spacetime curvature. Presciently introduced in cosmological spacetime Rindler [1960] , a principle example is the Rindler horizon to accelerating observers. Independent of general relativity, it is recognized to have a finite temperature Fulling [1973] . Thermodynamics of black holes and de Sitter spacetime Hawking [1974] is hereby anticipated by that of Rindler spacetime.
+
+The Bekenstein-Hawking entropy, first proposed by Bekenstein in 1973, relates the surface area of a black hole's event horizon to its entropy, marking a significant step beyond the no-hair theorem of general relativity, which suggests that black holes have no memory of their formation history, as noted by Penrose in 1965. However, in a unitary evolution, it is expected that the information about a black hole's formation history can be recovered from its Hawking radiation, a concept that remains elusive in the context of unifying gravitation and quantum field theory, as highlighted by Calmet and Hsu in 2022.
+
+A one-to-one equivalence to other horizon surfaces need not hold, however, possibly due to non-local properties of the spacetime vacuum. While black holes are defined by mass and angular momentum at asymptotically flat Minkowski spacetime ${\cal M}$ , the same is prohibitive in cosmology in the face of a cosmological horizon at a finite Hubble distance. Evolution in cosmology is governed by content in dimensionless densities, normalized to closure density $\rho_{c}=3H^{2}/8\pi G$ given Newton’s constant $G$ .
+
+The Planck analysis of the CMB, as reported by Aghanim [2020], provides strong support for the $\Lambda$CDM model, which is primarily parameterized by the content of dark energy, dark matter, and baryonic matter. However, this finding is challenged by model-independent observations from the Local Distance Ladder, as presented by Riess et al. [2021], which may suggest anomalies in electromagnetic propagation and our conventional understanding of the universe based on Friedmann-Lemaître-Robertson-Walker (FLRW) cosmologies, as described by Csá et al. [2002]. A possible explanation for these discrepancies is that cosmological spacetime possesses properties that extend beyond the classical limit of general relativity, such as a dark energy component inherent to quantum cosmology, as proposed by van Putten [2021].
+
+A crucial aspect of black hole evaporation that remains unclear is the unit of information that can be detected in its radiation at large distances, which is essential for any precise formulation of information encoding in unitary evolution, as noted by van Putten [2015]. To address this, we propose a new approach based on horizon topology that differs from the classical no-hair theorem, which describes a black hole as a point with finite surface area. This novel perspective, which goes beyond general relativity, is in exact agreement with the idea of uniform area spacing of black hole event horizons proposed by Hod [1998], and is further supported by observations of gravitational radiation reported by Abbott et al. [2016].
+
+To this end, we consider the horizon topology by continuation of null-generators of $H$ back in time to the light cone in ${\cal M}$ prior to gravitational collapse, probed in the Rindler spacetime of test particles suspended by a distant observer (Fig. 1 ). By the equivalence principle, this probe nearby and along these null-generators is constant to a distant observer, traces the topology of $H$ back to that of the latter in Rindler spacetime ${\cal R}$ .
+
+With no appeal to general relativity, our approach is distinct from earlier studies of the Kruskal extension of eternal black holes as classical solutions to the Einstein equations ’t Hooft [1985] . Whether results thereof apply to black holes formed in gravitational collapse is subject to ambiguities, related to double cover spaces Gibbons [2986] with associated (non-)orientability in their embedding in higher dimensions Chamblin & Gibbons [1997] .
+
+In §2, we revisit the definition of Rindler spacetime and show it to produce the Schwarzschild radius of a black hole formed in gravitational collapse. In §3, we discuss the consequences for temperature and topology of Schwarzschild black holes and compare the results with the cosmological horizon of de Sitter space. In §4, an ambiguity in horizon temperature is discussed very similar to those mentioned above following the original proposal of a potential double Hawking temperature $2T_{H}$ ’t Hooft [1984] . Preserving the correlation of the fundamental frequency of Quasi-Normal-Mode (QNM) ringing and Hawking temperature points towards the decay of $2k_{B}T_{H}$ energy transitions to entangled pairs at the Hawking temperature $T_{H}$ , rather than radiation of Hawking particles of energy $2k_{B}T_{H}$ . We summarize our findings in §5.
+
+II Rindler spacetime revisited
+
+Observers at constant acceleration $a$ appear along hyperbolic world-lines in Minkowski spacetime ${\cal M}$ of inertial observers in 1+1 spacetime $(t,x)$ . These world-lines appear straight in Rindler spacetime ${\cal R}$ in Rindler coordinates $(\lambda,\xi)$ . In the conventional definition, ${\cal R}$ covers a single wedge of ${\cal M}$ . Following Rindler [1960] , the principle invariant in Rindler spacetime is the velocity of light $c$ , satisfying 
+ 
+ $\displaystyle c=\sqrt{a\xi},$  (1) 
+ where $\xi$ denotes the Lorentz invariant distance to the Rindler horizon $h$ . It implies some elementary equivalences: (i) the redshift factor $\delta$ of a photon source at $0\leq\delta\xi\leq\xi$ seen in ${\cal R}$ has an equivalent to Doppler shift to red by the Lorentz factor $\Gamma$ seen in ${\cal M}$ ; (ii) inertia defined by mass-energy in binding energy $U_{h}=\int_{0}^{\xi}mads$ to $h$ equals to $mc^{2}$ Note [4] , provided $h$ is within the Hubble horizon van Putten [2017] .
+
+Rindler spacetime ${\cal R}$ can be viewed as the conformal image of ${\cal M}(t,x))$ in $z=(it,x)\,\epsilon\,\mathbb{C}$ by 
+ 
+ $\displaystyle w(z)=\xi^{-1}z^{2}.$  (2) 
+ Hyperbolic world-lines $z=\xi\left(\cosh\lambda+i\sinh\lambda\right)$ with $\Gamma=\cosh\lambda$ in ${\cal M}$ are parameterized by a rapidity $\lambda=a\tau/c^{2}$ at eigentime $\tau$ and invariant arclength $ds=\xi d\lambda$ at distance $\xi=c^{2}/a$ from the origin. By ( 2 ), the image is a straight line $w=\xi\left(1+i\sinh(2\lambda)\right)$ in ${\cal R}$ conform the line-element $ds^{2}=dx^{2}-c^{2}dt^{2}=d\xi^{2}-c^{2}d\tau^{2}=d\xi^{2}+\xi^{2}d\theta^{2}$ in polar coordinates $(\xi,\theta)=(\xi,i\lambda)$ . The period $\pi i$ of $\lambda$ in the trajectory in ${\cal R}$ is one-half the period $2\pi i$ of the hyperbolic trajectory in ${\cal M}$ Note [3] . By ( 2 ), the left of $h$ is the image of the future and past $(\left|t\right|>\left|x\right|)$ of the origin in ${\cal M}$ .
+
+Fig. 1 illustrates a probe of gravitational collapse from the perspective of a distant observer, who measures the tension in a long rope suspending a test particle $m$. The measurement takes place near a null-geodesic that initially lies on a light cone in ${\cal M}$ and eventually becomes a generator of the event horizon surrounding $M$ after collapse. Initially, the tension in the rope is caused by inertia in ${\cal R}$, but at later times, it is due to gravitational attraction to $M$. According to the equivalence principle, these two effects are indistinguishable, allowing the distant observer to attribute both to inertia in ${\cal R}$.
+
+In this probe, the observer infers an event horizon with the Schwarzchild radius of $M$ with no appeal to general relativity. Given the gravitational radius $R_{g}=GM/c^{2}$ and post-collapse, the observer suspends $m$ suspended at rest at a distance $r$ above $M$ . The observer infers a Rindler horizon $h$ to $m$ at distance 
+ 
+ $\displaystyle\xi=\frac{r^{2}}{R_{g}}$  (3) 
+ by virtue of Newton’s law $a=GM/r^{2}$ . Thus, $\xi\geq 2r$ (Fig. 1 ). By spherical symmetry in the position of the observer on the celestial sphere, $\xi=2r$ is a limiting case, when $m$ assumes the infinite redshift of $h$ . $M$ hereby possesses a spherical surface of infinite redshift $H$ at $r=R_{S}$ equal to the Schwarzschild radius, 
+ 
+ $\displaystyle R_{S}=2R_{g}.$  (4) 
+
+
+Entanglement entropy $\Delta S=2\pi\Delta\varphi$ of a mass-perturbation $dM$ relative to $h$ in ${\cal R}$ Note [4] of a Compton phase $d\varphi=\xi dR_{g}/l_{p}^{2}$ across $\xi^{\prime}=2R_{S}=4R_{g}$ Note [4] can be integrated to $k_{B}^{-1}dS=2\pi d\varphi$ over $M$ . Here, $k_{B}$ is the Boltzmann constant and $l_{p}^{2}=G\hbar/c^{3}$ is the Planck area given Planck’s constant $\hbar$ . In units of $l_{p}^{2}$ , this recovers the Bekenstein-Hawking entropy 
+ 
+ $\displaystyle S=2\pi k_{B}\int_{0}^{M}\xi dR_{g}=4\pi k_{B}R_{g}^{2}=\frac{1}{4}k_{B}A_{H}.$  (5) 
+ Crucially, ( 4 - 5 ) derive strictly from (flat) ${\cal R}$ with no appeal to curved spacetime of general relativity.
+
+III Temperature and topology
+
+In Fig. 1, universality in the equivalence principle implies a constant vacuum temperature measured according to acceleration prior to collapse and surface gravity post-collapse. That is, the temperature of $H$ about $M$ is that of ${\cal R}$ of the test mass inferred by the distant observer.
+
+For a Davies-Unruh temperature of $h$ Fulling [1973] , Newton’s law $a=GM/r^{2}$ in the above implies a horizon temperature 
+ 
+ $\displaystyle k_{B}T_{H}=\frac{\hbar c}{8\pi R_{g}}$  (6) 
+ at $r=R_{S}$ , i.e., the Hawking temperature of a black hole. Combined with ( 5 ), ( 6 ) identifies the mass-energy $Mc^{2}$ with heat in the Clausius integral $Q=\int_{0}^{M}T_{H}dS$ .
+
+The result ( 6 ) may be compared with the temperature $T_{dS}$ of de Sitter vacua according to the surface gravity of the Sitter horizon $H_{dS}$ at the Hubble radius $R_{H}$ . Suspended by a rope at a distance $r$ , a test particle $m$ experiences non-geodesic motion at a velocity $v=Hr$ relative to the local Hubble flow. Approaching $H_{dS}$ in the limit of $v=c$ , $m$ carries $h$ at distance 
+ 
+ $\displaystyle\xi\geq R_{H}$  (7) 
+ according to ( 1 ), $a=rH^{2}$ , and hence 
+ 
+ $\displaystyle\xi=\frac{R_{H}^{2}}{r}$  (8) 
+ within the visible universe $r\leq R_{H}$ . Surface gravity of $H_{dS}$ is the de Sitter scale of acceleration $a_{dS}=cH$ van Putten [2017] . For a Davies-Unruh temperature to $h$ once more, ${\cal O}$ identifies a de Sitter temperature Gibbons&Hawking [1977] 
+ 
+ $\displaystyle k_{B}T_{dS}=\frac{\hbar c}{4\pi R_{g}}.$  (9) 
+ Here, $R_{g}=R_{H}/2$ denotes the gravitational radius of a total dark energy content at the limit of dimensionless dark energy density $\Omega_{\Lambda}=1$ , i.e., $\rho_{\Lambda}$ in de Sitter heat at closure density satisfying the anomalous scaling $\rho_{c}\propto T_{dS}^{2}$ .
+
+By ( 2 ), ${\cal R}$ is double covered by the two spacelike wedges in ${\cal M}$ . To a distant observer, the light cone in ${\cal M}$ hereby assumes $\mathbb{P}^{2}$ topology. $H$ inherits the same by the equivalence principle in the continuation of generators following gravitational collapse.
+
+IV Hawking particles or entangled pairs?
+
+In Fig. 1, we identify ${S}^{2}$ of the de Sitter horizon surfaces $H_{dS}$ . Given $R_{g}$ , this discrepant topology may account for ( 6 ) being lower than ( 9 ) by a factor of two. It would represent universal scaling of horizon temperature with surface gravity in 6 ) and ( 9 ).
+
+By (2), the region ${\cal R}$ is doubly covered by wedges I and III of ${\cal M}$. This leads to a $\mathbb{P}^{2}$ topology in $H$ that differs from the $S^{2}$ topology obtained through a conventional interpretation of Rindler spacetime, which is covered by a single wedge I in traditional Rindler coordinates, as discussed by Valdivia-Mera [2023]. As a result, it yields the conventional Davies-Unruh temperature.
+
+By ( 2 ), the imaginary period $i\pi$ in the rapidity $\lambda$ of the world-line is one-half the period $2\pi i$ of its hyperbolic pre-image in ${\cal M}$ . By this change in periodicity in the Killing direction $\theta=i\lambda$ in $ds^{2}=d\xi^{2}+\xi^{2}d\theta^{2}$ , the temperature of ${\cal R}$ under ( 2 ) is hereby twice the Davies-Unruh temperature. By continuation in Fig. 1, this implies a doubling of Hawking temperature by continuation. Independently, the same conclusion has been derived from the Kruskal extension of Schwarzschild black holes by ’t Hooft ’t Hooft [1984] .
+
+By $\mathbb{P}^{2}$, the temperature $2T_{H}$ in equation (6) now exhibits the same scaling with gravitational radius as the temperature $T_{dS}$ of the de Sitter horizon in equation (9), which differs from the universal scaling with surface gravity. This increase in temperature is accompanied by a reduction in entropy, given by $S=\hbar\omega/k_{B}T$ for a photon at energy $\hbar\omega$ (see Note [4]), resulting in a reduction of black hole entropy, equation (5), by a factor of two.
+
+However, the Hawking temperature scales directly with the fundamental frequency of Quasi-Normal-Mode (QNM) ringing of the event horizon of a Schwarzschild black hole Chandrasekhar & Detweiler [1975] , given Hod [1998] 
+ 
+ $\displaystyle{\sc Re}\,\hbar\omega\simeq\log 3\,k_{B}T_{H}$  (10) 
+ in the large- $n$ limit of overtones $n$ . It derives from linear perturbation theory of black holes in classical general relativity Hod [1998] . This may be attributed to the fact that the fundamental frequency of horizon modes is independent of spin of the radiation field. While a detailed consideration of the correlation ( 10 ) in $\mathbb{P}^{2}$ falls outside the scope of the present work, such is expected to persist to preserve ( 11 ). A doubling of $T_{H}$ would hereby be indicated by a doubling of the fundamental frequency $\omega$ of QNM. This seems unlikely. In fact, it will be tested by black hole spectroscopy Echeverria [1989] in the LIGO-Virgo-KAGRA (LVK) observational runs O4-5.
+
+Instead, the tight correlation ( 10 ) is preserved in the energy spectrum of black hole decay at double the Hawking temperature into entangled pairs rather than Hawking particles in conventional black body radiation. That is, entangled pairs preserve the Hawking temperature in black hole decay at double the Hawking temperature.
+
+V Conclusions and outlook
+
+We infer that the topology of $H$ is $\mathbb{P}^{2}$, with a Schwarzschild radius $R_{S}=2R_{g}$, by establishing an equivalence to Rindler spacetime through the process of gravitational collapse, specifically by continuing along null-geodesics. Notably, this topology extends beyond the predictions of the no-hair theorem for black holes in general relativity.
+
+Preserving ( 10 ), $\mathbb{P}^{2}$ points to black hole evaporation in entangled pairs at the Hawking temperature rather than Hawking particles at twice the Hawking temperature. While information encoding occurs at emission, information retrieval is defined by measurement outcome at detection. The first occurs unseen over a continuum in amplitude of directions subject to $\mathbb{P}^{2}$ in emission from the horizon. In retrieving information from entangled pairs, it suffices to detect one of the two. This can be realized over three states in detection over the surface spanned by three faces of a large cube normal to $+x$ , $+y$ and $+z$ in a given Cartesian coordinate system $(x,y,z)$ centered about the black hole. Thus, each detection retrieves 
+ 
+ $\displaystyle i=2\log 3$  (11) 
+ of information upon including information in spin $\left\{-1,0,1\right\}$ , e.g., with reference to the directions $(+x,+y,+z)$ . Crucially, ( 11 ) is independent of the energy spectrum .
+
+Distinct from the conventional unit $k_{B}\log 2$ used in binary encoding, the value in equation (11) is equivalent to twice the unit of Bekenstein-Hawking entropy, which is defined by a uniform area spacing of $4\log 3$ in units of Planck area $l_{p}^{2}$, as shown by Hod [1998]. This correspondence is noteworthy, particularly in the context of black hole evaporation, where entangled pairs are emitted one by one, as described by Bekenstein & Mukhanov [1995], with a mean detection rate of $\dot{n}_{\gamma}\simeq 40\,\left({M}/{M_{\odot}}\right)^{-1}\,{\rm Hz}$, as found by Spallicci & van Putten [2016].
+
+$\mathbb{P}^{2}$ hereby sets a starting point for unitary evolution of black holes by evaporation, expected to retrieve all of the Bekenstein-Hawking entropy of classical no-hair ’t Hooft [2021] . A $\mathbb{P}^{2}$ topology of $H$ is also natural, consistent with spin-2 of gravitational radiation Kokkotas & Schmidt [1999] , now observed by direct detection from binary black hole mergers Abbott et al. [2016] and from the central engine of the short GRB170817A van Putten & Della Valle [2023] .
+
+References
+
+Genzel et al. [2003] Genzel, R., Schödel, R., Ott, T., et al., 2003, ApJ, 594, 812
+Genzel et al. [2010] Genzel, R., Eisenhauer, F., & Gillessen, S., 2010, RMP, 82, 3121
+Ghez et al. [2003] Ghez, A.M., Duchêne, G.,Matthews, K., et al., 2003, ApJ, 586, L127
+Ghez et al. [2008] Ghez, A., Salim, S., Weinberg, N.N., et al., 2008, ApJ, 689, 1044
+EHT [2022] EHT Collaboration: Akiyama, K., Alberdi, A., Alef, W., et al., 2022 ApJL 930 L17
+Abbott et al. [2016] LIGO-Virgo Collaboration: Abbott, B.P., Abbott, R., Abbott, T.D., 2016, et al. Phys. Rev. Lett., 116, 061102
+Aghanim [2020] Planck Collaboration: Aghanim, N., Akrami, Y., Ashdown, M., et al. 2020, A&A, 641, A6
+Riess et al. [2021] Riess, A.G., Yuan, W., Macri, L.M., et al., 2022, ApJ, 934, L7
+Rindler [1960] Rindler, W., 1960, Phys. Rev., 119, 2082
+Fulling [1973] Fulling, S.A., 1973, Phys. Rev. D, 7, 2850
+Davies [1975] Davies, P.C.W., 1975, J. Phys. A: Math. Gen., 8, 609
+Unruh [1976] Unruh, W.G., 1976, Phys. Rev. D, 14, 870
+’t Hooft [1984] ’t Hooft, G., 1984, J. Geom. Phys, 1, 45
+’t Hooft [1985] ’t Hooft, G., 1985, Nucl. Phys. B, 256, 727
+Hawking [1974] Hawking, S., 1974, Nat., 248, 30
+Hawking [1975] Hawking, S., 1975, Commun. Math. Phys. 43, 199
+Gibbons&Hawking [1977] Gibbons, G.W., & Hawking, S.W., 1977, Phys. Rev. D, 15, 2738
+Bekenstein [1973] Bekenstein, J.S., 1973, 1073, Phys. Rev. D 7, 2333
+Penrose [1965] Penrose, R., 1965, Phys. Rev. Lett., 14, 57
+Calmet & Hsu [2022] Calmet, X., & Hsu, S.D.H., 2022, Eur. Phys. Lett., 139, 49001
+Csá et al. [2002] Csá, C., Kaloper, N., & Terning, J., 2002, Phys. Rev. Lett., 88, 161302
+Csá et al. [2002] Csá, C., Kaloper, N., & Terning, J., 2002, Phys. Lett. B, 535, 33
+Dam et al. [2017] Dam, L.H., Heinesen, A., & Wiltshire, D.L., 2017, MNRAS, 472m 835
+Colin et al. [2019] Colin, J., Mohayaee, R., Rameez, M., Sarkar, S., 2019, A&A, 631, L13
+Spallicci et al. [2021] Spallicci, A.D.A.M., Helayël-Neto, J.A., López-Corredoira, M., Capozziello, S, 2021, Eur. Phys. J. C, 81, 4
+Spallicci et al. [2022] Spallicci, A.D.A.M., Sarracino, G., Capozzielo, S., 2022, Eur. Phys. J. Plus, 137, 253
+Sarracino et al. [2022] Sarracino, G., Spallicci, A.D.A.M., Capoziello, S., 2022, Eur. Phys. J. Plus, 137, 1386
+van Putten [2015] van Putten, M.H.P.M., 2015a, Int. J. Mod. Phys. D, 3, 1550024
+Chamblin & Gibbons [1997] Chamblin, A., & Gibbons, G.W., 1997, Phys. Rev. D, 55, 2177
+Hod [1998] Hod, S., 1998, Phys. Rev. Lett., 81, 4293
+Louko & Marolf [1997] Louko, J., & Marolf, Phys. Rev. D., 58, 024007
+Gibbons [2986] Gibbons, G.W., 1986, Nucl. Phys. B, 271, 497
+’t Hooft [2021] ’t Hooft, G., Universe, 2021, 7, 298
+Note [3] m𝑚mis accompanied by an antiparticle−m𝑚-mby conjugationI​I​I=I†𝐼𝐼𝐼superscript𝐼†III=I^{\dagger}of wedges I and III inℳℳ{\cal M}. Equivalent to2​m2𝑚2mmoving forward in time, it accounts for the one-half periodπ​i𝜋𝑖\pi iinλ𝜆\lambdainℛℛ{\cal R}, versus2​π​i2𝜋𝑖2\pi iinℳℳ{\cal M}by whichℳℳ{\cal M}andℛℛ{\cal R}are distinct. (On the bifurcation horizonhℎh, this reduces particles to bosons.)
+Note [4] A particle inℛℛ{\cal R}carries an entanglement entropyS=2​π​φ𝑆2𝜋𝜑S=2\pi\varphiin Compton phaseφ=kC​ξ𝜑subscript𝑘𝐶𝜉\varphi=k_{C}\xidefined by ita propagator[28]. The associated probability ratio of emission and absorption acrosshℎhsatisfiesPe=Pa​e−Ssubscript𝑃𝑒subscript𝑃𝑎superscript𝑒𝑆P_{e}=P_{a}e^{-S}in terms of the Boltzmann factore−Ssuperscript𝑒𝑆e^{-S}[41,39]. The same identifies entropy changes when slowly dropping a test mass in a black hole[18,37,40]. Inℛℛ{\cal R}, it establishes equality ofE=m​c2𝐸𝑚superscript𝑐2E=mc^{2}, gravitational binding energyUh=m​a​ξ=m​c2subscript𝑈ℎ𝑚𝑎𝜉𝑚superscript𝑐2U_{h}=ma\xi=mc^{2}and entropic workW=∫0ξTU​𝑑S=TU​S𝑊superscriptsubscript0𝜉subscript𝑇𝑈differential-d𝑆subscript𝑇𝑈𝑆W=\int_{0}^{\xi}T_{U}dS=T_{U}S. A photon at angular frequencyω𝜔\omegaand wavelengthλ𝜆\lambdasimilarly satisfiesφ=2​π​ξ/λ𝜑2𝜋𝜉𝜆\varphi=2\pi\xi/\lambda, givingS=2​π​φ=ℏ​ω/kB​TU𝑆2𝜋𝜑Planck-constant-over-2-pi𝜔subscript𝑘𝐵subscript𝑇𝑈S=2\pi\varphi=\hbar\omega/k_{B}T_{U}at the Davies-Unruh temperatureTUsubscript𝑇𝑈T_{U}upon squaring the Bogoliubov coefficient of the creation operator,|β|2=1/(eS−1)superscript𝛽21superscript𝑒𝑆1\left|\beta\right|^{2}=1/\left(e^{S}-1\right). But see[13,14]and (2) in the present discussion.
+van Putten [2017] van Putten, M.H.P.M., 2017, ApJ, 837, 22
+Bekenstein [1981] Bekenstein, J.D., 1981, Phys. Rev. D 23, 287
+Kokkotas & Schmidt [1999] Kokkotas, K.D., Schmidt, B.G., 1999, Liv. Rev. Relat., 2, 2
+Padmanabhan [2005] Padmanabhan, T., 2005, Phys. Rep., 406 49
+Verlinde [2011] Verlinde, E., 2011, J. High Energy Phys., 4, 29
+Hartle & Hawking [1976] Hartle, J.B., & Hawking, S.W., 1976, Phys. Rev. D, 13, 2188
+Bekenstein & Mukhanov [1995] Bekenstein, J.D., & Mukhanov, V.F., 1995, Phys. Lett. B, 360, 7
+Spallicci & van Putten [2016] Spallicci, A., & van Putten, M.H.P.M., 2016, Int. J. Geom. Meth. Mod. Phys., 13, 1630014
+van Putten [2015] van Putten, M.H.P.M., 2015b, arXiv:1506.08075
+van Putten [2021] van Putten, M.H.P.M., 2021, Phys. Lett. B, 823, 17, 136737
+van Putten & Della Valle [2023] van Putten, M.H.P.M., & Della Valle, M., 2023, A&A, A36
+Valdivia-Mera [2023] Valdivia-Mera, G., 2023, arXiv:09869v2
+Chandrasekhar & Detweiler [1975] Chandrasekhar, S., & Detweiler, S., 1975, Proc. R. Soc. Lond. A, 344, 441
+Schutz & Will [1985] Schutz, B.F., & Will, C.M., 1980, ApJ, 291, L33
+Kokkotas & Schmidt [1999] Kokkotas, K.D., & Schmidt, B.G., 1999, Liv. Rev. Rel., 1999-2
+Leaver [1985] Leaver, E.W., 1985, Proc. R. Soc. Lond. Ser. A, 402, 285
+Leaver [1986] Leaver, E.W., 1986, Phys. Rev. D, 34, 384
+Nollert [1993] Nollert, H.-P., 1993, Phys. Rev. D, 47, 5253
+Cardaso & Gualtieri [2016] Cardoso, V., & Gualtieri, L., Class. Quant. Grav., 33, 174001
+Berti et al. [2009] Berti, E., Cardoso, V., & Starinets, O., Class. Quant. Grav., 26, 163001
+Echeverria [1989] Echeverria, F., Phys. Rev. D, 40, 3194
+Dryer et al. [2004] Dreyer, O., Kelly, B.J., Krishnan. B., et al., 2004, Class. Quant. Grav., 21, 787
+Berti et al. [2006] Berti, E., Cardoso, V., & Will, C.M., 2006, Phys. Rev. D, 73, 064030
+Berti et al. [2007] Berti, E., Cardoso, J., Cardoso, V., & Cavaglia, M., 2007, Phys. Rev. D, 76, 104044
+Ma et al. [2023] Ma, S., Sun, L., & Chen, Y., 2023, Phys. Rev. Lett., 130, 14101

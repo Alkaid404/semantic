@@ -1,0 +1,9 @@
+<document reference="suspicious-document020527.txt">
+  <feature name="about" authors="Robert Schippa" title="Sharp Strichartz estimates in spherical coordinates" lang="en" similarity="0.9817" severity="low" prompt_tokens="2179" output_tokens="1610"/>
+  <feature name="md5Hash" value="6f5652ab670988e3160b8ffc58879194"/>
+  <feature name="plagiarism" type="llm_prompted" llm="DeepSeek-R1" this_language="en" this_offset="82" this_length="164" source_reference="source-document020527.txt" obfuscation="medium" source_offset="17639" source_length="131"/>
+  <feature name="plagiarism" type="llm_prompted" llm="DeepSeek-R1" this_language="en" this_offset="3237" this_length="232" source_reference="source-document020527.txt" obfuscation="simple" source_offset="21061" source_length="200"/>
+  <feature name="plagiarism" type="llm_prompted" llm="DeepSeek-R1" this_language="en" this_offset="4566" this_length="2492" source_reference="source-document020527.txt" obfuscation="simple" source_offset="2823" source_length="2497"/>
+  <feature name="plagiarism" type="llm_prompted" llm="DeepSeek-R1" this_language="en" this_offset="7060" this_length="947" source_reference="source-document020527.txt" obfuscation="medium" source_offset="22543" source_length="721"/>
+  <feature name="plagiarism" type="llm_prompted" llm="DeepSeek-R1" this_language="en" this_offset="9428" this_length="1031" source_reference="source-document020527.txt" obfuscation="medium" source_offset="18844" source_length="938"/>
+</document>

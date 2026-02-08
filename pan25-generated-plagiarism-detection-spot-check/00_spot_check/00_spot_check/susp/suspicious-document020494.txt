@@ -1,0 +1,576 @@
+Wetzel Families and the continuum
+
+By Jonathan Schilhan and Thilo Weinert
+
+Abstract
+
+The notion of $\mathfrak{a}^{+}({\mathcal{F}})$ is introduced as the smallest possible cardinality of the set difference between a family $\tilde{{\mathcal{F}}}$ and its subset ${\mathcal{F}}$, where $\tilde{{\mathcal{F}}}$ is chosen to minimize this difference. Furthermore, $\mathfrak{a}^{+}(\kappa)$ is defined as the maximum value of $\mathfrak{a}^{+}({\mathcal{F}})$ among all families ${\mathcal{F}}$ with cardinality less than or equal to $\kappa$. It is demonstrated that every infinite cardinal less than or equal to the cardinality of the continuum, denoted by $\mathfrak{c}$, can be expressed in the form $\mathfrak{a}^{+}({\mathcal{F}})$ for an appropriate almost disjoint family ${\mathcal{F}}$, as established in Theorem 4.6. Additionally, the consistency of two inequalities is shown: $\aleph_{1}=\mathfrak{a}<\mathfrak{a}^{+}(\aleph_{1})=\mathfrak{c}$, as per Corollary 4.3, and $\mathfrak{a}=\mathfrak{a}^{+}(\aleph_{1})<\mathfrak{c}$, as per Theorem 4.4, highlighting the complex interplay between these cardinal invariants.
+
+1. Introduction
+
+The notation related to the set theory of real numbers can be found in references [1] and [2]. The cardinality of the continuum, denoted by $\mathfrak{c}$, is equivalent to $2^{\aleph_{0}}$. We define ${\mathcal{M}}$ and ${\mathcal{N}}$ as the ideals of meager and null sets, respectively, which can be considered over the Cantor space $\mbox{}^{{\omega}}2$ or the Baire space $\mbox{}^{{\omega}}\omega$. For a given ideal $I$, such as ${\mathcal{M}}$ or ${\mathcal{N}}$, we use ${\sf cov}(I)$ to represent the covering number of $I$ and ${\sf non}(I)$ to represent the uniformity of $I$.
+
+In the context of set theory, consider an infinite cardinal $\kappa$ and define the set ${{\mathcal{C}}}_{\kappa}$ as the collection of all finite partial functions from $\kappa$ to $2$, denoted by ${\rm Fn}(\kappa,2)$, or more broadly, for any set $X$, let ${{\mathcal{C}}}_{X}={\rm Fn}(X,2)$. This construct, known as Cohen forcing, facilitates the addition of $\kappa$ many Cohen reals. Meanwhile, the notion of ${{\mathcal{R}}}_{\kappa}$ refers to the random forcing that enables the introduction of $\kappa$ many random reals, which can be represented as a poset comprising Borel sets of positive measure within the space $\mbox{}^{{\kappa}}2$. This, in turn, corresponds to a homogeneous measure algebra of Maharam type $\kappa$, underscoring the intricate relationship between these mathematical structures.
+
+This section investigates the potential values that the function $\mathfrak{a}^{+}(\cdot)$ can assume.
+
+The cardinal invariant $\mathfrak{a}({\mathcal{X}})$, referred to as the almost disjoint number, is defined as the minimum cardinality of an infinite family ${\mathcal{F}}$ of subsets of ${\mathcal{X}}$ such that ${\mathcal{F}}$ is maximally almost disjoint in ${\mathcal{X}}$, denoted by equation (1.1).
+
+The emerging picture of complex analysis in general and of entire functions in particular was one of strong general principles governing their behaviour. Against this backdrop, while writing his dissertation during the sixties of the last century, John E. Wetzel asked (cum grano salis) whether any family $\mathcal{F}$ of entire functions such that for each complex number $z$ the set $\{f(z):f\in\mathcal{F}\}$ is countable, must be countable itself. Dixon showed that, assuming the failure of the continuum hypothesis, this is indeed the case — in fact, this is a corollary of the aforementioned identity theorem, cf. [16] . Shortly thereafter, Erdős proved that not only does the negation of the continuum hypothesis imply this statement, it is equivalent to it, [13] . In fact this result is one among many statements in various areas of mathematics proved to be equivalent to the continuum hypothesis, cf. [31] . Towards the end of his paper, Erdős asked whether the analogue statement resulting from replacing “countable” by “fewer than continuum many” can be proved without assuming the continuum hypothesis. Following a suggestion by Martin Goldstern we subsequently refer to a family of entire functions whose members everywhere assume fewer values than the family has members altogether as a Wetzel family (see Definition 3.1 ). In this terminology, Erdős asked whether the existence of a Wetzel family is provable from $\mathsf{ZFC}$ . One might also ask whether the continuum hypothesis is equivalent to the existence of a Wetzel family.
+
+For readers unfamiliar with forcing theory concepts, references [7] and [8] provide a comprehensive overview, and our notation and conventions largely align with those presented in these sources. Specifically, we consider elements of posets ${\mathbb{P}}$ such that stronger conditions correspond to smaller elements. Our construction of ${\mathbb{P}}$-names follows the approach outlined in [8], with the notation $\mathop{a}\limits_{\raise 0.75346pt\hbox{$\scriptstyle\sim$}}$ and $\mathop{b}\limits_{\raise 0.75346pt\hbox{$\scriptstyle\sim$}}$ denoting the ${\mathbb{P}}$-names associated with sets $a$ and $b$ in the generic extension. The ground model is denoted by $V$, and the canonical ${\mathbb{P}}$-names of elements $a$ and $b$ in $V$ are represented by $\hat{a}$ and $\hat{b}$. Furthermore, for a poset ${\mathbb{P}}$ in $V$, we use $V^{\mathbb{P}}$ to represent a generic extension $V[G]$ of $V$ obtained via a $(V,{\mathbb{P}})$-generic filter $G$, such that statements about $V^{\mathbb{P}}$ are equivalent to assertions about the forcing relation $\|\mbox{\sf--}_{\,{\mathbb{P}}\,}\mbox{\rm``}\,\cdots\,\mbox{\rm''}$, and phrases like "Let $W=V^{\mathbb{P}}$" imply that $W$ is a generic extension of $V$ by some $(V,{\mathbb{P}})$-generic filter.
+
+A succinct visual representation of the inequalities derived in this section is provided in Figure 1, which synthesizes the cardinal diagram presented by Brendle [4], wherein the notation " $\kappa\,\rightarrow\,\lambda$ " denotes that the statement " $\kappa\leq\lambda$ " is demonstrable within the Zermelo-Fraenkel set theory framework, thereby underscoring the relationships between these cardinalities. Nevertheless, certain ambiguities persist regarding the exhaustiveness of this diagram, prompting further inquiry, notably with respect to its completeness.
+
+This study focuses on scenarios in which the underlying set, denoted as $S$, is defined by the union of elements from collection $\mathcal{X}$ (or equivalently, collection $\mathcal{F}$), and is restricted to being countable in nature. Conversely, forthcoming research, including a sequel to this paper as referenced in [5], will expand the scope to encompass instances where $S$ may exhibit uncountability, thereby exploring a broader range of possibilities.
+
+The main result of our paper is Theorem 5.13 , that shows that starting from a model of the generalised continuum hypothesis and any cardinal $\kappa$ of uncountable cofinality, there is a cardinal and cofinality preserving forcing extension with a Wetzel family of size $\kappa$ . In particular this completely solves Kumar and Shelah’s open problem by showing that Wetzel families put no further restriction on the size of the continuum. Moreover, for regular $\kappa$ we can also force Martin’s axiom. We also study the notion of universality from above and show that while $\mathsf{MA}$ precludes the existence of sufficiently universal sets, they can consistently exist while $2^{\aleph_{0}}=\aleph_{2}$ .
+
+While some basic knowledge of set theory is needed to understand the main results, a large part of the arguments (with an exception of those in Section 4 and 7 ) is more analytic than set theoretic.
+
+The paper is organized as follows. In the following first section we review some of the preliminaries in complex analysis and forcing that are used in the paper. In the next section, Section 3 , we introduce Wetzel families and universal sets and prove some $\mathsf{ZFC}$ results about them. Among other things, we show that Wetzel families must have cardinality $2^{\aleph_{0}}$ , we provide a proof of Erdős’ result on countable dense sets and we show that universal sets imply the existence of Wetzel families. In Section 4 , we show how to force a certain family of strongly almost disjoint functions that serves as a basic (and somewhat necessary) ingredient in the proof of the main result. In fact, it turns out that this solves [33] . We also obtain some interesting additional results related to $\mathsf{MA}$ that shine some light on one of our open questions. This section can be read completely independently from the rest the paper. Section 5 is the longest and contains the proof the main result, Theorem 5.13 . In Section 6 , we show that universal sets do not exist under $\mathsf{MA}+\neg\mathsf{CH}$ . As a corollary we obtain that the converse of Proposition 3.7 , namely the statement that Wetzel families imply the existence of a universal set, does not hold. In the next Section, we then show that a universal set, as suggested by Kumar and Shelah, can consistently exist with continuum $\aleph_{2}$ . This uses a proper forcing, based on some of the previous arguments, with pairs of models as side-conditions. We finish the paper with a list of open problems.
+
+2. Preliminaries
+
+The family ${\mathcal{F}}$ described in Theorem 3.1 satisfies the required conditions, as any maximal almost disjoint extension ${\mathcal{F}}^{\prime}$ of ${\mathcal{F}}$ in $V^{\mathbb{P}}$ is contained in ${\mathcal{N}\mathcal{D}}_{T}$, and the addition of a further Cohen real over $V^{\mathbb{P}}$ yields a branch that avoids almost all elements of ${\mathcal{F}}^{\prime}$, thereby rendering ${\mathcal{F}}^{\prime}$ non-maximal in $V^{{\mathbb{P}}\ast{{\mathcal{C}}}_{\omega}}$.
+
+We define the set ${\mathcal{N}\mathcal{D}\mathcal{N}}_{T}$ as the intersection of two distinct sets, namely ${\mathcal{N}\mathcal{D}}_{T}$ and ${\mathcal{N}}_{T}$, thereby creating a new set that comprises elements common to both.
+
+For $z\in\mathbb{C}$ and $\delta$ a positive real number, we let $B_{\delta}(z)=\{z^{\prime}\in\mathbb{C}:|z-z^{\prime}|<\delta\}$ be the ball of radius $\delta$ around $z$ . We also define the semi-norms Recall that a sequence of functions $\bar{f}=\langle f_{n}:n\in\omega\rangle$ on $\mathbb{C}$ is said to converge uniformly on compact sets, if for every $\delta>0$ , $\bar{f}$ converges uniformily on $B_{\delta}(0)$ , i.e. for every $\varepsilon>0$ , there is $N\in\omega$ so that for all $n_{0},n_{1}>N$ , Among the most useful facts about entire functions that we will use is the following.
+
+Let $\langle f_{n}:n\in\omega\rangle$ be a sequence of entire functions that converges uniformily on every compact set. Then the pointwise limit $f$ of $\langle f_{n}:n\in\omega\rangle$ is entire.
+
+For any countably infinite subset $X$ of $T$, there exists a subset $X^{\prime}$ of $X$, also possessing a countable infinity of elements, which belongs to the collection ${\mathcal{N}\mathcal{D}}_{T}$ of nowhere dense subsets of $T$.
+
+In order to establish the theorem, we employ a specific class of forcing notions, which are defined as follows: consider a collection $\mathcal{I}$ of countably infinite subsets of $\omega$ that is closed under union and has the property that the complement of each of its members is also countably infinite. We then define a partially ordered set $\mathbb{Q}_\mathcal{I}$ as the Cartesian product of the set of finite functions from $\omega$ to $2$ and the collection $\mathcal{I}$. The partial order $\leq_{\mathbb{Q}_\mathcal{I}}$ on $\mathbb{Q}_\mathcal{I}$ is defined such that for any two elements $\langle s, A \rangle$ and $\langle s', A' \rangle$ in $\mathbb{Q}_\mathcal{I}$, $\langle s', A' \rangle$ is less than or equal to $\langle s, A \rangle$ if and only if $s$ is a subset of $s'$, $A$ is a subset of $A'$, and for all $n$ in the domain of $s'$ but not in the domain of $s$, if $n$ is in $A$, then $s'(n)$ equals $0$. It is evident that $\mathbb{Q}_\mathcal{I}$ is $\sigma$-centered, meaning it can be expressed as a countable union of centered subsets.
+
+Let $\mathbb{P}*\dot{\mathbb{Q}}$ be a two step iteration. Then $\mathbb{P}*\dot{\mathbb{Q}}$ is ccc iff $\mathbb{P}$ is ccc and $\Vdash_{\mathbb{P}}\dot{\mathbb{Q}}\text{ is ccc}$ .
+
+In the context of a partially ordered set, denoted as ${\mathbb{P}}$ and equipped with a binary relation $\leq_{\mathbb{P}}$, consider a subset $X$ of ${\mathbb{P}}$ and an element $p$ belonging to ${\mathbb{P}}$. The subset of $X$ consisting of all elements that are less than or equal to $p$ with respect to the partial order $\leq_{\mathbb{P}}$ can be defined as the set of all $q$ in $X$ such that $q$ is related to $p$ by $\leq_{\mathbb{P}}$, denoted concisely as $X\downarrow p$.
+
+In the context of the generic extension $V^{{\mathbb{P}}_{\omega_{2}}}$, consider an ad family ${\mathcal{F}}$ of cardinality $\aleph_{1}$, consisting of countably infinite subsets of $\omega$. The countable chain condition of the forcing notion ${\mathbb{P}}_{\omega_{2}}$ implies the existence of a sufficiently small ordinal $\alpha^{*}<\omega_{2}$ such that ${\mathcal{F}}$ belongs to the intermediate generic extension $V^{{\mathbb{P}}_{\alpha^{*}}}$. Utilizing the properties established in equations (4.5) and (4.3), it is possible to construct a sequence of sets $A_{\alpha}$, indexed by ordinals $\alpha$ ranging from $\alpha^{*}$ to $\omega_{2}$, with the property that for any set $B$ of countably infinite subsets of $\omega$ in $V^{{\mathbb{P}}_{\alpha}}$, $A_{\alpha}$ is almost disjoint from $B$ if and only if $B$ belongs to the ideal generated by ${\mathcal{F}}$ and the sets $A_{\beta}$ with $\alpha^{*}<\beta<\alpha$. Given that the collection of countably infinite subsets of $\omega$ in $V^{{\mathbb{P}}_{\omega_{2}}}$ is the union of those in $V^{{\mathbb{P}}_{\alpha}}$ for all $\alpha<\omega_{2}$, it follows that the combined family ${\mathcal{F}}\cup\{A_{\alpha}\,:\,\alpha\in\omega_{2}\setminus\alpha^{*}\}$ forms a maximal almost disjoint family in $V^{{\mathbb{P}}_{\omega_{2}}}$. This construction demonstrates that, within the model $V^{{\mathbb{P}}_{\omega_{2}}}$, the cardinal invariant $\mathfrak{a}^{+}(\aleph_{1})$ is bounded above by $\aleph_{2}$.
+
+The iterative direct limit of ccc forcings is ccc. To be more precise, suppose $\langle\mathbb{P}_{\delta}:\delta\leq\alpha\rangle$ is a sequence of posets, $\alpha$ limit, so that
+
+for all $\gamma\leq\delta\leq\alpha$ , $\mathbb{P}_{\gamma}\lessdot\mathbb{P}_{\delta}$ ,
+
+for every limit $\delta\leq\alpha$ , $\bigcup_{\gamma<\delta}\mathbb{P}_{\gamma}$ is dense in $\mathbb{P}_{\delta}$ ,
+
+and for all $\delta<\alpha$ , $\mathbb{P}_{\delta}$ is ccc.
+
+Then also $\mathbb{P}_{\alpha}$ is ccc.
+
+ Thus, if $G$ is $\mathbb{P}_{\alpha}$-generic over $V$, then in $V[G]$, every mad family on the set $T$ with cardinality $\aleph_{0}$ either fails to be maximal or is no longer almost disjoint, depending on whether a specific poset $\mathbb{P}$ adds a certain real, thereby rendering the family non-maximal, or if the family remains maximal but $\mathbb{P}$ introduces a new subset of $T$ of size $\aleph_{0}$ that intersects every member of the family, in which case the family is considered $\mathbb{P}$-destructible; otherwise, it is $\mathbb{P}$-indestructible.
+
+According to T. Leathrum, the elements of ${\mathcal{O}}_{T}$ can be referred to as off-binary sets, and it is worth noting that the closure of a set $X$ is empty if and only if there exists no branch within $T$ that has an infinite intersection with $X$.
+
+2.1. Complex analysis
+
+Throughout the paper, $\mathbb{C}$ denotes the set of complex numbers. A function $f\colon\mathbb{C}\to\mathbb{C}$ is entire if it is holomorphic on the domain $\mathbb{C}$ , in other words, its complex derivative $f^{\prime}$ exists in every point $z\in\mathbb{C}$ . The set of entire functions will be denoted $\operatorname{\mathcal{H}(\mathbb{C})}$ .
+
+Let $f,g\in\operatorname{\mathcal{H}(\mathbb{C})}$ and assume that the set $\{z\in\mathbb{C}:f(z)=g(z)\}$ has an accumulation point. Then $f=g$ .
+
+Assuming $A_{0}$ and $A_{1}$ are distinct elements of $\mathcal{F}$, expressed as $F_{n_{0}}(f_{0})$ and $F_{n_{1}}(f_{1})$ respectively, if $n_{0}$ and $n_{1}$ are not equal, then the intersection of $A_{0}$ and $A_{1}$ contains at most one element, implying $f_{0}$ and $f_{1}$ are distinct, and consequently, the intersection of $F(f_{0})$ and $F(f_{1})$ has a cardinality less than $\aleph_{0}$, as per equation (3.7).
+
+For any non-negative integers $n$ and $k$, we define the subset $T_{n,k}$ of $T$ as the set of all elements $s$ in $T$ that extend the restriction of $q_n$ to $\ell_{q}+k$ and also include the pair $\langle\ell_{q}+k,1\rangle$. Furthermore, we denote by $\langle s_{n,k,i}\,:\,i\in\omega\rangle$ an injective enumeration of the elements in $T_{n,k}$. Given a function $f$ from $\omega$ to $\omega$, and for a fixed $n$, we introduce the set $F_n(f)$, which consists of the elements $s_{n,k,i}$ where $k$ belongs to the domain of the function $F$ applied to $f$, and $i$ is the value of $F(f)$ at $k$.
+
+To establish this assertion, we employ mathematical induction on the parameter $k$. Specifically, for an arbitrary sequence $s$ belonging to the set of all finite sequences of natural numbers, we aim to demonstrate the existence of a subsequence $s^{\prime}$ of $s$ and a natural number $m^{\prime}$ such that the cardinality of the intersection between the restriction of the function $h$ to $m^{\prime}$ and the set $F(g)$ is greater than or equal to $k$ for all $g$ in the set of all infinite sequences extending $s^{\prime}$. Assuming the validity of this statement for $k = \ell$, and considering an arbitrary sequence $s$, the induction hypothesis allows us to assume, without loss of generality, the existence of a natural number $m$ for which the cardinality of the intersection between the restriction of $h$ to $m$ and the set $F(f)$ is greater than or equal to $\ell$ for all $f$ in the set of all infinite sequences extending $s$.
+
+2.2. Forcing
+
+Here we review a few standard facts about forcing that we will find useful. We use standard forcing notation as used in the reference books [20] or [23] .
+
+Let $\mathbb{P}*\dot{\mathbb{Q}}$ be a two step iteration. Then $\mathbb{P}*\dot{\mathbb{Q}}$ is ccc iff $\mathbb{P}$ is ccc and $\Vdash_{\mathbb{P}}\dot{\mathbb{Q}}\text{ is ccc}$ .
+
+A function $F$ exists that maps countable sequences of natural numbers to subsets of the real numbers, satisfying two key properties: for any two distinct sequences, the intersection of their images under $F$ is finite, and for any non-meager subset of sequences and any given sequence, there exists a sequence in the subset whose image under $F$ intersects the given sequence in a countably infinite set. Moreover, such a function $F$ can be defined in a way that is both definable and absolute, meaning its properties are preserved when extended to any generic extension of the underlying model.
+
+In the context of the model $W$, defined as $V$ augmented by the constructible sets relative to $\omega_{1}$, there exists a family of subsets ${\mathcal{F}}$ of ${\mathcal{N}}_{T}$, whose cardinality is $\aleph_{1}$, such that for any partially ordered set ${\mathbb{P}}$ in $V$ that satisfies the countable chain condition, the forcing extension $W^{{\mathbb{P}}}$ models the property that the orthogonal complement of ${\mathcal{F}}$ is contained in the set ${\mathcal{O}}_{T}$.
+
+The iterative direct limit of ccc forcings is ccc. To be more precise, suppose $\langle\mathbb{P}_{\delta}:\delta\leq\alpha\rangle$ is a sequence of posets, $\alpha$ limit, so that (1) for all $\gamma\leq\delta\leq\alpha$ , $\mathbb{P}_{\gamma}\lessdot\mathbb{P}_{\delta}$ , (2) for every limit $\delta\leq\alpha$ , $\bigcup_{\gamma<\delta}\mathbb{P}_{\gamma}$ is dense in $\mathbb{P}_{\delta}$ , (3) and for all $\delta<\alpha$ , $\mathbb{P}_{\delta}$ is ccc. Then also $\mathbb{P}_{\alpha}$ is ccc.
+
+
+
+It suffices to notice that a predense subset of $\mathbb{P}*\dot{\mathbb{A}}$ (and respectively of $\mathbb{Q}*\dot{\mathbb{B}}$ ), is precisely the same as a $\mathbb{P}$ -name (or $\mathbb{Q}$ -name) for a predense subset of $\dot{\mathbb{A}}$ (respectively $\dot{\mathbb{B}}$ ). For the direction from left to right, see also for example [7] . ∎
+
+3. Wetzel families and universal sets
+
+A family $\mathcal{F}\subseteq\operatorname{\mathcal{H}(\mathbb{C})}$ of entire functions is called a Wetzel family if for every $z\in\mathbb{C}$ , $|\{f(z):f\in\mathcal{F}\}|<|\mathcal{F}|$ .
+
+If $\mathcal{F}$ is a Wetzel family, then $|\mathcal{F}|=2^{\aleph_{0}}$ and for every $\lambda<2^{\aleph_{0}}$ and all but less than $2^{\aleph_{0}}$ -many $z\in\mathbb{C}$ , $|\{f(z):f\in\mathcal{F}\}|\geq\lambda$ .
+
+Assuming ${\mathcal{F}}$ is a maximal almost disjoint family in ${\mathcal{N}\mathcal{D}\mathcal{N}}_{T}$, it follows that ${\mathcal{F}}$ is an almost disjoint family in ${\mathcal{N}\mathcal{D}}_{T}$ and, furthermore, maximal in this context. To verify this maximality, suppose there exists a set $X$ in ${\mathcal{N}\mathcal{D}}_{T}$ that is almost disjoint from ${\mathcal{F}}$. By applying an appropriate analog of Lemma 2.3, there is a countable subset $X^{\prime}$ of $X$ that belongs to ${\mathcal{N}\mathcal{D}\mathcal{N}}_{T}$. However, this leads to a contradiction, as it implies ${\mathcal{F}}$ is not maximal in ${\mathcal{N}\mathcal{D}\mathcal{N}}_{T}$. A similar argument can be employed to establish the second inequality.
+
+The set ${\mathcal{F}}$ is a subset of ${\mathcal{A}}_{T}$.
+
+For any ordinal $\alpha$ satisfying $\omega\leq\alpha<\omega_{1}$, assume that a collection of pairwise almost disjoint sets $A_{\beta}$ has been established for all $\beta<\alpha$. We enumerate these sets as $\langle B_{\ell}\,:\,\ell\in\omega\rangle$ and, for each natural number $n$, we further enumerate the elements of the set $C_{n}=T\setminus\left(\mbox{}^{{n>}}2\cup\{B_{\ell}\,:\,\ell<n\}\right)$ as $\langle b_{n,m}\,:\,m\in\omega\rangle$. Then, we define the set $A_{\alpha}$ as the collection of elements $b_{n,g^{G}_{\alpha}(n)}$ for all $n\in\omega$. By construction, $A_{\alpha}$ belongs to the set ${\mathcal{N}}_{T}$, and it is almost disjoint from the previously constructed sets $\{A_{\beta}\,:\,\beta<\alpha\}$.
+
+Under $\mathsf{CH}$ , this type of almost disjoint family of functions can be obtained quite easily. For instance, for any $\alpha<\omega_{1}$ , simply let $\sigma_{\alpha}$ be constantly $0$ below $\alpha$ and constantly equal to $\alpha$ above $\alpha$ .
+
+We consider an enumeration of the countably infinite subsets of $T$, denoted as $\langle B_{\beta}\,:\,\beta<\mathfrak{c}\rangle$. An inductive definition is used to construct the sets $A_{\alpha}$ for $\alpha<\mathfrak{c}$, where the following conditions are satisfied: the collection of sets $A_{n}$ for $n\in\omega$ forms a partition of $T$ into infinite subsets; for any $\alpha\in\mathfrak{c}\setminus\omega$, $A_{\alpha}$ is almost disjoint from $A_{\beta}$ for all $\beta<\alpha$; and for $\beta<\alpha$, if $B_{\beta}$ is not in the ideal generated by $\{A_{\delta}\,:\,{\delta}<{\alpha}\}$, then $A_{\alpha}$ and $B_{\beta}$ have a countably infinite intersection.
+
+Utilizing a countably infinite set, such as the set of all natural numbers, as the foundation for $T$ offers a significant benefit, as it enables the definition of various subsets of its power set, including notable collections like ${\mathcal{O}}_{T}$, ${\mathcal{A}}_{T}$, and ${\mathcal{B}}_{T}$, which can be naturally derived from this underlying structure.
+
+As a small observation of independent interest let us mention:
+
+A Wetzel family cannot consist only of polynomials.
+
+Suppose $\mathcal{F}$ is such a family. Since $|\mathcal{F}|=2^{\aleph_{0}}$ and $2^{\aleph_{0}}$ has uncountable cofinality, we can assume that all polynomials in $\mathcal{F}$ have the same degree $n$ . Then pick any $n+1$ -many points $a_{0},\dots,a_{n}\in\mathbb{C}$ . The set $\{f\restriction\{a_{0},\dots,a_{n}\}:f\in\mathcal{F}\}$ has size less than $2^{\aleph_{0}}$ , because $\mathcal{F}$ is Wetzel. But each $f\in\mathcal{F}$ is uniquely determined by $f\restriction\{a_{0},\dots,a_{n}\}$ and so $\mathcal{F}$ has small size as well, contradicting Lemma 3.2 . ∎
+
+We call a set $Y\subseteq\mathbb{C}$ , where $|Y|<2^{\aleph_{0}}$ , universal (for entire functions) if for any $X\subseteq\mathbb{C}$ with $|X|<2^{\aleph_{0}}$ , there is a non-constant $f\in\mathcal{H}(\mathbb{C})$ , such that $f(X)\subseteq Y$ .
+
+Assuming $\mathsf{CH}$ , any countable dense set is universal.
+
+Let us write the argument for sake of completeness. In a way, the forcing notions we will use later mimic this construction.
+
+According to the countable chain condition of the product ${{\mathcal{C}}}_{\omega_{1}}*\hat{{\mathbb{P}}}$, which is equivalent to ${{\mathcal{C}}}_{\omega_{1}}\times{\mathbb{P}}$, there exists a specific ordinal $\alpha^{*}$ in $\omega_{1}$ such that the set $X$ belongs to the model $V[G\restriction{{\mathcal{C}}}_{\omega\alpha^{*}}][H]$. Considering an element $t$ of the tree $T$ such that $X$ is dense below $t$, we can define a subset $D$ of ${{\mathcal{C}}}_{\omega_{1}\setminus\omega\alpha^{*}}$ as the collection of all conditions $p$ for which there exists an ordinal $\alpha$ in $\omega_{1}\setminus\omega\alpha^{*}$ satisfying $t^{p}_{\alpha}\supseteq t$, and this set $D$ is dense in ${{\mathcal{C}}}_{\omega_{1}\setminus\omega\alpha^{*}}$.
+
+Every infinite cardinal number that is less than or equal to the cardinality of the continuum can be expressed in the form $\mathfrak{a}^{+}({\mathcal{F}})$ for a suitable family ${\mathcal{F}}$.
+
+Suppose that there is $X\subseteq\mathbb{C}$ uncountable with $|Y|<|X|<2^{\aleph_{0}}$ . If $f\in\operatorname{\mathcal{H}(\mathbb{C})}$ and $f^{\prime\prime}X\subseteq Y$ , by the pigeonhole principle, there is $y\in Y$ such that $\{z\in X:f(z)=y\}$ is uncountable. But then this set has an accumulation point and by Proposition 2.1 , $f$ is constant. ∎
+
+If there is a universal set there is also a Wetzel family.
+
+For any ordinal $\beta$ less than $\alpha$, we define the set $C_{\beta}$ as the collection of all ordered pairs $\langle\varphi,s\rangle$ belonging to the poset ${\mathbb{P}}_{\alpha}$ such that $\beta$ is an element of $s$. Furthermore, given $\beta$ in $S_{\alpha}$ and a natural number $n$, the set $D_{\beta,n}$ comprises all ordered pairs $\langle\varphi,s\rangle$ in ${\mathbb{P}}_{\alpha}$ for which there exists a $t$ in the domain of $\varphi$ satisfying $\ell(t)\geq n$, $\varphi(t)=1$, and $t$ is in $B_{\beta}$. The denseness of $C_{\beta}$ for $\beta<\alpha$ and $D_{\beta,n}$ for $\beta\in S_{\alpha}$ and $n\in\omega$ in the poset ${\mathbb{P}}_{\alpha}$ is readily apparent. We construct the family ${\mathcal{D}}$ by taking the union of the sets $C_{\beta}$ for all $\beta<\alpha$ and $D_{\beta,n}$ for all $\beta\in S_{\alpha}$ and $n\in\omega$. Noting that the cardinality of ${\mathcal{D}}$ is less than the cardinality of the continuum, we can invoke the Martin's Axiom for $\sigma$-centered posets to obtain a $({\mathcal{D}},{\mathbb{P}}_{\alpha})$-generic filter $G$. Subsequently, we define $A_{\alpha}$ as the set of all $t$ in $T$ such that $\varphi(t)=1$ for some $\langle\varphi,s\rangle$ in $G$, yielding the desired $A_{\alpha}$.
+
+Assuming $\kappa$ exceeds $\omega_{1}$, we consider the model $W=V^{{{\mathcal{C}}}_{\omega_{1}}}$, which leads to the equivalence $V^{{{\mathcal{C}}}_{\kappa}}=W^{{{\mathcal{C}}}_{\kappa\setminus\omega_{1}}}$. By constructing a maximal almost disjoint family ${\mathcal{F}}$ as in the proof of Theorem 3.4, we can show that any maximal almost disjoint family $\tilde{{\mathcal{F}}}$ on $T$ in $V^{{{\mathcal{C}}}_{\kappa}}$ that contains ${\mathcal{F}}$ must be a subset of $\left({\mathcal{N}\mathcal{D}}_{T}\right)^{V^{{{\mathcal{C}}}_{\kappa}}}$. Given that $V^{{\mathcal{C}}}_{\kappa}$ satisfies ${\sf cov}({\mathcal{M}})\geq\kappa$, Theorem 2.4 implies that the cardinality of $\tilde{{\mathcal{F}}}$ is at least $\kappa$.
+
+Now let $z_{\alpha}\in\mathbb{C}$ be arbitrary. Then $\{f(z_{\alpha}):f\in\mathcal{F}\}\subseteq\{f_{\beta}(z_{\alpha}):\beta\leq\alpha\}\cup Y$ and the right-hand-side has size less than $\kappa$ . ∎
+
+There is a Wetzel family under $\mathsf{CH}$ .
+
+4. Strongly almost disjoint functions and Baumgartner’s thinning-out forcing
+
+We examine the process of extending a given family ${\mathcal{F}}$ of pairwise almost disjoint sets on a countable set $S$ to form maximal almost disjoint families $\tilde{{\mathcal{F}}}$ that encompass the original family.
+
+In the realm of set theory, a profound phenomenon emerges when considering cardinals greater than or equal to the cardinality of the continuum, denoted as $\mathfrak{c}$, within the foundational model $V$. Specifically, for any such cardinal $\kappa$, it is possible to construct a generic extension $W$ of $V$ that preserves cardinals, yet exhibits the property that $\kappa$ becomes less than $\mathfrak{c}$ within $W$. Moreover, this extension $W$ contains a maximal almost disjoint family ${\mathcal{F}}$ of sets, whose cardinality is precisely $\kappa$, and which possesses the notable attribute of being $\kappa$-almost decided. Notably, ${\mathcal{F}}$ also satisfies the condition of $\lambda$-minimality for every cardinal $\lambda$ ranging from $\omega$ to $\kappa$, thereby underscoring the intricate and nuanced nature of set-theoretic constructions.
+
+If $\kappa$ is regular, we additionally have that $|H(\kappa)|=\kappa$ .
+
+Let $S=\bigcup_{\xi\in[\omega,\kappa)}\{\xi\}\times\mu_{\xi}\subseteq[\omega,\kappa)\times\kappa$ and let $K$ be the set of regular cardinals $\leq\kappa$ . For every $\lambda\in K$ consider the forcing $\mathbb{P}_{\lambda}$ consisting of partial functions $p\colon\kappa\to[S]^{<\lambda}$ , such that (1) $|\operatorname{dom}p|<\lambda$ , (2) for all $\alpha,\beta\in\operatorname{dom}p$ , $\operatorname{proj}p(\alpha)=\operatorname{proj}p(\beta)$ , i.e. $p(\alpha)$ and $p(\beta)$ have the same projection to the first coordinate, (3) and for all $\alpha\in\operatorname{dom}p$ and $\xi\in\operatorname{proj}p(\alpha)\cap\lambda$ , $|p(\alpha)\cap(\{\xi\}\times\mu_{\xi})|=\mu_{\xi}$ . We will simply write $\operatorname{proj}p$ to denote $\operatorname{proj}p(\alpha)$ , for any $\alpha\in\operatorname{dom}p$ , and if $\operatorname{dom}p=\emptyset$ , we let $\operatorname{proj}p=\emptyset$ .
+
+For an arbitrary countable set $S$, the cardinality $\mathfrak{a}$ is equivalent to the cardinality of the set of all countably infinite subsets of $S$, denoted as $\mathfrak{a}([S]^{\aleph_{0}})$, where $\aleph_{0}$ represents the cardinality of the set of natural numbers.
+
+If a family ${\mathcal{F}}$ is $\kappa$-almost decided, where $\kappa$ is equal to the cardinality of ${\mathcal{F}}$, then it follows that ${\mathcal{F}}$ is $\lambda$-minimal for any cardinal $\lambda$ satisfying $\omega\leq\lambda<\kappa$.
+
+For a generic filter $G$ with respect to the partial order $(V,{\mathbb{Q}}_{\mathcal{I}})$, we define $f_G$ as the union of all sets $s$ such that $\langle s,A\rangle$ is an element of $G$ for some $A$ in the ideal $\mathcal{I}$. The set $A_G$ is then defined as the preimage of $\{1\}$ under $f_G$. Let $\tilde{\mathcal{I}}$ denote the ideal in $[\omega]^{\aleph_0}$ generated by taking the downward closure of $\mathcal{I}$ with respect to subset inclusion. By virtue of $G$ being generic and the definition of the partial order $\leq_{{\mathbb{Q}}_{\mathcal{I}}}$, it follows that $A_G$ is an infinite set, and moreover, for any $B$ in $([\omega]^{\aleph_0})^V$, $A_G$ is almost disjoint from $B$ if and only if $B$ is an element of $\tilde{\mathcal{I}}$.
+
+It is clear that $\mathbb{P}_{\lambda}$ is $<\lambda$ -closed. Ideally we would like to force with $\mathbb{P}_{\omega}$ , since if we then choose $\sigma_{\alpha}$ , such that $(\omega+\xi,\sigma_{\alpha}(\xi))\in S_{\alpha}$ , for every $\xi<\kappa$ , (1) and (2) of the proposition are satisfied. But $\mathbb{P}_{\omega}$ is far from being ccc. To circumvent this we use Baumgartner’s thinning out trick.
+
+Let $\mathbb{P}\subseteq\prod_{\lambda\in K}\mathbb{P}_{\lambda}$ consist of all $\bar{p}=\langle p_{\lambda}:\lambda\in K\rangle$ such that for $\lambda^{\prime}<\lambda$ , $\operatorname{dom}p_{\lambda^{\prime}}\subseteq\operatorname{dom}p_{\lambda}$ and for any $\alpha\in\operatorname{dom}p_{\lambda^{\prime}}$ , $p_{\lambda^{\prime}}(\alpha)\subseteq p_{\lambda}(\alpha)$ . When $G$ is $\mathbb{P}$ -generic, we obtain the sets $S^{\lambda}_{\alpha}=\bigcup_{\bar{p}\in G}p_{\lambda}(\alpha)$ for every $\lambda\in K$ and it is very easy to see again that 
+ 
+ $|S^{\lambda}_{\alpha}\cap S^{\lambda}_{\beta}\cap([\lambda^{-},\kappa)\times\kappa)|<\lambda,$ 
+ for $\alpha<\beta<\kappa$ . Let us check that all vertical sections of $S^{\lambda}_{\alpha}$ are non-empty. To this end let $\bar{p}\in\mathbb{P}$ be arbitrary.
+
+There is $\bar{q}\leq\bar{p}$ so that $\alpha\in\operatorname{dom}q_{\lambda}$ .
+
+ This implies that for any $\alpha$ in $X$ , there exists a $\bar{q}\leq\bar{p}$ such that $\alpha\)  is in the domain of \( q_{\lambda} \)  and $\operatorname{dom}q_{\lambda}\subseteq \bigcup_{k=n+1}^{\infty} \operatorname{dom} T \downarrow t_{k}$ for all $n$ . Using the properties of the outer measure $\mu$ , we can deduce that $\mu(X) \leq \sum_{k=n+1}^{\infty} \mu(\operatorname{dom} T \downarrow t_{k}) \leq \sum_{k=n+1}^{\infty} 2^{k} = 2^{-n}$ for any $n$ . Consequently, we conclude that $\mu(X)$ must equal $0$ .
+
+Now let $\xi\in[\omega,\kappa)$ be arbitrary.
+
+There is $\bar{q}\leq\bar{p}$ so that $\xi\in\operatorname{proj}q_{\lambda}$ .
+
+Assuming $A$ is an element of $\mathcal{F}$ and can be expressed as $F_{n}(f)$ for some natural number $n$ and function $f$ in $N$, if $s_{0}$ and $s_{1}$ are distinct elements of $A$, then they can be represented as $s_{n,k_{0},i_{0}}$ and $s_{n,k_{1},i_{1}}$ respectively, where $k_{0}$ and $k_{1}$ are distinct elements in the domain of $F(f)$ and $i_{0}$ and $i_{1}$ are natural numbers. As a result, $s_{0}$ belongs to $T_{n,k_{0}}$ and $s_{1}$ belongs to $T_{n,k_{1}}$, implying that $s_{0}$ and $s_{1}$ are incompatible.
+
+Given the assumption that the Maximality Axiom for $\sigma$-centered partial orders is true, it follows that there exists a maximal almost disjoint family $\mathcal{F}$ on a set $T$ such that for any cardinal $\lambda$ between $\omega$ (the first infinite cardinal) and $\mathfrak{c}$ (the cardinality of the continuum), $\mathcal{F}$ is minimal among families of the same size $\lambda$.
+
+For each natural number $n$, we can identify a set $A_n$ in the collection $\mathcal{N}_T$ such that the sequence $\langle A_n : n \in \omega \rangle$ forms a partition of $T$ within the model $V$, and Lemma 3.6 provides a straightforward method for obtaining such sets $A_n$.
+
+The $\sigma_{\alpha}$ as defined above, for $S_{\alpha}=S_{\alpha}^{\omega}$ , are then as required.
+
+$\mathbb{P}$ preserves all regular cardinals.
+
+Let $\lambda\in K$ . We will show how to factor $\mathbb{P}$ into a two step iteration of a $<\lambda^{+}$ -closed and a $\lambda^{+}$ -cc forcing. Let $\mathbb{P}_{0}=\{\bar{p}\restriction[\lambda^{+},\kappa]:\bar{p}\in\mathbb{P}\}$ and note that $\mathbb{P}_{0}$ is $<\lambda^{+}$ -closed and thus doesn’t add sequences of length $\lambda$ . \footnote{ 2 When $\lambda=\kappa$ , then $\mathbb{P}_{0}$ is simply the trivial forcing.} Let $G_{0}$ be $\mathbb{P}_{0}$ -generic over $V$ . Let $S_{\alpha}=S_{\alpha}^{\lambda^{+}}$ , for $\alpha<\kappa$ , be defined as before, i.e. 
+ 
+ $S_{\alpha}=\bigcup_{\bar{p}\in G_{0}}p_{\lambda^{+}}(\alpha).$ 
+
+
+In the forcing extension $V[G]$ obtained by adjoining a $(V,{\mathbb{P}})$-generic set $G$, the set $N$ retains its property of being non-meager, as guaranteed by our initial hypothesis.
+
+We consider a natural number $n$ that satisfies $n\geq m, |s|$ and $s_n \supseteq s$. By defining $s' = s_n \cup \{\langle |s_n|, h(n)\rangle\}$, for any $g \in [s']$, it follows that $n$ is in the domain of $F(g)$ due to $s_n \subseteq s' \subseteq g$, and $F(g)(n) = g(|s_n|) = h(n)$. Setting $m' = n + 1$, we find that the intersection of the restriction of $h$ to $m'$ and $F(g)$ has a cardinality of at least $\ell + 1$, thereby satisfying condition (3.15) for $k = \ell + 1$ with the chosen $s'$ and $m'$.
+
+Assuming $\alpha$ is an element of the set of ordinal numbers beyond the set of natural numbers, denoted as $\mathfrak{c}\setminus\omega$, and that the sets $A_{\beta}$ have been previously defined for all $\beta$ less than $\alpha$ in accordance with equations (6.1), (6.3), and (6.5), we proceed to define $S_{\alpha}$ as the collection of all ordinals $\beta$ less than $\alpha$ for which $B_{\beta}$ does not belong to the ideal generated by the sets $A_{\delta}$, where $\delta$ ranges over all ordinals less than $\alpha$. Furthermore, we introduce the poset ${\mathbb{P}}_{\alpha}$, comprising ordered pairs $\langle\varphi, s\rangle$ where $\varphi$ is a function from a subset of $T$ to the set $\{0, 1\}$ and $s$ is a finite subset of $\alpha$. The ordering relation $\leq_{{\mathbb{P}}_{\alpha}}$ on this poset is defined such that $\langle\varphi^{\prime}, s^{\prime}\rangle$ is less than or equal to $\langle\varphi, s\rangle$ if and only if $\varphi$ is a subset of $\varphi^{\prime}$, $s$ is a subset of $s^{\prime}$, and for every $t$ in the domain of $\varphi^{\prime}$ but not in the domain of $\varphi$, if $\varphi^{\prime}(t) = 1$, then $t$ is not an element of $A_{\delta}$ for any $\delta$ in $s$. This intricate definition sets the stage for further analysis involving the interplay between these sets and the poset ${\mathbb{P}}_{\alpha}$.
+
+For any two ordinals $\alpha$ and $\beta$ less than $\omega_{1}$, where $\alpha$ precedes $\beta$, the sets $A_{\alpha}$ and $A_{\beta}$ exhibit a property of pairwise almost disjointness. This phenomenon can be observed by considering the existence of a threshold value $k_{0}$ within the realm of natural numbers, beyond which the functions $t^{G}_{\alpha,k}$ and $f^{G}_{\beta,k}$ diverge for all $k$ greater than $k_{0}$. Consequently, the intersection of $A_{\alpha}$ and $A_{\beta}$ is confined to a subset of sequences that can be expressed as the concatenation of $t^{G}_{\alpha}$, an intermediate sequence $t^{*}_{k}$, and $t^{G}_{\alpha,k}$, where $k$ is strictly less than the aforementioned threshold $k_{0}$.
+
+For every regular cardinal $\kappa$, the constructible universe $V^{{{\mathcal{C}}}_{\kappa}}$ satisfies the inequality $\mathfrak{a}^{+}(\aleph_{1})\geq\kappa$.
+
+We assert that $\mathfrak{a}^{+}({\mathcal{F}})=\kappa$: By virtue of Lemma 2.1, the collection ${\mathcal{F}}\cup\{B(f)\,:\,f\in X^{\prime}\}$ constitutes a mad family, which implies that $\mathfrak{a}^{+}({\mathcal{F}})$ is bounded above by $\kappa$. Furthermore, Lemma 2.1 also ensures that for any ad subfamily ${\mathcal{G}}$ of ${\mathcal{F}}^{\perp}$ with cardinality less than $\kappa$, there exists a functional $f$ in $X^{\prime}$ such that $B(f)$ is nearly disjoint from every element of ${\mathcal{G}}$, thereby yielding $\mathfrak{a}^{+}({\mathcal{F}})\geq\kappa$.
+
+This study examines the characteristics of maximal almost disjoint families that extend a given family of pairwise almost disjoint countable sets, exploring specific cases and related issues, as also investigated in a complementary publication.
+
+In establishing the validity of Theorem 3.1, a subsidiary proposition, herein referred to as a lemma, serves as a crucial precursor, providing a foundational basis for the subsequent demonstration.
+
+$2^{\aleph_{0}}=\aleph_{2}$ implies that there is $\langle\sigma_{\alpha}:\alpha<\omega_{2}\rangle$ so that for any $\alpha<\beta<\omega_{2}$ , $\sigma_{\alpha}\in~{}^{\omega_{2}}\omega_{1}$ and $|\sigma_{\alpha}\cap\sigma_{\beta}|<\omega_{1}$ .
+
+In fact, $\mathsf{MA}+2^{\aleph_{0}}=\aleph_{2}$ (in particular $\mathsf{PFA}$ ) implies that we can even assume finite intersections, and thus the conclusion of Proposition 4.1 holds.
+
+For each ordinal $\alpha$ in $\omega_{1}$, we define the set $A_{\alpha}$ as the collection of sequences formed by concatenating $t^{G}_{\alpha}$ with $t^{*}_{k}$ and $t^{G}_{\alpha,k}$ for every natural number $k$.
+
+We demonstrate that the family ${\mathcal{F}}=\{A_{\alpha}\,:\,\alpha<\omega_{1}\}$ satisfies the desired conditions. Assuming ${\mathbb{P}}$ is a c.c.c. poset in $W$ and ${\mathbb{P}}\in V$, let $H$ be a $(W,{\mathbb{P}})$-generic filter. To establish the claim, it suffices to show that in $W[H]$, any $X\in[T]^{\aleph_{0}}\setminus{\mathcal{O}}_{T}$ is not almost disjoint from ${\mathcal{F}}$. Thus, suppose $X\in[T]^{\aleph_{0}}\setminus{\mathcal{O}}_{T}$ and $f\in\mathopen{\lceil}X\mathclose{\hskip 0.43057pt\rceil}$ in $W[H]$. Let $B=X\cap B(f)$, and by the c.c.c. of ${{\mathcal{C}}}_{\omega_{1}}\ast\hat{{\mathbb{P}}}\sim{{\mathcal{C}}}_{\omega_{1}}\times{\mathbb{P}}$, there exists $\alpha^{*}\in\omega_{1}\setminus\omega$ such that $B\in V[(G\restriction{{\mathcal{C}}}_{\omega\alpha^{*}})][H]$. If $B\cap A_{\alpha}$ is infinite for some $\alpha<\alpha^{*}$, the proof is complete. Otherwise, assuming $B$ is almost disjoint from all $A_{\alpha}$ for $\alpha<\alpha^{*}$, it follows that $B\cap C_{n}$ is infinite for all $n\in\omega$. Since $f^{G}_{\alpha^{*}}$ is a Cohen real generic over $V[(G\restriction{{\mathcal{C}}}_{\omega\alpha^{*}})][H]$, we conclude that $B\cap A_{\alpha^{*}}$ is infinite.
+
+So suppose that $\langle(s_{\delta},w_{\delta}):\delta<\omega_{1}\rangle$ is an uncountable antichain in $\mathbb{P}$ . Without loss of generality we can assume that $\langle\operatorname{dom}(s_{\delta}):\delta<\omega_{1}\rangle$ forms a $\Delta$ -system with root $r$ and that $s_{\delta}\restriction r=s$ and $|\operatorname{dom}(s_{\delta})|=n$ , for all $\delta$ and some fixed $s$ and $n$ . Also we may assume that $\langle w_{\delta}:\delta<\omega_{2}\rangle$ is a $\Delta$ -system with root $w$ . Since $\langle\operatorname{dom}(s_{\delta})\setminus r:\delta<\omega_{1}\rangle$ is pairwise disjoint and for each $\sigma_{\beta}$ , $\sigma_{\beta}\cap\bigcup_{\xi<\alpha}\left(\{\xi\}\times S(\xi)\right)$ is countable, there is a large enough $\gamma\in[\omega,\omega_{1})$ , so that for every $\delta\in[\gamma,\omega_{1})$ , 
+ 
+ $s_{\delta}\restriction(\operatorname{dom}(s_{\delta})\setminus r)\cap\sigma_{\beta}=\emptyset,$ 
+ for all $\beta\in\bigcup_{i\in\omega}w_{i}$ . Note that this means that $(s_{i}\cup s_{\delta},w_{i}\cup w_{\delta})\leq(s_{i},w_{i})$ , for every $i\in\omega$ . Thus the only way in which $(s_{i},w_{i})$ and $(s_{\delta},w_{\delta})$ can be incompatible, is if there is $\beta\in w_{\delta}\setminus w$ and $\xi\in\operatorname{dom}(s_{i})\setminus r$ , so that 
+ 
+ $\sigma_{\beta}(\xi)=s_{i}(\xi).$ 
+ For any $\delta\geq\gamma$ , let’s define functions $\xi_{\delta}$ and $\beta_{\delta}$ with domain $\omega$ so that $\xi_{\delta}(i)\in\operatorname{dom}(s_{i})\setminus r$ is a witness $\xi$ as above for $\beta_{\delta}(i)\in w_{\delta}\setminus w$ . Since for all $i\in\omega$ , $\operatorname{dom}(s_{i})\setminus r$ has finite size $\leq n$ , there must be $\delta_{0}<\delta_{1}$ and an infinite $x\subseteq\omega$ so that 
+ 
+ $\xi_{\delta_{0}}\restriction x=\xi_{\delta_{1}}\restriction x.$ 
+ Since $w_{\delta_{0}}\setminus w$ and $w_{\delta_{1}}\setminus w$ are finite, we find an infinite $y\subseteq x$ so that both $\beta_{\delta_{0}}\restriction y$ and $\beta_{\delta_{1}}\restriction y$ are constant, say with values $\beta^{0}$ and $\beta^{1}$ . Now $\beta^{0}\neq\beta^{1}$ , since $w_{\delta_{0}}\setminus w$ and $w_{\delta_{1}}\setminus w$ are disjoint. But then $\sigma_{\beta^{0}}\cap\sigma_{\beta^{1}}$ is infinite, yielding a contradiction. ∎
+
+5. Wetzel families with arbitrary continuum and MA
+
+In this section we prove our main result that Wetzel families can coexist with arbitrary values of the continuum and in combination with Martin’s Axiom.
+
+5.1. Adding entire functions
+
+The poset $\mathbb{Q}$ consists of all conditions 
+ 
+ $p=(a_{p},f_{p},\varepsilon_{p},m_{p}),$ 
+ where $a_{p}\in[\mathbb{C}]^{<\omega}$ , $f_{p}\in\mathcal{H}(\mathbb{C})$ , $\varepsilon_{p}$ is a positive rational number and $m_{p}\in\omega$ . A condition $q$ extends $p$ iff $a_{p}\subseteq a_{q}$ , $f_{q}\restriction a_{p}=f_{p}\restriction a_{p}$ , $\varepsilon_{q}\leq\varepsilon_{p}$ , $m_{p}\leq m_{q}$ and $\|f_{q}-f_{p}\|_{m_{p}}\leq\varepsilon_{p}-\varepsilon_{q}.$
+
+For any subset $\mathcal{X}$ of the power set of $S$ with cardinality $\aleph_{0}$, where $S$ is the union of all elements in $\mathcal{X}$, we define the orthogonal set $\mathcal{X}^{\perp}$ as the collection of countably infinite subsets $Y$ of $S$ such that the intersection of $Y$ with any element $X$ in $\mathcal{X}$ is finite. A subset $Y$ of $S$ is said to be almost disjoint to $\mathcal{X}$ if it belongs to $\mathcal{X}^{\perp}$.
+
+Note that the notion of incompatibility of conditions $p,q\in{\mathbb{Q}(H)}$ isn’t dependent on $H$ . Namely, if $r$ extends $p$ and $q$ in $\mathbb{Q}$ , then $(a_{p}\cup a_{q},f_{r},\varepsilon_{r},m_{r})\in{\mathbb{Q}(H)}$ and also extends $p$ and $q$ . In other words, ${\mathbb{Q}(H)}$ is a subforcing of $\mathbb{Q}$ (see Definition 2.4 ). For most considerations it is also not relevant in which transitive model of set theory $M$ we evaluate the definition of $\mathbb{Q}(H)$ , as long as $H\in M$ . If we restrict the functions appearing as $f_{p}$ to those that are polynomials in coefficients in the field generated by $\operatorname{dom}H\cup\bigcup_{z\in\operatorname{dom}H}H(z)$ , we obtain a dense subforcing of $\mathbb{Q}(H)$ . Namely, if $\|f-g\|_{m}=\delta<\varepsilon$ , and $f\restriction a=g\restriction a$ , $(a,g,\varepsilon-\delta,m)\leq(a,f,\varepsilon,m)$ . Thus it suffices in the definition of the forcing ${\mathbb{Q}(H)}$ to only consider functions that lie dense enough in relation to the values of $H$ .
+
+For a given function $f$ in the set of all functions from the set of natural numbers to itself, we define the domain of $F(f)$ as the set of natural numbers $n$ such that the initial segment $s_n$ is a subset of $f$. The function $F(f)$, defined on its domain, maps each natural number $n$ in its domain to the natural number $f$ evaluates to at the index equal to the length of $s_n$.
+
+Let $G$ be ${\mathbb{Q}(H)}$ -generic over $V$ . For any $n\in\omega$ , the set $D_{n}=\{p\in{\mathbb{Q}(H)}:\varepsilon_{p}<\frac{1}{n}\wedge m_{p}>n\}$ is clearly dense open. Moreover, for any $\xi\in\mathbb{C}$ and any $p\in{\mathbb{Q}(H)}$ consider 
+ 
+ $f_{\xi}(z)=f_{p}(z)+\xi\prod_{y\in a_{p}}(z-y).$ 
+ Note that $f_{\xi}(y)=f_{p}(y)$ , for every $y\in a_{p}$ . Let $z\in\operatorname{dom}H\setminus a_{p}$ be arbitrary. Since $H(z)$ is dense, we can easily find a small enough $\xi$ so that 
+ 
+ $\delta:=\|f_{p}-f_{\xi}\|_{m_{p}}<\varepsilon_{p}$ 
+ and $f_{\xi}(z)\in H(z)$ . Then $(a_{p}\cup\{z\},f_{\xi},\varepsilon_{p}-\delta,m_{p})\leq p$ . This shows that $E_{z}=\{q\in{\mathbb{Q}(H)}:z\in a_{q}\}$ is dense open. We claim that for any sequences $\langle p_{n}:n\in\omega\rangle$ and $\langle q_{n}:n\in\omega\rangle$ , with $p_{n},q_{n}\in D_{n}\cap G$ , $\langle f_{p_{n}}:n\in\omega\rangle$ and $\langle f_{q_{n}}:n\in\omega\rangle$ converge uniformly on compact sets to the same function $f\in\operatorname{\mathcal{H}(\mathbb{C})}$ . To see this, use Proposition 2.2 and notice that when $p,q\in D_{n}\cap G$ are arbitrary, there is $r\leq p,q$ and thus 
+ 
+ $\|f_{p}-f_{q}\|_{n}\leq\|f_{p}-f_{r}\|_{n}+\|f_{r}-f_{q}\|_{n}<\frac{1}{n}+\frac{1}{n}.$ 
+
+
+For any $z\in\operatorname{dom}H$ , we can find a decreasing sequence $\langle p_{n}:n\in\omega\rangle$ such that $p_{n}\in D_{n}\cap E_{z}\cap G$ , for every $n$ . Then $f(z)=\lim_{n\to\infty}f_{p_{n}}(z)=f_{p_{0}}(z)\in H(z)$ . ∎
+
+Preliminary to establishing the validity of Theorem 3.5, it is noteworthy to observe the subsequent crucial consideration:
+
+Let $\operatorname{dom}H$ be uncountable and suppose that there is an entire $f$ such that $f(z)\in H(z)$ , for every $z\in\operatorname{dom}H$ . Then $\mathbb{Q}(H)$ is not ccc.
+
+Let $n\in\omega$ be such that $B_{n}(0)\cap\operatorname{dom}H$ is uncountable and let $\varepsilon>0$ be so that $\|\operatorname{Re}(f^{\prime})\|_{n}<\varepsilon$ . For any $z_{0}\in B_{n}(0)\cap\operatorname{dom}H$ , define 
+ 
+ $f_{z_{0}}(z)=2\varepsilon(z-z_{0})+f(z_{0}).$ 
+ Note that there is $\delta>0$ and $m\geq n$ so that whenever $\|g-f_{z_{0}}\|_{m}<\delta$ , then $\|g^{\prime}-2\varepsilon\|_{n}<\varepsilon$ . \footnote{ 5 For instance, this follows easily from Proposition 2.2 . This part of the argument strongly depends on the special geometry of holomorphic functions. The statement is clearly not true for functions that are merely infinitely often differentiable.} Let $p_{z_{0}}=(\{z_{0}\},f_{z_{0}},\delta,m)$ . We claim that $\{p_{z_{0}}:z_{0}\in B_{n}(0)\cap\operatorname{dom}H\}$ is an antichain. Namely, suppose that $z_{0},z_{1}\in B_{n}(0)\cap\operatorname{dom}H$ are arbitrary and that $r\leq p_{z_{0}},p_{z_{1}}$ . Then $\|f_{r}-f_{z_{0}}\|_{m}<\delta$ and so $\|f^{\prime}_{r}-2\varepsilon\|_{n}<\varepsilon$ . In particular, for any $z\in B_{n}(0)$ , $\operatorname{Re}(f_{r}^{\prime}(z))>\varepsilon$ . At the same time, by the complex mean value theorem (see e.g. [14] ), 
+ 
+ $\varepsilon<\operatorname{Re}\left(\frac{f_{r}(z_{0})-f_{r}(z_{1})}{z_{0}-z_{1}}\right)=\operatorname{Re}\left(\frac{f(z_{0})-f(z_{1})}{z_{0}-z_{1}}\right)<\varepsilon,$ 
+ which poses a contradiction. ∎
+
+To initiate our examination, it is essential to establish a foundational understanding of key concepts and notation pertaining to almost disjointness. The notion of almost disjointness can be defined as follows: two countable sets, denoted as $A$ and $B$, are considered almost disjoint, abbreviated as "ad", if their intersection, $A \cap B$, yields a finite set. Furthermore, a collection $\mathcal{F}$ of countable sets is deemed pairwise almost disjoint, also abbreviated as "ad", if every pair of distinct sets $A$ and $B$ within $\mathcal{F}$ satisfies the condition of being almost disjoint, thereby ensuring that the intersection of any two sets in the family results in a finite set.
+
+Assuming that ${\mathbb{P}}$ is a poset with the countable chain condition in the model $W$ and that ${\mathbb{P}}$ itself belongs to $V$, consider a filter $H$ that is generic for ${\mathbb{P}}$ over $W$. To establish the desired result, it suffices to demonstrate that within the model $W[H]$, any countable subset $X$ of $T$ that is not nowhere dense cannot be almost contained in the collection ${\mathcal{F}}$.
+
+To demonstrate that $\mathfrak{a}\leq\mathfrak{a}({\mathcal{N}\mathcal{D}}_{T})$, consider an arbitrary admissible family ${\mathcal{F}}$ within ${\mathcal{N}\mathcal{D}}_{T}$, where the cardinality of ${\mathcal{F}}$ is less than $\mathfrak{a}$. By definition, such a family ${\mathcal{F}}$ cannot be maximal among the almost disjoint subsets of $[T]^{\aleph_{0}}$, implying the existence of a subset $X$ of $T$, with cardinality $\aleph_{0}$, that is almost disjoint from every member of ${\mathcal{F}}$. An application of Lemma 2.3 yields a subset $X^{\prime}$ of $X$, belonging to ${\mathcal{N}\mathcal{D}}_{T}$, which retains the property of being almost disjoint from ${\mathcal{F}}$. This observation leads to the conclusion that ${\mathcal{F}}$ is not maximal within the realm of ${\mathcal{N}\mathcal{D}}_{T}$, thus validating the inequality $\mathfrak{a}\leq\mathfrak{a}({\mathcal{N}\mathcal{D}}_{T})$.
+
+Consider a subset $A$ of $T$ that is an antichain, contains countably infinite elements, and belongs to the class $V$. Let $\langle t^{*}_{n}\,:\,n\in\omega\rangle$ denote a one-to-one enumeration of the elements of $A$.
+
+5.2. Tools for the successor step
+
+As $B$ is not an element of ${\mathcal{N}\mathcal{D}}_{T}$, there exists a natural number $n$ such that the set $B\downarrow(q_{n}\restriction\ell_{q_{n}})$ is dense below $q_{n}\restriction\ell_{q_{n}}$. This implies that for every natural number $k$, there is a corresponding natural number $h(k)$ such that $s_{n,k,h(k)}$ belongs to $B$. Furthermore, according to equation (3.9), which remains valid in the generic extension $V[G]$, there exists a function $f$ in the model $M$ such that the intersection of $h$ and $F(f)$ is countably infinite.
+
+Consider an interpolation formula such as
+
+
+ 
+ $g(\bar{z},z)=\sum_{i<k}\frac{(z-z_{k})}{(z_{i}-z_{k})}\prod_{\begin{subarray}{c}j<k\\
+j\neq i\end{subarray}}\frac{(z-z_{j})}{(z_{i}-z_{j})},$ 
+ and simply note that $\bar{z}\mapsto g(\bar{z},\cdot)$ is a continuous map from $K$ to $\mathcal{H}(\mathbb{C})$ in the norm $\|\cdot\|_{m}$ . The claim follows from the compactness of $K$ . ∎
+
+Let $H_{0},\dots,H_{n}$ be such that $\mathbb{Q}(H_{0})\times\dots\times\mathbb{Q}(H_{n})$ is ccc. Let $z\in\mathbb{C}$ be arbitrary and $H_{0}^{\prime}\supseteq H_{0}$ where $\operatorname{dom}H_{0}^{\prime}=\operatorname{dom}H_{0}\cup\{z\}$ and $H^{\prime}_{0}(z)$ is countable. Then $\mathbb{Q}(H^{\prime}_{0})\times\mathbb{Q}(H_{1})\times\dots\times\mathbb{Q}(H_{n})$ is ccc.
+
+Suppose towards a contradiction that $\langle\bar{p}_{\alpha}:\alpha<\omega_{1}\rangle$ is an antichain in $\mathbb{Q}(H^{\prime}_{0})\times\mathbb{Q}(H_{1})\times\dots\times\mathbb{Q}(H_{n})$ . Then we may assume without loss of generality that for every $\alpha<\omega_{1}$ , $z\in a_{p_{\alpha}(0)}$ and $f_{p_{\alpha}(0)}(z)=y$ , for some fixed $y\in H_{0}^{\prime}(z)$ . Otherwise, we find an uncountable antichain in $\mathbb{Q}(H_{0})\times\dots\times\mathbb{Q}(H_{n})$ . Furthermore, we may assume that $\varepsilon_{p_{\alpha}(0)}=\varepsilon$ , $m_{p_{\alpha}(0)}=m$ , $|a_{p_{\alpha}(0)}|=l+1$ and $a_{p_{\alpha}(0)}\setminus\{z\}$ is enumerated by $\bar{z}_{\alpha}=\langle z_{\alpha,i}:i<l\rangle$ , for every $\alpha$ and some fixed $\varepsilon$ , $m$ and $l$ . Even more, we can assume that $\|f_{p_{\alpha}(0)}-f_{p_{\beta}(0)}\|_{m}<\frac{\varepsilon}{2}$ , for every $\alpha,\beta<\omega_{1}$ .
+
+Then there is some $\beta<\omega_{1}$ , such that $\bar{z}_{\beta}$ is an $\omega_{1}$ -accumulation point of $\{\bar{z}_{\alpha}:\alpha<\omega_{1}\}$ in $\mathbb{C}^{l}$ , in the sense that for any open neighborhood of $\bar{z}_{\beta}$ , there are uncountably many $\alpha$ with $\bar{z}_{\alpha}$ in said neighborhood. \footnote{ 6 When $l=0$ , then $\mathbb{C}^{l}$ contains one element, namely the empty sequence, which all $\bar{z}_{\alpha}$ then equal to.} Let $O\ni\bar{z}_{\beta}$ be a compact neighborhood of $\bar{z}_{\beta}$ so that every element of $O$ is one-to-one and does not have $z$ in any coordinate. This is easily possible as $\bar{z}_{\beta}$ is one-to-one and $z\notin\{z_{\beta,i}:i<l\}=a_{p_{\beta}(0)}\setminus\{z\}$ . According to Lemma 5.6 , and considering $K=O\times\{z\}$ , there is $L>0$ such that for any $\bar{z}\in O$ , there is $g\in\mathcal{H}(\mathbb{C})$ such that $g(z)=0$ , $g(z_{i})=1$ , for all $i<l$ , and $\|g\|_{m}<L$ . Now let $\varepsilon^{\prime}<\frac{\varepsilon}{2L}$ and for each $\alpha<\omega_{1}$ , let $\bar{p}_{\alpha}^{\prime}$ be such that $p^{\prime}_{\alpha}(i)=p_{\alpha}(i)$ , for $i>0$ and 
+ 
+ $p^{\prime}_{\alpha}(0)=(a_{p_{\alpha}(0)}\setminus\{z\},f_{p_{\alpha}(0)},\varepsilon^{\prime},m).$ 
+
+
+If the closure of set $X$ is empty, then $X$ is classified as a member of the set ${\mathcal{N}\mathcal{D}}_{T}$, allowing us to assign $X^{\prime}$ as equivalent to $X$. However, if the closure of $X$ is not empty, we can select a function $f$ from this closure and define $X^{\prime}$ as the intersection of $X$ and the set $B(f)$, effectively creating a new set $X^{\prime}$ that is related to but distinct from the original set $X$.
+
+According to the definitions of the function $h$ and the set $F_{n}(f)$, the intersection of set $B$ with $F_{n}(f)$ contains a countably infinite number of elements.
+
+for some small enough $\varepsilon^{*}<\varepsilon$ , we have that $\bar{q}\leq\bar{p}_{\gamma},\bar{p}_{\delta}$ , contradicting our initial assumption. ∎
+
+Note that by a simple inductive argument, the previous lemma implies that we can extend simultaneously each $H_{i}$ in countably many arbitrary points with arbitrary countable sets of values and preserve the ccc:
+
+In the context of a countable set $S$ represented as the union of a collection $\mathcal{X}$, it is common to utilize the notation $\omega$ or $T = {}^{\omega>}2$, where $T$ is conceptualized as a tree with a downward growth orientation. This means that for any two elements $b$ and $b'$ in $T$, the relation $b' \leq_T b$ holds if $b$ is a subset of $b'$. Furthermore, each function $f$ in the set of functions from $\omega$ to $2$ naturally induces a maximal branch $B(f)$ within $T$, defined as the set of all initial segments of $f$ of finite length, which is denoted as $\{f \restriction n : n \in \omega\} \subseteq T$.
+
+5.3. Tools for the limit step
+
+Assuming ${\mathcal{F}}$ is a subset of ${\mathcal{B}}_{T}$ with a cardinality less than the cardinality of the continuum, we demonstrate that ${\mathcal{F}}$ cannot be a mad family. For every element $X$ in ${\mathcal{F}}$, Lemma 2.1 guarantees the existence of a finite subset $b_{X}$ of the set of all functions from $\omega$ to $2$, such that $X$ is contained in the union of the sets $B(f)$ for all $f$ in $b_{X}$. Considering the collection ${\mathcal{S}}$ of all such $b_{X}$ for $X$ in ${\mathcal{F}}$, its cardinality is at most the product of the cardinality of ${\mathcal{F}}$ and $\aleph_{0}$, which is less than the cardinality of the continuum. Consequently, there exists a function $f^{*}$ from $\omega$ to $2$ that is not in ${\mathcal{S}}$. This $f^{*}$ induces a set $B(f^{*})$ in ${\mathcal{B}}_{T}$, and by construction, $B(f^{*})$ is nearly disjoint from every element of ${\mathcal{F}}$, thus showing that ${\mathcal{F}}$ is not mad.
+
+In a manner analogous to the demonstration of Theorem 2.4, the underlying logical framework and sequential progression of ideas are replicated, thereby yielding a comparable conclusion.
+
+We may assume, without loosing generality, that $m$ is large enough such that $A\subseteq B_{m}(0)$ . Let $\delta<\frac{\varepsilon}{2}$ be small enough so that for any $\xi\in B_{\delta}(0)$ , $\|g_{\xi}\|_{m}<\frac{\varepsilon}{2}$ . Since $f\restriction a\in M$ , we can easily find a function $\tilde{f}\in\operatorname{\mathcal{H}(\mathbb{C})}\cap M$ such that $f\restriction a\subseteq\tilde{f}$ , $\tilde{f}$ is constant on $K$ and $\|\tilde{f}-f\|<\delta<\varepsilon$ . If $f\in M$ already, we may simply use $\tilde{f}=f$ . For (1), 
+ 
+ $\displaystyle\|\tilde{f}+g_{\xi}-f\|_{m}$ $\displaystyle\leq\|\tilde{f}-f\|_{m}+\|g_{\xi}\|_{m}$ 
+ 
+ $\displaystyle<\delta+\delta<\frac{\varepsilon}{2}+\frac{\varepsilon}{2}=\varepsilon.$ 
+
+
+For (2), define $\xi=f(z)-\tilde{f}(z)$ , for any, equivalently every, $z\in K$ . Then $\xi\in B_{\delta}(0)$ and for any $z\in K$ , $\tilde{f}(z)+g_{\xi}(z)=f(z).$ ∎
+
+The technique utilized in the proof of Theorem 4.4 is inherently unable to yield a model where the cardinality of the set of subsets of the first uncountable ordinal is equal to the first uncountable cardinal, which is less than the cardinality of the continuum.
+
+Let $M\subseteq V$ be as in Lemma 5.9 , $F\in M$ , $z\in\mathbb{C}\cap(M\setminus\bigcup_{h\in F}\operatorname{dom}h)$ and $c$ a Cohen real over $M$ . \footnote{ 7 I.e. $c$ is in any open dense subset of $\mathbb{C}$ coded in $M$ .} Furthermore, let $F^{\prime}=F\cup\{h\cup\{(z,c)\}:h\in F\}$ and $\mathbb{P}\in M$ be a forcing notion that is dense in a forcing $\mathbb{P}^{\prime}\in V$ . Then 
+ 
+ $\mathbb{Q}_{0}(F)\times\mathbb{P}\lessdot_{M}\mathbb{Q}_{0}(F^{\prime})\times\mathbb{P}^{\prime}.$ 
+
+
+It is easy to see that $\mathbb{Q}_{0}(F)\times\mathbb{P}$ is a subforcing of $\mathbb{Q}_{0}(F^{\prime})\times\mathbb{P}^{\prime}$ (the incompatibility relation is preserved). Now let $E\in M$ , $E\subseteq\mathbb{Q}_{0}(F)\times\mathbb{P}$ be predense in $\mathbb{Q}_{0}(F)\times\mathbb{P}$ and suppose towards a contradiction there exists $\bar{p}=(p_{0},p_{1})\in\mathbb{Q}_{0}(F^{\prime})\times\mathbb{P}^{\prime}$ , such that $\bar{p}\perp E$ , where $z\in a_{p_{0}}$ and so $f_{p_{0}}(z)=c$ . By extending $\bar{p}$ , we may assume without loss of generality that $p_{1}\in\mathbb{P}$ and that $a_{p_{0}}\subseteq B_{m_{p_{0}}}(0)$ .
+
+For any subset $X$ of $T$, we define two sets: $[X]$ comprises all functions $f$ in the set of functions from $\omega$ to $2$ such that the set of branches $B(f)$ is contained in $X$, and $\mathopen{\lceil}X\mathclose{\hskip 0.43057pt\rceil}$ consists of all functions $f$ in the set of functions from $\omega$ to $2$ such that the intersection of $B(f)$ and $X$ is countably infinite. It is evident that $[X]$ is a subset of $\mathopen{\lceil}X\mathclose{\hskip 0.43057pt\rceil}$. Furthermore, for any $X \subseteq T$, the upward closure of $X$, denoted by $X^{\uparrow}$, is defined as the set of all initial segments of elements in $X$. Notably, $\mathopen{\lceil}X\mathclose{\hskip 0.43057pt\rceil}$ is contained in $[X^{\uparrow}]$ for any subset $X$ of $T$.
+
+A subset $X$ of $T$ is considered nowhere dense if its closure in the Cantor space $^{\omega}2$ is nowhere dense. This property can be equivalently characterized by the condition that for every $t \in T$, there exists a $t' \leq_{T} t$ such that no extension $t'' \leq_{T} t'$ belongs to $X$. Conversely, if $X$ is not nowhere dense, then it is dense below some element $t$ of $T$ in the sense of forcing. Moreover, the property of being nowhere dense is absolute, as it can be expressed by the given condition, which is invariant under different models.
+
+Once we prove the claim we are done. Namely, as $c\in O$ is Cohen generic over $M$ , $c\in U$ . Then, according to the claim, there is $\bar{q}\leq E,(\tilde{p}_{0},p_{1})$ such that $f_{q_{0}}(z)=c$ . Letting $r_{0}:=(a_{r_{0}},f_{q_{0}},\varepsilon_{q_{0}},m_{q_{0}})$ , where 
+ 
+ $a_{r_{0}}:=a_{q_{0}}\cup\{z\},$ 
+ we clearly have that $\bar{r}=(r_{0},q_{1})\leq\bar{q}$ and $\bar{r}\in\mathbb{Q}_{0}(F^{\prime})\times\mathbb{P}^{\prime}$ . Moreover, we have that $r_{0}\leq p_{0}$ and thus $\bar{r}\leq\bar{p},E$ : 
+ 
+ $\displaystyle\|f_{p_{0}}-f_{r_{0}}\|_{m_{p_{0}}}$ $\displaystyle=\|f_{p_{0}}-f_{q_{0}}\|_{m}\leq\|f_{p_{0}}-\tilde{f}\|_{m}+\|\tilde{f}-f_{q_{0}}\|_{m}$ 
+ 
+ $\displaystyle<\frac{\varepsilon_{p_{0}}}{4}+\left(\frac{\varepsilon_{p_{0}}}{2}-\varepsilon_{q_{0}}\right)=\frac{3}{4}\varepsilon_{p_{0}}-\varepsilon_{r_{0}}$ 
+ 
+ $\displaystyle<\varepsilon_{p_{0}}-\varepsilon_{r_{0}}.$ 
+
+
+This contradicts the assumption that $\bar{p}\perp E$ .
+
+Work in $M$ . Let $O_{0}\subseteq O$ be an arbitrary non-empty open set. We will find a non-empty open set $O_{1}\subseteq O_{0}$ that will be included in $U$ . Let $e\in O_{0}$ be an arbitrary rational complex number. Then we find $\xi\in B_{\delta}(0)$ such that $f_{\xi}(z)=e$ , where 
+ 
+ $f_{\xi}=\tilde{f}+g_{\xi}$ 
+ and $g_{\xi}$ is the function from the statement of Lemma 5.9 . Then, by (1) of the lemma, 
+ 
+ $\displaystyle\varepsilon^{*}:=\|f_{\xi}-\tilde{f}\|_{m_{p_{0}}}$ $\displaystyle\leq\|f_{\xi}-f_{p_{0}}\|_{m}+\|f_{p_{0}}-\tilde{f}\|_{m}$ 
+ 
+ $\displaystyle<\frac{\varepsilon_{p_{0}}}{4}+\frac{\varepsilon_{p_{0}}}{4}=\varepsilon_{\tilde{p}_{0}}.$ 
+
+
+Consider a maximal almost disjoint family, denoted as ${\mathcal{F}}^{\prime}$, which resides within the subset ${\mathcal{A}}_{T}$. According to the principles outlined in Lemma 2.1, this yields the equivalence ${\mathcal{F}}^{\prime\perp}={\mathcal{B}}_{T}$, as expressed in equation (4.11). Now, let us introduce two disjoint sets, $X$ and $X^{\prime}$, whose union constitutes the entirety of $\mbox{}^{{\omega}}2$, with $X$ possessing a cardinality of $\mathfrak{c}$ and $X^{\prime}$ having a cardinality of $\kappa$. We then define ${\mathcal{F}}$ as the union of ${\mathcal{F}}^{\prime}$ and the set of all $B(f)$, where $f$ is an element of $X$. It is evident that ${\mathcal{F}}$ forms an ad family. Furthermore, leveraging the relationship established in (4.11), we deduce that the orthogonal complement of ${\mathcal{F}}$ is a subset of ${\mathcal{B}}_{T}$.
+
+The set ${\mathbb{P}}_{\alpha}$ exhibits the property of being $\sigma$-centered, which is evident from the fact that any two elements $\langle\varphi,s\rangle$ and $\langle\varphi^{\prime},s^{\prime}\rangle$ within ${\mathbb{P}}_{\alpha}$ are mutually compatible, provided that their initial components, namely $\varphi$ and $\varphi^{\prime}$, are identical, thereby satisfying the requisite condition for compatibility.
+
+Consider a non-meager subset $N$ of the Baire space $^{\omega}\omega$ with cardinality equal to the cardinality of the set of non-meager subsets of the real line. For each natural number $n$, let ${\mathcal{F}}_{n}$ denote the set of all functions in $N$ that differ from $F_{n}$ on at most a finite set, and let ${\mathcal{F}}$ be the union of these sets ${\mathcal{F}}_{n}$ for all $n$.
+
+Now we let $O_{1}:=B_{\gamma}(f_{q^{\prime\prime}_{0}}(z))\subseteq B_{2\varepsilon_{q^{\prime}_{0}}}(e)\subseteq O_{0}$ . The inclusion follows, since for any $d\in B_{\gamma}(f_{q^{\prime\prime}_{0}}(z))$ , $|d-e|=|f_{q^{\prime\prime}_{0}}(z)+h_{v}(z)-f_{\xi}(z)|<2\varepsilon_{q^{\prime}_{0}}$ for some $v\in B_{\gamma}(0)$ . $U$ is constructed in $M$ as the union of all sets $O_{1}$ that we obtain in this way.
+
+Let us check that this works. So working in $V$ , let $d\in O_{1}$ be arbitrary. Then there is $v\in B_{\gamma}(0)$ and $h_{v}$ as before so that $f_{q^{\prime\prime}_{0}}(z)+h_{v}(z)=d$ .
+
+A subset ${\mathcal{F}}$ of ${\mathcal{X}}$ is considered maximal almost disjoint (mad) in ${\mathcal{X}}$ if it is almost disjoint and there is no larger almost disjoint subset ${\mathcal{F}}^{\prime}$ of ${\mathcal{X}}$ that properly contains ${\mathcal{F}}$. Equivalently, an almost disjoint family ${\mathcal{F}}$ is mad in ${\mathcal{X}}$ if there is no element $X$ in ${\mathcal{X}}$ that is almost disjoint from every element of ${\mathcal{F}}$. If ${\mathcal{F}}$ is mad in the power set of its union $S$, then it is simply referred to as a mad family on $S$, with $S$ being the underlying set of ${\mathcal{F}}$.
+
+Moreover, $f_{q_{0}}(z)=d$ as required. This finishes the proof of the claim.∎
+
+∎
+
+Let $M\subseteq V$ be as in Lemma 5.9 , $H_{0},\dots,H_{n}\in M$ and $H_{0}^{\prime}\supseteq H_{0},\dots,H_{n}^{\prime}\supseteq H_{n}$ be such that
+
+Consider any maximal almost disjoint family ${\mathcal{F}}$ in ${\mathcal{A}}_{T}$ with cardinality $\bar{\mathfrak{o}}$. The maximality of ${\mathcal{F}}$ implies that its orthogonal complement is ${\mathcal{B}}_{T}$. Furthermore, if a subset ${\mathcal{G}}$ of $[T]^{\aleph_{0}}$ is disjoint from ${\mathcal{F}}$ and the union of ${\mathcal{F}}$ and ${\mathcal{G}}$ forms a mad family, then ${\mathcal{G}}$ is necessarily mad in ${\mathcal{B}}_{T}$, which by Theorem 2.2, implies that the cardinality of ${\mathcal{G}}$ is $\mathfrak{c}$.
+
+The atomic number of the Bohr radius at temperature T is equivalent to the speed of light in a vacuum.
+
+Within the framework of $W$, consider a family of sets ${\mathcal{F}}$ as defined in the context of Theorem 3.5. It follows that any maximal almost disjoint family ${\mathcal{F}}^{\prime}$ that extends ${\mathcal{F}}$ on the set $T$, within any generic extension $W^{\mathbb{P}}$ induced by a forcing notion ${\mathbb{P}}$ of the aforementioned type, is contained in the null set ${\mathcal{N}}_{T}$ due to the subset relationship between ${\mathcal{O}}_{T}$ and ${\mathcal{N}}_{T}$. Consequently, upon further extending $W^{\mathbb{P}}$ to $W^{{\mathbb{P}}\ast{{\mathcal{R}}}_{\omega}}$, the introduction of a random real $f$ over $W^{\mathbb{P}}$ gives rise to a branch $B(f)$ that nearly avoids all elements of ${\mathcal{F}}^{\prime}$. This implies that ${\mathcal{F}}^{\prime}$ loses its maximality in $W^{{\mathbb{P}}\ast{{\mathcal{R}}}_{\omega}}$, as the presence of $f$ disrupts the almost disjointness property that defines mad families.
+
+5.4. The main theorem
+
+For any infinite cardinal $\kappa$ less than or equal to the cardinality of the continuum, there exists an almost disjoint family ${\mathcal{F}}$ of subsets of $T$ with cardinality $\mathfrak{c}$, such that the cardinality of the set of almost disjoint refinements of ${\mathcal{F}}$ is equal to $\kappa$.
+
+(1) $2^{\aleph_{0}}=\kappa$ , (2) there is a Wetzel family, (3) if $\kappa$ is regular, $\mathsf{MA}$ holds.
+
+Start with the model obtained in Proposition 4.1 , where there is an almost disjoint sequence $\langle\sigma_{\alpha}:\alpha<\kappa\rangle$ in $\prod_{\xi<\kappa}\mu_{\xi}$ , $\mu_{\xi}=\max(|\alpha|,\aleph_{0})$ . This is our ground model $V$ now. Fix a bookkeeping function $B$ with domain $\kappa$ . The details of $B$ are going to be discussed at the end. We are going to recursively define a ccc finite support iteration $\mathbb{P}=\langle\mathbb{P}_{\alpha},\mathbb{Q}_{\alpha}:\alpha<\kappa\rangle$ . Additionally, there will be the following objects for each $\alpha<\kappa$ : (1) $\mathbb{P}_{\alpha+1}$ -names $\dot{C}_{\alpha,\xi}$ , $\xi<\mu_{\alpha}$ , for pairwise disjoint countable dense sets of complex numbers, such that any $\bar{c}\in(\bigcup_{\xi<\mu_{\alpha}}C_{\alpha,\xi})^{<\omega}$ is mutually Cohen generic over $V^{\mathbb{P}_{\alpha}}$ , (2) a countable set $X_{\alpha}\subseteq\kappa$ , (3) a $\mathbb{P}_{\alpha}$ -name $\dot{z}_{\alpha}$ for a complex number, (4) a $\mathbb{P}_{\alpha+1}$ -name $\dot{f}_{\alpha}$ for an entire function, such that $\Vdash\dot{f}_{\alpha}(\dot{z}_{\delta})\in\bigcup_{\xi<\mu_{\delta}}C_{\delta,\xi}$ , for all $\delta<\alpha$ .
+
+Under the assumption of ${\sf MA}(\sigma\mbox{-centered\/{}})$, it follows that there exists a mad family ${\mathcal{F}}$ on the set $T$ that is $\mathfrak{c}$-almost decided.
+
+Beyond this point in $W$, we undertake an inductive construction of a sequence of sets $A_{\alpha}$ belonging to the collection ${\mathcal{N}}_{T}$, where the index $\alpha$ ranges over the ordinal numbers less than $\omega_{1}$, the first uncountable ordinal.
+
+It is evident that the set ${\mathcal{A}}_{T}$ is a subset of ${\mathcal{O}}_{T}$, implying that every element belonging to the former is also an element of the latter.
+
+In the context of the model $W$, which is defined as $V^{{\mathcal{C}}}_{\omega_{1}}$, it can be demonstrated that there exists a family of sets ${\mathcal{F}}$ that is a subset of ${\mathcal{A}}_{T}$, with the property that its cardinality is $\aleph_{1}$. A notable characteristic of this family is that for any partially ordered set ${\mathbb{P}}$ that belongs to $V$ and satisfies the countable chain condition, the forcing extension $W^{\mathbb{P}}$ yields a model where the orthogonal complement of ${\mathcal{F}}$ is contained within the set of nowhere dense subsets of $T$, denoted as ${\mathcal{N}\mathcal{D}}_{T}$, thus satisfying condition (3.27).
+
+We demonstrate that the family ${\mathcal{F}}$ is $\mathfrak{c}$-almost decided, leveraging the assumption that $\mathfrak{a}=\mathfrak{c}$. A key observation is that for any countably infinite subset $B$, if $B$ is not in the ideal generated by the sets $A_{\alpha}$, then the cardinality of the set of $\alpha$ less than $\mathfrak{c}$ for which $A_{\alpha}\cap B$ is finite is less than $\mathfrak{c}$. Considering a subset ${\mathcal{H}}$ of ${\mathcal{F}}$ of size $\mathfrak{c}$ and any $B$ orthogonal to ${\mathcal{H}}$, we find that $B$ belongs to the ideal generated by ${\mathcal{F}}$. This implies the existence of a finite subset ${\mathcal{F}}^{\prime}$ of ${\mathcal{F}}$ such that $B$ is almost contained in the union of ${\mathcal{F}}^{\prime}$ and each member of ${\mathcal{F}}^{\prime}$ intersects $B$ infinitely. Since $B$ is orthogonal to ${\mathcal{H}}$, ${\mathcal{F}}^{\prime}$ and ${\mathcal{H}}$ are disjoint, and thus ${\mathcal{F}}^{\prime}$ serves as a witness to $B$ being in the ideal generated by ${\mathcal{F}}\setminus{\mathcal{H}}$, thereby establishing the $\mathfrak{c}$-almost decidability of ${\mathcal{F}}$.
+
+It is demonstrated that the family of sets ${\mathcal{F}}$, comprising elements $A_{\alpha}$ where $\alpha$ is less than the first uncountable ordinal $\omega_{1}$, fulfills the condition stipulated in equation (3.27).
+
+Now, for any $\xi_{0}<\dots<\xi_{n}\in\kappa\setminus(\bigcup_{\delta<\alpha+1}X_{\delta})$ , 
+ 
+ $\Vdash_{\mathbb{P}_{\alpha+1}}\mathbb{Q}(\dot{H}_{\sigma_{\xi_{0}}\restriction\alpha})\times\dots\times\mathbb{Q}(\dot{H}_{\sigma_{\xi_{n}}\restriction\alpha})\text{ is ccc}$ 
+ and by Proposition 5.8 , 
+ 
+ $\Vdash_{\mathbb{P}_{\alpha+1}}\mathbb{Q}(\dot{H}_{\sigma_{\xi_{0}}\restriction\alpha+1})\times\dots\times\mathbb{Q}(\dot{H}_{\sigma_{\xi_{n}}\restriction\alpha+1})\text{ is ccc}.$ 
+
+
+Under the assumption of ${\sf MA}(\sigma\mbox{-centered})$, with $\kappa$ set to $\mathfrak{c}$, it is possible to construct a maximally almost disjoint family ${\mathcal{F}}$ of size $\kappa$ that is ${{\mathcal{C}}}_{\omega}$-indestructible, and such that in the model $V^{{\mathcal{C}}}_{\omega}$, ${\mathcal{F}}$ is $\kappa$-almost decided on $T$.
+
+Assuming the cardinality of $\mathcal{F}$ is denoted by $\kappa$ and that $\mathcal{F}$ is $\kappa$-almost decided, if we consider any subset $\mathcal{C}$ of $\mathcal{F}$ with cardinality $\lambda$ where $\omega \leq \lambda < \kappa$, then the complement of $\mathcal{C}$ in $\mathcal{F}$ has cardinality $\kappa$ and consequently almost decides $\mathcal{F}$. According to a preceding result, this implies that $\mathcal{C}$, being the difference between $\mathcal{F}$ and its complement, is a minimal subset of $\mathcal{F}$.
+
+Finally, after forcing with $\mathbb{P}$ , we have that $\langle z_{\alpha}:\alpha<\kappa\rangle$ enumerates the complex numbers and for every $\delta,\alpha<\kappa$ , 
+ 
+ $f_{\alpha}(z_{\delta})\in\{f_{\beta}(z_{\delta}):\beta\leq\delta\}\cup\bigcup_{\xi<\mu_{\delta}}C_{\delta,\xi},$ 
+ which has size $\leq|\delta|+\mu_{\delta}\cdot\aleph_{0}=\mu_{\delta}<\kappa=2^{\aleph_{0}}$ . Thus $\mathcal{F}=\{f_{\alpha}:\alpha<\kappa\}$ is a Wetzel family. ∎
+
+Let us note that it is not very important that the $\sigma_{\alpha}$ ’s had finite pairwise intersections and we could easily get by with assuming only countable intersections. In that case, we would just have to split up the limit stages into countable and uncountable cofinalities. The proof for uncountable cofinality stays the same and for countable cofinality the ccc follows easily from the previous steps.
+
+Assuming the inequality ${\sf cov}({\mathcal{M}})\leq\mathfrak{a}({\mathcal{N}\mathcal{D}}_{T})$ holds, consider an ad family ${\mathcal{F}}$ within ${\mathcal{N}\mathcal{D}}_{T}$ having a cardinality less than ${\sf cov}({\mathcal{M}})$. The union of the closures of the sets in ${\mathcal{F}}$ does not cover the entire space $2^{\omega}$. Consequently, there exists a function $f$ in $2^{\omega}$ that is not contained in the closure of any set in ${\mathcal{F}}$. The set $B(f)$, derived from $f$, belongs to ${\mathcal{N}\mathcal{D}}_{T}$ and is almost disjoint from every set $X$ in ${\mathcal{F}}$.
+
+According to equation (2.11), the branch $B$ comprising $\{t_{n}\,:\,n<\omega\}$ fails to cover $X_{n}$ for every $n\in\omega$, enabling the selection of $s_{n}\in X_{n}\setminus B$. The set $S$, defined as $\{s_{n}\,:\,n\in\omega\}$, constitutes an infinite subset of $X$ due to the condition $\ell(s_{n})\geq n$ for all $n\in\omega$. For any branch $C$ in $T$ that differs from $B$, the existence of $n\in\omega$ such that $t_{n}\notin C$ implies $s_{m}\notin C$ for all $m\geq n$, resulting in a finite intersection $S\cap C$. Additionally, $S\cap B$ is empty, which leads to $\mathopen{\lceil}S\mathclose{\hskip 0.43057pt\rceil}=\emptyset$. Consequently, König's Lemma dictates that $S$ must contain an infinite antichain.
+
+6. MA and universal sets
+
+In this section, we show that under $\mathsf{MA}+\neg\mathsf{CH}$ there is no universal set. Recall that $\mathsf{MA}$ is saying that for any ccc partial order $\mathbb{P}$ and any family $\mathcal{D}$ of less than $2^{\aleph_{0}}$ -many dense subsets of $\mathbb{P}$ , there is a filter $G\subseteq\mathbb{P}$ such that $G\cap D\neq\emptyset$ , for every $D\in\mathcal{D}$ .
+
+We begin by introducing the ccc poset that we will use. The forcing $\mathbb{S}$ shall consist of conditions of the form $p=(w,s)=(w_{p},s_{p})$ , where $w\in[\mathbb{C}]^{<\omega}$ and $s$ is a finite sequence of open intervals with rational endpoints in $(0,1)\subseteq\mathbb{R}$ such that
+
+For each element $q$ in the set $Q$, we define $\ell_{q}$ as the smallest natural number $\ell$ such that for all $m \geq \ell$, $q(m) = 0$. Furthermore, let $\langle q_{n}\,:\,n\in\omega\rangle$ be an injective enumeration of the elements in $Q$.
+
+A condition $q$ extends $p$ iff $w_{p}\subseteq w_{q}$ and $s_{p}\subseteq s_{q}$ .
+
+$\mathbb{S}$ is ccc.
+
+In the context of set theory, consider a generic filter $G$ over the set $V$ with respect to the partial order ${{\mathcal{C}}}_{\omega_{1}}$, and let $W$ denote the forcing extension $V[G]$. Within $W$, for each ordinal $\alpha$ less than the first uncountable ordinal $\omega_{1}$, we define $f^{G}_{\alpha}$ as the set of pairs $\langle n,i\rangle$ such that $\langle\omega\alpha+n,i\rangle$ belongs to some condition $p$ in the filter $G$. Furthermore, for each $\alpha$, let $g^{G}_{\alpha}$ be an increasing sequence of natural numbers, where $g^{G}_{\alpha}(k)$ represents the $k$th smallest natural number $n$ for which $\langle n,1\rangle$ is in $f^{G}_{\alpha}$.
+
+$d$ is clearly continuous. Moreover, since $\{\langle z_{i}^{\alpha}:i<n\rangle:\alpha<\omega_{1}\}\subseteq\mathbb{C}^{n}$ is uncountable, there is some $\alpha<\omega_{1}$ such that $\langle z_{i}^{\alpha}:i<n\rangle$ is an accumulation point of that set. Thus let $\alpha_{k}\neq\alpha$ , $k\in\omega$ , be such that $\langle z_{i}^{\alpha_{k}}:i<n\rangle\rightarrow\langle z_{i}^{\alpha}:i<n\rangle$ as $k\rightarrow\infty$ . Let $c$ be the left endpoint of $s(|s|-1)$ , i.e. $c$ is the the infimum of $\bigcup_{i<|s|}s(i)$ . Now note that 
+ 
+ $d(\langle z^{\alpha}_{i}:i<n\rangle,\langle z^{\alpha}_{i}:i<n\rangle)\in\Big{(}\bigcup_{i<|s|}s(i)\cup[0,c^{8})\Big{)}^{n\times n}.$ 
+ Thus, by continuity, there is $k$ large enough so that 
+ 
+ $d(\langle z^{\alpha_{k}}_{i}:i<n\rangle,\langle z^{\alpha}_{i}:i<n\rangle)\in\Big{(}\bigcup_{i<|s|}s(i)\cup[0,c^{8})\Big{)}^{n\times n}.$ 
+ In other words, for all $z_{0},z_{1}\in w_{p_{\alpha}}\cup w_{p_{\alpha_{k}}}$ , $|z_{0}-z_{1}|\in\bigcup_{i<|s|}s(i)\cup[0,c^{8})$ . Let $0<b<c^{8}$ , where $b$ is strictly bigger than the maximal distance between points in $w_{p_{\alpha}}\cup w_{p_{\alpha_{k}}}$ that lies in $(0,c^{8})$ . Similarly, let $0<a<b$ , where $a$ is strictly smaller than the minimal such distance. Letting $I$ be the interval $(a,b)$ , $(w_{p_{\alpha}}\cup w_{p_{\alpha_{k}}},s^{\frown}I)$ is a condition extending both $p_{\alpha}$ and $p_{\alpha_{k}}$ , while $\alpha\neq\alpha_{k}$ . This is a contradiction to the assumption that $p_{\alpha}\perp p_{\alpha_{k}}$ . ∎
+
+In the following, $Q$ is the set of rational numbers.
+
+The question arises as to whether the quantities $\mathfrak{a}({\mathcal{N}\mathcal{D}}_{T})$ and related entities are independent of the parameters $\mathfrak{o}$, $\bar{\mathfrak{o}}$, and $\mathfrak{a}_{\mathfrak{s}}$.
+
+We define ${\mathcal{A}}_{T}$ as the collection of all countably infinite subsets of $T$ that form an antichain within the structure of $T$.
+
+When a subset ${\mathcal{B}}$ of ${\mathcal{F}}$ nearly determines ${\mathcal{F}}$ and the difference ${\mathcal{F}}\setminus{\mathcal{B}}$ is infinite, it follows that ${\mathcal{F}}\setminus{\mathcal{B}}$ is a minimal subset of ${\mathcal{F}}$.
+
+Assuming that the set $X$ is incapable of being finite-branch-covered, we proceed by induction on $n$ to select a sequence of elements $t_n$ from $2^n$ in such a way that $t_0$ is the empty set and each subsequent $t_{n+1}$ is formed by appending either $0$ or $1$ to $t_n$. This recursive construction is guided by the requirement that the subset $X_{n+1}$, defined as the restriction of $X$ to $t_{n+1}$, remains resistant to finite branch coverage. The feasibility of this approach is assured by the fact that the initial set $X_0 = X$ and each subsequent $X_n$ can be partitioned into three components: the restrictions of $X_n$ to $t_n$ extended by $0$, the restrictions of $X_n$ to $t_n$ extended by $1$, and the singleton set containing $t_n$ itself, thereby guaranteeing the existence of a suitable $t_{n+1}$ at each inductive step.
+
+Let $X,Y\subseteq\mathbb{C}$ , $X$ uncountable, and assume that for every $x\in\{|z_{0}-z_{1}|:z_{0},z_{1}\in X,z_{0}\neq z_{1}\},y\in\{|z_{0}-z_{1}|:z_{0},z_{1}\in Y,z_{0}\neq z_{1}\}$ , 
+ 
+ $\min(x,y)<\max(x,y)^{2}.$ 
+ Then there is no non-constant entire function $f$ such that $f^{\prime\prime}X\subseteq Y$ .
+
+Suppose there is such $f$ . Since $f$ is non-constant we can find an accumulation point $x\in X$ of $X$ such that $f^{\prime}(x)\neq 0$ . Let $x_{n}\rightarrow x$ , where $x_{n}\in X$ for every $n\in\omega$ . Then there is $\langle n_{k}:k\in\omega\rangle$ such that for all $k$ , 
+ 
+ $|x_{n_{k}}-x|<|f(x_{n_{k}})-f(x)|^{2}$ 
+ or for all $k$ , 
+ 
+ $|f(x_{n_{k}})-f(x)|<|x_{n_{k}}-x|^{2}.$ 
+
+
+It suffices to demonstrate that each $N_{k}(h)$ is a nowhere dense subset of the Baire space $\mbox{}^{{\omega}}\omega$, for all $k\in\omega$, given that $N(h)$ is the union of these sets over all natural numbers $k$.
+
+$\mathsf{MA}+\neg\mathsf{CH}$ implies that there is no universal set.
+
+Let $Y\subseteq\mathbb{C}$ , $|Y|<2^{\aleph_{0}}$ . Using $\mathsf{MA}$ , find a filter $G\subseteq\mathbb{S}$ intersecting all sets $D_{z}$ for $z\in Y$ and $E_{n}$ for $n\in\omega$ from Lemma 6.2 . Let $Z=\bigcup_{p\in G}w_{p}$ , $s=\bigcup_{p\in P}s_{p}$ and $U=\bigcup_{n\in\omega}s(n)$ . Then $Y\subseteq Z+(Q+iQ)$ and $\{|z_{0}-z_{1}|:z_{0},z_{1}\in Z,z_{0}\neq z_{1}\}\subseteq U$ . Let $a_{n}$ be the left-endpoint of $s(n)$ , for every $n\in\omega$ and consider $O=\bigcup_{n\in\omega}(a_{n}^{4},a_{n}^{2})$ . Then note that for every $x\in U$ , $y\in O$ , 
+ 
+ $\min(x,y)<\max(x,y)^{2}.$ 
+
+
+Finally apply Lemma 6.3 to find a set $X\subseteq\mathbb{C}$ of size $\aleph_{1}$ such that $\{|z_{0}-z_{1}|:z_{0},z_{1}\in X,z_{0}\neq z_{1}\}\subseteq O$ . We claim that there is no entire $f$ such that $f^{\prime\prime}X\subseteq Y$ . Otherwise, as $Y\subseteq Z+(Q+iQ)$ , there is an uncountable $X^{\prime}\subseteq X$ and there are rationals $r_{0},r_{1}$ , such that 
+ 
+ $f^{\prime\prime}X\subseteq Z+(r_{0}+ir_{1}).$ 
+ Clearly, $\{|z_{0}-z_{1}|:z_{0},z_{1}\in Z+(r_{0}+ir_{1}),z_{0}\neq z_{1}\}=\{|z_{0}-z_{1}|:z_{0},z_{1}\in Z,z_{0}\neq z_{1}\}\subseteq U$ . This contradicts Lemma 6.4 ∎
+
+The existence of a Wetzel family does not imply the existence of a universal set.
+
+Taking $\kappa=\aleph_{2}$ , this follows from Theorem 6.5 and Theorem 5.13 . Note that if we are allowed to assume the existence of a weakly inaccessible cardinal, this already follows from the main result in combination with Proposition 3.6 . ∎
+
+7. A universal set with $2^{\aleph_{0}}=\aleph_{2}$
+
+(CH) There is a proper forcing extension of $V$ preserving all cardinals and cofinalities in which $\mathbb{C}^{V}$ is universal and $2^{\aleph_{0}}=\aleph_{2}$ . In particular, the existence of a universal set is consistent with $2^{\aleph_{0}}=\aleph_{2}$ .
+
+The corollary is a direct consequence of Theorem 3.1, as the Cohen forcing ${{\mathcal{C}}}_{\kappa}$ is known to preserve the non-meagerness of sets that are non-meager in the ground model, a property established in various sources, including section 11.3 of reference [2].
+
+To demonstrate that $F$ also fulfills condition (3.9), consider an arbitrary function $h$ in $\mbox{}^{{\omega}}\omega$. The objective is to establish that the set $N(h)$, comprising all functions $g$ in $\mbox{}^{{\omega}}\omega$ for which the intersection of $h$ and $F(g)$ is finite, constitutes a meager subset of $\mbox{}^{{\omega}}\omega$. This can be achieved by defining, for each natural number $k$, the set $N_{k}(h)$ as the collection of functions $g$ in $\mbox{}^{{\omega}}\omega$ where the intersection of $h$ and $F(g)$ has fewer than $k$ elements.
+
+$\mathbb{P}(Y)$ is proper.
+
+Assuming there exists a subset $X$ of $T$, comprising a countably infinite sequence of elements $\{t_{k}\}$, where each element is indexed by a unique natural number $k$, and the length of each $t_{k}$ is greater than or equal to $k$, it follows that $X$ is an element of the set ${\mathcal{N}}_{T}$, which contains all such subsets of $T$ that satisfy this specific property regarding the relationship between the index and the length of their constituent elements.
+
+Let $A\in N$ be any predense subset of $\mathbb{P}(Y)\cap M$ and $r$ be any condition of the form $r=(w,s\cup\{(M,N)\}\cup t)$ , where $s\in M$ and $t\cap M=\emptyset$ . In other words, $r$ is any condition that contains $(M,N)$ in its side condition. Then $r\parallel A$ .
+
+A subset $X$ of $T$ with cardinality $\aleph_{0}$ is an element of the Borel set ${\mathcal{B}}_{T}$ precisely when it can be encompassed by a finite collection of branches within the tree $T$, thereby establishing a fundamental equivalence between membership in ${\mathcal{B}}_{T}$ and finite branch coverage.
+
+Now suppose that $t=t_{0}\cup\{(M_{1},N_{1})\}$ , where $t_{0}\in M_{1}$ and let $(M_{0},N_{0})$ be the last node of $t_{0}$ , or $(M,N)$ if $t_{0}=\emptyset$ . Let 
+ 
+ $\mathbb{Q}_{0}=\begin{cases}\{w^{\prime}\in\mathbb{Q}:\exists s^{\prime}\in M,s\subseteq s^{\prime}((w^{\prime},s^{\prime})\in\mathbb{P}(Y))\}&\text{ if }t_{0}=\emptyset\\
+\{w^{\prime}\in\mathbb{Q}:\exists s^{\prime}\in M,s\subseteq s^{\prime}(w^{\prime},s^{\prime}\cup\{(M,N)\}\cup t_{0})\in\mathbb{P}(Y)\}&\text{ otherwise. }\end{cases}$ 
+ Then note that $\mathbb{Q}_{0}\in N_{0}$ is a forcing of the form $\mathbb{Q}_{0}(F)$ for $F\in N_{0}$ . \footnote{ 11 To see that $\mathbb{Q}_{0},F\in N_{0}$ , note that the subset of $M_{0}$ consisting of countable elementary submodels of $(H(\omega_{1}),\in,Y)$ can be defined in $N_{0}$ as the elements of $M_{0}$ that are elementary submodels of $(M_{0},\in,Y\cap M_{0})$ .} Furthermore, let $E=\{w^{\prime}\in\mathbb{Q}:\exists s^{\prime}((w^{\prime},s^{\prime})\in A)\}$ . Then $E\subseteq\mathbb{Q}_{0}$ , $E\in N_{0}$ and by the inductive hypothesis, it is predense in $\mathbb{Q}_{0}$ . Now use Lemma 5.10 , for $\mathbb{P},\mathbb{P}^{\prime}$ trivial forcings, and a similar argument as in Proposition 5.12 to finish the inductive step. ∎
+
+To initiate the demonstration of Theorem 3.1, we introduce the set $Q$, defined as the collection of elements $q$ belonging to the set $T$, such that the function $q(n)$ ultimately converges to $0$. In other words, for an arbitrary element $q$ in $T$, its membership in $Q$ is contingent upon the condition that the cardinality of the set of natural numbers $n$ for which $q(n)$ equals $1$ is finite, or equivalently, less than the cardinality of the set of natural numbers, denoted by $\aleph_{0}$.
+
+Let $p,Y\in K\preccurlyeq H(\theta)$ , $K$ countable, for large $\theta$ , and let $c$ be a Cohen real over $K$ . Then there is a master condition $q\leq p$ over $K$ so that $q\Vdash c\text{ is Cohen over }K[\dot{G}]$ .
+
+The property described in statement (3.1) is universally applicable to all posets ${\mathbb{P}}$ that preserve the non-meagerness of sets that are non-meager in the ground model.
+
+Let $M=K\cap H(\omega_{1})$ and $H$ be a $\operatorname{Coll}(\omega,\lambda)$ -generic over $K[c]$ , where $\lambda=|H(\omega_{1})|^{K}$ . Then $c$ is still a Cohen real over $K[H]$ and $K[H]\models|M|=\omega$ . Moreover, $\mathbb{P}(Y)\cap K=\mathbb{P}(Y)\cap M\in K[H]$ , since $\mathbb{P}(Y)\cap M$ is definable from $M,Y\cap M\in K[H]$ . Now let $K^{+}\preccurlyeq H(\theta)$ be countable with $K,H,c\in K^{+}$ . Let $p=(w,s)$ and $N=K^{+}\cap H(\omega_{1})$ . Then $q=(w,s\cup\{(M,N)\})$ is a master condition over $K$ , as in the proof of Lemma 7.2 . Let $G\ni q$ be $\mathbb{P}(Y)$ -generic over $V$ . According to Claim 7.3 , for any predense subset $A\in K^{+}$ of $\mathbb{P}(Y)\cap K$ , $A\cap G\neq\emptyset$ . Thus $G\cap K$ is $\mathbb{P}(Y)\cap K$ -generic over $K^{+}$ and in particular over $K[H][c]\subseteq K^{+}$ . But $\mathbb{P}(Y)\cap K$ is a countable forcing in $K[H]$ and thus equivalent to Cohen forcing (or, in the simplest case, a trivial forcing) witnessed through an isomorphism in $K[H]$ . So $K[H][c][G\cap K]$ is a Cohen extension of $K[H][c]$ , and $c$ is still Cohen generic over $K[H][G\cap K]$ . In particular $c$ is still Cohen generic over $K[G]=K[G\cap K]\subseteq K[H][G\cap K]$ . ∎
+
+There exists a family of sets ${\mathcal{F}}$ within the subset ${\mathcal{A}}_{T}$, with a cardinality equivalent to the smallest size of a non-meager set in the model ${\mathcal{M}}$, such that it is impossible to extend ${\mathcal{F}}$ into a maximally almost disjoint family that remains indestructible under countable support iterations in any generic extension of the base model $V$ via the forcing notion ${\mathbb{P}}$, provided that non-meager sets in the original model $V$ preserve their non-meager status in the extension $V^{{\mathbb{P}}}$.
+
+Let $(w,s)\in\mathbb{P}(Y)$ and $z\in\mathbb{C}$ . Extending $(w,s)$ further, we can assume that $z\in M_{0}$ for some $(M_{0},N_{0})\in s$ , where $M_{0}$ is minimal with this property and there is a successor $(M_{1},N_{1})\in s$ of $(M_{0},N_{0})$ . Since $Y$ is everywhere non-meager, $M_{1}$ knows this and since $N_{0}$ is countable in $M_{1}$ , there is $c\in Y\cap M_{1}$ that is arbitrarily close to $f_{w}(z)$ and Cohen generic over $N_{0}[c_{0},\dots,c_{n}]$ , where $c_{0},\dots,c_{n}$ enumerates the mutual Cohen generics $f_{w}(x)$ , for $x\in a_{w}$ that first appear in $M_{0}$ . The rest then follows as in the proof of Lemma 5.3 . ∎
+
+The definition and absolute nature of $F$ are evident from the preceding construction.
+
+It is evident that $F$ fulfills the condition specified in (3.7), and notably, this fulfillment is contingent upon the enumeration $\langle s_{n}\,:\,n\in\omega\rangle$ being injective.
+
+As a consequence of the genericity principle, within the construct $W[G]$, one can identify a specific ordinal $\alpha$ that is less than the first uncountable ordinal, $\omega_{1}$, and which satisfies the condition that the intersection of the set $A_{\alpha}$ with the set $X$ yields a countably infinite subset, denoted by a cardinality of $\aleph_{0}$.
+
+8. Open questions
+
+The question of whether the assertion that the cardinality of the set of countable subsets of $\aleph_{1}$ is equal to $\aleph_{1}$ and less than the cardinality of the continuum is consistent with the standard axioms of set theory remains an open problem.
+
+Recall that $\operatorname{non}(\mathcal{M})$ is the least size of a non-meager set.
+
+Is every universal set non-meager under $\neg\mathsf{CH}$ ? In particular, can we replace $\mathsf{MA}$ with $\operatorname{non}(\mathcal{M})=2^{\aleph_{0}}$ in Theorem 6.5 ?
+
+It has been established that the cardinality inequality $\aleph_{1} < \aleph_{1}^{+} = \mathfrak{c}$, where $\mathfrak{c}$ represents the cardinality of the continuum, is logically consistent.
+
+For any countably infinite subset $X$ of $T$, comprising elements $\{t_{n}\,:\,n\in\omega\}$, the closure of $X$ can be expressed as the intersection of a sequence of sets, specifically $\bigcap_{n\in\omega}\bigcup_{m>n}[T\downarrow t_{m}]$. Consequently, this closure is a $G_{\delta}$ subset of the Baire space $\mbox{}^{{\omega}}2$. Utilizing the Baire Category Theorem, we can characterize the set of nowhere dense subsets ${\mathcal{N}\mathcal{D}}_{T}$ as the collection of all countably infinite subsets $X$ of $T$ for which the closure of $X$ forms a meager subset of $\mbox{}^{{\omega}}2$.
+
+Let $\Omega\subset\mathbb{C}$ be any domain and suppose that there is a Wetzel family on $\Omega$ . Does there exist a Wetzel family on the whole of $\mathbb{C}$ ? What about $\Omega=\mathbb{C}\setminus\{0\}$ ?
+
+Can we characterize when $\mathbb{Q}(H)$ is ccc?
+
+References
+
+[1] Uri Abraham, Matatyahu Rubin, and Saharon Shelah. On the consistency of some partition theorems for continuous colorings, and the structure ofℵ1subscriptℵ1\aleph_{1}-dense real order types. Annals of Pure and Applied Logic, 29(2):123–206, 1985.
+[2] Karl Frederick Barth and Walter Jan Schneider. Entire functions mapping countable dense subsets of the reals onto each other monotonically. J. London Math. Soc. (2), 2:620–626, 1970.
+[3] Karl Frederick Barth and Walter Jan Schneider. Entire functions mapping arbitrary countable dense sets and their complements onto each other. J. London Math. Soc. (2), 4:482–488, 1972.
+[4] Tomek Bartoszyński and Haim Judah. Set theory. A K Peters, Ltd., Wellesley, MA, 1995. On the structure of the real line.
+[5] James E. Baumgartner. Almost-disjoint sets the dense set problem and the partition calculus. Annals of Mathematical Logic, 9(4):401–439, 1976.
+[6] Bernard L. Bohl. Propositions equivalent to the continuum hypothesis. Report, Utah State University, 1968.
+[7] Jörg Brendle and Vera Fischer. Mad families, splitting families and large continuum. Journal of Symbolic Logic, 76(1):198–208, 2011.
+[8] Maxim R. Burke. Entire functions mapping uncountable dense sets of reals onto each other monotonically. Transactions of the American Mathematical Society, 361(6):2871–2911, 2009.
+[9] G. Cantor. Ein Beitrag zur Mannigfaltigkeitslehre. Journal für die reine und angewandte Mathematik, 84:242–258, 1877.
+[10] William Cherry and Zhuan Ye. Nevanlinna’s Theory of Value Distribution. Springer Berlin Heidelberg, 2001.
+[11] Brent Cody, Sean Cox, and Kayla Lee. Sparse analytic systems. Forum of Mathematics, Sigma, 11:e58, 2023.
+[12] Paul Cohen. The independence of the continuum hypothesis. Proc. Nat. Acad. Sci. U.S.A., 50:1143–1148, 1963.
+[13] P. Erdős. An interpolation problem associated with the continuum hypothesis. Michigan Mathematical Journal, 11(1):9 – 10, 1964.
+[14] J.-Cl. Evard and F. Jafari. A complex Rolle’s theorem. The American Mathematical Monthly, 99(9):858–861, 1992.
+[15] Abraham Halevi Fraenkel. Zu den Grundlagen der Cantor-Zermeloschen Mengenlehre. Math. Ann., 86(3–4):230–237, 1922.
+[16] Stephan Ramon Garcia and Amy L. Shoemaker. Wetzel’s problem, Paul Erdős and the continuum hypothesis: A mathematical mystery. Notices Amer. Math. Soc., 62:243–247, 2015.
+[17] Kurt Gödel. The Consistency of the Continuum Hypothesis. Annals of Mathematics Studies, no. 3. Princeton University Press, Princeton, N. J., 1940.
+[18] Jeremy Gray. The Real and the Complex: A History of Analysis in the 19th Century. Springer International Publishing, 2015.
+[19] Kurt Gödel. What is Cantor’s continuum problem? The American Mathematical Monthly, 54(9):515–525, 1947.
+[20] Thomas Jech. Set Theory. Springer Berlin Heidelberg, 1997.
+[21] Alexander S. Kechris and Alain Louveau. Descriptive Set Theory and the Structure of Sets of Uniqueness. London Mathematical Society Lecture Note Series. Cambridge University Press, 1987.
+[22] Ashutosh Kumar and Saharon Shelah. On a question about families of entire functions. Fund. Math., 239(3):279–288, 2017.
+[23] K. Kunen. Set Theory. Studies in Logic: Mathematical. College Publications, 2011.
+[24] Ward Douglas Maurer. Conformal equivalence of countable dense sets. Proc. Amer. Math. Soc., 18:269–270, 1967.
+[25] Jan Willem Nienhuys and JGF Thiemann. On the existence of entire functions mapping countable dense sets onto each other. Indag. Math, 38:331–334, 1976.
+[26] Lawrence C. Paulson. Wetzel: Formalisation of an undecidable problem linked to the continuum hypothesis. CoRR, abs/2205.03159, 2022.
+[27] Walter Rudin. Real and complex analysis. McGraw-Hill Book Co., New York, third edition, 1987.
+[28] Daihachiro Sato and Stuart Rankin. Entire functions mapping countable dense subsets of the reals onto each other monotonically. Bulletin of the Australian Mathematical Society, 10(1):67–70, 1974.
+[29] Saharon Shelah. Independence results. The Journal of Symbolic Logic, 45(3):563–573, 1980.
+[30] Saharon Shelah. Proper and improper forcing. Perspectives in Mathematical Logic. Springer-Verlag, Berlin, second edition, 1998.
+[31] Wacław Sierpiński. Hypothèse du continu. 1934.
+[32] R. M. Solovay and S. Tennenbaum. Iterated Cohen extensions and Souslin’s problem. Annals of Mathematics, 94(2):201–245, 1971.
+[33] Jindřich Zapletal. Strongly almost disjoint functions. Israel Journal of Mathematics, 97(1):101–111, December 1997.
+[34] Ernst Zermelo. Beweis, daß jede Menge wohlgeordnet werden kann. Math. Ann., 59(4):514–516, 1904.

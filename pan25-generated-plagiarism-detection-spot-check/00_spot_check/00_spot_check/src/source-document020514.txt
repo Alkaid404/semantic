@@ -1,0 +1,1657 @@
+Lorentzian varifolds and applications to closed relativistic strings
+
+By Giovanni Bellettini and Matteo Novaga and Giandomenico Orlandi
+
+Abstract
+
+We develop a suitable generalization of Almgren’s theory of varifolds in a lorentzian setting, focusing on area, first variation, rectifiability, compactness and closure issues. Motivated by the asymptotic behaviour of the scaled hyperbolic Ginzburg-Landau equations, and by the presence of singularities in lorentzian minimal surfaces, we introduce, within the varifold class, various notions of generalized minimal timelike submanifolds of arbitrary codimension in flat Minkowski spacetime, which are global in character and admit conserved quantities, such as relativistic energy and momentum. In particular, we show that stationary lorentzian $2$ -varifolds properly include the class of classical relativistic and subrelativistic strings. We also discuss several examples.
+
+1 Introduction
+
+In recent years, a lot of effort has been devoted to the study of lorentzian stationary (called also minimal) timelike submanifolds of arbitrary dimension $h$ without boundary in the flat Minkowski spacetime, namely to those $\Sigma\subset\mathbb{R}^{1+N}$ that, whenever sufficiently smooth, satisfy 
+ 
+ $H_{\Sigma}=0,$  (1.1) 
+ where $H_{\Sigma}$ is the spacetime lorentzian mean curvature of $\Sigma$ , see for instance [11] and references therein. A particular case, relevant in physics, is the one of surfaces, namely when $h=2$ . Under this assumption, minimal surfaces are called (classical) closed relativistic strings.
+
+Equation ( 1.1 ) is called the lorentzian minimal surface equation; differently from the riemannian case, it can be regarded as a geometric evolution equation, which is hyperbolic in character, due to the signature of the lorentzian metric $\eta={\rm diag}(-1,1,\dots,1)$ considered on the ambient space $\mathbb{R}^{1+N}$ . A general short-time existence result of smooth solutions to ( 1.1 ) has been obtained in [19] . However, if one is interested in solutions defined also for long times, at least one relevant obstruction arises. As a matter of fact, unless the manifold is sufficiently close to a linear subspace [9] , [18] , generically singularities appear [26] . The onset of singularities is one of the main motivations of the present paper: indeed, we are interested in weak solutions to the lorentzian minimal surface equation, which are globally defined in time. As we will see, our approach is based on the concept of lorentzian varifold , and is inspired by the notions of varifold and stationary varifold introduced by Almgren [3] and developed by Allard in the euclidean and riemannian setting [2] . There are several differences between the riemannian setting and the lorentzian one; however, the notion of stationarity of a varifold remains the natural concept generalizing the zero mean curvature condition ( 1.1 ). Concerning singularities, we point out that the varifolds representation of the evolving manifolds is parametrization free, so that in particular changes of topology are allowed. A relevant part of the present paper is devoted to the analysis of the concepts of area, first variation and rectifiability (according to the proposed definition of weak solution) and to the study of compactness and closure properties for the class of stationary lorentzian varifolds. Several examples motivate and illustrate our theory. Notice that the theory we develop here concerns nonspacelike (or causal) varifolds, as we are interested in generalizations of timelike minimal surfaces.
+
+Insights on the analysis of ( 1.1 ) come from the study of the asymptotic limits of solutions to the hyperbolic Ginzburg-Landau (HGL) equation. As shown in [20] by a formal asymptotic expansion argument and for $h=N=2$ , smooth solutions to ( 1.1 ) can be approximated by solutions to HGL. Then, it has been rigorously shown in [16] that solutions to HGL with well-prepared initial data converge, in a suitable sense, to a smooth lorentzian minimal submanifold, provided the latter exists. Again, due to the presence of singularities, the validity of this convergence result is restricted to short times. On the other hand, a preliminary analysis of the limit behaviour of HGL within the varifolds framework has been pursued in [7] , without restricting to short times, but under rather strong assumptions on the limit varifold solution. In particular, in [7] it is proposed a first notion of weak solution to ( 1.1 ) that, in the language of the present paper, coincides essentially with what we have called here a stationary (lorentzian) rectifiable varifold with no part “at infinity” , that is no null (or lightlike) part. The assumptions made in [7] exclude a priori various examples of weak solutions to ( 1.1 ), such as singular minimal surfaces where part of the energy is concentrated on null subsets of positive measure. In addition, a limit of a sequence of varifolds considered in [7] is not necessarily a varifold of the same type even imposing uniform lower bounds on the densities. It is therefore necessary to relax the definition of rectifiable varifold. In Definitions 7.3 and 7.5 we introduce the notion of rectifiable and weakly rectifiable varifold respectively, in the effort of covering all relevant examples of limits of minimal surfaces at our disposal \footnote{ 4 Incidentally, in Proposition 7.13 we show that for a stationary one-dimensional varifold, the concepts of rectifiability and weak rectifiability coincide, under a mild condition on the supports.} , and to hopely capture limits of solutions to HGL. In these two latter definitions, also null parts are taken into account; in particular, a rectifiable varifold generalizes the notion of smooth nonspacelike (or causal) submanifold.
+
+One of the difficulties in adapting the varifold language to the hyperbolic case is related to the presence of null parts (possibly with positive $h$ -dimensional measure). In particular, troubles arise due to the lack of compactness of the embedding of the grassmannian of timelike $h$ -planes into the space of matrices. Roughly speaking, in order to keep the property that a sequence of varifolds with a uniform bound on the integral in time of the energy has a converging subsequence, we are forced to define the varifolds on the compactification of the grassmannian. This produces a term “at infinity” in the varifold expression. In this respect, we point out that we often find to be more natural to describe a varifold $V$ , splitted as a “purely timelike” part $V^{0}$ and a “null” part $V^{\infty}$ (or part at “infinity”, which was excluded in [7] ), in two different sets of variables: namely, $V^{0}$ is expressed in the variables prior to the embedding (and in these variables we denote $V^{0}$ by $\widetilde{V}^{0}$ ) while $V^{\infty}$ is expressed in the compactified variables.
+
+It is worth noticing here that for a stationary varifold it is still possible to define the analog of the notions of relativistic energy and momentum, which turn out to be conserved quantities .
+
+To have a flavour of what kind of solutions we can include using the notion of weakly rectifiable varifold, take $N=2$ and $h=2$ , and consider the string-type solution (introduced in [6] ) starting at time zero from a square $[-L/2,L/2]^{2}$ , with zero initial velocity. In Figure 1 we show the time-track of the solution (the picture should be continued periodically in time for $t>0$ and then reflected for $t<0$ ), see Example 9.15 for a detailed discussion.
+
+The interest in this example relies on the fact that it represents a Lipschitz (actually, a polyhedral ) minimal surface containing various null segments, which in Figure 1 are the four segments meeting at the upper vertex. If one describes parametrically this polyhedral surface as the image of a Lipschitz map $(t,u)\in\mathbb{R}\times[0,L)\to(t,\gamma(t,u))\in\mathbb{R}^{1+2}$ , where $\gamma$ is a weak solution of the linear wave system ( 9.2 ), it turns out that the set of all $(t,u)$ where ( $\gamma_{u}$ exists and) $\gamma_{u}(t,u)=0$ has positive Lebesgue measure. Therefore, in a parametric language, all these points should be considered as singular points. Nevertheless, we can associate to such a solution a stationary weakly rectifiable varifold admitting the conservation of energy.
+
+While a stationary rectifiable varifold generalizes the concept of lorentzian minimal submanifold, a stationary weakly rectifiable varifold is rather a limit of stationary rectifiable varifolds and its support in $\mathbb{R}^{1+N}$ is not , in general, a minimal submanifold, i.e., ( 1.1 ) is not necessarily satisfied even in regions where it is smooth: see for instance the cylindrical strings [6] considered in Example 9.14 . This phenomenon is due to possible strong oscillations of the tangent spaces and was, at a formal level, already observed in the paper [20] , see also [26] . The presence of oscillations of the tangent spaces requires to consider the barycenters $\overline{P}$ (resp. $\overline{Q}$ ) of a lorentzian orthogonal projection on the timelike part (resp. on the null part) of the varifold rather than the orthogonal projections $P$ (resp. $Q$ ) itself: this is reminiscent of the notion of generalized Young measure [12] , [1] .
+
+Even if the class of weakly rectifiable stationary varifolds is a rather huge set of weak solutions to ( 1.1 ), it still turns out to be not closed under varifolds convergence. As we shall illustrate in Example 11.3 , limits of stationary weakly rectifiable varifolds with a uniform energy bound are stationary, but may fail to be weakly rectifiable. On the other hand, we expect this closure property to be valid for one-dimensional varifolds. It can also be of interest to recall that the closure of two-dimensional minimal surfaces (i.e., strings) has been completely charaterized, at least in a parametric setting, leading to the concept of subrelativistic string (see [26] for a detailed discussion): from the positive side, it turns out that the stationary varifolds we are proposing contain and extend the notion of subrelativistic string.
+
+Before summarizing the content of the paper, another remark is in order. We do not have a weak-strong uniqueness result for our generalized solutions. In particular, assuming that the support of a stationary (weakly) rectifiable varifold with multiplicity one coincides with a regular solution to ( 1.1 ) for short times, we do not know whether it coincides with such a solution as long as the latter is defined. We observe that, in view of splitting/collision Example 10.2 , the condition that the varifold has multiplicity one is essential. We also note that it is not difficult to check that the subrelativistic strings verify such a uniqueness property, in view of the representation formula ( 9.28 ).
+
+The plan of the paper is the following. In Section 2 we introduce some notation and some standard definitions from lorentzian geometry. In Section 3 we describe our embedding of the set of timelike $h$ -planes in the vector space of all $(N+1)\times(N+1)$ real matrices (Definition 3.1 ), and its compactification $B_{h,N+1}$ via the map $q$ (Definition 3.6 ). We also need to describe the embedding of all null $h$ -planes, see formula ( 3.9 ) \footnote{ 5 Null $h$ -planes are in the boundary of the grassmannian of timelike $h$ -planes, compare the proof of Lemma 3.8 .} . Some necessary tools of geometric measure theory are given in Section 4 . On the basis of the definition of lorentzian projection on an $h$ -dimensional subspace (Definition 3.1 ), the lorentzian tangential divergence of a vector field is given in formula ( 4.4 ). Our first result is Theorem 4.2 , where we find an expression of the lorentzian $h$ -dimensional area element (denoted by $\sigma^{h}$ in the sequel, to keep distinct from the euclidean $h$ -dimensional Hausdorff measure $\mathcal{H}^{h}$ ) independent of parametrizations, namely 
+ 
+ $\sigma^{h}(B)=\int_{B}\sqrt{-\nu_{t}^{2}+\sum_{i=1}^{N}(\nu_{x^{i}})^{2}}\leavevmode\nobreak\ d\mathcal{H}^{h}.$  (1.2) 
+ Here the covector field $\nu$ with time-space components $(\nu_{t},\nu_{x})$ is defined as $\nu:=\frac{\eta{\mathrm{n}}_{1}}{|{\mathrm{n}}_{1}|_{\rm e}}$ , where ${\mathrm{n}}_{1}$ is a distinguished vector in the normal space (see Definition 3.1 ), and $|\cdot|_{\rm e}$ is the euclidean norm. We stress that ( 1.2 ) is valid in arbitrary codimension $N+1-h$ . In Corollary 4.6 we express $\sigma^{h}(B)$ using the horizontal velocity vector $\mathbb{V}$ defined in ( 4.14 ), possibly also integrating first in time and then on the time-section. We conclude Section 4 with Theorems 4.7 and 4.8 (first variation of area) which, together with formula ( 4.8 ), represent a first link between geometric measure theory and classical lorentzian differential geometry. In Section 5 we introduce the class of test functions $\mathcal{F}$ (Definition 5.2 ): the definition is given in such a way that the recession function $f^{\infty}$ (Definition 5.4 ) is well defined for any $f\in\mathcal{F}$ . The class $\mathcal{LV}_{h}$ of lorentzian varifolds is introduced in Definition 5.7 , in duality with the class $\mathcal{F}$ . Stationarity is introduced in Definition 5.11 : it is based on formula ( 5.7 ), and on the notion of lorentzian tangential divergence. The definition is formally the same as in the riemannian case, and (as in that case) it acquires a clear meaning looking at the first variation of area, in this case the lorentzian $h$ -dimensional area $\sigma^{h}$ . The splitting of a varifold into its timelike part $V^{0}$ and its null part $V^{\infty}$ is given in Definition 5.14 , and the (already mentioned) measure $\widetilde{V}^{0}$ is defined in ( 5.9 ). The disintegrations of these three measures are given in ( 6.1 ) of Section 6 , through which we can write the action of a varifold on a test function in a more useful way (Lemma 6.2 ). In the same section we introduce the barycenters $\overline{P}$ and $\overline{Q}$ . These are concepts involving only the part of $V$ on the grassmannian (see Definition 6.6 ) and are crucial in the study of weakly rectifiable varifolds, which are often obtained as weak (and strongly oscillating) limits of smooth timelike lorentzian minimal surfaces. Proper, rectifiable and weakly rectifiable varifolds are introduced in Section 7 , together with some preliminary properties. It is interesting to observe that, under suitable circumstances, it is still possible to derive a distributional stationarity equation in the weakly rectifiable case: this is accomplished in Section 7.2 . Section 8 has a central role: here we prove various conservation laws for stationary varifolds. To properly introduce the notion of relativistic energy and momentum (Definition 8.4 ) we need to disintegrate the projected part on $\mathbb{R}^{1+N}$ of the varifold using the Lebesgue measure on the time-axis: see ( 8.9 ). The analog quantities in case the varifold reduces to a smooth timelike submanifold are the usual relativistic energy and momentum, see Remark 8.6 . In Section 9 we prove one of the main results of the paper, namely that it is always possible to associate with a relativistic string a stationary rectifiable varifold (Theorem 9.6 ), and with a subrelativistic string a stationary weakly rectifiable varifold (Theorem 9.10 ). We believe these two results to be an encouraging indication for the validity of our notion of generalized solution to the lorentzian minimal surface equation ( 1.1 ). Examples of varifolds associated with relativistic and subrelativistic strings are given in Section 9.2 , in particular cylindrical strings and the already mentioned polyhedral string. Section 10 treats two other examples, the second one being rather interesting.
+
+In the first Example 10.1 we show that our theory allows to rigorously prove that a null $h$ -plane is minimal, despite the fact that normal vectors in this case are not well defined. The second Example 10.2 describes a one-dimensional varifold associated with a splitting (or, using time reversal, a collision). We consider an incoming half-line, for instance a vertical half-line $\Sigma_{1}$ , with a real positive multiplicity $\theta_{1}$ on it; next we make the half-line split, at a triple junction $p\in\mathbb{R}^{1+1}$ , into two timelike half-lines $\Sigma_{2}$ , $\Sigma_{3}$ : see Figure 2 . We then focus on the following problem: which conditions one must impose on the splitting angles $\alpha$ , $\beta$ and on the multiplicity $\theta_{i}$ on $\Sigma_{i}$ ( $i=2,3$ ) in order Figure 2 to represent a stationary $1$ -varifold in $\mathbb{R}^{1+1}$ ? This problem has a (nonunique) solution, which can be obtained inspecting the weak notion of stationarity around the triple junction. It turns out that solutions are obtained imposing a sort of weighted balance condition at $p$ involving the three lorentzian normal vectors to the three half-lines: see equation ( 10.12 ) and Figure 4 . Interestingly, the problem can be equivalently solved imposing the conservation laws, see equations ( 10.13 ). We also discuss the case when $\alpha$ and $\beta$ tend to the null directions. In Section 11 we present an elementary example concerning the limit of a zig-zag piecewise affine curve having only null directions (Example 11.1 ), and two rather pathological examples. In Example 11.2 we show a not rectifiable stationary purely singular varifold, obtained as a limit of a sequence of rectifiable stationary varifolds; in Example 11.3 we show a not rectifiable stationary purely diffuse varifold, obtained as a limit of a sequence of rectifiable stationary varifolds. These two examples illustrate the difficulty of characterizing the closure of the class of (weakly) rectifiable varifolds. In the Appendix (Section 12 ) we recall various concepts from measure theory, in particular the generalized Radon-Nikodým theorem (Theorem 12.2 ), and the disintegration of a measure (Theorem 12.3 ) needed throughout the paper.
+
+2 Notation
+
+Let $N\geq 1$ . A point in the Minkowski spacetime $\mathbb{R}^{1+N}$ will be usually denoted by $z=(t,x)\in\mathbb{R}\times\mathbb{R}^{N}$ . We indicate by 
+ 
+ $|\cdot|_{\rm e}\qquad{\rm and}\qquad(\cdot,\cdot)_{\rm e}$ 
+ the euclidean norm and scalar product in $\mathbb{R}^{1+N}$ , respectively. We adopt the same notation for the euclidean norm and scalar product in $\mathbb{R}^{N}$ . We use the greek letters $\alpha,\beta,\gamma,\rho$ to denote indices ranging from $0$ to $N$ , while we use the roman letters ${\rm a},{\rm b}$ to denote spatial indices ranging from $1$ to $N$ . Unless otherwise specified, we usually adopt the Einstein’s convention of summation over spacetime repeated indices or over repeated space indices.
+
+We denote by $\{e_{0},\dots,e_{N}\}$ the canonical euclidean orthonormal basis of $\mathbb{R}^{1+N}$ . We indicate by $\{e^{0},\dots,e^{N}\}$ the dual basis of $\{e_{0},\dots,e_{N}\}$ , i.e., $\langle e^{\alpha},e_{\beta}\rangle=\delta^{\alpha}_{\beta}$ , where $\langle\cdot,\cdot\rangle$ denotes duality between covectors and vectors and $(\delta^{\alpha}_{\beta})={\rm Id}$ is the identity matrix. Vectors have components labelled with upper indices, while covectors have components labelled with lower indices.
+
+We set $\mathbb{S}^{N}:=\{v\in\mathbb{R}^{1+N}:|v|_{\rm e}=1\}$ , $\mathbb{S}^{N-1}:=\{v\in\mathbb{R}^{N}:|v|_{\rm e}=1\}$ . Given $z\in\mathbb{R}^{1+N}$ and $\rho>0$ we set $B_{\rho}(z):=\{\zeta\in\mathbb{R}^{1+N}:|\zeta-z|_{\rm e}<\rho\}$ .
+
+We denote by $\eta$ the lorentzian metric tensor in $\mathbb{R}^{1+N}$ , 
+ 
+ $\eta={\rm diag}(-1,1,\dots,1)=(\eta_{\alpha\beta}),$ 
+ and by $\eta^{-1}=(\eta^{\alpha\beta})$ the inverse of $\eta$ . Note that $\eta e_{0}=-e^{0}$ and $\eta e_{{\rm a}}=e^{{\rm a}}$ for ${\rm a}\in\{1,\dots,N\}$ .
+
+Given $v=(v^{0},\ldots,v^{N})$ and $w=(w^{0},\ldots,w^{N})$ vectors in $\mathbb{R}^{1+N}$ , we let 
+ 
+ $(v,w):=\eta_{\alpha\beta}\leavevmode\nobreak\ v^{\alpha}w^{\beta}=v_{\beta}w^{\beta}$ 
+ be the lorentzian scalar product between $v$ and $w$ , where $(v_{0},\dots,v_{N})$ are the components of the covector corresponding to $v$ .
+
+We recall that a vector $v\in\mathbb{R}^{1+N}\setminus\{0\}$ is called - spacelike if $(v,v)>0$ ; - timelike if $(v,v)<0$ ; - null if $(v,v)=0$ ; - nonspacelike if $(v,v)\leq 0$ , namely if it is either timelike or null.
+
+If $v\in\mathbb{R}^{1+N}$ is either spacelike or null, we let 
+ 
+ $|v|:=\sqrt{(v,v)}\geq 0.$ 
+ We adopt a similar notation for covectors.
+
+Occasionally, the time component $v^{0}$ of the vector $v\in\mathbb{R}^{1+N}$ is denoted by $v_{t}\in\mathbb{R}$ , and the space component $(v^{1},\dots,v^{N})$ of $v$ by $v_{x}\in\mathbb{R}^{N}$ .
+
+3 The set $T_{h,N+1}$ , the map $q$ and the set $B_{h,N+1}$
+
+Let $h\in\{1,\dots,N\}$ . Given an unoriented $h$ -dimensional vector space $\Pi\subset\mathbb{R}^{1+N}$ (an $h$ -plane for short), we let 
+ 
+ $\Pi^{\bot}:=\Big{\{}\zeta\in\mathbb{R}^{1+N}:(\zeta,\xi)=0\leavevmode\nobreak\ \leavevmode\nobreak\ \forall\xi\in\Pi\Big{\}}$ 
+ be the subspace orthogonal to $\Pi$ in the lorentzian sense.
+
+We recall [21] that $\Pi$ is called - timelike if ${\mathrm{n}}$ is spacelike for all ${\mathrm{n}}\in\Pi^{\bot}$ , and in this case ${\rm dim}(\Pi^{\bot})=N+1-h$ ; - null if ${\mathrm{n}}$ is spacelike or null for all ${\mathrm{n}}\in\Pi^{\perp}$ , and at least one ${\mathrm{n}}\in\Pi^{\perp}\setminus\{0\}$ is null; - nonspacelike (or causal) if $\Pi$ is either timelike or null.
+
+The set of all timelike $h$ -planes is open, and we embed it into the vector space of $(N+1)\times(N+1)$ -real matrices $M_{N+1}\simeq\mathbb{R}^{(N+1)^{2}}$ as follows: we associate with a timelike $h$ -plane $\Pi$ the matrix $P_{\Pi}$ corresponding to the lorentzian orthogonal projection $\mathbb{R}^{1+N}\to\mathbb{R}^{1+N}$ onto $\Pi$ (see also [22] ). More precisely we give the following
+
+Let $\Pi$ be a timelike $h$ -plane. We define 
+ 
+ $P_{\Pi}:={\rm Id}-\sum_{j=1}^{N+1-h}{\mathrm{n}}_{j}\otimes\eta{\mathrm{n}}_{j},$  (3.1) 
+ where - ${\mathrm{n}}_{1},\dots\mathrm{n}_{N+1-h}\in\Pi^{\perp}$ are spacelike vectors, - the time component of ${\mathrm{n}}_{1}$ is nonnegative, - ${\mathrm{n}}_{2},\dots\mathrm{n}_{N+1-h}$ have vanishing time component, - for $i,j\in\{1,\ldots,N+1-h\}$ 
+ 
+ $({\mathrm{n}}_{i},{\mathrm{n}}_{j})=\begin{cases}1&{\rm if}\leavevmode\nobreak\ i=j,\\
+0&{\rm if}\leavevmode\nobreak\ i\neq j.\end{cases}$  (3.2)
+
+Sometimes we write $P$ or also $P({\mathrm{n}}_{1},\dots,{\mathrm{n}}_{N+1-h})$ in place of $P_{\Pi}$ . Despite the index $j$ is repeated, we prefer not to drop the symbol of summation in ( 3.1 ).
+
+The $(1,1)$ -tensor $P$ in ( 3.1 ), if applied to a vector (resp. to a covector) gives a vector (resp. a covector). Equation ( 3.1 ) written in components reads as 
+ 
+ $P(e^{\alpha},e_{\beta})=\langle e^{\alpha},P(e_{\beta})\rangle=P_{\beta}^{\alpha}=\delta_{\beta}^{\alpha}-\eta_{\beta\gamma}{\mathrm{n}}_{j}^{\alpha}{\mathrm{n}}_{j}^{\gamma},\qquad\alpha,\beta\in\{0,\dots,N\}.$ 
+
+
+Let $P$ be as in ( 3.1 ). Then: (i) $P$ is not necessarily symmetric, while $\eta P$ is symmetric; (ii) the restriction of $P$ to $\{0\}\times\mathbb{R}^{N}$ is symmetric, since $\eta$ acts as the identity on $\{0\}\times\mathbb{R}^{N}$ ; (iii) $P_{\alpha}^{\alpha}=N+1-\sum_{j=1}^{N+1-h}({\mathrm{n}}_{j},{\mathrm{n}}_{j})=h$ ; (iv) given a Lorentz transformation $L$ , the lorentzian orthogonal projection onto $L(\Pi)$ is given by $LPL^{-1}$ .
+
+$P$ does not depend on the choice of the $(N+1-h)$ -tuple of vectors ${\mathrm{n}}_{1},\dots,{\mathrm{n}}_{N+1-h}$ satisfying the properties listed in Definition 3.1 . Indeed: - case 1: $e_{0}\in P$ . Then ${\mathrm{n}}_{1}$ has vanishing time component, and the restriction of $P$ to $\Pi\cap(\{0\}\times\mathbb{R}^{N})$ equals (letting ${\rm Id}_{N}$ the identity matrix of $\mathbb{R}^{N}$ ) 
+ 
+ ${\rm Id}_{N}-\sum_{j=1}^{N+1-h}{\mathrm{n}}_{j}\otimes\eta{\mathrm{n}}_{j}={\rm Id}_{N}-\sum_{j=1}^{N+1-h}{\mathrm{n}}_{j}\otimes{\mathrm{n}}_{j},$ 
+ which is an orthogonal euclidean projection, hence independent of the choice of the $(N+1-h)$ -tuple of vectors ${\mathrm{n}}_{1},\dots,{\mathrm{n}}_{N+1-h}$ . - case 2: $e_{0}\notin P$ . The restriction of $P$ to $\Pi\cap(\{0\}\times\mathbb{R}^{N})$ equals 
+ 
+ ${\rm Id}_{N}-\sum_{j=2}^{N+1-h}{\mathrm{n}}_{j}\otimes\eta{\mathrm{n}}_{j}={\rm Id}_{N}-\sum_{j=2}^{N+1-h}{\mathrm{n}}_{j}\otimes{\mathrm{n}}_{j},$ 
+ which is an orthogonal euclidean projection, hence independent of the choice of the $(N-h)$ -tuple of vectors ${\mathrm{n}}_{2},\dots,{\mathrm{n}}_{N+1-h}$ ; - ${\mathrm{n}}_{1}\in\Pi^{\perp}\cap({\rm span}\{{\mathrm{n}}_{2},\dots,{\mathrm{n}}_{N+1-h}\})^{\perp}$ , and $({\rm span}\{{\mathrm{n}}_{2},\dots,{\mathrm{n}}_{N+1-h}\})^{\perp}={\rm span}\{\Pi,e_{0}\}$ . Hence 
+ 
+ ${\rm span}\{{\mathrm{n}}_{1}\}=\Pi^{\perp}\cap{\rm span}\{\Pi,e_{0}\}.$  (3.3) 
+ In particular ${\mathrm{n}}_{1}$ is uniquely determined, since the right hand side of ( 3.3 ) is one-dimensional, $({\mathrm{n}}_{1},{\mathrm{n}}_{1})=1$ , and by assumption ${\mathrm{n}}_{1}^{0}\geq 0$ . Notice that if $e_{0}\in P$ the vector ${\mathrm{n}}_{1}$ is not uniquely determined.
+
+We denote by $T_{h,N+1}\subset M_{N+1}$ the set of all $(N+1)\times(N+1)$ -real matrices $P=P_{\Pi}$ corresponding to timelike $h$ -planes $\Pi$ in the sense of Definition 3.1 .
+
+As it is well known, as ${\mathrm{n}}\in\Pi^{\perp}$ approaches the light cone, it tends to become parallel to $\Pi$ , and its euclidean norm $|{\mathrm{n}}|_{\rm e}$ tends to $+\infty$ . Therefore the set $T_{h,N+1}$ is not bounded. For our purposes, the closure of $T_{h,N+1}$ needs to be compactified. We choose a way to compactify $T_{h,N+1}$ which consists in dividing $P$ by its ${}^{0}_{0}$ component. Let us be more precise.
+
+Given $P\in T_{h,N+1}$ we have 
+ 
+ $P_{0}^{0}=1+\sum_{j=1}^{N+1-h}({\mathrm{n}}_{j}^{0})^{2}=1+({\mathrm{n}}_{1}^{0})^{2}\geq 1,$  (3.4) 
+ and 
+ 
+ $P_{0}^{{\rm a}}=-\sum_{j=1}^{N+1-h}\eta_{0\beta}{\mathrm{n}}_{j}^{\beta}{\mathrm{n}}_{j}^{{\rm a}}={\mathrm{n}}_{1}^{0}{\mathrm{n}}_{1}^{{\rm a}},\qquad{\rm a}\in\{1,\dots,N\}.$  (3.5) 
+
+
+The set $\{v\in\mathbb{R}^{1+N}:v\leavevmode\nobreak\ {\rm spacelike},\leavevmode\nobreak\ |v|^{2}=1\}$ is unbounded. However, if $v=(v_{t},v_{x})$ , we have 
+ 
+ $|v|^{2}=1\leavevmode\nobreak\ \Rightarrow\leavevmode\nobreak\ \frac{|v_{x}|_{\rm e}^{2}}{1+2(v_{t})^{2}}\leq 1.$ 
+ Therefore, a bound on the time component of a spacelike vector of $\{v\in\mathbb{R}^{1+N}:|v|^{2}=1\}$ gives a bound on the euclidean norm of its spatial component.
+
+We are now in a position to give the following
+
+We define the map $q:T_{h,N+1}\to M_{N+1}$ as 
+ 
+ $q(P):=\frac{P}{P_{0}^{0}}=\frac{P}{1+({\mathrm{n}}_{1}^{0})^{2}},\qquad P=P({\mathrm{n}}_{1},\dots,{\mathrm{n}}_{N+1-h})\in T_{h,N+1},$  (3.6) 
+ and we set 
+ 
+ $B_{h,N+1}:=q(T_{h,N+1}).$ 
+
+
+The set $B_{h,N+1}\subset M_{N+1}$ is open and bounded (recall Remark 3.5 ), in particular its closure $\overline{B_{h,N+1}}$ is compact.
+
+3.1 Projections on null $h$ -planes
+
+The following lemma gives some insight on the geometry of $\overline{B_{h,N+1}}$ .
+
+The boundary of $B_{h,N+1}$ has the following representation \footnote{ 6 When we write $\eta(1,{\mathbb{V}_{\infty}})$ we implicitely consider $(1,{\mathbb{V}_{\infty}})$ as a column.} : 
+ 
+ $\partial B_{h,N+1}=\left\{-(1,{\mathbb{V}_{\infty}})\otimes\eta(1,{\mathbb{V}_{\infty}}):{\mathbb{V}_{\infty}}\in\mathbb{S}^{N-1}\right\}.$  (3.7) 
+ In particular, $\partial B_{h,N+1}$ is independent of the integer $h\in\{1,\dots,N\}$ .
+
+Let $\{P_{\ell}\}\subset T_{h,N+1}$ be a sequence of matrices, define $Q_{\ell}:=q(P_{\ell})$ , and assume that the sequence $\{Q_{\ell}\}$ converges to some $Q\in\partial B_{h,N+1}$ as $\ell\to+\infty$ . Following the notation in Definition 3.1 , for any $\ell\in\mathbb{N}$ we can write $P_{\ell}={\rm Id}-\sum_{j=1}^{N+1-h}{\mathrm{n}}_{j}^{(\ell)}\otimes\eta{\mathrm{n}}_{j}^{(\ell)}$ . Let us indicate for notational simplicity by $\tau_{\ell}$ the square of the time component of ${\mathrm{n}}_{1}^{(\ell)}$ , i.e., $\tau_{\ell}:=({\mathrm{n}}_{1}^{(\ell)\leavevmode\nobreak\ \!0})^{2}$ , so that in particular $\displaystyle\lim_{\ell\to+\infty}\tau_{\ell}=+\infty$ . Then 
+ 
+ $Q_{\ell}=\frac{{\rm Id}-\displaystyle\sum_{j=2}^{N+1-h}{\mathrm{n}}_{j}^{(\ell)}\otimes\eta{\mathrm{n}}_{j}^{(\ell)}}{1+\tau_{\ell}}-\frac{{\mathrm{n}}_{1}^{(\ell)}\otimes\eta{\mathrm{n}}_{1}^{(\ell)}}{1+\tau_{\ell}}.$ 
+ Hence 
+ 
+ $\lim_{\ell\to+\infty}Q_{\ell}=-\lim_{\ell\to+\infty}\frac{{\mathrm{n}}_{1}^{(\ell)}\otimes\eta{\mathrm{n}}_{1}^{(\ell)}}{1+\tau_{\ell}}=-\lim_{\ell\to+\infty}\frac{{\mathrm{n}}_{1}^{(\ell)}}{\sqrt{\tau_{\ell}}}\otimes\frac{\eta{\mathrm{n}}_{1}^{(\ell)}}{\sqrt{\tau_{\ell}}}.$  (3.8) 
+ Since by assumption ${\mathrm{n}}_{1}^{{(\ell)}\leavevmode\nobreak\ \!0}\geq 0$ , it follows $\displaystyle\lim_{\ell\to+\infty}\frac{{\mathrm{n}}_{1}^{(\ell)\leavevmode\nobreak\ \!0}}{\sqrt{\tau_{\ell}}}=1$ . Taking also into account that $\{Q_{\ell}\}$ is a converging sequence, we can define 
+ 
+ ${\mathbb{V}_{\infty}}:=\lim_{\ell\to+\infty}\frac{({\mathrm{n}}_{1}^{(\ell)})_{x}}{\sqrt{\tau_{\ell}}}\leavevmode\nobreak\ \in\mathbb{R}^{N}.$ 
+ It then follows from ( 3.8 ) that 
+ 
+ $-\lim_{\ell\to+\infty}\frac{{\mathrm{n}}_{1}^{(\ell)}}{\sqrt{\tau_{\ell}}}\otimes\frac{\eta{\mathrm{n}}_{1}^{(\ell)}}{\sqrt{\tau_{\ell}}}=-(1,{\mathbb{V}_{\infty}})\otimes\eta(1,{\mathbb{V}_{\infty}})=(1,{\mathbb{V}_{\infty}})\otimes(1,-{\mathbb{V}_{\infty}}).$ 
+ It remains to show that $|{\mathbb{V}_{\infty}}|_{\rm e}=1$ , and this follows passing to the limit as $\ell\to+\infty$ in the equality 
+ 
+ $\sum_{\mathrm{a}=1}^{N+1}\frac{\left({\mathrm{n}}_{1}^{(\ell)\leavevmode\nobreak\ \!\mathrm{a}}\right)^{2}}{\tau_{\ell}}=\frac{1+\left({\mathrm{n}}_{1}^{(\ell)\leavevmode\nobreak\ \!0}\right)^{2}}{\tau_{\ell}},$ 
+ since the left hand side converges to $|{\mathbb{V}_{\infty}}|^{2}_{\rm e}$ , while the right hand side converges to $1$ . ∎
+
+Note that $(1,{\mathbb{V}_{\infty}})$ is a null vector. Note also that from ( 3.7 ) it follows that $\partial B_{h,N+1}$ is diffeomorphic to $\mathbb{S}^{N-1}$ (which is independent of $h$ ).
+
+The intersection of a null $h$ -plane $\Pi$ with the positive light cone is a half-line, since $\Pi$ is tangent to the half-cone. The euclidean orthogonal projection on $\mathbb{R}^{N}$ of such a half-line is (a half-line) identified with a vector ${\mathbb{V}_{\infty}}\in\mathbb{S}^{N-1}$ . If $N+1-h>1$ , there are several null $h$ -planes $\Pi$ having the same ${\mathbb{V}_{\infty}}$ .
+
+Let $v_{1}\neq v_{2}$ be vectors of $\mathbb{R}^{N}$ such that $|v_{1}|_{\rm e}=|v_{2}|_{\rm e}=1$ . The convex combination of $-(1,v_{1})\otimes\eta(1,v_{1})$ and $-(1,v_{2})\otimes\eta(1,v_{2})$ is not of the form $-(1,v_{3})\otimes\eta(1,v_{3})$ for some $v_{3}\in\mathbb{S}^{N-1}$ . Indeed, the image of $-(1,v_{1})\otimes\eta(1,v_{1})$ (resp. of $-(1,v_{2})\otimes\eta(1,v_{2})$ ) is generated by $(1,v_{1})$ (resp. by $(1,v_{2}$ )) so that the image of the mean value $\frac{1}{2}\left(-(1,v_{1})\otimes\eta(1,v_{1})-(1,v_{2})\otimes\eta(1,v_{2})\right)$ is the timelike $2$ -plane generated by $(1,v_{1})$ and $(1,v_{2})$ .
+
+The restriction to $\{0\}\times\mathbb{R}^{N}$ of the matrix $-(1,{\mathbb{V}_{\infty}})\otimes\eta(1,{\mathbb{V}_{\infty}})$ , given in the proof of Lemma 3.8 , is symmetric.
+
+We can now describe how to associate with any null $h$ -plane a projection. Let $\Pi$ be a null $h$ -plane; we can uniquely choose ${\mathbb{V}_{\infty}}\in\mathbb{S}^{N-1}$ satisfying the condition $(1,{\mathbb{V}_{\infty}})\in\Pi$ . Then, we uniquely associate with $\Pi$ the map 
+ 
+ $Q_{\Pi}:=-(1,{\mathbb{V}_{\infty}})\otimes\eta(1,{\mathbb{V}_{\infty}})\in\partial B_{h,N+1}.$  (3.9) 
+ Observe that the image of $Q_{\Pi}$ is contained in the span of $(1,{\mathbb{V}_{\infty}})$ .
+
+4 Geometric measure theory
+
+We denote by $\mathcal{H}^{k}$ the euclidean $k$ -dimensional Hausdorff measure in $\mathbb{R}^{1+N}$ , for $k\in\{0,1,\dots,h\}$ .
+
+Let $\Sigma\subset\mathbb{R}^{1+N}$ be an $\mathcal{H}^{h}$ -measurable set. We say that $\Sigma$ is countably $h$ -rectifiable ( $h$ -rectifiable for short) if $\mathcal{H}^{h}$ -almost all of the set $\Sigma$ can be covered by a countable union of Lipschitz graphs, see [4] . Therefore, an $h$ -rectifiable set admits tangent space $\mathcal{H}^{h}$ -almost evereywhere.
+
+We let $T_{z}\Sigma$ be the tangent space to $\Sigma$ at ${z}$ (where it is defined). $\Sigma$ is called timelike (resp. null) if $T_{z}\Sigma$ is timelike (resp. $T_{z}\Sigma$ is null) for all $z\in\Sigma$ where $T_{z}\Sigma$ exists (in particular $\mathcal{H}^{h}$ -almost everywhere on $\Sigma$ ). $\Sigma$ is called nonspacelike (or causal) if $T_{z}\Sigma$ is either timelike or null.
+
+Let $\Sigma$ be nonspacelike and let $z\in\Sigma$ be such that $T_{z}\Sigma$ exists. We introduce the following notation: - if $T_{z}\Sigma$ is timelike, we set 
+ 
+ $P_{\Sigma}(z):\mathbb{R}^{1+N}\to\mathbb{R}^{1+N}$ 
+ the lorentzian orthogonal projection onto $T_{z}\Sigma$ , that has the expression 
+ 
+ $P_{\Sigma}(z)={\rm Id}-\sum_{j=1}^{N+1-h}{\mathrm{n}}_{j}(z)\otimes\eta{\mathrm{n}}_{j}(z),$  (4.1) 
+ where ${\mathrm{n}}_{1}(z)={{\mathrm{n}}_{1}}_{\Sigma}(z),\dots,{\mathrm{n}}_{N+1-h}(z)={{\mathrm{n}}_{N+1-h}}_{\Sigma}(z)$ are required to satisfy the properties listed in Definition 3.1 , provided $\Pi$ is replaced by $T_{z}\Sigma$ ; - if $T_{z}\Sigma$ is null, we set 
+ 
+ $Q_{\Sigma}(z)=-(1,{\mathbb{V}_{\infty}}(z))\otimes\eta(1,{\mathbb{V}_{\infty}}(z)),$ 
+ where ${\mathbb{V}_{\infty}}(z)$ is required to satisfy the properties listed at the end of Section 3 , provided the null $h$ -plane $\Pi$ is replaced by $T_{z}\Sigma$ .
+
+4.1 Lorentzian tangential operators
+
+Assume that $\Sigma$ is timelike. Let $\psi\in{\rm Lip}_{c}(\Sigma)$ (that is, $\psi$ is Lipschitz on $\Sigma$ and with compact support). Suppose that there exists an extension $\Psi$ of $\psi$ with \footnote{ 7 Assuming $\Psi$ only Lipschitz (with compact support) on $\mathbb{R}^{1+N}$ does not guarantee that $\Psi$ is differentiable on $\Sigma$ . On the other hand, in some examples we need to consider $\Sigma$ to be $h$ -rectifiable, and not necessarily of class $\mathcal{C}^{1}$ , and therefore we cannot assume $\psi$ of class $\mathcal{C}^{1}$ .} $\Psi\in\mathcal{C}^{1}_{c}(\mathbb{R}^{1+N})$ . We denote by $d_{\tau}\psi$ the lorentzian tangential differential of $\psi$ on $\Sigma$ , defined as 
+ 
+ $d_{\tau}\psi:=P_{\Sigma}^{*}\leavevmode\nobreak\ d\Psi\qquad{\rm on}\leavevmode\nobreak\ \Sigma,$  (4.2) 
+ where $d\Psi$ is the differential of $\Psi$ . In equation ( 4.2 ), $P_{\Sigma}^{*}$ is nothing else but $P_{\Sigma}$ , whenever considered as acting on the covector field $d\Psi$ , namely 
+ 
+ $P^{*}_{\Sigma}(z)d\Psi(z)=\left({\rm Id}-\sum_{j=1}^{N+1-h}\eta{\mathrm{n}}_{j}(z)\otimes{\mathrm{n}}_{j}(z)\right)d\Psi(z).$  (4.3) 
+ Note that 
+ 
+ $P^{*}_{\Sigma}(z)(e^{\alpha},e_{\beta})=\langle P_{\Sigma}^{*}(z)(e^{\alpha}),e_{\beta}\rangle={P_{\Sigma}^{*}(z)}^{\alpha}_{\beta}=\langle e^{\alpha},P_{\Sigma}(z)(e_{\beta})\rangle={P_{\Sigma}(z)}^{\alpha}_{\beta}.$ 
+ Therefore, in the following we will identify $P_{\Sigma}$ with $P_{\Sigma}^{*}$ , and we will omit the \textsuperscript{∗} in ( 4.2 ).
+
+Notice that the tangential differential of $\psi$ is independent of the extension $\Psi$ \footnote{ 8 If $\psi$ is zero on $\Sigma$ , the tangent space to $\Sigma$ is in the kernel of $d\Psi$ . Hence, if $v$ is a vector, $\langle P^{*}_{\Sigma}d\Psi,v\rangle=\langle d\Psi,P_{\Sigma}v\rangle=0$ , since $P_{\Sigma}v$ is a tangent vector.} .
+
+Let $Y\in({\rm Lip}_{c}(\Sigma))^{N+1}$ . Assume that there exists an extension $\mathcal{Y}\in(\mathcal{C}^{1}_{c}(\mathbb{R}^{1+N}))^{N+1}$ of $Y$ . We define the lorentzian tangential divergence ${\rm div}_{\tau}Y$ on $\Sigma$ as follows: 
+ 
+ $\displaystyle{\rm div}_{\tau}Y$ $\displaystyle:=$ $\displaystyle d\mathcal{Y}^{\alpha}_{\alpha}-d\mathcal{Y}^{\alpha}_{\beta}\leavevmode\nobreak\ {\mathrm{n}}_{j}^{\beta}\leavevmode\nobreak\ \eta_{\gamma\alpha}\leavevmode\nobreak\ {\mathrm{n}}_{j}^{\gamma}\qquad{\rm on}\leavevmode\nobreak\ \Sigma,$ 
+ where $d\mathcal{Y}$ is the differential of $\mathcal{Y}$ . Such a tangential divergence is independent of the extension $\mathcal{Y}$ .
+
+Notice \footnote{ 9 Given a tensor $T=T^{\beta}_{\alpha}$ of type $(1,1)$ , we set ${\rm tr}(T):=T_{\alpha}^{\alpha}$ .} that 
+ 
+ ${\rm div}_{\tau}Y={\rm tr}\left(P_{\Sigma}\leavevmode\nobreak\ d\mathcal{Y}\right)\qquad{\rm on}\leavevmode\nobreak\ \Sigma.$  (4.4) 
+ Indeed, 
+ 
+ ${\rm tr}(P_{\Sigma}d\mathcal{Y})={\rm tr}\left(\big{(}{\rm Id}-\sum_{j=1}^{N+1-h}\eta{\mathrm{n}}_{j}\otimes{\mathrm{n}}_{j}\big{)}d\mathcal{Y}\right)=d\mathcal{Y}^{\alpha}_{\alpha}-d\mathcal{Y}^{\alpha}_{\beta}\leavevmode\nobreak\ {\mathrm{n}}_{j}^{\beta}\leavevmode\nobreak\ \eta_{\gamma\alpha}\leavevmode\nobreak\ {\mathrm{n}}_{j}^{\gamma}\qquad{\rm on}\leavevmode\nobreak\ \Sigma.$ 
+ Note also that 
+ 
+ ${\rm div}_{\tau}(\psi Y)=\psi\,{\rm div}_{\tau}Y+\langle d_{\tau}\psi,Y\rangle.$  (4.5) 
+ Let $T\in\mathcal{\rm Lip}_{c}(\Sigma;\mathbb{R}^{(N+1)^{2}})$ be a $(1,1)$ -tensor field. Assume that there exists an extension $\mathcal{T}\in\mathcal{C}^{1}_{c}(\mathbb{R}^{1+N};\mathbb{R}^{(N+1)^{2}})$ of $T$ . We define the lorentzian tangential divergence ${\rm div}_{\tau}T$ of $T$ as 
+ 
+ ${{\rm div}_{\tau}T}_{\leavevmode\nobreak\ \!\!\alpha}:=d\mathcal{T}_{\alpha\beta}^{\beta}-d\mathcal{T}_{\alpha\beta}^{\rho}\leavevmode\nobreak\ {\mathrm{n}}_{j}^{\beta}\leavevmode\nobreak\ \eta_{\gamma\rho}\leavevmode\nobreak\ {\mathrm{n}}_{j}^{\gamma}\qquad{\rm on}\leavevmode\nobreak\ \Sigma,\ \alpha\in\{0,\dots,N\},$  (4.6) 
+ or equivalently 
+ 
+ $\displaystyle{\rm div}_{\tau}T(z)$ $\displaystyle:=$ $\displaystyle{\rm tr}\left(P_{\Sigma}(z)d\mathcal{T}(z)\right),\qquad z\in\Sigma.$ 
+ Finally, if $\Sigma$ is timelike and in addition is of class $\mathcal{C}^{2}$ , we let 
+ 
+ $H_{\Sigma}:=\sum_{j=1}^{N+1-h}{\rm div}_{\tau}{\mathrm{n}}_{j}\leavevmode\nobreak\ {\mathrm{n}}_{j}\qquad{\rm on}\leavevmode\nobreak\ \Sigma,$  (4.7) 
+ be the lorentzian mean curvature vector of $\Sigma$ . Observe that 
+ 
+ ${\rm div}_{\tau}P_{\Sigma}=-\eta\,H_{\Sigma},$  (4.8) 
+ since, using ${\mathrm{n}}_{j}^{\beta}{{\mathrm{n}}_{j}}_{\beta}=1$ for any $j=1,\dots,N+1-h$ , it follows ${{\rm div}_{\tau}P_{\Sigma}}_{\leavevmode\nobreak\ \!\alpha}=-\sum_{j=1}^{N+1-h}(d{\mathrm{n}}_{j}^{\beta})_{\beta}{{\mathrm{n}}_{j}}_{\alpha}-{\mathrm{n}}_{j}^{\beta}(d{{\mathrm{n}}_{j}}_{\alpha})_{\beta}=-\sum_{j=1}^{N+1-h}(d{\mathrm{n}}_{j}^{\beta})_{\beta}{{\mathrm{n}}_{j}}_{\alpha}$ .
+
+4.2 The lorentzian $N+1-h$ -codimensional area: parametrization free expression
+
+We recall [28] that the $h$ -dimensional lorentzian area $\mathcal{S}_{h}(\Sigma)$ of a timelike $h$ -dimensional rectifiable set $\Sigma=X(\Omega)\subset\mathbb{R}^{1+N}$ , where $\Omega\subset\mathbb{R}^{h}$ is an open set, and $X:\Omega\to\mathbb{R}^{1+N}$ is a Lipschitz embedding, is given by 
+ 
+ $\mathcal{S}_{h}(\Sigma)=\int_{\Omega}\sqrt{-{\rm det}g}\leavevmode\nobreak\ du_{1}\dots du_{h},$  (4.9) 
+ where $g$ is the matrix with components 
+ 
+ $g_{ij}:=\left(X_{u_{i}},X_{u_{j}}\right),$ 
+ that are almost everywhere defined in $\Omega$ .
+
+We are interested in representing $\mathcal{S}_{h}(\Sigma)$ using only the image of the map $X$ . It is useful to introduce the following notation, valid for any $h\in\{1,\dots,N\}$ .
+
+Let $\Sigma\subset\mathbb{R}^{1+N}$ be a nonspacelike $h$ -rectifiable set. We define $\mathcal{H}^{h}$ -almost everywhere on $\Sigma$ the covector field $\nu=\nu_{\Sigma}$ as 
+ 
+ $\nu(z):=\begin{cases}\displaystyle\frac{\eta{\mathrm{n}}_{1}(z)}{|\eta{\mathrm{n}}_{1}(z)|_{\rm e}}&{\rm if}\leavevmode\nobreak\ T_{z}\Sigma\leavevmode\nobreak\ {\rm is\leavevmode\nobreak\ timelike},\\
+\\
+\displaystyle-\frac{1}{\sqrt{2}}\eta(1,{\mathbb{V}_{\infty}}(z))&{\rm if}\leavevmode\nobreak\ T_{z}\Sigma\leavevmode\nobreak\ {\rm is\leavevmode\nobreak\ null}.\end{cases}$  (4.10) 
+
+
+The covector field $\nu$ has unit euclidean norm, and its definition does not involve the remaining normal vectors ${\mathrm{n}}_{2},\dots,{\mathrm{n}}_{N+1-h}$ . If $N+1-h>1$ the covector field $\nu$ is nothing else but a suitable unit (in euclidean sense) covector normal to $\Sigma$ .
+
+Observe that at points $z\in\Sigma$ where $T_{z}\Sigma$ is timelike we have 
+ 
+ ${\mathrm{n}}_{1}(z)=\frac{\eta^{-1}\nu(z)}{|\eta^{-1}\nu(z)|},$  (4.11) 
+ and $\eta^{-1}\nu(z)=\displaystyle\frac{{\mathrm{n}}_{1}(z)}{|{\mathrm{n}}_{1}(z)|_{\rm e}}$ .
+
+The following result gives the expression of the $h$ -dimensional area of a nonspacelike manifold $\Sigma$ in terms of $\nu$ , in arbitrary codimension $N+1-h$ . We write $\nu$ in components as $\nu=(\nu_{t},\nu_{x})\in\mathbb{R}\times\mathbb{R}^{N}$ .
+
+Let $\Sigma\subset\mathbb{R}^{1+N}$ be a nonspacelike $h$ -rectifiable set. For any $h\in\{1,\dots,N\}$ we have 
+ 
+ $\mathcal{S}_{h}(\Sigma)=\int_{\Sigma}|\nu|\leavevmode\nobreak\ d\mathcal{H}^{h}(z)=\int_{\Sigma}\sqrt{-\nu_{t}^{2}+|\nu_{x}|_{\rm e}^{2}}\leavevmode\nobreak\ d\mathcal{H}^{h}(z).$  (4.12) 
+
+
+The integral in ( 4.12 ) is restricted to the points $z$ of $\Sigma$ where $T_{z}\Sigma$ is timelike, since otherwise the integrand vanishes. Therefore, it is not restrictive to assume that $\Sigma$ is timelike.
+
+Using ( 4.9 ) and the euclidean area formula [14] we have 
+ 
+ $\mathcal{S}_{h}(\Sigma)=\int_{\Sigma}\frac{\sqrt{-{\rm det}g}}{\sqrt{|{\rm det}G}|}\leavevmode\nobreak\ d\mathcal{H}^{h}(z),$ 
+ where $G$ is the matrix with components 
+ 
+ $G_{ij}=(X_{u_{i}},X_{u_{j}})_{\rm e},\qquad i,j\in\{1,\dots,h\},$ 
+ and ${\rm det}g$ and ${\rm det}G$ are calculated at $(u_{1},\dots,u_{h})=X^{-1}(z)$ . We choose a local parametrization $X$ around a point $\overline{u}=(\overline{u}_{1},\dots,\overline{u}_{h})\in\Omega$ so that the time component of $X_{u_{i}}(\overline{u})$ is zero for any $i=2,\dots,h$ , and moreover 
+ 
+ $g(\overline{u})={\rm diag}\Big{(}\left(X_{u_{1}}(\overline{u}),X_{u_{1}}(\overline{u})\right),1,\dots,1\Big{)}.$ 
+ Observe that $X_{u_{1}}(\overline{u})$ is timelike, i.e., $\left(X_{u_{1}}(\overline{u}),X_{u_{1}}(\overline{u})\right)<0$ . In this way we have ${\rm det}g(\overline{u})=\left(X_{u_{1}}(\overline{u}),X_{u_{1}}(\overline{u})\right)$ , and ${\rm det}G(\overline{u})=\left(X_{u_{1}}(\overline{u}),X_{u_{1}}(\overline{u})\right)_{\rm e}$ .
+
+Therefore, to prove ( 4.12 ) we have to show that 
+ 
+ $-\overline{\nu}_{t}^{2}+|\overline{\nu}_{x}|_{\rm e}^{2}=-\frac{\left(X_{u_{1}}(\overline{u}),X_{u_{1}}(\overline{u})\right)}{\left(X_{u_{1}}(\overline{u}),X_{u_{1}}(\overline{u})\right)_{\rm e}},$ 
+ where $\overline{\nu}_{t}:=\nu_{t}(\overline{z})$ , $\overline{\nu}_{x}:=\nu_{x}(\overline{z})$ , $\overline{\nu}=(\overline{\nu}_{t},\overline{\nu}_{x})$ , and $\overline{z}=X(\overline{u})$ .
+
+By construction \footnote{ 10 Note that $e_{0}\notin N_{\overline{z}}\Sigma$ , and $X_{u_{1}}(\overline{u})\notin N_{\overline{z}}\Sigma$ . Therefore the inclusion $X_{u_{1}}(\overline{u})\in{\rm span}\{N_{\overline{z}}\Sigma,e_{0}\}$ is equivalent to the inclusion $e_{0}\in{\rm span}\{N_{\overline{z}}\Sigma,X_{u_{1}}(\overline{u})\}$ .} we have 
+ 
+ $X_{u_{1}}(\overline{u})\in T_{\overline{z}}\Sigma\cap{\rm span}\{N_{\overline{z}}\Sigma,e_{0}\}.$ 
+ In addition 
+ 
+ $T_{\overline{z}}\Sigma\cap{\rm span}\{N_{\overline{z}}\Sigma,e_{0}\}=T_{\overline{z}}\Sigma\cap{\rm span}\{\overline{\nu},e_{0}\},$ 
+ since obviously $T_{\overline{z}}\Sigma\cap{\rm span}\{N_{\overline{z}}\Sigma,e_{0}\}\subseteq T_{\overline{z}}\Sigma\cap{\rm span}\{\overline{\nu},e_{0}\}$ , and moreover $T_{\overline{z}}\Sigma\cap{\rm span}\{N_{\overline{z}}\Sigma,e_{0}\}$ is one-dimensional, and $T_{\overline{z}}\Sigma\cap{\rm span}\{\overline{\nu},e_{0}\}\neq\emptyset$ by ( 4.10 ). Hence 
+ 
+ $X_{u_{1}}(\overline{u})\in T_{\overline{z}}\Sigma\cap{\rm span}\{\overline{\nu},e_{0}\}.$ 
+ We now observe that $(|\overline{\nu}_{x}|_{\rm e}^{2},-\overline{\nu}_{t}\overline{\nu}_{x})$ is orthogonal, in euclidean sense, to $\overline{\nu}$ . In addition $(|\overline{\nu}_{x}|_{\rm e}^{2},-\overline{\nu}_{t}\overline{\nu}_{x})\in{\rm span}\{\overline{\nu},e_{0}\}$ , since, recalling also that $|\overline{\nu}|_{\rm e}^{2}=1$ , 
+ 
+ $e_{0}-\overline{\nu}_{t}\overline{\nu}=(1-\nu_{t}^{2},-\overline{\nu}_{t}\overline{\nu}_{x})=(|\overline{\nu}_{x}|_{\rm e}^{2},-\overline{\nu}_{t}\overline{\nu}_{x}).$ 
+ It follows that $X_{u_{1}}(\overline{u})$ is parallel to $(|\nu_{x}|_{\rm e}^{2},-\nu_{t}\nu_{x})$ , and therefore there exists a constant $\lambda\in\mathbb{R}\setminus\{0\}$ such that 
+ 
+ $X_{u_{1}}(\overline{u})=\lambda(|\nu_{x}(\overline{z})|_{\rm e}^{2},-\nu_{t}(\overline{z})\nu_{x}(\overline{z})).$ 
+ Hence, since $\overline{\nu}_{x}\neq 0$ , 
+ 
+ $\frac{(X_{u_{1}}(\overline{u}),X_{u_{1}}(\overline{u}))}{(X_{u_{1}}(\overline{u}),X_{u_{1}}(\overline{u}))_{\rm e}}=\frac{-|\overline{\nu}_{x}|_{\rm e}^{4}+\overline{\nu}_{t}^{2}|\overline{\nu}_{x}|^{2}_{\rm e}}{|\overline{\nu}_{x}|_{\rm e}^{4}+\overline{\nu}_{t}^{2}|\overline{\nu}_{x}|_{\rm e}^{2}}=\frac{-|\overline{\nu}_{x}|_{\rm e}^{2}+\overline{\nu}_{t}^{2}}{|\overline{\nu}_{x}|_{\rm e}^{2}+\overline{\nu}_{t}^{2}}=-|\overline{\nu}_{x}|_{\rm e}^{2}+\overline{\nu}_{t}^{2}.$ 
+ ∎
+
+Let $h\in\{1,\dots,N\}$ . Let $\Sigma\subset\mathbb{R}^{1+N}$ be a nonspacelike $h$ -rectifiable set. Given a Borel set $B\subseteq\Sigma$ we define 
+ 
+ ${\sigma^{h}}(B):=\int_{B}\sqrt{-\nu_{t}^{2}+|\nu_{x}|^{2}_{\rm e}}\leavevmode\nobreak\ d\mathcal{H}^{h}.$  (4.13) 
+
+
+Let $\Sigma\subset\mathbb{R}^{1+N}$ be a nonspacelike $h$ -rectifiable set. We define the horizontal normal velocity vector field $\mathbb{V}$ at a differentiability point $z$ of $\Sigma$ as 
+ 
+ $\mathbb{V}(z):=\begin{cases}\displaystyle\frac{{{\mathrm{n}}_{1}}^{0}}{|{{\mathrm{n}}_{1}}_{x}|_{\rm e}}\leavevmode\nobreak\ \frac{{{\mathrm{n}}_{1}}_{x}}{|{{\mathrm{n}}_{1}}_{x}|_{\rm e}}&{\rm if\leavevmode\nobreak\ }T_{z}\Sigma{\rm\leavevmode\nobreak\ is\leavevmode\nobreak\ timelike},\\
+\\
+{\mathbb{V}_{\infty}}(z)&{\rm if}\leavevmode\nobreak\ T_{z}\Sigma{\rm\leavevmode\nobreak\ is\leavevmode\nobreak\ null}.\end{cases}$  (4.14) 
+
+
+The vector field $\mathbb{V}(t,\cdot)$ represents the normal velocity of the time slice 
+ 
+ $\Sigma(t):=\Sigma\cap\{z^{0}=t\}$ 
+ of $\Sigma$ . Notice that 
+ 
+ $z\in\Sigma\Rightarrow e_{0}+\mathbb{V}(z)\in T_{z}(\Sigma),$ 
+ since one checks directly that $({\mathrm{n}}_{i},e_{0}+\mathbb{V})=0$ for any $i\in\{1,\dots,N+1-h\}$ .
+
+At timelike points of $\Sigma$ we have, using the definition of $\mathbb{V}$ and $-({\mathrm{n}}_{1}^{0})^{2}+|{{\mathrm{n}}_{1}}_{x}|^{2}_{\rm e}=1$ , 
+ 
+ $({\mathrm{n}}_{1}^{0})^{2}=\frac{|\mathbb{V}|_{\rm e}^{2}}{1-|\mathbb{V}|_{\rm e}^{2}}.$  (4.15) 
+ Hence, from ( 3.4 ), 
+ 
+ $P^{0}_{0}=\frac{1}{1-|\mathbb{V}|_{\rm e}^{2}},$  (4.16) 
+ and from ( 3.5 ) 
+ 
+ $P_{0}^{\mathrm{a}}={\mathrm{n}}_{1}^{0}{\mathrm{n}}_{1}^{\mathrm{a}}=(1+({\mathrm{n}}_{1}^{0})^{2})\mathbb{V}^{\mathrm{a}}=\frac{\mathbb{V}^{\mathrm{a}}}{1-|\mathbb{V}|_{\rm e}^{2}},\qquad\mathrm{a}\in\{1,\dots,N\}.$  (4.17) 
+ Note also that 
+ 
+ $|\mathbb{V}|_{\rm e}^{2}=\frac{({\mathrm{n}}_{1}^{0})^{2}}{|{{\mathrm{n}}_{1}}_{x}|^{2}_{\rm e}}=\frac{(\nu_{t})^{2}}{|\nu_{x}|_{\rm e}^{2}}=\frac{1-|\nu_{x}|_{\rm e}^{2}}{|\nu_{x}|_{\rm e}^{2}}.$ 
+
+
+Let $\Sigma\subset\mathbb{R}^{1+N}$ be a nonspacelike $h$ -rectifiable set. For any Borel set $B\subset\Sigma$ we have 
+ 
+ $\int_{B}d{\sigma^{h}}=\int_{B}\sqrt{\frac{1-|\mathbb{V}|_{\rm e}^{2}}{1+|\mathbb{V}|_{\rm e}^{2}}}\leavevmode\nobreak\ d\mathcal{H}^{h}=\int_{\mathbb{R}}\int_{B(t)}\sqrt{1-|\mathbb{V}|_{\rm e}^{2}}\leavevmode\nobreak\ d\mathcal{H}^{h-1}dt,$  (4.18) 
+ where $B(t):=B\cap\{x^{0}=t\}$ .
+
+The first equality follows from ( 4.12 ) and 
+ 
+ $-(\nu_{t})^{2}+|\nu_{x}|_{\rm e}^{2}=\left(-\frac{(\nu_{t})^{2}}{|\nu_{x}|_{\rm e}^{2}}+1\right)|\nu_{x}|_{\rm e}^{2}=\left(-|\mathbb{V}|_{\rm e}^{2}+1\right)|\nu_{x}|_{\rm e}^{2}=\frac{1-|\mathbb{V}|_{\rm e}^{2}}{1+|\mathbb{V}|_{\rm e}^{2}}.$ 
+ To prove the second equality in ( 4.18 ) we recall the coarea formula on an $h$ -rectifiable set [14] : 
+ 
+ $\int_{\Sigma}f\leavevmode\nobreak\ d\mathcal{H}^{h}=\int_{\mathbb{R}}\int_{\Sigma(t)}\frac{f}{|\nabla_{\Sigma}p|_{\rm e}}\leavevmode\nobreak\ d\mathcal{H}^{h-1}dt,$  (4.19) 
+ where $p:\mathbb{R}^{1+N}\to\mathbb{R}$ is defined as 
+ 
+ $p(t,x):=t,\qquad(t,x)\in\mathbb{R}^{1+N},$  (4.20) 
+ and $\nabla_{\Sigma}$ denotes the euclidean tangential gradient to $\Sigma$ . The assertion then follows taking $f=\displaystyle\frac{1-|\mathbb{V}|^{2}_{\rm e}}{1+|\mathbb{V}|^{2}_{\rm e}}$ in ( 4.19 ), and observing \footnote{ 11 If $X_{u_{1}}$ is as in the proof of Theorem 4.2 , we have that $\nabla_{\Sigma}p=\left(\nabla p,\frac{X_{u_{1}}}{|X_{u_{1}}|_{\rm e}}\right)_{\rm e}X_{u_{1}}$ . Since $X_{u_{1}}$ is parallel to $(1,-\frac{\nu_{t}\nu_{x}}{|\nu_{x}|^{2}_{\rm e}})=(1,\mathbb{V})$ , formula ( 4.21 ) follows.} that 
+ 
+ $|\nabla_{\Sigma}p|_{\rm e}^{2}=\frac{1}{1+|\mathbb{V}|_{\rm e}^{2}}.$  (4.21) 
+ ∎
+
+In the lorentzian setting we have the following integration by parts formula, which is at the core of the definition of stationary varifold.
+
+Let $\Sigma\subset\mathbb{R}^{1+N}$ be an $h$ -dimensional timelike embedded oriented submanifold without boundary of class ${\mathcal{C}}^{2}$ . Let $Y\in(\mathcal{C}^{1}_{c}(\Sigma))^{N+1}$ be a vector field which is tangential to $\Sigma$ . Then 
+ 
+ $\int_{\Sigma}{\rm div}_{\tau}Y\leavevmode\nobreak\ d{\sigma^{h}}=0.$  (4.22) 
+ Therefore for any $\psi\in\mathcal{C}^{1}_{c}(\mathbb{R}^{1+N})$ and any $Z\in(\mathcal{C}^{1}_{c}(\Sigma))^{N+1}$ 
+ 
+ $\int_{\Sigma}\psi\,{\rm div}_{\tau}Z\,d{\sigma}^{h}=\int_{\Sigma}\psi\leavevmode\nobreak\ (H_{\Sigma},Z)\,d{\sigma}^{h}-\int_{\Sigma}\langle d_{\tau}\psi,Z\rangle\,d{\sigma}^{h}.$  (4.23) 
+
+
+Let $\mathcal{Y}\in\mathcal{C}^{2}(\mathbb{R}^{1+N})^{N+1}$ be a smooth extension of $Y$ . Let us observe that $DY=P_{\Sigma}\leavevmode\nobreak\ d{\mathcal{Y}}$ , where $D$ is the covariant derivative. To show this, we observe that $d\eta=0$ , and in particular $P_{\Sigma}d\eta=0$ . Hence, it is enough to prove [27] that $P_{\Sigma}d$ is torsion free, and this can be proven as in [17] . Then ( 4.22 ) follows from [27] .
+
+We now set 
+ 
+ $Z^{\top}:=P_{\Sigma}Z,\qquad Z^{\perp}:=Z-Z^{\top}=\sum_{i=1}^{N+1-h}(Z,{\mathrm{n}}_{i}){\mathrm{n}}_{i}.$ 
+ Then, using also ( 4.5 ), 
+ 
+ ${\rm div}_{\tau}Z^{\perp}=\sum_{i=1}^{N+1-h}{\rm div}_{\tau}\Big{(}(Z,{\mathrm{n}}_{i}){\mathrm{n}}_{i}\Big{)}=\sum_{i=1}^{N+1-h}(Z,{\mathrm{n}}_{i}){\rm div}_{\tau}{\mathrm{n}}_{i}=(H_{\Sigma},Z^{\perp})=(H_{\Sigma},Z).$  (4.24) 
+ Assertion ( 4.23 ) follows, using ( 4.22 ) (with $\psi Z^{\top}$ replacing $Y$ ) and ( 4.24 ). ∎
+
+Let $\Sigma\subset\mathbb{R}^{1+N}$ be an $h$ -dimensional timelike embedded submanifold withouth boundary of class $\mathcal{C}^{1}$ . Let $Y\in(\mathcal{C}^{1}_{c}(\mathbb{R}^{1+N}))^{N+1}$ , and let $\Omega\subset\mathbb{R}^{1+N}$ be a bounded open set containing the support of $Y$ . For any $s\in\mathbb{R}$ and $z\in\mathbb{R}^{1+N}$ define $\Phi_{s}(z):=z+sY(z)$ . Then 
+ 
+ $\frac{d}{ds}\mathcal{S}_{h}(\Omega\cap\Phi_{s}(\Sigma))_{\big{|}s=0}=\int_{\Sigma}{\rm div}_{\tau}Y\leavevmode\nobreak\ d\sigma^{h}.$  (4.25) 
+
+
+It follows arguing as in [2] , [25] \footnote{ 12 In the case $h=N$ formula ( 4.25 ) follows arguing for instance as in the proof of [8] with the choice $\varphi^{o}(\xi^{*})=\sqrt{-(\xi_{t}^{*})^{2}+|\xi_{x}^{*}|_{\rm e}^{2}}$ (that part of the proof holds without assuming the convexity of $\varphi^{o}$ ), $n_{\varphi}={\mathrm{n}}_{1}$ and $\nu_{\varphi}=\eta{\mathrm{n}}_{1}$ .} . ∎
+
+5 Lorentzian $h$ -varifolds
+
+The generalized manifolds we are interested in in this paper are the lorentzian $h$ - varifolds which, as we shall see in Definition 5.14 , have a timelike part and a null part. Besides nonsmoothness, also the presence of a null part is source of various difficulties. As we shall see, the notion of lorentzian $h$ -varifold is reminiscent of the generalized Young measures [12] , [1] .
+
+Denote by $q^{-1}:B_{h,N+1}=q(T_{h,N+1})\to T_{h,N+1}$ the inverse of the map $q$ introduced in Definition 3.6 , namely 
+ 
+ $q^{-1}(Q)=\Big{(}1+({\mathrm{n}}_{1}^{0})^{2}\Big{)}Q,\qquad Q=q\left(P({\mathrm{n}}_{1},\dots,{\mathrm{n}}_{N+1-h})\right)\in B_{h,N+1}.$  (5.1) 
+ Given $f\in\mathcal{C}(\mathbb{R}^{1+N}\times T_{h,N+1})$ we define the composition 
+ 
+ $f_{q^{-1}}:\mathbb{R}^{1+N}\times B_{h,N+1}\to\mathbb{R}$ 
+ of $f$ via the inverse of $({\rm Id}_{\mathbb{R}^{1+N}},q)$ , furtherly divided by a positive factor, as follows.
+
+Given any pair $(z,Q)\in\mathbb{R}^{1+N}\times{B_{h,N+1}}$ , where $Q=q(P({\mathrm{n}}_{1},\dots,{\mathrm{n}}_{N+1-h}))\in B_{h,N+1}$ , we set 
+ 
+ $f_{q^{-1}}(z,Q):=\frac{f(z,q^{-1}(Q))}{q^{-1}(Q)_{0}^{0}}=\frac{f(z,\left(1+({\mathrm{n}}_{1}^{0})^{2})Q\right)}{1+({\mathrm{n}}_{1}^{0})^{2}}.$  (5.2) 
+
+
+In the next definition we specify a class of admissible test functions.
+
+We let ${\mathcal{F}}$ be the vector space of all functions $f\in\mathcal{C}(\mathbb{R}^{1+N}\times T_{h,N+1})$ such that $f_{q^{-1}}$ can be continuously extended to $\mathbb{R}^{1+N}\times\overline{B_{h,N+1}}$ , and such an extension (still denoted by $f_{q^{-1}}$ ) has compact support.
+
+From Definition 5.2 we have that a necessary condition satisfied by the elements of ${\mathcal{F}}$ is the following: given $f\in{\mathcal{F}}$ there exists $\Lambda\in[0,+\infty)$ such that 
+ 
+ $|f(z,P)|\leq\Lambda\,P_{0}^{0},\qquad(z,P)\in\mathbb{R}^{1+N}\times T_{h,N+1}.$  (5.3) 
+ Some sufficient conditions will be given in Lemma 5.6 below.
+
+We endow ${\mathcal{F}}$ with the following convergence: a sequence $\{f_{n}\}\subset{\mathcal{F}}$ converges to $f\in{\mathcal{F}}$ if there exists a compact set $K\subset\mathbb{R}^{1+N}$ containing the supports of all $f_{n}$ , and 
+ 
+ $\lim_{n\to+\infty}\sup_{(z,P)\in K\times T_{h,N+1}}\frac{|f_{n}(z,P)-f(z,P)|}{P_{0}^{0}}=0.$ 
+
+
+The following observation will be useful when considering the action on ${\mathcal{F}}$ of an element of the dual of ${\mathcal{F}}$ , see Lemma 6.2 below.
+
+The space ${\mathcal{F}}$ is isomorphic to the space $\mathcal{C}_{c}\Big{(}\mathbb{R}^{1+N}\times\overline{B_{h,N+1}}\Big{)}$ , via the linear isomorphism $i:{\mathcal{F}}\to\mathcal{C}_{c}\Big{(}\mathbb{R}^{1+N}\times\overline{B_{h,N+1}}\Big{)}$ defined by 
+ 
+ $i(f):=f_{q^{-1}},\qquad f\in{\mathcal{F}}.$ 
+
+
+Given any $f\in{\mathcal{F}}$ we define the recession function $f^{\infty}\in\mathcal{C}_{c}(\mathbb{R}^{1+N}\times\partial B_{h,N+1})$ of $f$ as 
+ 
+ $f^{\infty}(z,Q):=\leavevmode\nobreak\ \lim_{P\in T_{h,N+1},\leavevmode\nobreak\ \!q(P)\to Q}\leavevmode\nobreak\ \frac{f(z,P)}{P_{0}^{0}},\qquad(z,Q)\in\mathbb{R}^{1+N}\times\partial B_{h,N+1}.$ 
+
+
+The following example, as well as the next lemma, will be useful in the sequel, since they show that functions linear in $P_{0}^{0}$ are admissible.
+
+Let $\varphi\in\mathcal{C}_{c}(\mathbb{R}^{1+N})$ . The function $f$ defined by 
+ 
+ $f(z,P)=\varphi(z)P_{0}^{0},\qquad(z,P)\in\mathbb{R}^{1+N}\times T_{h,N+1},$  (5.4) 
+ belongs to ${\mathcal{F}}$ , and we have $f^{\infty}=\varphi$ . Note that the choice $\varphi\equiv 1$ on the whole of $\mathbb{R}^{1+N}$ is not allowed.
+
+Other examples of functions belonging to ${\mathcal{F}}$ are given by the following result (see [1] for a proof that can be adapted to our setting). Recall that $M_{N+1}$ denotes the space of all $(N+1)\times(N+1)$ -symmetric matrices.
+
+Let $f\in\mathcal{C}(\mathbb{R}^{1+N}\times M_{N+1})$ satisfy ( 5.3 ) and have support in $K\times T_{h,N+1}$ , for some compact $K\subset\mathbb{R}^{1+N}$ . Then $f_{|\mathbb{R}^{1+N}\times T_{h,N+1}}$ belongs to ${\mathcal{F}}$ in one of the following two cases: - $f$ is bounded. In this case we have $f^{\infty}=0$ . - $f(z,\cdot)$ is positively one-homogeneous, that is 
+ 
+ $f(z,\lambda P)=\lambda\,f(z,P),\qquad(z,P)\in\mathbb{R}^{1+N}\times M_{N+1},\ \lambda\geq 0.$
+
+Taking into account also Remark 5.3 , we are finally in a position to define a lorentzian varifold.
+
+We say that $V$ is a lorentzian $h$ -varifold, and we write 
+ 
+ $V\in\mathcal{LV}_{h},$ 
+ if $V$ is a positive Radon measure on $\mathbb{R}^{1+N}\times\overline{B_{h,N+1}}$ .
+
+Any element of $\mathcal{LV}_{h}$ belongs to the dual $\mathcal{C}_{c}\Big{(}\mathbb{R}^{1+N}\times\overline{B_{h,N+1}}\Big{)}^{\prime}$ of the locally convex space $\mathcal{C}_{c}\Big{(}\mathbb{R}^{1+N}\times\overline{B_{h,N+1}}\Big{)}$ . In addition $\mathcal{C}_{c}\Big{(}\mathbb{R}^{1+N}\times\overline{B_{h,N+1}}\Big{)}^{\prime}$ is isomorphic to the dual ${\mathcal{F}}^{\prime}$ of ${\mathcal{F}}$ via the map $i^{\prime}:\mathcal{C}_{c}\Big{(}\mathbb{R}^{1+N}\times\overline{B_{h,N+1}}\Big{)}^{\prime}\to{\mathcal{F}}^{\prime}$ , 
+ 
+ $i^{\prime}(V)(f):=V(i(f)),\quad f\in{\mathcal{F}}.$ 
+ Hence to any $V\in\mathcal{LV}_{h}$ we can uniquely associate $i^{\prime}(V)\in{\mathcal{F}}^{\prime}$ .
+
+Warning : when we write $V(f)$ , for a given function $f\in{\mathcal{F}}$ and a measure $V\in\mathcal{LV}_{h}$ , we will always mean $i^{\prime}(V)(f)$ .
+
+Making use of Remark 5.8 , the action of a varifold on a test function will be better specified below, at the end of Section 6 .
+
+The notion of convergence for varifolds reads as follows.
+
+Let $V\in\mathcal{LV}_{h}$ and $\{V_{j}\}\subset\mathcal{LV}_{h}$ . We write 
+ 
+ $V_{j}\rightharpoonup V$ 
+ if 
+ 
+ $\lim_{j\to+\infty}V_{j}(f)=V(f),\qquad f\in{\mathcal{F}}.$  (5.5) 
+
+
+5.1 First variation and stationarity
+
+Thanks to Lemma 5.6 , if $Y\in(\mathcal{C}^{1}_{c}(\mathbb{R}^{1+N}))^{N+1}$ , 
+ 
+ ${\rm the\leavevmode\nobreak\ function\leavevmode\nobreak\ }(z,P)\in\mathbb{R}^{1+N}\times T_{h,N+1}\to{\rm tr}\left(PdY(z)\right)\leavevmode\nobreak\ {\rm belongs\leavevmode\nobreak\ to\leavevmode\nobreak\ }{\mathcal{F}}.$  (5.6) 
+ Therefore, taking into account Theorem 4.7 , similarly to the riemannian case [24] we can give the following definition.
+
+Let $V\in\mathcal{LV}_{h}$ . The first variation of $V$ is the vector distribution $\delta V$ in $\mathbb{R}^{1+N}$ defined as follows: 
+ 
+ $\displaystyle\delta V(Y):=V(\textup{tr}(PdY)),\qquad Y\in\left(\mathcal{C}_{c}^{1}(\mathbb{R}^{1+N}\right))^{N+1}.$  (5.7) 
+
+
+Also the following definition is the same as in the riemannian case.
+
+Let $V\in\mathcal{LV}_{h}$ . We say that $V$ is stationary \footnote{ 13 More generally, we say that $V$ has bounded first variation if $\delta V$ is a Radon measure on $\mathbb{R}^{1+N}$ , that is, if there exists $C>0$ such that $\delta V(Y)\leq C\,\max_{\mathbb{R}^{1+N}}|Y|_{\rm e}$ for any $Y\in\left(\mathcal{C}_{c}^{1}(\mathbb{R}^{1+N}\right))^{N+1}$ .} if 
+ 
+ $\delta V(Y)=0,\qquad Y\in\left(\mathcal{C}_{c}^{1}(\mathbb{R}^{1+N}\right))^{N+1}.$ 
+
+
+When $\Sigma$ is a smooth null manifold, there are not smooth compactly supported variations $Y$ normal to $\Sigma$ , guaranteeing that the varied manifold remains either null, or partly null and partly timelike. Therefore, we do not have any formula similar to ( 4.25 ) for null smooth manifolds. Despite this fact, Definition 5.10 seems one of the simplest extensions of the first variation concept to null manifolds. Definition 5.10 guarantees that the limit of stationary varifolds is still stationary, as shown in the next observation.
+
+Let $\{V_{j}\}\subset\mathcal{LV}_{h}$ be a sequence converging to $V\in\mathcal{LV}_{h}$ , and assume that each $V_{j}$ is stationary. Then \footnote{ 14 Similarly, if each $V_{j}$ has bounded first variation, then $V$ has bounded first variation.} $V$ is stationary. Indeed, by Definition 5.9 and ( 5.6 ), if $V_{j}\rightharpoonup V$ then 
+ 
+ $\delta V_{j}(Y)\to\delta V(Y),\qquad Y\in\left(\mathcal{C}_{c}^{1}(\mathbb{R}^{1+N}\right))^{N+1}.$ 
+
+
+5.2 Splitting of $V$ into $V^{0}$ and $V^{\infty}$
+
+A first decomposition of a varifold consists in taking its “timelike part” and its “null part”. We denote by the restriction of a measure.
+
+Let $V\in\mathcal{LV}_{h}$ . We define $V^{0}:=V\hskip 1.0pt{\hbox to10.8pt{\hfill\vrule height=7.0pt,width=0.4pt,depth=0.0pt\hbox{\vrule height=0.4pt,width=7.6pt,depth=0.0pt}\hfill}}\left(\mathbb{R}^{1+N}\times B_{h,N+1}\right)$ , $V^{\infty}:=V\hskip 1.0pt{\hbox to10.8pt{\hfill\vrule height=7.0pt,width=0.4pt,depth=0.0pt\hbox{\vrule height=0.4pt,width=7.6pt,depth=0.0pt}\hfill}}\left(\mathbb{R}^{1+N}\times\partial{B_{h,N+1}}\right)$ .
+
+A lorentzian $h$ -varifold $V\in\mathcal{LV}_{h}$ can be uniquely decomposed as 
+ 
+ $V=V^{0}+V^{\infty}.$  (5.8) 
+ We will see that in certain cases the measure $V^{\infty}$ is the part of the varifold which, roughly speaking, takes into account the set of all points of the associated generalized manifold where the tangent space is null.
+
+In the expression of the action of a varifold on a test function, it is convenient to introduce another measure $\widetilde{V}^{0}$ in the space $\mathbb{R}^{1+N}\times T_{h,N+1}$ . To this purpose, recall that the map $q$ is defined in ( 3.6 ), and recall Definition 5.1 of $q^{-1}$ .
+
+Let $V\in\mathcal{LV}_{h}$ . We define the Radon measure $\widetilde{V}^{0}$ on $\mathbb{R}^{1+N}\times T_{h,N+1}$ as follows: for any $f\in{\mathcal{F}}$ 
+ 
+ $\widetilde{V}^{0}(f)=\int_{\mathbb{R}^{1+N}\times T_{h,N+1}}f(z,P)\leavevmode\nobreak\ d\widetilde{V}^{0}(z,P):=\int_{\mathbb{R}^{1+N}\times B_{h,N+1}}\frac{f(z,q^{-1}(Q))}{q^{-1}(Q)^{0}_{0}}\leavevmode\nobreak\ dV^{0}(z,Q).$  (5.9) 
+
+
+The measure $\widetilde{V}^{0}$ is therefore the image of the measure $V^{0}$ through the map $({\rm id}_{\mathbb{R}^{1+N}},q^{-1})$ , furtherly divided by a positive factor.
+
+6 Disintegrations, barycenter and decompositions
+
+Let $V\in\mathcal{LV}_{h}$ . In what follows we need to suitably disintegrate the measures $V^{0},V^{\infty}$ and $\widetilde{V}^{0}$ . In order to do this, we denote by 
+ 
+ $\pi:\mathbb{R}^{1+N}\times{\overline{B}_{h,N+1}}\to\mathbb{R}^{1+N}$ 
+ the projection on the first factor.
+
+The fact that $V$ is a Radon measure and the compactness of $\overline{B_{h,N+1}}$ imply that 
+ 
+ $V\left(K\times M_{N+1}\right)=V\Big{(}K\times\overline{B_{h,N+1}}\Big{)}<+\infty\qquad{\rm for\leavevmode\nobreak\ any\leavevmode\nobreak\ compact\leavevmode\nobreak\ set\leavevmode\nobreak\ }K\subset\mathbb{R}^{1+N}.$ 
+ Hence we can apply Theorem 12.3 in the Appendix, so that there exists a disintegration of $V$ , namely 
+ 
+ $V=\mu_{V}\otimes V_{z},$ 
+ where $\mu_{V}:=\pi_{\#}V$ is a positive Radon measure on $\mathbb{R}^{1+N}$ , $V_{z}$ is a probability measure on $\overline{B_{h,N+1}}$ defined for $\mu_{V}$ -almost every $z\in\mathbb{R}^{1+N}$ .
+
+Similarly, there are disintegrations 
+ 
+ $\displaystyle V^{0}=$ $\displaystyle\mu_{V^{0}}\otimes V^{0}_{z},\qquad\ \ \mu_{V^{0}}:=\pi_{\#}V^{0},$  (6.1) 
+  
+ $\displaystyle V^{\infty}=$ $\displaystyle\mu_{V^{\infty}}\otimes V^{\infty}_{z},\qquad\mu_{V^{\infty}}:=\pi_{\#}V^{\infty},$ 
+  
+ $\displaystyle\widetilde{V}^{0}=$ $\displaystyle\mu_{\widetilde{V}^{0}}\otimes\widetilde{V}^{0}_{z},\qquad\ \ \mu_{\widetilde{V}^{0}}:=\widetilde{\pi}_{\#}\widetilde{V}^{0},$ 
+ where $\widetilde{\pi}:\mathbb{R}^{1+N}\times T_{h,N+1}\to\mathbb{R}^{1+N}$ is the projection on the first factor.
+
+The measures $\mu_{V}$ , $\mu_{V^{\infty}}$ and $\mu_{\widetilde{V}^{0}}$ will be splitted in ( 6.12 ) below. Moreover, they will be furtherly disintegrated in Section 8 , see in particular formula ( 8.9 ), in connection with conservation laws. The measure $\mu_{\widetilde{V}^{0}}$ is the generalization of the area $\sigma^{h}$ to the varifold setting.
+
+Despite the decomposition in ( 5.8 ), $V_{z}$ cannot be equal to $V_{z}^{0}+V_{z}^{\infty}$ , since $V_{z}$ , $V_{z}^{0}$ and $V_{z}^{\infty}$ are probability measures. Notice however that projecting the equality $\mu_{V}\otimes V_{z}=\mu_{V^{0}}\otimes V_{z}^{0}+\mu_{V^{\infty}}\otimes V_{z}^{\infty}$ on $\mathbb{R}^{1+N}$ via the map $\pi$ , and using the fact that $V_{z}^{0}$ and $V_{z}^{\infty}$ are probability measures, gives 
+ 
+ $\mu_{V}=\mu_{V^{0}}+\mu_{V^{\infty}}.$  (6.2) 
+
+
+Taking into account the above definitions, we can represent the action of $V\in\mathcal{LV}_{h}$ on ${\mathcal{F}}$ as follows:
+
+Let $V\in\mathcal{LV}_{h}$ and $f\in{\mathcal{F}}$ . Then 
+ 
+ $\displaystyle V(f)=$ $\displaystyle\int_{\mathbb{R}^{1+N}\times T_{h,N+1}}f(z,P)\,d\widetilde{V}^{0}(z,P)+\int_{\mathbb{R}^{1+N}\times\partial{B_{h,N+1}}}f^{\infty}(z,Q)\,dV^{\infty}(z,Q)$  (6.3) 
+ $\displaystyle=$ $\displaystyle\int_{\mathbb{R}^{1+N}}\left(\int_{T_{h,N+1}}f(z,P)\,d{\widetilde{V}^{0}}_{z}(P)\right)d\mu_{\widetilde{V}^{0}}(z)$ 
+ $\displaystyle+\int_{\mathbb{R}^{1+N}}\left(\int_{\partial B_{h,N+1}}f^{\infty}(z,Q)\,dV^{\infty}_{z}(Q)\right)d\mu_{V^{\infty}}(z)\,.$ 
+
+
+Using ( 5.8 ) and recalling Remark 5.8 and Definition 5.1 , we have 
+ 
+ $\displaystyle V(f)=$ $\displaystyle V(i(f))=V^{0}(i(f))+V^{\infty}(i(f))$ 
+ 
+ $\displaystyle=$ $\displaystyle\int_{\mathbb{R}^{1+N}\times B_{h,N+1}}\frac{f(z,q^{-1}(Q))}{q^{-1}(Q)^{0}_{0}}\leavevmode\nobreak\ dV^{0}(z,Q)$ 
+ 
+ $\displaystyle+\int_{\mathbb{R}^{1+N}\times\partial{B_{h,N+1}}}f^{\infty}(z,Q)\,dV^{\infty}(z,Q).$ 
+ Hence, using Definition 5.15 , the first equality in ( 6.3 ) follows. The second equality is a direct consequence of the disintegrations ( 6.1 ). ∎
+
+Note carefully that the first addendum on the right hand side of ( 6.3 ) is an integral over $\mathbb{R}^{1+N}\times T_{h,N+1}$ , while the second addendum is an integral over $\mathbb{R}^{1+N}\times\partial B_{h,N+1}$ .
+
+Notice that $V_{j}\rightharpoonup V$ does not imply $V^{0}_{j}\rightharpoonup V^{0}$ or $V^{\infty}_{j}\rightharpoonup V^{\infty}$ , and does not imply that separately the projections converge: this can be seen by examples, such as Example 10.1 , where $V^{\infty}_{j}=0$ , while $V=V^{\infty}\neq 0$ .
+
+We have 
+ 
+ $V_{j}\rightharpoonup V\Rightarrow\mu_{V_{j}}\rightharpoonup\mu_{V}.$ 
+ Indeed, let $\varphi\in\mathcal{C}_{c}(\mathbb{R}^{1+N})$ , and take $f$ as in ( 5.4 ). Then 
+ 
+ $\displaystyle V_{j}(f)=$ $\displaystyle\int_{\mathbb{R}^{1+N}\times T_{h,N+1}}\varphi(z)P_{0}^{0}\leavevmode\nobreak\ d{\widetilde{V}_{j}^{0}}{}_{z}\leavevmode\nobreak\ d\widetilde{\mu}_{V_{j}^{0}}(z)+\int_{\mathbb{R}^{1+N}\times\partial{B_{h,N+1}}}\varphi(z)\,d{V_{j}^{\infty}}_{\!\!\!{z}}(Q)\,d\mu_{V^{\infty}_{j}}(z)$ 
+ 
+ $\displaystyle=$ $\displaystyle\int_{\mathbb{R}^{1+N}}\varphi\leavevmode\nobreak\ d\mu_{V^{0}_{j}}+\int_{\mathbb{R}^{1+N}}\varphi\leavevmode\nobreak\ d\mu_{V_{j}^{\infty}}=\int_{\mathbb{R}^{1+N}}\varphi\leavevmode\nobreak\ d\mu_{V_{j}},$ 
+ where in the last equality we have used ( 6.2 ).
+
+The following result will be used in Remark 7.2 and Theorem 9.10 .
+
+Let $\{V_{j}\}\subset\mathcal{LV}_{h}$ be a sequence of lorentzian $h$ -varifolds such that 
+ 
+ $\sup_{j}\mu_{V_{j}}(K)<+\infty,\qquad K\subset\mathbb{R}^{1+N}\ {\rm compact.}$  (6.4) 
+ Then there exist $V\in\mathcal{LV}_{h}$ and a subsequence $\{V_{j_{k}}\}$ of $\{V_{j}\}$ such that $V_{j_{k}}\rightharpoonup V$ as $k\to+\infty$ .
+
+Since ${V_{j}}_{z}$ are probability measures, we have 
+ 
+ $V_{j}\Big{(}K\times\overline{B_{h,N+1}}\Big{)}=\mu_{V_{j}}(K).$ 
+ The assertion then follows from ( 6.4 ), and from De La Vallée Poussin Compactness Theorem (see [4] ). ∎
+
+Recalling the disintegration of $\widetilde{V}^{0}$ in ( 6.1 ), we can now give the following definition, which will allow to take into account the oscillations of the tangent spaces.
+
+Let $V\in\mathcal{LV}_{h}$ . We set 
+ 
+ $\overline{P}(z):=\int_{T_{h,N+1}}P\leavevmode\nobreak\ d\widetilde{V}^{0}_{z}(P)\qquad{\rm for}\leavevmode\nobreak\ \mu_{\widetilde{V}^{0}}-{\rm a.e.\leavevmode\nobreak\ }z\in\mathbb{R}^{1+N}.$ 
+ Similarly, we set 
+ 
+ $\overline{Q}(z):=\int_{\partial B_{h,N+1}}Q\leavevmode\nobreak\ dV^{\infty}_{z}(Q)\qquad{\rm for}\leavevmode\nobreak\ \mu_{V^{\infty}}-{\rm a.e.\leavevmode\nobreak\ }z\in\mathbb{R}^{1+N}.$ 
+
+
+For $\mu_{\widetilde{V}^{0}}$ -almost every $z\in\mathbb{R}^{1+N}$ we have the following assertions: - the matrix $\overline{P}(z)$ is well defined by Lemma 5.6 , since linear functions of the projections can be integrated with respect to $\widetilde{V}_{z}^{0}$ and $z$ is fixed; - $\overline{P}(z)$ is not necessarily symmetric, while $\eta\overline{P}(z)$ is symmetric; - in general $\overline{P}(z)\not\in T_{h,N+1}$ , since $T_{h,N+1}$ is not a convex set. Similar properties (with obvious modifications) hold for $\overline{Q}$ .
+
+For a lorentzian $h$ -varifold, $\overline{P}(z)$ is not necessarily a projection on a timelike or null $h$ -plane in the sense described in Section 3 . However, still its trace equals $h$ . More interestingly, if $\overline{P}(z)$ is a projection matrix, then the measure $\widetilde{V}^{0}_{z}$ is a Dirac delta. Precisely, we have the following result.
+
+Let $V\in\mathcal{LV}_{h}$ . Then 
+ 
+ $\overline{P}(z)^{\alpha}_{\alpha}=h\qquad{\rm for}\leavevmode\nobreak\ \mu_{\widetilde{V}^{0}}-{\rm a.e.\leavevmode\nobreak\ }z\in\mathbb{R}^{1+N}.$  (6.5) 
+ Moreover 
+ 
+ $\overline{P}(z)\in T_{h,N+1}\ \Rightarrow\ \widetilde{V}^{0}_{z}=\delta_{\overline{P}(z)}.$  (6.6) 
+
+
+Assertion ( 6.5 ) follows from the fact that the trace is a linear operator, and $P_{\alpha}^{\alpha}=h$ for all $P\in T_{h,N+1}$ .
+
+Let us prove ( 6.6 ). Being $z$ fixed, we write for simplicity $\overline{P}=\overline{P}(z)$ . Since $\overline{P}\in T_{h,N+1}$ , we can find a Lorentz transformation $L$ such that $L^{-1}\overline{P}L$ takes the form 
+ 
+ $L^{-1}\overline{P}L={\rm diag}(1,\ldots,1,0,\ldots,0),$ 
+ where $1$ appears $h$ -times. Recalling ( 3.4 ), we have 
+ 
+ $1\leq(L^{-1}PL)_{0}^{0},$  (6.7) 
+ with equality if and only if 
+ 
+ $L^{-1}PL=\left(\begin{array}[]{cc}1&(0,\ldots,0)\\
+(0,\ldots,0)^{T}&R\end{array}\right),$  (6.8) 
+ where $(0,\dots,0)\in\mathbb{R}^{N}$ , and $R:\mathbb{R}^{N}\to\mathbb{R}^{N}$ is a euclidean orthogonal projection onto an $(h-1)$ -plane. Without loss of generality, we can assume that this $(h-1)$ -plane is spanned by $\{e_{1},\dots,e_{h-1}\}$ . Integrating ( 6.7 ) on $T_{h,N+1}$ with respect to the probability measure $\widetilde{V}^{0}_{z}$ , we get 
+ 
+ $1\leq\int_{T_{h,N+1}}(L^{-1}PL)_{0}^{0}\,d\widetilde{V}^{0}_{z}(P)=(L^{-1}\overline{P}L)_{0}^{0}=1.$  (6.9) 
+ This implies that the measure $\widetilde{V}^{0}_{z}$ is concentrated on the set $S$ of matrices of the form ( 6.8 ), namely $\widetilde{V}^{0}_{z}(T_{h,N+1}\setminus S)=0$ . In particular, for such a matrix $L^{-1}PL\in S$ there holds 
+ 
+ $1\geq(L^{-1}PL)_{{\rm a}}^{{\rm a}}=R^{\rm a}_{\rm a},\qquad 1\leq{\rm a}\leq N,$  (6.10) 
+ where we do not sum over ${\rm a}$ . Integrating now ( 6.10 ) on $T_{h,N+1}$ with respect to $\widetilde{V}^{0}_{z}$ and using ( 6.7 ), we obtain 
+ 
+ $1\geq\int_{T_{h,N+1}}(L^{-1}PL)_{{\rm a}}^{{\rm a}}\,d\widetilde{V}^{0}_{z}(P)=(L^{-1}\overline{P}L)_{{\rm a}}^{{\rm a}}=1,\qquad\ 1\leq{\rm a}\leq h-1,$  (6.11) 
+ where again we do not sum over ${\rm a}$ . This and ( 6.9 ) imply $P=\overline{P}$ , hence $\widetilde{V}^{0}_{z}=\delta_{\overline{P}(z)}$ . ∎
+
+We will see in Example 9.14 an interesting case of a varifold for which $\overline{P}$ is not the projection on the tangent space.
+
+Taking into account Lemma 6.2 and Definition 6.6 of $\overline{P}$ , we can write the first variation of $V$ in ( 5.7 ) as 
+ 
+ $\displaystyle\delta V(Y)=$ $\displaystyle\int_{\mathbb{R}^{1+N}\times T_{h,N+1}}\textup{tr}\left(PdY\right)\,d{\widetilde{V}^{0}}(z,P)+\int_{\mathbb{R}^{1+N}\times\partial B_{h,N+1}}\textup{tr}\left(QdY\right)\,d{V^{\infty}}(z,Q)$ 
+ 
+ $\displaystyle=$ $\displaystyle\int_{\mathbb{R}^{1+N}}\textup{tr}\left(\overline{P}dY\right)\,d\mu_{\widetilde{V}^{0}}(z)+\int_{\mathbb{R}^{1+N}}\textup{tr}\left(\overline{Q}dY\right)\,d\mu_{V^{\infty}}(z).$ 
+
+
+6.0.1 Radon-Nikodým decompositions
+
+Using the generalized Radon-Nikodým theorem (Theorem 12.2 in the Appendix; recall that $\mathcal{H}^{h}$ is not $\sigma$ -finite) we can decompose the measures $\mu_{V^{0}}$ and $\mu_{V^{\infty}}$ in ( 6.1 ) into their absolutely continuous, singular and diffuse parts respectively: 
+ 
+ $\displaystyle\mu_{V}=$ $\displaystyle\mu_{V}^{ac}+\mu_{V}^{s}+\mu_{V}^{d},$  (6.12) 
+ $\displaystyle\mu_{V^{0}}=$ $\displaystyle\mu_{V^{0}}^{ac}+\mu_{V^{0}}^{s}+\mu_{V^{0}}^{d},$ 
+ $\displaystyle\mu_{V^{\infty}}=$ $\displaystyle\mu_{V^{\infty}}^{ac}+\mu_{V^{\infty}}^{s}+\mu_{V^{\infty}}^{d},$ 
+ $\displaystyle\mu_{\widetilde{V}^{0}}=$ $\displaystyle\mu_{\widetilde{V}^{0}}^{ac}+\mu_{\widetilde{V}^{0}}^{s}+\mu_{\widetilde{V}^{0}}^{d},$ 
+ where 
+ 
+ $\mu_{V}^{ac}<<\mathcal{H}^{h},\quad\mu_{V^{0}}^{ac}<<\mathcal{H}^{h},\quad\mu_{V^{\infty}}^{ac}<<\mathcal{H}^{h},\quad\mu_{\widetilde{V}^{0}}^{ac}<<\mathcal{H}^{h}.$ 
+ Being $\mu_{V}$ a Radon measure, it follows that $\mu_{V}^{ac}$ , $\mu_{V}^{s}$ and $\mu_{V}^{d}$ are mutually singular. The same property holds for the decompositions of $\mu_{V^{0}}$ , $\mu_{V^{\infty}}$ , and $\mu_{\widetilde{V}^{0}}$ .
+
+7 Proper, rectifiable and weakly rectifiable varifolds
+
+We now introduce the notions of proper, rectifiable and weakly rectifiable varifold. Proper rectifiable varifolds consist of timelike $h$ -varifolds without singular or diffuse part, and essentially have been considered in [7] .
+
+Let $V\in\mathcal{LV}_{h}$ . We say that $V$ is timelike if 
+ 
+ $V^{\infty}=0.$ 
+ If in addition 
+ 
+ $\mu^{s}_{V^{0}}=0,\qquad\mu_{V^{0}}^{d}=0,$ 
+ then we say that $V$ is proper.
+
+As we shall see, even subrelativistic strings are not, in general, proper varifolds, and therefore Definition 7.1 must be weakened. However, it may be useful to find sufficient conditions ensuring that the limit of a sequence of proper varifolds is proper. For instance, the following observation (that will be used in Example 11.2 ) holds.
+
+Let $\{V_{j}\}\subset\mathcal{LV}_{h}$ be a sequence satisfying the bound ( 6.4 ) on $\mu_{V_{j}}$ . Assume in addition that 
+ 
+ $\displaystyle{\rm for\ all\ }\varepsilon>0{\rm\ and\ all\ compact\leavevmode\nobreak\ }K\subset\mathbb{R}^{1+N}\ {\rm there\ exists\ a\ compact\ }\mathcal{T}\subset T_{h,N+1}$  (7.1) 
+ $\displaystyle{\rm\ such\ that}\ \sup_{j}\left(\int_{K\times\left(T_{h,N+1}\setminus\mathcal{T}\right)}P_{0}^{0}\,d\widetilde{V}^{0}_{j}+\mu_{V^{\infty}_{j}}(K)\right)\leq\varepsilon.$ 
+ Then (using for instance the lower semicontinuity inequality on open sets as in [4] ) the limit varifold $V$ given by Proposition 6.5 is proper. Condition ( 7.1 ) is verified for instance if the varifolds $V_{j}$ are proper and there exists $p>1$ such that 
+ 
+ $\forall\leavevmode\nobreak\ {\rm compact\leavevmode\nobreak\ }K\subset\mathbb{R}^{1+N}\ \ \exists C>0:\quad\sup_{j}\int_{K\times T_{h,N+1}}\left(P_{0}^{0}\right)^{p}\,d\widetilde{V}^{0}_{j}\leq C.$  (7.2) 
+
+
+7.1 Rectifiable and weakly rectifiable varifolds
+
+As already discussed in the Introduction, in this work an important role is played by the lorentzian varifolds that we will call weakly rectifiable.
+
+To understand the next definitions, it is useful to keep in mind that, with any $h$ -rectifiable timelike set $\Sigma\subset\mathbb{R}^{1+N}$ , we can associate in a natural way a varifold defined by 
+ 
+ $\left({\sigma^{h}}\hskip 1.0pt{\hbox to10.8pt{\hfill\vrule height=7.0pt,width=0.4pt,depth=0.0pt\hbox{\vrule height=0.4pt,width=7.6pt,depth=0.0pt}\hfill}}\Sigma\right)\otimes\delta_{P_{\Sigma}},$ 
+ where we recall that ${\sigma^{h}}$ is defined in ( 4.13 ).
+
+Let $V\in\mathcal{LV}_{h}$ . We say that $V$ is rectifiable if the following properties hold: 1. there exist a timelike $h$ -rectifiable set $\Sigma^{0}\subset\mathbb{R}^{1+N}$ and a positive multiplicity function $\theta^{0}\in L^{1}_{\rm loc}(\Sigma^{0},{\sigma}^{h})$ such that 
+ 
+ $\widetilde{V}^{0}=\theta^{0}\leavevmode\nobreak\ \left({\sigma}^{h}\hskip 1.0pt{\hbox to10.8pt{\hfill\vrule height=7.0pt,width=0.4pt,depth=0.0pt\hbox{\vrule height=0.4pt,width=7.6pt,depth=0.0pt}\hfill}}\,\Sigma^{0}\right)\otimes\delta_{P_{\Sigma^{0}}},$  (7.3) 2. there exist a null $h$ -rectifiable set $\Sigma^{\infty}\subset\mathbb{R}^{1+N}$ and a positive multiplicity function $\theta^{\infty}\in L^{1}_{\rm loc}(\Sigma^{\infty},\mathcal{H}^{h})$ such that 
+ 
+ $V^{\infty}=\theta^{\infty}\leavevmode\nobreak\ \left(\mathcal{H}^{h}\hskip 1.0pt{\hbox to10.8pt{\hfill\vrule height=7.0pt,width=0.4pt,depth=0.0pt\hbox{\vrule height=0.4pt,width=7.6pt,depth=0.0pt}\hfill}}\,\Sigma^{\infty}\right)\otimes\delta_{Q_{\Sigma^{\infty}}}.$  (7.4)
+
+A rectifiable varifold \footnote{ 15 When the multiplicity take values in the positive integer numbers, $V$ is called integer, and the same for Definition 7.5 . We will not deepen the properties of integer varifolds in the present paper.} is described by two $h$ -rectifiable sets, one timelike and the other null, each one equipped with a multiplicity function. The measure part of the varifold on the grassmannian is concentrated on the orthogonal projection onto the tangent space to its support. A rectifiable varifold is therefore a generalization of what we could call nonspacelike $h$ -rectifiable set, possibly endowed with a real positive multiplicity function.
+
+Notice that in Definition 7.3 , item 1, we use ${\sigma^{h}}$ , while in item 2 we use $\mathcal{H}^{h}$ . This is due to the fact that ${\sigma^{h}}$ vanishes on null sets \footnote{ 16 Recall that for a rectifiable set, null means lightlike.} .
+
+We now define a class of varifolds which contains all the relevant examples of relativistic strings considered in Section 9 .
+
+Let $V\in\mathcal{LV}_{h}$ . We say that $V$ is weakly rectifiable if the following properties hold: 1. there exist a timelike $h$ -rectifiable set $\Sigma^{0}$ and a positive multiplicity function $\theta^{0}\in L^{1}_{\rm loc}(\Sigma^{0},{\sigma}^{h})$ such that: 1a. $\quad\mu_{\widetilde{V}^{0}}^{ac}=\theta^{0}{\sigma}^{h}\hskip 1.0pt{\hbox to10.8pt{\hfill\vrule height=7.0pt,width=0.4pt,depth=0.0pt\hbox{\vrule height=0.4pt,width=7.6pt,depth=0.0pt}\hfill}}\,\Sigma^{0}$ , 1b. $\quad\mu_{\widetilde{V}^{0}}^{d}=0$ , 1c. ${\rm Range}\Big{(}\overline{P}_{\Sigma^{0}}(z)\Big{)}\subseteq T_{z}\Sigma^{0}\qquad{\rm for\leavevmode\nobreak\ }{\sigma}^{h}-{\rm a.e.}\leavevmode\nobreak\ z\in\Sigma^{0},$  (7.5) 2. there exist a null $h$ -rectifiable set $\Sigma^{\infty}\subset\mathbb{R}^{1+N}$ and a positive multiplicity function $\theta^{\infty}\in L^{1}_{\rm loc}(\Sigma^{\infty},\mathcal{H}^{h})$ , such that: 2a. $\quad\mu_{V^{\infty}}^{ac}=\theta^{\infty}\mathcal{H}^{h}\hskip 1.0pt{\hbox to10.8pt{\hfill\vrule height=7.0pt,width=0.4pt,depth=0.0pt\hbox{\vrule height=0.4pt,width=7.6pt,depth=0.0pt}\hfill}}\,\Sigma^{\infty}$ , 2b. $\quad\mu_{V^{\infty}}^{d}=0$ , 2c. for $\mathcal{H}^{h}$ –almost every $z\in\Sigma^{\infty}$ we have $V^{\infty}_{z}=\delta_{Q_{\Sigma^{\infty}}(z)}$ .
+
+Notice that 
+ 
+ $\mu^{ac}_{V^{0}}\perp\mu^{ac}_{V^{\infty}}.$ 
+ Note also that no conditions on the singular parts are imposed for a weakly rectifiable varifold.
+
+The difference between conditions 2a, 2b, 2c of Definition 7.5 and condition 2 of Definition 7.3 is that in Definition 7.5 we allow the presence of a singular part in $\mu_{V^{\infty}}$ . Example 9.15 shows that, in general, such a part does not vanish.
+
+Condition 1c is reminiscent of the fact that the measure $\widetilde{V}_{z}^{0}$ has barycenter in the lorentzian projection onto $T_{z}\Sigma^{0}$ , even if it is not necessarily concentrated on it. On the other hand, condition 2c requires the measure to be concentrated on the lorentzian projection onto $T_{z}\Sigma^{\infty}$ .
+
+In Proposition 7.13 we show essentially that stationary weakly rectifiable 1-varifolds are necessarily rectifiable. In Example 9.14 we exhibit a weakly rectifiable $2$ -varifold which is not rectifiable.
+
+The following result is a motivation for introducing conditions 1c and 2c in Definition 7.5 .
+
+Let $V\in\mathcal{LV}_{h}$ be a stationary varifold. Then conditions 1a, 1b, 2a and 2b of Definition 7.5 imply conditions 1c and 2c.
+
+If $Y\in\left(\mathcal{C}_{c}^{1}(\mathbb{R}^{1+N}\right))^{N+1}$ , from the stationarity of $V$ it follows 
+ 
+ $\displaystyle\int_{\Sigma^{0}}\theta^{0}\leavevmode\nobreak\ {\rm tr}\left(\overline{P}dY\right)\leavevmode\nobreak\ d{\sigma}^{h}+\int_{\mathbb{R}^{1+N}}{\rm tr}\left(\overline{P}dY\right)\leavevmode\nobreak\ d\mu^{s}_{\widetilde{V}^{0}}$ 
+ 
+ $\displaystyle+\int_{\Sigma^{\infty}}\theta^{\infty}\leavevmode\nobreak\ {\rm tr}\left(\overline{Q}dY\right)\leavevmode\nobreak\ d\mathcal{H}^{h}+\int_{\mathbb{R}^{1+N}}{\rm tr}\left(\overline{Q}dY\right)\leavevmode\nobreak\ d\mu^{s}_{V^{\infty}}=0.$ 
+ Choosing $Y=\varphi e_{i}$ for $\varphi\in\mathcal{C}^{1}_{c}(\mathbb{R}^{1+N})$ and using the arbitrariness of $i\in\{0,\dots,N\}$ , it follows the vector equality 
+ 
+ $\int_{\Sigma^{0}}\theta^{0}\overline{P}d\varphi\leavevmode\nobreak\ d{\sigma}^{h}+\int_{\mathbb{R}^{1+N}}\overline{P}d\varphi\leavevmode\nobreak\ d\mu^{s}_{\widetilde{V}^{0}}+\int_{\Sigma^{\infty}}\theta^{\infty}\overline{Q}d\varphi\leavevmode\nobreak\ d\mathcal{H}^{h}+\int_{\mathbb{R}^{1+N}}\overline{Q}d\varphi\leavevmode\nobreak\ d\mu^{s}_{V^{\infty}}=0.$  (7.6) 
+ Let us now show that condition 1c holds. We follow the blow-up argument in [5] . We take a point $z\in\Sigma^{0}\setminus\Sigma^{\infty}$ where there exists $T_{z}\Sigma^{0}$ , and such that the density of $\mu^{s}_{V}$ with respect to $\mathcal{H}^{h}$ is zero. Assume also that $z\in\Sigma^{0}$ is a Lebesgue point both for $\theta^{0}$ and $\overline{P}$ . Then a rescaling argument in ( 5.7 ) gives 
+ 
+ $\overline{P}(z)\int_{T_{z}\Sigma^{0}}d\varphi\leavevmode\nobreak\ d\mathcal{H}^{h}=0\,,\qquad\varphi\in\mathcal{C}^{1}_{c}(\mathbb{R}^{1+N}).$ 
+ Taking $\varphi$ constant on $T_{z}\Sigma^{0}$ , multiplied by a suitable cut-off function with support invading $T_{z}\Sigma^{0}$ , implies that $\overline{P}$ annihilates the normal covectors. Therefore, the image of $\overline{P}(z)$ (considered now as an operator taking vectors into vectors) is contained in $T_{z}(\Sigma)$ , and condition 1c holds.
+
+A similar proof gives that for $\mathcal{H}^{h}$ -almost every $z\in\Sigma^{\infty}$ we have 
+ 
+ $\overline{Q}(z)\int_{T_{z}\Sigma^{\infty}}d\varphi\leavevmode\nobreak\ d\mathcal{H}^{h}=0\,,\qquad\varphi\in\mathcal{C}^{1}_{c}(\mathbb{R}^{1+N}).$  (7.7) 
+ To show that condition 2c holds, we have to prove that $V^{\infty}_{z}$ is a Dirac delta. From ( 7.7 ) and arguing as above it follows that 
+ 
+ ${\rm Range}\left(\overline{Q}(z)\right)\subseteq T_{z}\Sigma^{\infty}.$  (7.8) 
+ In particular, since any vector in $T_{z}\Sigma^{\infty}$ is not timelike, we deduce 
+ 
+ $\overline{Q}(z)e_{0}{\rm\leavevmode\nobreak\ is\leavevmode\nobreak\ not\leavevmode\nobreak\ timelike}.$  (7.9) 
+ On the other hand, considering the map $m$ which associates with $Q\in\partial B_{h,N+1}$ the element ${\mathbb{V}_{\infty}}\in\mathbb{S}^{N-1}$ given by ( 3.7 ), and setting 
+ 
+ $\lambda:=m_{\#}V^{\infty}_{z},$ 
+ we have \footnote{ 17 $Qe_{0}=-(1,{\mathbb{V}_{\infty}})\otimes\eta(1,{\mathbb{V}_{\infty}})e_{0}=(1,{\mathbb{V}_{\infty}})\otimes(1,-{\mathbb{V}_{\infty}})e_{0}=(1,{\mathbb{V}_{\infty}})$ .} 
+ 
+ $\displaystyle\overline{Q}(z)e_{0}=$ $\displaystyle\int_{\partial B_{h,N+1}}Q(z)e_{0}\leavevmode\nobreak\ dV^{\infty}_{z}(Q)$  (7.10) 
+ $\displaystyle=$ $\displaystyle\int_{\partial B_{h,N+1}}(1,m(Q))\leavevmode\nobreak\ dV^{\infty}_{z}(Q)=\left(1,\int_{\theta\in\mathbb{S}^{N-1}}\theta\leavevmode\nobreak\ d\lambda(\theta)\right).$ 
+ Since $|\int_{\theta\in\mathbb{S}^{N-1}}\theta\leavevmode\nobreak\ d\lambda(\theta)|_{\rm e}\leq 1$ , we deduce that the vector $(1,\int_{\theta\in\mathbb{S}^{N-1}}\theta\leavevmode\nobreak\ d\lambda(\theta))$ is either timelike or null. We conclude, using ( 7.9 ), that $\overline{Q}(z)(e_{0})$ is null, so that $|\int_{\theta\in\mathbb{S}^{N-1}}\theta\leavevmode\nobreak\ d\lambda(\theta)|_{\rm e}=1$ . From this it follows that $\lambda$ is a Dirac delta. This conclusion implies that also $V^{\infty}_{z}$ is a Dirac delta. Finally, remembering ( 7.8 ), we have \footnote{ 18 Recall that there is only one null line contained in $T_{z}(\Sigma^{\infty})$ , and this is the one generated by $(1,{\mathbb{V}_{\infty}}(z))$ .} that $V^{\infty}_{z}$ in concentrated on $Q_{\Sigma^{\infty}}(z)$ . ∎
+
+7.2 Stationarity conditions for weakly rectifiable varifolds
+
+Recall that if $\Sigma$ is smooth and timelike, and if $T$ is a $(1,1)$ -tensor field defined on $\Sigma$ , the tangential divergence ${\rm div}_{\tau}T$ is defined in ( 4.6 ). Under smoothness assumptions, we can still derive the necessary stationarity conditions for a stationary weakly rectifiable varifold.
+
+Let $\theta^{0}\left({\sigma}^{h}\hskip 1.0pt{\hbox to10.8pt{\hfill\vrule height=7.0pt,width=0.4pt,depth=0.0pt\hbox{\vrule height=0.4pt,width=7.6pt,depth=0.0pt}\hfill}}\,\Sigma^{0}\right)\otimes V_{z}^{0}\in\mathcal{LV}_{h}$ be a proper stationary weakly rectifiable varifold, and assume that $\Sigma^{0}\subset\mathbb{R}^{1+N}$ is an $h$ -dimensional embedded manifold of class $\mathcal{C}^{2}$ without boundary. Then 
+ 
+ $\overline{P}_{\Sigma^{0}}\leavevmode\nobreak\ d_{\tau}\theta^{0}+\theta^{0}\,\textup{div}_{\tau}\overline{P}_{\Sigma^{0}}=0\qquad{\rm on\ }\Sigma^{0}$  (7.11) 
+ in the sense of distributions.
+
+Let $Y\in\left(\mathcal{C}_{c}^{1}(\mathbb{R}^{1+N}\right))^{N+1}$ . From the stationarity assumption we have 
+ 
+ $0=\delta V(Y)=\int_{\Sigma^{0}}\theta^{0}\,\textup{tr}\left({\overline{P}}_{\Sigma^{0}}dY\right)\,d{\sigma}^{h}.$ 
+ Observe now that 
+ 
+ $\displaystyle{\rm div}_{\tau}(\overline{P}_{\Sigma^{0}}Y)=$ $\displaystyle{\rm tr}(P_{\Sigma_{0}}d\overline{P}_{\Sigma^{0}}Y)+{\rm tr}(P_{\Sigma^{0}}\overline{P}_{\Sigma^{0}}dY)$ 
+ 
+ $\displaystyle=$ $\displaystyle\langle{\rm div}_{\tau}\overline{P}_{\Sigma^{0}},Y\rangle+{\rm tr}(\overline{P}_{\Sigma^{0}}dY),$ 
+ where we used the fact that ( 7.5 ) implies $P_{\Sigma^{0}}\overline{P}_{\Sigma^{0}}=\overline{P}_{\Sigma^{0}}$ . Integrating by parts ( 5.7 ) and using ( 4.23 ), we obtain 
+ 
+ $\displaystyle 0$ $\displaystyle=\int_{\Sigma^{0}}\theta^{0}\,\Big{(}\textup{div}_{\tau}\left(\overline{P}_{\Sigma^{0}}Y\right)-\langle\textup{div}_{\tau}\overline{P}_{\Sigma^{0}},Y\rangle\Big{)}\,d{\sigma}^{h}$ 
+ 
+ $\displaystyle=-\int_{\Sigma^{0}}\langle\leavevmode\nobreak\ {\overline{P}}_{\Sigma^{0}}d_{\tau}\theta^{0}+\theta^{0}\textup{div}_{\tau}\overline{P}_{\Sigma^{0}},Y\leavevmode\nobreak\ \rangle\leavevmode\nobreak\ d{\sigma}^{h}\,,$ 
+ which gives ( 7.11 ). ∎
+
+The stationarity condition ( 7.11 ) can be written, in an equivalent and more readable way, in terms of the mean curvature of $\Sigma^{0}$ and of the “defect $P_{\Sigma^{0}}-\overline{P}_{\Sigma^{0}}$ of being a projection” as follows.
+
+Adding and subtracting ${\rm div}_{\tau}P_{\Sigma^{0}}$ to ( 7.11 ), and recalling the relation ( 4.8 ) between the projection and the mean curvature, we have 
+ 
+ $\displaystyle 0=$ $\displaystyle\theta^{0}\textup{div}_{\tau}(P_{\Sigma^{0}}-\overline{P}_{\Sigma^{0}})-\theta^{0}\textup{div}_{\tau}P_{\Sigma^{0}}-\overline{P}_{\Sigma^{0}}d_{\tau}\theta^{0}$ 
+ 
+ $\displaystyle=$ $\displaystyle\theta^{0}\textup{div}_{\tau}(P_{\Sigma^{0}}-\overline{P}_{\Sigma^{0}})+\theta^{0}\eta H_{\Sigma^{0}}-\overline{P}_{\Sigma^{0}}d_{\tau}\theta^{0}.$ 
+ Splitting this equation into its normal and tangential components gives 
+ 
+ $\left\{\begin{aligned} &\theta^{0}\left(H_{\Sigma^{0}}+\left(\eta^{-1}\textup{div}_{\tau}(P_{\Sigma^{0}}-\overline{P}_{\Sigma^{0}})\right)^{\bot}\right)=0\\
+&\eta^{-1}\overline{P}_{\Sigma^{0}}\leavevmode\nobreak\ d_{\tau}\theta^{0}-\theta^{0}\Big{(}\eta^{-1}\textup{div}_{\tau}(P_{\Sigma^{0}}-\overline{P}_{\Sigma^{0}})\Big{)}^{\top}=0\end{aligned}\qquad{\rm on}\leavevmode\nobreak\ \Sigma^{0},\right.$  (7.12) 
+
+
+in the sense of distributions.
+
+The following result immediately follows from ( 7.12 ).
+
+Let $\theta^{0}\left({\sigma}^{h}\hskip 1.0pt{\hbox to10.8pt{\hfill\vrule height=7.0pt,width=0.4pt,depth=0.0pt\hbox{\vrule height=0.4pt,width=7.6pt,depth=0.0pt}\hfill}}\,\Sigma^{0}\right)\otimes\delta_{P_{\Sigma^{0}}}\in\mathcal{LV}_{h}$ be a proper stationary rectifiable varifold, and assume that $\Sigma^{0}\subset\mathbb{R}^{1+N}$ is an $h$ -dimensional embedded oriented manifold of class $\mathcal{C}^{2}$ without boundary. Suppose also that $\theta^{0}>0$ . Then $\theta^{0}$ is constant on $\Sigma^{0}$ , and $\Sigma^{0}$ is a timelike minimal surface, that is, it is a smooth solution to ( 1.1 ).
+
+The hypotheses imply that $P_{\Sigma^{0}}=\overline{P}_{\Sigma^{0}}$ . Since by assumption $\theta^{0}>0$ , the first equation in ( 7.12 ) implies $H_{\Sigma^{0}}=0$ . ∎
+
+7.3 The one-dimensional case
+
+In the one-dimensional case, for a weakly rectifiable varifold, $\overline{P}_{\Sigma^{0}}$ is a projection, as we show in the next proposition.
+
+Let $V\in\mathcal{LV}_{1}$ be weakly rectifiable, and assume that 
+ 
+ $\mu^{s}_{V}=0.$  (7.13) 
+ Then $V$ is rectifiable.
+
+Fix $z\in\Sigma^{0}$ such that ( 7.5 ) holds, and choose a Lorentz transformation $L$ such that ${\rm Range}(L^{-1}\overline{P}(z)L)=\mathbb{R}e_{0}$ . From ( 6.5 ) applied with $h=1$ it follows that $(L^{-1}\overline{P}(z)L)^{0}_{0}=1$ . Hence, reasoning as in the proof of Lemma 6.8 it follows $L^{-1}\overline{P}(z)L={\rm diag}(1,0,\dots,0)$ , which proves that $\overline{P}$ is a projection, hence 
+ 
+ $\overline{P}(z)=P_{\Sigma^{0}}(z).$ 
+ This assertion, together with hypothesis ( 7.13 ), imply that $V$ is rectifiable. ∎
+
+We point out that, due to the examples in [20] , [6] , the thesis of Proposition 7.12 is generally not true for $h>1$ , see for instance Example 9.14 . It would be interesting to investigate which conditions are implied on the singular part $\mu_{V}^{s}$ from the stationarity condition. In particular, we now prove that $\mu_{V}^{s}=0$ for stationary weakly rectifiable $1$ -varifolds, thus implying the rectifiability.
+
+Let $V\in\mathcal{LV}_{1}$ be a stationary and weakly rectifiable varifold such that 
+ 
+ $\forall I\subseteq\mathbb{R}{\rm\leavevmode\nobreak\ interval\leavevmode\nobreak\ }\exists\leavevmode\nobreak\ K\subset\mathbb{R}^{N}{\rm\leavevmode\nobreak\ compact\leavevmode\nobreak\ such\leavevmode\nobreak\ that\leavevmode\nobreak\ }{\rm spt}(\mu_{V})\cap(I\times\mathbb{R}^{N})\subseteq I\times K.$  (7.14) 
+ Then $V$ is rectifiable.
+
+In view of Proposition 7.12 it is enough to prove that $\mu^{s}_{V}=0$ . By Proposition 8.1 below we have 
+ 
+ $p_{\#}\mu_{V}<<\mathcal{L}^{1},$ 
+ where we recall that $p:\mathbb{R}^{1+N}\to\mathbb{R}$ is defined in ( 4.20 ), and where $\mathcal{L}^{1}$ is the Lebesgue measure. This implies in particular that $p_{\#}\mu^{s}_{V}<<\mathcal{L}^{1}$ . Hence $p_{\#}\mu^{s}_{V}=0$ , which in turn implies $\mu^{s}_{V}=0$ . ∎
+
+8 Conserved quantities
+
+In this section we show that for stationary varifolds, despite their nonsmoothness, we can still speak about various conserved quantities. These conservation laws will be useful in the nonsmooth examples considered in Sections 9 and 10 : see in particular Examples 9.15 and 10.2 .
+
+We need the following result, which is given in a time-localized form.
+
+Let $V\in\mathcal{LV}_{h}$ be a stationary varifold. Assume that 
+ 
+ $\exists I\subseteq\mathbb{R}{\rm\leavevmode\nobreak\ interval\leavevmode\nobreak\ and\leavevmode\nobreak\ }\exists K\subset\mathbb{R}^{N}{\rm\leavevmode\nobreak\ compact:}\leavevmode\nobreak\ \quad{\rm spt}(\mu_{V})\cap(I\times\mathbb{R}^{N})\subseteq I\times K.$  (8.1) 
+ Then 
+ 
+ $p_{\#}\mu_{V}\hskip 1.0pt{\hbox to10.8pt{\hfill\vrule height=7.0pt,width=0.4pt,depth=0.0pt\hbox{\vrule height=0.4pt,width=7.6pt,depth=0.0pt}\hfill}}I<<\mathcal{L}^{1}.$  (8.2) 
+
+
+Assumption ( 8.1 ) allows to apply Theorem 12.3 of the Appendix (with the choices $d=1$ , $m=N$ , $\pi=p$ and $\nu=\mu_{V}$ ). Therefore we can disintegrate $\mu_{V}$ as 
+ 
+ $\mu_{V}=p_{\#}\mu_{V}\otimes\lambda_{t}.$ 
+ Observe now that $\mu_{\widetilde{V}^{0}}$ and $\mu_{V^{\infty}}$ are both absolutely continuous with respect to $\mu_{V}$ . Therefore, also $p_{\#}\mu_{V^{0}}$ and $p_{\#}\mu_{V^{\infty}}$ are absolutely continuous with respect to $p_{\#}\mu_{V}$ . Hence we can write 
+ 
+ $\mu_{\widetilde{V}^{0}}=p_{\#}\mu_{V}\otimes\widehat{\mu}_{\widetilde{V}^{0}_{t}},\qquad\mu_{V^{\infty}}=p_{\#}\mu_{V}\otimes\widehat{\mu}_{V^{\infty}_{t}}.$  (8.3) 
+ We now use the hypothesis that $V$ is stationary. Take 
+ 
+ $Y(t,x)=\varphi(t)\psi(x)e_{0},$ 
+ with $\varphi\in\mathcal{C}^{1}_{c}(I)$ and $\psi\in\mathcal{C}^{1}_{c}(\mathbb{R}^{N})$ , with $\psi\equiv 1$ in a neighbourhood of $K$ . Then the stationarity condition $\delta V(Y)=0$ implies 
+ 
+ $0=\int_{I\times\mathbb{R}^{N}}{\overline{P}}_{0}^{0}(t,x)\,\varphi^{\prime}(t)\,d\mu_{\widetilde{V}^{0}}+\int_{I\times\mathbb{R}^{N}}{\overline{Q}}_{0}^{0}(t,x)\varphi^{\prime}(t)\leavevmode\nobreak\ d\mu_{V^{\infty}}.$  (8.4) 
+ Notice that ${Q}^{0}_{0}=1$ , so that passing to the mean value also 
+ 
+ ${\overline{Q}}_{0}^{0}=1,$  (8.5) 
+ and therefore ( 8.4 ) becomes 
+ 
+ $0=\int_{I\times\mathbb{R}^{N}}{\overline{P}}_{0}^{0}(t,x)\,\varphi^{\prime}(t)\,d\mu_{\widetilde{V}^{0}}+\int_{I\times\mathbb{R}^{N}}\varphi^{\prime}(t)\leavevmode\nobreak\ d\mu_{V^{\infty}}.$  (8.6) 
+
+
+Using ( 8.3 ) we can write ( 8.6 ) as 
+ 
+ $0=\int_{I}\varphi^{\prime}(t)f(t)\leavevmode\nobreak\ dp_{\#}\mu_{V}(t),$  (8.7) 
+ where 
+ 
+ $f(t):=\int_{\mathbb{R}^{N}}{\overline{P}}_{0}^{0}(t,x)d\widehat{\mu}_{\widetilde{V}^{0}_{t}}(x)+\widehat{\mu}_{V^{\infty}_{t}}(\mathbb{R}^{N}),\qquad p_{\#}\mu_{V}-{\rm a.e.}\leavevmode\nobreak\ t\in I.$ 
+ Observe that $f\geq 1$ , since ${\overline{P}}_{0}^{0}\geq 1$ and ( 8.5 ) holds. It follows 
+ 
+ $f(t)=\int_{\mathbb{R}^{N}}{\overline{P}}_{0}^{0}(t,x)d\widehat{\mu}_{\widetilde{V}^{0}_{t}}(x)+\widehat{\mu}_{V^{\infty}_{t}}(\mathbb{R}^{N})\geq 1,\qquad p_{\#}\mu_{V}-{\rm a.e.}\leavevmode\nobreak\ t\in I.$ 
+ From ( 8.7 ) and Lemma 8.2 below, it follows that there exists a constant $C\geq 1$ such that 
+ 
+ $f\leavevmode\nobreak\ p_{\#}\mu_{V}\leavevmode\nobreak\ \hskip 1.0pt{\hbox to10.8pt{\hfill\vrule height=7.0pt,width=0.4pt,depth=0.0pt\hbox{\vrule height=0.4pt,width=7.6pt,depth=0.0pt}\hfill}}I=C\mathcal{L}^{1}.$  (8.8) 
+ Being $f\geq 1$ , from ( 8.8 ) we deduce $p_{\#}\mu_{V}\hskip 1.0pt{\hbox to10.8pt{\hfill\vrule height=7.0pt,width=0.4pt,depth=0.0pt\hbox{\vrule height=0.4pt,width=7.6pt,depth=0.0pt}\hfill}}I<<\mathcal{L}^{1}$ . ∎
+
+Let $\mu$ be a positive Radon measure on $\mathbb{R}$ such that 
+ 
+ $\int_{\mathbb{R}}\varphi^{\prime}\leavevmode\nobreak\ d\mu=0,\qquad\varphi\in\mathcal{C}^{1}_{c}(\mathbb{R}).$ 
+ Then there exists a constant $C\geq 0$ such that $\mu=C\mathcal{L}^{1}$ . In particular $\mu<<\mathcal{L}^{1}$ .
+
+It is sufficient to prove that $\mu$ is translation invariant on open intervals. Therefore, let $a,b\in\mathbb{R}$ , $a<b$ , and $\tau\in\mathbb{R}$ . We have to show that 
+ 
+ $\mu((a,b))=\mu((a+\tau,b+\tau)).$ 
+ Assume that $b<a+\tau$ , the other cases being similar. Let $\varphi\in{\rm Lip}_{c}(\mathbb{R})$ be defined as follows: $\varphi:=0$ in $(-\infty,a]\cup[b+\tau,+\infty)$ , $\varphi(t):=t-a$ in $(a,b)$ , $\varphi(t):=b-a$ in $(b,a+\tau)$ , and $\varphi(t):=-t+b+\tau$ in $(a+\tau,b+\tau)$ . For any positive $\varepsilon$ sufficiently small let $\varphi_{\varepsilon}\in\mathcal{C}^{1}_{c}(\mathbb{R})$ be a function such that $\varphi_{\varepsilon}=\varphi$ in $(-\infty,a]\cup(a+\varepsilon,b-\varepsilon)\cup(b,a+\tau)\cup(a+\tau+\varepsilon,b+\tau-\varepsilon)\cup[b+\tau,+\infty)$ . We can in addition suppose $\varphi_{\varepsilon}$ to be equi-Lipschitz with respect to $\varepsilon$ . Then 
+ 
+ $\displaystyle 0=$ $\displaystyle\int_{(a,a+\varepsilon)}\varphi_{\varepsilon}^{\prime}\leavevmode\nobreak\ d\mu+\int_{(b-\varepsilon,b)}\varphi_{\varepsilon}^{\prime}\leavevmode\nobreak\ d\mu+\int_{(a+\tau,a+\tau+\varepsilon)}\varphi_{\varepsilon}^{\prime}\leavevmode\nobreak\ d\mu+\int_{(b+\tau-\varepsilon,b+\tau)}\varphi_{\varepsilon}^{\prime}\leavevmode\nobreak\ d\mu$ 
+ 
+ $\displaystyle+\mu([a+\varepsilon,b-\varepsilon])-\mu([a+\tau+\varepsilon,b+\tau-\varepsilon]).$ 
+ Letting $\varepsilon\to 0^{+}$ and using the equi-lipschitzianity of $\varphi_{\varepsilon}$ it follows that the first four terms on the right hand side converge to zero as $\varepsilon\to 0^{+}$ . Hence 
+ 
+ $0=\lim_{\varepsilon\to 0^{+}}\Big{(}\mu([a+\varepsilon,b-\varepsilon])-\mu([a+\tau+\varepsilon,b+\tau-\varepsilon])\Big{)},$ 
+ and the assertion follows from the inner regularity [4] of $\mu$ . ∎
+
+Let $V\in\mathcal{LV}_{h}$ be a stationary varifold and assume that ( 8.1 ) holds. Then using Proposition 7.11 we can disintegrate $\mu_{\widetilde{V}^{0}}$ and $\mu_{V^{\infty}}$ with respect to $\mathcal{L}^{1}$ , so that we can give the following
+
+We set 
+ 
+ $\mu_{\widetilde{V}^{0}}=\mathcal{L}^{1}\otimes{\mu_{\widetilde{V}^{0}_{t}}},\qquad\mu_{V^{\infty}}=\mathcal{L}^{1}\otimes\mu_{V^{\infty}_{t}}.$  (8.9) 
+
+
+We are now in a position to give the following definitions.
+
+Let $V\in\mathcal{LV}_{h}$ and assume that ( 8.1 ) holds. Then, for $\mathcal{L}^{1}$ -almost every $t\in I$ , we define - the energy momentum vector of $V$ at time $t$ as 
+ 
+ $\displaystyle\mathcal{E}(t)$ $\displaystyle:=\int_{\mathbb{R}^{N}}{\overline{P}}_{0}^{0}(t,x)\,d\mu_{\widetilde{V}_{t}^{0}}(x)+\mu_{V^{\infty}_{t}}(\mathbb{R}^{N}),$  (8.10) 
+ $\displaystyle\mathcal{P}^{\rm a}(t)$ $\displaystyle:=\int_{\mathbb{R}^{N}}{\overline{P}}_{0}^{{\rm a}}(t,x)\,d\mu_{\widetilde{V}_{t}^{0}}(x)+\int_{\mathbb{R}^{N}}{\overline{Q}}_{0}^{{\rm a}}(t,x)\leavevmode\nobreak\ d\mu_{V^{\infty}_{t}}(x),\qquad{\rm a}\in\{1,\dots,N\};$ - the angular momentum of $V$ at time $t$ as 
+ 
+ $\begin{aligned} \Omega^{\alpha\beta}(t):=&\int_{\mathbb{R}^{N}}\left(x^{\alpha}{\overline{P}}_{0}^{\beta}(t,x)-x^{\beta}{\overline{P}}_{0}^{\alpha}(t,x)\right)\,d\mu_{\widetilde{V}_{t}^{0}}(x)\\
+&+\int_{\mathbb{R}^{N}}\left(x^{\alpha}{\overline{Q}}_{0}^{\beta}(t,x)-x^{\beta}{\overline{Q}}_{0}^{\alpha}(t,x)\right)\leavevmode\nobreak\ d\mu_{V^{\infty}_{t}}(x),\end{aligned}\qquad\alpha,\beta\in\{0,\dots,N\}.$  (8.11)
+
+From ( 6.2 ) and ( 8.9 ) it follows that for $t_{1},t_{2}\in I$ , $t_{1}<t_{2}$ , 
+ 
+ $\int_{t_{1}}^{t_{2}}\mathcal{E}(t)\leavevmode\nobreak\ dt=\mu_{V}\left((t_{1},t_{2})\times\mathbb{R}^{N}\right).$  (8.12) 
+ Indeed, 
+ 
+ $\displaystyle\int_{t_{1}}^{t_{2}}\mathcal{E}(t)\leavevmode\nobreak\ dt=$ $\displaystyle\int_{t_{1}}^{t_{2}}\int_{\mathbb{R}^{N}}{\overline{P}}_{0}^{0}(t,x)\,d\mu_{\widetilde{V}_{t}^{0}}(x)\leavevmode\nobreak\ dt+\int_{t_{1}}^{t_{2}}\mu_{V^{\infty}_{t}}(\mathbb{R}^{N})\leavevmode\nobreak\ dt$ 
+ 
+ $\displaystyle=$ $\displaystyle\int_{(t_{1},t_{2})\times\mathbb{R}^{N}}{\overline{P}}_{0}^{0}\leavevmode\nobreak\ d\mu_{\widetilde{V}^{0}}+\mu_{V^{\infty}}((t_{1},t_{2})\times\mathbb{R}^{N})$ 
+ 
+ $\displaystyle=$ $\displaystyle\int_{(t_{1},t_{2})\times\mathbb{R}^{N}}\int_{T_{h,N+1}}P_{0}^{0}(z)\leavevmode\nobreak\ d\widetilde{V}^{0}_{z}(P)\leavevmode\nobreak\ d\mu_{\widetilde{V}^{0}}(z)+\mu_{V^{\infty}}((t_{1},t_{2})\times\mathbb{R}^{N})$ 
+ 
+ $\displaystyle=$ $\displaystyle\mu_{V^{0}}((t_{1},t_{2})\times\mathbb{R}^{N})+\mu_{V^{\infty}}((t_{1},t_{2})\times\mathbb{R}^{N})=\mu_{V}((t_{1},t_{2})\times\mathbb{R}^{N}),$ 
+ where in the first equality of the last line we are using ( 8.1 ), namely we are localized in a compact subset of $\mathbb{R}^{1+N}$ .
+
+For a rectifiable varifold, Definition 8.4 gives the usual definitions of relativistic energy and momentum, as shown in the next observation.
+
+Let $V\in\mathcal{LV}_{h}$ be a rectifiable varifold satisfying ( 8.1 ), and let $\Sigma^{0},\theta^{0},\Sigma^{\infty}$ and $\theta^{\infty}$ be as in Definition 7.3 . Set 
+ 
+ $\Sigma^{0}(t):=\Sigma^{0}\cap\{x^{0}=t\},\qquad\Sigma^{\infty}(t):=\Sigma^{\infty}\cap\{x^{0}=t\}.$ 
+ Then, from ( 7.3 ) and ( 4.18 ) we have 
+ 
+ $\mu_{\widetilde{V}^{0}}=\theta^{0}\sigma^{h}\hskip 1.0pt{\hbox to10.8pt{\hfill\vrule height=7.0pt,width=0.4pt,depth=0.0pt\hbox{\vrule height=0.4pt,width=7.6pt,depth=0.0pt}\hfill}}\Sigma^{0}=\theta^{0}\leavevmode\nobreak\ \mathcal{L}^{1}\otimes\left(\sqrt{1-|\mathbb{V}(t,\cdot)|^{2}_{\rm e}}\leavevmode\nobreak\ \mathcal{H}^{h-1}\hskip 1.0pt{\hbox to10.8pt{\hfill\vrule height=7.0pt,width=0.4pt,depth=0.0pt\hbox{\vrule height=0.4pt,width=7.6pt,depth=0.0pt}\hfill}}\Sigma^{0}(t)\right),$  (8.13) 
+ and from ( 7.4 ), 
+ 
+ $\mu_{V^{\infty}}=\theta^{\infty}\mathcal{H}^{h}\hskip 1.0pt{\hbox to10.8pt{\hfill\vrule height=7.0pt,width=0.4pt,depth=0.0pt\hbox{\vrule height=0.4pt,width=7.6pt,depth=0.0pt}\hfill}}\Sigma^{\infty}=\theta^{\infty}\sqrt{2}\leavevmode\nobreak\ \mathcal{L}^{1}\otimes\left(\mathcal{H}^{h-1}\hskip 1.0pt{\hbox to10.8pt{\hfill\vrule height=7.0pt,width=0.4pt,depth=0.0pt\hbox{\vrule height=0.4pt,width=7.6pt,depth=0.0pt}\hfill}}\Sigma^{\infty}(t)\right).$  (8.14) 
+ Moreover, from ( 4.16 ) and ( 4.17 ) we have 
+ 
+ ${\overline{P}}^{0}_{0}={P}_{0}^{0}=\frac{1}{1-|\mathbb{V}|^{2}_{\rm e}},\qquad{\overline{P}}^{\rm a}_{0}={P}^{\rm a}_{0}=\frac{\mathbb{V}^{\rm a}}{1-|\mathbb{V}|^{2}_{\rm e}},\quad{\rm a}\in\{1,\dots,N\},$ 
+ and from ( 3.9 ) 
+ 
+ ${\overline{Q}}^{0}_{0}={Q}^{0}_{0}=1,\qquad{\overline{Q}}^{\rm a}_{0}={Q}^{\rm a}_{0}=\mathbb{V}_{\infty}^{{\rm a}},\qquad{\rm a}\in\{1,\dots,N\}.$ 
+ Hence, using ( 8.13 ) and ( 8.14 ), for $\mathcal{L}^{1}$ -almost every $t\in I$ and ${\rm a},{\rm b}\in\{1,\dots,N\}$ , we have 
+ 
+ $\displaystyle\mathcal{E}(t)$ $\displaystyle=$ $\displaystyle\int_{\Sigma^{0}(t)}\frac{\theta^{0}}{\sqrt{1-|\mathbb{V}|_{\rm e}^{2}}}\leavevmode\nobreak\ d\mathcal{H}^{h-1}+\sqrt{2}\int_{\Sigma^{\infty}(t)}\theta^{\infty}\leavevmode\nobreak\ d\mathcal{H}^{h-1},$  (8.15) 
+ 
+ $\displaystyle\mathcal{P}^{\rm a}(t)$ $\displaystyle=$ $\displaystyle\int_{\Sigma^{0}(t)}\frac{\mathbb{V}^{\rm a}}{\sqrt{1-|\mathbb{V}|_{\rm e}^{2}}}\leavevmode\nobreak\ \theta^{0}\leavevmode\nobreak\ d\mathcal{H}^{h-1}+\sqrt{2}\int_{\Sigma^{\infty}(t)}\mathbb{V}_{\infty}^{{\rm a}}\leavevmode\nobreak\ \theta^{\infty}\leavevmode\nobreak\ d\mathcal{H}^{h-1},$  (8.16) 
+ 
+ 
+ $\displaystyle\Omega^{{\rm ab}}(t)=$ $\displaystyle\int_{\Sigma^{0}(t)}\left(\frac{x^{\rm a}\mathbb{V}^{\rm b}-x^{\rm b}\mathbb{V}^{\rm a}}{\sqrt{1-|\mathbb{V}|^{2}_{\rm e}}}\right)\leavevmode\nobreak\ \theta^{0}\leavevmode\nobreak\ d\mathcal{H}^{h-1}$  (8.17) 
+ $\displaystyle+\sqrt{2}\int_{\Sigma^{\infty}(t)}\left(x^{\rm a}\mathbb{V}_{\infty}^{{\rm b}}-x^{\rm b}\mathbb{V}_{\infty}^{{\rm a}}\right)\theta^{\infty}\leavevmode\nobreak\ d\mathcal{H}^{h-1},$ 
+ and 
+ 
+ $\displaystyle\Omega^{0{\rm a}}(t)=$ $\displaystyle\int_{\Sigma^{0}(t)}\left(\frac{t\mathbb{V}^{\rm a}-x^{\rm a}}{\sqrt{1-|\mathbb{V}|^{2}_{\rm e}}}\right)\leavevmode\nobreak\ \theta^{0}\leavevmode\nobreak\ d\mathcal{H}^{h-1}$  (8.18) 
+ $\displaystyle+\sqrt{2}\int_{\Sigma^{\infty}(t)}\left(t\mathbb{V}_{\infty}^{{\rm a}}-x^{\rm a}\right)\theta^{\infty}\leavevmode\nobreak\ d\mathcal{H}^{h-1}.$ 
+
+
+We now show that these quantities are conserved in time in the case of a stationary varifold.
+
+Let $V\in\mathcal{LV}_{h}$ be a stationary varifold and assume that ( 8.1 ) holds. Then $\mathcal{E}$ , $\mathcal{P}^{\rm a}$ , and $\Omega^{\alpha\beta}$ do not depend on $t$ .
+
+The constancy of $\mathcal{E}$ follows from ( 8.8 ) by noticing that 
+ 
+ $\mathcal{E}=f\frac{{\rm d}p_{\#}\mu_{V}}{\rm d\mathcal{L}^{1}}=C,\qquad\mathcal{L}^{1}-{\rm a.e.\leavevmode\nobreak\ in\leavevmode\nobreak\ }I,$ 
+ where $\frac{\rm d}{\rm d\mathcal{L}^{1}}$ denotes the Radon-Nikodým derivative with respect to $\mathcal{L}^{1}$ .
+
+The constancy of $\mathcal{P}^{\rm a}$ can be proven arguing as in the proof of Proposition 8.1 , by testing the stationarity condition $\delta(V)=0$ with $Y(t,x)=\varphi(t)\psi(x)e_{\rm a}$ .
+
+The constancy of $\Omega^{\mathrm{a}\mathrm{b}}$ can be proven by testing with $Y(t,x)=\varphi(t)\psi(x)\left(x^{\rm a}e_{\rm b}-x^{\rm b}e_{\rm a}\right)$ : in this case ( 5.7 ) gives 
+ 
+ $\displaystyle 0=$ $\displaystyle\int_{I}\int_{\mathbb{R}^{N}}\varphi(t){\rm tr}\Big{(}{\overline{P}}(e^{\rm a}\otimes e_{\rm b}-e^{\rm b}\otimes e_{\rm a})\Big{)}\leavevmode\nobreak\ d\mu_{\widetilde{V}^{0}_{t}}\leavevmode\nobreak\ dt$ 
+ 
+ $\displaystyle+\int_{I}\int_{\mathbb{R}^{N}}\varphi(t){\rm tr}\Big{(}{\overline{Q}}(e^{\rm a}\otimes e_{\rm b}-e^{\rm b}\otimes e_{\rm a})\Big{)}\leavevmode\nobreak\ d\mu_{V^{\infty}_{t}}\leavevmode\nobreak\ dt$ 
+ 
+ $\displaystyle+\int_{I}\int_{\mathbb{R}^{N}}\varphi^{\prime}(t){\rm tr}\Big{(}{\overline{P}}e^{0}\otimes(x^{\rm a}e_{\rm b}-x^{\rm b}e_{\rm a})\Big{)}\leavevmode\nobreak\ d\mu_{\widetilde{V}^{0}_{t}}dt$ 
+ 
+ $\displaystyle+\int_{I}\int_{\mathbb{R}^{N}}\varphi^{\prime}(t){\rm tr}\Big{(}{\overline{Q}}e^{0}\otimes(x^{\rm a}e_{\rm b}-x^{\rm b}e_{\rm a})\Big{)}\leavevmode\nobreak\ d\mu_{V^{\infty}_{t}}dt$ 
+ 
+ $\displaystyle=$ $\displaystyle-\int_{I}\int_{\mathbb{R}^{N}}\varphi^{\prime}(t)\Big{(}x^{\rm a}{{\overline{P}}}_{0}^{\rm b}-x^{\rm b}{{\overline{P}}}_{0}^{\rm a}\Big{)}\leavevmode\nobreak\ d\mu_{\widetilde{V}^{0}_{t}}dt$ 
+ 
+ $\displaystyle-\int_{I}\int_{\mathbb{R}^{N}}\varphi^{\prime}(t)\Big{(}x^{\rm a}{{\overline{Q}}}^{0}_{\rm b}-x^{\rm b}{{\overline{P}}}^{0}_{\rm a}\Big{)}\leavevmode\nobreak\ d\mu_{V^{\infty}_{t}}dt,$ 
+ where we used that ${P}_{\rm a}^{\rm b}={P}_{\rm b}^{\rm a}$ , ${P}_{0}^{\rm a}=-{P}_{\rm a}^{0}$ , ${Q}_{\rm a}^{\rm b}={Q}_{\rm b}^{\rm a}$ and ${Q}_{0}^{\rm a}=-{Q}_{\rm a}^{0}$ . Then the assertion follows again from Lemma 8.2 .
+
+Let us now consider $\Omega^{0\mathrm{a}}$ : testing ( 5.7 ) with $Y(t,x)=\varphi(t)\psi(x)\left(te_{\rm a}+x^{\rm a}e_{0}\right)$ we obtain 
+ 
+ $\displaystyle 0=$ $\displaystyle\int_{I}\int_{\mathbb{R}^{N}}\varphi(t){\rm tr}\Big{(}{\overline{P}}(e^{0}\otimes e_{\rm a}+e^{\rm a}\otimes e_{0})\Big{)}\leavevmode\nobreak\ d\mu_{\widetilde{V}^{0}_{t}}\leavevmode\nobreak\ dt$ 
+ 
+ $\displaystyle+\int_{I}\int_{\mathbb{R}^{N}}\varphi(t){\rm tr}\Big{(}{\overline{Q}}(e^{0}\otimes e_{\rm a}+e^{\rm a}\otimes e_{0})\Big{)}\leavevmode\nobreak\ d\mu_{V^{\infty}_{t}}\leavevmode\nobreak\ dt$ 
+ 
+ $\displaystyle+\int_{I}\int_{\mathbb{R}^{N}}\varphi^{\prime}(t){\rm tr}\Big{(}{\overline{P}}(te_{\rm a}+x^{\rm a}e_{0})\Big{)}\leavevmode\nobreak\ d\mu_{\widetilde{V}^{0}_{t}}\leavevmode\nobreak\ dt$ 
+ 
+ $\displaystyle+\int_{I}\int_{\mathbb{R}^{N}}\varphi^{\prime}(t){\rm tr}\Big{(}{\overline{Q}}(te_{\rm a}+x^{\rm a}e_{0})\Big{)}\leavevmode\nobreak\ d\mu_{V^{\infty}_{t}}\leavevmode\nobreak\ dt$ 
+ 
+ $\displaystyle=$ $\displaystyle\int_{I}\int_{\mathbb{R}^{N}}\varphi^{\prime}(t){\rm tr}\Big{(}{\overline{P}}e^{0}(te_{\rm a}+x^{\rm a}e_{0})\Big{)}\leavevmode\nobreak\ d\mu_{\widetilde{V}^{0}_{t}}\leavevmode\nobreak\ dt$ 
+ 
+ $\displaystyle+\int_{I}\int_{\mathbb{R}^{N}}\varphi^{\prime}(t){\rm tr}\Big{(}{\overline{Q}}e^{0}(te_{\rm a}+x^{\rm a}e_{0})\Big{)}\leavevmode\nobreak\ d\mu_{V^{\infty}_{t}}\leavevmode\nobreak\ dt$ 
+ 
+ $\displaystyle=$ $\displaystyle\int_{I}\int_{\mathbb{R}^{N}}\varphi^{\prime}(t)\Big{(}t{{\overline{P}}}^{0}_{\rm a}+x^{\rm a}\Big{)}\leavevmode\nobreak\ d\mu_{\widetilde{V}^{0}_{t}}\leavevmode\nobreak\ dt+\int_{I}\int_{\mathbb{R}^{N}}\varphi^{\prime}(t)\Big{(}t{{\overline{Q}}}^{0}_{\rm a}+x^{\rm a}\Big{)}\leavevmode\nobreak\ d\mu_{V^{\infty}_{t}}\leavevmode\nobreak\ dt$ 
+ 
+ $\displaystyle=$ $\displaystyle-\int_{I}\int_{\mathbb{R}^{N}}\varphi^{\prime}(t)\Big{(}t{{\overline{P}}}^{\rm a}_{0}-x^{\rm a}{{\overline{P}}}_{0}^{0}\Big{)}\leavevmode\nobreak\ d\mu_{\widetilde{V}^{0}_{t}}\leavevmode\nobreak\ dt-\int_{I}\int_{\mathbb{R}^{N}}\varphi^{\prime}(t)\Big{(}t{{\overline{Q}}}^{\rm a}_{0}-x^{\rm a}\Big{)}\leavevmode\nobreak\ d\mu_{V^{\infty}_{t}}\leavevmode\nobreak\ dt,$ 
+ and the assertion follows as above from Lemma 8.2 . ∎
+
+We conclude this section by pointing out that condition ( 8.1 ) is fulfilled in all examples considered in the present paper.
+
+9 Closed relativistic and subrelativistic strings
+
+We start now by considering the relevant examples which motivate our theory.
+
+Let $L>0$ and let $a,b\in\mathcal{C}^{2}(\mathbb{R};\mathbb{R}^{N})$ be two $L$ -periodic maps \footnote{ 19 Note that, for instance, $b=0$ is not allowed, while it will be allowed in the definition of subrelativistic string.} such that 
+ 
+ $|a^{\prime}|_{\rm e}=|b^{\prime}|_{\rm e}=1\qquad{\rm in}\leavevmode\nobreak\ \mathbb{R}.$ 
+ Define 
+ 
+ $\gamma(t,{u}):=\frac{a({u}+t)+b({u}-t)}{2},\qquad(t,{u})\in\mathbb{R}^{2}.$  (9.1) 
+ Then $\gamma\in\mathcal{C}^{2}(\mathbb{R}^{2};\mathbb{R}^{N})$ is $L$ -periodic both in $t$ and in ${u}$ , and satisfies the linear wave system 
+ 
+ $\gamma_{tt}=\gamma_{{u}{u}}\qquad{\rm in}\leavevmode\nobreak\ \mathbb{R}^{2},$  (9.2) 
+ and the constraints 
+ 
+ $(\gamma_{t},\gamma_{u})_{\rm e}=0,\qquad|\gamma_{t}|^{2}_{\rm e}+|\gamma_{u}|^{2}_{\rm e}=1\qquad{\rm in\leavevmode\nobreak\ }\mathbb{R}^{2}.$  (9.3) 
+ In particular, when $\gamma_{u}(t,{u})=0$ we have $|\gamma_{t}(t,{u})|^{2}_{\rm e}=1$ , and hence $\gamma_{t}(t,{u})$ is a null vector.
+
+Define the $\mathcal{C}^{2}$ map $\Phi_{\gamma}:\mathbb{R}^{2}\to\mathbb{R}^{1+N}$ as 
+ 
+ $\Phi_{\gamma}(t,{u}):=(t,\gamma(t,{u})),\qquad(t,{u})\in\mathbb{R}^{2}.$  (9.4) 
+ Set also 
+ 
+ $S_{\gamma}:=\{(t,{u})\in\mathbb{R}\times[0,L):\gamma_{u}(t,{u})=0\},\qquad\qquad C_{\gamma}:=\Phi_{\gamma}(S_{\gamma}),$ 
+ and note that, using also the periodicity assumption, it follows that $C_{\gamma}$ is closed.
+
+If we assume that 
+ 
+ $\mathcal{L}^{2}(S_{\gamma})=0,$  (9.5) 
+ then 
+ 
+ $\mathcal{H}^{2}(C_{\gamma})=0,$ 
+ and $\Phi_{\gamma}(\mathbb{R}^{2})\setminus C_{\gamma}$ is a lorentzian minimal surface (see for instance [26] ), namely, in the relatively open set $\Phi_{\gamma}(\mathbb{R}^{2})\setminus C_{\gamma}$ , its lorentzian mean curvature vanishes.
+
+In general, $C_{\gamma}$ may be nonempty, see for instance Example 9.13 .
+
+A map $\gamma\in\mathcal{C}^{2}(\mathbb{R}^{2};\mathbb{R}^{N})$ as in ( 9.1 ) and satisfying ( 9.5 ) is called $L$ -periodic (or also closed) relativistic string.
+
+Let $\gamma$ be an $L$ -periodic relativistic string, and set 
+ 
+ $\Sigma_{\gamma}^{0}:=\Phi_{\gamma}\left(\mathbb{R}\times[0,L)\right),$ 
+ and 
+ 
+ $\theta_{\gamma}^{0}(t,x):=\#\{{u}\in[0,L):\ \gamma(t,{u})=x\},\qquad(t,x)\in\Sigma^{0}_{\gamma}.$  (9.6) 
+ We define the rectifiable varifold $V_{\gamma}\in\mathcal{LV}_{2}$ associated with $\gamma$ as $V_{\gamma}:=V_{\gamma}^{0}+V_{\gamma}^{\infty}$ , where 
+ 
+ $\widetilde{V}^{0}_{\gamma}:=\theta_{\gamma}^{0}\left({\sigma^{2}}\hskip 1.0pt{\hbox to10.8pt{\hfill\vrule height=7.0pt,width=0.4pt,depth=0.0pt\hbox{\vrule height=0.4pt,width=7.6pt,depth=0.0pt}\hfill}}\Sigma^{0}_{\gamma}\right)\otimes\delta_{P_{\Sigma^{0}_{\gamma}}},$  (9.7) 
+ 
+ 
+ $V_{\gamma}^{\infty}:=0.$  (9.8) 
+
+
+Notice that $\Sigma_{\gamma}^{0}$ is $2$ -rectifiable; moreover, it is nonspacelike. Notice also that the multiplicity $\theta_{\gamma}^{0}$ takes values in $\mathbb{N}\cup\{+\infty\}$ .
+
+If $\gamma$ is an $L$ -periodic relativistic string, we have 
+ 
+ $\mu_{V_{\gamma}}={\Phi_{\gamma}}_{\#}\Big{(}\mathcal{L}^{2}\hskip 1.0pt{\hbox to10.8pt{\hfill\vrule height=7.0pt,width=0.4pt,depth=0.0pt\hbox{\vrule height=0.4pt,width=7.6pt,depth=0.0pt}\hfill}}\left(\mathbb{R}\times[0,L)\right)\Big{)}.$  (9.9) 
+ Indeed, from the area formula we have, for any Borel set $F\subseteq\mathbb{R}^{1+N}$ , 
+ 
+ $\int_{F\cap\Sigma^{0}_{\gamma}}\theta^{0}_{\gamma}\leavevmode\nobreak\ d\mathcal{H}^{2}=\int_{\Phi_{\gamma}^{-1}(F)}|{\rm det}(\nabla\Phi_{\gamma}^{T}\nabla\Phi_{\gamma})|\leavevmode\nobreak\ dtdu,$  (9.10) 
+ where $\nabla$ denotes the gradient and \textsuperscript{T} denotes tranposition. Now, the equality 
+ 
+ $\gamma_{t}^{\perp}:=\gamma_{t}-\left(\gamma_{t},\frac{\gamma_{u}}{|\gamma_{u}|_{\rm e}}\right)_{\rm e}\frac{\gamma_{u}}{|\gamma_{u}|_{\rm e}}=\gamma_{t}=\mathbb{V},$  (9.11) 
+ and a direct computation using ( 9.3 ) give 
+ 
+ $|{\rm det}(\nabla\Phi_{\gamma}^{T}\nabla\Phi_{\gamma})|=|\gamma_{u}|_{\rm e}\sqrt{1+|\gamma_{t}|_{\rm e}^{2}}=\sqrt{(1-|\gamma_{t}|_{\rm e}^{2})(1+|\gamma_{t}|_{\rm e}^{2})}=\sqrt{1-|\mathbb{V}|^{4}_{\rm e}}.$ 
+ Formula ( 9.10 ) implies, using ( 4.18 ) and ( 4.16 ), 
+ 
+ $\mathcal{L}^{2}(\Phi_{\gamma}^{-1}(F))=\int_{F\cap\Sigma^{0}_{\gamma}}\frac{\theta_{\gamma}^{0}}{\sqrt{1-|\mathbb{V}|^{4}_{\rm e}}}\leavevmode\nobreak\ d\mathcal{H}^{2}=\int_{F\cap\Sigma^{0}_{\gamma}}\frac{\theta_{\gamma}^{0}}{1-|\mathbb{V}|^{2}_{\rm e}}\leavevmode\nobreak\ d\sigma^{2}=\mu_{V_{\gamma}}(F).$ 
+
+
+From ( 8.15 ) it follows that $L$ is the energy of the varifold $V_{\gamma}$ , even when $\gamma$ is not injective. Indeed, recalling ( 8.15 ), the equality $\mathbb{V}(t,\gamma(t,{u}))=\gamma_{t}(t,{u})$ for $\mathcal{L}^{2}$ -almost every $(t,{u})\in\mathbb{R}^{2}$ , and using ( 9.3 ), we have 
+ 
+ $\mathcal{E}(t)=\int_{\Sigma^{0}_{\gamma}\cap\{x^{0}=t\}}\frac{\theta^{0}_{\gamma}}{\sqrt{1-|\mathbb{V}|_{\rm e}^{2}}}\leavevmode\nobreak\ d\mathcal{H}^{1}=\int_{[0,L)}\frac{1}{|\gamma_{u}|_{\rm e}}|\gamma_{u}|_{\rm e}\leavevmode\nobreak\ d{u}=L,\qquad t\in\mathbb{R}.$  (9.12) 
+
+
+One could think (observing for instance what happens in Example 9.13 below, where the set $C_{\gamma}$ consists of a discrete set of points) that a stationary $V_{\gamma}$ may have some concentrated measures at “null-like points”, the presence of which \footnote{ 20 We need to use the quotations: indeed in Example 9.13 the tangent space to $\Sigma^{0}_{\gamma}$ does not exist at the points of $C_{\gamma}$ .} should contradict ( 9.8 ). Actually, this is not the case, due essentially to condition ( 8.2 ). As shown in the next theorem, if we do not impose ( 9.8 ), then $V_{\gamma}$ is not stationary.
+
+Let $\gamma$ be an $L$ -periodic relativistic string. Then the rectifiable varifold $V_{\gamma}$ associated with $\gamma$ is stationary.
+
+Let $Y\in\left(\mathcal{C}_{c}^{1}(\mathbb{R}^{1+N})\right)^{N+1}$ . We have to prove that 
+ 
+ $\int_{\Sigma_{0}^{\gamma}}\theta_{\gamma}^{0}\leavevmode\nobreak\ {\rm tr}\left(P_{\Sigma_{0}^{\gamma}}dY\right)\leavevmode\nobreak\ d\sigma^{2}=0.$  (9.13) 
+ Recalling ( 4.4 ), and since $\mathcal{H}^{2}(C_{\gamma})=0$ , we have 
+ 
+ $\int_{\Sigma^{0}_{\gamma}}\theta^{0}_{\gamma}\leavevmode\nobreak\ {\rm tr}(P_{\Sigma^{0}_{\gamma}}dY)\leavevmode\nobreak\ d\sigma^{2}=\int_{\Sigma^{0}_{\gamma}\setminus C_{\gamma}}\theta^{0}_{\gamma}\leavevmode\nobreak\ {\rm div}_{\tau}Y\leavevmode\nobreak\ d\sigma^{2}.$  (9.14) 
+ Write $Y=(Y^{0},\widehat{Y})\in\mathbb{R}\times\mathbb{R}^{N}$ , and set $(\psi,\Psi)=Y(\Phi_{\gamma})$ , that is, 
+ 
+ $\psi(t,{u}):=Y^{0}(t,\gamma(t,{u})),\qquad\Psi(t,{u}):=\widehat{Y}(t,\gamma(t,{u})),\qquad(t,{u})\in\mathbb{R}\times[0,L).$  (9.15) 
+ Let us compute ${\rm div}_{\tau}Y$ in terms of $\gamma$ , $\psi$ and $\Psi$ . Define 
+ 
+ $\zeta:=\frac{(1,\gamma_{t})}{|\gamma_{u}|_{\rm e}},\qquad\xi:=\frac{(0,\gamma_{u})}{|\gamma_{u}|_{\rm e}}\qquad{\rm on}\leavevmode\nobreak\ \mathbb{R}\times[0,L)\setminus\{\gamma_{u}=0\}.$ 
+ Then $\zeta$ (resp. $\xi$ ) is a timelike (resp. spacelike) vector, $(\zeta,\zeta)=-1$ (resp. $(\xi,\xi)=1$ ), and $(\zeta,\xi)_{\rm e}=(\zeta,\xi)=0$ . We have \footnote{ 21 If $T=T_{\alpha}^{\beta}$ is a $(1,1)$ -tensor, we have ${\rm tr}(T)=T_{\alpha}^{\alpha}=\langle T(e_{0}),e^{0}\rangle+\langle T(e_{\rm a}),e^{\rm a}\rangle=-(T(e_{0}),e_{0})+(T(e_{\rm a}),e_{\rm a})$ . Moreover ${\rm tr}(L^{-1}TL)={\rm tr}(T)$ for any Lorentz transformation $L$ .} , at the point $(t,\gamma(t,{u}))$ , and supposing $\gamma_{u}(t,{u})\neq 0$ , 
+ 
+ ${\rm div}_{\tau}Y=-(\langle dY,\zeta\rangle,\zeta)+(\langle dY,\xi\rangle,\xi).$  (9.16) 
+ Now, differentiating ( 9.15 ) we obtain 
+ 
+ $\left(\begin{tabular}[]{lr}$\psi_{t}$&$\psi_{u}$\\
+$\Psi_{t}$&$\Psi_{u}$\\
+\end{tabular}\right)=d\left(Y(\Phi_{\gamma})\right)=dY(\Phi_{\gamma})\,d\Phi_{\gamma}=dY(\Phi_{\gamma})\left(\begin{tabular}[]{lr}$1$&$0$\\
+$\gamma_{t}$&$\gamma_{u}$\\
+\end{tabular}\right).$ 
+ In particular, 
+ 
+ $\frac{1}{|\gamma_{u}|_{\rm e}}\left(\begin{tabular}[]{lr}$\psi_{t}$&$\psi_{u}$\\
+$\Psi_{t}$&$\Psi_{u}$\\
+\end{tabular}\right)\left(\begin{tabular}[]{c}$1$\\
+$\underline{0}$\\
+\end{tabular}\right)=\frac{1}{|\gamma_{u}|_{\rm e}}dY(\Phi_{\gamma})\left(\begin{tabular}[]{c}$1$\\
+$\gamma_{t}$\\
+\end{tabular}\right)=dY(\Phi_{\gamma})(\zeta),$ 
+ and 
+ 
+ $\frac{1}{|\gamma_{u}|_{\rm e}}\left(\begin{tabular}[]{lr}$\psi_{t}$&$\psi_{u}$\\
+$\Psi_{t}$&$\Psi_{u}$\\
+\end{tabular}\right)\left(\begin{tabular}[]{c}$0$\\
+$\underline{1}$\\
+\end{tabular}\right)=\frac{1}{|\gamma_{u}|_{\rm e}}dY(\Phi_{\gamma})\left(\begin{tabular}[]{c}$0$\\
+$\gamma_{u}$\\
+\end{tabular}\right)=dY(\Phi_{\gamma})(\xi),$ 
+ where $\underline{0}=(0,\dots,0)\in\mathbb{R}^{N}$ , $\underline{1}=(1,\dots,1)\in\mathbb{R}^{N}$ . Hence, recalling ( 9.16 ), 
+ 
+ $\displaystyle{\rm div}_{\tau}Y=-(\langle dY,\zeta\rangle,\zeta)+(\langle dY,\xi\rangle,\xi)$  (9.25) 
+ $\displaystyle=$ $\displaystyle-\left(\frac{1}{|\gamma_{u}|_{\rm e}}\left(\begin{tabular}[]{lr}$\psi_{t}$&$\psi_{u}$\\
+$\Psi_{t}$&$\Psi_{u}$\\
+\end{tabular}\right)\left(\begin{tabular}[]{c}$1$\\
+$0$\\
+\end{tabular}\right),\zeta\right)+\left(\frac{1}{|\gamma_{u}|_{\rm e}}\left(\begin{tabular}[]{lr}$\psi_{t}$&$\psi_{u}$\\
+$\Psi_{t}$&$\Psi_{u}$\\
+\end{tabular}\right)\left(\begin{tabular}[]{c}$0$\\
+$1$\\
+\end{tabular}\right),\xi\right)$ 
+ 
+ $\displaystyle=$ $\displaystyle\frac{(\gamma_{u},\Psi_{u})_{\rm e}-(\gamma_{t},\Psi_{t})_{\rm e}+\psi_{t}}{|\gamma_{u}|^{2}_{\rm e}}.$  (9.26) 
+
+
+Recall from ( 9.11 ) and ( 9.3 ) that 
+ 
+ $\mathbb{V}(t,\gamma(t,{u}))=\gamma_{t}(t,{u}),\qquad\sqrt{1-|\mathbb{V}(t,\gamma(t,{u}))|^{2}_{\rm e}}=|\gamma_{u}(t,{u})|_{\rm e}.$  (9.27) 
+ From the area formula and ( 4.18 ) we have 
+ 
+ $\int_{B}\theta^{0}_{\gamma}\leavevmode\nobreak\ d\sigma^{2}=\int_{\Phi_{\gamma}^{-1}(B)}|\gamma_{u}|^{2}_{\rm e}\leavevmode\nobreak\ dtd{u},\qquad B\subset\Sigma^{0}_{\gamma}.$ 
+ We choose $T>0$ large enough so that $Y$ has support contained in $(-T,T)\times\mathbb{R}^{N}$ . Since $S_{\gamma}$ has zero Lebesgue measure, from ( 9.26 ) it follows 
+ 
+ $\displaystyle\ \int_{\Sigma^{0}_{\gamma}\setminus C_{\gamma}}\theta^{0}_{\gamma}\leavevmode\nobreak\ {\rm div}_{\tau}Y\leavevmode\nobreak\ d\sigma^{2}$ 
+ $\displaystyle=$ $\displaystyle\int_{(-T,T)\times[0,L)\setminus S_{\gamma}}\left[(\gamma_{u},\Psi_{u})_{\rm e}-(\gamma_{t},\Psi_{t})_{\rm e}+\psi_{t}\right]\leavevmode\nobreak\ d{u}dt$ 
+ $\displaystyle=$ $\displaystyle\int_{(-T,T)\times[0,L)}\left[(\gamma_{u},\Psi_{u})_{\rm e}-(\gamma_{t},\Psi_{t})_{\rm e}+\psi_{t}\right]\leavevmode\nobreak\ d{u}dt.$ 
+ On the other hand, recalling our assumptions on the support of $\psi$ , the validity of the linear wave system ( 9.2 ) and integrating by parts, we get 
+ 
+ $\displaystyle\int_{(-T,T)\times[0,L)}\left[(\gamma_{u},\Psi_{u})_{\rm e}-(\gamma_{t},\Psi_{t})_{\rm e}+\psi_{t}\right]\leavevmode\nobreak\ d{u}dt$ 
+ 
+ $\displaystyle=$ $\displaystyle\int_{(-T,T)\times[0,L)}\left[(\gamma_{u},\Psi_{u})_{\rm e}-(\gamma_{t},\Psi_{t})_{\rm e}\right]\leavevmode\nobreak\ d{u}dt=0.$ 
+ Hence $V_{\gamma}$ is stationary. ∎
+
+9.1 Subrelativistic strings
+
+As mentioned in the Introduction, the uniform closure of relativistic strings has been characterized, see [10] . In this section we want to show that to any subrelativistic string we can associate a weakly rectifiable (not rectifiable in general) stationary varifold.
+
+We say that $\gamma:\mathbb{R}^{2}\to\mathbb{R}^{N}$ is an $L$ -periodic (or closed) subrelativistic string if there exist $L$ -periodic maps $a,\,b\in{\rm Lip}(\mathbb{R};\mathbb{R}^{N})$ such that 
+ 
+ $|a^{\prime}|_{\rm e}\leq 1,\quad|b^{\prime}|_{\rm e}\leq 1,\qquad{\rm a.e.\leavevmode\nobreak\ in}\leavevmode\nobreak\ \mathbb{R},$ 
+ and 
+ 
+ $\gamma(t,{u}):=\frac{a({u}+t)+b({u}-t)}{2},\qquad(t,{u})\in\mathbb{R}^{2}.$  (9.28) 
+
+
+If $\gamma$ is an $L$ -periodic subrelativistic string, then 
+ 
+ $|\gamma_{t}^{\perp}|^{2}_{\rm e}+|\gamma_{u}|^{2}_{\rm e}\leq|\gamma_{t}|_{\rm e}^{2}+|\gamma_{u}|_{\rm e}^{2}\leq 1\qquad{\rm a.e.\leavevmode\nobreak\ in\leavevmode\nobreak\ }\mathbb{R}^{2}.$  (9.29) 
+
+
+It is proven in [26] that any $L$ -periodic subrelativistic string is a uniform limit of a sequence of $L$ -periodic relativistic strings.
+
+For any $L$ -periodic subrelativistic string $\gamma$ we can still define the Lipschitz map 
+ 
+ $\Phi_{\gamma}(t,{u}):=(t,\gamma(t,{u})),\qquad(t,{u})\in\mathbb{R}^{2},$  (9.30) 
+ and the sets $\Sigma_{\gamma}^{0}:=\Phi_{\gamma}(\mathbb{R}\times[0,L))$ (which is $2$ -rectifiable), $C_{\gamma}:=\Phi_{\gamma}(S_{\gamma})$ , where \footnote{ 22 Note that, differently with respect to a relativistic string, now $S_{\gamma}$ is not necessarily closed.} $S_{\gamma}:=\{(t,{u})\in\mathbb{R}\times[0,L):\gamma{\rm\leavevmode\nobreak\ is\leavevmode\nobreak\ differentiable\leavevmode\nobreak\ w.r.t.\leavevmode\nobreak\ }{u}{\rm\leavevmode\nobreak\ at\leavevmode\nobreak\ }(t,u),\gamma_{u}(t,u)=0\}$ . From ( 9.29 ) it follows that 
+ 
+ $\Sigma^{0}_{\gamma}\setminus C_{\gamma}\qquad{\rm is\leavevmode\nobreak\ timelike\leavevmode\nobreak\ }$ 
+ and 
+ 
+ $\mathcal{H}^{2}(C_{\gamma})=0.$  (9.31) 
+ Indeed, 
+ 
+ $\{|\gamma_{t}|_{\rm e}=1\}\subseteq S_{\gamma}\quad{\rm up\leavevmode\nobreak\ to\leavevmode\nobreak\ a\leavevmode\nobreak\ set\leavevmode\nobreak\ of\leavevmode\nobreak\ zero\leavevmode\nobreak\ Lebesgue\leavevmode\nobreak\ measure},$ 
+ and therefore ( 9.31 ) follows from the area formula.
+
+Also in view of the examples considered in the sequel of the paper, we need to extend Theorem 9.6 to subrelativistic strings. This is the content of the next theorem: we point out that one of the tools needed in the proof is the compactness of $\overline{B_{h,N+1}}$ . To better understand the meaning of the result, it is useful to keep in mind formula ( 9.9 ).
+
+Let $\{\gamma_{j}\}\subset\mathcal{C}^{2}(\mathbb{R}^{2};\mathbb{R}^{N})$ be a sequence of $L$ -periodic relativistic strings uniformly converging to an $L$ -periodic subrelativistic string $\gamma\in{\rm Lip}(\mathbb{R}^{2};\mathbb{R}^{N})$ . Then there exist a subsequence $\{\gamma_{j_{k}}\}$ of $\{\gamma_{j}\}$ and a stationary weakly rectifiable varifold $V_{\gamma}\in\mathcal{LV}_{2}$ such that 
+ 
+ $V_{\gamma_{j_{k}}}\rightharpoonup V_{\gamma}\qquad{\rm as}\leavevmode\nobreak\ k\to+\infty,$ 
+ 
+ 
+ $\mu_{V_{\gamma}}={\Phi_{\gamma}}_{\#}\big{(}\mathcal{L}^{2}\hskip 1.0pt{\hbox to10.8pt{\hfill\vrule height=7.0pt,width=0.4pt,depth=0.0pt\hbox{\vrule height=0.4pt,width=7.6pt,depth=0.0pt}\hfill}}\left(\mathbb{R}\times[0,L)\right)\big{)},$  (9.32) 
+ and 
+ 
+ $\displaystyle\mu^{ac}_{\widetilde{V}^{0}_{\gamma}}=$ $\displaystyle\leavevmode\nobreak\ \Theta^{0}_{\gamma}\leavevmode\nobreak\ \sigma^{2}\hskip 1.0pt{\hbox to10.8pt{\hfill\vrule height=7.0pt,width=0.4pt,depth=0.0pt\hbox{\vrule height=0.4pt,width=7.6pt,depth=0.0pt}\hfill}}\Sigma^{0}_{\gamma},$  (9.33) 
+ $\displaystyle\mu^{ac}_{V^{\infty}_{\gamma}}=$ $\displaystyle\leavevmode\nobreak\ 0,$ 
+ where $\Theta_{\gamma}^{0}$ is a real-valued multiplicity function satisfying 
+ 
+ $\Theta^{0}_{\gamma}\geq\theta_{\gamma}^{0}\geq 1.$  (9.34) 
+
+
+From Theorem 9.6 it follows that $V_{\gamma_{j}}$ is stationary for any $j\in\mathbb{N}$ . Using Remark 9.5 and formula ( 8.12 ) we deduce that, if $T>0$ , 
+ 
+ $\mu_{V_{\gamma_{j}}}((-T,T)\times\mathbb{R}^{N})=2TL.$ 
+ Then, by Proposition 6.5 there exist a subsequence $\{\gamma_{j_{k}}\}$ of $\{\gamma_{j}\}$ and a varifold $V_{\gamma}\in\mathcal{LV}_{2}$ such that 
+ 
+ $V_{\gamma_{j}}\rightharpoonup V_{\gamma}$ 
+ as $k\to+\infty$ . In particular, from Remark 6.4 , we have 
+ 
+ $\mu_{V_{\gamma_{j_{k}}}}\rightharpoonup\mu_{V_{\gamma}}\qquad{\rm as}\leavevmode\nobreak\ k\to+\infty.$ 
+ Furthermore, from Remark 5.13 it follows that $V_{\gamma}$ is stationary.
+
+From ( 9.9 ) we have 
+ 
+ $\mu_{V_{\gamma_{j_{k}}}}={\Phi_{\gamma_{j_{k}}}}_{\#}(\mathcal{L}^{2}\hskip 1.0pt{\hbox to10.8pt{\hfill\vrule height=7.0pt,width=0.4pt,depth=0.0pt\hbox{\vrule height=0.4pt,width=7.6pt,depth=0.0pt}\hfill}}(\mathbb{R}\times[0,L))).$ 
+ Using the uniform convergence of $\{\gamma_{j_{k}}\}$ to $\gamma$ , it follows that 
+ 
+ $\mu_{V_{\gamma_{j_{k}}}}={\Phi_{\gamma_{j_{k}}}}_{\#}(\mathcal{L}^{2}\hskip 1.0pt{\hbox to10.8pt{\hfill\vrule height=7.0pt,width=0.4pt,depth=0.0pt\hbox{\vrule height=0.4pt,width=7.6pt,depth=0.0pt}\hfill}}\mathbb{R}\times[0,L))\rightharpoonup{\Phi_{\gamma}}_{\#}(\mathcal{L}^{2}\hskip 1.0pt{\hbox to10.8pt{\hfill\vrule height=7.0pt,width=0.4pt,depth=0.0pt\hbox{\vrule height=0.4pt,width=7.6pt,depth=0.0pt}\hfill}}(\mathbb{R}\times[0,L)))\qquad{\rm as}\leavevmode\nobreak\ k\to+\infty,$ 
+ and ( 9.32 ) follows.
+
+Then ${\rm spt}(\mu_{V_{\gamma}})=\Sigma^{0}_{\gamma}$ , where $\Sigma^{0}_{\gamma}\setminus C_{\gamma}$ is $2$ -rectifiable and timelike and $\mathcal{H}^{2}(C_{\gamma})=0$ by Remark 9.9 .
+
+We now claim that there exists $\Theta^{0}_{\gamma}$ satisfying ( 9.34 ) such that 
+ 
+ $\mu^{ac}_{V^{0}_{\gamma}}=\Theta^{0}_{\gamma}\leavevmode\nobreak\ (P_{\Sigma^{0}_{\gamma}})^{0}_{0}\leavevmode\nobreak\ \sigma^{2}\hskip 1.0pt{\hbox to10.8pt{\hfill\vrule height=7.0pt,width=0.4pt,depth=0.0pt\hbox{\vrule height=0.4pt,width=7.6pt,depth=0.0pt}\hfill}}\Sigma^{0}_{\gamma}.$  (9.35) 
+ Indeed, let $\theta_{\gamma}^{0}$ be as in ( 9.6 ), and set for notational simplicity 
+ 
+ $p:=\frac{\gamma_{u}(\Phi_{\gamma}^{-1})}{|\gamma_{u}(\Phi_{\gamma}^{-1})|_{\rm e}}.$ 
+ Reasoning as in Remark 9.4 , using ( 9.32 ) and the area formula, we have, for all Borel sets $F\subseteq\mathbb{R}^{1+N}$ , 
+ 
+ $\displaystyle\mu^{ac}_{V_{\gamma}}(F)=$ $\displaystyle\mathcal{L}^{2}(\Phi_{\gamma}^{-1}(F\setminus C_{\gamma}))$  (9.36) 
+ $\displaystyle=$ $\displaystyle\int_{F\cap\Sigma^{0}_{\gamma}}\frac{\theta_{\gamma}^{0}}{|\gamma_{u}|_{\rm e}\sqrt{1+(\sum_{{\rm a},{\rm b}=1}^{N}\gamma_{t}^{\rm a}p^{\rm b}-\gamma_{t}^{\rm b}p^{\rm a})^{2}}}\leavevmode\nobreak\ d\mathcal{H}^{2}$ 
+ $\displaystyle=$ $\displaystyle\int_{F\cap(\Sigma^{0}_{\gamma}\setminus C_{\gamma})}\frac{\theta_{\gamma}^{0}}{|\gamma_{u}|_{\rm e}\sqrt{1+(\sum_{{\rm a},{\rm b}=1}^{N}\gamma_{t}^{\rm a}p^{\rm b}-\gamma_{t}^{\rm b}p^{\rm a})^{2}}}\leavevmode\nobreak\ d\mathcal{H}^{2}=\mu^{ac}_{V_{\gamma}^{0}}(F).$ 
+ In particular, ( 9.36 ) implies the second equality in ( 9.33 ).
+
+Recall now from ( 9.11 ) that $\mathbb{V}=\gamma_{t}^{\perp}$ . Notice that 
+ 
+ $\left(\sum_{{\rm a},{\rm b}=1}^{N}\gamma_{t}^{\rm a}p^{\rm b}-\gamma_{t}^{\rm b}p^{\rm a}\right)^{2}=\left(\sum_{{\rm a},{\rm b}=1}^{N}{\gamma^{\perp}_{t}}^{\rm a}p^{\rm b}-{\gamma_{t}^{\perp}}^{\rm b}p^{\rm a}\right)^{2}=|\gamma_{t}^{\perp}|_{\rm e}^{2}=|\mathbb{V}|_{\rm e}^{2}.$ 
+ Hence, using ( 4.18 ),
+
+
+ 
+ $\displaystyle\mu^{ac}_{V_{\gamma}^{0}}(F)=$ $\displaystyle\int_{F\cap\Sigma^{0}_{\gamma}}\frac{\theta_{\gamma}^{0}}{|\gamma_{u}|_{\rm e}}\frac{\sqrt{1+|\mathbb{V}|^{2}_{\rm e}}}{\sqrt{1-|\mathbb{V}|_{\rm e}^{2}}\sqrt{1+|\mathbb{V}|_{\rm e}^{2}}}\leavevmode\nobreak\ d\sigma^{2}$  (9.37) 
+ $\displaystyle=$ $\displaystyle\int_{F\cap\Sigma^{0}_{\gamma}}\frac{\theta_{\gamma}^{0}}{|\gamma_{u}|_{\rm e}}\frac{1}{\sqrt{1-|\mathbb{V}|_{\rm e}^{2}}}\leavevmode\nobreak\ d\sigma^{2}$ 
+ $\displaystyle=$ $\displaystyle\int_{F\cap\Sigma^{0}_{\gamma}}\frac{\Theta_{\gamma}^{0}}{1-|\mathbb{V}|^{2}_{\rm e}}\leavevmode\nobreak\ d\sigma^{2},$ 
+ where 
+ 
+ $\Theta_{\gamma}^{0}:=\theta^{0}_{\gamma}\leavevmode\nobreak\ \frac{\sqrt{1-|\mathbb{V}|_{\rm e}^{2}}}{|\gamma_{u}|_{\rm e}}.$ 
+ Recalling ( 9.29 ) we obtain ( 9.34 ), and this concludes the proof of the claim. It follows from ( 9.35 ) that the first equality in ( 9.33 ) holds.
+
+From ( 9.32 ) and the definition of diffuse part of a measure (Section 12.0.1 ) it follows that 
+ 
+ $\mu_{V_{\gamma}}^{d}=0,$  (9.38) 
+ since $\mu_{V_{\gamma}}$ is a Radon measure concentrated on a $h$ -rectifiable set. This concludes the proof that $V_{\gamma}$ is weakly rectifiable. ∎
+
+From ( 9.32 ), ( 9.33 ) and ( 9.38 ) it follows that 
+ 
+ $\mu_{V_{\gamma}}^{s}=\mu_{V_{\gamma}^{0}}^{s}+\mu_{V_{\gamma}^{\infty}}=\mu_{V_{\gamma}^{0}}^{s}+\mu^{s}_{V_{\gamma}^{\infty}}={\Phi_{\gamma}}_{\#}\left(\mathcal{L}^{2}\hskip 1.0pt{\hbox to10.8pt{\hfill\vrule height=7.0pt,width=0.4pt,depth=0.0pt\hbox{\vrule height=0.4pt,width=7.6pt,depth=0.0pt}\hfill}}S_{\gamma}\right).$ 
+
+
+The sequence $\{\mu_{V_{\gamma_{j}}}\}$ converges to $\mu_{V_{\gamma}}$ , without passing to a subsequence $\{j_{k}\}$ . Moreover $\mu_{V_{\gamma}}$ is independent of $\{\gamma_{j}\}$ (see ( 9.32 )) and depends only on $\gamma$ , while a priori $V_{\gamma}$ could depend on $\{\gamma_{j_{k}}\}$ .
+
+9.2 Examples of varifolds associated with relativistic and subrelativistic strings
+
+A first example of stationary rectifiable varifold is the so-called kink. This example is not completely trivial, since the set $C_{\gamma}$ is not empty.
+
+Let $N=2$ , $h=2$ , $R>0$ , and 
+ 
+ $\gamma(t,{u}):=R\big{(}\cos({u}/R),\sin({u}/R)\big{)}\cos(t/R),\qquad(t,{u})\in\mathbb{R}^{2},$  (9.39) 
+ be the kink. Note that $S_{\gamma}$ is nonempty, precisely 
+ 
+ $S_{\gamma}=\left\{\left(\frac{\pi R}{2}+k\pi R,0\right):k\in\mathbb{Z}\right\},$ 
+ which, being a discrete set of points, satisfies condition ( 9.5 ). Since it is immediate to check the validity of the system ( 9.2 ), $\gamma$ is therefore a $2\pi$ -periodic relativistic string. The associated varifold $V_{\gamma}\in\mathcal{LV}_{2}$ defined by $V_{\gamma}=V_{\gamma}^{0}+V_{\gamma}^{\infty}$ , where 
+ 
+ $\widetilde{V}^{0}_{\gamma}=\left(\sigma^{2}\hskip 1.0pt{\hbox to10.8pt{\hfill\vrule height=7.0pt,width=0.4pt,depth=0.0pt\hbox{\vrule height=0.4pt,width=7.6pt,depth=0.0pt}\hfill}}\Sigma^{0}_{\gamma}\right)\otimes\delta_{P_{\Sigma^{0}_{\gamma}}},\qquad V_{\gamma}^{\infty}=0$ 
+ is proper, rectifiable and stationary by Theorem 9.6 .
+
+Cylinders over any closed curve support a stationary weakly rectifiable varifold, as shown in the following example.
+
+Let $N=2$ and $h=2$ . We consider a particular class of subrelativistic strings. Precisely, let $a\in\mathcal{C}^{2}(\mathbb{R};\mathbb{R}^{2})$ be a $1$ -periodic map, with $|a^{\prime}(s)|=1$ for all $s\in\mathbb{R}$ , and let 
+ 
+ $\Sigma^{0}=\Sigma:=\mathbb{R}\times a(\mathbb{R})\subset\mathbb{R}^{1+2}$ 
+ be the cylinder over $a(\mathbb{R})$ . From Definition 9.7 we have that the function 
+ 
+ $\gamma(t,{u}):=\frac{a({u}+t)}{2},\qquad(t,u)\in\mathbb{R}^{2},$ 
+ is a subrelativistic string with the corresponding $\Phi_{\gamma}$ parametrizing $\Sigma$ .
+
+Observe that $\gamma$ is the uniform limit of the sequence $\{\gamma_{n}\}$ of $1$ -periodic relativistic strings 
+ 
+ $\gamma_{n}(t,{u}):=\frac{a({u}+t)+\frac{1}{n}a\left(n({u}-t)\right)}{2},\qquad(t,{u})\in\mathbb{R}^{2}.$ 
+
+
+By Theorem 9.10 there exists a stationary weakly rectifiable varifold $V\in\mathcal{LV}_{2}$ such that 
+ 
+ $\mu_{\widetilde{V}^{0}}=\sigma^{2}\hskip 1.0pt{\hbox to10.8pt{\hfill\vrule height=7.0pt,width=0.4pt,depth=0.0pt\hbox{\vrule height=0.4pt,width=7.6pt,depth=0.0pt}\hfill}}\Sigma$ 
+ and $V=\lim_{k\to+\infty}V_{n_{k}}$ , where 
+ 
+ $\widetilde{V}_{n}^{0}:=\left(\sigma^{2}\hskip 1.0pt{\hbox to10.8pt{\hfill\vrule height=7.0pt,width=0.4pt,depth=0.0pt\hbox{\vrule height=0.4pt,width=7.6pt,depth=0.0pt}\hfill}}\Sigma_{n}\right)\otimes\delta_{P_{\Sigma_{n}}},\qquad\Sigma_{n}^{0}=\Sigma_{n}:=\mathbb{R}\times\gamma_{n}(\mathbb{R}\times[0,1)).$ 
+
+
+Since $\gamma_{u}(t,{u})\neq 0$ for all $(t,{u})$ we have $S_{\gamma}=\emptyset$ , hence by Remark 9.11 it follows that $V$ is a proper varifold. Moreover, 
+ 
+ ${\rm Range}\left(\overline{P}_{\Sigma}(z)\right)\subset T_{z}\Sigma$ 
+ (note the strict inclusion) and, recalling ( 6.5 ), also 
+ 
+ ${\rm tr}\left(\overline{P}_{\Sigma}(z)\right)=2.$  (9.40) 
+ Furthermore, from the necessary stationarity condition ( 7.11 ), and the fact that $\Theta^{0}_{\gamma}=1$ , we have 
+ 
+ ${\rm div}\left(\overline{P}_{\Sigma}(z)\right)=0,\qquad{\rm\ for\ all\ }z\in\Sigma.$  (9.41) 
+ These conditions necessarily imply that 
+ 
+ $\overline{P}_{\Sigma}(z)={\rm diag}(2,0,0).$  (9.42) 
+ Indeed, assuming without loss of generality ${\mathrm{n}}_{\Sigma}=e_{2}$ , from ( 9.40 ) we get 
+ 
+ $\overline{P}_{\Sigma}(z)={\rm diag}(1+\alpha,1-\alpha,0)$ 
+ for some $\alpha\in\mathbb{R}$ . As a consequence, we have ${\rm div}(\overline{P}_{\Sigma}(z))=(1-\alpha)(0,0,H_{\Sigma}(z))$ . Recalling ( 9.41 ) we then get $\alpha=1$ , which implies ( 9.42 ).
+
+Notice that, given a multiplicity function $\theta>0$ depending only on $x$ , by ( 7.12 ) the varifold $\theta V$ is still stationary. This is a peculiar phenomenon of cylindrical strings and may be not true for stationary rectifiable varifolds, that is, in general for relativistic strings.
+
+Notice also that the lorentzian mean curvature of $\Sigma$ is not zero everywhere, and therefore $V$ is not rectifiable.
+
+The following example was originally considered in [6] in a classical parametrized setting.
+
+Assume $N=2$ , $h=2$ , let $L>0$ and let $a:\mathbb{R}\to\mathbb{R}^{2}$ be a Lipschitz continuous $E:=4L$ -periodic map, such that $a_{|[0,4L]}$ is the counterclock-wise arc-length parametrization of the boundary of the square $Q_{0}=[-L/2,L/2]^{2}$ . Obviously $a_{|[0,4L]}\in(\mathcal{C}^{2}([0,4L]\setminus\{0,L,2L,3L\}))^{2}$ . We define the map 
+ 
+ $\gamma(t,{u}):=\frac{a({u}+t)+a({u}-t)}{2},\qquad(t,{u})\in\mathbb{R}^{2},$ 
+ and we let $\Phi_{\gamma}$ be as in ( 9.30 ). Recalling Definition 9.7 , we have that $\gamma$ is a $4L$ -periodic subrelativistic string. Notice that $\gamma(t,\cdot)$ is a Lipschitz parametrization of $\partial Q(t)$ , where $Q(t)$ is the square defined as 
+ 
+ $Q(t):=Q_{0}\cap\left\{(x^{1},x^{2})\in\mathbb{R}^{2}:\,|x^{1}|+|x^{2}|\leq L-|t|\right\},\qquad t\in[-L,L].$ 
+ By [6] $\gamma$ is the uniform limit of a sequence $\{\gamma_{j}\}\subset\mathcal{C}^{2}(\mathbb{R}^{2};\mathbb{R}^{N})$ of $4L$ -periodic relativistic strings with zero initial velocity (in particular, the strings $\gamma_{j}$ have equibounded energy). Let $V_{\gamma}\in\mathcal{LV}_{2}$ be the corresponding stationary weakly rectifiable varifold given by Theorem 9.10 .
+
+Referring also to Figure 1 , observe that: $\Sigma_{\gamma}^{0}=\Phi_{\gamma}(\mathbb{R}^{2})$ is the support of $\mu_{V_{\gamma}}$ ; moreover 
+ 
+ $\mu_{\widetilde{V}^{0}_{\gamma}}=\sigma_{2}\hskip 1.0pt{\hbox to10.8pt{\hfill\vrule height=7.0pt,width=0.4pt,depth=0.0pt\hbox{\vrule height=0.4pt,width=7.6pt,depth=0.0pt}\hfill}}\Sigma_{\gamma}^{0}.$ 
+ Indeed, as a consequence of the equality $(\gamma_{t},\gamma_{u})_{\rm e}=0$ valid almost everywhere in $\mathbb{R}^{2}$ , we have, from ( 9.37 ), 
+ 
+ $\Theta_{\gamma}^{0}=1.$ 
+ Note also that by Remark 9.11 
+ 
+ $\mu_{V^{s}_{\gamma}}={\Phi_{\gamma}}_{\#}(\mathcal{L}^{2}\hskip 1.0pt{\hbox to10.8pt{\hfill\vrule height=7.0pt,width=0.4pt,depth=0.0pt\hbox{\vrule height=0.4pt,width=7.6pt,depth=0.0pt}\hfill}}S_{\gamma}).$ 
+ For $|t|\in[0,L/2)$ the set $Q(t)$ is an octagon and $\mu^{s}_{V_{\gamma}}\hskip 1.0pt{\hbox to10.8pt{\hfill\vrule height=7.0pt,width=0.4pt,depth=0.0pt\hbox{\vrule height=0.4pt,width=7.6pt,depth=0.0pt}\hfill}}\left((-L/2,L/2)\times\mathbb{R}^{2}\right)=0$ , that is, the restriction of $V_{\gamma}$ to $(-L/2,L/2)\times\mathbb{R}^{2}\times\overline{B_{2,3}}$ is a proper varifold.
+
+For $t\in[L/2,L)$ , $Q(t)$ is a square of sidelength $\sqrt{2}(L-t)$ , rotated of an angle $\pi/2$ with respect to the initial square $Q_{0}$ , which shrinks to the point $(0,0)$ as $t\uparrow L$ . For $t\in(L/2,L)$ the four vertices of the rotated square $Q(t)$ move at speed 1, and the edges move with normal velocity equal to $\frac{1}{\sqrt{2}}$ . Moreover we have 
+ 
+ $\mu^{s}_{V_{\gamma}}=\alpha(t)\mathcal{H}^{1}\hskip 1.0pt{\hbox to10.8pt{\hfill\vrule height=7.0pt,width=0.4pt,depth=0.0pt\hbox{\vrule height=0.4pt,width=7.6pt,depth=0.0pt}\hfill}}\ell,$ 
+ where the singular set $\ell\subset\mathbb{R}^{1+2}$ is the union of four line segments $\ell_{1},\ldots,\ell_{4}$ , see Figure 1 . To find $\alpha(t)$ , which turns out to be a linearly increasing function, we use the conservation of energy given by Theorem 8.7 . From ( 8.15 ) we have 
+ 
+ $\mathcal{E}(t)=8(L-t)+4\alpha(t)=4L,\qquad t\in(L/2,L).$ 
+ We get 
+ 
+ $\alpha(t)=2t-L,\qquad t\in(L/2,L).$ 
+ We conclude by observing that we expect $V_{\gamma}^{\infty}$ to be concentrated on the singular set $\ell$ : 
+ 
+ $V_{\gamma}^{\infty}=\alpha(t)\mathcal{H}^{1}\hskip 1.0pt{\hbox to10.8pt{\hfill\vrule height=7.0pt,width=0.4pt,depth=0.0pt\hbox{\vrule height=0.4pt,width=7.6pt,depth=0.0pt}\hfill}}\ell\otimes\delta_{Q_{\gamma}},$ 
+ where $Q_{\gamma}(z)=-(1,v_{i}(z))\otimes\eta(1,v_{i}(z))$ for $z\in\ell_{i}$ , $i\in\{1,\ldots,4\}$ , and $v_{i}(z)\in\mathbb{R}^{2}$ is such that $|v_{i}(z)|_{\rm e}=1$ and $(1,v_{i})$ is parallel to $\ell_{i}$ .
+
+10 Further examples: null hyperplanes and collisions
+
+A null hyperplane $\Sigma\subset\mathbb{R}^{1+N}$ is not a minimal hypersurface in the classical sense, since the vector ${\mathrm{n}}_{1}$ is not well defined (heuristically, it should be parallel to $\Sigma$ and should have infinite euclidean norm). Therefore it becomes meaningless computing the classical mean curvature $H_{\Sigma}$ . However, we can interpret these planes as stationary varifolds.
+
+Given $n\in\mathbb{N}$ , let $\Sigma_{n}=\Sigma_{n}^{0}$ be an $h$ -dimensional timelike subspace of $\mathbb{R}^{1+N}$ , let $\theta_{n}=\theta_{n}^{0}\in(0,+\infty)$ , and set 
+ 
+ $\widetilde{V}^{0}_{n}=\theta_{n}\leavevmode\nobreak\ ({\sigma}^{h}\hskip 1.0pt{\hbox to10.8pt{\hfill\vrule height=7.0pt,width=0.4pt,depth=0.0pt\hbox{\vrule height=0.4pt,width=7.6pt,depth=0.0pt}\hfill}}\Sigma_{n})\otimes\delta_{P_{n}}\in\mathcal{LV}_{h}$ 
+ be the proper rectifiable $h$ -varifold associated with $\Sigma_{n}$ and $\theta_{n}$ , where $P_{n}:=P_{\Sigma_{n}}$ . Recall from ( 4.16 ) and ( 4.18 ) that 
+ 
+ ${\sigma^{h}}\hskip 1.0pt{\hbox to10.8pt{\hfill\vrule height=7.0pt,width=0.4pt,depth=0.0pt\hbox{\vrule height=0.4pt,width=7.6pt,depth=0.0pt}\hfill}}\Sigma_{n}=\Big{(}({P_{n}})^{0}_{0}\Big{)}^{-1/2}(\mathcal{L}^{1}\otimes{\mathcal{H}}^{h-1})\hskip 1.0pt{\hbox to10.8pt{\hfill\vrule height=7.0pt,width=0.4pt,depth=0.0pt\hbox{\vrule height=0.4pt,width=7.6pt,depth=0.0pt}\hfill}}\Sigma_{n}.$  (10.1) 
+ Hence 
+ 
+ $\mu_{\widetilde{V}^{0}_{n}}=\theta_{n}\leavevmode\nobreak\ {\sigma}^{h}\hskip 1.0pt{\hbox to10.8pt{\hfill\vrule height=7.0pt,width=0.4pt,depth=0.0pt\hbox{\vrule height=0.4pt,width=7.6pt,depth=0.0pt}\hfill}}\Sigma_{n}=\theta_{n}\Big{(}(P_{n})^{0}_{0}\Big{)}^{-1/2}(\mathcal{L}^{1}\otimes{\mathcal{H}}^{h-1})\hskip 1.0pt{\hbox to10.8pt{\hfill\vrule height=7.0pt,width=0.4pt,depth=0.0pt\hbox{\vrule height=0.4pt,width=7.6pt,depth=0.0pt}\hfill}}\Sigma_{n}.$ 
+ Note that from ( 5.9 ) and ( 10.1 ) we have 
+ 
+ $V_{n}=V_{n}^{0}=\theta_{n}\leavevmode\nobreak\ (P_{n})^{0}_{0}\leavevmode\nobreak\ {\sigma}^{h}\hskip 1.0pt{\hbox to10.8pt{\hfill\vrule height=7.0pt,width=0.4pt,depth=0.0pt\hbox{\vrule height=0.4pt,width=7.6pt,depth=0.0pt}\hfill}}\Sigma_{n}\otimes\delta_{q(P_{n})}=\theta_{n}\leavevmode\nobreak\ \sqrt{(P_{n})^{0}_{0}}\leavevmode\nobreak\ (\mathcal{L}^{1}\otimes{\mathcal{H}}^{h-1})\hskip 1.0pt{\hbox to10.8pt{\hfill\vrule height=7.0pt,width=0.4pt,depth=0.0pt\hbox{\vrule height=0.4pt,width=7.6pt,depth=0.0pt}\hfill}}\Sigma_{n}\otimes\delta_{q(P_{n})}.$  (10.2) 
+ Suppose now that - $\Sigma_{n}$ converge to a null $h$ -plane $\Sigma^{\infty}$ as $n\to+\infty$ , - there exists the limit 
+ 
+ $\lim_{n\to+\infty}\theta_{n}\sqrt{(P_{n})^{0}_{0}}=:C\in(0,+\infty).$  (10.3) In particular 
+ 
+ $\lim_{n\to+\infty}\theta_{n}=0,$ 
+ so that $\widetilde{V}^{0}_{n}\rightharpoonup 0$ . Recalling ( 10.2 ) we have 
+ 
+ $V_{n}\rightharpoonup C\,\left(\mathcal{L}^{1}\otimes{\mathcal{H}}^{h-1}\right)\hskip 1.0pt{\hbox to10.8pt{\hfill\vrule height=7.0pt,width=0.4pt,depth=0.0pt\hbox{\vrule height=0.4pt,width=7.6pt,depth=0.0pt}\hfill}}\Sigma^{\infty}\otimes\delta_{Q_{\Sigma^{\infty}}}=\frac{C}{\sqrt{2}}(\mathcal{H}^{h}\hskip 1.0pt{\hbox to10.8pt{\hfill\vrule height=7.0pt,width=0.4pt,depth=0.0pt\hbox{\vrule height=0.4pt,width=7.6pt,depth=0.0pt}\hfill}}\Sigma^{\infty})\otimes\delta_{Q_{\Sigma^{\infty}}}=:V.$ 
+ Hence 
+ 
+ $V=V^{\infty},$ 
+ and $V\in\mathcal{LV}_{h}$ is rectifiable. Finally, it follows from Remark 5.13 that 
+ 
+ $V{\rm\leavevmode\nobreak\ is\leavevmode\nobreak\ stationary}.$ 
+
+
+Let 
+ 
+ $N=1,\qquad h=1,$ 
+ let be given angles $\alpha,\,\beta\in(\pi/4,\pi/2)$ , and real multiplicities $\theta_{i}\in(0,+\infty)$ for $i\in\{1,2,3\}$ . We consider the proper rectifiable varifold $V=V^{0}\in\mathcal{LV}_{1}$ , where 
+ 
+ $\widetilde{V}^{0}=\sum_{i=1}^{3}\theta_{i}\,\left({\sigma}^{1}\hskip 1.0pt{\hbox to10.8pt{\hfill\vrule height=7.0pt,width=0.4pt,depth=0.0pt\hbox{\vrule height=0.4pt,width=7.6pt,depth=0.0pt}\hfill}}\Sigma_{i}\right)\otimes\delta_{P_{\Sigma_{i}}}.$  (10.4) 
+ We have indicated here by $\Sigma_{i}=\Sigma_{i}^{0}$ the relatively open three half-lines depicted in Figure 2 meeting at the point $p$ of the plane $\mathbb{R}^{1+1}$ . The condition $\alpha,\beta>\pi/4$ yields that $\Sigma_{2}$ and $\Sigma_{3}$ are timelike. We are interested in the following problem: given the multiplicity $\theta_{1}$ on the incoming half-line $\Sigma_{1}$ , find conditions on $\theta_{2}$ , $\theta_{3}$ , $\alpha$ and $\beta$ which ensure that $\widetilde{V}^{0}$ in ( 10.4 ) is stationary.
+
+We regard each $\Sigma_{i}$ as a one-dimensional manifold with boundary (the point $p$ ). We indicate by $\tau_{i}$ the euclidean unit conormal vector at $p$ pointing out of $\Sigma_{i}$ : 
+ 
+ $\tau_{1}=(1,0),\qquad\tau_{2}=(-\sin\alpha,\cos\alpha),\qquad\tau_{3}=(-\sin\beta,-\cos\beta).$ 
+ The stationarity requirement (Definition 5.11 ) reads as 
+ 
+ $0=\sum_{i=1}^{3}\theta_{i}\int_{\Sigma_{i}}{\rm div}_{\tau}Y\leavevmode\nobreak\ d{\sigma}^{1},\qquad Y\in(\mathcal{C}^{1}_{c}(\mathbb{R}^{1+1}))^{2}.$  (10.5) 
+ Following ( 4.24 ), and since the lorentzian (mean) curvature of each $\Sigma_{i}$ vanishes, we have 
+ 
+ ${\rm div}_{\tau}Y={\rm div}_{\tau}\left(P_{\Sigma_{i}}Y\right)\qquad{\rm on}\leavevmode\nobreak\ \Sigma_{i}.$  (10.6) 
+ Moreover if $Z\in(\mathcal{C}^{1}(\mathbb{R}^{1+1}))^{2}$ is tangent to $\Sigma_{i}$ we have 
+ 
+ ${\rm div}_{\tau}Z={\rm div}_{\tau}^{\rm e}Z\qquad{\rm on}\leavevmode\nobreak\ \Sigma_{i},$  (10.7) 
+ where ${\rm div}^{\rm e}_{\tau}$ is the euclidean tangential divergence. Indeed, if $\mathcal{Z}$ is an extension of $Z_{|\Sigma_{i}}$ in an open neighbourhood of $\Sigma_{i}$ , constant along ${\mathrm{n}}_{i}$ , we have ${\rm div}_{\tau}Z={\rm tr}(d\mathcal{Z})={\rm div}_{\tau}^{\rm e}Z$ .
+
+Applying this observation to $Z=P_{\Sigma_{i}}Y$ and using ( 10.6 ), we get 
+ 
+ ${\rm div}_{\tau}Y={\rm div}_{\tau}^{\rm e}(P_{\Sigma_{i}}Y)\qquad{\rm on}\leavevmode\nobreak\ \Sigma_{i}.$ 
+ Set for notational simplicity 
+ 
+ ${\mathrm{n}}_{i}:={{\mathrm{n}}_{1}}_{\Sigma_{i}},\qquad\nu_{i}:=\nu_{\Sigma_{i}}=\frac{\eta{\mathrm{n}}_{i}}{|\eta{\mathrm{n}}_{i}|_{\rm e}},\qquad i\in\{1,2,3\},$ 
+ see ( 4.10 ). Observe that ${\mathrm{n}}_{1}\in\{(0,1),(0,-1)\}$ (in particular ${\mathrm{n}}_{1}$ has the same direction of a euclidean normal to $\Sigma_{1}$ ), and we choose 
+ 
+ ${\mathrm{n}}_{1}=(0,1).$  (10.8) 
+ Moreover, using ( 4.11 ) and choosing $\nu_{2}=(-\cos\alpha,-\sin\alpha)$ , $\nu_{3}=(-\cos\beta,\sin\beta)$ , we find 
+ 
+ ${\mathrm{n}}_{2}=\frac{1}{\sqrt{-\cos^{2}\alpha+\sin^{2}\alpha}}(\cos\alpha,-\sin\alpha),\quad{\mathrm{n}}_{3}=\frac{1}{\sqrt{-\cos^{2}\beta+\sin^{2}\beta}}(\cos\beta,\sin\beta)$  (10.9) 
+ (recall that by definition the time component of ${\mathrm{n}}_{i}$ are required to be nonnegative).
+
+From ( 10.5 ) and ( 10.7 ) we obtain, using also ( 4.12 ) and integrating by parts, 
+ 
+ $\displaystyle 0$ $\displaystyle=\sum_{i=1}^{3}\theta_{i}\int_{\Sigma_{i}}{\rm div}_{\tau}^{\rm e}\left(P_{\Sigma_{i}}Y\right)\leavevmode\nobreak\ d{\sigma}^{1}=\sum_{i=1}^{3}\theta_{i}|\nu_{i}|\int_{\Sigma_{i}}{\rm div}_{\tau}^{\rm e}\left(P_{\Sigma_{i}}Y\right)\leavevmode\nobreak\ d\mathcal{H}^{1}$  (10.10) 
+ $\displaystyle=\sum_{i=1}^{3}\theta_{i}|\nu_{i}|(P_{\Sigma_{i}}Y(p),\tau_{i})_{\rm e}=\sum_{i=1}^{3}\theta_{i}|\nu_{i}|(Y(p),P_{\Sigma_{i}}\tau_{i})_{\rm e}=(Y(p),\sum_{i=1}^{3}\theta_{i}|\nu_{i}|P_{\Sigma_{i}}\tau_{i})_{\rm e}.$ 
+ Denote by $R_{i}$ the matrix representing the euclidean rotation of angle $\pi/2$ such that $R_{i}\nu_{i}=\tau_{i}$ ( $R_{1},R_{2}$ are counterclockwise, and $R_{3}$ is clockwise). Then 
+ 
+ $R_{1}{\mathrm{n}}_{1}=(1,0),\qquad R_{2}{\mathrm{n}}_{2}=\frac{(-\sin\alpha,\cos\alpha)}{\sqrt{\sin^{2}\alpha-\cos^{2}\alpha}},\qquad R_{3}{\mathrm{n}}_{3}=\frac{(-\sin\beta,-\cos\beta)}{\sqrt{\sin^{2}\beta-\cos^{2}\beta}}.$ 
+ We claim that 
+ 
+ $|\nu_{i}|P_{\Sigma_{i}}\tau_{i}=R_{i}\leavevmode\nobreak\ {\mathrm{n}}_{i},\qquad i\in\{1,2,3\}.$  (10.11) 
+ Indeed, 
+ 
+ $\eta{\mathrm{n}}_{i}\otimes{\mathrm{n}}_{i}\leavevmode\nobreak\ \tau_{i}=\eta{\mathrm{n}}_{i}({\mathrm{n}}_{i},\tau_{i})_{\rm e}=\eta{\mathrm{n}}_{i}\left(\frac{\nu_{i}}{|\eta^{-1}\nu_{i}|},\eta^{-1}\tau_{i}\right)_{\rm e}=\frac{\nu_{i}}{|\nu_{i}|}\left(\frac{\nu_{i}}{|\nu_{i}|},\eta^{-1}\tau_{i}\right)_{\rm e},$ 
+ hence 
+ 
+ $|\nu_{i}|P_{\Sigma_{i}}\tau_{i}=\frac{|\nu_{i}|^{2}\tau_{i}-\left(\nu_{i},\eta^{-1}\tau_{i}\right)_{\rm e}\leavevmode\nobreak\ \nu_{i}}{|\nu_{i}|}=-\frac{\eta^{-1}\tau_{i}}{|\nu_{i}|}=R_{i}{\mathrm{n}}_{i},$ 
+ where the last equality follows from the fact that $\eta^{-1}R_{i}=-R_{i}\eta^{-1}$ . Therefore, ( 10.11 ) is proven, and from ( 10.10 ) it the follows 
+ 
+ $(Y(p),\sum_{i=1}^{3}\theta_{i}R_{i}{\mathrm{n}}_{i})_{\rm e}=0,$ 
+ which in turn implies 
+ 
+ $\sum_{i=1}^{3}\theta_{i}R_{i}{\mathrm{n}}_{i}=0$  (10.12) 
+ by the arbitrariness of $Y$ . Equality ( 10.12 ), recalling ( 10.8 ), ( 10.9 ), is the solution to the problem posed at the beginning of the example.
+
+It is interesting to observe that ( 10.12 ) is in this example equivalent to the conservation of energy and momentum. Indeed ( 10.12 ) becomes 
+ 
+ $\left\{\begin{aligned} &\theta_{1}=\frac{\sin\alpha}{\sqrt{\sin^{2}\alpha-\cos^{2}\alpha}}\,\theta_{2}+\frac{\sin\beta}{\sqrt{\sin^{2}\beta-\cos^{2}\beta}}\,\theta_{3},\\
+\\
+&\frac{\cos\alpha}{\sqrt{\sin^{2}\alpha-\cos^{2}\alpha}}\,\theta_{2}=\frac{\cos\beta}{\sqrt{\sin^{2}\beta-\cos^{2}\beta}}\,\theta_{3}.\end{aligned}\right.$  (10.13) 
+
+
+Recalling Remark 8.6 let us check that the first equation in ( 10.13 ) is equivalent to the conservation of energy, and that the second one is equivalent to the conservation of momentum. Indeed, from ( 8.10 ) we have 
+ 
+ $\mathcal{E}(t)=\int_{\cup_{i=1}^{3}\Sigma_{i}(t)}{P_{\Sigma_{i}}}^{0}_{0}\leavevmode\nobreak\ \theta_{i}\leavevmode\nobreak\ d\mathcal{H}^{0}=\sum_{i=1}^{3}{P_{\Sigma_{i}}}^{0}_{0}\leavevmode\nobreak\ \theta_{i}.$ 
+
+
+Hence for $t<0$ 
+ 
+ $\mathcal{E}(t)=\theta_{1}{P_{\Sigma_{1}}}^{0}_{0}=\theta_{1},$ 
+ and for $t>0$ 
+ 
+ $\mathcal{E}(t)={P_{\Sigma_{2}}}^{0}_{0}\leavevmode\nobreak\ \theta_{2}+{P_{\Sigma_{3}}}^{0}_{0}\leavevmode\nobreak\ \theta_{3}=\frac{\theta_{2}}{\sqrt{1-|\mathbb{V}_{2}|^{2}_{\rm e}}}+\frac{\theta_{3}}{\sqrt{1-|\mathbb{V}_{3}|^{2}_{\rm e}}}=\theta_{2}\sqrt{1+({\mathrm{n}}^{0}_{2})^{2}}+\theta_{2}\sqrt{1+({\mathrm{n}}^{0}_{3})^{2}}.$ 
+ The conservation of energy then becomes 
+ 
+ $-\theta_{1}+\theta_{2}\sqrt{1+({\mathrm{n}}_{2}^{0})^{2}}+\theta_{3}\sqrt{1+({\mathrm{n}}_{3}^{0})^{2}}=0,$ 
+ which is equivalent to the first equation in ( 10.13 ).
+
+Furthermore, since $\mathbb{V}_{1}=0$ , 
+ 
+ $\mathcal{P}^{1}(t)=\int_{\cup_{i=1}^{3}\Sigma_{i}(t)}\frac{\theta_{i}\mathbb{V}_{i}}{\sqrt{1-|\mathbb{V}_{i}|^{2}_{\rm e}}}\leavevmode\nobreak\ d\mathcal{H}^{0}=-\theta_{2}{\mathrm{n}}_{0}^{2}+\theta_{3}{\mathrm{n}}_{0}^{3}.$ 
+ The conservation of momentun reads therefore as 
+ 
+ $-\theta_{2}{\mathrm{n}}_{0}^{2}+\theta_{3}{\mathrm{n}}_{0}^{3}=0,$ 
+ which is equivalent to the second equation in ( 10.13 ).
+
+We conclude this example with some remarks. Concerning the solvability of ( 10.13 ): given $\theta_{i}$ for $i=1,2,3$ , ( 10.13 ) has a unique solution in the variables $\alpha$ and $\beta$ . Given only $\theta_{1}$ , there are infinitely many solutions $\theta_{2},\theta_{3},\alpha,\beta$ of ( 10.13 ). Given $\theta_{1}\in\mathbb{N}\setminus\{0\}$ , there are only a finite number of solutions $\alpha,\beta$ , and $\theta_{2},\theta_{3}\in\mathbb{N}\setminus\{0\}$ .
+
+Notice that the image of this varifold through the time-reversing map $t\mapsto-t$ is also a stationary rectifiable varifold.
+
+We now let the two exiting directions to converge to the null directions, i.e., we let 
+ 
+ $\alpha,\,\beta\to\pi/4,$ 
+ keeping $\theta_{1}>0$ and $\Sigma_{1}$ fixed. We get $\theta_{2},\,\theta_{3}\to 0$ , and the corresponding varifolds in ( 10.4 ) tend to the limit varifold 
+ 
+ $\widetilde{V}^{0}=\theta_{1}({\sigma}^{1}\hskip 1.0pt{\hbox to10.8pt{\hfill\vrule height=7.0pt,width=0.4pt,depth=0.0pt\hbox{\vrule height=0.4pt,width=7.6pt,depth=0.0pt}\hfill}}\Sigma_{1})\otimes\delta_{P_{\Sigma_{1}}},\qquad V^{\infty}=\frac{\theta_{1}}{2\sqrt{2}}\leavevmode\nobreak\ \sum_{i=2}^{3}(\mathcal{H}^{1}\hskip 1.0pt{\hbox to10.8pt{\hfill\vrule height=7.0pt,width=0.4pt,depth=0.0pt\hbox{\vrule height=0.4pt,width=7.6pt,depth=0.0pt}\hfill}}\Sigma_{i})\otimes\delta_{Q_{\Sigma_{i}}},$ 
+ where $Q_{\Sigma_{i}}=(1,(-1)^{i})\otimes(1,(-1)^{i+1})\in\partial B_{1,2}$ are projections on null lines. Notice that $V$ is rectifiable and stationary, but no longer proper.
+
+We conclude this example by observing that it refers to a local situation: indeed, other stationary varifolds can be obtained by furtherly (and properly) splitting $\Sigma_{2}$ and $\Sigma_{3}$ ).
+
+11 Some pathological examples
+
+In the following elementary example we exhibit a non weakly rectifiable $1$ -varifold obtained as a limit of rectifiable varifolds.
+
+Let $N=1$ , $h=1$ and let $\Sigma_{n}=\Sigma_{n}^{\infty}\subset\mathbb{R}^{1+1}$ be the null Lipschitz curve defined as 
+ 
+ $\Sigma_{n}:=\left\{(t,x)\in\mathbb{R}^{1+1}:\ x=\frac{1}{n}\left|nt-[nt]-\frac{1}{2}\right|\right\},\qquad n\in\mathbb{N}\setminus\{0\},$ 
+ where $[\alpha]$ denotes the integer part of $\alpha\in\mathbb{R}$ , see Figure 5 .
+
+We can associate with $\Sigma_{n}$ the rectifiable $1$ -varifold 
+ 
+ $V_{n}=V_{n}^{\infty}:=\left(\mathcal{H}^{1}\hskip 1.0pt{\hbox to10.8pt{\hfill\vrule height=7.0pt,width=0.4pt,depth=0.0pt\hbox{\vrule height=0.4pt,width=7.6pt,depth=0.0pt}\hfill}}\Sigma_{n}\right)\otimes\delta_{Q_{\Sigma_{n}}},$ 
+ consisting of a null part only. Notice that the varifolds $V_{n}$ are not stationary. Indeed, the lorentzian curvature vector of $\Sigma_{n}$ is concentrated on the vertices of $\Sigma_{n}$ , where it is a Dirac delta multiplied by $(0,2)$ or $(0,-2)$ (depending on whether the vertex belongs to the vertical axis or not).
+
+As $n\to+\infty$ we have 
+ 
+ $V_{n}\rightharpoonup V=\sqrt{2}\left(\mathcal{H}^{1}\hskip 1.0pt{\hbox to10.8pt{\hfill\vrule height=7.0pt,width=0.4pt,depth=0.0pt\hbox{\vrule height=0.4pt,width=7.6pt,depth=0.0pt}\hfill}}\Sigma\right)\otimes V_{z},$ 
+ where 
+ 
+ $\Sigma:=\left\{z=(t,x)\in\mathbb{R}^{1+1}:\ x=0\right\}=\Sigma^{\infty}$ 
+ is the vertical axis (see ( 6.1 )) and ( 3.7 )), and 
+ 
+ $V_{z}=V^{\infty}_{z}=\frac{\delta_{(1,1)\otimes(1,-1)}+\delta_{(1,-1)\otimes(1,1)}}{2}.$ 
+ In particular, $V\in\mathcal{LV}_{1}$ is not weakly rectifiable, since condition 2c in Definition 7.5 is not satisfied. Notice also that $V$ has multiplicity $\sqrt{2}$ , even if all approximating vaifolds $V_{n}$ have multiplicity $1$ .
+
+The next example shows a sequence of rectifiable stationary $2$ -varifolds the limit of which is a proper $2$ -varifold having only singular part, and which is not rectifiable.
+
+Let $N=2$ and $h=2$ . Given $R>0$ , let $\gamma=\gamma_{R}:\mathbb{R}^{2}\to\mathbb{R}^{1+2}$ be the kink solution ( 9.39 ) considered in Example 9.13 , and let $V_{\gamma_{R}}\in\mathcal{LV}_{2}$ be the stationary rectifiable varifold associated with $\gamma_{R}$ in the sense of Definition 9.3 . Recall from ( 9.12 ) that the energy of $V_{\gamma_{R}}$ is equal to $2\pi R$ for any $t\in\mathbb{R}\setminus\displaystyle\bigcup_{k\in\mathbb{Z}}\left\{\frac{\pi R}{2}+k\pi R\right\}$ . For any $n\in\mathbb{N}\setminus\{0\}$ let 
+ 
+ $V_{n}:=nV_{\gamma_{\frac{1}{n}}}.$ 
+ The support of $\mu_{V_{n}}$ is the superposition of $n$ kinks of radius $1/n$ , centered at the origin. Note that the uniform bound ( 6.4 ) on $\mu_{V_{n}}$ is satisfied.
+
+Recalling also the kink Example 9.13 , we have that $V_{n}$ is a stationary rectifiable $2$ -varifold with multiplicity $n$ and energy $2\pi$ at any time $t\in\mathbb{R}\setminus\displaystyle\bigcup_{k\in\mathbb{Z},n\in\mathbb{N}\setminus\{0\}}\left\{\frac{\pi}{2n}+\frac{k\pi}{n}\right\}$ . As $n\to+\infty$ , we have $V_{n}\rightharpoonup V$ , where $V\in\mathcal{LV}_{2}$ is a stationary weakly rectifiable varifold such that 
+ 
+ $\mu_{V}=2\pi\leavevmode\nobreak\ \sigma^{1}\hskip 1.0pt{\hbox to10.8pt{\hfill\vrule height=7.0pt,width=0.4pt,depth=0.0pt\hbox{\vrule height=0.4pt,width=7.6pt,depth=0.0pt}\hfill}}\{(t,0,0):\,t\in\mathbb{R}\},$ 
+ where we have used Remark 9.5 . In particular $\mu_{V}$ has only singular part, i.e., 
+ 
+ $\mu_{V}=\mu^{s}_{V},$ 
+ and therefore $V$ is not rectifiable. Note that $V$ is a $2$ -varifold, despite the fact that the support of $\mu_{V}$ is one-dimensional.
+
+Let us now show that the varifolds $V_{n}$ satisfy the uniform bound ( 7.2 ) guaranteeing that $V$ is proper. It is enough to check that there exists $p>1$ such that 
+ 
+ $\sup_{n\in\mathbb{N}}\leavevmode\nobreak\ n\int_{[-T,T]}\int_{\Sigma_{n}(t)}\left(\frac{1}{\sqrt{1-|\mathbb{V}|^{2}_{\rm e}}}\right)^{p}\leavevmode\nobreak\ d\mathcal{H}^{1}dt<+\infty,$  (11.1) 
+ where $\Sigma_{n}:=\Sigma_{\gamma_{1/n}}=\Phi_{\gamma_{n}}(\mathbb{R}\times[0,2\pi R))$ and $\Sigma_{n}(t)=\Sigma_{n}\cap\{x^{0}=t\}$ is the $t$ -time slice of $\Sigma_{n}$ . From ( 9.39 ) it follows $|\mathbb{V}|_{\rm e}=|\sin(nt)|$ on $\Sigma_{n}(t)$ , hence 
+ 
+ $n\int_{[-T,T]}\int_{\Sigma_{n}(t)}\left(\frac{1}{\sqrt{1-|\mathbb{V}|^{2}_{\rm e}}}\right)^{p}\leavevmode\nobreak\ d\mathcal{H}^{1}dt=2\pi\int_{-T}^{T}|\cos(nt)|^{1-p}dt=\frac{2\pi}{n}\int_{-nT}^{nT}|\cos\tau|^{1-p}d\tau$ 
+ If we choose $p\in(1,2)$ we have 
+ 
+ $\sup_{n\in\mathbb{N}}\frac{2\pi}{n}\int_{-nT}^{nT}1/|\cos\tau|^{p-1}d\tau<+\infty,$ 
+ where we use also the periodicity of $\cos\tau$ . Hence ( 11.1 ) holds, and we conclude from Remark 7.2 that $V$ is a proper varifold.
+
+We have seen in Example 11.2 that limits of stationary rectifiable varifolds can have only singular part; in addition, in the next example we show that limits of stationary rectifiable varifolds can have only diffuse part.
+
+Let $\gamma=\gamma_{R}$ be the kink solution ( 9.39 ) considered in Example 9.13 , and define 
+ 
+ $V_{n}:=\sum_{i,j\in\{0,\ldots,n-1\}}V_{\left(\frac{i}{n},\frac{j}{n}\right)+\gamma_{1/n^{2}}},\qquad n\in\mathbb{N}\setminus\{0\}.$ 
+ The support of $\mu_{V_{n}}$ consists of $n^{2}$ disjoint kinks of radius $1/n^{2}$ , uniformly distributed in the unit square $[0,1]^{2}$ . Then $V_{n}$ is a stationary rectifiable $2$ -varifold with multiplicity one and energy $2\pi$ at any time $t\in\mathbb{R}$ . As $n\to+\infty$ , we have $V_{n}\rightharpoonup V$ , where $V$ is a stationary $2$ -varifold such that 
+ 
+ $\mu_{V}=2\pi\leavevmode\nobreak\ \mathcal{L}^{3}\hskip 1.0pt{\hbox to10.8pt{\hfill\vrule height=7.0pt,width=0.4pt,depth=0.0pt\hbox{\vrule height=0.4pt,width=7.6pt,depth=0.0pt}\hfill}}\left(\mathbb{R}\times[0,1]^{2}\right).$ 
+ In particular $\mu_{V}$ has only diffuse part and $V$ is not weakly rectifiable. With a similar computation as in Example 11.2 , one can show that $V$ is proper.
+
+12 Appendix: measure theory
+
+Let $\mu$ be a positive measure on $\mathbb{R}^{m}$ defined on Borel sets. We recall [4] that: - the support of $\mu$ is the closure of the set of all points $x\in X$ such that $\mu(U)>0$ for any neighbourhood $U$ of $x$ ; - $\mu$ is said to be concentrated on $S$ if $S$ is $\mu$ -measurable and $\mu(X\setminus S)=0$ ; - $\mu$ is called a Radon measure if $\mu$ is finite on compact sets; - if $A$ is $\mu$ -measurable, $\mu\hskip 1.0pt{\hbox to10.8pt{\hfill\vrule height=7.0pt,width=0.4pt,depth=0.0pt\hbox{\vrule height=0.4pt,width=7.6pt,depth=0.0pt}\hfill}}A$ denotes the restriction of $\mu$ to $A$ , defined as $\mu(E):=\mu(E\cap A)$ . If $\mu$ is a Radon measure, then $\mu\hskip 1.0pt{\hbox to10.8pt{\hfill\vrule height=7.0pt,width=0.4pt,depth=0.0pt\hbox{\vrule height=0.4pt,width=7.6pt,depth=0.0pt}\hfill}}A$ is a Radon measure; - if $p\geq 1$ and $A$ is measurable, $L^{p}(A,\mu)$ (resp. $L^{p}_{\rm loc}(A,\mu)$ ) is the space of $p$ -integrable (resp. locally $p$ -integrable) functions with respect to $\mu$ ; - if $u:\mathbb{R}^{m}\to\mathbb{R}^{k}$ is Borel-measurable, the push-forward measure (or image measure) $u_{\#}\mu$ is the Borel measure on $\mathbb{R}^{k}$ defined by $u_{\#}\mu(B):=\mu(u^{-1}(B))$ . We have $\int_{\mathbb{R}^{k}}f\leavevmode\nobreak\ du_{\#}\mu=\int_{\mathbb{R}^{m}}f\circ ud\mu$ for any $f$ summable with respect to $u_{\#}\mu$ .
+
+We recall the following definition [15] .
+
+Let $\mu,\nu$ be two measures on $\mathbb{R}^{d}$ defined on the Borel subsets of $\mathbb{R}^{d}$ . - $\mu,\nu$ are said to be mutually singular, and we write $\nu\perp\mu$ , if there exists two disjoint Borel sets $X_{\mu},X_{\nu}\subseteq\mathbb{R}^{d}$ such that $\mathbb{R}^{d}=X_{\mu}\cup X_{\nu}$ and for every Borel set $E\subseteq\mathbb{R}^{d}$ we have 
+ 
+ $\mu(E)=\mu(E\cap X_{\mu}),\qquad\nu(E)=\nu(E\cap X_{\nu}).$ - $\nu$ is said to be absolutely continuous with respect to $\mu$ , and we write $\nu<<\mu$ if for every Borel set $E\subseteq\mathbb{R}^{d}$ with $\mu(E)=0$ we have $\nu(E)=0$ . - $\nu$ is said to be diffuse with respect to $\mu$ if for every Borel set $E\subseteq\mathbb{R}^{d}$ with $\mu(E)<+\infty$ we have $\nu(E)=0$ .
+
+12.0.1 Absolutely continuous, singular and diffuse parts
+
+Since we need to split a measure with respect to a Hausdorff measure $\mathcal{H}^{h}$ , which is not $\sigma$ -finite, we need the Radon-Nikodým theorem in a generalized form [15] , where a diffuse part is present.
+
+Let $\mu,\nu$ be positive measures defined on the Borel subsets of $\mathbb{R}^{d}$ . Define, for every Borel set $E\subseteq\mathbb{R}^{d}$ , 
+ 
+ $\displaystyle\nu^{ac}(E):=$ $\displaystyle\sup\Big{\{}\int_{E}ud\mu:\leavevmode\nobreak\ u:\mathbb{R}^{d}\to[0,+\infty]{\rm\leavevmode\nobreak\ measurable},$ 
+ 
+ $\displaystyle\qquad\qquad\int_{E^{\prime}}ud\mu\leq\nu(E^{\prime}){\rm\leavevmode\nobreak\ for\leavevmode\nobreak\ all\leavevmode\nobreak\ Borel\leavevmode\nobreak\ }E^{\prime}\subset E\Big{\}},$ 
+ 
+ $\displaystyle\nu^{s}(E):=$ $\displaystyle\sup\Big{\{}\nu(E^{\prime}):E^{\prime}\subset E,E^{\prime}{\rm\leavevmode\nobreak\ Borel},\mu(E^{\prime})=0\Big{\}},$ 
+ 
+ $\displaystyle\nu^{d}(E):=$ $\displaystyle\sup\Big{\{}\nu(E^{\prime}):E^{\prime}\subset E,E^{\prime}{\rm\leavevmode\nobreak\ Borel\leavevmode\nobreak\ such\leavevmode\nobreak\ that}$ 
+ 
+ $\displaystyle\qquad\qquad{\rm for\leavevmode\nobreak\ all\leavevmode\nobreak\ Borel}\leavevmode\nobreak\ E^{\prime\prime}\subset E^{\prime}{\rm\leavevmode\nobreak\ with\leavevmode\nobreak\ }\nu(E^{\prime\prime})>0{\rm\leavevmode\nobreak\ we\leavevmode\nobreak\ have\leavevmode\nobreak\ }\mu(E^{\prime\prime})=+\infty\Big{\}}.$ 
+ Then the following result holds, see [15] .
+
+Let $\mu,\nu$ be two positive measures defined on the Borel subsets of $\mathbb{R}^{d}$ . Then $\nu^{ac}$ , $\nu^{s}$ , $\nu^{d}$ are measures, 
+ 
+ $\nu=\nu^{ac}+\nu^{s}+\nu^{d},$ 
+ with $\nu^{ac}<<\mu$ and $\nu^{d}$ diffuse with respect to $\mu$ . Moreover, if $\nu$ is $\sigma$ -finite, then $\nu^{ac}$ , $\nu^{s}$ , $\nu^{d}$ are mutually singular, and $\nu^{s}\perp\mu$ ;
+
+If $\mu$ is $\sigma$ -finite (which corresponds to the classical Radon-Nykoým Theorem) we have $\nu^{d}=0$ .
+
+The density of $\nu$ with respect to $\mu$ will be denoted by $\frac{d\nu}{d\mu}$ .
+
+12.0.2 Disintegration of Radon measures
+
+Let $\mu$ be a positive Radon measure on $\mathbb{R}^{d}$ , and $z\to\nu_{z}$ be a map which assigns to each $z\in\mathbb{R}^{d}$ a finite Radon measure $\nu_{z}$ on $\mathbb{R}^{m}$ , such that the function $z\to\nu_{z}(B)$ is $\mu$ -measurable for any Borel set $B\subseteq\mathbb{R}^{d}$ .
+
+We denote by 
+ 
+ $\nu=\mu\otimes\nu_{z}$ 
+ the Radon measure on $\mathbb{R}^{d}\times\mathbb{R}^{m}$ defined by 
+ 
+ $\mu\otimes\nu_{z}(B):=\int_{\mathbb{R}^{d}}\left(\int_{\mathbb{R}^{m}}\chi_{B}(z,y)\leavevmode\nobreak\ d\nu_{z}(y)\right)\leavevmode\nobreak\ d\mu(z)$ 
+ for any Borel set $B\subseteq K\times\mathbb{R}^{m}$ , where $K\subset\mathbb{R}^{d}$ is any compact set.
+
+The following result is proven for instance in [4] .
+
+Let $\nu$ be a positive Radon measure on $\mathbb{R}^{d}\times\mathbb{R}^{m}$ , let $\pi:\mathbb{R}^{d}\times\mathbb{R}^{m}\to\mathbb{R}^{d}$ be the projection on the first factor, and set 
+ 
+ $\mu:=\pi_{\#}\nu.$ 
+ Assume that $\mu$ is a Radon measure, namely that 
+ 
+ $\nu(K\times\mathbb{R}^{m})<+\infty\qquad{\rm for\leavevmode\nobreak\ any\leavevmode\nobreak\ compact\leavevmode\nobreak\ set\leavevmode\nobreak\ }K\subset\mathbb{R}^{N}.$  (12.1) 
+ Then there exist positive Radon measures $\nu_{z}$ in $\mathbb{R}^{m}$ such that - for any Borel set $B\subseteq\mathbb{R}^{m}$ the function $z\to\nu_{z}(B)$ is $\mu$ -measurable, and 
+ 
+ $\nu_{z}(\mathbb{R}^{m})=1\qquad{\rm for}\leavevmode\nobreak\ \mu-{\rm a.e.\leavevmode\nobreak\ in}\leavevmode\nobreak\ z\in\mathbb{R}^{d},$ - for any $f\in L^{1}(\mathbb{R}^{d}\times\mathbb{R}^{m},\nu)$ we have 
+ 
+ $f(z,\cdot)\in L^{1}(F,\nu_{z})\qquad{\rm for\leavevmode\nobreak\ }\mu{\rm\leavevmode\nobreak\ a.e.\leavevmode\nobreak\ }z\in\mathbb{R}^{d},$ 
+ 
+ 
+ $z\to\int_{\mathbb{R}^{d}}f(z,y)\leavevmode\nobreak\ d\nu_{z}(y)\in L^{1}(\mathbb{R}^{d},\mu),$  (12.2) 
+ and 
+ 
+ $\int_{\mathbb{R}^{d}\times\mathbb{R}^{m}}f(z,y)\leavevmode\nobreak\ d\nu(z,y)=\int_{\mathbb{R}^{d}}\left(\int_{\mathbb{R}^{m}}f(z,y)\leavevmode\nobreak\ d\nu_{z}(y)\right)\leavevmode\nobreak\ d\mu(z).$  (12.3) Hence we have the following disintegration of $\nu$ : 
+ 
+ $\nu=\mu\otimes\nu_{z}.$  (12.4) 
+ Moreover, if $z\to\nu^{\prime}_{z}$ is any other Radon measures-valued map such that the function $z\to\nu_{z}^{\prime}(B)$ is $\mu$ -measurable for any Borel set $B\subseteq\mathbb{R}^{d}$ , and satisfying ( 12.2 ), ( 12.3 ) for every bounded Borel function with compact support and such that $\nu^{\prime}_{z}(F)\in L^{1}_{\rm loc}(\mathbb{R}^{d},\mu)$ , then $\nu_{z}=\nu_{z}^{\prime}$ for $\mu$ -almost every $z\in\mathbb{R}^{d}$ .
+
+References
+
+[1] J. Alibert, G. Bouchitté. Non-uniform integrability and generalized Young measures. J. Convex Anal., 4(1):129–147, 1997.
+[2] W. K. Allard. On the First Variation of a Varifold. Ann. of Math., 95(3):417–491, 1972.
+[3] F.J. Almgren, The theory of varifolds. Mimeographed notes, Princeton, 1965.
+[4] L. Ambrosio, N.  Fusco, D.  Pallara. Functions of Bounded Variation and Free Discontinuity Problems. Oxford Mathematical Monographs, 2000.
+[5] L. Ambrosio, H.M. Soner. A measure-theoretic approach to higher codimension mean curvature flows. Ann. Scuola Norm. Sup. Pisa Cl. Sci., 25(1-2):27–49, 1998.
+[6] G. Bellettini, J. Hoppe, M. Novaga, G. Orlandi. Closure and convexity properties of closed relativistic strings. Complex Anal. Oper. Theory, 4(3):473–496, 2010.
+[7] G. Bellettini, M. Novaga, G. Orlandi. Time-like minimal submanifolds as singular limits of nonlinear wave equations. Physica D, 239(6):335–339, 2010.
+[8] G. Bellettini, M. Paolini. Anisotropic motion by mean curvature in the context of Finsler geometry. of nonlinear wave equations. Hokkaido Math. J., 25:537–566, 1996.
+[9] S. Brendle. Hypersurfaces in Minkowski space with vanishing mean curvature. Comm. Pure Appl. Math., 55(10):1249–1279, 2002.
+[10] Y. Brenier,Non relativistic strings may be approximated by relativistic strings.Methods Appl. Anal.12(2005), 153–167.
+[11] M. Born, L. Infeld. Foundations of a new field theory. Proc. Roy. Soc. A, 144:425–451, 1934.
+[12] R. Di Perna, A. Majda. Oscillations and concentrations in weak solutions of the incompressible fluid equations. Comm. Math. Phys., 108:667–689, 1987.
+[13] J. Eggers, J. Hoppe. Singularity formation for time-like extremal hypersurfaces. Physics Letters B, 680:274–278, 2009.
+[14] H.  Federer. Geometric Measure Theory. Springer-Verlag, Berlin, 1968.
+[15] I. Fonseca, G.  Leoni. Modern Methods in the Calculus of Variations. Springer-Verlag, 2007.
+[16] R.L. Jerrard. Defects in semilinear wave equations and timelike minimal surfaces in Minkowski space, Preprint, 2010.
+[17] S. Kobayashi, K. Nomizu. Foundations of Differential Geometry, vol. II, John Wiley and Sons, 1969.
+[18] H. Lindblad. A remark on global existence for small initial data of the minimal surface equation in Minkowskian space time. Proc. Am. Math. Soc., 132(4):1095-1102, 2004.
+[19] O. Milbredt. The Cauchy problem for membranes. Preprint arXiv:0807.3465, 2008.
+[20] J.C. Neu. Kinks and the minimal surface equation in Minkowski space. Physica D, 43(2-3):421–434, 1990.
+[21] B. O’Neill. Semi-riemannian Geometry with Applications to Relativity. Academic Press, New York, 1983.
+[22] P. Petersen. Riemannian Geometry. Graduate Texts in Mathematics, 171. Springer, New York, 2006.
+[23] D. Preiss. Geometry of measures inℝnsuperscriptℝ𝑛\mathbb{R}^{n}: distribution, rectifiability, and densities. Ann. of Math., 125:537–643, 1987.
+[24] L. Simon. Lectures on Geometric Measure Theory, Proceedings of the Centre for Mathematical Analysis, Australian National University, vol. 3, 1983.
+[25] L. Simon. Survey lectures on minimal submanifolds, In Seminar on Minimal Submanifolds, E. Bombieri Eds., 3–49, Princeton Univ. Press, Princeton 1983.
+[26] A. Vilenkin, E. P. S. Shellard. Cosmic Strings and Other Topological Defects. Cambridge University Press, 1994.
+[27] R. M. Wald. General Relativity. University of Chicago Press, 1984.
+[28] B. Zwiebach. A First Course in String Theory. Cambridge University Press, second edition, 2009.

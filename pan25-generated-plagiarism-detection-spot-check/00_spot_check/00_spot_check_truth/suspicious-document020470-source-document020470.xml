@@ -1,0 +1,48 @@
+<document reference="suspicious-document020470.txt">
+  <feature name="about" authors="Roberto Soria and Guido Risaliti and Martin Elvis and Giuseppina Fabbiano and Stefano Bianchi and Zdenka Kuncic" title="The XMM-Newton long look of NGC 1365: lack of a high/soft state in its ultraluminous X-ray sources" lang="en" similarity="0.9891" severity="high" prompt_tokens="14611" output_tokens="10914"/>
+  <feature name="md5Hash" value="599b10d03b6fef90c2026f253dd83c49"/>
+  <feature name="altered" type="llm_prompted" llm="Llama-3" this_language="en" this_offset="1514" this_length="1924"/>
+  <feature name="altered" type="llm_prompted" llm="Llama-3" this_language="en" this_offset="4885" this_length="963"/>
+  <feature name="altered" type="llm_prompted" llm="Llama-3" this_language="en" this_offset="5850" this_length="1106"/>
+  <feature name="altered" type="llm_prompted" llm="Llama-3" this_language="en" this_offset="6958" this_length="596"/>
+  <feature name="altered" type="llm_prompted" llm="Llama-3" this_language="en" this_offset="7556" this_length="1045"/>
+  <feature name="altered" type="llm_prompted" llm="Llama-3" this_language="en" this_offset="8638" this_length="1335"/>
+  <feature name="altered" type="llm_prompted" llm="Llama-3" this_language="en" this_offset="9975" this_length="769"/>
+  <feature name="altered" type="llm_prompted" llm="Llama-3" this_language="en" this_offset="10746" this_length="811"/>
+  <feature name="altered" type="llm_prompted" llm="Llama-3" this_language="en" this_offset="11576" this_length="599"/>
+  <feature name="altered" type="llm_prompted" llm="Llama-3" this_language="en" this_offset="12177" this_length="816"/>
+  <feature name="altered" type="llm_prompted" llm="Llama-3" this_language="en" this_offset="12995" this_length="678"/>
+  <feature name="altered" type="llm_prompted" llm="Llama-3" this_language="en" this_offset="13675" this_length="915"/>
+  <feature name="altered" type="llm_prompted" llm="Llama-3" this_language="en" this_offset="15569" this_length="693"/>
+  <feature name="altered" type="llm_prompted" llm="Llama-3" this_language="en" this_offset="16264" this_length="828"/>
+  <feature name="altered" type="llm_prompted" llm="Llama-3" this_language="en" this_offset="17094" this_length="703"/>
+  <feature name="altered" type="llm_prompted" llm="Llama-3" this_language="en" this_offset="18710" this_length="1388"/>
+  <feature name="altered" type="llm_prompted" llm="Llama-3" this_language="en" this_offset="20100" this_length="1035"/>
+  <feature name="altered" type="llm_prompted" llm="Llama-3" this_language="en" this_offset="23599" this_length="883"/>
+  <feature name="altered" type="llm_prompted" llm="Llama-3" this_language="en" this_offset="24513" this_length="606"/>
+  <feature name="altered" type="llm_prompted" llm="Llama-3" this_language="en" this_offset="25121" this_length="794"/>
+  <feature name="altered" type="llm_prompted" llm="Llama-3" this_language="en" this_offset="26653" this_length="860"/>
+  <feature name="altered" type="llm_prompted" llm="Llama-3" this_language="en" this_offset="27515" this_length="1028"/>
+  <feature name="altered" type="llm_prompted" llm="Llama-3" this_language="en" this_offset="28545" this_length="673"/>
+  <feature name="altered" type="llm_prompted" llm="Llama-3" this_language="en" this_offset="30082" this_length="711"/>
+  <feature name="altered" type="llm_prompted" llm="Llama-3" this_language="en" this_offset="30795" this_length="861"/>
+  <feature name="altered" type="llm_prompted" llm="Llama-3" this_language="en" this_offset="31658" this_length="1389"/>
+  <feature name="altered" type="llm_prompted" llm="Llama-3" this_language="en" this_offset="34137" this_length="1292"/>
+  <feature name="altered" type="llm_prompted" llm="Llama-3" this_language="en" this_offset="36305" this_length="1120"/>
+  <feature name="altered" type="llm_prompted" llm="Llama-3" this_language="en" this_offset="37427" this_length="1143"/>
+  <feature name="altered" type="llm_prompted" llm="Llama-3" this_language="en" this_offset="38572" this_length="1127"/>
+  <feature name="altered" type="llm_prompted" llm="Llama-3" this_language="en" this_offset="39701" this_length="1020"/>
+  <feature name="altered" type="llm_prompted" llm="Llama-3" this_language="en" this_offset="40723" this_length="901"/>
+  <feature name="altered" type="llm_prompted" llm="Llama-3" this_language="en" this_offset="43051" this_length="847"/>
+  <feature name="altered" type="llm_prompted" llm="Llama-3" this_language="en" this_offset="43900" this_length="1320"/>
+  <feature name="altered" type="llm_prompted" llm="Llama-3" this_language="en" this_offset="46498" this_length="2277"/>
+  <feature name="altered" type="llm_prompted" llm="Llama-3" this_language="en" this_offset="48777" this_length="1025"/>
+  <feature name="altered" type="llm_prompted" llm="Llama-3" this_language="en" this_offset="49848" this_length="1102"/>
+  <feature name="altered" type="llm_prompted" llm="Llama-3" this_language="en" this_offset="50952" this_length="1147"/>
+  <feature name="altered" type="llm_prompted" llm="Llama-3" this_language="en" this_offset="53775" this_length="1092"/>
+  <feature name="altered" type="llm_prompted" llm="Llama-3" this_language="en" this_offset="54869" this_length="886"/>
+  <feature name="altered" type="llm_prompted" llm="Llama-3" this_language="en" this_offset="55757" this_length="1371"/>
+  <feature name="altered" type="llm_prompted" llm="Llama-3" this_language="en" this_offset="57167" this_length="823"/>
+  <feature name="altered" type="llm_prompted" llm="Llama-3" this_language="en" this_offset="60754" this_length="1408"/>
+  <feature name="altered" type="llm_prompted" llm="Llama-3" this_language="en" this_offset="64541" this_length="1072"/>
+</document>

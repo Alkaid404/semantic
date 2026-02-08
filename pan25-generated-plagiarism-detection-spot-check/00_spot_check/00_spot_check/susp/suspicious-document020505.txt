@@ -1,0 +1,186 @@
+DPATD: Dual-Phase Audio Transformer for Denoising
+
+By Junhui Li and Pu Wang and Jialu Li and Xinzhe Wang and Youshan Zhang
+
+Abstract
+
+In the realm of deep learning-based speech enhancement (SE), attention mechanisms, including local and non-local attention, are pivotal. However, capturing the most significant speech features in natural speech, which often consists of rapid and brief acoustic events, proves challenging when indiscriminately employing local and non-local attention. Our observation reveals that both noise type and speech characteristics can fluctuate within a speech sequence, with local and non-local operations capable of extracting distinct features from corrupted speech. To capitalize on this, we introduce Selector-Enhancer, a dual-attention convolution neural network (CNN) featuring a dynamic feature-filter. This feature-filter selects regions from low-resolution speech features and routes them to either local or non-local attention operations. The feature-filter is trained through reinforcement learning (RL), utilizing a specially developed reward system that considers network performance, model complexity, and the difficulty of the SE task. Our findings indicate that Selector-Enhancer delivers performance comparable to or surpassing existing methods, demonstrating potential effectiveness in real-world denoising scenarios, where the number and types of noise may vary within a single noisy mixture.
+
+I Introduction
+
+
+In the context of speech enhancement, the objective is to isolate and amplify clear, intelligible speech from a noisy speech signal, denoted as $\textbf{y}$, which consists of the intended speech $\textbf{s}$ and additional noise $\textbf{n}$. This is crucial for various applications such as mobile communication and hearing aids, where real-time processing is essential and single-channel inputs are often the only available data source. Recent advancements in supervised learning have led to deep neural networks (DNNs) becoming the preferred choice for single-channel speech enhancement. These networks typically function within the short-time Fourier transform (STFT) domain, and they either employ direct spectral mapping Xu et al. (2013) or time-frequency masking Wang, Narayanan, and Wang (2014) to estimate the clean speech from the noisy signal.
+
+Indeed, the non-local operation, as proposed by Wang et al. (2018a), leverages the self-similarity inherent within entire speech segments to reconstruct local speech components. This strategy proves effective in establishing long-range dependencies within the speech based on time-frequency (T-F) units of speech spectra. However, the reliability of this approach is compromised when T-F units of noisy speech are corrupted, a common occurrence in heavily noisy environments. Additionally, the non-local operation carries a computational complexity of $\mathcal{O}(T^{2})$, which poses a significant challenge for the Sequence-to-Sequence (SE) model, thereby restricting its practical applicability. In contrast, local attention mechanisms focus on processing local neighborhoods, selectively scaling informative feature regions with heightened attention while de-emphasizing less relevant regions. This approach offers a linear computational complexity, a significant advantage over the non-local operation. However, local attention lacks the ability to capture global speech information, a crucial aspect in speech enhancement tasks, due to its limited receptive field.
+
+Numerous investigations have demonstrated the effectiveness of convolutional neural networks (CNNs) in the STFT-domain of spectro-temporal feature extraction (SE) due to their ability to concentrate on local characteristics, such as harmonic structures within speech spectra, as Park and Lee (2017) elucidated. However, speech contains non-linguistic long-range dependencies, encompassing factors like gender, dialect, speaking quality, and emotional state, as Bengio, Simard, and Frasconi (1994) observed. To amass a greater quantity of informative speech attributes, various approaches are suggested, including encoder-decoder architectures (Park and Lee, 2017), dilated convolutions (Pirhosseinloo and Brumberg, 2019), or the employment of long-short term memory (LSTM) networks (Tan and Wang, 2018), with the intention of expanding the receptive field.
+
+In the realm of audio processing, the spotlight is cast on crucial elements within a stream, granting heightened focus, while non-essential regions, such as noise or interference, are relegated to lesser focus. This dynamic adjustment of attention is predicated on both past and present context, allowing for a flexible focal point throughout the duration of the stream. In the year 2019, Hao et al. introduced a streamlined transformer, incorporating local self-attention, designed for real-time signal enhancement (SE) in resource-constrained settings. A more recent study by Oostermeijer, Wang, and Du (2021) proposes a local attention-based RNN-LSTM model for enhanced SE performances. This model capitalizes on significant sequential information by allowing the RNN model to implicitly learn the weights of past input features while predicting an enhanced frame. Simultaneously, the attention mechanism explicitly calculates correlations between past frames and the current frame to be enhanced, providing weighted importance to past frames. In comparison to non-local attention, local attention proves to be more suitable for real-time applications and less resource-intensive, as it does not necessitate future information. However, it is important to note that the local attention mechanism during SE boasts a relatively limited receptive field when contrasted with non-local operations.
+
+II Related work
+
+Traditional speech denoising techniques. Traditional speech denoising techniques primarily rely on statistical techniques that can be utilized to build relevant denoising models and extract clean audio from noisy input signals. The denoising performance can be improved by the Wiener filter [12] . Linden et al. [13] decomposed a spectral graph into a spectral basis matrix and an encoding matrix. After the different sound sources are reconstructed based on the clustering of the basis matrix and the corresponding encoding information, the noise components are removed to facilitate more accurate monitoring of biological sounds. Paliwal and Basu [14] proposed a Kalman filtering method to improve speech enhancement performance. Ali et al. [15] focused on the denoising of phonocardiogram (PCG) signals using different families of discrete wavelet transforms, thresholding types and techniques, and signal decomposition levels.
+
+Deep learning for speech enhancement. Different speech enhancement models based on deep neural networks have steadily taken center stage with the advancement of deep learning technology. Based on different model inputs, current voice augmentation techniques for DNNs can be broadly divided into two groups: time-domain (T) techniques and time-frequency domain (TF) techniques. Time-domain techniques employ an end-to-end model that directly estimates clean waveforms using audio data in the time domain as raw waveform inputs. The architecture foundation for time-domain approaches is WaveNet [16] . The majority of speech enhancement techniques currently focus on the time-frequency domain of speech. The TF techniques use the short-time Fourier transform (STFT) and the inverse short-time Fourier transform (ISTFT). The latest frequency-domain model, Band-Split RNN, explicitly splits the spectrogram of the mixture into subbands and performs interleaved band-level and sequence-level modeling for speech enhancement [17] .
+
+III Motivation
+
+Most existing deep learning-based audio denoising methods study the magnitude spectrum of images for audio denoising. However, these methods can be constrained by computing power or limited filtering image regions, resulting in low denoising performance. The transformer applications in audio enhancement are still limited. Inspired by neural network approaches to text, our model encodes audio information and is trained to understand what clean audio should look like. Basically, we regard the audio signal as an ”audio sequence” and further segment it into smaller chunks. The attention of each audio chunk will be calculated based on other chunks in the given audio sequence.
+
+IV Model
+
+In this section, we first review the audio denoising task, provide the motivation for our model, then conduct an in-depth analysis of the architecture of our dual-phase audio transformer for denoising (DPATD). Our model first splits the input audio into several audio chunks and encodes the audio sequence. Sequentially, generated sequence vectors are fed into a dual-phase transformer to train to minimize the difference between denoised audio and clean audio. Finally, we get the denoised audio as shown in Fig. 1 .
+
+We assume that the mixture speech signal $y(t)$ is a linear sum of the clean speech signal $x(t)$ and noise $\varepsilon(t)$ , and the noisy speech $y(t)$ can be typically expressed as Eq. ( 1 ): 
+ 
+ $y(t)=x(t)+\varepsilon(t).$  (1) 
+
+
+IV-A Segmentation
+
+To establish a balanced assessment against established techniques, we employ a configuration of four dynamic blocks. The difficulty threshold, denoted as $L_{t}$, and the penalty for rewards, represented as $\gamma$, are determined according to the particular task at hand. In scenarios where noise corruption is substantial, an increased threshold and penalty are necessary. In the initial training phase, the intermediary loss coefficient $\beta$ is initialized at 0.5. All dialogue exchanges are recorded at a sampling rate of 16 kHz, with audio features derived from frames of length 512, a frame-shift of 256, Hann windowing, and short-time Fourier transform (STFT) of size K = 512, supplemented by subsequent zero-padding. The model is trained within a minibatch consisting of 16 entries. We utilize Adam as our optimizer and implement our approach on the Python-based library, PyTorch.
+
+When the degree of noise corruption is considerable, the threshold and penalty for difficulty and rewards, respectively, are escalated to $6\times 10^{-2}$ and $8\times 10^{-2}$. To put it in context, these values are chosen based on the specific task at hand.
+
+IV-B Dual-Phase Audio Transformer
+
+Basic Architecture. Since the input noisy audio and the output enhanced audio have the same length, we introduce a simple but effective modification to the transformer for audio sequences by removing the encoder module (almost reducing model parameters by half for a given hyper-parameter set). Each transformer block contains two sub-modules. As shown in Fig. 2 , the first module is a Memory-Compressed Explainable Multi-Heads Attention (MCE-MSA). This attention consists of explainable multi-heads attention and memory-compressed attention. The second module is a simple, position-wise, fully connected feed-forward network. In addition, inspired by the effectiveness of RNNs in tracking ordered sequential information, we replace the first fully connected layer of the feed-forward network with a GRU layer to learn more positional information. A residual connection was employed around each of the two sub-modules, followed by layer normalization.
+
+IV-C Explainable Memory-Compressed Attention.
+
+Memory-Compressed Attention To handle longer sequences, we modify the multi-head attention to reduce memory usage by limiting the dot products between $Q$ and $K$ in Eq. ( 3 ). To achieve this goal, we take advantages of a strided convolution with convolution kernels of size 3 with stride 3. Since the memory cost of attention is constant for each block, this alteration allows us to maintain the linear relationship between the number of activations and the length of the sequence [18] .
+
+Explainable Multi-Heads Attention. In our work, attention blocks employ $h=8$ heads (the number of parallel attention layers) and map the input $h$ times to get $Q$ , $K$ , and $V$ representations, respectively, as described in Eq. ( 2 ). Given an input $Y$ , each head $H_{h}$ holds an explainable attention weight $A_{h}\in\mathcal{R}^{N\times d}$ that represents the relative importance of input features. $A_{h}$ aims to learn explainable features for the output through the MCE-MSA mechanism. 
+ 
+ $Q_{i}=YW^{Q}_{i},\ K_{i}=YW^{K}_{i},\ V_{i}=YW^{V}_{i},$  (2) 
+ where $Y\in R^{d\times k}$ is the input with sequence of length $L$ and dimension $d$ , $i=1,2,\cdots,h$ and $Q_{i},K_{i},V_{i}\in R^{l\times d/h}$ are the mapped queries, keys and values respectively. $W^{Q}_{i},W^{K}_{i},W^{V}_{i}\in R^{d\times d/h}$ denote the $i$ -th linear transformation matrix for queries, keys, and values, respectively.
+
+The self-attention operation is constructed by Eq. ( 3 ). $W$ implies how much attention is paid to each token. 
+ 
+ $Att(Q,K,V)=softmax(\frac{QK^{T}}{\sqrt{d_{k}}})V=softmax(W)V.$  (3) 
+
+
+The attention weight $A$ is defined as: 
+ 
+ $A=\mathcal{L}(W+b)^{T},$  (4) 
+ where $b$ is a trainable bias term, which is introduced as an initial alignment for the input patterns. $\mathcal{L}$ is a non-linear function that scales the L2 norm of its input.
+
+In follows, the self-attention feature $P$ is formally expressed as: 
+ 
+ $P=A^{T}V,$  (5) 
+
+
+According to Eq. ( 4 ), $\|A\|\leq 1$ . There $P$ in Eq. ( 5 ) is upper-bounded as follows: 
+ 
+ $P=\|A\|\||V|\|cos(A,V)\leq\|V\|.$  (6) 
+ When Eq. ( 6 ) is optimized, the attention weight $A$ is proportional to $V$ . In order to achieve maximal output, $A$ is driven to align with the discriminative features in $V$ , instead of the uninformative noise. Therefore, $P$ can only achieve this upper bound if all possible solutions of $v\in V$ are encoded as eigenvectors in the weight $A$ . This maximization suggests that with the attention weight $A$ , we will obtain an inherently explainable decomposition of input patterns.
+
+In our work, whole sequential explainable and memory-compressed transformer blocks are computed as:
+
+In the $i$-th dynamic block $f^{i}_{DB}$, a common path $f^{i}_{S}$ consisting of two convolutional blocks is present, with each feature map required to pass through this path for the extraction of deeper speech features. In parallel to this shared path, a feature-filter generates a probabilistic distribution of possible paths, which are selected by each T-F unit of the input feature map. Following the shared path, there are two separate paths for local and non-local attention represented by $f^{i}_{LA}$ and $f^{i}_{NA}$. The path with the highest probability, according to the feature-filter's output, is activated, and this decision is represented by action $\alpha_{i}$. Since the path selection is for every T-F unit, $\alpha_{i}$ is a two-channel mask rather than a scalar. The first channel $m^{i}_{L}$ signifies the regions that go through the path for local attention, and the second channel $m^{i}_{N}$ represents the path for non-local attention. The entire process can be formulated as:
+
+$z_{i+1}=f^{i}_{R}(f^{i}_{LA}(f^{i}_{S}(z_{i})\cdot m^{i}_{L}) + f^{i}_{NA}(f^{i}_{S}(z_{i})\cdot m^{i}_{N}) + f^{i}_{S}(z_{i}))$,
+
+where $z_{i}$ and $z_{i+1}$ denote the input and output of the $i$-th dynamic block, respectively, and $f^{i}_{R}$ refers to the decoder of the dynamic block. The dot symbol represents element-wise multiplication, and each channel of the feature $f^{i}_{S}(z_{i})$ undergoes the same element-wise multiplication with mask $m^{i}$. Notably, the mask $m^{i}$ generates a 1-D frequency-dimension mask $\textbf{F}_{M}\in\mathbf{R}^{1\times F}$ and a 1-D time-frame mask $\textbf{T}_{M}\in\mathbf{R}^{T\times 1}$ in parallel, then combines them via matrix multiplication to produce the final 2-D mask.
+
+IV-D Dual-phase Audio Transformer module
+
+The dual-phase audio transformer module consists of four stacked dual-chunk transformer blocks. Each block converts an input 2-D tensor into another tensor with the same shape. We propose a dual-phase transformer block based on explainable and memory-compressed attention. As shown in Fig. 1 , it has a local-chunk transformer and a global-chunk transformer, which extract local and global information, respectively. More specifically, the input is a 2-D tensor ( $[K,S]$ ), and the local-chunk transformer is first applied to individual chunks to parallelly process inter information, which performs on the last dimension $F$ of the input tensor. Then, the global-chunk transformer is used to fuse the information of the output from the local-chunk transformer to learn global dependency, which is implemented on the dimension of the tensor. Besides, each transformer is followed by the group normalization operation and utilizes residual connections.
+
+Decoder. We use the patch-expanding layer in the decoder to upsample the extracted deep features. The 2-D convolution with a filter size of (1, 1) recovers the channel dimension of the enhanced speech feature into 1 and produces the enhanced speech waveform by an overlap-add method.
+
+In the context of Signal Processing (SE), it's crucial to consider long-range dependencies. This prior knowledge can be efficiently acquired through non-local attention operations. These operations calculate the mutual similarity between Time-Frequency (T-F) units across each frame, thereby facilitating the capture of global information in the frequency domain, albeit with a slightly elevated computational complexity.
+
+In essence, non-local attention can be mathematically defined as follows according to Wang et al. (2018b):
+
+$y_{i}=\frac{1}{\mathcal{C}(x)}\sum_{\forall j}f(x_{i},x_{j})g(x_{j}),$ (1)
+
+Here, $x$ and $y$ represent the input and output tensors of the operation, respectively, both maintaining the same size. $f$ represents the pairwise function that calculates the correlation between the locations of the feature map. $g$ signifies the unary input function for information transformation, and $\mathcal{C}(x)$ serves as the normalization factor.
+
+The overall training algorithm is shown in Alg. 1 .
+
+V Experimental Procedures
+
+VCTK+DEMAND dataset. We validate the effectiveness of our proposed model on a standard speech dataset [19] . The clean speech datasets are selected from the Voice Bank Corpus, including a training set of 11572 utterances from 28 speakers and a test set of 872 utterances from 2 speakers.
+
+BirdSoundsDenoising. This dataset uses a variety of natural noises, such as wind, rain, waterfalls, etc., in place of the normal intentionally generated noise [20] . In particular, the dataset contains 14,120 audios from one second to fifteen seconds and is a large-scale dataset of bird sounds collected, containing 10,000/1,400/2,720 in training, validation, and testing sets, respectively.
+
+We train the DPATD model for 100 epochs on mini-batches of 8 random samples, where the segment chunk size is set to 1000. We used the Adam optimization scheme with a maximum learning rate of 2.5e-4. Since the layernorm layer is extensively used throughout the model, a simple weight initialization of $N(0,0.02)$ was adequate. For the activation function, we used the Gaussian Error Linear Unit (GELU). We used the learned position embeddings instead of the sinusoidal version proposed in the original work. With a single NVIDIA GTX 3060 GPU and PyTorch to implement our model, it took around 180 hours of GPU time to train our model. The smaller utterances in a batch are zero-padded to the largest size of utterances. A dynamic strategy is used to adjust the learning rate during the training stage [21] .
+
+Model configurations. The configuration of our model structure partially follows the original transformer architecture. We trained a 12-layer decoder-only transformer with self-attention heads (1000 dimensional states and 12 attention heads). Here, we focus on explainable and memory compression attention to effectively compute and conserve memory. For the position-wise feed-forward networks, we used 4000-dimensional inner states. Consider the sum of the input audio length in a signal block denoted by $K\times S$ where the hop size is set to be the same as the embedding size. It is simple to see that $S=[L/K]$ where $[\cdot]$ is the ceiling function. To achieve the minimum total input length $K+S=K+[L/K]$ , $K$ is selected such that $K\approx sqrt(5L)$ . This gives us sublinear input length $(O(sqrt(L))$ rather than the original linear input length $(O(L))$ .
+
+Table II presents the comparison results of the VCTK+DEMAND dataset, demonstrating that our model surpasses most existing waveform-based methods in terms of the PESQ score, and performs equivalently to other methods in other evaluation metrics. For the BirdSoundsDenoising dataset, we have reported the performance of eight state-of-the-art baselines, as shown in Table I, with the bold text indicating the best results for each statistic. Our model outperforms other state-of-the-art methods in terms of the SDR. Performance metrics such as F1, IoU, and Dice, which are used for the audio image segmentation task [29], are not included in these results as they are not applicable to audio denoising. Comparisons of raw bird audio, ground truth labeled denoised audio, and denoised audio of other models are shown in Figure 3. Furthermore, our model more closely resembles the labeled denoised signal, thereby enhancing the audio denoising capabilities of the BirdSoundsDenoising dataset.
+
+
+Ablation study. First, we examine the performance of our method by comparing it with different transformer layers and the effect of chunks in segmentation. In order to further demonstrate the effectiveness of our proposed transformer block, we also designed another architecture for comparison. In this architecture, we use different transformer blocks rather than the 12 blocks in the DPATD, and we increase or reduce the number of heads. In addition, we also set chunk sizes at 500 and 2000, while only 1000 in our DPATD. From Tab. LABEL:tab:layers , a 12-transformer-block DPATD has better scores than other models. As shown in Tab. LABEL:tab:chunks , the chunk has only a slight influence on the performance, and we use chunk=1000 by default for its efficiency.
+
+V-A Dataset
+
+Yin et al.'s (2020) proposed dataset, VoiceBank + DEMAND, utilizes a pre-scaled subset of VoiceBank Valentini-Botinhao et al. (2016) for the training of the Selector-Enhancer. The dataset consists of 320,000 utterances, with 16,000 male and 16,000 female utterances, derived from 40 male and 40 female speakers, each pronouncing approximately 4,000 utterances. A portion of the data has been mixed with noise from DEMAND Thiemann, Ito, and Vincent (2013) at SNR levels ranging from -5 dB to 5 dB. A validation set was created using 200 clean utterances reserved from the training set. Test data were generated using 200 utterances from the remaining 4 untrained speakers, also mixed with noise from DEMAND at SNR levels of -5 dB, 0 dB, and 5 dB.
+
+AVSpeech+AudioSet: Ephrat et al. (2018) introduced a comprehensive dataset consisting of AVSpeech and AudioSet. AVSpeech, a clean dataset, was collected from YouTube and comprises around 4,700 hours of video segments, featuring approximately 150,000 unique speakers of multiple languages. AudioSet, added by Gemmeke et al. (2017), contains over 1.7 million 10-second segments of 526 distinct types of noise.
+
+To generate noisy speech, a weighted linear combination of speech and noise segments is employed as per Yin et al. (2020). This is represented as:
+
+Mixi = Speechj + 0.3 × Noisek
+
+where Speechj and Noisek are 4-second segments randomly selected from the speech and noise datasets, respectively. In our study, 10,000 segments were randomly chosen from the AVSpeech dataset for the training set, and 500 segments were selected for the validation set. Due to the broad energy distribution within both datasets, the resulting noisy speech dataset exhibits a wide spectrum of Signal-to-Noise Ratios (SNR).
+
+V-B Implementation details
+
+
+For the purpose of a rigorous comparison with established methodologies, we opt for a total of 4 dynamic blocks. The difficulty threshold, denoted as $L_{t}$, and the reward penalty, designated as $\gamma$, are meticulously selected at 0.06 and 0.08 respectively, tailored to the specific demands of the task at hand. In instances where the level of noise corruption is particularly high, it becomes necessary to increment the threshold and penalty values. In the initial phase of training, the intermediary loss coefficient, denoted as $\beta$, is set at 0.5. All recorded utterances are sampled at a frequency of 16 kHz, with the subsequent extraction of features achieved through frames of 512 samples with a 256 sample shift, followed by the application of Hann windowing and short-time Fourier transform (STFT) of size K = 512, with appropriate zero-padding. During the training process, we employ a minibatch size of 16. As our optimizer, we utilize Adam and conduct our experiments on the PyTorch platform.
+
+Model configurations. The configuration of our model structure partially follows the original transformer architecture. We trained a 12-layer decoder-only transformer with self-attention heads (1000 dimensional states and 12 attention heads). Here, we focus on explainable and memory compression attention to effectively compute and conserve memory. For the position-wise feed-forward networks, we used 4000-dimensional inner states. Consider the sum of the input audio length in a signal block denoted by $K\times S$ where the hop size is set to be the same as the embedding size. It is simple to see that $S=[L/K]$ where $[\cdot]$ is the ceiling function. To achieve the minimum total input length $K+S=K+[L/K]$ , $K$ is selected such that $K\approx sqrt(5L)$ . This gives us sublinear input length $(O(sqrt(L))$ rather than the original linear input length $(O(L))$ .
+
+V-C Result
+
+In the context of the AVSpeech+AudioSet dataset, we evaluate the Selector-Enhancer against a selection of current leading methods, including U-Net by Park and Lee (2017), GRN by Pirhosseinloo and Brumberg (2019), PHASEN by Yin et al. (2020), and TFT-Net by Tang et al. (2021). As displayed in Table 3, the Selector-Enhancer surpasses these state-of-the-art techniques and suggests its adaptability to diverse speakers and numerous types of noisy conditions.
+
+Ablation study. First, we examine the performance of our method by comparing it with different transformer layers and the effect of chunks in segmentation. In order to further demonstrate the effectiveness of our proposed transformer block, we also designed another architecture for comparison. In this architecture, we use different transformer blocks rather than the 12 blocks in the DPATD, and we increase or reduce the number of heads. In addition, we also set chunk sizes at 500 and 2000, while only 1000 in our DPATD. From Tab. LABEL:tab:layers , a 12-transformer-block DPATD has better scores than other models. As shown in Tab. LABEL:tab:chunks , the chunk has only a slight influence on the performance, and we use chunk=1000 by default for its efficiency.
+
+VI Conclusion
+
+In this study, we present a framework for using a dual-phase audio transformer for denoising (DPATD) to provide robust speech enhancement. The DPATD splits the audio input into non-overlapping chunks in the segmentation stage, which are then passed as input to the transformer model. In a DPAT block, the local-chunk transformer and global-chunk transformer process the local chunks and all the chunks, respectively. We modified the transformer model using explainable multi-head attention and memory-compressed attention. Extensive experiments on datasets have demonstrated the effectiveness and superiority of the proposed DPATD architecture. Finally, our method is still computationally demanding, and future directions of the work could improve on these limitations.
+
+References
+
+[1] Wenbin Jiang, Zhijun Liu, Kai Yu, and Fei Wen. Speech enhancement with neural homomorphic synthesis. InICASSP 2022-2022 IEEE International Conference on Acoustics, Speech and Signal Processing (ICASSP), pages 376–380. IEEE, 2022.
+[2] Ashish Vaswani, Noam Shazeer, Niki Parmar, Jakob Uszkoreit, Llion Jones, Aidan N Gomez, Łukasz Kaiser, and Illia Polosukhin. Attention is all you need. Advances in neural information processing systems, 30, 2017.
+[3] Zhengsu Chen, Lingxi Xie, Jianwei Niu, Xuefeng Liu, Longhui Wei, and Qi Tian. Visformer: The vision-friendly transformer. InProceedings of the IEEE/CVF international conference on computer vision, pages 589–598, 2021.
+[4] Cem Subakan, Mirco Ravanelli, Samuele Cornell, Mirko Bronzi, and Jianyuan Zhong. Attention is all you need in speech separation. InICASSP 2021-2021 IEEE International Conference on Acoustics, Speech and Signal Processing (ICASSP), pages 21–25. IEEE, 2021.
+[5] Guochen Yu, Andong Li, Hui Wang, Yutian Wang, Yuxuan Ke, and Chengshi Zheng. Dbt-net: Dual-branch federative magnitude and phase estimation with attention-in-attention transformer for monaural speech enhancement. IEEE/ACM Transactions on Audio, Speech, and Language Processing, 30:2629–2644, 2022.
+[6] Kai Wang, Bengbeng He, and Wei-Ping Zhu. Tstnn: Two-stage transformer based neural network for speech enhancement in the time domain. InICASSP 2021-2021 IEEE International Conference on Acoustics, Speech and Signal Processing (ICASSP), pages 7098–7102. IEEE, 2021.
+[7] Weiwei Yu, Jian Zhou, HuaBin Wang, and Liang Tao. Setransformer: Speech enhancement transformer. Cognitive Computation, pages 1–7, 2022.
+[8] Feng Dang, Hangting Chen, and Pengyuan Zhang. Dpt-fsnet: Dual-path transformer based full-band and sub-band fusion network for speech enhancement. InICASSP 2022-2022 IEEE International Conference on Acoustics, Speech and Signal Processing (ICASSP), pages 6857–6861. IEEE, 2022.
+[9] Hu Cao, Yueyue Wang, Joy Chen, Dongsheng Jiang, Xiaopeng Zhang, Qi Tian, and Manning Wang. Swin-unet: Unet-like pure transformer for medical image segmentation. InComputer Vision–ECCV 2022 Workshops: Tel Aviv, Israel, October 23–27, 2022, Proceedings, Part III, pages 205–218. Springer, 2023.
+[10] Yi Luo, Zhuo Chen, and Takuya Yoshioka. Dual-path rnn: efficient long sequence modeling for time-domain single-channel speech separation. InICASSP 2020-2020 IEEE International Conference on Acoustics, Speech and Signal Processing (ICASSP), pages 46–50. IEEE, 2020.
+[11] Tri Dao. Flashattention-2: Faster attention with better parallelism and work partitioning. arXiv preprint arXiv:2307.08691, 2023.
+[12] Marwa A Abd El-Fattah, Moawad I Dessouky, Alaa M Abbas, Salaheldin M Diab, El-Sayed M El-Rabaie, Waleed Al-Nuaimy, Saleh A Alshebeili, and Fathi E Abd El-samie. Speech enhancement with an adaptive wiener filter. International Journal of Speech Technology, 17:53–64, 2014.
+[13] Tzu-Hao Lin, Shih-Hua Fang, and Yu Tsao. Improving biodiversity assessment via unsupervised separation of biological sounds from long-duration recordings. Scientific reports, 7(1):4547, 2017.
+[14] K Paliwal and Anjan Basu. A speech enhancement method based on kalman filtering. InICASSP’87. IEEE International Conference on Acoustics, Speech, and Signal Processing, volume 12, pages 177–180. IEEE, 1987.
+[15] Mohammed Nabih Ali, EL-Sayed A El-Dahshan, and Ashraf H Yahia. Denoising of heart sound signals using discrete wavelet transform. Circuits, Systems, and Signal Processing, 36:4482–4497, 2017.
+[16] Daniel Stoller, Sebastian Ewert, and Simon Dixon. Wave-u-net: A multi-scale neural network for end-to-end audio source separation. arXiv preprint arXiv:1806.03185, 2018.
+[17] Jianwei Yu and Yi Luo. Efficient monaural speech enhancement with universal sample rate band-split rnn. InICASSP 2023-2023 IEEE International Conference on Acoustics, Speech and Signal Processing (ICASSP), pages 1–5. IEEE, 2023.
+[18] Peter J Liu, Mohammad Saleh, Etienne Pot, Ben Goodrich, Ryan Sepassi, Lukasz Kaiser, and Noam Shazeer. Generating wikipedia by summarizing long sequences. arXiv preprint arXiv:1801.10198, 2018.
+[19] Cassia Valentini-Botinhao, Xin Wang, Shinji Takaki, and Junichi Yamagishi. Speech enhancement for a noise-robust text-to-speech synthesis system using deep recurrent neural networks. InInterspeech, volume 8, pages 352–356, 2016.
+[20] Youshan Zhang and Jialu Li. Birdsoundsdenoising: Deep visual audio denoising for bird sounds. InProceedings of the IEEE/CVF Winter Conference on Applications of Computer Vision, pages 2248–2257, 2023.
+[21] Jingjing Chen, Qirong Mao, and Dong Liu. Dual-path transformer network: Direct context-aware modeling for end-to-end monaural speech separation. arXiv preprint arXiv:2007.13975, 2020.
+[22] Xuebin Qin, Zichen Zhang, Chenyang Huang, Masood Dehghan, Osmar R Zaiane, and Martin Jagersand. U2-net: Going deeper with nested u-structure for salient object detection. Pattern recognition, 106:107404, 2020.
+[23] Hongyi Wang, Shiao Xie, Lanfen Lin, Yutaro Iwamoto, Xian-Hua Han, Yen-Wei Chen, and Ruofeng Tong. Mixed transformer u-net for medical image segmentation. InICASSP 2022-2022 IEEE International Conference on Acoustics, Speech and Signal Processing (ICASSP), pages 2390–2394. IEEE, 2022.
+[24] Robin Strudel, Ricardo Garcia, Ivan Laptev, and Cordelia Schmid. Segmenter: Transformer for semantic segmentation. InProceedings of the IEEE/CVF international conference on computer vision, pages 7262–7272, 2021.
+[25] Vijay Badrinarayanan, Alex Kendall, and Roberto Cipolla. Segnet: A deep convolutional encoder-decoder architecture for image segmentation. IEEE transactions on pattern analysis and machine intelligence, 39(12):2481–2495, 2017.
+[26] Se Rim Park and Jinwon Lee. A fully convolutional neural network for speech enhancement. arXiv preprint arXiv:1609.07132, 2016.
+[27] Madhav Mahesh Kashyap, Anuj Tambwekar, Krishnamoorthy Manohara, and S Natarajan. Speech denoising without clean training data: A noise2noise approach. arXiv preprint arXiv:2104.03838, 2021.
+[28] Eloi Moliner and Vesa Välimäki. A two-stage u-net for high-fidelity denoising of historical recordings. InICASSP 2022-2022 IEEE International Conference on Acoustics, Speech and Signal Processing (ICASSP), pages 841–845. IEEE, 2022.
+[29] Junhui Li, Pu Wang, and Youshan Zhang. Deeplabv3+ vision transformer for visual bird sound denoising. IEEE Access, 2023.
+[30] Youshan Zhang and Jialu Li. Complex Image Generation SwinTransformer Network for Audio Denoising. InProc. INTERSPEECH 2023, pages 186–190, 2023.
+[31] Yihao Li, Meng Sun, and Xiongwei Zhang. Perception-guided generative adversarial network for end-to-end speech enhancement. Applied Soft Computing, 128:109446, 2022.
+[32] Huixiang Huang, Renjie Wu, Jingbiao Huang, Jucai Lin, and Jun Yin. Dccrgan: Deep complex convolution recurrent generator adversarial network for speech enhancement. In2022 International Symposium on Electrical, Electronics and Information Engineering (ISEEIE), pages 30–35. IEEE, 2022.
+[33] Shubo Lv, Yihui Fu, Mengtao Xing, Jiayao Sun, Lei Xie, Jun Huang, Yannan Wang, and Tao Yu. S-dccrn: Super wide band dccrn with learnable complex feature for speech enhancement. InICASSP 2022-2022 IEEE International Conference on Acoustics, Speech and Signal Processing (ICASSP), pages 7767–7771. IEEE, 2022.
+[34] Dacheng Yin, Chong Luo, Zhiwei Xiong, and Wenjun Zeng. Phasen: A phase-and-harmonics-aware speech enhancement network. InProceedings of the AAAI Conference on Artificial Intelligence, volume 34, pages 9458–9465, 2020.
+[35] Alexandre Défossez, Gabriel Synnaeve, and Yossi Adi. Real time speech enhancement in the waveform domain. 2020.
+[36] Eesung Kim and Hyeji Seo. Se-conformer: Time-domain speech enhancement using conformer. InInterspeech, pages 2736–2740, 2021.
+[37] Szu-Wei Fu, Cheng Yu, Tsun-An Hsieh, Peter Plantinga, Mirco Ravanelli, Xugang Lu, and Yu Tsao. Metricgan+: An improved version of metricgan for speech enhancement. arXiv preprint arXiv:2104.03538, 2021.
+[38] Hyun Joon Park, Byung Ha Kang, Wooseok Shin, Jin Sob Kim, and Sung Won Han. Manner: Multi-view attention network for noise erasure. InICASSP 2022-2022 IEEE International Conference on Acoustics, Speech and Signal Processing (ICASSP), pages 7842–7846. IEEE, 2022.
+[39] Ruizhe Cao, Sherif Abdulatif, and Bin Yang. Cmgan: Conformer-based metric gan for speech enhancement. arXiv preprint arXiv:2203.15149, 2022.

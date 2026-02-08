@@ -1,0 +1,276 @@
+Simulation of Ultra-High Energy Photon Propagation in the Geomagnetic Field
+
+By P. Homola and D. Gora and D. Heck and H. Klages and J. Pekala and M. Risse and B. Wilczynska and H. Wilczynski
+
+Abstract
+
+The identification of primary photons or specifying stringent limits on the photon flux is of major importance for understanding the origin of ultra-high energy (UHE) cosmic rays. We present a new Monte Carlo program allowing detailed studies of conversion and cascading of UHE photons in the geomagnetic field. The program named PRESHOWER can be used both as an independent tool or together with a shower simulation code. With the stand-alone version of the code it is possible to investigate various properties of the particle cascade induced by UHE photons interacting in the Earth’s magnetic field before entering the Earth’s atmosphere. Combining this program with an extensive air shower simulation code such as CORSIKA offers the possibility of investigating signatures of photon-initiated showers. In particular, features can be studied that help to discern such showers from the ones induced by hadrons. As an illustration, calculations for the conditions of the southern part of the Pierre Auger Observatory are presented.
+
+1 Program Summary
+
+The ALTAI computational code, an abbreviation for Atmospheric Light Telescope Array Image, is designed for efficient Monte Carlo simulations of Čerenkov light emission in TeV air showers. Distinguishing itself from other codes with similar purposes such as MOCCA (Hillas 1979), KASCADE (Kertzman & Sembroski 1994), and CORSIKA (Heck et al. 1997), ALTAI boasts a notable advantage: its high speed in shower simulations, achieved through a unique algorithm for handling multiple scattering of charged particles within the shower. This algorithm is resource-efficient, minimizing CPU time consumption and facilitating fast and precise simulations. Moreover, the recently developed additional routine for simulations of telescope response (Hemberger 1998) has widened ALTAI's applications, leading to its extensive use in the production of a standard Monte Carlo database for the HEGRA (High Energy Gamma Ray Astronomy) VHE $\gamma$-ray experiment (Konopelko et al. 1999a). The pristine wilderness of Mountain Altai in south-west Russia serves as the inspiration for the code's name.
+
+2 Introduction
+
+The existence of ultra-high energy cosmic rays (UHECR) beyond the Greisen-Zatsepin-Kuzmin (GZK) cutoff energy [3] is one of the main puzzles in today’s astrophysics. The composition of UHECR, if known, could provide a stringent test of models of particle acceleration and propagation towards the Earth. Most theoretical efforts are made towards explaining the acceleration of protons to ultra-high energies. This is because protons seem to be the most promising candidates for the UHECR particles. There are, however, also so-called exotic models which postulate decays of supermassive “X-particles”. A common prediction of these models is that there should be a significant photon flux in the ultra-high energy region. Accurate identification of photon primaries, measurement of the ultra-high energy photon flux, or specifying the upper limit for it, will provide an excellent test for the models of cosmic-ray origin.
+
+Ultra-high energy photons in the presence of the geomagnetic field can convert into an electron-positron pair before they enter the atmosphere. Synchrotron radiation of this pair gives rise to a cascade of photons. Some of them can have energies sufficient for the next conversion. The cascade at the top of the atmosphere thus consists mainly of photons and two or more electrons. We will call this cascade a “preshower” since it originates and develops above the upper atmosphere, i.e. before the “ordinary” shower development in the air.
+
+Particles of a preshower induce subshowers after entering the atmosphere. A superposition of these subshowers will be seen by detectors as one extensive air shower, whose profile is expected to differ from the profile of a shower induced by a single unconverted photon.
+
+Forthcoming experiments with large collecting apertures (Pierre Auger Observatory [4] , EUSO [5] ), that are designed to detect cosmic rays of ultra-high energies, give a good opportunity to test these models. A photon-induced shower might have observable features that allow to distinguish it from showers initiated by hadrons.
+
+In this paper we describe the PRESHOWER program that allows extensive studies of properties of photon-induced showers. The program performs a simulation of the propagation of photons before they enter the Earth’s atmosphere and can be used both as an independent analysis tool as well as a part of an air shower simulation package (e.g. CORSIKA [6] ).
+
+With the PRESHOWER program working in stand-alone mode we performed, as an illustration, an analysis of basic properties of preshowers for the magnetic conditions of Malargüe in Argentina – the site of the Southern Pierre Auger Observatory [4] . The results of these studies, which are presented in Sec. 5 , are in general agreement with other analyses [7] .
+
+In the realm of high-energy particle physics, we undertook a series of comparative analyses between the morphology and magnitude (quantitative measure of the number of emitted photoelectrons) of the Čerenkov light images generated by proton- and nuclear-induced air showers. Utilizing the CORSIKA simulation software in conjunction with the Hadronic Interaction Model of Proton-Nucleus Collisions (HDPM), we found that this model, grounded in supercollider data, provides a remarkably accurate depiction of proton-nucleus air showers with energies below 10 tera-electron volts (TeV). Notably, the HDPM model of CORSIKA facilitates computations that are comparatively swift as opposed to more contemporary shower generators, such as VENUS/QGSJET. Surprisingly, despite the disparate algorithms and strategies implemented in the two codes, the outcomes exhibited a striking similarity (Plyasheshnikov et al. 1997). The simulations executed using both the ALTAI and CORSIKA codes show a remarkable degree of congruence. It is essential to mention that the ALTAI simulations are significantly less time-consuming. The HEGRA data for cosmic ray air showers were correlated with the ALTAI simulations. The fruitful correspondence between simulations and data enabled a highly precise measurement of the cosmic ray proton spectrum in the energy range approximating 1-5 TeV (Aharonian et al. 1999b).
+
+In the realm of computational physics, the ALTAI code is a sophisticated tool, divided into two primary modules, each designed to emulate the progression of electromagnetic cascades (EMCCS) and proton-nucleus interactions (STEPAD, MULTIP, XPI) within Earth's atmosphere. This article delves into the intricacies of simulating these cascades, with Section 2 providing an exhaustive account of the methodology for both electromagnetic and hadron-nuclei cascades. Furthermore, Section 2 elucidates the algorithms governing the emission of Čerenkov light by the charged particles within the shower. Moving forward, Section 4 focuses exclusively on the interactions between nuclei, while Section 5 offers a comparative analysis of the results derived from Čerenkov light simulations using the ALTAI code, juxtaposed with those from other relevant simulations and observational data.
+
+3 Preshower physics
+
+When the energy of a photon exceeds 10 Exbv, in the presence of the geomagnetic field, it can transform into an electron-positron pair before penetrating the atmosphere. These generated electrons will subsequently lose energy through magnetic bremsstrahlung emission. The emitted photons can themselves convert into electron-positron pairs if their energy is sufficient. This cascading process results in the emergence of multiple lower-energy particles, primarily photons and a few electrons, collectively referred to as a preshower. The overlapping subshowers triggered by these particles are observed by detectors as a single extensive air shower, which peaks earlier than a shower caused by a single photon of the same initial energy. This earlier peak is attributed to the Landau-Pomeranchuk-Migdal (LPM) effect, particularly prominent for higher-energy photons. Both photon conversion and magnetic bremsstrahlung are heavily influenced by the transverse component of the geomagnetic field. In the subsequent discussion, we focus on these effects, present the key equations, and delve into their implications.
+
+
+3.1 Geomagnetic field model
+
+Since the geomagnetic field is responsible both for gamma conversion and for bremsstrahlung of electrons, it is very important to model it with adequate accuracy. We use the International Geomagnetic Reference Field model (IGRF) [15] for $n=10$ , $n$ being the highest order of spherical harmonics in the scalar potential. To calculate the field according to the IGRF model we use the numerical procedures written by Tsyganenko [1] . When choosing $n=1$ , the output of these procedures is equivalent to a dipole model with $|{\bf M}|=8\cdot 10^{25}$ G $\cdot$ cm \textsuperscript{3} and with poles at 79.3 \textsuperscript{∘} N, 71.5 \textsuperscript{∘} W and 79.3 \textsuperscript{∘} S, 108.5 \textsuperscript{∘} E [15] .
+
+3.2 Magnetic pair production: $\gamma\rightarrow e^{+}e^{-}$
+
+The number of pairs created by a high-energy photon in the presence of a magnetic field per path length $dr$ can be expressed in terms of the attenuation coefficient $\alpha(\chi)$ [16] : 
+ 
+ $n_{pairs}=n_{photons}\{1-\exp[-\alpha(\chi)dr]\}$  (1) 
+ where 
+ 
+ $\alpha(\chi)=0.5(\alpha_{em}m_{e}c/\hbar)(B_{\bot}/B_{cr})T(\chi)$  (2) 
+ with $\alpha_{em}$ being the fine structure constant, $\chi\equiv 0.5(h\nu/m_{e}c^{2})(B_{\bot}/B_{cr})$ , $B_{\bot}$ is the magnetic field component transverse to the direction of the photon’s motion, $B_{cr}\equiv m_{e}^{2}c^{3}/e\hbar=4.414\times 10^{13}$ G and $T(\chi)$ is the magnetic pair production function. $T(\chi)$ can be well approximated by: 
+ 
+ $T(\chi)\cong 0.16\chi^{-1}{K^{2}}_{1/3}(\frac{2}{3\chi}),$  (3) 
+ where $K_{1/3}$ is the modified Bessel function of order $1/3$ . For small or large arguments $T(\chi)$ can be approximated by
+
+ the following expressions:
+
+T(χ) ≈ 0.577216 + ∫T_o^T_1 [(T - T_o) / χ^2] dt for small χ and
+
+T(χ) ≈ 1 - ∫T_o^T_1 exp(-(T - T_o)^2 / 4χ^2) dt for large χ.
+
+The parameter $B$ is obtained by solving the transcendental equation $B - \ln B = \ln(0.856(\tilde{\chi}_{c}/\chi_{a})^2)$. The functions $f_n$ for $n = 0, 1, 2$ are calculated using the following integral:
+
+f_n(tilde Theta) = ∫from 0 to infinity [(ulnu)^n \* e^(-u^2 / 4) \* J_0(tilde Theta \* u)] du.
+
+The variables $\chi_c$ and $\chi_a$ are directly related to the differential cross-section for Coulomb scattering, as defined in equation (10).
+
+We use Eq. ( 1 ) to calculate the probability of $\gamma$ conversion over a small path length $dr$ : 
+ 
+ $p_{conv}(r)=1-\exp[-\alpha(\chi(r))dr]\simeq\alpha(\chi(r))dr$  (5) 
+ and the probability of $\gamma$ conversion over a longer distance $R$ : 
+ 
+ $P_{conv}(R)=1-\exp[-\int^{R}_{0}\alpha(\chi(r))dr]$  (6) 
+
+
+3.3 Magnetic bremsstrahlung
+
+In the analysis conducted, the cross-section for the production of $e^{-},e^{+}$ pairs by primary photons was determined using the Bethe-Heitler formula, as reported by Motz et al. (1964) (MPRH). The emission angles of the $e^{-},e^{+}$ components were sampled based on the Bethe distribution (Motz et al. 1964). For the cross-section of Compton photon scattering, we employed the Klein-Nishina formula, as referenced in Gaisser (1990). The dependence of photon cross-sections on energy and the atomic number of the medium was derived from data provided by Storm & Israel (1973) and Hubbel (1969) (FMPM).
+
+For a professional audience, the research by Frank & Tamm (1937) provides an equation describing the mean number of Cherenkov photons emitted in a 1 cm pathlength by an electron:
+
+$\displaystyle\frac{dQ}{dl}=2\pi\alpha(\frac{1}{\lambda_{1}}-\frac{1}{\lambda_{2}})\sin^{2}\theta_{c}$
+
+The fine structure constant $\alpha=1/137$ and the opening angle of the Cherenkov light cone, $\theta_{c}\simeq 1^{o}$, are key factors in this equation. The spectral region of emission is defined by wavelengths $\lambda_{1}$ and $\lambda_{2}$. In simulations, we accounted for the sampling of Cherenkov light attenuation in the atmosphere due to Rayleigh scattering, ozone, and aerosol absorption. The cross-sections for these processes were calculated utilizing the data of Driscoll & Vaughan (1978).
+
+In the simulation of multiple scattering segments, we modeled the longitudinal displacement Z of a charged particle. Utilizing the Yang-Spenser distribution (Yang, 1951; Spencer & Coune, 1962), we adapted it for air shower simulations, as formulated by Plyasheshnikov & Kolchuzhkin (1975). The distribution can be expressed as follows:
+
+P(Z)dZ = -e^(nu)f(nu,xi)dxi
+
+where f(nu,xi) is given by:
+
+f(nu,xi) = (1 / (2πi)) ∫ₑ-i∞c+i∞ u^(1/2)cosh(u^(1/2))e^q du
+
+with q defined as:
+
+q = ξu - nu u^(1/2)ctg(u^(1/2)), (11)
+
+and nu, ξ, and eta as:
+
+ν = (1 - cosΘ) / (ηΔl)
+
+ξ = (Δl - Z) / (ηΔl^2)
+
+η = 2π ∫^-1+1 Wc(T1,θ)(1 - cosθ)d(cosθ)
+
+Wc(T,θ) = 2χc^2 / (θ^2 + χa^2)^2 . (12)
+
+In this context, Wc(T,θ) represents the cross-section of the Coulomb scattering, which determines the parameters χa and χc.
+
+3.4 Related physics topics
+
+In this section we shortly discuss the importance of other physics effects connected to our main subject. These are: • The geomagnetic field deflects the electrons from the initial preshower direction. To evaluate this deflection we use the equation 
+ 
+ $\frac{m_{rel}v^{2}}{R}=evB_{\bot}\;;\qquad m_{rel}=\frac{E}{c^{2}}$  (14) 
+ where $v$ is the speed of electron and $e$ is the elementary charge, to find the radius of curvature $R$ . If $R$ is much larger than the electron path length $L$ and assuming constant values of $B_{\bot}$ , $E$ and $v\approx c$ , the linear displacement from the preshower core in the plane perpendicular to the initial direction is well approximated by: 
+ 
+ $\Delta x\cong\frac{L^{2}}{2R}=\frac{ecB_{\bot}L^{2}}{E}$  (15) 
+ For typical values like $B_{\bot}=0.1$ G, $L=1000$ km (see Section 5 ) and relatively small energy of $E=10^{18}$ eV, we get $R\approx 10^{11}$ km which gives $\Delta x\cong 0.5$ cm. Assuming a larger value for $L$ , one should keep in mind that at higher altitudes ${\bf B}$ is lower and $E$ is higher. Allowing for other possible combinations of $B_{\bot}$ , $E$ and $L$ one comes to a very safe conclusion that in any case $\Delta x<$ 1 m. • The initial angular spread of particles in both pair production and bremsstrahlung can be approximated by $\Delta\theta\simeq m_{e}/E$ [19] . Even for energies as low as $10^{18}$ eV one has $\Delta\theta\approx 10^{-12}$ which even for extremely long paths like for instance 10000 km results in negligible linear deviations at the top of the atmosphere of $\Delta x\approx 10^{-3}cm$ . • A $\gamma$ -ray traveling through the vicinity of the Sun can cascade in the magnetosphere of the Sun where the field is much stronger than near the Earth. The particles originated in conversion near the Sun can be significantly deflected from their initial direction by the solar magnetic field. The cascade of such particles after reaching the Earth’s atmosphere will induce an air shower of large lateral extent which might be well distinguishable from proton or iron showers. However, the predicted rate of such events for primary energies of order $10^{19}$ eV is very low: about 1 event per 10 years for the Pierre Auger Observatory [20] . In our simulations we do not consider cascading in the Sun’s magnetosphere. • The magnetic field embedded in the solar wind is of order $10^{-5}$ G [21] and it influences the Earth’s magnetosphere at altitudes of order 8-10 $R_{\oplus}$ . Even for a primary energy as high as $10^{21}$ eV gamma conversion takes place within 2 $R_{\oplus}$ above the sea level (see Section 5 ) where the Earth magnetic field is not less than $10^{-2}$ G. Thus, the solar wind can be neglected in our studies. • The preshower electrons traveling at speeds $v<c$ are delayed with respect to the photons. This delay however is very small and can be neglected. For an extreme case of a $10^{18}$ eV electron traveling a path of 20000 km, the delay is of order $10^{-26}$ s. The delay of the particles not parallel to the main direction is also negligible (see the above discussion on the lateral spread of a preshower).
+
+4 Structure of the program
+
+The following subsections refer to the stand-alone mode of the PRESHOWER program. The PRESHOWER-CORSIKA mode requires only the main procedure generating events, preshw , which is described in subsection 4.3 . All the input data in the PRESHOWER-CORSIKA mode are provided via the main CORSIKA input file, the standard output is printed within the CORSIKA output, and the multirun.dat file is not returned, since there is only one run per one primary trajectory allowed in CORSIKA. There is also a different random number generator used in the PRESHOWER-CORSIKA mode than in the stand-alone one. For more information on the PRESHOWER-CORSIKA mode the user can refer to the latest CORSIKA manual [22] or contact the corresponding author.
+
+4.1 The source code and other files in the PRESHOWER packet
+
+The PRESHOWER code consists of the following files: preshw.c contains the main procedure generating preshowers, preshw , and the other procedures in C that are called by preshw . prog.c is used only in the stand-alone mode. It reads the input file INPUT and calls the preshower procedure preshw . igrf.f is an external procedure for calculation of the geomagnetic field according to the IGRF model (author: N.A.Tsyganenko [1] ), it is called by preshw . rmmard.f is a dummy Fortran routine used only in the stand-alone version for the proper linking of the program. In the PRESHOWER-CORSIKA mode the actual rmmard is responsible for random number generation. For the user’s convenience there are some more files included in the PRESHOWER packet: Makefile compilation and linking commands under linux. README.txt short information on the content of the PRESHOWER packet and on the installation process. INPUT typical input data read by the program working in the stand-alone mode. In the PRESHOWER-CORSIKA mode all the input data required by preshw are read directly from the main CORSIKA input file. part_out.dat the example of a detailed output file containing information on the preshower particle data being the result of running the program with the input INPUT . multirun.dat the example of an output file summarizing the program run with the input INPUT ; this file is produced only in the stand-alone mode. out.txt the standard output produced by the program in the stand-alone mode with the use of the input data from INPUT .
+
+4.2 Input and output data
+
+The current iteration of our computational algorithm has been validated through its compatibility with data collected by two operational observatories, namely the HEGRA system of advanced air Čerenkov imaging telescopes and the cutting-edge, single 10-meter Whipple telescope. These comparisons have underscored the exceptional accuracy of our simulations. The computational tool ALTAI serves as a valuable resource for generating simulated data in the field of Very High Energy gamma-ray astronomy. It is noteworthy that the impending generation of Čerenkov imaging detectors (CANGAROO IV, H.E.S.S., MAGIC, VERITAS) will necessitate a substantial volume of simulated data. Consequently, the efficacy of these instruments may be enhanced through the employment of the ALTAI code.
+
+The aforementioned energy cap of 50 TeV in the shower simulations is due to the simplified hadronic cascade model. While electromagnetic showers allow for simulations to be extended to higher energies without violating any model constraints, the same cannot be said for hadronic showers. This may necessitate modifications to the code to accommodate a higher particle count.
+
+4.3 Generation of events
+
+After reading the input parameters (see Sec. 4.2 ) the event generation procedure preshw is called, within which all the calculations are performed. In the initial stage all the necessary parameter transformations are applied and the preshower trajectory vector is computed. The propagation path length is set to be $5R_{\oplus}$ long, which e.g. for vertical showers means the simulation starting altitude of $5R_{\oplus}$ above sea level. All the data concerning the particles in the preshower are stored in the array part_out which at the beginning has only one entry: the primary photon. In steps of $10$ km the transverse magnetic field is computed by the procedure B_transverse , then the probability of conversion is found using Eq. ( 5 ). The step size has been checked to be sufficiently small. If the conversion takes place, the particle array is updated by replacing the photon with an $e^{+}$ and adding an $e^{-}$ at the array end. The energy partition fraction is found by the function ppfrac . To assure accurate bremsstrahlung simulation, beginning from the first gamma conversion the step of 1 km is used for all particle types. In every step, for each photon in the array, we check again for the conversion effect. In case of electrons the bremsstrahlung radiation is simulated using function brem . The probability of emitting a photon is calculated from Eq. ( 13 ) with the integration starting from $h\nu=10^{12}$ eV and logarithmic steps of 0.01. Bremsstrahlung photons of energies lower than $10^{12}$ eV have a very small influence on the air shower evolution (see also Section 5 ) and hence they are neglected.
+
+Once a bremsstrahlung photon is emitted, its energy is determined by the probability distribution $dN/d(h\nu)$ obtained again from Eq. ( 13 ), and the energy of the radiating electron is diminished correspondingly. Simulations are finished when the (adjustable) altitude of the top of the atmosphere is reached and all preshower particle parameters are written out (in the stand-alone mode) or passed to CORSIKA.
+
+4.4 Compilation, linking and running the program
+
+In order to compile, link and run PRESHOWER under Linux one should first create a file nr_fun.c in the PRESHOWER home directory and place the header:
+
+#include <stdio.h> 
+ #include <math.h>
+
+
+
+The ALTAI program, coded in FORTRAN, is universally compatible with any computing systems that possess a FORTRAN compiler. For those interested in acquiring the code, please contact Alexander Konopelko at alexander.konopelko@mpg.mpi-hd.de
+
+---
+
+The ALTAI code, which is written in FORTRAN, can be installed with ease on any computer systems that have a FORTRAN compiler. If you're interested in obtaining this code, please reach out to Alexander Konopelko at alexander.konopelko@mpg.mpi-hd.de.
+
+5 Illustration of preshower simulations
+
+A comprehensive examination of the Monte Carlo studies, elucidating the lateral, temporal, and angular properties of Čerenkov radiation in air showers spanning an energy range from 10 GeV to 1 TeV, was recently presented by Konopelko (1997). The ALTAI code, employed in this analysis, demonstrates a commendable degree of congruence with the MOCCA code findings (Hillas 1996). The groundbreaking stereoscopic observations of the BL Lac object Mkn 501 in 1997, executed with the HEGRA system of imaging air Čerenkov telescopes, marked the initial measurement of the parameters of Čerenkov light images generated by $\gamma$-ray-induced air showers. These experimental findings align seamlessly with the results of Monte Carlo simulations produced using the ALTAI code (Aharonian et al. 1999a). With a dataset consisting of 38,000 $\gamma$-ray events from Mkn 501, we have meticulously validated the parameters associated with the orientation and shape of Čerenkov light images, as predicted by the simulations (Konopelko et al. 1999a), a comparison exemplified in Figure 3.
+
+To visualize how the transverse magnetic field ( $B_{\bot}$ ) can change along the shower trajectory, we have chosen some representative directions along which a particle encounters $B_{\bot}$ of significantly different strengths: strong, medium and weak. The “strong field direction” is the one along which $B_{\bot}$ is maximal compared to other directions with zenith angles $\theta\leq 60^{\circ}$ and is defined by the angles $\theta=60^{\circ}$ and $\phi=177^{\circ}$ . Similarly, the weak $B_{\bot}$ trajectory (“weak field direction”) was chosen to resemble the local field direction at Malargüe of $\theta=50^{\circ}$ , $\phi=357^{\circ}$ [15] . The “medium field direction” is a vertical trajectory ( $\theta=0^{\circ}$ ). In the following we will refer to these directions.
+
+5.1 Geomagnetic cascading
+
+In Fig. 2 we show how $B_{\bot}$ changes with altitude for the strong, medium and weak field directions. The trajectories end at the chosen top of the atmosphere. In addition to the altitude dependence of $B_{\bot}$ , large directional differences are visible. Of course we expect the strong field direction to coincide with the direction of a stronger preshower effect.
+
+In Fig. 3 , the altitudes of first photon conversion are shown for different energies in the strong field direction. The percentage values shown for each curve denote the total conversion probability up to the top of atmosphere, which is adjusted here to the starting altitude of CORSIKA at 112 km. It can be seen that for the magnetic field above Malargüe, the pair production effect becomes important for energies above $5\times 10^{19}$ eV. For all energies of interest, even in case of photons at $10^{21}$ eV, the conversion altitude is not higher than 13000 km, i.e. about $2R_{\oplus}$ a.s.l. Thus, the range of interest of the magnetic field strength for the case of Malargüe is $0.3$ G $\div$ $0.01$ G (see Fig. 2 ).
+
+The distribution plotted in Fig. 3 is consistent with the results of Ref. [9] . The integrated conversion probability computed with Eq. ( 6 ) for different $\gamma$ energies and for the two trajectories of strong and weak field directions is plotted in Fig. 4 . For photons of energies between $5\times 10^{19}$ eV and $5\times 10^{20}$ eV a change in the arrival direction, i.e. a change in the magnetic field component perpendicular to the photon trajectory, may imply a dramatic increase or decrease of the conversion probability. Thus, for these energies we expect a strong directional dependence of the preshower effect which might serve as characteristic fingerprint of photons as primary cosmic rays.
+
+In Figure 3, the distribution of the Mean Scaled Width parameter for primary gamma rays and cosmic rays is depicted, derived from the HEGRA data and Monte Carlo simulations. A close fit between the simulations and data is observed. Recents studies have compared the outcomes of the ALTAI simulations with cosmic ray data gathered using a 10-meter Whipple imaging air Cherenkov telescope during the 1995/1996 Crab Nebula observations (Konopelko 1999b). The simulations, utilizing the standard detector response functions provided by the Whipple collaboration, mirror the shape of the recorded Cherenkov light images, as demonstrated in Figure 4.
+
+In this discussion, we delve into the section of the programming that creates an electromagnetic cascade in the atmosphere, specifically known as EMCCS. It's important to mention that the cross-sections for electron and photon interactions, which are crucial for this process, have already been established and comprehensively detailed in the appropriate energy range. The electromagnetic aspect of the code handles several interaction mechanisms: the production of electron-positron pairs, Compton scattering for initial photons, and bremsstrahlung and ionization losses for primary electrons and positrons, as well as Coulomb scattering for these charged particles.
+
+In Fig. 6 mean energy spectra are plotted for 1000 preshowers initiated by photons of energy $10^{20}$ eV arriving at the top of atmosphere from the strong field direction for Malargüe. In the top row we show the distribution of photons (left) and the distribution of photons weighted by their energies (right). We start the simulations of the bremsstrahlung radiation for the energy threshold of $10^{12}$ eV so the photons of lower energies are absent in the distribution. In this way we take into account the majority of the photons even if those of energies lower than $10^{16}$ eV may have little impact on the longitudinal profile of the resultant air shower. The total energy fraction carried by such photons is very low (see the top right plot in Fig. 6 ) and the induced subshowers fade very quickly. In the simulation run presented in Fig. 6 , only 78 out of 1000 primary photons did not convert into $e^{+}e^{-}$ , these are seen in the top right plot as the narrow peak at $E=10^{20}$ eV.
+
+The distributions of the electrons in the same sample of 1000 preshowers are shown in the bottom row of Fig. 6 . Again, the spectrum of particles is plotted to the left and the spectrum weighted by energy to the right. Only in three cases out of 1000 a bremsstrahlung photon converted into $e^{+}e^{-}$ so the total number of electrons is 1850 and not 1844. When the conversion happens at a lower altitude, the electrons radiate less bremsstrahlung before entering the atmosphere. These cases are seen in the spectrum as a tail towards high energies.
+
+Some characteristics of the preshowers shown in Figure 6 are summarized in Table 2 together with some other exemplary preshower cases. The conversion probabilities are consistent with those in Figure 5 . For higher initial energies gamma conversion takes place at higher altitudes (see Fig. 3 ) and the resultant electrons radiate more bremsstrahlung photons so the number of particles is larger. Additionally for energies as high as $10^{21}$ eV there is more than one gamma conversion per each preshower which also enlarges $N_{part}$ . Comparing strong $B_{\bot}$ and weak $B_{\bot}$ directions for a given energy, the large directional dependence of preshower evolution can be noted. In case of $E_{0}=10^{20}$ eV from the weak $B_{\bot}$ direction we expect unconverted photons initiating cascades with a large depth of shower maximum $X_{max}$ due to the LPM effect. The strong $B_{\bot}$ forces the initial energy to be split into about 500 particles of which the highest energy particle typically is a photon with the energy about 5 times lower than the initial one. This means that the longitudinal profile of the resultant air shower will have the maximum higher in the atmosphere, which will make it more similar to a proton-like profile. The energy splitting in this case will compete with the LPM effect. This splitting effect for $E_{0}=10^{21}$ eV for the strong $B_{\bot}$ direction is even more dramatic: the highest energy particle in the preshower is more than 16 times less energetic than the primary photon. The maximum $\gamma$ energy in the preshower for the weak field direction is higher than for the strong field since the conversion probability is lower in a weaker field (see Fig. 4 ). Detailed distributions of < $N_{part}$ >, < $N_{e^{+}e^{-}}$ >, <max $E_{\gamma}$ > and <max $E_{e}$ > for $E_{0}=10^{21}$ eV and the strong $B_{\bot}$ are shown in the top left, top right, bottom left and bottom right plots of Figure 7 , respectively.
+
+As mentioned above, the number of particles in the preshower is connected to the altitude of the first gamma conversion. This correlation is presented in Figure 8 . The higher altitude of conversion gives more particles at the top of the atmosphere because the electron-positron pair radiates bremsstrahlung over a longer path. The increase in particle number is slightly larger at low altitudes because of the stronger magnetic field.
+
+For the same reasons the total energy fraction carried by the electrons should be smaller for higher conversion altitudes. This dependence is shown in Figure 9 . One notes that for high altitudes of the first conversion only about 1% of the initial energy of $10^{20}$ eV remains in the electrons at the top of the atmosphere, while all the rest is radiated into photons. With decreasing altitudes the energy radiated into photons decreases. The three points in excess of the general trend in Figure 9 are the cases where the primary photon converted at high altitude and one of the resulting bremsstrahlung photons converted close to the top of the atmosphere - at 228, 442 and 133 km a.s.l respectively for the points from right to left. The threshold for $\gamma$ conversion in this case is about $5\cdot 10^{19}$ eV, so at least one member of $e^{+}e^{-}$ pair had an initial energy greater than $10^{19}$ eV, and since its birth altitude was relatively low, there was little time for radiation.
+
+5.2 Atmospheric cascading: PRESHOWER and CORSIKA
+
+Offered is an exhaustive account of the numerical code ALTAI, designed for the modeling of Čerenkov light emitted from extensive air showers in the context of Very High Energy (VHE) gamma-ray astronomy. The code facilitates rapid and precise calculations of the responses of ground-based Čerenkov detectors. Despite its initial focus on the parameters and characteristics of Imaging Air Čerenkov Telescopes, the code can be modified with minor adjustments to simulate the responses of showerfront sampling experiments, such as MILAGRO or Tibet AS-$\gamma$.
+
+As opposed to other computational algorithms, our method utilizes more precise distributions, mathematically deduced from the multiple scattering theory. In contrast, the conventional method, such as that employed in the EGS-IV code, omits the fluctuations in energy losses associated with multiple-scattering events. Moreover, in the EGS-IV code, the position of a charged particle following a multiple-scattering event is assumed to be a vector $\vec{\rho}=0$ in the lateral direction, and its longitudinal displacement is set at $z=\Delta l$. This necessitates a smaller segment length, thereby increasing the computational time required for the simulations of cascades significantly. Consequently, the ALTAI code, employed for the simulation of Cherenkov light from TeV air showers, can be several times faster in execution.
+
+In the course of its trajectory within a medium, a relativistic electron undergoes a multitude of complex interactions. Due to the sheer number and intricacy of these interactions, a comprehensive direct simulation is infeasible. As a result, numerical models for the simulation of cascades rely on a specific method for clustering electron-electron interactions. This method enables the simulation of only those interactions classified as catastrophic, which result in the emission of a high-energy photon/electron, with energy exceeding a particular threshold, Q. This approach has been applied not only to the simulation of the $e^{-},e^{+}$ ionization process, where the energy threshold is QI, but also to the simulation of bremsstrahlung, where the threshold is QR. The emitted electron must possess kinetic energy surpassing a specific intermediate energy threshold, QI, in the former case, and QR in the latter.
+
+In Table 3 we compare $X_{max}$ and RMS of $X_{max}$ for gamma induced showers of different primary energies and arrival directions. The $X_{max}$ of proton-induced showers using the high-energy hadronic interaction model QGSJET 01 [29] is 820 (870) g/cm \textsuperscript{2} for $10^{20}$ ( $10^{21}$ ) eV, and using the SIBYLL 2.1  model [30] 855 (915) g/cm \textsuperscript{2} . The RMS in all cases is about 50 $-$ 60 g/cm \textsuperscript{2} . Both for $E_{0}=10^{19.5}$ eV in strong $B_{\bot}$ direction and for $E_{0}=10^{20}$ eV in weak $B_{\bot}$ direction, almost every photon remains unconverted when entering the atmosphere, resulting in deep $\langle X_{max}\rangle$ and large fluctuations due to the LPM effect. A comparison to the longitudinal profile of hadronic primaries shows that unconverted primary photons might be well distinguishable from primary protons or nuclei even on event-by-event basis.
+
+Almost all the photons at $10^{20}$ eV arriving from the strong field direction convert into $e^{+}e^{-}$ pairs. As the most energetic bremsstrahlung photons have energies several times lower than the primary photon energy, the subshowers develop faster. On average, the showers reach their maxima earlier than the one induced by an unconverted photon, but still not as early as hadronic showers. For larger statistics of 10 \textsuperscript{20} eV events and if a substantial fraction of UHE cosmic rays are photons, one expects to see, as described above, the directional anisotropy in $\langle X_{max}\rangle$ and RMS( $X_{max}$ ) and on this basis one may draw conclusions on the primary composition. The absence of this dependence would allow us to set upper limits on the photon flux.
+
+At the primary energy of $10^{21}$ eV all photons convert, whatever the arrival direction. We still see the directional dependence of $\langle X_{max}\rangle$ but it is not as pronounced as previously. The fluctuations of $X_{max}$ in this case are significantly lower (by about a factor 4) than for $10^{20}$ eV primaries. Table 3 shows that at $10^{21}$ eV it is more difficult to distinguish a photon primary on the basis of the $X_{max}$ value from a proton one on an event-by-event basis. It is interesting, however, to note the directional dependence of the elongation rate. From Table 3 we see that at Malargüe, for the strong $B_{\bot}$ direction, the elongation rate of photon-induced showers between $10^{20}$ eV and $10^{21}$ eV is much less than for proton or iron showers. For the weak $B_{\bot}$ we even have a negative elongation rate. This is because the preshowering effect for photons at $10^{21}$ eV splits the initial energy into energies less than $10^{20}$ eV and at this energy level, for the weak $B_{\bot}$ direction, almost all the primary photons remain unconverted and they induce air showers with deeper $X_{max}$ . Low or negative elongation rates could be an additional good signature of photon showers.
+
+To compensate for the absence of a collimated test beam of TeV gamma-ray photons, ground-based Cherenkov detectors rely heavily on Monte Carlo simulations of Cherenkov light emission from air showers. These simulations aid in understanding the detector's performance by providing basic parameters such as detection area, angular and energy resolution, and cosmic ray rejection efficiency. The key aspect is the precise measurement of the primary shower energy, which necessitates the accurate inclusion of all processes related to Cherenkov light emission in air showers and photon propagation from the emitting shower particle to the telescope camera. The accuracy of measurements of gamma-ray fluxes, energy spectra, and upper limits hinges on the absolute energy calibration of the telescope.
+
+6 Summary
+
+Remarkable discoveries and investigations of TeV gamma-ray radiation from numerous celestial bodies, both within and beyond our galaxy (Ong 1998, Catanese & Weekes 1998), have demonstrated the efficacy of contemporary imaging air Čerenkov telescopes (IACTs). In the near future, several advanced detectors like CANGAROO IV, H.E.S.S., MAGIC, and VERITAS are slated to launch. These upcoming instruments will exhibit significantly enhanced capabilities in detecting gamma-ray fluxes, spanning the energy spectrum from 50 GeV to 50 TeV.
+
+The ALTAI code's development and advancement were primarily conducted at the Tomsk Technological University, Tomsk, Russia, with the key algorithms of the shower simulation scheme being formulated there. The authors express gratitude to Prof. A.M. Kolchuzhkin for his significant contribution to these studies. The majority of the ALTAI code's development and programming were done at the Altai State University, Barnaul, Russia. The authors thank Dr K.V. Vorobjev, Prof A.M. Lagutin, Dr V.A. Litvinov, and Prof V.V. Uchaikin for their invaluable input and support of this project. The computational code ALTAI was utilized and further developed at the Max-Planck-Institut für Kernphysik, Heidelberg. The authors acknowledge the contributions and support of all members of the Heidelberg group, particularly Prof F. Aharonian, Dr M. Hemberger, Prof W. Hofmann, J. Kettler, and Prof H.J. Völk. AKK thanks Prof T.C. Weekes for his support and supervision during a short-term project at the University of Arizona, Tucson, and the Whipple Observatory, Harvard-Smithsonian Center for Astrophysics, Amado.
+
+The new experiments with large collecting apertures give promising prospects for acquisition of a substantial amount of extensive air shower data in the UHE range of cosmic-ray spectrum. An important step towards explaining the origin of UHE cosmic rays will be the observation of primary UHE photons or specifying stringent upper limits for the photon flux. This requires a detailed understanding of the UHE photon shower characteristics. The presented PRESHOWER code can serve as tool for such simulations.
+
+7 Acknowledgements
+
+We thank R. Engel, M. Kachelriess, S.S. Ostapchenko for valuable remarks and suggestions.
+
+This work was partially supported by the Polish State Committee for Scientific Research under grant No. PBZ KBN 054/P03/2001 and 2P03B 11024 and by the International Bureau of the BMBF (Germany) under grant No. POL 99/013.
+
+A Compilation of procedures/functions
+
+preshw(*id, *E_gamma, *the_loc, *phi_loc, *toa, *glong, *glat, 
+ *igrf_year, *iiprint, *corsika, *nruns, part_out[10000][7], 
+ *r_zero, *r_fpp, *N_part_out) : 
+ This is the main procedure of PRESHOWER which simulates the propagation of an UHE photon before its entering the Earth’s atmosphere. It takes into account the effect of $\gamma$ conversion into $e^{+/-}$ pair and subsequent bremsstrahlung radiation of the electrons in the geomagnetic field. As a result a bunch (a preshower) of particles is obtained, mainly photons and a few electrons, instead of the primary photon. The information about all the particles in the preshower is saved (in the stand-alone mode) or returned to CORSIKA (PRESHOWER-CORSIKA mode). The output parameters r_zero , r_fpp and N_part_out are required by CORSIKA only – they are not used by the stand-alone version. 
+ INPUT: 1. *id : primary particle type: always id =1 (a photon) 2. E_gamma : primary energy [GeV] 3. *the_loc, *phi_loc : zenith and azimuth angles (in radians) of the shower trajectory given in the local coordinate system 4. *toa : the top of the atmosphere [cm] 5. *glong : longitude position of experiment [deg] (Greenwich glong = $0^{\circ}$ , eastward is positive) 6. *glat : latitude position of experiment [deg] (North Pole: glat = $90^{\circ}$ , South Pole: glat = $-90^{\circ}$ ) 7. *igrf_year : the year in which the magnetic field is to be computed – this parameter is an input for the igrf procedure 8. *iiprint : print flag (adjustable only in PRESHOWER-CORSIKA, in the stand-alone version iiprint=1 ) 
+ = 0: suppress printing from preshw ; 
+ = 1: enable printing from preshw 9. *corsika : mode flag 
+ = 1: PRESHOWER-CORSIKA: – random generator from CORSIKA is used ( rndm ); 
+ = 0: stand-alone version: random generator from Numerical Recipes ( ran2 ) is used 10. *nruns : number of runs OUTPUT: 1. part_out[10000][7] : the array to store the preshower particle data, maximum number of particles: 10000 
+ part_out[n][0]: particle type: 1 – photon, 2 – $e^{+}$ , 3 – $e^{-}$ 
+ part_out[n][1]: particle energy [GeV] 
+ part_out[n][2-6]: not used 2. *r_zero : height above sea level of the simulation starting point given in [km] above sea level 3. *r_fpp : height of the first pair production (0 for surviving photons) given in [km] above sea level 4. *N_part_out : number of preshower particles at the top of the atmosphere (number of entries in part_out array) bessik(x, xnu, *ri, *rk, *rip, *rkp) : 
+ for argument x computes modified Bessel function rk of fractional order xnu ; [2] getrand(seed, mode) : 
+ for a given seed seed returns a random number from interval (0,1) choosing an appropriate generator according to the mode flag: ran2 for the stand-alone mode ( mode =0) and rmmard for the CORSIKA-PRESHOWER ( mode =1) float kappa(x) : 
+ an auxiliary function used in the bremsstrahlung procedure brem brem(B_tr, E_e, E_sg) : 
+ computes bremsstrahlung radiation for the transverse magnetic field B_tr , electron energy E_e and bremsstrahlung photon energy E_sg B_transverse(B, tn) : 
+ getting the geomagnetic field B component which is perpendicular to the preshower trajectory tn ran2(seed) : 
+ the random number generator used only in the stand-alone mode; [2] cross(a, b, c) : 
+ returns cross product c of vectors a and b dot(a, b) : 
+ returns dot product of vectors a and b norm(a, n) : 
+ the input vector a is normalized and returned as vector n normv(a) : 
+ returns the length of vector a glob2loc(glob, loc, theta, phi) : 
+ converts global cartesian coordinates glob to the local ones ( loc ) for the geographical position theta (colatitude) and phi (longitude) sph2car(sph, car) : 
+ converts spherical coordinates sph to the cartesian ones car . car2sph(car, sph) : 
+ inverse to sph2car locsphC2glob(locsph, glob, theta, phi, sing, cosgm, sitec) : 
+ converts local spherical coordinates locsph (CORSIKA frame of reference) to the global cartesian coordinates glob , using geographical coordinates of the observatory ( theta - colatitude, phi - longitude), global cartesian coordinates of the observatory ( sitec ) and sine and cosine of the declination angle ( sing , cosg ) ppp(efrac, B_tr, E_g0) : 
+ this auxiliary function is used within ppfrac ppfrac(s, mode, B_tr, E_g0) : 
+ determines the energy partition after gamma conversion, the computations are performed according to Ref. [17] ; s - seed, mode - determines the type of the random number generator, B_tr - transverse magnetic field, E_g0 - primary photon energy igrf_(year, n, r, theta, phi, Br, Btheta, Bphi) : 
+ external Fortran procedure written by Tsyganenko [1] ; computes magnetic field according to the IGRF model; used within b_igrf ; year - the year of the experiment, n - the highest order of the spherical harmonics in the scalar potential, r, theta, phi - spherical coordinates of the point at which the field is to be found, Br, Btheta, Bphi - spherical coordinates of the magnetic field at given position b_igrf(year, r, theta, phi, bcar) : 
+ for a given year and position ( r, theta, phi ) computes the magnetic field bcar in global cartesian coordinates according to the IGRF model bsph2car(colat, longit, bsph, bcar) : 
+ converts the magnetic field from spherical coordinates ( bsph ) into cartesian ones bcar ; used only in b_igrf rndm() : 
+ calls CORSIKA random number generator, used only in the PRESHOWER-CORSIKA mode
+
+References
+
+[1] N. A. Tsyganenko, National Space Science Data Center, NASA GSFC, Greenbelt, MD 20771, USAhttp://nssdc.gsfc.nasa.gov/space/model/magnetos/data-based/geopack.html
+[2] Numerical Recipes, http://www.nr.com
+[3] K. Greisen, Phys. Rev. Lett.16, (1966) 748; G.T. Zatsepin and V.A. Kuzmin, Zh. Eksp. Teor. Fiz.4, (1966) 114
+[4] J. Abraham et al., Auger Collaboration, Nucl. Inst. Meth. (2003) submitted; J. Blümer for the Auger Collaboration, J. Phys. G: Nucl. Part. Phys.29, (2003) 867
+[5] L. Scarsi et al., Proc.27t​hsuperscript27𝑡ℎ27^{th}Int. Cosmic Ray Conf., Hamburg,2(2001) 839
+[6] D. Heck, J. Knapp, J.N. Capdevielle, G. Schatz, and T. Thouw, Report FZKA 6019, Forschungszentrum Karlsruhe (1998) (available at www-ik.fzk.de/~heck/corsika/)
+[7] B. McBreen and C.J. Lambert, Phys. Rev. D24, (1981) 2536
+[8] S. Karakula and W. Bednarek, Proc.24t​hsuperscript24𝑡ℎ24^{th}Int. Cosmic Ray Conf., Rome, (1995) 266
+[9] T. Stanev and H.P. Vankov, Phys. Rev. D55(1997) 1365
+[10] W. Bednarek, New Astron.7(2002) 471
+[11] H.P. Vankov, N. Inoue, and K. Shinozaki, Phys. Rev. D67(2003) 043002
+[12] H.P. Vankov, T. Stanev, N. Inoue, A. Misaki, S.Kawaguchi, and E. Konishi, Proc. 28thInt. Cosmic Ray Conf., Tsukuba, (2003) 527
+[13] X. Bertou, P.Billoir and S. Dagoret-Campagne, Astropart. Phys.14(2000) 121
+[14] L.D. Landau and I.J. Pomeranchuk, Dokl. Akad. Nauk SSSR,92, (1953) 535, 735A.B. Migdal, Phys. Rev.103, (1956) 1811
+[15] National Geophysical Data Center, USA, www.ngdc.noaa.gov
+[16] T. Erber, Rev. Mod. Phys.38(1966) 626
+[17] J. K. Daugherty, A. K. Harding, Astrophys. J.273(1983) 761
+[18] A.A. Sokolov, I.M. Ternov, Radiation from Relativistic Electrons, Springer Verlag, Berlin, 1986
+[19] M. Sterns, Phys. Rev.76(1949) 836; A. Borsellino, Phys. Rev.89(1953) 1023
+[20] W. Bednarek, preprint astro-ph/9911266 (1999)
+[21] www.spaceweather.com
+[22] D. Heck, J. Knapp, available atwww-ik.fzk.de/~heck/corsika/userguide/corsika_tech.html
+[23] D. Heck and J. Knapp, ReportFZKA 6097, Forschungszentrum Karlsruhe (1998)
+[24] W.R. Nelson, H. Hirayama, and D.W.O. Rogers, ReportSLAC 265, Stanford Linear Accelerator Center (1985)
+[25] A.M. Hillas, Nucl. Phys. B (Proc. Suppl.)52B(1997) 29
+[26] M. Kobal, Pierre Auger Collaboration, Astropart. Phys.15(2001) 259
+[27] M. Risse, D. Heck, J. Knapp, and S.S. Ostapchenko, Proc.27t​hsuperscript27𝑡ℎ27^{th}Int. Cosmic Ray Conf., Hamburg (Germany),2(2001) 522
+[28] M. Risse and D. Heck,Auger Technical NoteGAP-2002-043, www.auger.org, (2002)
+[29] N.N. Kalmykov, S.S. Ostapchenko and A.J. Pavlov, Nucl. Phys. B (Proc. Suppl.)52 B(1997) 17; D. Heck et al., Proc.27t​hsuperscript27𝑡ℎ27^{th}Int. Cosmic Ray Conf., Hamburg1(2001) 233
+[30] R. Engel, T.K. Gaisser, P. Lipari, and T. Stanev, Proc.26t​hsuperscript26𝑡ℎ26^{th}Int. Cosmic Ray Conf., Salt Lake City1(1999) 415; R.S. Fletcher, T.K. Gaisser, P. Lipari, and T. Stanev, Phys. Rev. D50(1994) 5710; J. Engel, T.K. Gaisser, P. Lipari, and T. Stanev, Phys. Rev. D46(1992) 5013

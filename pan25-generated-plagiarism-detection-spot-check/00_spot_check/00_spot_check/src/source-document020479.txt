@@ -1,0 +1,367 @@
+On another extension of coherent pairs of measures
+
+By K. Castillo and D. Mbouna
+
+Abstract
+
+Let $M$ and $N$ be fixed non-negative integer numbers and let $\pi_{N}$ be a polynomial of degree $N$ . Suppose that $(P_{n})_{n\geq 0}$ and $(Q_{n})_{n\geq 0}$ are two orthogonal polynomial sequences such that $\pi_{N}(x)\,P_{n+m}^{(m)}(x)=\sum_{j=n-M}^{n+N}r_{n,j}Q_{j+k}^{(k)}(x)\quad(n=0,1,\ldots)\,,$ where $r_{n,j}$ are complex number independent of $x$ . It is shown that under natural constraints, $(P_{n})_{n\geq 0}$ and $(Q_{n})_{n\geq 0}$ are semiclassical orthogonal polynomial sequences. Moreover, their corresponding moment linear functionals are related by a rational modification in the distributional sense. This leads to the concept of $\pi_{N}-$ coherent pair with index $M$ and order $(m,k)$ .
+
+1. Introduction
+
+In the framework of the theory of orthogonal polynomials —for an updated reference on this subject we refer the reader to Ismail’s book [8] —, the concept of coherent pair of measures as well as its multiple generalizations have been a subject of increasing research interest along the last decades. This concept was introduced by Iserles et al. [7] motivated by the theory of polynomial approximation with respect to certain Sobolev inner products. In [11] , the notion of $(M,N)-$ coherent pair, and of $(M,N)-$ coherent pair of order $(m,k)$ , were introduced as extensions of most of the concepts of coherence up to that time. More precisely, given two monic orthogonal polynomial sequences (OPS), $(P_{n})_{n\geq 0}$ and $(Q_{n})_{n\geq 0}$ , we say that $\big{(}(P_{n})_{n\geq 0},(Q_{n})_{n\geq 0}\big{)}$ is an $(M,N)-$ coherent pair of order $(m,k)$ if there exist two non-negative integer numbers $M$ and $N$ , and sequences of complex numbers $(a_{n,j})_{n\geq 0}$ ( $j=0,1,\ldots,M$ ) and $(b_{n,j})_{n\geq 0}$ ( $j=0,1,\ldots,N$ ) such that, under natural assumptions on the coefficients $a_{n,j}$ and $b_{n,j}$ , the structure relation 
+ 
+ $\sum_{j=0}^{M}a_{n,j}P_{n-j}^{[m]}(x)=\sum_{j=0}^{N}b_{n,j}Q_{n-j}^{[k]}(x)\quad(n=0,1,\ldots)$ 
+ holds. Here and subsequently, we use the notation 
+ 
+ $P_{n}^{[m]}(x):=\frac{1}{(n+1)_{m}}\frac{{\rm d}^{m}}{{\rm d}x^{m}}\,P_{n+m}(x)$ 
+ ( $Q_{n}^{[k]}$ is defined in the same way), where for any positive real number $\alpha$ , $(\alpha)_{n}$ denotes the Pochhammer symbol defined by 
+ 
+ $(\alpha)_{0}:=1\;,\quad(\alpha)_{n}:=\alpha(\alpha+1)\cdots(\alpha+n-1)\quad\mbox{\rm if}\quad n\in\mathbb{N}\;.$ 
+ Note that $P_{n}^{[m]}$ is a normalization of the derivative of order $m$ of $P_{n+m}$ defined so that it becomes a monic polynomial of degree $n$ . Let u and v be the moment regular functionals with respect to which $(P_{n})_{n\geq 0}$ and $(Q_{n})_{n\geq 0}$ are orthogonal. It follows from the results in [17] that if $m=k$ then u and v are connected by a rational transformation (in the distributional sense), i.e., there exist nonzero polynomials $\Phi$ and $\Psi$ such that $\Phi\textbf{u}=\Psi\textbf{v}$ . Otherwise if $m\neq k$ then u and v are still connected by a rational transformation and, in addition, they are semiclassical functionals, i.e., there exist nonzero polynomials $\Phi_{1}$ , $\Psi_{1}$ , $\Phi_{2}$ , and $\Psi_{2}$ such that 
+ 
+ $D(\Phi_{1}{\bf u})=\Psi_{1}{\bf u}\;,\quad D(\Phi_{2}{\bf v})=\Psi_{2}{\bf v}\;.$ 
+ In agreement with the ‘algebraic theory’ of OPS introduced by Maroni [15] , the left product of a polynomial $\Phi$ by a moment functional w is the functional, $\Phi{\bf w}$ , defined by $\langle\Phi\textbf{w},p\rangle:=\langle\textbf{w},\Phi p\rangle$ for each polynomial $p$ , whereas the derivative of ${\bf w}$ , $D{\bf w}$ , is defined by $\langle D\textbf{w},p\rangle:=-\langle\textbf{w},p^{\prime}\rangle$ , for each polynomial $p$ . As usual, $\langle\cdot,\cdot\rangle$ means the duality bracket, so that $\langle{\bf w},p\rangle$ is the action of the functional ${\bf w}$ over the polynomial $p$ .
+
+In this work we modify the left-hand side of the above structure relation, and consider the following one: 
+ 
+ (1.1)  $\pi_{N}(x)P_{n}^{[m]}(x)=\sum_{j=n-M}^{n+N}c_{n,j}Q_{j}^{[k]}(x)\quad(n=0,1,\ldots)\,,$ 
+ where $M$ and $N$ are fixed non-negative integer numbers, $\pi_{N}$ is a monic polynomial of degree $N$ (hence $c_{n,n+N}=1$ for each $n$ ), and we consider the convention $Q_{j}\equiv 0$ if $j<0$ . Further, we will assume that the following conditions hold: 
+ 
+ (1.2)  $c_{n,n-M}\neq 0\quad\mbox{\rm if}\quad n\geq M\;.$ 
+ Maroni and Sfaxi [16] considered the case $(m,k)=(0,1)$ and called the pair $\big{(}(P_{n})_{n\geq 0},(Q_{n})_{n\geq 0}\big{)}$ fulfilling the structure relation ( 1.1 ) whenever $(m,k)=(0,1)$ a $\pi_{N}-$ coherent pair with index $M$ . This motivates the following
+
+Let $M$ and $N$ be non-negative integer numbers and let $\pi_{N}$ be a monic polynomial of degree $N$ . If $(P_{n})_{n\geq 0}$ and $(Q_{n})_{n\geq 0}$ are two monic OPS such that their normalized derivatives of orders $m$ and $k$ (respectively) satisfy $(\ref{1b})$ – $(\ref{cond1})$ , we call $\big{(}(P_{n})_{n\geq 0},(Q_{n})_{n\geq 0}\big{)}$ , as well as the corresponding pair $({\bf u},{\bf v})$ of regular functionals, a $\pi_{N}-$ coherent pair with index $M$ and order $(m,k)$ .
+
+Besides [16] , many other instances of the structure relation ( 1.1 ) were considered previously by several authors. For instance, the case $N=0$ (i.e., $\pi_{N}\equiv 1$ and $M$ , $m$ , and $k$ being arbitrary) fits into the theory of $(M,0)-$ coherent pairs of order $(m,k)$ , described at the begin of this introduction. Also, whenever $(m,k)=(1,0)$ and $(P_{n})_{n\geq 0}\equiv(Q_{n})_{n\geq 0}$ , $(\ref{1b})$ becomes a characterization of semiclassical OPS due to Maroni [14] . Note that for $N\leq 2$ and $M=0$ , this reduces to the well known Al-Salam-Chihara characterization of the classical OPS [1] . The case $k=0$ ( $M$ , $N$ and $m$ being arbitrary) was considered by Bonan et al. [3] in the framework of orthogonality in the positive-definite sense, i.e., whenever the orthogonality of each of the involved OPS is considered with respect to positive Borel measures. In the special case $m=1$ , a complementary approach to the case considered in [3] was presented in [12] , in the framework of the so-called regular (or formal) orthogonality.
+
+It is a remarkable fact that in all the previous works the involved OPS and their corresponding regular moment linear functionals are semiclassical. Thus, a major question is to analyze whether the OPS involved in a $\pi_{N}-$ coherent pair with index $M$ and order $(m,k)$ are semiclassical, and in such a case to determine the relations between the corresponding regular moment linear functionals. This will be treated in Section 2 . As an application, in Section 3 , we present an alternative approach to a recent result due to Griffin [5] , which fits into $\pi_{1}-$ coherence with index $1$ and order $(1,0)$ .
+
+2. Main results
+
+In this section we establish the semiclassical character of the OPS and their associated regular functionals involved in a $\pi_{N}-$ coherent pair with index $M$ and order $(m,k)$ . Our approach is based upon the algebraic theory of orthogonal polynomials developed by Maroni [13] . We denote by $\mathcal{P}$ the vector space of all (complex) polynomials and by $\mathcal{P}^{*}$ its algebraic dual space. $\mathcal{P}$ may be endowed with a topology (indeed, an appropriate strict inductive limit topology) such that the algebraic and the topological dual spaces of $\mathcal{P}$ coincide, that is, $\mathcal{P}^{*}=\mathcal{P}^{\prime}$ . Given a simple set of polynomials $(R_{n})_{n\geq 0}$ (meaning that each $R_{n}\in\mathcal{P}$ and $\deg R_{n}=n$ for each $n=0,1,\ldots$ ), the corresponding dual basis is a sequence of linear functionals ${\bf e}_{n}:\mathcal{P}\to\mathbb{C}$ such that 
+ 
+ $\langle{\bf e}_{n},R_{j}\rangle:=\delta_{n,j}\quad(n,j=0,1,\ldots)\;,$ 
+ where $\delta_{n,j}$ denotes the Kronecker’s symbol. In particular, if $(R_{n})_{n\geq 0}$ is a monic OPS with respect to ${\bf w}\in\mathcal{P}^{\prime}$ , i.e., there exists a sequence of nonzero complex numbers $(k_{n})_{n\geq 0}$ such that the orthogonality conditions 
+ 
+ $\langle{\bf w},R_{j}R_{n}\rangle:=k_{n}\delta_{j,n}\quad(j,n=0,1,\ldots)$ 
+ hold, then the corresponding dual basis is explicitly given by 
+ 
+ ${\bf e}_{n}=k_{n}^{-1}R_{n}{\rm w}\quad(n=0,1,\ldots)\;.$ 
+
+
+Let $\big{(}(P_{n})_{n\geq 0},(Q_{n})_{n\geq 0}\big{)}$ be a $\pi_{N}-$ coherent pair with index $M$ and order $(m,k)$ , so that $(\ref{1b})$ – $(\ref{cond1})$ hold. Set 
+ 
+ (2.1)  $\displaystyle\psi(x;n):=\sum_{j=n-N}^{n+M}\frac{(-1)^{m}(j+1)_{m}\;c_{j,n}}{\langle{\bf u},P_{m+j}^{2}\rangle}P_{m+j}(x)\;,$ 
+ 
+ (2.2)  $\displaystyle\phi(x;n,j):=\frac{(-1)^{k}(n+1)_{k}}{\langle{\bf v},Q_{n+k}^{2}\rangle}\sum_{\ell=0}^{N-j}\binom{k+N}{\ell}\binom{N-\ell}{N-j-\ell}\pi_{N}^{(\ell)}(x)Q_{n+k}^{(N-j-\ell)}(x)\,,$ 
+ for all $\,n=0,1,\ldots$ and $j=0,1,\ldots,N$ , so that 
+ 
+ $\deg\psi(\cdot;n)=m+n+M\;,\quad\deg\phi(\cdot;n,j)=k+n+j\;.$ 
+ Let ${\bf u}$ and ${\bf v}$ be the regular functionals with respect to which $(P_{n})_{n\geq 0}$ and $(Q_{n})_{n\geq 0}$ are orthogonal. Then the following functional equations hold: 
+ 
+ (2.3)  $\displaystyle\psi(\cdot;n){\bf u}=D^{m-k-N}\left(\sum_{j=0}^{N}\phi(\cdot;n,j)D^{j}{\bf v}\right)$ $\displaystyle\mbox{\rm if}\quad m\geq k+N\;,$ 
+ 
+ (2.4)  $\displaystyle D^{k+N-m}\big{(}\psi(\cdot;n){\bf u}\big{)}=\sum_{j=0}^{N}\phi(\cdot;n,j)D^{j}{\bf v}$ $\displaystyle\mbox{\rm if}\quad m<k+N\;,$ 
+ for all $n=0,1,\ldots$ .
+
+Let $({\bf a}_{n})_{n\geq 0}$ , $({\bf b}_{n})_{n\geq 0}$ , $({\bf a}_{n}^{[m]})_{n\geq 0}$ , and $({\bf b}_{n}^{[k]})_{n\geq 0}$ be the dual basis corresponding to the simple sets of polynomials $(P_{n})_{n\geq 0}$ , $(Q_{n})_{n\geq 0}$ , $(P_{n}^{[m]})_{n\geq 0}$ and $(Q_{n}^{[k]})_{n\geq 0}$ , respectively. Then 
+ 
+ $\pi_{N}{\bf b}_{n}^{[k]}=\sum_{j=0}^{+\infty}\big{\langle}\pi_{N}{\bf b}_{n}^{[k]},P_{j}^{[m]}\big{\rangle}\,{\bf a}_{j}^{[m]}\quad(n=0,1,\ldots)$ 
+ (in the sense of the weak dual topology in $\mathcal{P}^{\prime}$ ). From $(\ref{1b})$ , we have 
+ 
+ $\displaystyle\big{\langle}\pi_{N}{\bf b}_{n}^{[k]},P_{j}^{[m]}\big{\rangle}$ $\displaystyle=\big{\langle}b_{n}^{[k]},\pi_{N}P_{j}^{[m]}\big{\rangle}=\sum_{\ell=j-M}^{j+N}c_{j,\ell}\big{\langle}b_{n}^{[k]},Q_{\ell}^{[k]}\big{\rangle}$ 
+ 
+ $\displaystyle=\begin{cases}c_{j,n}&\mbox{\rm if }\quad n-N\leq j\leq n+M\\
+0&\mbox{\rm otherwise\,. }\end{cases}$ 
+ Hence 
+ 
+ (2.5)  $\pi_{N}{\bf b}_{n}^{[k]}=\sum_{j=n-N}^{n+M}c_{j,n}{\bf a}_{j}^{[m]}\quad(n=0,1,\ldots)\;.$ 
+ Considering the $m$ -th derivative on both sides of this equation and taking into account that $D^{m}\big{(}{\bf a}_{j}^{[m]}\big{)}=(-1)^{m}(j+1)_{m}{\bf a}_{j+m}$ , we obtain 
+ 
+ (2.6)  $D^{m}\big{(}\pi_{N}{\bf b}_{n}^{[k]}\big{)}=\psi(\cdot;n)\textbf{u}\quad(n=0,1,\ldots)\;,$ 
+ where $\psi(\cdot;n)$ is defined by ( 2.1 ). Notice that the condition ( 1.2 ) ensures that $\deg\psi(\cdot,n)=M+m+n$ for each $n=0,1,\ldots$ . Using the Leibniz rule for the derivative of the left product of a functional by a polynomial, and taking into account that $\pi_{N}^{(j)}=0$ if $j>N$ , as well as 
+ 
+ $D^{k}\big{(}{\bf b}_{n}^{[k]}\big{)}=(-1)^{k}(n+1)_{k}{\bf b}_{n+k}=(-1)^{k}(n+1)_{k}\langle{\bf v},Q_{n+k}^{2}\rangle^{-1}Q_{n+k}{\bf v}\,,$ 
+ we deduce 
+ 
+ $\displaystyle D^{k+N}\big{(}\pi_{N}{\bf b}_{n}^{[k]}\big{)}$ 
+ 
+ $\displaystyle\qquad=\frac{(-1)^{k}(n+1)_{k}}{\langle{\bf v},Q_{n+k}^{2}\rangle}\sum_{j=0}^{N}\binom{k+N}{j}\pi_{N}^{(j)}D^{N-j}(Q_{n+k}{\bf v})$ 
+ 
+ $\displaystyle\qquad=\frac{(-1)^{k}(n+1)_{k}}{\langle{\bf v},Q_{n+k}^{2}\rangle}\sum_{j=0}^{N}\sum_{\ell=0}^{N-j}\binom{k+N}{j}\binom{N-j}{\ell}\pi_{N}^{(j)}Q_{n+k}^{(\ell)}D^{N-j-\ell}{\bf v}$ 
+ 
+ $\displaystyle\qquad=\frac{(-1)^{k}(n+1)_{k}}{\langle{\bf v},Q_{n+k}^{2}\rangle}\sum_{j=0}^{N}\sum_{\ell=j}^{N}\binom{k+N}{j}\binom{N-j}{\ell-j}\pi_{N}^{(j)}Q_{n+k}^{(\ell-j)}D^{N-\ell}{\bf v}$ 
+ 
+ $\displaystyle\qquad=\frac{(-1)^{k}(n+1)_{k}}{\langle{\bf v},Q_{n+k}^{2}\rangle}\sum_{\ell=0}^{N}\sum_{j=0}^{\ell}\binom{k+N}{j}\binom{N-j}{\ell-j}\pi_{N}^{(j)}Q_{n+k}^{(\ell-j)}D^{N-\ell}{\bf v}$ 
+ 
+ $\displaystyle\qquad=\sum_{\nu=0}^{N}\left(\frac{(-1)^{k}(n+1)_{k}}{\langle{\bf v},Q_{n+k}^{2}\rangle}\sum_{j=0}^{N-\nu}\binom{k+N}{j}\binom{N-j}{N-\nu-j}\pi_{N}^{(j)}Q_{n+k}^{(N-\nu-j)}\right)D^{\nu}{\bf v}\;.$ 
+ Hence, by ( 2.2 ), we obtain 
+ 
+ (2.7)  $D^{k+N}\big{(}\pi_{N}{\bf b}_{n}^{[k]}\big{)}=\sum_{j=0}^{N}\phi(\cdot;n,j)D^{j}{\bf v}\;.$ 
+ If $m\geq k+N$ , we rewrite ( 2.6 ) as 
+ 
+ (2.8)  $\psi(\cdot;n){\bf u}=D^{m-k-N}D^{k+N}\big{(}\pi_{N}{\bf b}_{n}^{[k]}\big{)}\quad(n=0,1,\ldots)\;,$ 
+ and ( 2.3 ) follows from ( 2.7 ) and ( 2.8 ). If $m<k+N$ , writing 
+ 
+ $D^{k+N}\big{(}\pi_{N}{\bf b}_{n}^{[k]}\big{)}=D^{k-m+N}D^{m}\big{(}\pi_{N}{\bf b}_{n}^{[k]}\big{)}\quad(n=0,1,\ldots)\;,$ 
+ we see that ( 2.4 ) follows from ( 2.6 ) and ( 2.7 ). ∎
+
+Let us first consider the case $m\geq k+N$ .
+
+Let $\big{(}(P_{n})_{n\geq 0},(Q_{n})_{n\geq 0}\big{)}$ be a $\pi_{N}-$ coherent pair with index $M$ and order $(m,k)$ , so that $(\ref{1b})$ – $(\ref{cond1})$ holds. Let ${\bf u}$ and ${\bf v}$ be the regular functionals with respect to which $(P_{n})_{n\geq 0}$ and $(Q_{n})_{n\geq 0}$ are orthogonal. Suppose $m\geq k+N$ . Assume further that $m>k$ whenever $N=0$ . For each $i=0,\ldots,m-k$ and $n=0,1,\ldots$ , let 
+ 
+ (2.9)  $\varphi(x;n,i):=\sum_{\begin{subarray}{c}j+\ell=i\\
+0\leq j\leq N\\
+0\leq\ell\leq M\end{subarray}}\binom{m-k-N}{\ell}\big{(}\phi(x;n,j)\big{)}^{(m-k-N-\ell)}\;,$ 
+ $\phi(\cdot;n,j)$ being the polynomial introduced in $(\ref{fi})$ . Let $\mathcal{A}(x)$ be the polynomial matrix of order $m-k+1$ defined by 
+ 
+ $\mathcal{A}(x):=\big{[}\varphi(x;n,j)\big{]}_{n,j=0}^{m-k}\;.$ 
+ Let $\mathcal{A}_{1}(x)$ (resp., $\mathcal{A}_{2}(x)$ ) be the matrix obtained by replacing the first (resp., the second) column of $\mathcal{A}(x)$ by $\big{[}\psi(x;0),\psi(x;1),\cdots,\psi(x;m-k)]^{t}$ , and set 
+ 
+ $A(x):=\det\mathcal{A}(x)\;,\quad A_{1}(x):=\det\mathcal{A}_{1}(x)\;,\quad A_{2}(x):=\det\mathcal{A}_{2}(x)\;.$ 
+ Assume that the polynomial $A(x)$ does not vanishes identically. Then 
+ 
+ (2.10)  $A{\bf v}=A_{1}{\bf u}\;,\quad AD{\bf v}=A_{2}{\bf u}\;,$ 
+ hence ${\bf u}$ and ${\bf v}$ are semiclassical functionals related by a rational transformation. Moreover, ${\bf u}$ and ${\bf v}$ fulfill the following equations: 
+ 
+ (2.11)  $D(AA_{1}{\bf u})=\big{(}2A^{\prime}A_{1}+AA_{2}\big{)}{\bf u}\;,\quad D(AA_{1}{\bf v})=\big{(}(AA_{1})^{\prime}+AA_{2}\big{)}{\bf v}\;.$ 
+
+
+By ( 2.3 ) and Leibniz rule, we have 
+ 
+ $\psi(\cdot;n){\bf u}=\sum_{j=0}^{N}\sum_{\ell=0}^{m-k-N}\binom{m-k-N}{\ell}\big{(}\phi(\cdot;n,j)\big{)}^{(m-k-N-\ell)}D^{j+\ell}{\bf v}\;.$ 
+ This may be rewritten as 
+ 
+ (2.12)  $\psi(\cdot;n){\bf u}=\sum_{i=0}^{m-k}\varphi(\cdot;n,i)D^{i}{\bf v}\quad(n=0,1,\dots)\;,$ 
+ where $\varphi(\cdot;n,i)$ is the polynomial introduced in ( 2.9 ). Taking $n=0,1,\ldots,m-k$ in ( 2.12 ) we obtain a system with $m-k+1$ equations that can be written as 
+ 
+ $\left(\begin{array}[]{c}\psi(x;0){\bf u}\\
+\psi(x;1){\bf u}\\
+\vdots\\
+\psi(x;m-k){\bf u}\end{array}\right)=\mathcal{A}(x)\left(\begin{array}[]{c}{\bf v}\\
+D{\bf v}\\
+\vdots\\
+D^{m-k}{\bf v}\end{array}\right)\;.$ 
+ Solving for ${\bf v}$ and $D{\bf v}$ we obtain ( 2.10 ). Finally, ( 2.11 ) follows from ( 2.10 ). ∎
+
+If $m=k$ and $N=0$ , then ${\bf u}$ and ${\bf v}$ are still related by a rational transformation, but we cannot ensure that they are semiclassical (see [10] ).
+
+Now, we consider the case $m<k+N$ .
+
+Let $\big{(}(P_{n})_{n\geq 0},(Q_{n})_{n\geq 0}\big{)}$ be a $\pi_{N}-$ coherent pair with index $M$ and order $(m,k)$ , so that $(\ref{1b})$ – $(\ref{cond1})$ holds. Let ${\bf u}$ and ${\bf v}$ be the regular functionals with respect to which $(P_{n})_{n\geq 0}$ and $(Q_{n})_{n\geq 0}$ are orthogonal. Assume further that $m<k+N$ . For each $j=0,\ldots,k-m+N$ and $n=0,1,\ldots$ , set 
+ 
+ (2.13)  $\xi(x;n,j):=\binom{k-m+N}{j}\big{(}\psi(x;n)\big{)}^{(k-m+N-j)}\;,$ 
+ $\psi(\cdot;n)$ being the polynomial introduced in $(\ref{si})$ . Let $\mathcal{B}(x):=\big{[}b_{i,j}(x)\big{]}_{i,j=0}^{k-m+2N}$ be the polynomial matrix of order $k-m+2N+1$ defined by 
+ 
+ $b_{i,j}(x):=\left\{\begin{array}[]{ccl}\phi(x;i,j)&\mbox{\rm if}&0\leq j\leq N\;,\\[5.0pt]
+-\xi(x;i,j-N)&\mbox{\rm if}&N+1\leq j\leq k-m+2N\;,\end{array}\right.$ 
+ $\phi(\cdot;i,j)$ being the polynomial given by $(\ref{fi})$ . Let $\mathcal{B}_{1}(x)$ (resp., $\mathcal{B}_{2}(x)$ and $\mathcal{B}_{N+2}(x)$ ) be the matrix obtained by replacing the first (resp., the second and the $(N+2)$ -th) column of $\mathcal{B}(x)$ by $\big{[}\xi(x;0,0),\xi(x;1,0),\cdots,\xi(x;m-k+2N,0)]^{t}$ , and set 
+ 
+ $B(x):=\det\mathcal{B}(x)\;,\quad B_{j}(x):=\det\mathcal{B}_{j}(x)\;,\quad j\in\{1,2,N+2\}\;.$ 
+ Assume that the polynomial $B(x)$ does not vanishes identically. Then 
+ 
+ (2.14)  $B{\bf v}=B_{1}{\bf u}\;,\quad BD{\bf v}=B_{2}{\bf u}\;,\quad BD{\bf u}=B_{N+2}{\bf u}\;,$ 
+ hence ${\bf u}$ and ${\bf v}$ are semiclassical functionals related by a rational transformation. Moreover, ${\bf u}$ and ${\bf v}$ fulfill the following equations: 
+ 
+ (2.15)  $D(B{\bf u})=\big{(}B^{\prime}+B_{N+2}\big{)}{\bf u}\;,\quad D(BB_{1}{\bf v})=\big{(}(BB_{1})^{\prime}+BB_{2}\big{)}{\bf v}\;.$ 
+
+
+By the Leibniz rule, we can rewrite ( 2.3 ) as 
+ 
+ $\sum_{j=0}^{k-m+N}\xi(\cdot;n,j)D^{j}{\bf u}=\sum_{j=0}^{N}\phi(\cdot;n,j)D^{j}{\bf v}\quad(n=0,1,\ldots)\;.$ 
+ Taking $n=0,1,\ldots,k-m+2N$ , we obtain the following system of $k-m+2N+1$ equations: 
+ 
+ $\left(\begin{array}[]{c}\xi(x;0,0){\bf u}\\
+\xi(x;1,0){\bf u}\\
+\vdots\\
+\xi(x;k-m+N,0){\bf u}\\
+\xi(x;k-m+N+1,0){\bf u}\\
+\vdots\\
+\xi(x;k-m+2N,0){\bf u}\end{array}\right)=\mathcal{B}(x)\left(\begin{array}[]{c}{\bf v}\\
+D{\bf v}\\
+\vdots\\[2.5pt]
+D^{N}{\bf v}\\
+D{\bf u}\\
+\vdots\\[2.5pt]
+D^{k-m+N}{\bf u}\end{array}\right)\;.$ 
+ The theorem follows by solving this system for ${\bf v}$ , $D{\bf v}$ , and $D{\bf u}$ . ∎
+
+In the case $k=0$ we may state a finer result. Recall that if ${\bf u}\in\mathcal{P}^{\prime}$ is a semiclassical functional then the class of ${\bf u}$ , denoted by $\mathfrak{s}_{\bf u}$ , is the unique non-negative integer number defined by 
+ 
+ $\mathfrak{s}({\bf u}):=\min_{(\Phi,\Psi)\in\mathcal{A}_{\bf u}}\max\big{\{}\deg\Phi-2,\deg\Psi-1\big{\}}\;,$ 
+ where $\mathcal{A}_{\bf u}$ is the set of all pairs of nonzero polynomials $(\Phi,\Psi)$ fulfilling the functional equation $D(\Phi{\bf u})=\Psi{\bf u}$ .
+
+Let $\big{(}(P_{n})_{n\geq 0},(Q_{n})_{n\geq 0}\big{)}$ be a $\pi_{N}-$ coherent pair with index $M$ and order $(m,0)$ , so that the structure relation 
+ 
+ $\pi_{N}(x)P_{n}^{[m]}(x)=\sum_{j=n-M}^{n+N}c_{n,j}Q_{j}(x)\quad(n=0,1,\ldots)$ 
+ holds, where $M$ and $N$ are fixed non-negative integer numbers, $\pi_{N}$ is a monic polynomial of degree $N$ , and $c_{n,n-M}\neq 0$ if $n\geq M$ . Assume further that $m\geq 1$ if $N=0$ . Let ${\bf u}$ and ${\bf v}$ be the regular functionals with respect to which $(P_{n})_{n\geq 0}$ and $(Q_{n})_{n\geq 0}$ are (respectively) orthogonal. Then ${\bf u}$ and ${\bf v}$ are semiclassical functionals related by a rational transformation. More precisely, setting 
+ 
+ (2.16)  $\Phi(x;j):=\frac{\langle{\bf v},Q_{j}^{2}\rangle\psi(x;j)-\sum_{\ell=0}^{j-1}\binom{m}{\ell}Q_{j}^{(\ell)}(x)\Phi(x;\ell)}{j!\binom{m}{j}}\quad(j=0,1,\ldots,m)\;,$ 
+ $\psi(\cdot;j)$ being the polynomial introduced in $(\ref{si})$ , then $\deg\Phi(\cdot;0)=M+m$ , $\deg\Phi(\cdot;j)\leq M+m+j$ for each $j=1,\ldots,m$ , and the following holds: 
+ 
+ (2.17)  $\displaystyle D\big{(}\Phi(\cdot;1){\bf u}\big{)}=\Phi(\cdot;0){\bf u}$ 
+ 
+ (2.18)  $\displaystyle\pi_{N}{\bf v}=\Phi(\cdot;m){\bf u}$ 
+ 
+ (2.19)  $\displaystyle D\big{(}\Phi(\cdot;m)\pi_{N}{\bf v}\big{)}=\big{(}\Phi(\cdot;m)^{\prime}+\Phi(\cdot;m-1)\big{)}\pi_{N}{\bf v}\;.$ 
+ Moreover, $\mathfrak{s}({\bf u})\leq M+m-1$ and $\;\mathfrak{s}({\bf v})\leq N+M+2(m-1)$ .
+
+Since $k=0$ then ${\bf b}_{n}^{[k]}\equiv{\bf b}_{n}^{[0]}={\bf b}_{n}=\langle{\bf v},Q_{n}^{2}\rangle^{-1}Q_{n}{\bf v}$ for each $n=0,1,\ldots$ , hence relation ( 2.6 ) may be rewritten as 
+ 
+ (2.20)  $D^{m}\big{(}Q_{n}\pi_{N}{\bf v}\big{)}=\langle{\bf v},Q_{n}^{2}\rangle\psi(\cdot;n)\textbf{u}\quad(n=0,1,\ldots)\;,$ 
+ where $\psi(\cdot;n)$ is defined by ( 2.1 ). Taking $n=0$ , we obtain 
+ 
+ (2.21)  $D^{m}\big{(}\pi_{N}{\bf v}\big{)}=\Phi(\cdot;0)\textbf{u}\;.$ 
+ Taking $n=1$ in ( 2.20 ) and then applying the Leibniz rule, we deduce 
+ 
+ $\langle{\bf v},Q_{1}^{2}\rangle\psi(\cdot;1)\textbf{u}=D^{m}\big{(}Q_{1}\pi_{N}{\bf v}\big{)}=mD^{m-1}\big{(}\pi_{N}{\bf v}\big{)}+Q_{1}D^{m}\big{(}\pi_{N}{\bf v}\big{)}\;.$ 
+ Hence, by ( 2.21 ), we have 
+ 
+ (2.22)  $D^{m-1}\big{(}\pi_{N}{\bf v}\big{)}=\Phi(\cdot;1)\textbf{u}\;.$ 
+ Thus ( 2.17 ) follows from ( 2.21 ) and ( 2.22 ). This proves that ${\bf u}$ is semiclassical of class $\mathfrak{s}({\bf u})\leq M+m-1$ . We conclude pursuing with the described procedure, so that by taking successively $n=0,1,\ldots,m$ in ( 2.20 ), we conclude that the following relations hold: 
+ 
+ (2.23)  $D^{m-j}\big{(}\pi_{N}{\bf v}\big{)}=\Phi(\cdot;j)\textbf{u}\quad(j=0,1,\ldots,m)\;.$ 
+ In particular, for $j=m$ we obtain ( 2.18 ), hence ${\bf u}$ and ${\bf v}$ are related by a rational transformation. Next, setting $j=m-1$ in ( 2.23 ) we obtain 
+ 
+ (2.24)  $D\big{(}\pi_{N}{\bf v}\big{)}=\Phi(\cdot;m-1)\textbf{u}\;.$ 
+ Since $D\big{(}\Phi(\cdot;m)\pi_{N}{\bf v}\big{)}=\Phi(\cdot;m)^{\prime}\pi_{N}{\bf v}+\Phi(\cdot;m)D\big{(}\pi_{N}{\bf v}\big{)}$ , we obtain ( 2.19 ) using ( 2.24 ) and ( 2.18 ). Thus ${\bf v}$ is semiclassical of class $\mathfrak{s}({\bf v})\leq N+M+2m-2$ , and the theorem is proved. ∎
+
+In the case $m=1$ , Theorem 2.3 was partially proved in [12] . Note that the functional equation ( 2.19 ) (for $m=1$ ) was not given therein.
+
+Given complex numbers $\omega$ and $q$ such that $|q-1|+|\omega|\neq 0$ , the operator $D_{q,\omega}:\mathcal{P}\to\mathcal{P}$ considered by Hahn in his influential work [6] is defined by 
+ 
+ (2.25)  $D_{q,\omega}f(x):=\frac{f(qx+\omega)-f(x)}{(q-1)x+\omega}\quad(f\in\mathcal{P})\;.$ 
+ The results and proofs in this section can be repeated with almost no changes in the more general setting of the discrete OPS, replacing the derivative operator $D$ by $D_{q,\omega}$ . Actually, the same can be done for discrete OPS on a non-uniform lattice.
+
+3. An application
+
+Let $(P_{n})_{n\geq 0}$ be a monic OPS with respect to a positive Borel measure. Suppose that $(P_{n})_{n\geq 0}$ satisfies the differential-difference equation 
+ 
+ (3.1)  $\pi(x)P^{\prime}_{n}(x)=b_{n}P_{n}(x)+(c_{n}x+d_{n})P_{n-1}(x)\quad(n=0,1,\ldots)\;,$ 
+ where $\pi(x)$ is a monic polynomial of degree $1$ and $(b_{n})_{n\geq 0}$ , $(c_{n})_{n\geq 0}$ , and $(d_{n})_{n\geq 0}$ are sequences of real numbers, with $c_{n}\neq 0$ for each $n=1,2,\ldots$ . We assume 
+ 
+ $\pi(x)=x\,.$ 
+ OPS characterized by equation ( 3.1 ) have been studied recently in [5] . Here we give an alternative approach based on the general results presented in the previous section. $(P_{n})_{n\geq 0}$ is characterized by a three-term recurrence relation: 
+ 
+ (3.2)  $xP_{n}(x)=P_{n+1}(x)+\beta_{n}P_{n}(x)+\gamma_{n}P_{n-1}(x)\quad(n=0,1,\ldots)\;,$ 
+ where $(\beta_{n})_{n\geq 0}$ and $(\gamma_{n})_{n\geq 1}$ are sequences of real numbers such that $\gamma_{n}>0$ for each $n\geq 1$ . We set $P_{-1}(x)=0$ and $\gamma_{0}:=0$ . Using ( 3.2 ), we rewrite ( 3.1 ) as 
+ 
+ (3.3)  $x\,\frac{P_{n+1}^{\prime}(x)}{n+1}=P_{n+1}(x)+r_{n}P_{n}(x)+s_{n}P_{n-1}(x)\quad(n=0,1,\ldots)\;,$ 
+ where 
+ 
+ $r_{n}:=\frac{c_{n+1}\beta_{n}+d_{n+1}}{n+1}\;,\quad s_{n}:=\frac{c_{n+1}\gamma_{n}}{n+1}\quad(n=0,1,\ldots)\;.$ 
+ Notice that $s_{n}\neq 0$ for each $n=1,2,\ldots$ . Comparing ( 3.3 ) with ( 1.1 ), we have 
+ 
+ (3.4)  $N=M=m=1\;,\;\;k=0\;,\;\;c_{n,n+1}=1\;,\;\;c_{n,n}=r_{n}\;,\;\;c_{n,n-1}=s_{n}\;.$ 
+ Thus $\big{(}(P_{n})_{n\geq 0},(P_{n})_{n\geq 0}\big{)}$ is a $\pi_{1}-$ coherent pair with index $1$ and order $(1,0)$ , where $\pi_{1}(x)=x$ . By Theorem 2.3 , the functional ${\bf u}$ with respect to which $(P_{n})_{n\geq 0}$ is orthogonal satisfies the relations 
+ 
+ (3.5)  $\displaystyle D\big{(}\Phi(\cdot;1){\bf u}\big{)}=\Phi(\cdot;0){\bf u}$ 
+ 
+ (3.6)  $\displaystyle x{\bf u}=\Phi(\cdot;1){\bf u}\;.$ 
+ Since ${\bf u}$ is regular, then ( 3.6 ) implies 
+ 
+ (3.7)  $\Phi(x;1)=x\;.$ 
+ On the other hand, by ( 2.16 ) and using the relations $\beta_{n}=\langle{\bf u},xP_{n}^{2}\rangle/\langle{\bf u},P_{n}^{2}\rangle$ and $\gamma_{n+1}=\langle{\bf u},P_{n+1}^{2}\rangle/\langle{\bf u},P_{n}^{2}\rangle$ $(n=0,1,\ldots)$ , we have 
+ 
+ (3.8)  $\Phi(x;0):=-\frac{r_{0}}{\gamma_{1}}P_{1}(x)-\frac{2s_{1}}{\gamma_{1}\gamma_{2}}P_{2}(x)\;.$ 
+ From ( 3.3 ) for $n=0,1,2$ , and taking into account ( 3.2 ), we deduce 
+ 
+ (3.9)   $\displaystyle r_{0}=\beta_{0}\;,\quad r_{1}=\mbox{$\frac{1}{2}$}\,(\beta_{0}+\beta_{1})\;,\quad r_{2}=\mbox{$\frac{1}{3}$}\,(\beta_{0}+\beta_{1}+\beta_{2})\;,$ 
+ $\displaystyle s_{1}=\gamma_{1}+\mbox{$\frac{1}{2}$}\,\beta_{0}(\beta_{0}-\beta_{1})\;,\quad\beta_{0}(s_{2}-\gamma_{2})=(\beta_{0}\beta_{1}-\gamma_{1})(r_{2}-\beta_{2})\;,$ 
+ $\displaystyle s_{2}=\mbox{$\frac{1}{3}$}\,\big{(}\beta_{0}^{2}+\beta_{1}^{2}-(\beta_{0}+\beta_{1})\beta_{2}+2(\gamma_{1}+\gamma_{2})\big{)}\;.$ 
+ Therefore, taking into account ( 3.7 )–( 3.9 ) and ( 3.2 ), ( 3.5 ) reduces to 
+ 
+ (3.10)  $D\big{(}x{\bf u}\big{)}=(-2ax^{2}+bx+c+1){\bf u}\;,$ 
+ where 
+ 
+ $\displaystyle a:=\frac{s_{1}}{\gamma_{1}\gamma_{2}}=\frac{2\gamma_{1}+(\beta_{0}-\beta_{1})\beta_{0}}{2\gamma_{1}\gamma_{2}}\;,$ 
+ 
+ $\displaystyle b:=\frac{\big{(}2\gamma_{1}+(\beta_{0}-\beta_{1})\beta_{0}\big{)}(\beta_{0}+\beta_{1})-\beta_{0}\gamma_{2}}{\gamma_{1}\gamma_{2}}\;,$ 
+ 
+ $\displaystyle c:=\frac{\beta_{0}^{2}\gamma_{2}-\big{(}2\gamma_{1}+(\beta_{0}-\beta_{1})\beta_{0}\big{)}(\beta_{0}\beta_{1}-\gamma_{1})}{\gamma_{1}\gamma_{2}}-1\;.$ 
+ Using ( 3.9 ), and assuming $s_{1}>0$ , we deduce 
+ 
+ (3.11)   $\displaystyle\beta_{0}=r_{0}\;,\quad\beta_{1}=2r_{1}-r_{0}\;,\quad\gamma_{1}=s_{1}-r_{0}(r_{0}-r_{1})\;,$ 
+ $\displaystyle\gamma_{2}=\frac{s_{1}(3s_{2}-2s_{1})+2r_{1}\big{(}s_{1}(2r_{0}-r_{1})-r_{0}r_{1}(r_{0}-r_{1})\big{)}}{2s_{1}+r_{0}r_{1}}\;.$ 
+ (Notice that $2s_{1}+r_{0}r_{1}\neq 0$ ; indeed, using $\gamma_{1}=s_{1}-r_{0}(r_{0}-r_{1})$ , we have $2s_{1}+r_{0}r_{1}=\gamma_{1}+s_{1}+r_{0}^{2}>0$ .) Thus $a$ , $b$ , and $c$ may be written only in terms of $r_{0}$ , $r_{1}$ , $s_{1}$ , and $s_{2}$ . Hereafter we impose the (integrability) conditions 
+ 
+ (3.12)  $a>0\;,\quad c>-1\;.$ 
+ (Note that the condition $a>0$ is equivalent to $s_{1}>0$ in equation ( 3.3 ), or to $c_{2}>0$ in equation equation ( 3.1 ).) Let $w$ be a solution of 
+ 
+ (3.13)  $xw^{\prime}(x)=(-2ax^{2}+bx+c)w(x)\;,\quad x\in\mathbb{R}\setminus\{0\}\;.$ 
+ Solving this equation imposing (without loss of generality) $w$ to be right-continuous at $x=0$ , we find 
+ 
+ (3.14)  $w(x)=\left\{\begin{array}[]{lcl}K_{1}|x|^{c}e^{-ax^{2}+bx}&\mbox{\rm if}&x<0\;,\\[2.5pt]
+K_{2}|x|^{c}e^{-ax^{2}+bx}&\mbox{\rm if}&x\geq 0\;,\end{array}\right.$ 
+ $K_{1}$ and $K_{2}$ being real constants. Requiring, in addition, $K_{1}$ and $K_{2}$ to be non-negative and no simultaneously equal to zero, $w$ becomes a weight function, i.e., a non-negative and integrable function which does not vanishes identically and having finite moments of all orders. Now, define a functional ${\bf w}$ by 
+ 
+ $\langle{\bf w},f\rangle:=\kappa\int_{\mathbb{R}}f(x)w(x)\,{\rm d}x\quad(f\in\mathcal{P})\;,$ 
+ where $\kappa$ is a normalization constant chosen so that $\langle{\bf w},1\rangle=\langle{\bf u},1\rangle$ . Using ( 3.13 ) and integration by parts, together with the rules of the distributional calculus, we show that $D\big{(}x{\bf w}\big{)}=(-2ax^{2}+bx+c+1){\bf w}$ on $\mathcal{P}^{\prime}$ , hence ${\bf w}$ fulfills the same functional equation ( 3.10 ) as ${\bf u}$ . This is equivalent to saying that the sequences of moments $(u_{n})_{n\geq 0}$ and $(w_{n})_{n\geq 0}$ of ${\bf u}$ and ${\bf w}$ (defined by $u_{n}:=\langle{\bf u},x^{n}\rangle$ and $w_{n}:=\langle{\bf w},x^{n}\rangle$ ) are solutions of the second order linear difference equation 
+ 
+ $-2av_{n+2}+(n+b)v_{n+1}+(c+1)v_{n}=0\quad(n=0,1,\cdots)\;.$ 
+ Now we show that we may choose $K_{1}$ and $K_{2}$ so that ${\bf u}={\bf w}$ . Indeed, since by definition of ${\bf w}$ the condition $u_{0}=w_{0}$ holds, we only need to show that we may choose $K_{1}$ and $K_{2}$ so that $u_{1}=w_{1}$ . Indeed, 
+ 
+ $\kappa^{-1}w_{1}=\int_{\mathbb{R}}xw(x)\,{\rm d}x=K_{1}\int_{-\infty}^{0}x|x|^{c}e^{-ax^{2}+bx}\,{\rm d}x+K_{2}\int_{0}^{+\infty}x^{c+1}e^{-ax^{2}+bx}\,{\rm d}x\;,$ 
+ and making the change of variables $x\mapsto-x$ on the first integral, we obtain 
+ 
+ $w_{1}=\kappa\Big{(}K_{2}\int_{0}^{+\infty}x^{c+1}e^{-ax^{2}+bx}\,{\rm d}x-K_{1}\int_{0}^{+\infty}x^{c+1}e^{-ax^{2}-bx}\,{\rm d}x\Big{)}\;.$ 
+ On the other hand, from $P_{1}(x)=x-\beta_{0}$ , we have $u_{1}=\beta_{0}u_{0}=r_{0}w_{0}$ , i.e., 
+ 
+ $u_{1}=\kappa r_{0}\Big{(}K_{2}\int_{0}^{+\infty}x^{c}e^{-ax^{2}+bx}\,{\rm d}x+K_{1}\int_{0}^{+\infty}x^{c}e^{-ax^{2}-bx}\,{\rm d}x\Big{)}\;.$ 
+ Therefore, in order to have $u_{1}=w_{1}$ , we need to impose 
+ 
+ $r_{0}=\frac{K_{2}\int_{0}^{+\infty}x^{c+1}e^{-ax^{2}+bx}\,{\rm d}x-K_{1}\int_{0}^{+\infty}x^{c+1}e^{-ax^{2}-bx}\,{\rm d}x}{K_{1}\int_{0}^{+\infty}x^{c}e^{-ax^{2}-bx}\,{\rm d}x+K_{2}\int_{0}^{+\infty}x^{c}e^{-ax^{2}+bx}\,{\rm d}x}\;.$ 
+ Assuming without loss of generality that $K_{2}>0$ , and setting $M=K_{1}/K_{2}$ , this is achieved provided that 
+ 
+ (3.15)  $M=\frac{\int_{0}^{+\infty}x^{c+1}e^{-ax^{2}+bx}\,{\rm d}x-r_{0}\int_{0}^{+\infty}x^{c}e^{-ax^{2}+bx}\,{\rm d}x}{\int_{0}^{+\infty}x^{c+1}e^{-ax^{2}-bx}\,{\rm d}x+r_{0}\int_{0}^{+\infty}x^{c}e^{-ax^{2}-bx}\,{\rm d}x}\;.$ 
+ Thus, up to a positive constant factor, ${\bf u}$ admits the integral representation 
+ 
+ $\langle{\bf u},f\rangle:=\int_{\mathbb{R}}f(x)w(x)\,{\rm d}x\quad(f\in\mathcal{P})\;.$ 
+ We remark that $w$ is a.e. on $\mathbb{R}$ the unique weight function with respect to which $(P_{n})_{n\geq 0}$ is a monic OPS. This is an immediate consequence of the fact that the moment problem associated to the distribution function with weight $w$ is determined, as we may see easily taking into account Riesz uniqueness criterium (see e.g. [4] ). Finally, set 
+ 
+ (3.16)  ${\bf u}^{(M,t,c)}:=h_{\sqrt{a}}{\bf u}\;,\quad t:=b/\sqrt{a}\;,$ 
+ meaning that $\langle{\bf u}^{(M,t,c)},x^{n}\rangle:=\langle{\bf u},\big{(}\sqrt{a}\,x\big{)}^{n}\rangle$ for each $n=0,1,\ldots$ . Note that making the change of variables $x\to x/\sqrt{a}$ in the integrals appearing in ( 3.15 ) we obtain 
+ 
+ (3.17)  $M=\frac{\int_{0}^{+\infty}\big{(}x-\sqrt{a}\,r_{0}\big{)}x^{c}e^{-x^{2}+tx}\,{\rm d}x}{\int_{0}^{+\infty}\big{(}x+\sqrt{a}\,r_{0}\big{)}x^{c}e^{-x^{2}-tx}\,{\rm d}x}\;.$ 
+ Since ${\bf u}$ fulfils ( 3.10 ) then ${\bf u}^{(M,t,c)}$ satisfies 
+ 
+ $D\big{(}x{\bf u}^{(M,t,c)}\big{)}=(-2x^{2}+tx+c+1){\bf u}^{(M,t,c)}\;.$ 
+ Let $(P^{(M,t,c)}_{n})_{n\geq 0}$ be the monic OPS with respect to ${\bf u}^{(M,t,c)}$ . Then ( 3.16 ) implies 
+ 
+ (3.18)  $P_{n}(x):=\frac{1}{(\sqrt{a}\,)^{n}}\,P_{n}^{(M,t,c)}\big{(}\sqrt{a}\,x\big{)}\quad(n=0,1,\ldots)\;.$ 
+ Moreover, up to a constant factor, ${\bf u}^{(M,t,c)}$ admits the integral representation 
+ 
+ $\langle{\bf u}^{(M,t,c)},f\rangle:=\int_{\mathbb{R}}f(x)w^{(M,t,c)}(x)\,{\rm d}x\quad(f\in\mathcal{P})\;,$ 
+ where 
+ 
+ (3.19)  $w^{(M,t,c)}(x):=\frac{a^{c/2}}{K_{2}}w\Big{(}\frac{x}{\sqrt{a}}\Big{)}=\left\{\begin{array}[]{lcl}M|x|^{c}e^{-x^{2}+tx}&\mbox{\rm if}&x<0\;,\\[2.5pt]
+|x|^{c}e^{-x^{2}+tx}&\mbox{\rm if}&x\geq 0\;.\end{array}\right.$ 
+
+
+In conclusion, if $(P_{n})_{n\geq 0}$ is a monic OPS with respect to a positive-definite linear functional and fulfills ( 3.3 ), where $(r_{n})_{n\geq 0}$ and $(s_{n})_{n\geq 1}$ are sequences of real numbers such that $s_{n}\neq 0$ for each $n=1,2,\ldots$ , then $P_{n}$ is given by ( 3.18 ) — $(P^{(M,t,c)}_{n})_{n\geq 0}$ being the unique monic OPS with respect to the weight function $w^{(M,t,c)}$ defined by the right-hand side of ( 3.19 )—, provided that conditions ( 3.12 ) hold for each choice of the four (real) parameters $r_{0}$ , $r_{1}$ , $s_{1}$ , and $s_{2}$ .
+
+For instance, choosing $r_{0}=r_{1}=0$ , $s_{1}=1/2$ , and $s_{2}=1$ , we obtain $a=1$ , $t=c=0$ , and $M=1$ , hence $w^{(1,0,0)}(x)=e^{-x^{2}}$ , so that $(P_{n})_{n\geq 0}$ is the Hermite monic OPS (up to an affine change of the variable). Finally, we note that ( 3.19 ), ( 3.18 ), and ( 3.17 ) agree, respectively, with (2.27), (2.29), and (2.30) in [5] .
+
+Acknowledgements
+
+The authors are indebted to Professor J. Petronilho for suggesting this problem, as well as his time for many very helpful discussions that led to the ideas presented. The authors also gratefully acknowledge fruitful discussions with Professor R. Álvarez-Nodarse. This work waspartially supported by the Centre for Mathematics of the University of Coimbra–UID/MAT/00324/2019, funded by the Portuguese Government through FCT/MEC and co-funded by the European Regional Development Fund through the Partnership Agreement PT2020.
+
+References
+
+[1] W. Al-Salam and T. S. Chihara: Another characterization of the classical orthogonal polynomials, SIAM J. Math. Anal.3(1972) 65–70.
+[2] R. Álvarez-Nodarse, J. Petronilho, N. C. Pinzón-Cortés, and R. Sevinik-Adıgüzel: On linearly related sequences of difference derivatives of discrete orthogonal polynomials, J. Comput. Appl. Math.284(2015) 26–37.
+[3] S. Bonan, D. Lubinsky, and P. Nevai: Orthogonal polynomials and their derivatives II, SIAM J. Math. Anal.18(1987) 1163–1176.
+[4] G. Freud: Orthogonal polynomials, Pergamon Press, Oxford (1971).
+[5] J. Griffin: A characterization of some semi classical orthogonal polynomials, J. Differ. Equ. Appl.22(2016) 1261–1270.
+[6] W. Hahn: Über Orthogonalpolynome, dieq−limit-from𝑞q-Differenzengleichungen geng̈en, Math Nachr.2(1949) 4–34.
+[7] A. Iserles, P. E. Koch, S. P. Nørsett, and J. M. Sanz-Serna: On polynomials orthogonal with respect to certain Sobolev inner products, J. Approx. Theory65(1991) 151–175.
+[8] M. E. H. Ismail: Classical and quantum orthogonal polynomials in one variable. With two chapters by W. Van Assche. With a foreword by R. Askey., Encyclopedia of Mathematics and its Applications98. Cambridge University Press, Cambridge (2005).
+[9] M. N. de Jesus, F. Marcellán, J. Petronilho, and N.C. Pinzón-Cortés:(M,N)−limit-from𝑀𝑁(M,N)-coherent pairs of order(m,k)𝑚𝑘(m,k)and Sobolev orthogonal polynomials, J. Comput. Appl. Math.256(2014) 16–35.
+[10] M. N. de Jesus and J. Petronilho: On linearly related sequences of derivatives of orthogonal polynomials, J. Math. Anal. Appl.347(2008) 482–492.
+[11] M. N. de Jesus and J. Petronilho: Sobolev orthogonal polynomials and(M,N)−limit-from𝑀𝑁(M,N)-coherent pairs of measures, J. Comput. Appl. Math.237(2013) 83–101.
+[12] F. Marcellán, A. Branquinho, and J. Petronilho: On inverse problems of orthogonal polynomials I, J. Comput. Appl. Math.49(1993) 153–160.
+[13] P. Maroni: Sur quelques espaces de distributions qui sont des formes lineaires sur l’espace vectoriel des polynômes, In C. Brezinski et al. Eds., Simposium Laguerre, Bar-le-Duc, Lecture Notes in Math. 1171, Springer-Verlag (1985) 184–194.
+[14] P. Maroni: Prolégomènes à l’étude des polynômes orthogonaux semi-classiques (French) [Prolegomena to the study of semiclassical orthogonal polynomials], Ann. Mat. Pura Appl.149(1987) 165–184.
+[15] P. Maroni: Une théorie algébrique des polynômes orthogonaux. Application aux polynômes orthogonaux semi-classiques, In Orthogonal Polynomials and Their Applications, C. Brezinski, L. Gori, and A. Ronveaux, Eds., IMACS Annals Comput. Appl. Math.9(1991) 95–130.
+[16] P. Maroni and R. Sfaxi: Diagonal orthogonal polynomial sequences, Methods Appl. Anal.7(2000) 769–791.
+[17] J. Petronilho: On the linear functionals associated to linearly related sequences of orthogonal polynomials, J. Math. Anal. Appl.315(2006) 379–393.

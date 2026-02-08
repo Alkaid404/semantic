@@ -1,0 +1,283 @@
+Faddeev fixed center approximation to the $N\bar{K}K$ system and the signature of a $N^{*}(1920)(1/2^{+})$ state
+
+By Ju-Jun Xie and A. Martínez Torres and E. Oset
+
+Abstract
+
+We perform a calculation for the three body $N\bar{K}K$ scattering amplitude by using the fixed center approximation to the Faddeev equations, taking the interaction between $N$ and $\bar{K}$ , $N$ and $K$ , and $\bar{K}$ and $K$ from the chiral unitary approach. The resonant structures show up in the modulus squared of the three body scattering amplitude and suggest that a $N\bar{K}K$ hadron state can be formed. Our results are in agreement with others obtained in previous theoretical works, which claim a new $N^{*}$ resonance around $1920$ MeV with spin-parity $J^{P}=1/2^{+}$ . The existence of these previous works allows us to test the accuracy of the fixed center approximation in the present problem and sets the grounds for possible application in similar problems, as an explorative tool to determine bound or quasibound three hadron systems.
+
+I Introduction
+
+The study of hadron structure and the spectrum of hadron resonances is one of the most important issues and is attracting much attention. Recently, the topic of meson-baryon states, with mesons and baryons governed by strong interactions, is well developed by the combination of the chiral Lagrangians with nonperturbative unitary techniques in coupled channels, which has been a very fruitful scheme to study the nature of many hadron resonances. The analysis of meson-baryon and meson-meson scattering amplitudes shows poles in the second Riemanm sheet, which are identified with existing hadron resonances or new ones. In this way the low-lying $1/2^{-}$ resonances are generated (1) , including the $N^{*}(1535)$ (1) and two $\Lambda(1405)$ states (8) . More recently, the low-lying $1/2^{+}$ states have also been generated from two mesons and a baryon such as the $N^{*}(1710)$ resonance and others (9) .
+
+Within the chiral unitary approach, the $f_{0}(980)$ and $a_{0}(980)$ scalar mesons are dynamically generated from the interaction of $\bar{K}K$ , $\pi\pi$ , and $\eta\pi$ treated as coupled channels in $I=0$ and $I=1$ , respectively (11) . Both couple strongly to the $\bar{K}K$ channel. In this sense the $f_{0}(980)$ and $a_{0}(980)$ scalar mesons can be explained as $\bar{K}K$ bound states.
+
+The effective interactions of $\bar{K}N$ have been studied in a unitary chiral theory (2) and in a phenomenological way (22) . Within the unitary chiral theory, two $\Lambda(1405)$ states are dynamically generated, as we mentioned above, the higher mass one corresponding to basically a $\bar{K}N$ bound state and the lower mass one looking like a $\pi\Sigma$ resonance. In the phenomenological approaches, the strong attraction of $\bar{K}N$ in the $I=0$ sector provides $\Lambda(1405)$ as a bound state of $\bar{K}N$ .
+
+Recently, there is growing evidence that some existing hadronic states can be interpreted in terms of bound states or resonances of three hadrons. Some new states of this nature have also been reported. For example, it has been found that the $Y(4660)$ resonance reported in $e^{+}e^{-}\to\gamma_{\text{ISR}}\pi^{+}\pi^{-}\psi^{\prime}$ can be interpreted as a $\psi^{\prime}f_{0}(980)$ bound state (26) . In Ref. (27) , the Faddeev equations for the $\pi\bar{K}N$ system were solved by using the chiral unitary approach and coupled channels, and several $\Sigma^{*}$ and $\Lambda^{*}$ resonances with spin-parity $J^{P}=1/2^{+}$ in the energy region $1500-1800$ MeV were dynamically generated. The $X(2175)$ (now $\phi(2170)$ ) state, claimed by different experimental groups (28) in the $\phi f_{0}(980)$ invariant mass spectrum, has been interpreted as a $\phi\bar{K}K$ resonance with $\bar{K}K$ forming the $f_{0}(980)$ scalar meson (31) .
+
+For the $N\bar{K}K$ system, having strong attraction in the $\bar{K}N$ and $\bar{K}K$ subsystems, it is naturally expected that the three hadrons $N\bar{K}K$ form a hadron state. Indeed, this state has been studied in Ref. (34) with nonrelativistic three-body variational calculations by using effective $\bar{K}N$ , $\bar{K}K$ , and $KN$ interactions and in Refs. (35) by solving the Faddeev equations in a coupled channel approach. They all found a bound state of the $N\bar{K}K$ system with total isospin $I=1/2$ and spin-parity $J^{P}=1/2^{+}$ .
+
+In the present work, we reinvestigate the three-body $N\bar{K}K$ system by considering the interaction of the three components among themselves, keeping in mind the expected strong correlations of the $\bar{K}K$ and $\bar{K}N$ system to make the $f_{0}(980)(a_{0}(980))$ and $\Lambda(1405)$ respectively. In terms of two-body $N\bar{K}$ , $NK$ and $K\bar{K}$ , $KN$ scattering amplitudes, we solve the Faddeev equations by using the Fixed Center Approximation(FCA). The main purpose of the present work is to test the validity of the FCA to study systems of three hadrons in conditions similar to the present one. The FCA has been employed before, in particular in the study of the $\bar{K}d$ interaction at low energies (38) . Comparison of full Faddeev equations and the FCA can be extracted from Refs. (42) , where it is shown that the FCA is a good approximation for this problem at the level of a few percent. This approach was also used in Ref. (44) to describe the $f_{2}(1270)$ , $\rho_{3}(1690)$ , $f_{4}(2050)$ , $\rho_{5}(2350)$ and $f_{6}(2510)$ resonances as multi- $\rho(770)$ states, and in Ref. (45) to study the $K^{*}_{2}(1430)$ , $K_{3}^{*}(1780)$ , $K^{*}_{4}(2045)$ , $K^{*}_{5}(2380)$ , and a not yet discovered $K^{*}_{6}$ resonances as $K^{*}-$ multi $-\rho$ states. Very recently, we gave an interesting explanation of the $\Delta_{5/2^{+}}$ puzzle by using this approach in the $\pi\Delta\rho$ system (46) .
+
+One basic feature of the FCA is that one has a cluster of two particles and one allows the multiple scattering of the third particle with this cluster, which is supposed not to be changed by the interaction of the third particle. Intuitively one can think that this would mostly happen when the particles in the cluster are more massive than the third one. One might also think that the approximation could be better if the third particle had small energy, such that it can not perturb too much the cluster of the two particles. Whatever it is, one does not know the accuracy of the FCA until a comparison is made with the more elaborate Faddeev equations. On the other hand, technically, the FCA is much easier than the Faddeev equations, which require lengthly calculations and also approximations, to the point that some approximations done to make the Faddeev equations feasible might introduce larger uncertainties in some problem than those introduced by the FCA. With this perspective it is important to be able to quantify uncertainties of the FCA in certain circumstances such that it can be used as a prospective tool to investigate possible structures of three hadrons, leading to bound or quasibound states, in different systems and similar circumstances. This is the main purpose of the present work. We shall take advantage that the present problem has been solved with two independent methods, full Faddeev equations (35) and variational approach (34) , such that comparison with the result of these works can give us a feeling of the accuracy of the FCA.
+
+In next section, we present the FCA formalism and ingredients to analyze the $N\bar{K}K$ system. In Section III, our results and discussions are presented. Finally, conclusions are given in section IV.
+
+II Formalism and ingredients
+
+We are going to use the FCA of the Faddeev equations in order to obtain the scattering amplitude of the three body $N\bar{K}K$ system. We consider $\bar{K}K$ as a bound state of $f_{0}/a_{0}(980)$ scalar meson in one case, and $\bar{K}N$ as a bound state of $\Lambda(1405)$ state in the other, which allows us to use the FCA to solve the Faddeev equations. The analysis of the $N-(\bar{K}K)_{f_{0}/a_{0}(980)}$ and $K-(\bar{K}N)_{\Lambda(1405)}$ scattering amplitudes will allow us to study dynamically generated resonances.
+
+The important ingredients in the calculation of the total scattering amplitude for the $N\bar{K}K$ system using the FCA are the two-body $\bar{K}N$ , $KN$ and $\bar{K}K$ unitarized $s-$ wave interactions from the chiral unitary approach. Since this work has been reported on many occasions, we direct the reader for details to Refs. (2) .
+
+In the FCA approach we need as input the wave function of a two particle cluster and the scattering amplitude of the third particle with those of the clusters. The wave functions, and the corresponding form factors, are taken from Refs. (48) , where a quantum mechanical study of the coupled channels interaction is done in a way that gives the same scattering amplitudes as those obtained in the field theoretical treatment of the chiral unitary approach.
+
+II.1 Form factors for the $f_{0}/a_{0}(980)$ and the $\Lambda(1405)$
+
+One of the ingredients in the calculation is the form factor for the assumed two body cluster, the $f_{0}(980)$ and $a_{0}(980)$ in one case, or the $\Lambda(1405)$ in the other. Following the approach of Ref. (48) , we can easily get the expression for the form factor $F_{B^{*}}(q)$ for the bound state $B^{*}$ of a pair of particles \footnote{ 1 For the sake of brevity and to avoid repeating similar equations for the two different configurations, the field normalization factors in our approach include a factor $2m_{N}$ for nucleon, but since we normalize $F_{B^{*}}$ to 1 at $q=0$ , Eqs. ( 1 ) and ( 2 ) are general.} , 
+ 
+ $\displaystyle F_{B^{*}}(q)=\frac{1}{{\cal N}}\int_{|\vec{p}|<\Lambda,|\vec{p}-\vec{q}|<\Lambda}d^{3}\vec{p}\frac{1}{2\omega_{1}(\vec{p})}\frac{1}{2\omega_{2}(\vec{p})}\times$ 
+ 
+ $\displaystyle\frac{1}{M-\omega_{1}(\vec{p})-\omega_{2}(\vec{p})}\frac{1}{2\omega_{1}(\vec{p}-\vec{q})}\frac{1}{2\omega_{2}(\vec{p}-\vec{q})}\times$ 
+ 
+ $\displaystyle\frac{1}{M-\omega_{1}(\vec{p}-\vec{q})-\omega_{2}(\vec{p}-\vec{q})},$  (1) 
+ where the normalization factor ${\cal N}$ is 
+ 
+ $\displaystyle{\cal N}$ $\displaystyle=$ $\displaystyle\int_{|\vec{p}|<\Lambda}d^{3}\vec{p}\left(\frac{1}{2\omega_{1}(\vec{p})}\frac{1}{2\omega_{2}(\vec{p})}\right)^{2}\times$  (2) 
+ $\displaystyle\frac{1}{(M-\omega_{1}(\vec{p})-\omega_{2}(\vec{p}))^{2}},$ 
+ where $M$ is the mass of the bound state, which is $980$ MeV for the $f_{0}$ or $a_{0}$ scalar meson and 1420 MeV for the $\Lambda(1405)$ state in the present computation. The approach requires the knowledge of $\Lambda$ , the cut off that is needed in Refs. (48) , to regularize the loop functions in the chiral unitary approach.
+
+In Figs. 1 , and 2 , we show the respective form factors for the $f_{0}(a_{0}(980))$ and $\Lambda(1405)$ as a function of $q$ . The condition $|\vec{p}-\vec{q}|<\Lambda$ implies that the form factor is exactly zero for $q>2\Lambda$ . In the present work, we use $\Lambda=1000$ MeV and $630$ MeV for the $f_{0}/a_{0}(980)$ and the $\Lambda(1405)$ , respectively (2) .
+
+In the FCA, we keep the wave function of the cluster unchanged by the presence of the third particle. In order to estimate uncertainties of the FCA due to this ”frozen” condition we admit that the wave function of the cluster could be modified by the presence of the third particle. Since the interaction is attractive in the present case it should induce a reduction of the size of the cluster (50) . However, unlike in Ref. (50) where the size of the $NN$ cluster is mostly determined by the long range of $\pi$ exchange, and its size can be sizeable reduced, in the present case both the $\bar{K}K$ and $\bar{K}N$ interaction are governed by the exchange of vector mesons (implicit in the chiral Lagrangians and explicitly shown in the local hidden gauge formalism (51) ), thus the size is determined by the constraints of the uncertainty principle, since the range of the interaction is zero. In this case the presence of the third particle cannot reduce the size of the cluster much. In order to quantify uncertainties of the FCA, we perform calculations for the case where the cluster radius is decreased by $20\%$ . Technically, this is accomplished by increasing $20\%$ the masses of the particles involved in the cluster in Eqs. ( 1 ) and ( 2 ).
+
+II.2 Faddeev FCA equations
+
+The FCA to the Faddeev equations are depicted diagrammatically in Fig. 3 . The external particle 3 interacts successively with the particle 1 and particle 2 which form the bound states. For the case of $N-(\bar{K}K)_{f_{0}/a_{0}(980)}$ configuration, since the masses of $f_{0}(980)$ and $a_{0}(980)$ are equal, the $Nf_{0}\to Na_{0}$ transition should be important to the total three body scattering amplitude, and we consider this transition in our calculation. Then the FCA equations for the $N-(\bar{K}K)_{f_{0}/a_{0}(980)}$ configuration are written in terms of four partition functions ( $T_{1}$ , $T_{2}$ , $\bar{T_{1}}^{\prime}$ , and $\bar{T_{2}}^{\prime}$ for $Nf_{0}\to Nf_{0}$ , and $\widetilde{T_{1}}$ , $\widetilde{T_{2}}$ , $\bar{T_{1}}$ , and $\bar{T_{2}}$ for $Na_{0}\to Na_{0}$ ), which read, 
+ 
+ $\displaystyle T_{1}=t_{1}+t_{1}G_{0}T_{2}+\bar{t_{1}}G_{0}\bar{T_{2}}^{\prime},$  (3) 
+ 
+ $\displaystyle T_{2}=t_{2}+t_{2}G_{0}T_{1}+\bar{t_{2}}G_{0}\bar{T_{1}}^{\prime},$  (4) 
+ 
+ $\displaystyle\bar{T_{1}}^{\prime}=\bar{t_{1}}+\bar{t_{1}}G_{0}T_{2}+\widetilde{t_{1}}G_{0}\bar{T_{2}}^{\prime},$  (5) 
+ 
+ $\displaystyle\bar{T_{2}}^{\prime}=\bar{t_{2}}+\bar{t_{2}}G_{0}T_{1}+\widetilde{t_{2}}G_{0}\bar{T_{1}}^{\prime},$  (6) 
+ 
+ $\displaystyle T_{Nf_{0}\to Nf_{0}}=T_{1}+T_{2},$  (7) 
+ 
+ $\displaystyle\widetilde{T_{1}}=\widetilde{t_{1}}+\widetilde{t_{1}}G_{0}\widetilde{T_{2}}+\bar{t_{1}}G_{0}\bar{T_{2}},$  (8) 
+ 
+ $\displaystyle\widetilde{T_{2}}=\widetilde{t_{2}}+\widetilde{t_{2}}G_{0}\widetilde{T_{1}}+\bar{t_{2}}G_{0}\bar{T_{1}},$  (9) 
+ 
+ $\displaystyle\bar{T_{1}}=\bar{t_{1}}+\bar{t_{1}}G_{0}\widetilde{T_{2}}+t_{1}G_{0}\bar{T_{2}},$  (10) 
+ 
+ $\displaystyle\bar{T_{2}}=\bar{t_{2}}+\bar{t_{2}}G_{0}\widetilde{T_{1}}+t_{2}G_{0}\bar{T_{1}},$  (11) 
+ 
+ $\displaystyle T_{Na_{0}\to Na_{0}}=\widetilde{T_{1}}+\widetilde{T_{2}},$  (12) 
+ where $T_{Nf_{0}\to Nf_{0}}$ and $T_{Na_{0}\to Na_{0}}$ are the total three-body scattering amplitudes, $T_{i}$ and $\widetilde{T_{i}}$ ( $i=1,2$ ) account for all the diagrams starting from the interaction of the external particle with particle $i$ of the compound system for $Nf_{0}\to Nf_{0}$ and $Na_{0}\to Na_{0}$ , respectively, while $\bar{T_{i}}$ and $\bar{T_{i}}^{\prime}$ account for the intermediate virtual transition contributions for $Nf_{0}\to Na_{0}$ and $Na_{0}\to Nf_{0}$ , respectively. Hence, $t_{i}$ , $\widetilde{t_{i}}$ and $\bar{t_{i}}$ represent the corresponding two body (particle 3 and particle 1 or particle 3 and particle 2) unitarized scattering amplitudes. In the above equations, $G_{0}$ is the loop function for the particle 3 propagating inside the compound system which will be discussed later on.
+
+For the case of the $K-(\bar{K}N)_{\Lambda(1405)}$ configuration, since we do not expect other $s-$ wave meson-baryon channels to play any relevant role in the present calculation, the FCA equations are written in terms of only two partition functions $T_{1}$ and $T_{2}$ , which sum up to the total three body scattering amplitude. In this case the equations are easy and we just have 
+ 
+ $\displaystyle T_{1}=t_{1}+t_{1}G_{0}T_{2},$  (13) 
+ 
+ $\displaystyle T_{2}=t_{2}+t_{2}G_{0}T_{1},$  (14) 
+ 
+ $\displaystyle T_{K\Lambda(1405)\to K\Lambda(1405)}=T_{1}+T_{2}.$  (15) 
+
+
+II.3 Single-scattering contribution
+
+The amplitude corresponding to the single-scattering contribution (Fig. 3 (a) $+$ term with interaction initiated on $p_{2}$ ) comes from the $t_{1},$ $\widetilde{t_{1}},$ $\bar{t_{1}}$ and $t_{2},$ $\widetilde{t_{2}},$ $\bar{t_{2}}$ , which are the appropriate combination of the two body (particle 3 and particle 1 or particle 3 and particle 2) unitarized scattering amplitudes. For example, let us consider a cluster of $\bar{K}K$ in $I=0$ ( $f_{0}(980)$ ), the constituents of which we call $1$ and $2$ , and the external nucleon $N$ will be numbered $3$ . The $\bar{K}K$ isospin state is written as 
+ 
+ $\displaystyle|\bar{K}K>_{I=0}$ $\displaystyle=$ $\displaystyle\sqrt{\frac{1}{2}}|(\frac{1}{2},-\frac{1}{2})>-\sqrt{\frac{1}{2}}|(-\frac{1}{2},\frac{1}{2})>,$  (16) 
+ where the kets in the last member indicate the $I_{z}$ components of the particles $1$ and $2$ , $|(I_{z}^{(1)},I_{z}^{(2)})>$ .
+
+The scattering amplitude $<N\bar{K}K|t|N\bar{K}K>$ for the single scattering contribution can be easily obtained in terms of the two body amplitudes $t_{31}$ and $t_{32}$ derived in Refs. (2) .
+
+Here we write explicitly the case of $Nf_{0}\to Nf_{0}$ , 
+ 
+ $\displaystyle<N\bar{K}K|t|N\bar{K}K>=(<(\bar{K}K)|_{I_{z}=0}\bigotimes<N|_{I_{z}=1/2})(t_{31}+t_{32})(|(\bar{K}K)>_{I_{z}=0}\bigotimes|N>_{I_{z}=1/2})$  (17) 
+ $\displaystyle=$ $\displaystyle(\sqrt{\frac{1}{2}}(<(\frac{1}{2},-\frac{1}{2})|-<(-\frac{1}{2},\frac{1}{2})|)\bigotimes<N|_{I_{z}=1/2})(t_{31}+t_{32})(\sqrt{\frac{1}{2}}(|(\frac{1}{2},-\frac{1}{2})>-|(-\frac{1}{2},\frac{1}{2})>)\bigotimes|N>_{I_{z}=1/2})$ 
+ $\displaystyle=$ $\displaystyle<-\sqrt{\frac{1}{2}}((11),-\frac{1}{2})+\frac{1}{2}(((10)+(00)),\frac{1}{2})|t_{31}|-\sqrt{\frac{1}{2}}((11),-\frac{1}{2})+\frac{1}{2}(((10)+(00)),\frac{1}{2})>+$ 
+ $\displaystyle<\sqrt{\frac{1}{2}}((11),-\frac{1}{2})-\frac{1}{2}(((10)+(00)),\frac{1}{2})|t_{32}|\sqrt{\frac{1}{2}}((11),-\frac{1}{2})-\frac{1}{2}(((10)+(00)),\frac{1}{2})>,$ 
+ where the notation followed in the last term for the states is $((I_{\bar{K}N}I_{\bar{K}N}^{z}),I_{K}^{z})$ for $t_{31}$ , while $((I_{KN}I_{KN}^{z}),I_{\bar{K}}^{z})$ for $t_{32}$ . This leads to the following amplitude for the single scattering contribution, 
+ 
+ $\displaystyle t_{1}$ $\displaystyle=$ $\displaystyle\frac{1}{4}t_{N\bar{K}}^{I=0}+\frac{3}{4}t_{N\bar{K}}^{I=1}\equiv\frac{1}{4}t_{N\bar{K}}^{0}+\frac{3}{4}t_{N\bar{K}}^{1},$  (18) 
+ 
+ $\displaystyle t_{2}$ $\displaystyle=$ $\displaystyle\frac{1}{4}t_{NK}^{I=0}+\frac{3}{4}t_{NK}^{I=1}\equiv\frac{1}{4}t_{NK}^{0}+\frac{3}{4}t_{NK}^{1}.$  (19) 
+
+
+Proceeding in a similar way, we can get all the amplitudes for the single scattering contribution in the present calculation which are shown in Table 1 for the cases of $N-(\bar{K}K)_{f_{0}/a_{0}(980)}$ and $K-(\bar{K}N)_{\Lambda(1405)}$ configurations with total isospin $I_{N\bar{K}K}=1/2$ .
+
+It is worth noting that the argument of the total scattering amplitudes $T_{Nf_{0}\to Nf_{0}}$ , $T_{Na_{0}\to Na_{0}}$ and $T_{K\Lambda(1405)\to K\Lambda(1405)}$ are functions of the total invariant mass $s$ , while the argument in $t_{1}$ $(\widetilde{t_{1}}~{}~{}\text{or}~{}~{}\bar{t_{1}})$ is $s_{1}^{\prime}$ and in $t_{2}$ $(\widetilde{t_{2}}~{}~{}\text{or}~{}~{}\bar{t_{2}})$ is $s_{2}^{\prime}$ , where $s_{1}^{\prime}$ and $s_{2}^{\prime}$ are the invariant masses of the external particle 3 with momentum $k_{1}$ and particle 1 (2) insider the bound state ( $f_{0}(980)$ , $a_{0}(980)$ or $\Lambda(1405)$ ) with momentum $p_{1}$ ( $p_{2}$ ), which are given by 
+ 
+ $\displaystyle s_{1}^{\prime}$ $\displaystyle=$ $\displaystyle m^{2}_{3}+m^{2}_{1}+$  (20) 
+ $\displaystyle\frac{(M^{2}+m^{2}_{1}-m^{2}_{2})(s-m^{2}_{3}-M^{2})}{2M^{2}},$ 
+ 
+ $\displaystyle s_{2}^{\prime}$ $\displaystyle=$ $\displaystyle m^{2}_{3}+m^{2}_{2}+$  (21) 
+ $\displaystyle\frac{(M^{2}+m^{2}_{2}-m^{2}_{1})(s-m^{2}_{3}-M^{2})}{2M^{2}}.$ 
+
+
+Following the approach developed in Ref. (44) , (see also section $4$ of Ref. (49) for details on the form factors) we can easily write down the $S-$ matrix for the single scattering term in the Mandl-Shaw normalization (52) , which we follow, as
+
+
+ 
+ $\displaystyle S^{(1)}$ $\displaystyle=$ $\displaystyle S_{1}^{(1)}+S_{2}^{(1)}$  (22) 
+ $\displaystyle=$ $\displaystyle((-it_{1}F_{B^{*}}(\frac{m_{2}(\vec{k_{1}}-\vec{k_{1}^{\prime})}}{m_{1}+m_{2}}))\frac{BF_{1}}{{\cal V}^{2}}\frac{1}{\sqrt{2\omega_{1}}}\frac{1}{\sqrt{2\omega_{1}^{\prime}}}+$ 
+ $\displaystyle(-it_{2}F_{B^{*}}(\frac{m_{1}(\vec{k_{1}}-\vec{k_{1}^{\prime})}}{m_{1}+m_{2}}))\frac{BF_{2}}{{\cal V}^{2}}\frac{1}{\sqrt{2\omega_{2}}}\frac{1}{\sqrt{2\omega_{2}^{\prime}}})\times$ 
+ $\displaystyle\frac{1}{\sqrt{2\omega_{3}}}\frac{1}{\sqrt{2\omega_{3}^{\prime}}}(2\pi)^{4}\delta^{4}(k_{1}+K-k_{1}^{\prime}-K^{\prime}),$ 
+ where $\mathcal{V}$ stands for the volume of a box where we normalize to unity our plane wave states, and $BF_{1}$ and $BF_{2}$ are the field normalization baryon factors, $BF_{1}=BF_{2}=2m_{N}$ for $N-(\bar{K}K)_{f_{0}(a_{0}(980))}$ configuration, while for the case of $K-(\bar{K}N)_{\Lambda(1405)}$ , they are $BF_{1}=1$ , $BF_{2}=2m_{N}$ . With this normalization, $t_{1}$ and $t_{2}$ have the standard form as evaluated in the chiral unitary approach. The symbols $k_{1}$ , $k_{1}^{\prime}$ , $K$ , and $K^{\prime}$ stand for the four momenta of the initial, final particle 3 and initial, final bound state $B^{*}$ . In Eq. ( 22 ), $F_{B^{\ast}}(\frac{m_{i}(\vec{k_{1}}-\vec{k_{1}^{\prime})}}{m_{1}+m_{2}})$ is the form factor of the bound state $B^{*}$ . This form factor was taken to be unity neglecting the $\vec{k},\vec{k^{\prime}}$ momentum in Ref. (44) since only states below threshold were considered. To consider states above threshold, we project the form factor into $s$ -wave, the only partial wave that we consider. Thus
+
+
+ 
+ $\displaystyle F_{B^{*}}(\frac{m_{i}(\vec{k_{1}}-\vec{k^{\prime}_{1})}}{m_{1}+m_{2}})\Rightarrow FFS_{i}(s)=\frac{1}{2}\int_{-1}^{1}F_{B^{*}}(k_{i})d(cos\theta),$  (23) 
+ with 
+ 
+ $\displaystyle k_{i}=\frac{m_{i}}{m_{1}+m_{2}}k\sqrt{2(1-cos\theta)},\quad\left\{\begin{array}[]{l}i=1~{}{\rm for}~{}t_{2}~{}(\widetilde{t_{2}}~{}\text{or}~{}\bar{t_{2}}),\cr i=2~{}{\rm for}~{}t_{1}~{}(\widetilde{t_{1}}~{}\text{or}~{}\bar{t_{1}}).\end{array}\right.$  (26) 
+ and 
+ 
+ $\displaystyle k=\frac{\sqrt{(s-(m_{1}+m_{2}+m_{3})^{2})(s-(m_{1}+m_{2}-m_{3})^{2})}}{2\sqrt{s}},$  (27) 
+ is the modulus of the momentum of the particle 3 in the center of mass frame of $N\bar{K}K$ system when the total rest energy $\sqrt{s}$ is above the threshold of the three particles. Below threshold, the wave functions still provide a finite real momentum $k$ , but are small enough, such that we can take $k=0$ in this case.
+
+In Fig. 4 , we show the projection over the s-wave of the form factor $FFS_{1}(s)$ (equal to $FFS_{2}(s)$ ) (solid line) for the case of $Nf_{0}(a_{0}(980))$ scattering and $FFS_{1}(s)$ (dashed line), $FFS_{2}(s)$ (dotted line) for the case of $K\Lambda(1405)$ scattering. As one can see, in all cases, the form factor has a smooth behavior.
+
+II.4 Double-scattering contribution
+
+Next, we are going to evaluate the amplitude of the double-scattering contribution (Fig. 3 (b) + term with interaction initiated on $p_{2}$ ) in the same way as in case of multi-rho meson interaction in Ref. (44) . The expression for the $S-$ matrix for the double scattering ( $S_{2}^{(2)}=S_{1}^{(2)}$ ), in the Mandl-Shaw normalization (52) , is,
+
+
+ 
+ $\displaystyle S_{1}^{(2)}$ $\displaystyle=$ $\displaystyle(-it_{1}t_{2})(2\pi)^{4}\delta^{4}(k_{1}+K-k_{1}^{\prime}-K^{\prime})\times$  (28) 
+ $\displaystyle\frac{BF_{1}BF_{2}}{{\cal V}^{2}}\frac{1}{\sqrt{2\omega_{1}}}\frac{1}{\sqrt{2\omega_{1}^{\prime}}}\frac{1}{\sqrt{2\omega_{2}}}\frac{1}{\sqrt{2\omega_{2}^{\prime}}}\frac{1}{\sqrt{2\omega_{3}}}\frac{1}{\sqrt{2\omega_{3}^{\prime}}}$ 
+ $\displaystyle\times\int\frac{d^{3}\vec{q}}{(2\pi)^{3}}F_{B^{*}}(q)D(q^{2}),$ 
+ where $BF_{1}=BF_{2}=\sqrt{2m_{N}}$ for $Nf_{0}(a_{0}(980))$ scattering, or $BF_{1}=1$ and $BF_{2}=2m_{N}$ for the $K\Lambda(1405)$ scattering. The propagator $D(q^{2})$ is 
+ 
+ $\displaystyle D(q^{2})=\frac{m_{N}}{E_{N}(\vec{q}~{}^{2})}\frac{1}{q^{0}-E_{N}(\vec{q}~{}^{2})+i\epsilon}$  (29) 
+ for the case of $Nf_{0}(a_{0}(980))$ scattering, and 
+ 
+ $\displaystyle D(q^{2})=\frac{1}{q^{0^{2}}-\vec{q}~{}^{2}-m^{2}_{K}+i\epsilon}$  (30) 
+ for the case of $K\Lambda(1405)$ scattering.
+
+One must now take into account that the field normalization factor for the $Nf_{0}(a_{0}(980))$ or $K\Lambda(1405)$ scattering amplitude are neither those of Eq. ( 22 ) or Eq. ( 28 ). But
+
+
+ 
+ $\displaystyle S$ $\displaystyle=$ $\displaystyle-iT\frac{BF_{1}BF_{2}}{{\cal V}^{2}}\frac{1}{\sqrt{2\omega_{B^{*}}}}\frac{1}{\sqrt{2\omega_{B^{*}}^{\prime}}}\frac{1}{\sqrt{2\omega_{3}}}\frac{1}{\sqrt{2\omega_{3}^{\prime}}}\times$  (31) 
+ $\displaystyle(2\pi)^{4}\delta^{4}(k_{1}+K-k_{1}^{\prime}-K^{\prime}).$ 
+ where $BF_{1}=2m_{N}$ , $BF_{2}=1$ for $Nf_{0}(a_{0}(980))$ scattering and $BF_{1}=1$ , $BF_{2}=2M_{\Lambda(1405)}$ for the $K\Lambda(1405)$ scattering.
+
+By comparing Eq. ( 31 ) with Eq. ( 22 ) for the single-scattering and Eq. ( 28 ) for the double-scattering, we see we have to give a weight to $t_{1}$ and $t_{2}$ such that Eqs. ( 22 ) and ( 28 ) get the weight factors that appear in the general formula of Eq. ( 31 ). Taking this into account, the terms in the multiple scattering of the FCA can be summed up with Eqs. ( 3 $-$ 12 ) and Eqs. ( 13 $-$ 14 ) by means of
+
+
+ 
+ $\displaystyle t_{1}\rightarrow$  $\displaystyle t_{1}\sqrt{\frac{2\omega_{f_{0}(a_{0}(980))}}{2\omega_{\bar{K}}}}\sqrt{\frac{2\omega_{f_{0}(a_{0}(980))}^{\prime}}{2\omega_{\bar{K}}^{\prime}}},$ 
+ 
+ $\displaystyle t_{2}\rightarrow$  $\displaystyle t_{2}\sqrt{\frac{2\omega_{f_{0}(a_{0}(980))}}{2\omega_{K}}}\sqrt{\frac{2\omega_{f_{0}(a_{0}(980))}^{\prime}}{2\omega_{K}^{\prime}}},$ 
+ 
+ $\displaystyle G_{0}(s)$ $\displaystyle=$ $\displaystyle\frac{1}{\sqrt{2\omega_{f_{0}(a_{0}(980))}2\omega_{f_{0}(a_{0}(980))}^{\prime}}}\times$ 
+ $\displaystyle\int\frac{d^{3}\vec{q}}{(2\pi)^{3}}F_{f_{0}(a_{0}(980))}(q)\frac{m_{N}}{E_{N}(\vec{q}~{}^{2})}\frac{1}{q^{0}-E_{N}(\vec{q}~{}^{2})+i\epsilon},$ 
+ for the case of $N-(\bar{K}K)_{f_{0}(a_{0}(980))}$ configuration,
+
+
+ 
+ $\displaystyle t_{1}\rightarrow$  $\displaystyle t_{1}\frac{1}{\sqrt{2\omega_{\bar{K}}}}\frac{1}{\sqrt{2\omega_{\bar{K}}^{\prime}}}\sqrt{\frac{E_{\Lambda(1405)}}{{M_{\Lambda(1405)}}}}\sqrt{\frac{E_{\Lambda(1405)}^{\prime}}{{M_{\Lambda(1405)}}}},$ 
+ 
+ $\displaystyle t_{2}\rightarrow$  $\displaystyle t_{2}\sqrt{\frac{m_{N}}{E_{N}}}\sqrt{\frac{m_{N}}{E_{N}^{\prime}}}\sqrt{\frac{E_{\Lambda(1405)}}{{M_{\Lambda(1405)}}}}\sqrt{\frac{E_{\Lambda(1405)}^{\prime}}{{M_{\Lambda(1405)}}}},$ 
+ 
+ $\displaystyle G_{0}(s)$ $\displaystyle=$ $\displaystyle\sqrt{\frac{M_{\Lambda(1405)}}{E_{\Lambda(1405)}}}\sqrt{\frac{M_{\Lambda(1405)}}{E_{\Lambda(1405)}^{\prime}}}\times$ 
+ $\displaystyle\int\frac{d^{3}\vec{q}}{(2\pi)^{3}}F_{\Lambda(1405)}(q)\frac{1}{q^{0^{2}}-\vec{q}~{}^{2}-m^{2}_{K}+i\epsilon},$ 
+ for the case of $K-(\bar{K}N)_{\Lambda(1405)}$ configuration.
+
+In Figs. 5 and 6 , we show the real and imaginary parts of the loop function $G_{0}$ as a function of the invariant mass of the $N\bar{K}K$ system for the two cases, where the value of $q^{0}=(s+m^{2}_{3}-M^{2})/(2\sqrt{s})$ is given by the energy of particle 3 in the center of mass frame of the particle 3 and the bound state $B^{*}$ .
+
+III Results and discussions
+
+In this section we show the results obtained for the scattering amplitude of the $N\bar{K}K$ system with total isospin $I=1/2$ and spin-parity $J^{P}=1/2^{+}$ . We evaluate the scattering amplitude $T$ and associate the peaks in the modulus squared $|T|^{2}$ to resonances.
+
+In Fig. 7 , we show the modulus squared $|T|^{2}$ for the $Nf_{0}\to Nf_{0}$ and $Na_{0}\to Na_{0}$ scattering. The picture shows a clear peak for the $Na_{0}\to Na_{0}$ case around $1915$ MeV, and a width of about $80$ MeV \footnote{ 2 Although we mentioned that the wave functions provide finite momenta for the $N$ , formally we could extrapolate the form factor below threshold, making the $N$ momentum purely imaginary. If we do that, the peak shifts to $1925$ MeV, and the width is around $30$ MeV. We mention these results as an indication of possible uncertainties below threshold.} . There is no peak at this energy for $Nf_{0}\to Nf_{0}$ , but, a narrower peak appears around $1950$ MeV, which also appears with smaller strength for the case of $Na_{0}\to Na_{0}$ scattering.
+
+The peak appearing for $Na_{0}\to Na_{0}$ could be associated with the one obtained in Ref. (34) . It should be noted that taking into account the transition from $Nf_{0}\to Na_{0}$ is important. Although the two structures in Fig. 7 also appear when omitting the transition, its consideration leads to a much wider distribution around the peak in the case of the $Na_{0}\to Na_{0}$ amplitude. We can also mention that in the case of $Na_{0}\to Na_{0}$ with total isospin $I=3/2$ , we also obtain a peak around $1960$ MeV. However, the strength is very small compared to the case of $I=1/2$ , too small to have a significant impact on a realistic amplitude when other components would necessarily mix in the wave functions. Yet, there are still more considerations to make. Indeed, we have assumed that the structure of this three body system corresponds basically to a cluster of $\bar{K}K$ , making either $f_{0}(980)$ or $a_{0}(980)$ , and a nucleon. It could be that the physical state would choose better another configuration where the $\bar{K}N$ cluster makes the $\Lambda(1405)$ . Indeed, the study of Ref. (37) showed that there was a correlation of $\bar{K}N$ around the $\Lambda(1405)$ , which was also mentioned in Ref. (34) . In what follows, we pay attention to this other configuration.
+
+In Fig. 8 , we show the results of $|T|^{2}$ for the case of $K\Lambda(1405)\to K\Lambda(1405)$ . Here we see a clear peak around $1925$ MeV. The strength of $|T|^{2}$ at the peak is similar to that of Fig. 7 for the $Na_{0}\to Na_{0}$ scattering. A proper comparison requires to reconsider the normalization factors in the $S$ matrix in the case of $K\Lambda(1405)\to K\Lambda(1405)$ versus those of $Na_{0}\to Na_{0}$ , as seen in Eqs. ( 31 ). It is then clear that the proper comparison is $T_{Na_{0}\to Na_{0}}$ versus $\frac{M_{a_{0}(980)}}{m_{K}}T_{K\Lambda(1405)\to K\Lambda(1405)}$ . Taking this into account we find that $|\frac{M_{a_{0}(980)}}{m_{K}}T_{K\Lambda(1405)\to K\Lambda(1405)}|^{2}\simeq 4|T_{Na_{0}\to Na_{0}}|^{2}$ . It is thus clear that the preferred configuration is $K\Lambda(1405)$ . However, the $K$ will keep interacting with the $\bar{K}$ or the $N$ and sometimes can also make an $f_{0}(980)$ or $a_{0}(980)$ , as one can see in the Table 1 , which means that both the $a_{0}(980)$ and $\Lambda(1405)$ or $f_{0}(980)$ and $\Lambda(1405)$ configuration would be present as found in Refs. (35) .
+
+Note that the peak of Fig. 8 is relatively narrow. Yet, once the $K\Lambda(1405)$ configuration would mix with the $Na_{0}(980)$ configuration of Fig. 7 , the mixture would produce a wider shape. The important thing is that both configurations peak around the same energy and hence the peak around this energy of any mixture of the states is guaranteed.
+
+The large dominance of the $K\Lambda(1405)$ component over the $Nf_{0}(a_{0}(980))$ serves to put the peaks with moderate strength around $1950$ MeV seen in Fig. 7 in a proper context, indicating that the effect of this configuration in that energy region can be diluted when other large components of the wave functions are considered, such that we should not expect that these peaks would have a much repercussion in any physical observable.
+
+As we mentioned earlier, we would like to test the stability of the results by releasing the assumption of the FCA, ie, that the cluster of two particles on which the third one scatters is ”frozen” in the process of multiple scattering. For this purpose we repeat the calculation using the reduced size of the $\bar{K}K$ or $\bar{K}N$ clusters, decreasing their radii in $20\%$ . The results can be seen in Figs. 7 and 8 . The basic features of Fig. 7 remain, the peak corresponding to the $Na_{0}$ component being visible but having become less sharp, and the same happens with the $Nf_{0}$ component. Yet, the most important thing, as shown in Fig. 8 , is that the $K\Lambda(1405)$ component, which is by far the largest as we argued before, is practically unchanged, showing a neat peak around $1925$ MeV.
+
+In summary, what is solid from our analysis is that one finds a clear peak in the scattering amplitude for the $N\bar{K}K$ system, indicating that we have a resonant state made of these components, built up mostly around the $K\Lambda(1405)$ configuration and where the $\bar{K}K$ subsystem has an important overlap with the $f_{0}(980)$ and $a_{0}(980)$ resonances.
+
+The stability of the main component, and the agreement of the results with the more sophisticated ones of Refs. (34) , shows that the FCA is a reliable tool for this problem and this gives support to its use in similar problems and conditions in other three hadron systems.
+
+IV Conclusions
+
+We have conducted a study of the $N\bar{K}K$ system assuming that there is a primary clustering of the particles as $Nf_{0}(980)$ , $Na_{0}(980)$ , or $K\Lambda(1405)$ . By using the FCA to the Faddeev equations we have observed in both $Na_{0}(980)$ and $K\Lambda(1405)$ configurations there is a clear peak around $1920$ MeV indicating the formation of a resonant $N\bar{K}K$ state around this energy. We also found that the $K\Lambda(1405)$ configuration is the dominant one, where the $\bar{K}K$ subsystem can still couple to the $f_{0}(980)$ and $a_{0}(980)$ resonances. The results obtained here are in agreement with those obtained in Ref. (34) using a variational procedure and in Refs. (35) using full Faddeev couple channels calculations, which support the existence of a $N^{*}$ state with spin-parity $J^{P}=1/2^{+}$ around $1920$ MeV. In Ref. (35) some arguments were given in favor of the peak seen in $\gamma p\to K^{+}\Lambda$ (53) around this energy being due to this resonance (other suggestions that do not exclude the one of Ref. (35) are given in Refs. (56) ).
+
+Since the independent works of Ref. (34) and Refs. (36) , together with that of Ref. (35) , already give strong support for the $N^{*}(1920)(1/2^{+})$ state, the main value of the present paper is not to provide extra support for this state but to test the reliability of the FCA to deal with the $N\bar{K}K$ system. We found the main results of the FCA to be rather stable and this gives us confidence that one can use this, technically easier, tool to study similar systems of three hadrons where the conditions are similar. The fact that the energies of the particles are small and one is close to threshold of the three particle system should be viewed as one important condition for a reliable FCA result. Should the scattering particle have a relatively large energy, one could no longer invoke that the cluster of the other two particles remain unchanged. This is intuitive, but it has been made quantitative in Ref. (59) in the system made by $\phi\bar{K}K$ in connection with the $\phi(2170)$ resonance. Works like the present one and that of Ref. (59) are setting the grounds for the applicability of the FCA, which should help make an exploration of likely bound three hadron systems in a span of time substantive shorter than with the lengthy and technically complicated full Faddeev calculations.
+
+Acknowledgments
+
+This work is partly supported by DGICYT Contract No. FIS2006-03438, the Generalitat Valenciana in the project PROMETEO, the Spanish Consolider Ingenio 2010 Program CPAN (CSD2007-00042) and the EU Integrated Infrastructure Initiative Hadron Physics Project under contract RII3-CT-2004-506078. Ju-Jun Xie acknowledges Ministerio de Educación Grant SAB2009-0116. The work of A. M. T. is supported by the Grant-in-Aid for the Global COE Program “The Next Generation of Physics, Spun from Universality and Emergence” from the Ministry of Education, Culture, Sports, Science and Technology (MEXT) of Japan.
+
+References
+
+(1) N. Kaiser, P. B. Siegel and W. Weise, Nucl. Phys. A594, 325 (1995).
+(2) E. Oset and A. Ramos, Nucl. Phys. A635, 99 (1998).
+(3) C. Garcia-Recio, J. Nieves, E. Ruiz Arriola and M. J. Vicente Vacas, Phys. Rev. D67, 076009 (2003).
+(4) T. Hyodo, S. I. Nam, D. Jido and A. Hosaka, Phys. Rev. C68, 018201 (2003).
+(5) T. Inoue, E. Oset and M. J. Vicente Vacas, Phys. Rev. C65, 035204 (2002).
+(6) C. Garcia-Recio, M. F. M. Lutz and J. Nieves, Phys. Lett. B582, 49 (2004).
+(7) Tetsuo Hyodo and Wolfram Weise, Phys. Rev. C77, 035204 (2008).
+(8) D. Jido, J. A. Oller, E. Oset, A. Ramos, and U. G. Meißner, Nucl. Phys. A725, 181 (2003).
+(9) A. Martínez Torres, K. P. Khemchandani, and E. Oset, Phys. Rev. C77, 042203 (2008).
+(10) K. P. Khemchandani, A. Martinez Torres, and E. Oset, Eur. Phys. J. A37, 233 (2008).
+(11) J. A. Oller, and E. Oset, Nucl. Phys. A620, 438 (1997).
+(12) J. A. Oller, E. Oset and J. R. Pelaez, Phys. Rev. Lett.80, 3452 (1998).
+(13) J. A. Oller, and E. Oset, Phys. Rev. D60, 074023 (1999).
+(14) A. Gómez Nicola, and J. R. Peláez, Phys. Rev. D65, 054009 (2002).
+(15) J. R. Pelaez, G. Rios, Phys. Rev. Lett.97, 242002 (2006).
+(16) N. Kaiser, Eur. Phys. J. A3, 207 (1998).
+(17) V. E. Markushin, Eur. Phys. J. A8, 389 (2000).
+(18) J. A. Oller and U.-G. Meißner, Phys. Lett. B500, 263 (2001).
+(19) B. Borasoy, R. Nissler and W. Weise, Eur. Phys. J. A25, 79 (2005).
+(20) J. A. Oller, Eur. Phys. J. A28, 63 (2006).
+(21) B. Borasoy, U.-G. Meißner, and R. Nissler, Phys. Rev. C74, 055201 (2006).
+(22) J. Mares, E. Friedman and A. Gal, Phys. Lett.  B606, 295 (2005).
+(23) N. V. Shevchenko, A. Gal and J. Mares, Phys. Rev. Lett.98, 082301 (2007).
+(24) N. V. Shevchenko, A. Gal, J. Mares and J. Revai, Phys. Rev.  C76, 044004 (2007).
+(25) A. Cieply and J. Smejkal, Eur. Phys. J.  A43, 191 (2010).
+(26) F. K. Guo, C. Hanhart, and U. G. Meißner, Phys. Lett. B665, 26 (2008).
+(27) A. Martínez Torres, K. P. Khemchandani, and E. Oset, Phys. Rev. C77, 042203 (2008).
+(28) B. Aubert et al. (BABAR Collaboration), Phys. Rev. D74, 091103 (2006).
+(29) B. Aubert et al. (BABAR Collaboration), Phys. Rev. D76, 012008 (2007).
+(30) M. Ablikim et al. (BES Collaboration) Phys. Rev. Lett.100, 102003 (2008).
+(31) A. Martínz Torres et al., Phys. Rev. D78, 074031 (2008).
+(32) L. Alvarez-Ruso, J. A. Oller, J. M. Alarcon, Phys. Rev. D80, 054011 (2009).
+(33) Susana Coito, George Rupp, and Eef van Beveren, Phys. Rev. D80, 094011 (2009).
+(34) D. Jido and Y. Kanada-En’yo, Phys. Rev. C78, 035203 (2008).
+(35) A. Martínez Torres, K. P. Khemchandani, U. G. Meißner, and E. Oset, Eur. Phys. J. A41, 361 (2009).
+(36) A. Martínez Torres, K. P. Khemchandani, and E. Oset, Phys. Rev. C79, 065207 (2009).
+(37) A. Martínez Torres and D. Jido, Phys. Rev. C82, 038202 (2010).
+(38) R. Chand and R. H. Dalitz, Annals Phys.20, 1 (1962)
+(39) R. C. Barrett and A. Deloff, Phys. Rev.  C60, 025201 (1999).
+(40) A. Deloff, Phys. Rev.  C61, 024004 (2000).
+(41) S. S. Kamalov, E. Oset and A. Ramos, Nucl. Phys.  A690, 494 (2001).
+(42) G. Toker, A. Gal and J. M. Eisenberg, Nucl. Phys.  A362, 405 (1981).
+(43) A. Gal, Int. J. Mod. Phys.  A22, 226 (2007).
+(44) L. Roca, and E. Oset, Phys. Rev. D82, 054013 (2010).
+(45) J. Yamagata-Sekihara, L. Roca and E. Oset, Phys. Rev.  D82, 094017 (2010).
+(46) J. J. Xie, A. Martínez Torres, E. Oset and P. Gonzalez, arXiv:1101.1722 [nucl-th], Phys. Rev. C, in print.
+(47) E. Oset, A. Ramos and C. Bennhold, Phys. Lett.  B527, 99 (2002), [Erratum-ibid.  B530, 260 (2002)].
+(48) D. Gamermann, J. Nieves, E. Oset, and E. Ruiz Arriola, Phys. Rev. D81, 014029 (2010).
+(49) J. Yamagata-Sekihara, J. Nieves and E. Oset, Phys. Rev. D83, 014003 (2011).
+(50) A. Dote, T. Hyodo and W. Weise, Phys. Rev.  C79, 014003 (2009).
+(51) E. Oset and A. Ramos, Eur. Phys. J.  A44, 445 (2010).
+(52) F. Mandl and G. Shaw, Quantum Field Theory, Wiely-Interscience, (1984).
+(53) K. H. Glander et al., Eur. Phys. J. A19, 251 (2004).
+(54) R. Bradford et al., (CLAS Collaboration), Phys. Rev. C73, 035202 (2006).
+(55) M. Sumihama et al., (LEPS Collaboration), Phys. Rev. C73, 035214 (2006).
+(56) V. A. Nikonov, A. V. Anisovich, E. Klemptet al., Phys. Lett.B662, 245-251 (2008).
+(57) R. A. Schumacher and M. M. Sargsian, arXiv:1012.2126 [hep-ph].
+(58) A. de la Puente, O. V. Maxwell, B. A. Raue, Phys. Rev.C80, 065205 (2009).
+(59) A. Martinez Torres, et al., Phys. Rev. D83, 116002 (2011).

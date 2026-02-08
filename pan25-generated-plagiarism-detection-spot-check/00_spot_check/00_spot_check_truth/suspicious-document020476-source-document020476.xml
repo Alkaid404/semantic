@@ -1,0 +1,16 @@
+<document reference="suspicious-document020476.txt">
+  <feature name="about" authors="Ryo Tamura" title="Interlayer Conductance in the Armchair Nanotube - Zigzag Graphene Ribbon Parallel Contact: Theoretical Proposal of Detection of Wavefunction Growing from the Edge to the Center in the Graphene Ribbon" lang="en" similarity="0.9670" severity="medium" prompt_tokens="4270" output_tokens="3627"/>
+  <feature name="md5Hash" value="a25782ecf78bc0f06cdd225f53dd9268"/>
+  <feature name="altered" type="llm_prompted" llm="Mistral" this_language="en" this_offset="848" this_length="694"/>
+  <feature name="altered" type="llm_prompted" llm="Mistral" this_language="en" this_offset="1544" this_length="1555"/>
+  <feature name="altered" type="llm_prompted" llm="Mistral" this_language="en" this_offset="3101" this_length="1829"/>
+  <feature name="altered" type="llm_prompted" llm="Mistral" this_language="en" this_offset="4932" this_length="914"/>
+  <feature name="altered" type="llm_prompted" llm="Mistral" this_language="en" this_offset="6926" this_length="320"/>
+  <feature name="altered" type="llm_prompted" llm="Mistral" this_language="en" this_offset="7253" this_length="464"/>
+  <feature name="altered" type="llm_prompted" llm="Mistral" this_language="en" this_offset="7719" this_length="562"/>
+  <feature name="altered" type="llm_prompted" llm="Mistral" this_language="en" this_offset="8283" this_length="871"/>
+  <feature name="altered" type="llm_prompted" llm="Mistral" this_language="en" this_offset="9156" this_length="720"/>
+  <feature name="altered" type="llm_prompted" llm="Mistral" this_language="en" this_offset="11298" this_length="1434"/>
+  <feature name="altered" type="llm_prompted" llm="Mistral" this_language="en" this_offset="12734" this_length="2156"/>
+  <feature name="altered" type="llm_prompted" llm="Mistral" this_language="en" this_offset="14892" this_length="1830"/>
+</document>

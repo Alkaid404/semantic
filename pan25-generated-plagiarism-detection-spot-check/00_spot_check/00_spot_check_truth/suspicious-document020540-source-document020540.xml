@@ -1,0 +1,13 @@
+<document reference="suspicious-document020540.txt">
+  <feature name="about" authors="Maurice H. P. M. van Putten" title="A unit of information in black hole evaporation" lang="en" similarity="0.9781" severity="low" prompt_tokens="1289" output_tokens="1150"/>
+  <feature name="md5Hash" value="7b70ae6ff9cba707048e5e68a33a1199"/>
+  <feature name="altered" type="llm_prompted" llm="Llama-3" this_language="en" this_offset="1050" this_length="281"/>
+  <feature name="altered" type="llm_prompted" llm="Llama-3" this_language="en" this_offset="1837" this_length="614"/>
+  <feature name="altered" type="llm_prompted" llm="Llama-3" this_language="en" this_offset="2969" this_length="819"/>
+  <feature name="altered" type="llm_prompted" llm="Llama-3" this_language="en" this_offset="3790" this_length="733"/>
+  <feature name="altered" type="llm_prompted" llm="Llama-3" this_language="en" this_offset="8289" this_length="647"/>
+  <feature name="altered" type="llm_prompted" llm="Llama-3" this_language="en" this_offset="12857" this_length="416"/>
+  <feature name="altered" type="llm_prompted" llm="Llama-3" this_language="en" this_offset="13866" this_length="488"/>
+  <feature name="altered" type="llm_prompted" llm="Llama-3" this_language="en" this_offset="15708" this_length="362"/>
+  <feature name="altered" type="llm_prompted" llm="Llama-3" this_language="en" this_offset="17057" this_length="610"/>
+</document>

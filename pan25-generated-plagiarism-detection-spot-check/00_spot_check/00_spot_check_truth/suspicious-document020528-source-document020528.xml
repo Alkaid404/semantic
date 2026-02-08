@@ -1,0 +1,12 @@
+<document reference="suspicious-document020528.txt">
+  <feature name="about" authors="Jeferson Danilo L. Silva and Alessandra N. Braga and Andreson L. C. Rego and Danilo T. Alves" title="Motion induced by asymmetric excitation of the quantum vacuum" lang="en" similarity="0.9806" severity="low" prompt_tokens="3544" output_tokens="2578"/>
+  <feature name="md5Hash" value="381f06474ca0d4d097006486ef1037e7"/>
+  <feature name="plagiarism" type="llm_prompted" llm="DeepSeek-R1" this_language="en" this_offset="744" this_length="461" source_reference="source-document020528.txt" obfuscation="simple" source_offset="3275" source_length="432"/>
+  <feature name="plagiarism" type="llm_prompted" llm="DeepSeek-R1" this_language="en" this_offset="6818" this_length="1080" source_reference="source-document020528.txt" obfuscation="simple" source_offset="10469" source_length="1161"/>
+  <feature name="plagiarism" type="llm_prompted" llm="DeepSeek-R1" this_language="en" this_offset="7935" this_length="1036" source_reference="source-document020528.txt" obfuscation="medium" source_offset="24340" source_length="866"/>
+  <feature name="plagiarism" type="llm_prompted" llm="DeepSeek-R1" this_language="en" this_offset="8973" this_length="1780" source_reference="source-document020528.txt" obfuscation="simple" source_offset="7374" source_length="1649"/>
+  <feature name="plagiarism" type="llm_prompted" llm="DeepSeek-R1" this_language="en" this_offset="10755" this_length="1175" source_reference="source-document020528.txt" obfuscation="medium" source_offset="9025" source_length="1046"/>
+  <feature name="plagiarism" type="llm_prompted" llm="DeepSeek-R1" this_language="en" this_offset="14596" this_length="2054" source_reference="source-document020528.txt" obfuscation="simple" source_offset="54631" source_length="2252"/>
+  <feature name="plagiarism" type="llm_prompted" llm="DeepSeek-R1" this_language="en" this_offset="24737" this_length="1300" source_reference="source-document020528.txt" obfuscation="medium" source_offset="164" source_length="1409"/>
+  <feature name="plagiarism" type="llm_prompted" llm="DeepSeek-R1" this_language="en" this_offset="26374" this_length="1393" source_reference="source-document020528.txt" obfuscation="medium" source_offset="5660" source_length="1379"/>
+</document>

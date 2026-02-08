@@ -1,0 +1,22 @@
+<document reference="suspicious-document020524.txt">
+  <feature name="about" authors="Benjamin Strekha and Matthias Krüger and Alejandro W. Rodriguez" title="Trace expressions and associated limits for equilibrium Casimir torque" lang="en" similarity="0.9825" severity="medium" prompt_tokens="13690" output_tokens="12329"/>
+  <feature name="md5Hash" value="91565237de969e6d8db24a10e7024c53"/>
+  <feature name="altered" type="llm_prompted" llm="DeepSeek-R1" this_language="en" this_offset="150" this_length="658"/>
+  <feature name="altered" type="llm_prompted" llm="DeepSeek-R1" this_language="en" this_offset="841" this_length="3719"/>
+  <feature name="altered" type="llm_prompted" llm="DeepSeek-R1" this_language="en" this_offset="4562" this_length="1110"/>
+  <feature name="altered" type="llm_prompted" llm="DeepSeek-R1" this_language="en" this_offset="5674" this_length="2828"/>
+  <feature name="altered" type="llm_prompted" llm="DeepSeek-R1" this_language="en" this_offset="8504" this_length="1928"/>
+  <feature name="altered" type="llm_prompted" llm="DeepSeek-R1" this_language="en" this_offset="10434" this_length="1237"/>
+  <feature name="altered" type="llm_prompted" llm="DeepSeek-R1" this_language="en" this_offset="11673" this_length="1454"/>
+  <feature name="altered" type="llm_prompted" llm="DeepSeek-R1" this_language="en" this_offset="13129" this_length="1806"/>
+  <feature name="altered" type="llm_prompted" llm="DeepSeek-R1" this_language="en" this_offset="18356" this_length="2168"/>
+  <feature name="altered" type="llm_prompted" llm="DeepSeek-R1" this_language="en" this_offset="20526" this_length="1610"/>
+  <feature name="altered" type="llm_prompted" llm="DeepSeek-R1" this_language="en" this_offset="26624" this_length="1121"/>
+  <feature name="altered" type="llm_prompted" llm="DeepSeek-R1" this_language="en" this_offset="27747" this_length="954"/>
+  <feature name="altered" type="llm_prompted" llm="DeepSeek-R1" this_language="en" this_offset="28703" this_length="1903"/>
+  <feature name="altered" type="llm_prompted" llm="DeepSeek-R1" this_language="en" this_offset="30608" this_length="3025"/>
+  <feature name="altered" type="llm_prompted" llm="DeepSeek-R1" this_language="en" this_offset="33635" this_length="955"/>
+  <feature name="altered" type="llm_prompted" llm="DeepSeek-R1" this_language="en" this_offset="38020" this_length="4050"/>
+  <feature name="altered" type="llm_prompted" llm="DeepSeek-R1" this_language="en" this_offset="42248" this_length="601"/>
+  <feature name="altered" type="llm_prompted" llm="DeepSeek-R1" this_language="en" this_offset="42851" this_length="1744"/>
+</document>

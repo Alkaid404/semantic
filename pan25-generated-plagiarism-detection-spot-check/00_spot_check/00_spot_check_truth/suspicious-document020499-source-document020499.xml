@@ -1,0 +1,10 @@
+<document reference="suspicious-document020499.txt">
+  <feature name="about" authors="D. Psiachos and M. M. Sigalas" title="Tailoring one-dimensional layered metamaterials to achieve unidirectional transmission and reflection" lang="en" similarity="0.9761" severity="low" prompt_tokens="2153" output_tokens="1364"/>
+  <feature name="md5Hash" value="06bb3d92097f462d06efd1a9db151ec4"/>
+  <feature name="plagiarism" type="llm_prompted" llm="DeepSeek-R1" this_language="en" this_offset="1366" this_length="472" source_reference="source-document020499.txt" obfuscation="simple" source_offset="1772" source_length="519"/>
+  <feature name="plagiarism" type="llm_prompted" llm="DeepSeek-R1" this_language="en" this_offset="8502" this_length="350" source_reference="source-document020499.txt" obfuscation="simple" source_offset="9403" source_length="315"/>
+  <feature name="plagiarism" type="llm_prompted" llm="DeepSeek-R1" this_language="en" this_offset="14612" this_length="1799" source_reference="source-document020499.txt" obfuscation="simple" source_offset="18533" source_length="1984"/>
+  <feature name="plagiarism" type="llm_prompted" llm="DeepSeek-R1" this_language="en" this_offset="17097" this_length="773" source_reference="source-document020499.txt" obfuscation="hard" source_offset="28013" source_length="1580"/>
+  <feature name="plagiarism" type="llm_prompted" llm="DeepSeek-R1" this_language="en" this_offset="17872" this_length="1298" source_reference="source-document020499.txt" obfuscation="simple" source_offset="21259" source_length="1462"/>
+  <feature name="plagiarism" type="llm_prompted" llm="DeepSeek-R1" this_language="en" this_offset="22069" this_length="1387" source_reference="source-document020499.txt" obfuscation="simple" source_offset="22723" source_length="1460"/>
+</document>

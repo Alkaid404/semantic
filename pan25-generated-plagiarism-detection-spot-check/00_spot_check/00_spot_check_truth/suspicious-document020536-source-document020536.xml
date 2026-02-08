@@ -1,0 +1,24 @@
+<document reference="suspicious-document020536.txt">
+  <feature name="about" authors="P. Homola and D. Gora and D. Heck and H. Klages and J. Pekala and M. Risse and B. Wilczynska and H. Wilczynski" title="Simulation of Ultra-High Energy Photon Propagation in the Geomagnetic Field" lang="en" similarity="0.9681" severity="low" prompt_tokens="5280" output_tokens="4172"/>
+  <feature name="md5Hash" value="b5425f1b6e116936435aad235eaff54c"/>
+  <feature name="plagiarism" type="llm_prompted" llm="Mistral" this_language="en" this_offset="1255" this_length="1079" source_reference="source-document020536.txt" obfuscation="simple" source_offset="2284" source_length="1053"/>
+  <feature name="plagiarism" type="llm_prompted" llm="Mistral" this_language="en" this_offset="5130" this_length="1391" source_reference="source-document020536.txt" obfuscation="medium" source_offset="28889" source_length="1131"/>
+  <feature name="plagiarism" type="llm_prompted" llm="Mistral" this_language="en" this_offset="6523" this_length="877" source_reference="source-document020536.txt" obfuscation="medium" source_offset="3339" source_length="691"/>
+  <feature name="altered" type="llm_prompted" llm="Mistral" this_language="en" this_offset="7423" this_length="1115"/>
+  <feature name="plagiarism" type="llm_prompted" llm="Mistral" this_language="en" this_offset="10246" this_length="603" source_reference="source-document020536.txt" obfuscation="hard" source_offset="10617" source_length="894"/>
+  <feature name="plagiarism" type="llm_prompted" llm="Mistral" this_language="en" this_offset="11193" this_length="604" source_reference="source-document020536.txt" obfuscation="simple" source_offset="4602" source_length="610"/>
+  <feature name="plagiarism" type="llm_prompted" llm="Mistral" this_language="en" this_offset="11799" this_length="786" source_reference="source-document020536.txt" obfuscation="simple" source_offset="17959" source_length="792"/>
+  <feature name="plagiarism" type="llm_prompted" llm="Mistral" this_language="en" this_offset="12587" this_length="792" source_reference="source-document020536.txt" obfuscation="simple" source_offset="11802" source_length="985"/>
+  <feature name="plagiarism" type="llm_prompted" llm="Mistral" this_language="en" this_offset="18933" this_length="779" source_reference="source-document020536.txt" obfuscation="medium" source_offset="31737" source_length="616"/>
+  <feature name="plagiarism" type="llm_prompted" llm="Mistral" this_language="en" this_offset="19714" this_length="374" source_reference="source-document020536.txt" obfuscation="simple" source_offset="30685" source_length="460"/>
+  <feature name="plagiarism" type="llm_prompted" llm="Mistral" this_language="en" this_offset="22408" this_length="495" source_reference="source-document020536.txt" obfuscation="hard" source_offset="33546" source_length="202"/>
+  <feature name="plagiarism" type="llm_prompted" llm="Mistral" this_language="en" this_offset="22946" this_length="1072" source_reference="source-document020536.txt" obfuscation="medium" source_offset="27303" source_length="944"/>
+  <feature name="plagiarism" type="llm_prompted" llm="Mistral" this_language="en" this_offset="26641" this_length="644" source_reference="source-document020536.txt" obfuscation="simple" source_offset="30022" source_length="661"/>
+  <feature name="plagiarism" type="llm_prompted" llm="Mistral" this_language="en" this_offset="27287" this_length="667" source_reference="source-document020536.txt" obfuscation="hard" source_offset="4059" source_length="541"/>
+  <feature name="plagiarism" type="llm_prompted" llm="Mistral" this_language="en" this_offset="32966" this_length="556" source_reference="source-document020536.txt" obfuscation="simple" source_offset="31158" source_length="577"/>
+  <feature name="plagiarism" type="llm_prompted" llm="Mistral" this_language="en" this_offset="33524" this_length="828" source_reference="source-document020536.txt" obfuscation="medium" source_offset="16325" source_length="756"/>
+  <feature name="plagiarism" type="llm_prompted" llm="Mistral" this_language="en" this_offset="34354" this_length="919" source_reference="source-document020536.txt" obfuscation="medium" source_offset="5820" source_length="855"/>
+  <feature name="plagiarism" type="llm_prompted" llm="Mistral" this_language="en" this_offset="38222" this_length="795" source_reference="source-document020536.txt" obfuscation="simple" source_offset="1445" source_length="837"/>
+  <feature name="plagiarism" type="llm_prompted" llm="Mistral" this_language="en" this_offset="39030" this_length="533" source_reference="source-document020536.txt" obfuscation="simple" source_offset="924" source_length="519"/>
+  <feature name="plagiarism" type="llm_prompted" llm="Mistral" this_language="en" this_offset="39565" this_length="1099" source_reference="source-document020536.txt" obfuscation="simple" source_offset="32374" source_length="1078"/>
+</document>

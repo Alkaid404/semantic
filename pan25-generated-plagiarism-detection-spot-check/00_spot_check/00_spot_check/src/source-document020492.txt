@@ -1,0 +1,403 @@
+Minimax optimal estimator in the stochastic inverse problem for exponential Radon transform
+
+By Anuj Abhishek
+
+Abstract
+
+In this article, we consider the problem of inverting the exponential Radon transform of a function in the presence of noise. We propose a kernel estimator to estimate the true function, analogous to the one proposed by Korostelëv and Tsybakov in their article ‘Optimal rates of convergence of estimators in a probabilistic setup of tomography problem’, Problems of Information Transmission, 27:73-81,1991. For the estimator proposed in this article, we then show that it converges to the true function at a minimax optimal rate.
+
+1 Introduction
+
+Exponential Radon transform (ERT), which is the object of study in this article, can be thought of as a generalization of the classical Radon transform. In fact, the ERT of a compactly supported function $f(x)$ in $\mathbb{R}^{2}$ is given by : 
+ 
+ $\displaystyle T_{\mu}f(\theta,s)=\int\limits_{x\cdot\theta=s}e^{\mu x\cdot\theta^{\perp}}f(x)dx$  (1) 
+ Here $s\in\mathbb{R}$ , $\theta\in\mathrm{S}^{1}$ where $\mathrm{S}^{1}$ is the unit circle in $\mathbb{R}^{2}$ , $\mu$ is a constant and $\theta^{\perp}$ denotes a unit vector perpendicular to $\theta$ . Recall that lines in $\mathbb{R}^{2}$ can be parameterized as $L(\theta,s)=\{x:x\cdot\theta=s\}$ . Thus, just as the classical Radon transform, ERT takes a function defined on a plane and maps it to a function defined over the set of lines parameterized by $(\theta,s)$ . Such transforms arise naturally in imaging modalities such as SPECT (single photon emission computed tomography) imaging [37] and nuclear magnetic resonance imaging [17] .
+
+The exponential Radon transform is a special case of a more general transform called attenuated Radon transform which takes the integral of a function over straight lines with respect to an exponential weight that signifies a non-constant attenuation effect. We refer the readers to the article by Finch [6] and the textbook by Natterer and Wübbeling [23] for an excellent overview of the attenuated Radon transform. Indeed, the attenuated Radon transform is itself an example of a generalized Radon transform that was studied by Quinto in [25] .
+
+Inversion methods for the exponential Radon transform were derived by Natterer in [22] and by Tretiak and Metz in [34] . Hazou and Solmon in [9] gave filtered backprojection (FBP) type formulas for inversion of ERT using a class of filters. Such FBP type inversion formulas are based on the method of approximate inverse which were developed systematically in the articles by Louis [15] and Louis and Maas [16] . An exhaustive treatment of the method of approximate inverse can be found in the book by Schuster [30] . Rigaud and Lakhal have used the method of approximate inverse and derived Sobolev estimates for attenuated Radon transform in [27] , these estimates were central to proving some of the theorems in this article. Furthermore, Novikov in [24] and Natterer in [20] give an inversion formula for the more general attenuated Radon transform. There is extensive literature available on this subject and we give now a partial list of references where an interested reader may find important insights and advances made in the study of exponential and attenuated Radon transforms, see e.g. [1] .
+
+Classical Radon transform has also been extensively studied in the stochastic setting. A detailed discussion of positron emission tomography (PET) in presence of noise can be found in the seminal article by Johnstone and Silverman [11] . In [8] , Hahn and Quinto establish upper and lower bounds for the convergence of two probability measures in terms of the rates of convergence of their Radon transforms. Korostelëv and Tsybakov show that optimal minimax convergence rates are attained by kernel type estimators, which are closely linked to FBP inversion methods, in [12] . An exhaustive coverage of the non-parametric estimation methods that are used to establish the optimal convergence rates in this article and elsewhere can be founds in the books written by Korostelëv and Tsybakov [14] and Tsybakov [35] . Cavalier obtained results on efficient estimation of density in the non-parametric setting for stochastic PET problem in [4] . In addition to the non-parametric kernel type estimators, Bayesian estimators for the stochastic problem of X-ray tomography have been studied by several authors, most notably by Lassas, Siltanen and Somersalo, see e.g. [33] and references therein. More recently, Monard, Nickl and Paternain have obtained results on efficient Bayesian inference for the attenuated X-ray transform on a Riemannian manifold, see [19] .
+
+In this article, we propose a statistical kernel estimator for the ERT problem and show that it attains the optimal minimax rate of convergence. The organization of the article is as follows: in section 2, we describe the mathematical set up of the stochastic problem for ERT and recall some standard definitions from the literature. In section 3, we recall the FBP type inversion in the deterministic (noise-less) setting. In section 4, we propose a kernel type estimator and establish that it is asymptotically unbiased. Finally, in section 5 we show that this estimator attains optimal minimax rates of convergence.
+
+2 Mathematical set-up and definitions
+
+In this section we will describe the mathematical framework for the problem and recall some standard definitions from the literature that will help us assess the optimality of the estimator proposed in this article.
+
+Let $f(x):\mathbb{R}^{2}\to\mathbb{R}$ be a function that satisfies the following assumptions: 
+ Assumption 1 (A1): Let $B_{1}(x)=\{x:||x||\leq 1\}$ be the unit ball in $\mathbb{R}^{2}$ . We assume that $f(x)$ is supported in the unit ball $B_{1}(x)$ . 
+ Assumption 2 (A2): Let $\widetilde{f}(\xi)$ represent the Fourier transform of $f(x)$ , i.e. $\widetilde{f}(\xi)=\int_{\mathbb{R}^{2}}f(x)e^{-i\xi\cdot x}dx$ . We assume that the Fourier transform of $f(x)$ satisfies the following inequality, 
+ 
+ $\int_{\mathbb{R}^{2}}(1+||\xi||^{2})^{\beta}{|\widetilde{f}(\xi)|^{2}}d\xi\leq L$ 
+ for some fixed positive numbers $L$ and $\beta>1$ . 
+ We will denote by $H(\beta,L)$ , the class of functions satisfying assumptions A1 and A2.
+
+Let $\mathrm{S}^{1}$ denote the unit circle in $\mathbb{R}^{2}$ and $Z=\mathrm{S}^{1}\times[-1,1]$ be the cylinder whose points are given by $(\theta,s)$ where $s\in[-1,1]$ and $\theta\in\mathrm{S}^{1}$ . By $\theta^{\perp}$ , we will denote a unit vector perpendicular to $\theta$ . The exponential Radon transform of $f\in H(\beta,L)$ is defined as the following function on $Z$ : 
+ 
+ $T_{\mu}f(\theta,s)=\int_{x\cdot\theta=s}e^{{\mu}x\cdot\theta^{\perp}}f(x)dx$ 
+ where $\mu$ is a fixed constant. It is clear that if $\mu=0$ , then the exponential Radon transform reduces to the case of the classical Radon transform.
+
+Associated to the exponential Radon transform, is its dual transform 
+ 
+ $T_{\mu}^{\sharp}g(x)=\int_{\mathrm{S}^{1}}e^{\mu x\cdot\theta^{\perp}}g(\theta,x\cdot\theta)d\theta.$ 
+ Clearly, for $\mu=0$ , this is the backprojection operator for the classical Radon transform.
+
+Now we will describe the stochastic problem of exponential Radon transform. Let $\{(\theta_{i},s_{i})\}_{i=1}^{i=n}$ be $n$ random points on the observation space $Z$ and let the observations be of the form: 
+ 
+ $Y_{i}=T_{\mu}f(\theta_{i},s_{i})+\epsilon_{i}$  (2) 
+
+
+We assume that the points $(\theta_{i},s_{i})$ are independent and identically distributed (i.i.d.) on $Z$ and $\epsilon_{i}$ are i.i.d. random variables with zero mean and some finite positive variance $\sigma^{2}$ . The collection of the random points $\{(\theta_{i},s_{i})\}_{i=1}^{i=n}$ where observations are made is called the design and will be denoted by $\mathcal{D}_{n}$ . In the observation model given by equation ( 2 ), the random variables $\epsilon_{i}$ account for noise. The stochastic inverse problem for exponential Radon transform is to then estimate the function $f(x)$ based on the observations $Y_{i}$ for $i=\{1,2,\dots,n\}$ . This problem is non-parametric in the sense that the function $f$ itself is not assumed to be of any parametric form but is rather assumed to belong to a general class of functions, say $\mathcal{F}$ . In this article we have assumed $f\in H(\beta,L)$ . Suppose one devises an estimator $\hat{f}_{n}(x)$ based on the observed data. One is then naturally led to ask the question, if this estimator is optimal? The most popular of such approaches to assess the optimality of estimators in a non-parametric setting is the minimax approach, which we will describe below. Let the nonparametric class of functions $\mathcal{F}$ be equipped with a semi-norm $d$ . Thus the semi-distance between two elements $f\in\mathcal{F}$ and $g\in\mathcal{F}$ will be represented as $d(f,g)$ and we will use the quantity $d^{2}(\hat{f},f)=(d(\hat{f},f))^{2}$ as a measure of error between an estimator $\hat{f}$ and the true function $f$ . First of all, note that as any such estimator $\hat{f}_{n}(x)$ will depend on the random observation points $\{(s_{i},\theta_{i})\}_{i=1}^{i=n}$ and observations $\{Y_{i}\}_{i=1}^{i=n}$ , it is better to consider the expected value of the error between the estimator and the true function (under the chosen semi-norm) as a measure of accuracy. The following definitions are standard in the literature.
+
+The risk function of an estimator $\hat{f}_{n}(x)$ is defined as: 
+ 
+ $\mathcal{R}(\hat{f}_{n},f)=E_{f}(d^{2}(\hat{f}_{n},f)).$ 
+
+
+From here on, $E_{f}$ will be used to denote the expectation with respect to the joint distribution of random variables $(s_{i},\theta_{i},Y_{i})$ , $i=\{1,\dots,n\}$ satisfying the model given by ( 2 ). Ideally, one would like to devise an estimator that would minimize the risk function. However, as the definition of the risk function depends on $f$ as well, one tries instead to find an overall measure of risk such as the minimax risk .
+
+[35] Let $f(x)$ belong to some non-parametric class of functions $\mathcal{F}$ . The maximum risk of an estimator $\hat{f}_{n}$ is defined as: 
+ 
+ $r(\hat{f}_{n})=\sup_{f\in\mathcal{F}}\mathcal{R}(\hat{f}_{n},f).$ 
+ Finally, the minimax risk on $\mathcal{F}$ is defined as: 
+ 
+ $r_{n}(\mathcal{F})=\inf_{\hat{f}_{n}}\sup_{f\in\mathcal{F}}\mathcal{R}(\hat{f}_{n},f)$ 
+ where the infimum is taken over the set of all possible estimators $\hat{f}_{n}$ of $f$ . Clearly, 
+ 
+ $r_{n}(\mathcal{F})\leq r(\hat{f}_{n}).$ 
+
+
+[35] Let $\{\Psi_{n}^{2}\}_{n=1}^{\infty}$ be a positive sequence converging to zero. An estimator $\hat{f}_{n}^{*}$ is said to be minimax optimal if there exist finite positive constants $C_{1}$ and $C_{2}$ such that, 
+ 
+ $C_{1}\Psi_{n}^{2}\leq r_{n}(\mathcal{F})\leq r(\hat{f}_{n}^{*})\leq C_{2}\Psi_{n}^{2}.$ 
+ Furthermore, $\Psi_{n}^{2}$ is said to be the optimal rate of converegence.
+
+In this article, whenever we refer to the optimality of an estimator, we will mean its minimax optimality. In section 4, we will propose an estimator for $f(x)\in H(\beta,L)$ based on the model ( 2 ) and establish its optimality in the following (semi) norms: 1. $d_{1}(f,g)=|f(x_{0})-g(x_{0})|$ ( $x_{0}$ is an arbitrary fixed point in $B_{1}(x)$ ) 2. $d_{2}(f,g)=\displaystyle{(\int|f(x)-g(x)|^{2}dx)^{1/2}}$ as per definition 5 above. We also note that the risk function defined using semi-norm $d_{1}$ is called the mean squared error (MSE), while the risk function defined using $d_{2}$ is referred to in the literature as the mean integrated squared error (MISE) of the estimator. Thus: 
+ 
+ $\text{MSE}(\hat{f}_{n},f)=E_{f}(d_{1}^{2}(\hat{f}_{n},f)),\quad\quad\text{MISE}(\hat{f}_{n})=E_{f}(d_{2}^{2}(\hat{f}_{n},f)).$ 
+ Finally, we recall the Kullback distance between two probability measures on a measurable space:
+
+[35] Let $P$ and $Q$ be two probability measures on some measurable space $(\mathcal{X},\mathcal{A})$ . The Kullback distance between the two measures is given by, 
+ 
+ $\displaystyle I(P,Q)$ $\displaystyle=\int\log\frac{dP}{dQ}dP\quad\quad\text{if }P\text{ is absolutely continuous with respect to }Q$ 
+ 
+ $\displaystyle=\infty\quad\quad\text{otherwise}$ 
+
+
+3 An FBP reconstruction in the deterministic setting
+
+In this section we will describe some of the results from the deterministic set-up, i.e. when the observations as per the model given by ( 2 ) are not corrupted by noise. Let $\rho>0$ such that $0<|\mu|<1/\rho$ . Consider the function $K_{\rho}(\theta,s)=K_{\rho}(s)$ defined as: 
+ 
+ $\displaystyle K_{\rho}(s)$ $\displaystyle=\frac{1}{\pi}\int_{|\mu|}^{\sqrt{(1/\rho^{2})+\mu^{2}}}r\cos(sr)dr$  (3) 
+ These kind of functions have been used in the context of filtered backprojection formulas for Radon transforms, see e.g. [14] , [21] . Let $I_{p}(t)$ denote the indicator function: 
+ 
+ $\displaystyle I_{p}(t)$ $\displaystyle=1,\quad\quad|t|<1/p$ 
+ 
+ $\displaystyle=0,\quad\quad|t|\geq 1/p$ 
+ The one dimensional Fourier transform of $K_{\rho}(\theta,s)$ (in the $s$ -variable) is: 
+ 
+ $\displaystyle\widetilde{K}_{\rho}(\theta,t)$ $\displaystyle=|t|,\quad\quad|\mu|<|t|<\sqrt{(1/\rho^{2})+\mu^{2}}$ 
+ 
+ $\displaystyle=0,\quad\quad\text{otherwise}.$  (4) 
+ In the following analysis, $\star$ will represent the operation of convolution of functions. Furthermore, whenever the convolution of two functions $f$ and $g$ defined on the cylinder $Z=\mathrm{S}^{1}\times\mathbb{R}$ is considered, the convolution will be understood to be taken with respect to their second variable, i.e. 
+ 
+ $f\star g(\theta,s)=\int_{\mathbb{R}}f(\theta,s-t)g(\theta,t)dt.$ 
+
+
+[21] Let $f_{\rho}(x)=\frac{1}{4\pi}T^{\sharp}_{-\mu}(K_{\rho}\star T_{\mu}f)$ . Then, 
+ 
+ $f(x)=\lim_{\rho\to 0}f_{\rho}(x).$ 
+
+
+The proof of this theorem is well known, see e.g. [21] . However, we will reproduce it here for the sake of completeness. First of all recall that from [21] , we know that: $T^{\sharp}_{-\mu}(g\star T_{\mu}f)=(T^{\sharp}_{-\mu}g)\star f$ . Thus, if we can show that $\frac{1}{4\pi}T^{\sharp}_{-\mu}K_{\rho}$ is an approximate Dirac-delta function, then we are done. Let us then compute: 
+ 
+ $\displaystyle T^{\sharp}_{-\mu}K_{\rho}(x)$ $\displaystyle=\int_{\mathrm{S}^{1}}e^{-\mu x\cdot\theta^{\perp}}K_{\rho}(\theta,x\cdot\theta)d\theta$ 
+ 
+ $\displaystyle=\frac{1}{2\pi}\int_{\mathrm{S}^{1}}e^{-\mu x\cdot\theta^{\perp}}\int_{\mathbb{R}}e^{ix\cdot\theta}\widetilde{K}_{\rho}(\theta,t)dtd\theta$ 
+ 
+ $\displaystyle=\frac{1}{2\pi}\int\limits_{|\mu|<|t|<\sqrt{(1/\rho^{2})+\mu^{2}}}|t|\int_{\mathrm{S}^{1}}e^{-\mu x\cdot\theta^{\perp}+i(x\cdot\theta)t}d\theta dt$ 
+ In what follows, by $J_{0}$ we will denote the Bessel function of first kind of integer order $0$ . Now from [21] $\int_{\mathrm{S}^{1}}e^{-\mu x\cdot\theta^{\perp}+i(x\cdot\theta)t}d\theta=2\pi J_{0}(|x|(t^{2}-\mu^{2})^{1/2})$ . Thus, 
+ 
+ $\displaystyle T^{\sharp}_{-\mu}K_{\rho}(x)$ $\displaystyle=\int\limits_{|\mu|<|t|<\sqrt{(1/\rho^{2})+\mu^{2}}}|t|J_{0}(|x|(t^{2}-\mu^{2})^{1/2})dt$ 
+ 
+ $\displaystyle=2\int\limits_{0}^{1/\rho}\sigma J_{0}(|x|\sigma)d\sigma\quad\quad(\sigma=(t^{2}-\mu^{2})^{1/2})$ 
+ 
+ $\displaystyle=4\pi\big{(}\frac{1}{2\pi}\int\limits_{0}^{1/\rho}\sigma J_{0}(|x|\sigma)d\sigma\big{)}$ 
+ 
+ $\displaystyle=4\pi\mathbf{\delta}^{1/\rho}(x)\quad\quad\cite[cite]{[\@@bibref{}{Natterer_textbook}{}{},  \text{(1.3), Page 183}]}$ 
+ where 
+ 
+ $\displaystyle{\delta^{1/\rho}(x)=\frac{1}{2\pi}\int\limits_{|t|<1/\rho}e^{ix\cdot t}dt}=\frac{1}{2\pi}\int_{\mathbb{R}}I_{\rho}(t)e^{ix\cdot t}dt.$ 
+ is an approximate Dirac-delta function that converges to Dirac distribution $\delta(x)$ pointwise (in the space of tempered distributions) as $\rho\to 0$ . This completes the proof. ∎
+
+4 An asymptotically unbiased estimator for class H( $\beta$ ,L)
+
+In this section we propose a statistical estimator for $f\in H(\beta,L)$ based on the model ( 2 ) in the stochastic problem of exponential Radon transform. Inspired by the estimator proposed in [12] and in Theorem 1 above, let us consider the statistical estimator: 
+ 
+ $\displaystyle f_{n}^{*}(x)=\frac{1}{n}\sum_{i=1}^{n}e^{-\mu x\cdot\theta_{i}^{\perp}}K_{\rho_{n}}(\langle x\cdot\theta_{i}\rangle-s_{i})Y_{i}$  (5) 
+
+
+where $\theta_{i},s_{i}$ and $Y_{i}$ are i.i.d. random variables as per the model ( 2 ) and $\rho_{n}\to 0$ as $n\to\infty$ . We will call $\rho_{n}$ as the bandwidth of the estimator. Note that the MSE of the estimator in the non-parametric setting can be broken down in to two terms a “bias term” and a “variance term”: 
+ 
+ $\displaystyle\text{MSE}(f_{n}^{*},f)$ $\displaystyle=E_{f}[(f_{n}^{*}(x)-f(x))^{2}]$ 
+ 
+ $\displaystyle=(E_{f}(f_{n}^{*}(x))-f(x))^{2}+E_{f}[(f_{n}^{*}(x)-E_{f}(f_{n}^{*}(x)))^{2}]$ 
+ 
+ $\displaystyle=B_{n}^{2}(x)+V_{n}^{2}(x).$  (6) 
+ where $B_{n}(x)$ is the bias of the estimator and $V_{n}^{2}(x)$ is its variance. Note that 
+ 
+ $\text{MISE}(f_{n}^{*},f)=||B_{n}(x)||^{2}_{2}+||V_{n}(x)||^{2}_{2}$ 
+ where $||(\cdot)||_{2}$ denotes $L^{2}$ norm. Recall that an estimator is said to be asymptotically unbiased if its bias goes to zero pointwise as the number of observations (samples) $n$ grows. We will now show that the estimator proposed above is asymptotically unbiased.
+
+Let $(\theta_{i},s_{i})$ , $i=\{1,\dots,n\}$ be i.i.d. random variables uniformly distributed on $Z=\mathrm{S}^{1}\times[-1,1]$ and these points be independent of the errors $(\epsilon_{1},\dotsm\epsilon_{n})$ . If we consider the kernel estimator $f_{n}^{*}(x)=\frac{1}{n}\sum_{i=1}^{n}e^{-\mu x\cdot\theta_{i}^{\perp}}K_{\rho_{n}}(\langle x\cdot\theta_{i}\rangle-s_{i})Y_{i}$ , then for each $x\in B_{1}(x)$ the bias term, $B_{n}(x)=(E_{f}(f_{n}^{*}(x))-f(x))$ , for this estimator goes to zero as $n\to\infty$ .
+
+It suffices to show that $E_{f}(f_{n}^{*}(x))=f_{\rho_{n}}(x)$ where $f_{\rho_{n}}(x)$ is given by Theorem ( 1 ). Then since $\rho_{n}\to 0$ as $n\to\infty$ , hence $E_{f}(f_{n}^{*}(x))=f_{\rho_{n}}\to f(x)$ pointwise. In what follows, we will say that the i.i.d random variables $\theta_{i}$ have the same distribution as some random variable $\theta$ , all $s_{i}$ are distributed with the same distribution as some random variable $s$ and similarly $Y$ and $\epsilon$ are random variables with the same distribution as random variables $Y_{i}$ and $\epsilon_{i}$ respectively. We will also denote by $E_{(\theta,s)}(\cdot)$ the expected value of a random variable with respect to the joint distribution of $(\theta,s)$ and by $E_{f|(\theta,s)}(\cdot)$ the conditional expectation of a random variable given $(\theta,s)$ . Consider, 
+ 
+ $\displaystyle E_{f}(f_{n}^{*}(x))$ $\displaystyle=\frac{1}{n}E_{f}(\sum_{i=1}^{n}e^{-\mu x\cdot\theta_{i}^{\perp}}K_{\rho_{n}}(\langle x\cdot\theta_{i}\rangle-s_{i})Y_{i})$ 
+ 
+ $\displaystyle=E_{f}(e^{-\mu x\cdot\theta^{\perp}}K_{\rho_{n}}(\langle x\cdot\theta\rangle-s)Y)$ 
+ 
+ $\displaystyle=E_{(\theta,s)}\big{(}E_{f|(\theta,s)}(e^{-\mu x\cdot\theta^{\perp}}K_{\rho_{n}}(\langle x\cdot\theta\rangle-s)(T_{\mu}f(\theta,s)+\epsilon))\big{)}\quad\text{(law of iterated expectaion)}$ 
+ 
+ $\displaystyle=E_{(\theta,s)}\big{(}E_{f|(\theta,s)}(e^{-\mu x\cdot\theta^{\perp}}K_{\rho_{n}}(\langle x\cdot\theta\rangle-s)(T_{\mu}f(\theta,s)))\quad(\epsilon\text{ has mean }0)$ 
+ 
+ $\displaystyle=E_{(\theta,s)}(e^{-\mu x\cdot\theta^{\perp}}K_{\rho_{n}}(\langle x\cdot\theta\rangle-s)(T_{\mu}f(\theta,s)))$ 
+ 
+ $\displaystyle=\frac{1}{4\pi}\int_{\mathrm{S}^{1}}e^{-\mu x\cdot\theta^{\perp}}\int_{-1}^{1}K_{\rho_{n}}(\langle x\cdot\theta\rangle-s)(T_{\mu}f(\theta,s))dsd\theta$ 
+ 
+ $\displaystyle=f_{\rho_{n}}(x)$ 
+ ∎
+
+5 Optimality of the estimator
+
+In this section we will show first of all that while the bias of the estimator decreases as bandwidth goes to zero, the variance increases as bandwidth decreases. Thus an optimal rate of convergence can be obtained by finding a suitable bandwidth $\rho_{n}$ which balances the bias and the variance term. Furthermore, we will establish the optimality of the proposed estimator under both semi-norms $d_{1}$ and $d_{2}$ as defined in Section 2. Let us now analyze the bias and the variance terms one by one. It is easy to check that for $\beta>1$ the following relations hold, 
+ 
+ $\displaystyle|I_{\rho_{n}}(t)-1|$ $\displaystyle\leq(|t|\rho_{n})^{\beta}$  (7) 
+ 
+ $\displaystyle|I_{\rho_{n}}(t)-1|$ $\displaystyle\leq\bigg{[}\frac{2|t|\rho_{n}}{1+|t|\rho_{n}}\bigg{]}^{\beta}$  (8) 
+ Consider first the bias term, $B_{n}(x)=f_{\rho_{n}}(x)-f(x)=\delta^{1/\rho_{n}}\star f(x)-f(x)$ . Then for any fixed point $x\in B_{1}(x)$ and $\beta>1$ :
+
+
+ 
+ $\displaystyle B_{n}(x)$ $\displaystyle=|(\delta^{1/\rho_{n}}\star f(x_{0})-f(x_{0}))|$ 
+ 
+ $\displaystyle\leq\frac{1}{2\pi}\int_{\mathbb{R}}|(I_{\rho_{n}}(|\xi|)-1)||\tilde{f}(\xi)|d\xi$ 
+ 
+ $\displaystyle\leq\frac{1}{2\pi}\int_{\mathbb{R}}|\tilde{f}(\xi)|(2(|\xi|\rho_{n}))^{\beta}/(1+(|\xi|\rho_{n})^{\beta})d\xi\quad\quad\quad\quad\quad(\text{using }(\ref{relation2}))$ 
+ 
+ $\displaystyle=\frac{\rho_{n}^{\beta}}{\pi}[\int_{\mathbb{R}^{2}}|\tilde{f}(\xi)|^{2}|\xi|^{2\beta}d\xi]^{\frac{1}{2}}[\int_{\mathbb{R}^{2}}(1+(|\xi|\rho_{n})^{\beta})^{-2}d\xi]^{\frac{1}{2}}\quad\quad(\text{using H\"{o}lder's inequality})$ 
+ 
+ $\displaystyle={c_{1}}{\rho_{n}^{\beta-1}},\quad\quad\quad c_{1}>0$  (9) 
+
+
+Anticipating the calculations required to show optimality using norm $d_{2}$ , we also find an estimate for $||B_{n}(x)||_{2}^{2}$ . 
+ 
+ $\displaystyle||B_{n}(x)||_{2}^{2}$ $\displaystyle=||\delta^{1/\rho_{n}}\star f(x)-f(x)||_{2}^{2}$ 
+ 
+ $\displaystyle=\frac{1}{2\pi}\int_{\mathbb{R}^{2}}|(I_{\rho_{n}}(|\xi|)-1)|^{2}|\tilde{f}(\xi)|^{2}d\xi\quad\quad(\text{using Parseval's theorem})$ 
+ 
+ $\displaystyle\leq\frac{1}{2\pi}\int_{\mathbb{R}^{2}}|\tilde{f}(\xi)|^{2}(|\xi|\rho_{n})^{2\beta}\quad\quad\quad\quad\quad\quad\quad\text{(using \ref{relation1})}$  (10) 
+ 
+ $\displaystyle\leq\frac{L\rho_{n}^{2\beta}}{2\pi}={c_{2}\rho_{n}^{2\beta}}$  (11) 
+ where $c_{2}=L/2\pi$ . Now we estimate the variance.
+
+$V_{n}^{2}(x)=E_{f}\bigg{(}(f_{n}^{*}(x)-E_{f}(f_{n}^{*}(x))^{2})\bigg{)}\leq c_{3}/n\rho_{n}^{3}$ for $x\in B_{1}(x)$ and for some constant $c_{3}>0$ . From this it also follows that for $x\in B_{1}(x)$ , $||V_{n}(x)||_{2}^{2}\leq c_{4}/n\rho_{n}^{3}$ for some constant $c_{4}$ .
+
+In the following, $Var$ will denote the variance as per standard notation. First of all, note that $E_{f}(f_{n}^{*}(x))=f_{\rho_{n}}(x)$ and $s_{i},\theta_{i}$ and $Y_{i}$ are i.i.d. random variables. Thus, 
+ 
+ $\displaystyle V_{n}^{2}(x)$ $\displaystyle=E_{f}\bigg{(}(f_{n}^{*}(x)-E_{f}(f_{n}^{*}(x)))^{2}\bigg{)}$ 
+ 
+ $\displaystyle=\frac{1}{n}\bigg{(}Var_{f}(e^{-\mu(x\cdot\theta^{\perp})}K_{\rho_{n}}(x\cdot\theta-s)T_{\mu}f(\theta,s))\bigg{)}+\frac{1}{n}\bigg{(}E_{f}(e^{-\mu(x\cdot\theta^{\perp})}K_{\rho_{n}}(x\cdot\theta-s)\epsilon^{2})\bigg{)}$ 
+ 
+ $\displaystyle\leq\frac{\sigma^{2}+4e^{\lvert\mu\rvert}L^{2}}{4\pi n}\int_{\mathrm{S}^{1}}e^{-2\mu(x\cdot\theta^{\perp})}\int\limits_{-1}^{1}K^{2}_{\rho_{n}}(x\cdot\theta-s)dsd\theta$ 
+ where we use the fact that since $f\in H(\beta,L)$ is compactly supported in $B_{1}(x)$ , we get $\lvert T_{\mu}f(\theta,s)\rvert\leq 2e^{|\mu|}L.$ Let us now estimate: 
+ 
+ $\displaystyle\int\limits_{-1}^{1}K^{2}_{\rho_{n}}(x\cdot\theta-s)ds$ $\displaystyle\leq\int\limits_{-\infty}^{\infty}|K_{\rho_{n}}(s)|^{2}ds$ 
+ 
+ $\displaystyle\leq\int\limits_{-\infty}^{\infty}|\widetilde{K}_{\rho_{n}}(s)|^{2}ds\quad\quad\quad\quad\text{(using Parseval's theorem)}$ 
+ 
+ $\displaystyle=\frac{1}{3}\bigg{[}({(1/\rho_{n}^{2})+\mu^{2}})^{3/2}-|\mu|^{3}\bigg{]}$ 
+ 
+ $\displaystyle=\frac{1}{3}\bigg{[}\big{(}({(1/\rho_{n}^{2})+\mu^{2}})^{1/2}-|\mu|\big{)}\big{(}(1/\rho_{n}^{2})+2\mu^{2}+|\mu|((1/\rho_{n}^{2})+\mu^{2})^{\frac{1}{2}}\big{)}\bigg{]}$ 
+ 
+ $\displaystyle=\frac{1}{3}\bigg{[}\frac{(1/\rho_{n}^{2})\big{(}(1/\rho_{n}^{2})+2\mu^{2}+|\mu|((1/\rho_{n}^{2})+\mu^{2})^{\frac{1}{2}}\big{)}}{\big{(}({(1/\rho_{n}^{2})+\mu^{2}})^{1/2}+|\mu|\big{)}}\bigg{]}$ 
+ 
+ $\displaystyle\leq\frac{(3+\sqrt{2})(1/\rho_{n}^{3})}{3}$ 
+ where we have used the fact that we choose $|\mu|\leq(1/\rho_{n})$ . Thus 
+ 
+ $\displaystyle V_{n}^{2}(x)$ $\displaystyle\leq\frac{(3+\sqrt{2})(\sigma^{2}+4e^{|\mu|}L^{2})}{4\pi n\rho_{n}^{3}}\int_{\mathrm{S}^{1}}e^{-2\mu x\cdot\theta^{\perp}}d\theta$ 
+ 
+ $\displaystyle\leq\frac{c_{3}}{n\rho_{n}^{3}}\quad\quad\quad\quad\quad(\text{for }x\text{ in }B_{1}(x))$  (12) 
+ where $c_{3}>0$ is a constant. Now $||V_{n}(x)||_{2}^{2}=\int_{x\in B_{1}(x)}V_{n}^{2}(x)dx\leq c_{4}/n\rho_{n}^{3}$ for some constant $c_{4}$ .
+
+∎
+
+Let $f\in H(\beta,L)$ where $\beta>1$ and $f_{n}^{*}(x)$ be the estimator defined in section 4 . Let $\theta_{i},s_{i}$ for $i=1.\dots,n$ be i.i.d. random variables and the observation model corresponding to the problem of ERT be given by ( 2 ). Let $x_{0}\in B_{1}(x)$ be some fixed point. In the the definition of risk in section 2 let us use the seminorm $d_{1}(f,g)=|f(x_{0})-g(x_{0})|$ where $x_{0}\in B_{1}(x)$ is some arbitrary point. Let $\rho_{n}=\alpha_{1}n^{-1/(2\beta+1)}$ for some constant $\alpha_{1}$ , then the following upper bound holds: 
+ 
+ $\sup_{f\in H(\beta,L)}\psi_{n}^{-2}\text{MSE}(f_{n}^{*},f)\leq C_{0}$ 
+ where $\psi_{n}=n^{-\frac{\beta-1}{2\beta+1}}$ .
+
+
+ 
+ $\displaystyle\text{MSE}(f_{n}^{*},f)$ $\displaystyle=B_{n}^{2}(x_{0})+V_{n}^{2}(x_{0})$ 
+ 
+ $\displaystyle\leq c_{1}^{2}\rho_{n}^{2\beta-2}+\frac{c_{3}}{n\rho_{n}^{3}}.$ 
+ The minimum of the RHS is obtained for $\rho_{n}^{*}=(\frac{3c_{3}}{2c_{1}^{2}(\beta-1)})^{\frac{1}{2\beta+1}}[n^{-\frac{-1}{2\beta+1}}]$ . With this choice of $\rho_{n}=\rho_{n}^{*}$ , MSE $(f_{n}^{*},f)=\mathcal{O}(n^{-(2\beta-2)/(2\beta+1)})$ . ∎
+
+Let $f\in H(\beta,L)$ where $\beta>1$ and $f_{n}^{*}(x)$ be the estimator defined in section 4 . Let $\theta_{i},s_{i}$ for $i=1.\dots,n$ be i.i.d. random variables and the observation model corresponding to the problem of ERT be given by ( 2 ). Consider the seminorm given by $d_{2}(f,g)=||f-g||_{2}$ where $||(\cdot)||_{2}$ indicates the $L_{2}$ norm as usual. Let $\rho_{n}=\alpha_{2}n^{-1/(2\beta+3)}$ , where $\alpha_{2}$ is a constant. Then the following upper bound holds, 
+ 
+ $\sup_{f\in H(\beta,L)}\Psi_{n}^{-2}\text{MISE}(f_{n}^{*},f)\leq C_{1}$ 
+ where $\Psi_{n}=n^{-\beta/(2\beta+3)}$ and a positive constant $C_{1}$ .
+
+
+ 
+ $\displaystyle\text{MISE}(f_{n}^{*},f)$ $\displaystyle=||B_{n}(x)||_{2}^{2}+||V_{n}(x)||_{2}^{2}$ 
+ 
+ $\displaystyle\leq c_{2}\rho_{n}^{2\beta}+c_{4}/n\rho_{n}^{3}.$ 
+ Note that the minimum of the RHS above is attained for $\rho_{n}^{*}=(\frac{3c_{4}}{2c_{2}\beta})^{\frac{1}{2\beta+3}}[n^{\frac{-1}{2\beta+3}}]$ . With this choice of $\rho_{n}=\rho_{n}^{*}$ , $\text{MISE}(f_{n}^{*},f)=\mathcal{O}(n^{-2\beta/(2\beta+3)})$ . This completes our proof. ∎
+
+The upper bounds established in Theorems 3 and 4 above imply that the minimax risks for the estimator using the two seminorms $d_{2}$ and $d_{1}$ is bounded above by $C_{1}\Psi_{n}^{2}$ and $C_{2}\psi_{n}^{2}$ respectively where $\Psi_{n}$ and $\psi_{n}$ are sequences that go to zero as $n\to\infty$ . As per Definition ( 5 ), to establish the optimality of the estimator we need to show that each of the two minimiax risks also satisfy the corresponding lower bounds. To that end, at first we make the following additional assumptions for the observation model 2 : 
+ Assumption on the distribution of noise (B1): The random variables $\epsilon_{i}$ are i.i.d having a distribution $G(\cdot)$ that satisfies : 
+ 
+ $\displaystyle\int\limits_{-\infty}^{\infty}\ln\frac{dG(u)}{dG(u+v)}dG(u)\leq I_{0}v^{2},\quad\quad|v|\leq v_{0}$  (13) 
+ where $I_{0}>0$ and $v_{0}>0$ are some constants. 
+ Assumption on design points (B2) : Any design, i.e. $\{\theta_{i},s_{i}\}_{i=1}^{n}$ on the cylinder $Z=\mathrm{S}^{1}\times[-1,1]$ will be said to be feasible if any non-negative measurable function $g(\theta,s)$ defined on $Z$ satisfies: 
+ 
+ $\displaystyle E_{(\theta,s)}\bigg{[}\sum\limits_{i=1}^{n}g(\theta_{i},s_{i})\bigg{]}\leq C_{3}\int\limits_{Z}g(\theta,s)dsd\theta.$  (14) 
+ In what follows, we will assume that the design is feasible in the sense described above.
+
+Let $\beta,f,f_{n}^{*},\theta_{i},s_{i}$ as in Theorem 3 . If in addition, assumptions B1 and B2 are satisfied by the observation model ( 2 ) then the following inequality holds: 
+ 
+ $\liminf_{n\to\infty}\quad\inf_{\hat{f}_{n}}\quad\sup_{f\in H(\beta,L)}\psi_{n}^{-2}\text{MSE}(\hat{f}_{n},f)\geq c_{0}$ 
+ where $\psi_{n}$ is the same sequence as in Theorem 3 , $\displaystyle{\inf_{\hat{f}_{n}}}$ denotes the infimum over all estimators and $c_{0}>0$ is some constant.
+
+The proof method follows that in [12] and we will adapt their proof wherever needed. As noted there, using standard reduction techniques for establishing lower bounds on the minimax risk of regression estimators in a non-parametric setting, the problem can be reduced to showing that the Kullback distance between the two probability measures corresponding to two appropriately chosen functions (hypothesis) is bounded, see also [35] . Thus consider the functions (hypothesis) $f_{0}(x)=0$ and $f_{1}(x)=Ah^{\beta-1}\eta_{0}((x-x_{0})/h)$ where $h=n^{-\frac{1}{2\beta+1}}$ , $\eta_{0}(x)\in H(\beta,L)$ is a compactly supported bounded function such that $\eta_{0}(0)>0$ and $0<A<1$ is a constant. Following [12] , we will first show that $f_{1}(x)\in H(\beta,L)$ . Note that: 
+ 
+ $\displaystyle\tilde{f}_{1}(\xi)$ $\displaystyle=Ah^{\beta-1}\int\eta_{0}((x-x_{0})/h)e^{i\xi\cdot x}dx=Ah^{\beta-1}e^{i\xi\cdot x_{0}}\int\limits_{\mathrm{S}^{1}}\int\limits_{0}^{\infty}(u)\eta_{0}(u\theta/h)e^{i\xi\cdot u\theta}dud\theta$ 
+ 
+ $\displaystyle=Ah^{\beta+1}e^{i\xi\cdot x_{0}}\int\limits_{\mathrm{S}^{1}}\int\limits_{0}^{\infty}(\bar{u})\eta_{0}(\bar{u}\theta)e^{i(h\xi\cdot\theta)\bar{u}}d\bar{u}d\theta=Ah^{\beta+1}e^{i\xi\cdot x_{0}}\tilde{\eta}_{0}(h\xi).$ 
+ Thus, 
+ 
+ $\displaystyle\int(1+|\xi^{2}|)^{\beta}|\tilde{f}_{1}(\xi)|^{2}d\xi$ $\displaystyle=A^{2}h^{2(\beta+1)}\int(1+|\xi|^{2})^{\beta}|\tilde{\eta}_{0}(h\xi)|^{2}d\xi$ 
+ 
+ $\displaystyle=A^{2}\int(h^{2}+|\bar{\xi}|^{2})^{\beta}|\tilde{\eta}_{0}(\bar{\xi})|^{2}d\bar{\xi}\leq L$ 
+ where we have used the fact that $0<h,A<1$ and $\eta_{0}(x)\in H(\beta,L)$ . Also observe that $|f_{1}(x_{0})-f_{0}(x_{0})|=Ah^{\beta-1}\eta_{0}(0)$ and $\eta_{0}(0)>0$ by assumption. Now let $P_{0}$ and $P_{1}$ be probability measures corresponding to the experiments with observations given by the regression model ( 2 ) for $f=f_{0}$ and $f=f_{1}$ respectively and $p_{0}$ and $p_{1}$ be the densities corresponding to the measures $P_{0}$ and $P_{1}$ respectively. Then to complete the proof of the theorem it suffices to show the Kullback information distance between the two measures, $I(P_{0},P_{1})\leq 1/2$ . Again, From [12] , 
+ 
+ $\displaystyle{}I(P_{0},P_{1})$ $\displaystyle=\int\ln\bigg{(}\frac{dP_{0}}{dP_{1}}\bigg{)}dP_{0}=E_{f_{0}}\int\ln\bigg{(}\frac{dp_{0}}{dp_{1}}\bigg{)}d\nu\quad\quad(\nu\text{ is the Lebesgue measure })$ 
+ 
+ $\displaystyle=E_{(\theta,s)}\bigg{(}E_{f_{0}|(\theta,s)}\int\ln\bigg{(}\frac{dp_{0}}{dp_{1}}\bigg{)}d\nu\bigg{)}$ 
+ 
+ $\displaystyle=E_{(\theta,s)}\bigg{[}\sum\limits_{i=1}^{n}\int\ln\frac{dG(v-T_{\mu}f_{0}(\theta_{i},s_{i}))}{dG(v-T_{\mu}f_{1}(\theta_{i},s_{i}))}dG(v-T_{\mu}f_{0}(\theta_{i},s_{i}))\bigg{]}\quad\quad(\text{ see }\cite[cite]{[\@@bibref{}{Tsybakov_book}{}{}, (2.36)]})$ 
+ 
+ $\displaystyle\leq C_{3}nI_{0}\int\limits_{Z}|T_{\mu}f_{1}(\theta,s)|^{2}dsd\theta\quad\quad\text{(using B1 and B2)}$  (15) 
+ To estimate $\int\limits_{Z}|T_{\mu}f_{1}(\theta,s)|^{2}dsd\theta$ , we will follow [27] . Consider a function $\phi(x)\in\mathcal{S}(\mathbb{R}^{2})$ (i.e. Schwartz class) such that $\phi(x)=1$ for $x\in B_{1}(x)$ . Let us introduce 
+ 
+ $\displaystyle\bar{w}(x,\theta)=\phi(x)e^{\mu x\cdot\theta^{\perp}}$  (16) 
+ Clearly for any function $f_{1}(x)$ supported in $B_{1}(x)$ , 
+ 
+ $\displaystyle T_{\mu}f_{1}(\theta,s)=T_{\bar{w}}f_{1}(\theta,s)=\int\limits_{\mathbb{R}^{2}}\bar{w}(x,\theta)f(x)\delta(x\cdot\theta-s)dx$ 
+ Taking the Fourier transform of $T_{\bar{w}}f_{1}(\theta,s)$ with respect to the $s$ - variable we get the following inequality [27] , 
+ 
+ $\displaystyle|\tilde{T}_{\bar{w}}{f(\theta,t)}|^{2}\leq(2\pi)^{-1}|W_{\bar{w}}\star\tilde{f}(\xi)|^{2}$  (17) 
+ where $W_{\bar{w}}=\sup\limits_{\theta\in\mathrm{S}^{1}}|\tilde{\bar{w}}(\theta,t)|$ and $\tilde{(\cdot)}$ indicates the corresponding Fourier transform (either $1$ -d or $2$ -d) as usual. Now from [27] , 
+ 
+ $\displaystyle||T_{\mu}f_{1}(\theta,s)||^{2}_{L^{2}(Z)}\leq||T_{\mu}f_{1}(\theta,s)||^{2}_{H^{1/2}(Z)}\leq K||W_{\bar{w}}||^{2}_{L^{1}(\mathbb{R}^{2})}||f_{1}||^{2}_{L^{2}({\mathbb{R}^{2}})}=\bar{K}||{f}_{1}||^{2}_{L^{2}{(\mathbb{R}^{2})}}$  (18) 
+ where $\bar{K}=K||W_{\bar{w}}||_{L^{1}(\mathbb{R}^{2})}$ . We note in passing that since $\bar{w}(x,\theta)$ is given by ( 16 ), $||W_{\bar{w}}||_{L^{1}(\mathbb{R}^{2})}$ is finite.
+
+Now $||{f}_{1}||^{2}_{L^{2}{(\mathbb{R}^{2})}}=A^{2}h^{2\beta-2}\int\limits_{\mathbb{R}^{2}}|\eta_{0}((x-x_{0})/h)|^{2}dx=A^{2}h^{2\beta+1}\int\limits_{\mathbb{R}^{2}}|\eta_{0}(y)|^{2}dy$ . Since $\eta_{0}\in H(\beta,L)$ is compactly supported bounded function, thus $||\eta_{0}(y)||^{2}_{2}$ is finite. Thus, 
+ 
+ $\displaystyle I(P_{0},P_{1})\leq C_{3}I_{0}\bar{K}A^{2}||\eta_{0}(y)||_{2}^{2}nh^{2\beta+1}=C_{3}I_{0}\bar{K}A^{2}||\eta_{0}(y)||_{2}^{2}\quad\quad(h=n^{-\frac{1}{2\beta+1}})$  (19) 
+ Thus if we choose $A$ to be small enough, $I(P_{0},P_{1})\leq 1/2$ . ∎
+
+Note that Theorems 3 and 5 together establish the optimality of the convergence rate of minimax risk for the estimator proposed in Section 4 under the seminorm $d_{1}$ .
+
+Let $\beta,f,f_{n}^{*},\theta_{i},s_{i}$ as in Theorem 4 . If in addition, assumptions B1 and B2 are satisfied by the observation model ( 2 ) then the following inequality holds: 
+ 
+ $\liminf_{n\to\infty}\quad\inf_{\hat{f}_{n}}\quad\sup_{f\in H(\beta,L)}\Psi_{n}^{-2}\text{MISE}(\hat{f}_{n},f)\geq c_{1}$ 
+ where $\Psi_{n}$ is the same sequence as in Theorem 4 , $\displaystyle{\inf_{\hat{f}_{n}}}$ denotes the infimum over all estimators and $c_{1}>0$ is some constant.
+
+First of all, we recall from [35] that to establish lower bounds for the convergence rate of the estimators in $L_{p}$ seminorms requires us to work with many hypotheses (M-hypotheses) instead of just two as we did in the proof of Theorem 5 above. The proof of this theorem follows that of [12] . All the geometric arguments in this proof are identical to the geometrical arguments in [12] and we only need to change the argument wherever an estimate for the usual Radon transform is to be replaced with an analogous estimate for the exponential Radon transform. For the sake of completeness, we outline the proof given in [12] here, adapting it to the case of ERT wherever needed. 
+ Consider a collection of non-intersecting balls $\Delta_{k},k\in\{1,\dots,M\}$ inscribed in $B_{1}(x)$ with center $a_{k}$ and of radius $1/m$ such that $m$ and $M$ are sequences and $m\to\infty$ as $n\to\infty$ . Furthermore, one can choose $m$ and $M$ (the precise choice for $m$ is described later) such that the following relation is satisfied: 
+ 
+ $\displaystyle C_{4}m^{2}\leq M\leq C_{5}m^{2}$  (20) 
+ Let $\eta(x)$ be a smooth function supported in $B_{1}(x)$ . Then each function $\eta_{k}(x)=\eta(m(x-a_{k}))$ is supported respectively in $\Delta_{k}$ . To each $m$ -tuple $b=(b_{1},\dots,b_{m})$ where $b_{k}$ is either $0$ or $1$ , we associate a function $f(x,b)$ supported in $B_{1}(x)$ such that: 
+ 
+ $\displaystyle f(x,b)=Am^{-\beta}\sum\limits_{k=1}^{M}b_{k}\eta_{k}(x)$ 
+ where $A>0$ will be chosen in a manner described below. We state without proof the following two lemmas from [12] :
+
+[12] There exists $A_{\beta}>0$ such that for $A<A_{\beta}$ , the function $f(x,b)\in H(\beta,L)$ for any $m$ -tuple $b$ .
+
+Consider any design $\mathcal{D}_{n}=\{(\theta_{i},s_{i})\}_{i=1}^{i=n}$ , and consider the lines $L_{i}=\{x\in\mathbb{R}^{2}:x\cdot\theta_{i}=s_{i}\}$ . Take the set of balls $\Delta_{k}$ such that each ball intersects at most $C_{6}n/m$ lines where $C_{6}>0$ is a constant, whose choice is described in Lemma 3 below. Let the set of indices $J$ be defined as: 
+ 
+ $\displaystyle J=J(\mathcal{D}_{n})=\{k\in\{1,\dots,M\}:$ $\displaystyle\text{ number of lines corresponding to }\mathcal{D}_{n}\text{ that intersect with }\Delta_{k}$ 
+ 
+ $\displaystyle\text{ is less than or equal to }C_{6}n/m\}$ 
+
+
+[12] There exists $C_{6}>0$ such that for any design $\mathcal{D}_{n}$ , we have the inequality: 
+ 
+ $\mathrm{card}J>M/2.$ 
+
+
+In what follows, $C_{6}$ is chosen such that Lemma 3 is satisfied. ∎
+
+Following [12] , let us also indicate by, $b^{(k,0)}=\{b_{1},\dots,b_{k-1},0,b_{k+1},\dots,b_{M}\}$ and $b^{(k,1)}=\{b_{1},\dots,b_{k-1},0,b_{k+1},\dots,b_{M}\}$ $M$ -tuples with fixed $k$ -th elements as indicated. Furthemore, we use the following notation for functions: 
+ 
+ $f_{k_{0}}=f(x,b^{(k,0)})\quad\text{and}\quad f_{k_{1}}=f(x,b^{(k,1)}).$ 
+ Let $g_{k}(x)=f_{k_{0}}(x)-f_{k_{1}}(x)$ which is supported only on $\Delta_{k}$ by construction. Let $P_{k_{0}}$ and $P_{k_{1}}$ be the probability measures corresponding to the model 2 for $f=f_{k_{0}}$ and $f=f_{k_{1}}$ . Let $I(P_{k_{0}},P_{k_{1}})$ be the Kullback information distance between these two probability measures. Thus from [12] , the desired lower bound for the minimax rate will be obtained if we can show that for a sufficiently small $C_{8}>0$ such that $m=(C_{8}n)^{\frac{1}{2\beta+3}}$ , $I(P_{k_{0}},P_{k_{1}})<1/2$ . Just as in [12] and similar to the proof of Theorem 5 above, from assumptions B1 and B2, we get: 
+ 
+ $\displaystyle I(P_{k_{0}},P_{k_{1}})\leq I_{0}\sum_{i=1}^{n}(T_{\mu}g_{k}(\theta_{i},s_{i}))^{2}$  (21) 
+ Now from the definition of ERT and from the fact that $\eta_{k}(x)$ is supported in $\Delta_{k}\subset B_{1}(x)$ , 
+ 
+ $\displaystyle|(T_{\mu}g_{k})(\theta_{i},s_{i})|$ $\displaystyle=\bigg{|}\int\limits_{L_{i}\cap\Delta_{k}}e^{\mu x\cdot\theta_{i}^{\perp}}Am^{-\beta}\eta(m(x-a_{k}))dx\bigg{|}$ 
+ 
+ $\displaystyle\leq{C_{9}}\int\limits_{L_{i}\cap\Delta_{k}}|Am^{-\beta}\eta(m(x-a_{k}))|dx\quad\quad(C_{9}=\sup_{x\in B_{1}(x)}e^{\mu x\cdot\theta^{\perp}})$ 
+ 
+ $\displaystyle\leq C_{10}m^{-\beta-1}$  (22) 
+ Now note that since $k\in J$ , thus at most $C_{6}n/m$ of the terms in the sum on RHS of ( 21 ) are non zero. Putting it all together, we have : 
+ 
+ $\displaystyle I(P_{k_{0}},P_{k_{1}})\leq I_{0}C_{6}(C_{10})^{2}(n/m)m^{-2\beta-2}\leq I_{0}C_{6}C_{10}^{2}C_{8}.$  (23) 
+ Thus if we choose $C_{8}\leq\frac{I_{0}C_{6}C_{10}^{2}}{2}$ , then we get $I(P_{k_{0}},P_{k_{1}})\leq 1/2$ as desired. This completes the proof of the theorem.
+
+Note that Theorems 4 and 6 together establish the optimality of the estimator in the $d_{2}$ semi-norm setting.
+
+References
+
+[1] Valentina Aguilar, Leon Ehrenpreis, and Peter Kuchment. Range conditions for the exponential Radon transform. J. Anal. Math., 68:1–13, 1996.
+[2] Guillaume Bal and Philippe Moireau. Fast numerical inversion of the attenuated Radon transform with full and partial measurements. Inverse Problems, 20(4):1137–1164, 2004.
+[3] Jan Boman and Jan-Olov Strömberg. Novikov’s inversion formula for the attenuated Radon transform—a new approach. J. Geom. Anal., 14(2):185–198, 2004.
+[4] L. Cavalier. Asymptotically efficient estimation in a problem related to tomography. Math. Methods Statist., 7(4):445–456 (1999), 1998.
+[5] Laurent Cavalier. Efficient estimation of a density in a problem of tomography. Ann. Statist., 28(2):630–647, 2000.
+[6] David V. Finch. The attenuated x-ray transform: recent developments. InInside out: inverse problems and applications, volume 47 ofMath. Sci. Res. Inst. Publ., pages 47–66. Cambridge Univ. Press, Cambridge, 2003.
+[7] J.-P. Guillement, F. Jauberteau, L. Kunyansky, R. Novikov, and R. Trebossen. On single-photon emission computed tomography imaging based on an exact formula for the nonuniform attenuation correction. Inverse Problems, 18(6):L11–L19, 2002.
+[8] Marjorie G. Hahn and Eric Todd Quinto. Distances between measures from111-dimensional projections as implied by continuity of the inverse Radon transform. Z. Wahrsch. Verw. Gebiete, 70(3):361–380, 1985.
+[9] Irene A. Hazou and Donald C. Solmon. Filtered-backprojection and the exponential Radon transform. J. Math. Anal. Appl., 141(1):109–119, 1989.
+[10] Sean Holman, François Monard, and Plamen Stefanov. The attenuated geodesic x-ray transform. Inverse Problems, 34(6):064003, 26, 2018.
+[11] Iain M. Johnstone and Bernard W. Silverman. Speed of estimation in positron emission tomography and related inverse problems. Ann. Statist., 18(1):251–280, 1990.
+[12] A. P. Korostelëv and A. B. Tsybakov. Optimal rates of convergence of estimators in a probabilistic setup of tomography problem. Problems of information transmission, 27:73–81, 1991.
+[13] A. P. Korostelëv and A. B. Tsybakov. Asymptotically minimax image reconstruction problems. InTopics in nonparametric estimation, volume 12 ofAdv. Soviet Math., pages 45–86. Amer. Math. Soc., Providence, RI, 1992.
+[14] A. P. Korostelëv and A. B. Tsybakov. Minimax theory of image reconstruction, volume 82 ofLecture Notes in Statistics. Springer-Verlag, New York, 1993.
+[15] A. K. Louis. Approximate inverse for linear and some nonlinear problems. Inverse Problems, 11(6):1211–1223, 1995.
+[16] A. K. Louis and P. Maass. A mollifier method for linear operator equations of the first kind. Inverse Problems, 6(3):427–440, 1990.
+[17] A.K. Louis. Optimal sampling in nuclear magnetic resonance (NMR) tomography. Journal of Computer Assisted Tomography, 6(2):334–340, apr 1982.
+[18] François Monard. Inversion of the attenuated geodesic X-ray transform over functions and vector fields on simple surfaces. SIAM J. Math. Anal., 48(2):1155–1177, 2016.
+[19] François Monard, Richard Nickl, and Gabriel P. Paternain. Efficient nonparametric Bayesian inference forX𝑋X-ray transforms. Ann. Statist., 47(2):1113–1147, 2019.
+[20] F. Natterer. Inversion of the attenuated Radon transform. Inverse Problems, 17(1):113–119, 2001.
+[21] F. Natterer. The Mathematics of Computerized Tomography. Society for Industrial and Applied Mathematics, 2001.
+[22] Frank Natterer. On the inversion of the attenuated Radon transform. Numer. Math., 32(4):431–438, 1979.
+[23] Frank Natterer and Frank Wübbeling. Mathematical methods in image reconstruction. SIAM Monographs on Mathematical Modeling and Computation. Society for Industrial and Applied Mathematics (SIAM), Philadelphia, PA, 2001.
+[24] Roman G. Novikov. An inversion formula for the attenuated x-ray transformation. Arkiv för Matematik, 40(1):145–167, apr 2002.
+[25] E.T. Quinto. The dependence of the generalized Radon transform on defining measures. Trans. Amer. Math. Soc., 257(2):331–346, 1980.
+[26] E.T. Quinto. The invertibility of rotation invariant Radon transforms. J. Math. Anal. Appl., 91(2):510–522, 1983.
+[27] G. Rigaud and A. Lakhal. Approximate inverse and Sobolev estimates for the attenuated Radon transform. Inverse Problems, 31(10):105010, 21, 2015.
+[28] Hans Rullgå rd. An explicit inversion formula for the exponential Radon transform using data from180∘superscript180180^{\circ}. Ark. Mat., 42(2):353–362, 2004.
+[29] Mikko Salo and Gunther Uhlmann. The attenuated ray transform on simple surfaces. J. Differential Geom., 88(1):161–187, 2011.
+[30] Thomas Schuster. The method of approximate inverse: theory and applications, volume 1906 ofLecture Notes in Mathematics. Springer, Berlin, 2007.
+[31] I. Ya. Shneĭberg. Exponential Radon transform. InApplied problems of Radon transform, volume 162 ofAmer. Math. Soc. Transl. Ser. 2, pages 235–245. Amer. Math. Soc., Providence, RI, 1994.
+[32] I. Ya. Shneĭberg, I. V. Ponomarev, V. A. Dmitrichenko, and S. D. Kalashnikov. On a new reconstruction algorithm in emission tomography. InApplied problems of Radon transform, volume 162 ofAmer. Math. Soc. Transl. Ser. 2, pages 247–255. Amer. Math. Soc., Providence, RI, 1994.
+[33] S Siltanen, V Kolehmainen, S J rvenp, J P Kaipio, P Koistinen, M Lassas, J Pirttil, and E Somersalo. Statistical inversion for medical x-ray tomography with few radiographs: I. general theory. Physics in Medicine and Biology, 48(10):1437–1463, may 2003.
+[34] Oleh Tretiak and Charles Metz. The exponential Radon transform. SIAM J. Appl. Math., 39(2):341–354, 1980.
+[35] Alexandre B. Tsybakov. Introduction to nonparametric estimation. Springer Series in Statistics. Springer, New York, 2009. Revised and extended from the 2004 French original, Translated by Vladimir Zaiats.
+[36] Simopekka Vänskä, Matti Lassas, and Samuli Siltanen. Statistical X-ray tomography using empirical Besov priors. Int. J. Tomogr. Stat., 11(S09):3–32, 2009.
+[37] Junhai Wen and Zhengrong Liang. An inversion formula for the exponential radon transform in spatial domain with variable focal-length fan-beam collimation geometry. Medical Physics, 33(3):792–798, feb 2006.

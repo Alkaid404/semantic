@@ -1,0 +1,31 @@
+We Probably Live On An Inflating Brane-World 11footnote 1(Slightly expanded version of) essay written for the Gravity Research Foundation 2011 essay contest.
+
+By Ishwaree P. Neupane
+
+Abstract
+
+A groundbreaking approach to higher-dimensional cosmology was introduced by Randall and Sundrum, who proposed the existence of a noncompact spacelike fifth dimension [4]. In their framework, the perception of conventional four-dimensional gravity arises because we reside on a domain wall, or brane, embedded within or bounding a bulk anti-de Sitter (AdS) space. The geometry of the complete (4+1)-dimensional spacetime is non-factorizable, and the small true five-dimensional Planck mass is connected to its large effective four-dimensional counterpart through the extreme warp factor inherent to the five-dimensional space. This innovative perspective on extra dimensions carries significant cosmological implications, several of which will be explored in this essay.
+
+Acknowledgement
+
+This work was supported by the Marsden fund of the Royal Society of New Zealand.
+
+References
+
+[1] A. G. Riesset al.Astron. J.116(1998) 1009; S. Perlmutteret al., Astrophys. J.517(1999) 565.
+[2] E. J. Copeland, M. Sami, S. Tsujikawa, Int. J. Mod. Phys.D15, 1753-1936 (2006).
+[3] I. P. Neupane, arXiv:0711.3234 [hep-th].
+[4] V. A. Rubakov and M. E. Shaposhnikov, Phys. Lett.  B125(1983) 136;M. Visser, Phys. Lett.B159(1985) 22.
+[5] L. Randall and R. Sundrum, Phys. Rev. Lett.83(1999) 4690.
+[6] I. P. Neupane, Class. Quant. Grav.26(2009) 195008.I. P. Neupane, Class. Quant. Grav.27(2010) 045011.
+[7] I. P. Neupane, Phys. Lett.  B683(2010) 88.
+[8] R. Maartens, Living Rev. Rel.7(2004) 7.
+[9] I. H. Brevik, K. Ghoroku, S. D. Odintsov and M. Yahiro, Phys. Rev.  D66(2002) 064016.
+[10] A. Kehagias and K. Tamvakis, Class. Quant. Grav.19(2002) L185.
+[11] U. Gen and M. Sasaki, Prog. Theor. Phys.105(2001) 591.
+[12] J. Garriga and T. Tanaka, Phys. Rev. Lett.84(2000) 2778.
+[13] K. Ghoroku, A. Nakamura and M. Yahiro, Phys. Lett.  B571(2003) 223.
+[14] I. P. Neupane, Phys. Rev.D83(2011) 086004.
+[15] I. P. Neupane, Int. J. Mod. Phys. D19(2010) 2281.
+[16] O. DeWolfe, D. Z. Freedman, S. S. Gubser and A. Karch, Phys. Rev.  D62(2000) 046008.
+[17] I.P. Neupane, Nucl. Phys.B847(2011) 549

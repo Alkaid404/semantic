@@ -1,0 +1,75 @@
+On-demand confinement of semiconductor excitons by all-optical control
+
+By M. Alloing and A. Lemaitre and E. Galopin and F. Dubin
+
+Abstract
+
+In condensed-matter physics, remarkable advances have been made with atomic systems by establishing a thorough control over cooling and trapping techniques (1) . In semiconductors, this method may also provide a deterministic approach to reach the long standing goal of harnessing collective quantum phenomena with exciton gases. While long-lived excitons are simply cooled to very low temperatures using cryogenic apparatus, engineering confining potentials has been a challenging task. This degree of control was only achieved recently with devices realized by highly demanding nano-fabrication processes (3) . Here, we demonstrate an alternative to this technology and show how a proper optical excitation allows to manipulate in-situ the exciton transport. Our approach is based on the optically controlled injection and spatial patterning of charges trapped in a field-effect device. Thus, electric field gradients are created and implement microscopic traps or anti-traps for the excitons dipole. Accordingly, any confinement geometry can be realized by shaping the spatial profile of a laser excitation. Hence, we succeed in trapping exciton gases in a density range where quantum correlations are predicted at our very low bath temperature (6) .
+
+I Sample details
+
+We studied a field-effect device which is schematically represented in Figure S1. It consists of a $n^{+}-i-n^{+}$ heterostructure embedding a double quantum well (DQW) made of two 8 nm wide GaAs quantum wells separated by a 4 nm Al \textsubscript{0.33} Ga \textsubscript{0.67} As barrier. The DQW is placed between two Al \textsubscript{0.33} Ga \textsubscript{0.67} As spacers of 200nm thickness. In our experiments, a static potential (V \textsubscript{g} ) was applied between two n \textsuperscript{+} -GaAs layers (Si doped with $n_{Si}\sim 5.10^{17}$ cm \textsuperscript{−3} ) which serve as gate electrodes. The top and back gates are 105nm and 305nm thick respectively. The back gate is electrically connected with a metallic contact deposited after etching of the sample. In our experiments, this electrode is grounded and electrically isolated from the sample holder by a 800nm undoped GaAs layer incorporating a AlAs/GaAs superlattice. In addition, the top contact consists of a mesa with a 500x500 $\mu$ m \textsuperscript{2} aperture through which the photoluminescence is collected.
+
+II Experimental Setup
+
+The field-effect device was placed on the Helium 3 insert of a closed cycle Helium 4 cryostat (Heliox-ACV from Oxford Instruments). An aspheric lens with a 0.6 numerical aperture is embedded inside the cryostat in front of the sample and positioned by piezo-electric transducers (ML17 from MechOnics-Ag). We optimized the optical resolution of our microscope by introducing a mechanical coupling between the Helium 3 insert and the part holding the aspheric lens. Thus, the amplitude of mechanical vibrations does not exceed 2 microns (in a frequency range up to $\sim$ 1 kHz) while the sample can be cooled to temperatures as low as 330 mK. In our experiments, the aspheric lens was used to excite the semiconductor sample but also to collect the photoluminescence that was reemitted. The latter was then directed to an imaging spectrograph coupled to an intensified CCD camera (Picostar-UF from La Vision). Thus, we studied the emission of indirect excitons with a 2 ns time resolution, either in real space or including a spectral resolution of 200 $\mu$ eV.
+
+Fig. S1. Schematic representation of the semiconductor sample that we studied at very low temperature (350 mK).
+
+III Electric dipole of indirect excitons
+
+In our experiments, a negative bias ( $V_{g}$ = -1.4 V) was applied to the top gate electrode such that electrons and holes are confined in the bottom and top quantum wells respectively (see Fig. S1). Thus, the ground excitonic transition is of indirect type and indirect excitons exhibit an electric dipole $\textbf{d}=e.\textbf{r}$ oriented perpendicularly to the plane of the DQW, $e$ being the electron charge and r the distance between the electron and hole constituting the exciton. In this geometry, indirect excitons interact strongly with the externally applied electric field E through a dipolar interaction $E_{dip}\sim-\textbf{d}.\textbf{E}$ . The amplitude of the electric field in the plane of the DQW is defined by the applied bias $V_{g}$ and by the thickness of the heterostructure, $l$ . It reads $E=|\textbf{E}|=V_{g}/l$ . Therefore, the exciton electric dipole moment is deduced by varying the applied voltage, $V_{g}$ , while monitoring the energy of the photoluminescence emission, $E_{X}\sim E_{dip}$ . In Figure S2 we present the result of such measurement where we obtained a variation of $25.0\pm 0.4$ meV.V \textsuperscript{-1} which combined with the thickness of our field-effect device ( $l=420$ nm) gives an electric dipole $d=|\textbf{d}|=e.(10.3\pm 0.2)$ nm for indirect excitons. This value is in good agreement with the characteristic dimension of the DQW where the center of the two quantum wells are separated by 12 nm. The latter distance provides the expected electric dipole moment.
+
+Fig. S2. Variation of the energy of the photoluminescence of indirect excitons, $\Delta E_{X}$ , as a function of the gate voltage, $V_{g}$ . Measurements were performed at 350 mK and under a weak (5 mW.cm \textsuperscript{-2} ) excitation of the DQW at 790 nm to prevent the photo-injection of free carriers. Measurements were realized at 350 mK.
+
+IV Laser induced heating and optical lifetime of indirect excitons
+
+In Figure S3.A-B we show the spectrally and spatially resolved emission of indirect excitons at the end (A) and 4 ns after (B) a 300 ns long ”writing” pulse at 10 W.cm \textsuperscript{-2} . We note during the laser pulse that the emission is weaker in the region which is illuminated compared to outside. Furthermore, once the laser excitation is terminated the signal at the position of the ”writing” beam becomes the most intense (see Fig. S3.C). This behavior is characteristic of indirect excitons and marks the formation and collapse of the so-called inner-ring. It signals a laser induced heating in the region that is illuminated (6) .
+
+The heating induced by the ”writing” beam is clearly signaled by the photoluminescence dynamics after the laser excitation. Precisely, we show in Fig. S3.D the time resolved emission at the position of the ”writing” beam (red) and outside (blue): at the position of the laser excitation the photoluminescence emission is enhanced by $\approx$ 45 $\%$ at the end of the ”writing” pulse while the photoluminescence enhancement is much weaker for the region outside of the “writing“ beam. This non-linear response marks the collapse of the inner-ring at the end of the laser excitation. It signals the efficient thermalization of indirect excitons after the ”writing” pulse. Thus, the population of optically active states is enhanced and therefore the photoluminescence emission is sharply increased. Finally, from these measurements we also deduce the optical lifetime of indirect excitons: the photoluminescence obeys a mono-exponential decay after the laser excitation (black line in Fig. S3.D), with a time constant equal to 138(3) ns.
+
+Fig. S3. (A-B): Spatially and spectrally resolved emission of indirect excitons at the end (A) and 4 ns after (B) a ”writing” pulse with 6 $\mu$ m waist and at 10 W.cm \textsuperscript{-2} . (C): Emission profiles at the end of the writing pulse and 4 ns later, solid and dotted lines respectively (the laser profile is shown by the red line). (D): Dynamics of the photoluminescence at the position of the ”writing” pulse (red) and outside (blue). The black line shows the best fit which yields a mono-exponential decay with a time constant equal to 138(3) ns. All measurements were realized at 350 mK.
+
+V Exciton concentration in the hollow-trap
+
+In Figure S4, we present the spatially and spectrally resolved emission of indirect excitons confined in a hollow-trap for the same experimental conditions as for Figure 3.C. We note that the photoluminescence inside the trap is shifted to higher energies, by $\delta E$ , than outside the trap where the exciton gas is more dilute. This difference results from the repulsive dipole-dipole interactions between indirect excitons and the energy shift, $\delta E$ , gives an estimation of the gas density inside the trap. Indeed, the mean field energy associated to repulsive exciton-exciton interactions may be expressed as $u_{0}.n_{\mathrm{X}}$ , where $u_{0}$ is a constant factor controlled by the DQW geometry and the correlations between excitons while $n_{\mathrm{X}}$ denotes the exciton density (27) . For the experiments displayed in Figure S4 we have $\delta E\approx$ 1.3 meV which corresponds to $n_{\mathrm{X}}\approx$ 5 10 \textsuperscript{10} cm \textsuperscript{-2} (27) .
+
+Fig. S4. Spatially resolved photoluminescence spectrum along the central axis of the hollow-trap. These measurements were realized in the same experiments as for Fig. 3.C. The white line displays the spatial profile of the “writing“ beam which defines the trap barriers. $\delta E\approx$ 1.3 meV is the energy shift of the emission from which the exciton concentration is deduced.
+
+VI Pulse sequences
+
+In our experiments, indirect excitons were optically created by two CW diode lasers (DL-100 from Toptica) at 640nm (“preparation“ beam) and 790nm (“writing“ and probe beams). Both lasers were pulsed with electro-optic (integrated-optical modulator from JenOptic) and acousto-optic modulators (Crystal Technologies Inc.), controlled by a pulse sequencer. Thus, we engineered up to four independent excitation pulses with rising and falling edges of $\sim$ 2ns and $\sim$ 5ns for the electro-optic and acousto-optic switching respectively. The measurements that we report were performed using 4 different pulse sequences which are resumed in Figure S5.
+
+Fig. S5. Blue and red-colored pulses correspond to “preparation“ and “writing“ beams respectively. The green-colored region provides the details of the time window during which real images and spectrally resolved ones were acquired.
+
+References
+
+(1) I. Bloch, J. Dalibard and W. Zwerger, Rev. Mod. Phys.80, 885 (2008)
+(2) A.A. High et al., Science321, 229 (2008)
+(3) V. B. Timofeev, A. V. Gorbunov, Phys. Stat. Sol. (c)5, 2379 (2008)
+(4) A. A. High et al., Phys. Rev. Lett.103, 087403 (2009)
+(5) K. Kowalik-Seidl et al., Nano Lett.12, 326 (2012)
+(6) A. L. Ivanov, J. Phys.: Condens. Matter16, S3639 (2004)
+(7) J. M. Eisenstein and A. H. Mac Donald, Nature432, 691 (2004)
+(8) L.V. Butov, J. Phys.: Condens. Matter19, 295202 (2007)
+(9) D. W. Snoke, Adv. in Condensed Matter Physics (2011); doi:10.1155/2011/938609
+(10) A. F. Croxall et al., Phys. Rev. Lett.101, 246801 (2008)
+(11) J. A. Seamons et al., Phys. Rev. Lett.102, 026804 (2009)
+(12) Chen G. et al., Phys. Rev. B74, 045309 (2006)
+(13) A. Gaertner et al., Phys. Rev. B76, 085304 (2007)
+(14) E. Wertz et al., Nature Phys.6, 860 (2010)
+(15) A. Amo et al., Phys. Rev. B82, 081301(R) (2010)
+(16) A.T. Hammack et al., Phys. Rev. Lett.96, 227402 (2006)
+(17) C. Bosio et al., Phys. Rev. B38, 3263 (1988)
+(18) B. Monemar, K. K. Shih and G. D. Pettit, J. Appl. Phys.47, 2604 (1976)
+(19) J. Tersoff, Phys. Rev. B30, 4874(R) (1984)
+(20) M. Alloing et al., arXiv:1202.1985
+(21) the injection of holes results in a deficit of electrons increasing the potential of then+superscript𝑛n^{+}-GaAs electrode on the left hand-side in Fig. 1.A
+(22) M. Remeika et al., Phys. Rev. Lett.102, 186803 (2009)
+(23) M. Alloing et al., EuroPhys. Lett.93, 17007 (2011)
+(24) A.T. Hammack et al., Phys. Rev. B80, 155331 (2009)
+(25) A. G. Winbow et al., Phys. Rev. Lett.106, 196806 (2011)
+(26) I. Manek, Y. B. Ovchinnikov, R. Grimm, Optics. Comm.147, 67 (1998)
+(27) C. Schindler and R. Zimmermann, Phys. Rev. B78, 045313 (2008)
+(28) B. Laikhtman. and R. Rapaport, Phys. Rev. B80, 195313 (2009)
+(29) S. Ben-Tabou de-Leon, B. Laikhtman, Phys. Rev. B63, 125306 (2001)

@@ -1,0 +1,549 @@
+On discrete coherent pairs of measures
+
+By R. Álvarez-Nodarse and K. Castillo and D. Mbouna and J. Petronilho
+
+Abstract
+
+In the paper [Castillo & Mbouna, Indag. Math. 31 (2020) 223-234], the concept of $\pi_{N}$ -coherent pairs of order $(m,k)$ with index $M$ is introduced. This definition, which is implicitly connected to the standard derivative operator, excludes discrete orthogonal polynomials. The aim of this note is twofold: first, we rephrase existing results using the (discrete) Hahn difference operator and apply them in this context; second, as an application, we provide a comprehensive description of discrete self-coherent pairs when $M=0$, $N\leq 2$, and $(m,k)=(1,0)$. This is achieved by demonstrating that classical orthogonal polynomials with respect to Jackson's operator are special or limiting cases of a four-parameter family of $q$-polynomials. This offers a partial solution to a conjecture proposed by M. E. H Ismail in his monograph [Classical and quantum orthogonal polynomials in one variable, Cambridge University Press, 2005].
+
+
+1. Introduction and Preliminaries
+
+This work extends the theory of coherent pairs of measures in the context of discrete orthogonal polynomials, as proposed in [5]. The concept of coherent pairs of measures was initially introduced by Iserles, Koch, Nørsett, and Sanz-Serna in 1991, in the context of Sobolev orthogonal polynomials, and has been extensively studied since (see, for example, the introduction in [2] and the references therein). Our aim is not only to provide $(q,w)$ analogues of the results presented in [5], but also to show how certain known results can be derived using the results presented here, in combination with those presented in our recent work [3]. To achieve this, we will introduce a four-parameter family of $q$-polynomials that includes all classical OPS with respect to Jackson's operator as special or limiting cases (the so-called $q$-classical polynomials). We assume that the reader has access to [3] and, as far as possible, we will use the notation and definitions from that paper, including the basic facts of the algebraic theory of orthogonal polynomials as stated by P. Maroni [10] (see also [12] for a recent survey on the subject). Throughout this work, we will use the abbreviations OP and OPS to refer to Orthogonal Polynomial(s) and Orthogonal Polynomial(s) Sequence(s), respectively. Let $(P_{n})_{n\geq 0}$ and $(Q_{n})_{n\geq 0}$ be two monic OPS, and let $u$ and $v$ be the regular linear functionals with respect to which $(P_{n})_{n\geq 0}$ and $(Q_{n})_{n\geq 0}$ are orthogonal. In [5], the authors consider the following structure relation:
+
+(1.1)  $\pi_{N}(x)P_{n}^{[m]}(x)=\sum\_{j=n-M}^{n+N}c\_{n,j}Q_{j}^{[k]}(x)$, $n=0,1,\ldots$,
+
+where $M$ and $N$ are fixed non-negative integer numbers, $\pi_{N}$ is a monic polynomial of degree $N$ (hence $c\_{n,n+N}=1$ for each $n$), $P_{n}^{[m]}(x):=\frac{m!}{(n-m)!}\frac{{\rm d}^{m}}{{\rm d}x^{m}}\,P_{n+m}(x)$ denotes the standard notation for the monic $m$-derivatives, and we adopt the convention $Q\_{j}\equiv 0$ if $j<0$. Furthermore, we assume that the following condition holds:
+
+(1.2)  $c\_{n,n-M}\neq 0\quad\mbox{if}\quad n\geq M$.
+
+Motivated by the existing literature on the subject, the following definition is stated in [5]:
+
+
+Let $M$ and $N$ be non-negative integers, and let $\pi_N$ be a monic polynomial of degree $N$. Given two monic orthogonal polynomial sequences $(P_n)_{n \geq 0}$ and $(Q_n)_{n \geq 0}$, if their normalized derivatives of orders $m$ and $k$ (respectively) satisfy conditions $(\ref{1ba})$ and $(\ref{cond1})$, we refer to the pair $\big{(}(P_n)_{n \geq 0},(Q_n)_{n \geq 0}\big{)}$ as well as the corresponding pair $({\bf u},{\bf v})$ of regular linear functionals as a $\pi_N$-coherent pair, with index $M$ and order $(m,k)$.
+
+
+We define the Hahn operator $D_{q,\omega}:\mathcal{P}\to\mathcal{P}$ as follows:
+
+$(D_{q,\omega}f)(x) = \frac{f(qx+\omega)-f(x)}{(q-1)x+\omega}$,
+
+where $q,\omega\in\mathbb{C}$ and $q$ is not in the set $\{0,1,e^{2ij\pi/n}\;|\;1\leq j\leq n-1\;,\;n=2,3,\ldots\}$. By redefining derivatives as "discrete" derivatives, we have:
+
+$S_{n}^{[m]} = \frac{[n]_{q}!}{[n+m]_{q}!} D_{q,\omega}^{m}S_{n+m}$,
+
+where we use the standard notation:
+
+$[0]_{q}! := 1$,
+$[n]_{q}! := \prod\limits_{j=1}^{n} [j]_{q}$,
+$[n]_{q} := \frac{q^{n}-1}{q-1}$,
+$n = 1,2,\dots$.
+
+This leads to the concept of a discrete $(\pi_{N},q,w)$-coherent pair with index $M$ and order $(m,k)$, defined as in Definition 1.1, but with the standard derivatives replaced by the discrete ones.
+
+
+In the rest of the section we summarize some basic facts. (For more details see [3] and references therein.) Given a simple set of polynomials $(R_{n})_{n\geq 0}$ , the corresponding dual basis is a sequence of linear functionals ${\bf e}_{n}:\mathcal{P}\to\mathbb{C}$ such that 
+ 
+ $\langle{\bf e}_{n},R_{j}\rangle:=\delta_{n,j},\quad n,j=0,1,\ldots.$ 
+ The operator ${D}_{q,\omega}$ induces an operator ${\bf D}_{q,\omega}:\mathcal{P}^{*}\to\mathcal{P}^{*}$ , given by 
+ 
+ $\displaystyle\langle{\bf D}_{q,\omega}{\bf u},f\rangle:=-q^{-1}\langle{\bf u},D_{1/q,-\omega/q}f\rangle.$ 
+ The sequence $(R^{[k]}_{n})_{n\geq 0}$ is a simple set of polynomials and its associated dual basis $(\textbf{e}^{[k]}_{n})_{n\geq 0}$ satisfies 
+ 
+ (1.4)  $\displaystyle\mathbf{D}_{1/q,-\omega/q}^{k}\left(\textbf{e}_{n}^{[k]}\right)=(-q)^{k}\frac{[n+k]_{q}!}{[n]_{q}!}\textbf{e}_{n+k},\quad n,k=0,1,\dots.$ 
+ We also define $L_{q,\omega}:\mathcal{P}\to\mathcal{P}$ and ${\bf L}_{q,\omega}:\mathcal{P}^{*}\to\mathcal{P}^{*}$ by 
+ 
+ $\displaystyle L_{q,\omega}f(x):=f(qx+\omega),\quad\langle{\bf L}_{q,\omega}{\bf u},f\rangle:=\langle{\bf u},L_{1/q,-\omega/q}f\rangle.$ 
+ Throughout the paper the following properties will be used 
+ 
+ $\displaystyle D_{1/q,-\omega/q}L_{q,\omega}=qL_{q,\omega}D_{q,\omega},\quad L_{1/q,-\omega/q}L_{q,\omega}=I,$ 
+ 
+ $\displaystyle{\bf D}_{q,\omega}(f\textbf{u})=D_{q,\omega}f~{}\textbf{u}+L_{q,\omega}f~{}{\bf D}_{q,\omega}\textbf{u}\;,\quad{\bf L}_{q,\omega}(f\textbf{u})=L_{q,\omega}f{\bf L}_{q,\omega}(\textbf{u}),$ 
+ 
+ $\displaystyle{\bf D}_{q,\omega}^{n}(f\textbf{u})=\sum_{j=0}^{n}\begin{bmatrix}n\\
+j\end{bmatrix}_{q}L_{q,\omega}^{n-j}\left(D_{q,\omega}^{j}f\right){\bf D}_{q,\omega}^{n-j}\textbf{u}=\sum_{j=0}^{n}\begin{bmatrix}n\\
+j\end{bmatrix}_{q}L_{q,\omega}^{j}\left(D_{q,\omega}^{n-j}f\right){\bf D}_{q,\omega}^{j}\textbf{u}$ 
+ for each $n=0,1,\ldots$ . The last property is Leibniz’s formula .
+
+A linear functional $\textbf{u}\in\mathcal{P}^{*}$ is $D_{q,\omega}$-semiclassical if it is regular and there exist polynomials $\phi,\psi\in\mathcal{P}$ with degree of $\psi$ greater than or equal to 1, such that
+
+(1.5) $\quad\textbf{D}_{q,\omega}(\phi\textbf{u}) = \psi\textbf{u}.$
+
+The class $\mathfrak{s}(\textbf{u})$ of a $D_{q,\omega}$-semiclassical functional $\textbf{u}$ is the unique non-negative integer defined as
+
+$\mathfrak{s}(\textbf{u}) := \min_{(\phi,\psi)\in\mathcal{A}_{\textbf{u}}}\max\big{\{} deg(\phi) - 2, deg(\psi) - 1 \big{\}},$
+
+where $\mathcal{A}_{\textbf{u}}$ is the set of all pairs of non-zero polynomials $(\phi,\psi)$ that satisfy the functional equation (1.5). If $\mathfrak{s}(\textbf{u}) = 0$, then $\textbf{u}$ is said to be $D_{q,\omega}$-classical. We also say that the corresponding OPS is $D_{q,\omega}$-semiclassical of class $\mathfrak{s}(\textbf{u})$ or $D_{q,\omega}$-classical, respectively.
+
+It is worth noting that
+
+$\displaystyle\textbf{D}_{q,\omega}(\phi\textbf{u}) = \psi\textbf{u}~\Leftrightarrow~{\textbf{D}_{1/q,-\omega/q}(\widehat{\phi}\textbf{u}) = \psi\textbf{u}},$
+
+where $\widehat{\phi}(x) := q^{-1}\big{[}\phi(x) + \big{(}(q-1)x + \omega\big{)}\psi(x)\big{]}.$ Consequently, a regular linear functional $\textbf{u}$ is $D_{q,\omega}$-semiclassical if and only if it is $D_{1/q,-\omega/q}$-semiclassical.
+
+
+The paper's structure is as follows. In Section 2, we provide the discrete counterparts of the results from [5]. These results are novel contributions to the literature. In Section 3, we introduce a novel application in the context of $\pi_{N}$ - $(q,w)$ -coherence of index 0 and order (1,0), with $N\leq 2$ and $P_{n}=Q_{n}$ for all $n=0,1,2,\dots$ (self-coherence). This concept is both new and groundbreaking. This enables us to derive a $(q,\omega)$ -analogue of the well-known Al-Salam and Chihara characterization of classical orthogonal polynomials. We also unify the description (up to an affine change of variable) of all q-classical orthogonal polynomials, by dividing them into two large families of q-polynomials, $(L_{n}(\cdot;a,b,c|q))_{n\geq 0}$ and $(J_{n}(\cdot;a,b,c,d|q))_{n\geq 0}$. Notably, $L_{n}(\cdot;a,b,c|q)$ can be obtained as a special or limiting case of $J_{n}(\cdot;a,b,c,d|q)$.
+
+
+2. $(q,w)$ -analogues of $\pi_{N}$ -coherent pairs
+
+In this section, we construct the $(q,w)$-analogues of the results presented in [5]. To achieve this, we follow the ideas outlined in [5]. However, it is important to note that we must first define the appropriate $(q,w)$-analogues of the formulas given there. Note that, as B. Berndt pointed out in a different context (see [4]), there are several ways to construct $q$-analogues, and consequently, $(q,w)$-analogues. Having defined these analogues, it is straightforward to prove our results using the same arguments as in [5].
+
+
+Consider a $\pi_{N}$-$(q,\omega)$-coherent pair $\big{(}(P_{n})_{n\geq 0},(Q_{n})_{n\geq 0}\big{)}$ of index $M$ and order $(m,k)$. This pair satisfies conditions $(\ref{1ba})$ and $(\ref{cond1})$. Define
+
+(2.1)  $\psi(x;n) := \sum_{j=n-N}^{n+M}\frac{(-q)^{m}[j+m]_{q}!}{[j]_{q}!\langle{\bf u},P_{m+j}^{2}\rangle}c_{j,n}P_{m+j}(x),$
+
+(2.2)  $\phi(x;n,j) := \frac{(-q)^{k}[n+k]_{q}!}{[n]_{q}!\langle{\bf v},Q_{n+k}^{2}\rangle}\sum_{\ell=0}^{N-j}\begin{bmatrix}k+n\\
+\ell\end{bmatrix}_{q^{-1}}\begin{bmatrix}N-\ell\\
+N-j-\ell\end{bmatrix}_{q^{-1}}$
+
+$\qquad\qquad\qquad\qquad\times L_{1/q,-\omega/q}^{k+N-\ell}\left(D_{1/q,-\omega/q}^{\ell}\pi_{N}\right)(x)\,L_{1/q,-\omega/q}^{j}\left(D_{1/q,-\omega/q}^{n-j-\ell}Q_{n+k}\right)(x),$
+
+for all $n=0,1,\ldots$ and $j=0,1,\ldots,N$. Note that $\deg\psi(\cdot;n)=m+n+M$ and $\deg\phi(\cdot;n,j)=k+n+j$. Here, ${\bf u}$ and ${\bf v}$ are the regular linear functionals with respect to which $(P_{n})_{n\geq 0}$ and $(Q_{n})_{n\geq 0}$ are orthogonal. The following functional equations then hold:
+
+(2.3)  $\psi(\cdot;n){\bf u}={\bf D}_{1/q,-\omega/q}^{m-k-N}\Big{(}\sum_{j=0}^{N}\phi(\cdot;n,j){\bf D}_{1/q,-\omega/q}^{j}{\bf v}\Big{)}$ if $m\geq k+N$,
+
+(2.4)  ${\bf D}_{1/q,-\omega/q}^{k+N-m}\big{(}\psi(\cdot;n){\bf u}\big{)}=\sum_{j=0}^{N}\phi(\cdot;n,j){\bf D}_{1/q,-\omega/q}^{j}{\bf v}$ if $m<k+N$,
+
+for all $n=0,1,\ldots$.
+
+
+Let $({\bf a}_{n})_{n\geq 0}$ , $({\bf b}_{n})_{n\geq 0}$ , $({\bf a}_{n}^{[m]})_{n\geq 0}$ , and $({\bf b}_{n}^{[k]})_{n\geq 0}$ be the dual basis corresponding to the simple sets of polynomials $(P_{n})_{n\geq 0}$ , $(Q_{n})_{n\geq 0}$ , $(P_{n}^{[m]})_{n\geq 0}$ and $(Q_{n}^{[k]})_{n\geq 0}$ , respectively. Then 
+ 
+ (2.5)  $\pi_{N}{\bf b}_{n}^{[k]}=\sum_{j=n-N}^{n+M}c_{j,n}{\bf a}_{j}^{[m]},\quad n=0,1,\ldots.$ 
+ From ( 1.4 ) we get 
+ 
+ (2.6)  ${\bf D}_{1/q,-\omega/q}^{m}\big{(}\pi_{N}{\bf b}_{n}^{[k]}\big{)}=\psi(\cdot;n)\textbf{u},\quad n=0,1,\ldots.$ 
+ By Leibniz’s formula, and since $D_{1/q,-\omega/q}^{j}\pi_{N}=0$ for $j>N$ , we deduce 
+ 
+ $\displaystyle{\bf D}_{1/q,-\omega/q}^{k+N}\big{(}\pi_{N}{\bf b}_{n}^{[k]}\big{)}$ 
+ 
+ $\displaystyle=\frac{(-q)^{k}[n+k]_{q}!}{[n]_{q}!\langle{\bf v},Q_{n+k}^{2}\rangle}\sum_{j=0}^{N}\begin{bmatrix}k+N\\
+j\end{bmatrix}_{q^{-1}}L_{1/q,-\omega/q}^{k+N-j}\left(D_{1/q,-\omega/q}^{j}\pi_{N}\right){\bf D}_{1/q,-\omega/q}^{N-j}(Q_{n+k}{\bf v}).$ 
+ Applying once again Leibniz’s formula to ${\bf D}_{1/q,-\omega/q}^{N-j}(Q_{n+k}{\bf v})$ , after some straightforward calculations, we find 
+ 
+ (2.7)  ${\bf D}_{1/q,-\omega/q}^{k+N}\big{(}\pi_{N}{\bf b}_{n}^{[k]}\big{)}=\sum_{j=0}^{N}\phi(\cdot;n,j){\bf D}^{j}_{1/q,-\omega/q}{\bf v}.$ 
+ For $m\geq k+N$ , rewriting ( 2.6 ) as 
+ 
+ $\psi(\cdot;n){\bf u}={\bf D}_{1/q,-\omega/q}^{m-k-N}{\bf D}_{1/q,-\omega/q}^{k+N}\big{(}\pi_{N}{\bf b}_{n}^{[k]}\big{)},\quad n=0,1,\ldots,$ 
+ and using ( 2.7 ), ( 2.3 ) follows. For $m<k+N$ , writing 
+ 
+ ${\bf D}_{1/q,-\omega/q}^{k+N}\big{(}\pi_{N}{\bf b}_{n}^{[k]}\big{)}={\bf D}_{1/q,-\omega/q}^{k-m+N}{\bf D}_{q,\omega}^{m}\big{(}\pi_{N}{\bf b}_{n}^{[k]}\big{)}\;,\quad n=0,1,\ldots,$ 
+ and using ( 2.6 ) and ( 2.7 ), we obtain ( 2.4 ). ∎
+
+Given a $\pi_N$ - $(q,\omega)$ -coherent pair $(P_n)_{n\geq 0}, (Q_n)_{n\geq 0}$ of index $M$ and order $(m,k)$, with $(\ref{1ba})$ and $(\ref{cond1})$ holding, let $\mathbf{u}$ and $\mathbf{v}$ be the regular linear functionals with respect to which they are orthogonal. Suppose $m \geq k + N$. If $N > 0$, assume $m > k$.
+
+For each $i = 0, \dots, m - k$ and $n = 0, 1, \dots$, define
+
+(2.8)  $\varphi(x;n,i) := \sum\limits_{\substack{j + \ell = i \\ 0 \leq j \leq N \\ 0 \leq \ell \leq M}} \binom{m - k - N}{j}_{q^{-1}} L_{1/q, -\omega/q}^{j}\big{(}D_{1/q, -\omega/q}^{m - k - N - j}\phi(.;n,\ell)\big{)}(x)$.
+
+Let $\mathcal{A}(x)$ be the polynomial matrix of order $m - k + 1$ given by
+
+$\mathcal{A}(x) := \begin{bmatrix} \varphi(x;n,j) \end{bmatrix}_{n,j=0}^{m-k}$.
+
+Define $\mathcal{A}_1(x)$ and $\mathcal{A}_2(x)$ as the matrices obtained by replacing the first and second columns of $\mathcal{A}(x)$ by $\big{[}\psi(x;0), \psi(x;1), \dots, \psi(x;m-k)\big{]}^t$, respectively. Let $A(x)$, $A_1(x)$, and $A_2(x)$ be the determinants of $\mathcal{A}(x)$, $\mathcal{A}_1(x)$, and $\mathcal{A}_2(x)$, respectively. Assume $A(x)$ does not vanish identically. Then,
+
+(2.9)  $A\mathbf{v} = A_1\mathbf{u}$, $A\mathbf{D}_{1/q, -\omega/q}\mathbf{v} = A_2\mathbf{u}$,
+
+so $\mathbf{u}$ and $\mathbf{v}$ are $D_{q,\omega}$-semiclassical functionals related by a rational transformation. Furthermore, $\mathbf{u}$ and $\mathbf{v}$ satisfy the following equations:
+
+(2.10)  $\mathbf{D}_{1/q, -\omega/q}(A_1L_{q,\omega}(A)\mathbf{u}) = (qA_1D_{q,\omega}(A) + A_1D_{1/q, -\omega/q}(A) + A_2L_{1/q, -\omega/q}(A))\mathbf{u}$,
+
+(2.11)  $\mathbf{D}_{1/q, -\omega/q}(L_{q,\omega}(AA_1)\mathbf{v}) = (qD_{q,\omega}(AA_1) + AA_2)\mathbf{v}$.
+
+
+
+Combining ( 2.3 ) and Leibniz formula, we get 
+ 
+ $\psi(\cdot;n){\bf u}=\sum_{\ell=0}^{N}\sum_{j=0}^{m-k-N}\begin{bmatrix}m-k-N\\
+j\end{bmatrix}_{q^{-1}}L_{1/q,-\omega/q}^{j}\big{(}D_{1/q,-\omega/q}^{m-k-N-j}\phi(\cdot;n,\ell)\big{)}{\bf D}_{1/q,-\omega/q}^{j+\ell}{\bf v}.$ 
+ This may be rewritten as 
+ 
+ (2.12)  $\psi(\cdot;n){\bf u}=\sum_{\ell=0}^{m-k}\varphi(\cdot;n,\ell){\bf D}_{1/q,-\omega/q}^{\ell}{\bf v},\quad n=0,1,\dots,$ 
+ where $\varphi(\cdot;n,i)$ is the polynomial introduced in ( 2.8 ). Taking $n=0,1,\ldots,m-k$ in ( 2.12 ) we obtain a system with $m-k+1$ equations that can be written as 
+ 
+ $\left(\begin{array}[]{c}\psi(x;0){\bf u}\\
+\psi(x;1){\bf u}\\
+\vdots\\
+\psi(x;m-k){\bf u}\end{array}\right)=\mathcal{A}(x)\left(\begin{array}[]{c}{\bf v}\\
+{\bf D}_{1/q,-\omega/q}{\bf v}\\
+\vdots\\
+{\bf D}_{1/q,-\omega/q}^{m-k}{\bf v}\end{array}\right).$ 
+ Solving for ${\bf v}$ and ${\bf D}_{1/q,-\omega/q}{\bf v}$ we obtain ( 2.9 ). Finally, one can remark that $D_{1/q,-\omega/q}L_{q,\omega}=qD_{q,\omega}$ . Hence ( 2.10 ) and ( 2.11 ) follow from ( 2.9 ). ∎
+
+As it is commented in [5] , if $m=k$ and $N=0$ , then ${\bf u}$ and ${\bf v}$ are still related by a rational transformation, but we cannot ensure that they are $D_{q,\omega}$ -semiclassical.
+
+If $m < k + N$, let $(\left(P_{n}\right)_{n \geq 0}, \left(Q_{n}\right)_{n \geq 0})$ be a $\pi_{N}$ - $(q, \omega)$ -coherent pair with index $M$ and order $(m, k)$. Let $\mathbf{u}$ and $\mathbf{v}$ be the regular linear functionals with respect to which $\left(P_{n}\right)_{n \geq 0}$ and $\left(Q_{n}\right)_{n \geq 0}$ are orthogonal. For each $j = 0, \ldots, k - m + N$ and $n = 0, 1, \ldots$, define
+
+(2.13)  $\xi(x; n, j) = \binom{k + N - m}{j}_{q^{-1}} L^{j}_{1 / q, - \omega / q}\left(D^{k + N - m - j}_{1 / q, - \omega / q} \psi\right)(x; n)$,
+
+where $\psi(\cdot; n)$ is the polynomial introduced in (1.16). Let $\mathcal{B}(x)$ be the polynomial matrix of order $k - m + 2N + 1$ defined as follows:
+
+$b_{i, j}(x) = \left\{ \begin{array}{ccc}
+\phi(x; i, j) & \text { if } & 0 \leq j \leq N \\
+- \xi(x; i, j - N) & \text { if } & N + 1 \leq j \leq k - m + 2N
+\end{array} \right.$,
+
+where $\phi(\cdot; i, j)$ is the polynomial given by (1.17). Let $\mathcal{B}_{1}(x)$, $\mathcal{B}_{2}(x)$, and $\mathcal{B}_{N + 2}(x)$ be the matrices obtained by replacing the first, second, and $(N + 2)$th column of $\mathcal{B}(x)$ with $\left[\xi(x; 0, 0), \xi(x; 1, 0), \ldots, \xi(x; m - k + 2N, 0)\right]^{t}$, and set
+
+$B(x) = \det \mathcal{B}(x)$, $B_{j}(x) = \det \mathcal{B}_{j}(x)$, $j \in \{1, 2, N + 2\}$.
+
+Assume that the polynomial $B(x)$ does not vanish identically. Then
+
+(2.14)  $B\mathbf{v} = B_{1}\mathbf{u}$, $B\mathbf{D}_{1 / q, - \omega / q}\mathbf{v} = B_{2}\mathbf{u}$, $B\mathbf{D}_{1 / q, - \omega / q}\mathbf{u} = B_{N + 2}\mathbf{u}$,
+
+so $\mathbf{u}$ and $\mathbf{v}$ are $D_{q, \omega}$ -semiclassical functionals related by a rational transformation. Furthermore, $\mathbf{u}$ and $\mathbf{v}$ satisfy the following equations:
+
+(2.15)   $\mathbf{D}_{1 / q, - \omega / q}(L_{q, \omega}(B B_{1}) \mathbf{v}) = \left(q \mathbf{D}_{q, \omega}(B B_{1}) + B B_{2}\right) \mathbf{v}$
+
+(2.16)   $\mathbf{D}_{1 / q, - \omega / q}(L_{q, \omega} B \mathbf{u}) = \left(q \mathbf{D}_{q, \omega} B + B_{N + 2}\right) \mathbf{u}$.
+
+
+
+By using Leibniz formula, we can rewrite equation (2.3) as
+
+$\sum\limits_{j=0}^{k-m+N}\xi(\cdot;n,j)\mathbf{D}_{1/q,-\omega/q}^{j}\mathbf{u} = \sum\limits_{j=0}^{N}\phi(\cdot;n,j)\mathbf{D}_{1/q,-\omega/q}^{j}\mathbf{v}, \quad n = 0, 1, \ldots$
+
+When $n$ is set to values between 0 and $k-m+2N$, we derive a system of $k-m+2N+1$ equations:
+
+$\begin{bmatrix}
+\xi(x;0,0)\mathbf{u} \\
+\xi(x;1,0)\mathbf{u} \\
+\vdots \\
+\xi(x;k-m+N,0)\mathbf{u} \\
+\xi(x;k-m+N+1,0)\mathbf{u} \\
+\vdots \\
+\xi(x;k-m+2N,0)\mathbf{u}
+\end{bmatrix} = \mathcal{B}(x) \begin{bmatrix}
+\mathbf{v} \\
+\mathbf{D}_{1/q,-\omega/q}\mathbf{v} \\
+\vdots \\
+\mathbf{D}_{1/q,-\omega/q}^{N}\mathbf{v} \\
+\mathbf{D}_{1/q,-\omega/q}\mathbf{u} \\
+\vdots \\
+\mathbf{D}_{1/q,-\omega/q}^{k-m+N}\mathbf{u}
+\end{bmatrix}$
+
+The theorem is established by solving this system for $\mathbf{v}$, $\mathbf{D}_{1/q,-\omega/q}\mathbf{v}$, and $\mathbf{D}_{1/q,-\omega/q}\mathbf{u}$. ∎
+
+
+
+Consider the case $k=0$. Let $\left(\left(P_{n}\right)_{n\geq 0},\left(Q_{n}\right)_{n\geq 0}\right)$ be a $\pi_{N}$-$(q,\omega)$-coherent pair of index $M$ and order $(m,0)$, such that the structure relation
+
+$\pi_{N}(x)P_{n}^{[m]}(x) = \sum\limits_{j=n-M}^{n+N} c_{n,j} Q_{j}(x),\quad n=0,1,\ldots$
+
+holds, where $M$ and $N$ are fixed non-negative integers, $\pi_{N}$ is a monic polynomial of degree $N$, and $c_{n,n-M} \neq 0$ for $n \geq M$. Also assume that $m \geq 1$ if $N=0$. Let $\mathbf{u}$ and $\mathbf{v}$ be the regular linear functionals with respect to which $\left(P_{n}\right)_{n\geq 0}$ and $\left(Q_{n}\right)_{n\geq 0}$ are orthogonal. Then, $\mathbf{u}$ and $\mathbf{v}$ are $D_{q,\omega}$-semiclassical functionals related by a rational transformation. In more detail, defining
+
+$\Phi(x;j) = \frac{\langle\mathbf{v},Q_{j}^{2}\rangle\psi(x;j) - \sum\limits_{l=0}^{j-1} \begin{bmatrix}m\\ l\end{bmatrix}_{q^{-1}} L_{1/q,-\omega/q}^{m-l}\left(D_{1/q,-\omega/q}^{l}Q_{j}\right)(x) \Phi(x;l)}{[j]_{q^{-1}}! \begin{bmatrix}m\\ j\end{bmatrix}_{q^{-1}}},$
+
+for $j=0,1,\ldots$, where $\psi(\cdot;j)$ is the polynomial introduced in $(\ref{si})$, then $\deg \Phi(\cdot;0) = M+m$, $\deg \Phi(\cdot;j) \leq M+m+j$ for each $j=1,\ldots,m$, and the following holds:
+
+$\mathbf{D}_{1/q,-\omega/q}\left(\Phi(\cdot;1)\mathbf{u}\right) = \Phi(\cdot;0)\mathbf{u},$
+
+$\pi_{N}\mathbf{v} = \Phi(\cdot;m)\mathbf{u},$
+
+$\mathbf{D}_{1/q,-\omega/q}\left(L_{q,\omega}\Phi(\cdot;m)\pi_{N}\mathbf{v}\right) = \left(qD_{q,\omega}\Phi(\cdot;m) + \Phi(\cdot;m-1)\right)\pi_{N}\mathbf{v}.$
+
+Moreover, $\mathfrak{s}(\mathbf{u}) \leq M+m-1$ and $\;\mathfrak{s}(\mathbf{v}) \leq N+M+2(m-1)$.
+
+
+Since $k = 0$, we have ${\bf b}_{n}^{[k]} \equiv {\bf b}_{n}^{[0]} = {\bf b}_{n} = \langle{\bf v},Q_{n}^{2}\rangle^{-1}Q_{n}{\bf v}$ for all $n = 0, 1, \ldots$. This allows us to rewrite Equation (2.6) as
+
+(2.21)  ${\bf D}_{1/q,-\omega/q}^{m}\big{(}Q_{n}\pi_{N}{\bf v}\big{)} = \langle{\bf v},Q_{n}^{2}\rangle\psi(\cdot;n)\textbf{u},\quad n=0,1,\ldots,$
+
+where $\psi(\cdot;n)$ is defined by (2.1). By setting $n = 0$ in this equation, we get
+
+(2.22)  ${\bf D}_{1/q,-\omega/q}^{m}\big{(}\pi_{N}{\bf v}\big{)} = \Phi(\cdot;0)\textbf{u}.$
+
+By setting $n = 1$ in Equation (2.21) and applying Leibniz’s formula, we deduce
+
+$\langle{\bf v},Q_{1}^{2}\rangle\psi(\cdot;1)\textbf{u} = {\bf D}_{1/q,-\omega/q}^{m}\big{(}Q_{1}\pi_{N}{\bf v}\big{)}$
+
+$\displaystyle = [m]_{q^{-1}}{\bf D}_{1/q,-\omega/q}^{m-1}\big{(}\pi_{N}{\bf v}\big{)}+L_{1/q,-\omega/q}^{m}Q_{1}{\bf D}_{1/q,-\omega/q}^{m}\big{(}\pi_{N}{\bf v}\big{)}.$
+
+Hence, using Equation (2.22), we have
+
+(2.23)  ${\bf D}_{1/q,-\omega/q}^{m-1}\big{(}\pi_{N}{\bf v}\big{)} = \Phi(\cdot;1)\textbf{u}.$
+
+This implies that Equation (2.18) holds. This proves that $\textbf{u}$ is $D_{q,\omega}$-semiclassical of class $\mathfrak{s}({\bf u}) \leq M + m - 1$. Proceeding in this way for successive $n = 0, 1, \ldots, m$, we arrive at the following relation:
+
+(2.24)  ${\bf D}_{1/q,-\omega/q}^{m-j}\big{(}\pi_{N}{\bf v}\big{)} = \Phi(\cdot;j)\textbf{u},\quad j=0,1,\ldots,m.$
+
+In particular, for $j = m$ we obtain Equation (2.19), showing that $\textbf{u}$ and $\textbf{v}$ are related by a rational transformation. By setting $j = m - 1$ in Equation (2.24), we obtain
+
+(2.25)  ${\bf D}_{1/q,-\omega/q}\big{(}\pi_{N}{\bf v}\big{)} = \Phi(\cdot;m-1)\textbf{u}.$
+
+Since ${\bf D}_{1/q,-\omega/q}\big{(}L_{q,\omega}(\Phi(\cdot;m))\pi_{N}{\bf v}\big{)} = qD_{q,\omega}(\Phi(\cdot;m))\pi_{N}{\bf v} + \Phi(\cdot;m){\bf D}_{1/q,-\omega/q}\big{(}\pi_{N}{\bf v}\big{)}$, we obtain Equation (2.20) using Equation (2.25) and (2.19). This shows that $\textbf{v}$ is $D_{q,\omega}$-semiclassical of class $\mathfrak{s}({\bf v}) \leq N + M + 2m - 2$, completing the proof of the theorem. ∎
+
+3. An Application
+
+In this section, we will demonstrate the significance of the results presented previously by analyzing $(q,w)$-coherent $\pi_{N}$ pairs with index $M=0$ and order $(m,k)=(1,0)$, specifically for $N \leq 2$ and $P_{n}=Q_{n}$ for any $n=0,1,\ldots$. The structure relation we focus on is given by
+
+(3.1)  $\pi_{N}(x)D_{q,\omega}P_{n+1}(x) = [n+1]_{q}\sum_{j=n}^{n+N}c_{n,j}P_{j}(x)$
+
+for $n=0,1,\ldots$, where $\pi_{N}$ is a monic polynomial of degree $N\in\{0,1,2\}$ and the complex numbers $c_{n,j}$ satisfy $c_{n,n+N}=1$ and $c_{n,n}\neq 0$ for any $n=0,1,2,\ldots$. Our objective is to describe all the monic OPS $(P_{n})_{n\geq 0}$ that adhere to (3.1). We will show, in a straightforward and constructive manner, that the only monic OPS that satisfy (3.1), up to affine transformations of the variable, are the monic $q$-classical OPS listed in Table 1. This result can be seen as a $(q,\omega)$-analogue of the well-known characterization of classical OPS (Hermite, Laguerre, Jacobi, and Bessel) by Al-Salam and Chihara [1].
+
+
+The set $\Lambda = \{q^{-n} : n = 1, 2, \ldots\}$ is defined in Table 1, where $q$ is a fixed non-zero complex number. The monic orthogonal polynomial sequence $(P_{n})_{n \geq 0}$ is characterized by the three-term recurrence relation given by (3.2):
+
+(3.2) $xP_{n}(x) = P_{n+1}(x) + \beta_{n}P_{n}(x) + \gamma_{n}P_{n-1}(x)$, for $n = 0, 1, \ldots$, with sequences $(\beta_{n})_{n \geq 0}$ and $(\gamma_{n})_{n \geq 1}$ of complex numbers such that $\gamma_{n} \neq 0$ for each $n = 1, 2, \ldots$, and $P_{-1}(x) = 0$. It is known that the coefficients $\beta_{n}$ and $\gamma_{n+1}$ are given by (3.3):
+
+(3.3) $\beta_{n} = \frac{\langle{\bf u}, xP_{n}^{2}\rangle}{\langle{\bf u}, P_{n}^{2}\rangle}$, $\gamma_{n+1} = \frac{\langle{\bf u}, P_{n+1}^{2}\rangle}{\langle{\bf u}, P_{n}^{2}\rangle}$, for $n = 0, 1, \ldots$, where ${\bf u}$ is a regular linear functional with respect to which $(P_{n})_{n \geq 0}$ is a monic orthogonal polynomial sequence. We will demonstrate that the families $(P_{n})_{n \geq 0}$ that satisfy (3.1) can be related (up to affine transformations of the variable) to one of the following two orthogonal polynomial sequences:
+
+
+
+The sequence of monic OPS $(L_{n}(x;a,b,c|q))_{n\geq 0}$ defined by Eq. (3.2), in which
+
+$\beta_{n} = (a+b-c(q^{n+1}+q^{n}-1))q^{n}$,
+
+$\gamma_{n+1} = -(a-cq^{n+1})(b-cq^{n+1})(1-q^{n+1})q^{n}$,
+
+for each $n=0,1,2,\dots$, and $a,b,c\in\mathbb{C}$ satisfy the regularity conditions $a\neq cq^{n}$ and $b\neq cq^{n}$ for each $n=1,2,\dots$. Although the definition of $L_{n}(x;a,b,c|q)$ involves three parameters, if $c\neq 0$, a change of variables allows us to set $c=1$ without loss of generality, as the relation $L_{n}(x;a,b,c|q)=c^{n}\,L_{n}(x/c;a/c,b/c,1|q)$ holds for each $n=0,1,2,\dots$. If $c=0$ (and hence $ab\neq 0$), a change of variable $x\mapsto bx$ permits us to set $b=1$, given that the relation $L_{n}(x;a,b,0|q)=b^{n}\,L_{n}(x/b;a/b,1,0|q)$ holds for each $n=0,1,2,\dots$.
+
+
+
+(II) We consider the monic OPS $(J_{n}(x;a,b,c,d|q))_{n\geq 0}$, as defined by equation (3.2), where the coefficients $\beta_{n}$ and $\gamma_{n+1}$ are given by:
+
+$\beta_{n} = q^{n} \frac{[a(b+d)+c(b+1)](1+dq^{2n+1}) - [c(b+d)+ad(b+1)](1+q)q^{n}}{(1-dq^{2n})(1-dq^{2n+2})}$
+
+$\gamma_{n+1} = -\frac{q^{n}(1-q^{n+1})(1-bq^{n+1})(1-dq^{n+1})(a-cq^{n+1})(b-dq^{n+1})(c-adq^{n+1})}{(1-dq^{2n+1})(1-dq^{2n+2})^{2}(1-dq^{2n+3})}$
+
+for each $n=0,1,2,\ldots$. Here, $a,b,c,d\in\mathbb{C}$ must satisfy the regularity conditions $b\neq q^{-n}$, $d\neq q^{-n}$, $a\neq cq^{n}$, $b\neq dq^{n}$, and $c\neq adq^{n}$ for all $n=1,2,\ldots$.
+
+
+The monic OPS presented in (I) is a special or limiting case of the monic OPS presented in (II). Specifically, the following relations hold:
+
+(3.6) $L_{n}(x;a,b,c|q)$ equals $J_{n}(x;ab/c,c/b,b,0|q)$ when $bc\neq 0$, and $J_{n}(x;ab/c,c/a,a,0|q)$ when $ac\neq 0$.
+
+Additionally, $L_{n}(x;0,0,c|q)$ is equal to the limit as $b$ approaches 0 of $J_{n}(x;0,c/b,b,0|q)$ whenever $c\neq 0$.
+
+Lastly, $L_{n}(x;a,1,0|q)$ is equal to the limit as $b$ approaches 0 of $J_{n}(x;a/b,b,1,0|q)$.
+
+
+
+The monic $q$ -classical OPS (see Table 1 ), up to affine transformations of the variable, can be obtained from the OPS given in (I) and (II) . Indeed, 
+ 
+ $\displaystyle U_{n}^{(a)}(x)$ $\displaystyle=L_{n}(x;a,1,0|q)$ 
+ 
+ $\displaystyle L_{n}(x;a,b|q)$ $\displaystyle=(abq)^{n}L_{n}\big{(}x/(abq);1/a,1/b,1|q\big{)}$ 
+ 
+ $\displaystyle L_{n}(x;a|q)$ $\displaystyle=L_{n}\big{(}x;0,1,a|q\big{)}$ 
+ 
+ $\displaystyle l_{n}(x;a|q)$ $\displaystyle=L_{n}\big{(}x;0,0,-a|q\big{)}$ 
+ 
+ (3.9)  $\displaystyle P_{n}(x;a,b,c|q)$ $\displaystyle=\left\{\begin{array}[]{lcl}q^{n}J_{n}(x/q;1,a,c,ab|q)\;,&\mbox{\rm if}&b\neq 0\\[2.5pt]
+(acq)^{n}L_{n}(x/(acq);1/a,1/c,1|q)\;,&\mbox{\rm if}&b=0\end{array}\right.$ 
+ 
+ (3.12)  $\displaystyle P_{n}(x;a,b|q)$ $\displaystyle=\left\{\begin{array}[]{lcl}J_{n}(x;0,a,1,ab|q)\;,&\mbox{\rm if}&b\neq 0\\[2.5pt]
+a^{n}L_{n}(x/a;1/a,0,1|q)\;,&\mbox{\rm if}&b=0\end{array}\right.$ 
+ 
+ $\displaystyle B_{n}(x;a|q)$ $\displaystyle=J_{n}(x;0,0,1,-a/q|q\big{)}$ 
+ 
+ $\displaystyle j_{n}(x;a,b|q)$ $\displaystyle=q^{n}J_{n}\big{(}x/q;b,0,0,a/q|q\big{)}\,,$ 
+ where in each case the parameters are subject to the restrictions given in Table 1 .
+
+Not only is Remark 3.2 true, but its converse is also valid. Specifically, the monic OPS in (I) and (II) can be derived from the monic $q$-classical OPS. To clarify,
+
+
+When $c=0$ in the definition of $L_{n}(\cdot;a,b,c|q)$, we have $ab\neq 0$ due to the regularity conditions. This leads to the monic Al-Salam-Carlitz polynomials:
+
+$L_{n}(x;a,b,0|q) = b^{n}U_{n}^{(a/b)}\left(x/b|q\right)$.
+
+Now, consider the case where $c\neq 0$. If $ab\neq 0$, we arrive at the Big $q$-Laguerre polynomials:
+
+$L_{n}(x;a,b,c|q) = \left(ab/(cq)\right)^{n}L_{n}\left(cqx/(ab);c/a,c/b|q\right)$.
+
+However, if $ab=0$ and $|a|+|b|\neq 0$, we get the Little $q$-Laguerre polynomials:
+
+$L_{n}(x;a,b,c|q) = \begin{cases}b^{n}L_{n}(x/b;c/b|q) & \text{if } a=0 \text{ and } b\neq 0,\\
+a^{n}L_{n}(x/a;c/a|q) & \text{if } a\neq 0 \text{ and } b= 0.\end{cases}$
+
+Finally, when $a=b=0$, we obtain one of the monic OPS presented by Medem and Álvarez-Nodarse in [11]:
+
+$L_{n}(x;0,0,c|q) = l_{n}(x;-c|q)$.
+
+
+
+(ii) If $d=0$ in the definition of $J_{n}(\cdot;a,b,c,d|q)$ , the regularity conditions imply $bc\neq 0$ , and we obtain Little $q$ -Laguerre polynomials if $a=0$ and Big $q$ -Laguerre polynomials if $a\neq 0$ , according to (i) and the relation 
+ 
+ $J_{n}(x;a,b,c,0|q)=L_{n}\big{(}x;ab,c,bc|q\big{)}\;.$ 
+ Consider now $d\neq 0$ . If $abc\neq 0$ , we obtain Big $q$ -Jacobi polynomials: 
+ 
+ $J_{n}(x;a,b,c,d|q)=(a/q)^{n}P_{n}(qx/a;b,d/b,c/a|q)\;;$ 
+ if only one among $a$ , $b$ , and $c$ is zero, then we obtain Little $q$ -Jacobi polynomials: 
+ 
+ $J_{n}\big{(}x;a,b,c,d|q\big{)}=\left\{\begin{array}[]{lcl}c^{n}P_{n}(x/c;b,d/b|q)&\mbox{\rm if}&\mbox{\rm$a=0$ and $bc\neq 0$}\,,\\[2.5pt]
+c^{n}P_{n}(x/c;ad/c,c/a|q)&\mbox{\rm if}&\mbox{\rm$b=0$ and $ac\neq 0$}\,,\\[2.5pt]
+(ab)^{n}P_{n}(x/(ab);d/b,b|q)&\mbox{\rm if}&\mbox{\rm$c=0$ and $ab\neq 0$}\,;\end{array}\right.$ 
+ if $a=b=0$ (and so $c\neq 0$ , by regularity), we obtain $q$ -Bessel polynomials: 
+ 
+ $J_{n}\big{(}x;0,0,c,d|q\big{)}=c^{n}B_{n}(x/c;-dq|q)\;;$ 
+ and if $b=c=0$ (and so $a\neq 0$ , by regularity) we obtain the other monic OPS given by Medem and Álvarez-Nodarse in [11] : 
+ 
+ $J_{n}(x;a,0,0,d|q)=q^{-n}j_{n}(qx;qd,a|q)\;.$ 
+ (There are no additional cases, since the condition $d\neq 0$ together with the regularity conditions for $(J_{n}(\cdot;a,b,c,d|q))_{n\geq 0}$ imply $(a,c)\neq(0,0)$ .)
+
+Note that the $q$ -classical OPS are (up to affine changes of the variable) special or limiting cases of the polynomials $J_{n}$ .
+
+To attain the desired characterization of (3.1), we also require the following fact [3]: if a regular linear functional $\mathbf{u}\in\mathcal{P}^{*}$ satisfies
+
+$\mathbf{D}_{1/q,-\omega/q}(\phi\mathbf{u})=\psi\mathbf{u},$
+
+where $\phi$ and $\psi$ are nonzero polynomials with degrees at most 2 and 1, respectively, and we define $\phi(x)=a_{0}+a_{1}x+a_{2}x^{2}$, $\psi(x)=b_{0}+b_{1}x$, then the recurrence relation coefficients for the associated monic orthogonal polynomial sequence can be obtained using the conditions $d_{n}\neq 0$ and $\phi(-e_{n}/d_{2n})\neq 0$ for all $n\geq 0$, where
+
+$d_{n}:=b_{1}q^{-n}+a_{2}[n]_{q^{-1}}$
+
+$e_{n}:=b_{0}q^{-n}+(a_{1}-q^{-1}\omega d_{n})[n]_{q^{-1}}$
+
+are defined for $n\geq 0$. The recurrence coefficients are given by (3.13) and (3.14):
+
+(3.13) $\beta_{n}=-q^{-1}\omega[n]_{q^{-1}}+\frac{[n]_{q^{-1}}e_{n-1}}{d_{2n-2}}-\frac{[n+1]_{q^{-1}}e_{n}}{d_{2n}}$
+
+(3.14) $\gamma_{n+1}=-\frac{q^{-n}[n+1]_{q^{-1}}d_{n-1}}{d_{2n-1}d_{2n+1}}\phi\left(-\frac{e_{n}}{d_{2n}}\right)$, for $n\geq 0$.
+
+
+
+A monic sequence of operators $(P_{n})_{n \ge 0}$, denoted as OPS, satisfies equation (3.1) if and only if, after an affine transformation of its variable, it can be expressed as a q-classical monic OPS.
+
+
+For the analysis of structure relation (3.1), we examine three potential scenarios, each dependent on the degree of the monic polynomial $\pi_{N}$, where $N$ can take on the values 0, 1, or 2.
+
+
+case i : $N=0$ . Then $\pi_{0}(x)=1$ and so ( 3.1 ) becomes 
+ 
+ $D_{q,\omega}P_{n+1}(x)=[n+1]_{q}P_{n}(x)\;,\quad n=0,1,\ldots\;.$ 
+ From ( 2.18 ), ( 2.19 ), and ( 3.3 ), we see that ${\bf u}$ satisfies the functional equation 
+ 
+ $\displaystyle{\bf D}_{1/q,-\omega/q}{\bf u}=-\frac{q}{\gamma_{1}}(x-\beta_{0}){\bf u}\,.$ 
+ Let $a$ and $b$ be the two roots of the quadratic equation 
+ 
+ $z^{2}+(\omega_{0}-\beta_{0})z+\gamma_{1}/(q-1)=0\,.$ 
+ Note that $ab\neq 0$ , $\gamma_{1}=ab(q-1)$ , and $\beta_{0}=a+b+\omega_{0}$ , where 
+ 
+ $\omega_{0}:=\frac{\omega}{1-q}\,.$ 
+ Using ( 3.13 ) and ( 3.14 ), the recurrence coefficients for the monic OPS $\big{(}P_{n}\big{)}_{n\geq 0}$ are 
+ 
+ $\beta_{n}=\omega_{0}+(a+b)q^{n}\;,\quad\gamma_{n+1}=-ab(1-q^{n+1})q^{n}\;,\quad n=0,1,\ldots\,.$ 
+ This means that 
+ 
+ $\displaystyle P_{n}(x)=L_{n}\left(x-\omega_{0};a,b,0|q\right)\;,\quad n=0,1,\ldots\,.$ 
+ (Thus, according to Remark 3.2 , in this case, up to affine transformations of the variable, we obtain Al-Salam-Carlitz polynomials.)
+
+Case II: $N = 1$. Writing $\pi_1(x) = x - \omega_0 + c$, where $c \in \mathbb{C}$, (3.1) transforms into
+
+$(x - \omega_0 + c)P_n^{[1]}(x) = P_{n+1}(x) + c_{n,n}P_n(x)$, for $n = 0,1,\ldots$. Setting $n = 0$ gives $c_{0,0} = c + \beta_0 - \omega_0$, and so condition (1.2) implies $c + \beta_0 \neq \omega_0$. By (2.18), (2.19), and (3.3), we derive the functional equation
+
+$\mathbf{D}_{1/q,-\omega/q}\big{(}(x - \omega_0 + c)\mathbf{u}\big{)} = -\frac{q(\beta_0 - \omega_0 + c)}{\gamma_1}(x - \beta_0)\mathbf{u}$.
+
+Setting $\alpha = -q(\beta_0 - \omega_0 + c)/\gamma_1$ (hence $\alpha \neq 0$) and $\beta = \alpha(\omega_0 - \beta_0)$, the above functional equation becomes
+
+$\mathbf{D}_{1/q,-\omega/q}\big{(}(x - \omega_0 + c)\mathbf{u}\big{)} = (\alpha(x - \omega_0) + \beta)\mathbf{u}$.
+
+Using (3.13) and (3.14), we then find
+
+(3.15) $\beta_n = \omega_0 - \frac{(\beta(1 - q) + (1 + q)(1 - q^n))q^n}{\alpha(1 - q)}$,
+
+(3.16) $\gamma_{n+1} = \frac{(1 - q^{n+1})q^{n+1}(\alpha c(1 - q) + (q + \beta(1 - q))q^n - q^{2n+1})}{\alpha^2(1 - q)^2}$
+
+for each $n = 0,1,\ldots$. Let $a$ and $b$ be the zeros of the polynomial
+
+$\theta_2(z) = -q^{-1}z^2 + \big{(}1 - \beta(1 - q^{-1})\big{)}z + \alpha c(1 - q)$.
+
+Then $a + b = q + \beta(1 - q)$ and $ab = c\alpha q(1 - q)$. Therefore, setting $r = 1/(\alpha(q - 1))$, we have $r \neq 0$ and, from (3.15) and (3.16),
+
+$\beta_n = \omega_0 + rq^n(a + b + 1 - q^n - q^{n+1})$,
+
+$\gamma_{n+1} = -r^2q^n(1 - q^{n+1})(a - q^{n+1})(b - q^{n+1})$
+
+for each $n = 0,1,\ldots$. This implies that
+
+$P_n(x) = r^nL_n\left(\frac{x - \omega_0}{r}; a, b, 1\Big{|}q\right) = L_n\left(x - \omega_0; ar, br, r\Big{|}q\right)$.
+
+(Thus, in this case, up to affine transformations of the variable, we obtain Big-$q$-Laguerre polynomials if $ab \neq 0$, Little-$q$-Laguerre polynomials if $ab = 0$ and $a$ and $b$ do not vanish simultaneously, and the OPS $(l_n)_{n\geq 0}$ if $a = b = 0$.)
+
+
+In case $N=2$, we can express $\pi_2(x)$ as $(x - \omega_0 - r)(x - \omega_0 - s)$, where $r, s \in \mathbb{C}$. Equation (3.1) then becomes
+
+$(x - \omega_0 - r)(x - \omega_0 - s)P_n^{[1]}(x) = P_{n+2}(x) + c_{n,n+1}P_{n+1}(x) + c_{n,n}P_{n}(x)$
+
+for all $n = 0, 1, \ldots$. From equations (2.18) and (2.19), we deduce
+
+$\mathbf{D}_{1/q, -\omega/q} \big{(} (x - \omega_0 - r)(x - \omega_0 - s)\mathbf{u} \big{)} = (\alpha(x - \omega_0) + \beta)\mathbf{u}$,
+
+where $\alpha = -q(\gamma_1 + \pi_2(\beta_0))/\gamma_1$ and $\beta = -\alpha(\beta_0 - \omega_0)$. The regularity of $\mathbf{u}$ implies $\alpha \neq 0$. Since $(1 - q^{-1})d_n = 1 + (-1 + \alpha(1 - q^{-1}))q^{-n}$, we will consider two sub-cases based on whether the sequence $(d_n)_{n \geq 0}$ is constant or not.
+
+
+In case III(a), if $\alpha = 1/(1 - q^{-1})$, then $d_n = \alpha$ for all $n$. Let $c = (q - 1)\beta + q(r + s)$. Using equations (3.13) and (3.14), we find that:
+
+$P_n(x) = L_n(x - \omega_0; r, s, c | q^{-1}), \quad n = 0, 1, \dots.$
+
+In this case, we obtain Al-Salam-Carlitz polynomials when $c = 0$, which means $\beta_0 = \omega_0 + r + s$. We get Big-$q$-Laguerre polynomials when $rs \neq 0$, Little-$q$-Laguerre polynomials when $rs = 0$ and $r$ and $s$ do not simultaneously vanish, and the OPS $(l_n)_{n \geq 0}$ when $r = s = 0$.
+
+
+Case III.b) If $\alpha \neq \frac{1}{1-q^{-1}}$, then $(d_{n})_{n\geq 0}$ is not a constant sequence. Define
+
+$u = q(q + \alpha(1-q))$ and $\lambda = (r+s)q - \beta(1-q)$. Note that $u \neq 0$ since $\alpha \neq \frac{1}{1-q^{-1}}$. For each $n = 0,1,\ldots$, we have $d_{n} = \frac{1-uq^{-n-2}}{1-q^{-1}}$. Since $d_{n} \neq 0$, we obtain $u \neq q^{n}$ for each $n = 0,1,\ldots$. Therefore, using (3.13) and (3.14), we get
+
+(3.17) $\beta_{n} = \omega_{0} + q^{-n}\frac{(\lambda+r+s)(1+uq^{-2n-1})-(1+q^{-1})(\lambda+ru+su)q^{-n}}{(1-uq^{-2n})(1-uq^{-2n-2})}$
+
+and
+
+(3.18) $\gamma_{n+1} = -\frac{q^{-n}(1-q^{-n-1})(1-uq^{-n-1})\varphi(q^{-n-1};r,s)\varphi(q^{-n-1};s,r)}{(1-uq^{-2n-1})(1-uq^{-2n-2})^{2}(1-uq^{-2n-3})}$,
+
+where
+
+$\varphi(z;x,y) = xuz^{2} - \lambda z + y$.
+
+If $r = \lambda = 0$, then $\varphi(z;r,s) = s$ and $\varphi(z;s,r) = suz^{2}$. In this case, from (3.17) and (3.18), we see that this occurs only if $s \neq 0$ and
+
+$P_{n}(x) = J_{n}\left(x-\omega_{0};0,0,s,u|q^{-1}\right)$, $n = 0,1,\ldots$ (This means that, in this case, the $P_{n}$'s are $q$-Bessel polynomials.)
+
+If $r = 0$ and $\lambda \neq 0$, define $a = \frac{\lambda}{u}$ and $b = \frac{us}{\lambda}$; and if $r \neq 0$ (with or without $\lambda = 0$), define $a = \frac{\lambda + \sqrt{\Delta}}{2u}$ and $b = \frac{\lambda - \sqrt{\Delta}}{2r}$, where $\Delta = \lambda^{2} - 4rsu$. These choices of $a$ and $b$ (for either the case $r=0$ and $\lambda\neq 0$, or $r \neq 0$) give $s = ab$ and $\lambda = au + br$, and so
+
+$\varphi(z;r,s) = (rz-a)(uz-b)$ and $\varphi(z;s,r) = (auz-r)(bz-1)$.
+
+Therefore, using (3.17) and (3.18), we obtain
+
+$P_{n}(x) = J_{n}\left(x-\omega_{0};a,b,r,u|q^{-1}\right)$, $n = 0,1,\ldots$.
+
+(In this case, if $r = 0$ (and so $a \neq 0$), we obtain Little-$q$-Jacobi polynomials if $b \neq 0$ and the OPS $(j_{n})_{n}$ if $b = 0$; and if $r \neq 0$, we obtain Big-$q$-Jacobi polynomials if $a,b \neq 0$, Little-$q$-Jacobi polynomials if $ab = 0$ and $a$ and $b$ do not vanish simultaneously, and $q$-Bessel polynomials if $a = b = 0$.)
+
+
+Final remarks
+
+The paper under discussion demonstrates that the coherent pair of measures, beyond its theoretical value, is a beneficial instrument for addressing specific algebraic issues in the theory of orthogonal polynomials. This is demonstrated in Section 3 (Theorem 3.1) by establishing the $(q,\omega)$ -analogue of the Al-Salam and Chihara characterization of classical orthogonal polynomial systems [1]. Furthermore, Theorem 1.3, when $\omega=0$, rectifies an incorrect result from [6] by omitting two additional families of monic orthogonal polynomials. These omitted families are the polynomials $l_{n}(\cdot;a|q)$ and $j_{n}(\cdot;a,b|q)$, as noted in Table 1. It is noteworthy that several problems and conjectures related to this type of structure relations remain unresolved (see [8]). For example, a conjecture was proposed by M. E. H Ismail in his monograph on Orthogonal Polynomials and Special Functions published in 2005 (see [8]) and revised in 2009:
+
+
+Given an orthogonal polynomial sequence $(p_{n})_{n\geq 0}$ that satisfies the recurrence relation
+
+   π(x)Dq,0p\_n(x) = ∑k=−rskcnikp\_n+k(x),
+
+for certain positive integers r and s, and a non-dependent-on-n polynomial π(x), if there exists a q-integrable function w(x) on the interval (a, b) that satisfies the differential equation
+
+   Dq,0w(x) = -u(qx)w(qx),
+
+where u is a rational function, then the orthogonality relation holds:
+
+   ∫a^b p\_m(x)p\_n(x)w(x)dqx = 0,   for m ≠ n,   m = 0, 1, ...
+
+
+Note that the results of the previous section (in the case $\omega=0$ ) give more that a simple answer to a particular case of the above problem. Indeed, by Theorem 3.1 , we known that, up to affine transformations of variable, the only monic OPS satisfying the hypotheses of Conjecture 3.1 , with $\pi(x)$ being a polynomial of degree at most $2$ , $r=s$ , and $c_{n,-r}\not=0$ , are the monic $q$ -classical OPS given in Table 1 , which, according to Remark 3.2 , 3.3 and 3.4 , are special or limiting cases of a unique family, $(J_{n}(x;a,b,c,d|q))_{n\geq 0}$ . This gives positive answer to Conjecture 3.1 under our restrictions, after rewrite the Pearson equation for the $q$ -classical OPS.
+
+Acknowledgements
+
+This work is supported by the Centre for Mathematics of the University of Coimbra - UIDB/00324/2020, funded by the Portuguese Government through FCT/ MCTES. RAN was partially supported by PGC2018-096504-B-C31 (FEDER(EU)/ Ministerio de Ciencia e Innovación-Agencia Estatal de Investigación), FQM-262 and Feder-US-1254600 (FEDET(EU)/Junta de Andalucía). DM is partially supported by the Centre for Mathematics of the University of Coimbra, funded by the Portuguese Government through FCT grant PD/BD/135295/2017.
+
+References
+
+[1] W. A. Al-Salam and T. S. Chihara: Another characterization of the classical orthogonal polynomials, SIAM J. Math. Anal.3(1) (1972) 65-70.
+[2] R. Álvarez-Nodarse, J. Petronilho, N. C. Pinzón-Cortés, and R. Sevinik-Adıgüzel: On linearly related sequences of difference derivatives of discrete orthogonal polynomials, J. Comput. Appl. Math.284(2015) 26-37.
+[3] R. Álvarez-Nodarse, K. Castillo, D. Mbouna and J. Petronilho: On classical orthogonal polynomials related to Hahn’s operator, Integral Transforms Spec. Funct.31(2020), no. 6, 487-505.
+[4] B. Berndt: What is aq𝑞q-series? Ramanujan rediscovered, 31-51, Ramanujan Math. Soc. Lect. Notes Ser.14, Ramanujan Math. Soc., Mysore, 2010.
+[5] K. Castillo and D. Mbouna: On another extension of coherent pairs of measures, Indag. Math. (N.S.)31(2020) 223-234.
+[6] S. Datta and J. Griffin: A characterization of someq𝑞q-orthogonal polynomials, Ramanujan J.12(2006) 425-437.
+[7] M.N. de Jesus, F. Marcellán, J. Petronilho, N.C. Pinzón-Cortés:(M,N)𝑀𝑁(M,N)-coherent pairs of order(m,k)𝑚𝑘(m,k)and Sobolev orthogonal polynomials, J. Comput. Appl. Math.256(2014) 16-35.
+[8] M. E. H. Ismail: Classical and quantum orthogonal polynomials in one variable. With two chapters by W. Van Assche. With a foreword by R. Askey. Encyclopedia of Mathematics and its Applications98. Cambridge University Press, Cambridge, 2005.
+[9] R. Koekoek, P. Lesky, R. Swarttouw: Hypergeometric orthogonal polynomials and theirq𝑞q-analogues. Springer Monographs in Mathematics. Springer-Verlag Berlin Heidelberg, 2010.
+[10] P. Maroni: Une théorie algébrique des polynômes orthogonaux. Application aux polynômes orthogonaux semi-classiques, In Orthogonal Polynomials and Their Applications, C. Brezinski, L. Gori, and A. Ronveaux, Eds., IMACS Annals Comput. Appl. Math.9(1991) 95–130.
+[11] R. Álvarez-Nodarse, J.C. Medem:q𝑞q-classical polynomials and theq𝑞q-Askey and Nikiforov-Uvarov tableaus, J. Comput. Appl. Math.135(2001), no. 2, 197–223.
+[12] J. Petronilho: A Short Course on Orthogonal Polynomials and Special Functions, arXiv:2111.06478 [math.CA].https://doi.org/10.48550/arXiv.2111.06478

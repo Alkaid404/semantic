@@ -1,0 +1,20 @@
+<document reference="suspicious-document020521.txt">
+  <feature name="about" authors="Philippe Landry and Majd Abdelqader and Kayll Lake" title="The McVittie solution with a negative cosmological constant" lang="en" similarity="0.9906" severity="medium" prompt_tokens="6822" output_tokens="5187"/>
+  <feature name="md5Hash" value="a7a9be1ec90f3727bcb2245cda9227eb"/>
+  <feature name="plagiarism" type="llm_prompted" llm="Mistral" this_language="en" this_offset="785" this_length="2916" source_reference="source-document020521.txt" obfuscation="hard" source_offset="1451" source_length="2296"/>
+  <feature name="plagiarism" type="llm_prompted" llm="Mistral" this_language="en" this_offset="3720" this_length="1517" source_reference="source-document020521.txt" obfuscation="medium" source_offset="3766" source_length="1936"/>
+  <feature name="plagiarism" type="llm_prompted" llm="Mistral" this_language="en" this_offset="5239" this_length="426" source_reference="source-document020521.txt" obfuscation="simple" source_offset="6294" source_length="438"/>
+  <feature name="plagiarism" type="llm_prompted" llm="Mistral" this_language="en" this_offset="6080" this_length="570" source_reference="source-document020521.txt" obfuscation="simple" source_offset="7272" source_length="665"/>
+  <feature name="plagiarism" type="llm_prompted" llm="Mistral" this_language="en" this_offset="6652" this_length="1039" source_reference="source-document020521.txt" obfuscation="simple" source_offset="53782" source_length="1035"/>
+  <feature name="plagiarism" type="llm_prompted" llm="Mistral" this_language="en" this_offset="9084" this_length="1389" source_reference="source-document020521.txt" obfuscation="medium" source_offset="9313" source_length="2111"/>
+  <feature name="plagiarism" type="llm_prompted" llm="Mistral" this_language="en" this_offset="10498" this_length="1027" source_reference="source-document020521.txt" obfuscation="simple" source_offset="23212" source_length="998"/>
+  <feature name="plagiarism" type="llm_prompted" llm="Mistral" this_language="en" this_offset="11979" this_length="674" source_reference="source-document020521.txt" obfuscation="hard" source_offset="13216" source_length="677"/>
+  <feature name="plagiarism" type="llm_prompted" llm="Mistral" this_language="en" this_offset="12677" this_length="1785" source_reference="source-document020521.txt" obfuscation="simple" source_offset="29664" source_length="2416"/>
+  <feature name="plagiarism" type="llm_prompted" llm="Mistral" this_language="en" this_offset="16242" this_length="657" source_reference="source-document020521.txt" obfuscation="medium" source_offset="21474" source_length="547"/>
+  <feature name="plagiarism" type="llm_prompted" llm="Mistral" this_language="en" this_offset="17708" this_length="1662" source_reference="source-document020521.txt" obfuscation="simple" source_offset="35370" source_length="2428"/>
+  <feature name="plagiarism" type="llm_prompted" llm="Mistral" this_language="en" this_offset="19791" this_length="1232" source_reference="source-document020521.txt" obfuscation="medium" source_offset="28590" source_length="1033"/>
+  <feature name="plagiarism" type="llm_prompted" llm="Mistral" this_language="en" this_offset="21063" this_length="1038" source_reference="source-document020521.txt" obfuscation="simple" source_offset="33089" source_length="1036"/>
+  <feature name="plagiarism" type="llm_prompted" llm="Mistral" this_language="en" this_offset="23655" this_length="988" source_reference="source-document020521.txt" obfuscation="simple" source_offset="39069" source_length="1036"/>
+  <feature name="altered" type="llm_prompted" llm="Mistral" this_language="en" this_offset="24778" this_length="115"/>
+  <feature name="plagiarism" type="llm_prompted" llm="Mistral" this_language="en" this_offset="25575" this_length="1189" source_reference="source-document020521.txt" obfuscation="simple" source_offset="176" source_length="1257"/>
+</document>

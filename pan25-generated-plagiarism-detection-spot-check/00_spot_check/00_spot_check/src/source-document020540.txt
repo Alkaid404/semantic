@@ -1,0 +1,387 @@
+Sub-Planckian black holes and the Generalized Uncertainty Principle
+
+By Bernard J. Carr and Jonas Mureika and Piero Nicolini
+
+Abstract
+
+The Black Hole Uncertainty Principle correspondence suggests that there could exist black holes with mass beneath the Planck scale but radius of order the Compton scale rather than Schwarzschild scale. We present a modified, self-dual Schwarzschild-like metric that reproduces desirable aspects of a variety of disparate models in the sub-Planckian limit, while remaining Schwarzschild in the large mass limit. The self-dual nature of this solution under $M\leftrightarrow M^{-1}$ naturally implies a Generalized Uncertainty Principle with the linear form $\Delta x\sim\frac{1}{\Delta p}+\Delta p$ . We also demonstrate a natural dimensional reduction feature, in that the gravitational radius and thermodynamics of sub-Planckian objects resemble that of $(1+1)$ -D gravity. The temperature of sub-Planckian black holes scales as $M$ rather than $M^{-1}$ but the evaporation of those smaller than $10^{-36}$ g is suppressed by the cosmic background radiation. This suggests that relics of this mass could provide the dark matter.
+
+I Introduction
+
+One of the foundational tenets of the microscopic domain is the Heisenberg Uncertainty Principle (HUP) which implies that the uncertainty in the position and momentum of a particle must satisfy $\Delta x>\hbar/(2\Delta p)$ . An important role is therefore played by the reduced Compton wavelength, $R_{\rm C}=\hbar/(Mc)$ , which can be obtained from the HUP with the substitution $\Delta x\rightarrow R$ and $\Delta p\rightarrow cM$ but without the factor of $2$ .
+
+Similarly, a key feature of the macroscopic domain is the existence of black holes, a spherically symmetric object of mass $M$ forming an event horizon if it falls within its Schwarzschild radius, $R_{\rm S}=2GM/c^{2}$ .
+
+As indicated in Fig. 1 , the Compton and Schwarzschild lines intersect at around the Planck scales, $\ell_{\rm Pl}=\sqrt{\hbar G/c^{3}}\sim 10^{-33}\mathrm{cm},M_{\rm Pl}=\sqrt{\hbar c/G}\sim 10^{-5}\mathrm{g}$ . Here the vertical line $M=M_{\rm Pl}$ is often assumed to mark the division between elementary particles ( $M<M_{\rm Pl}$ ) and black holes ( $M>M_{\rm Pl}$ ), because one usually requires a black hole to be larger than its own Compton wavelength. The horizontal line $R=\ell_{\rm Pl}$ is significant because quantum fluctuations in the metric should become important below this. Quantum gravity effects should also be important whenever the density exceeds the Planck value, i.e. when $R<(M/M_{\rm Pl})^{1/3}\ell_{\rm Pl}$ , which is well above the $R=\ell_{\rm Pl}$ line in Fig. 1 for $M\gg M_{\rm Pl}$ .
+
+Although the Compton and Schwarzschild boundaries correspond to straight lines in the logarithmic plot of Fig. 1 , this form presumably breaks down near the Planck point. As one approaches the Planck point from the left in Fig. 1 , it has been argued (1) that the HUP should be replaced by a Generalized Uncertainty Principle (GUP) of the form 
+ 
+ $\Delta x>\frac{\hbar}{\Delta p}+\left(\frac{\alpha\ell_{\rm Pl}^{2}}{\hbar}\right)\Delta p\,.$  (1) 
+ Here $\alpha$ is a dimensionless constant (usually assumed positive) which depends on the particular model and the factor of $2$ in the first term has been dropped . This form of the GUP is indicated by the top curve in Fig. 2 . Variants of ( 1 ) can be found in other approaches to quantum gravity, including loop quantum gravity (5) , string theory (7) , non-commutative quantum mechanics (13) , gravity ultraviolet self-completeness (14) and general minimum length considerations (15) .
+
+If we rewrite ( 1 ) using the same substitution $\Delta x\rightarrow R$ and $\Delta p\rightarrow cM$ as before, it becomes 
+ 
+ $R>R_{\rm C}^{\prime}\equiv\frac{\hbar}{Mc}+\frac{\alpha GM}{c^{2}}=\frac{\hbar}{Mc}\left[1+\alpha\left(\frac{M}{M_{\rm Pl}}\right)^{2}\right]\,.$  (2) 
+ This expression might be regarded as a generalized Compton wavelength, the last term representing a small correction as one approaches the Planck point from the left. However, one can also apply ( 2 ) for $M\gg M_{\rm Pl}$ and it is interesting that in this regime it asymptotes to the Schwarzschild form, apart from a numerical factor (18) . This suggests that there is a different kind of positional uncertainty for an object larger than the Planck mass, related to the existence of black holes. This is not unreasonable since the Compton wavelength is below the Planck scale (and hence meaningless) here. Also an outside observer cannot localize an object on a scale smaller than its Schwarzschild radius.
+
+The GUP has important implications for the black hole horizon size, as can be seen by examining what happens as one approaches the intersect point from the right Fig. 1 . In this limit, it is natural to write ( 2 ) as 
+ 
+ $R>R_{\rm S}^{\prime}=\frac{\alpha GM}{c^{2}}\left[1+\frac{1}{\alpha}\left(\frac{M_{\rm Pl}}{M}\right)^{2}\right]$  (3) 
+ and this represents a small perturbation to the Schwarzschild radius for $M\gg M_{\rm Pl}$ if one assumes $\alpha=2$ . There is no reason for anticipating $\alpha=2$ in the heuristic derivation of the GUP. However, the factor of 2 in the expression for the Schwarzschild radius is precise, whereas the coefficient associated with the Compton term is somewhat arbitrary. This motivates an alternative approach in which the free constant in ( 2 ) is associated with the first term rather than the second. One then replaces Eqs. ( 2 ) and ( 3 ) with the expressions 
+ 
+ $R_{\rm C}^{\prime}=\frac{\beta\hbar}{Mc}\left[1+\frac{2}{\beta}\left(\frac{M}{M_{\rm Pl}}\right)^{2}\right]$  (4) 
+ and 
+ 
+ $R_{\rm S}^{\prime}=\frac{2GM}{c^{2}}\left[1+\frac{\beta}{2}\left(\frac{M_{\rm Pl}}{M}\right)^{2}\right]$  (5) 
+ for some constant $\beta$ , with the second expression being regarded as a Generalized Event Horizon (GEH).
+
+An important caveat is that ( 1 ) assumes the two uncertainties add linearly. On the other hand, since they are independent, it might be more natural to assume that they add quadratically (19) : 
+ 
+ $\Delta x>\sqrt{\left(\frac{\hbar}{\Delta p}\right)^{2}+\left(\frac{\alpha\ell_{\rm Pl}^{2}\Delta p}{\hbar}\right)^{2}}\,.$  (6) 
+ This corresponds to the lower GUP curve in Fig. 2 . We refer to Eqs. ( 1 ) and ( 6 ) as the linear and quadratic forms of the GUP. Adopting the $\beta$ formalism, then gives a unified expression for generalized Compton wavelength and event horizon size 
+ 
+ $R_{\rm C}^{\prime}=R_{\rm S}^{\prime}=\sqrt{\left(\frac{\beta\hbar}{Mc}\right)^{2}+\left(\frac{2GM}{c^{2}}\right)^{2}}\,,$  (7) 
+ leading to the approximations 
+ 
+ $R_{\rm C}^{\prime}\approx\frac{\beta\hbar}{Mc}\left[1+\frac{2}{\beta^{2}}\left(\frac{M}{M_{\rm Pl}}\right)^{4}\right]$  (8) 
+ and 
+ 
+ $R_{\rm S}^{\prime}\approx\frac{2GM}{c^{2}}\left[1+\frac{\beta^{2}}{8}\left(\frac{M_{\rm Pl}}{M}\right)^{4}\right]$  (9) 
+ for $M\ll M_{\rm Pl}$ and $M\gg M_{\rm Pl}$ , respectively. These might be compared to the exact expressions in the linear case, given by Eqs. ( 4 ) and ( 5 ).
+
+Regardless of the exact form of the GUP, these arguments suggest that there is a connection between the Uncertainty Principle on microscopic scales and black holes on macroscopic scales. This is termed the Black Hole Uncertainty Principle (BHUP) correspondence and it is manifested in a unified expression for the Compton wavelength and Schwarzschild radius (20) . It is a natural consequence of combining the notions of the GUP and the GEH. Indeed, it would be satisfied for any form of the function $R_{\rm C}^{\prime}\equiv R_{\rm S}^{\prime}$ which asymptotes to $R_{\rm C}$ for $M\ll M_{\rm Pl}$ and $R_{\rm S}$ for $M\gg M_{\rm Pl}$ . Models in which this function is symmetric under the duality transformation $M\leftrightarrow 1/M$ (such as the linear and quadratic forms given above) are said to satisfy the strong BHUP correspondence (20) .
+
+One controversial implication of the BHUP correspondence is that it suggests there could be sub-Planckian black holes with a size of order their Compton wavelength. For example, one can argue that there is only a low probability of sub-Planckian objects becoming black holes (21) . In fact, it has been claimed that loop quantum gravity already predicts the existence of such black holes (23) , with their radius having precisely the form ( 7 ) associated with the quadratic GUP (19) . However, these ‘loop black hole’ (LBH) solutions are really wormholes and they involve another asymptotic space. Their physical validity is contentious and there are also some technical subtleties associated with them. In this paper, we explore another type of solution which involves sub-Planckian black holes but avoids some of the complications associated with the LBH solution. In particular, it implies a linear rather than quadratic form of the GUP and it does not involve another asymptotic space.
+
+The continuity between the Compton and Schwarzschild lines shown by the upper curves in Fig. 2 suggests some link between elementary particles and sub-Planckian black holes. However, one might prefer to maintain a distinction between these objects. For example, the function $|\Delta x|$ has a minimum at $0$ for models with $\alpha<0$ (bottom curve) but with a discontinuity in the gradient. Since $R_{C}^{\prime}=R_{S}^{\prime}=0$ at this point, one effectively has $G\rightarrow 0$ (no gravity) and $\hbar\rightarrow 0$ (no quantum discreteness), which relates to models involving asymptotic safety (29) and world crystals (30) . The distinction between particles and black holes could also be maintained with more general forms of the GUP and GEH. For example, Sec. II considers the possibility that the parameter $\alpha$ describing the GUP and the parameter $\beta$ describing the GEH are independent. In this case, there are still sub-Planckian black holes but the relationship between these and elementary particles becomes more complicated.
+
+The plan of this paper is a follows. In Sec. II we discuss the concept of mass using the Komar integral and find that this provides a useful way of linking black holes and elementary particles. Our definition of mass naturally implies a linear form for the GUP and it also suggests that gravity is effectively 2-dimensional near the Planck scale. In Sec. III we introduce a new black hole solution, which resembles Schwarzschild except that the mass is interpreted differently and relates to the definition given in Sec. II. We examine the thermodynamical properties of these solutions in Sec. IV, using two different derivations of the temperature. These agree asymptotically in the large and small mass regimes and suggest that the temperature of a sub-Planckian black holes is proportional to its mass. In Sec. V we examine the cosmological consequences of this. We draw some general conclusions in Sec. VI.
+
+II Planck black holes and beyond
+
+Let us recall some basic ideas and open problems concerning black holes at the Planck scale. In the standard picture, the Schwarzschild solution is obtained by solving Einstein’s equations in vacuum and matching the metric coefficients with the Newtonian potential as a boundary condition to fix the integration constant. This constant relates to the mass specified by the Komar integral (31) : 
+ 
+ $M\equiv\frac{1}{4\pi G}\int_{\partial\Sigma}d^{2}x\sqrt{\gamma^{(2)}}\ n_{\mu}\sigma_{\nu}\nabla^{\mu}K^{\nu}$  (10) 
+ where $K^{\nu}$ is a timelike vector, $\Sigma$ is a spacelike surface with unit normal $n^{\mu}$ , and $\partial\Sigma$ is the boundary of $\Sigma$ (typically a 2-sphere at spatial infinity) with metric $\gamma^{(2)ij}$ and outward normal $\sigma^{\mu}$ .
+
+For a large mass black hole, $M\gg M_{\rm Pl}$ , quantum effects are negligible and one finds the usual Schwarzschild solution. For a sub-Planckian object ( $M<M_{\rm Pl}$ ), however, the mass parameter can simultaneously refer to a particle and a Schwarzschild black hole. Usually one rejects the existence of such black holes because $R_{\rm S}$ would be smaller that $\ell_{\rm Pl}$ , making the application of general relativity unreliable. As a result, one generally considers only the particle case in the sub-Planckian regime and writes ( 10 ) as 
+ 
+ $M\equiv\int_{\Sigma}d^{3}x\sqrt{\gamma}\ n_{\mu}K_{\nu}T^{\mu\nu}\simeq-4\pi\int_{0}^{R_{\rm C}}dr\,r^{2}T^{\ 0}_{0}$  (11) 
+ where $\gamma$ is the determinant of the spatially induced metric $\gamma^{ij}$ , $T^{\mu\nu}$ is the stress-energy tensor and $T^{\ 0}_{0}$ accounts for the particle distribution on a scale of order $R_{\rm C}$ . This corresponds to the rest mass appearing in the expression for the Compton wavelength, $R_{\rm C}=\hbar/(Mc)$ .
+
+Let us now consider another situation: a decaying black hole with mass $M\gtrsim M_{\rm Pl}$ . The fate of such an object is an open problem in quantum gravity and connects with the definition of the mass. There are at least three possible scenarios for the end-point of evaporation.
+
+(i) The black hole keeps decaying semi-classically with a runaway increase of the temperature and a final explosion involving non-thermal emission of hard quanta. In this case, the energy momentum tensor exhibits an integrable singularity, $T^{\ 0}_{0}=-M\delta(\vec{x})$ , and the Komar energy has a standard profile. However, this scenario may be criticized since it relies on classical and semi-classical arguments applied to a quantum gravity dominated regime.
+
+(ii) Quantum gravity effects modify the classical profile of the mass-energy distribution, so that $T^{\ 0}_{0}\neq-M\delta(\vec{x})$ . This happens in a variety of proposals, including asymptotically safe gravity (32) , non-commutative geometry (33) , non-local gravity (14) and gravitational self-completeness (39) . In all these cases, the end-point of evaporation turns out to be a stable zero-temperature extremal black hole configuration, preceded by a positive heat capacity cooling phase. The Komar energy would again be defined by ( 10 ), while the size of the black hole remnant would correspond to the natural ultraviolet cut-off of quantum gravity. This means that the endpoint of evaporation separates the two phases, i.e., particles and black holes. Such a scenario has the following three properties: • singularity avoidance or inaccessibility • non-singular final stage of evaporation • consistent definition of black hole size with $R_{\rm S}>\ell_{\rm Pl}$ for all masses. Despite the virtues of such a proposal, we do not yet have a universally recognized principle to support it or any proof that it represents the unique alternative to the semiclassical scenario (see (42) for a further discussion). Only a self-consistent theory of quantum gravity can confirm this possibility.
+
+(iii) In the absence of further theoretical indications or experimental evidence, we explore a third scenario, which reverses the usual logic but still assumes the above three properties. In so far as the black hole undergoes a final stage of evaporation, the major contribution to integral ( 10 ) will be 
+ 
+ $M=-4\pi\int_{0}^{\ell_{\rm Pl}}dr\,r^{2}T^{\ 0}_{0}$  (12) 
+ where $T^{\ 0}_{0}$ accounts for an unspecified quantum-mechanical distribution of matter and energy. One still has $M\neq-M\delta(\vec{x})$ but the profile differs from the second scenario. Integral ( 12 ) is generally not known and might lead to a completely different definition of the Komar energy. Some anomalies are expected to emerge at the Planck scale since they already emerge at the GUP level.
+
+II.1 Black Holes Versus Elementary Particles
+
+The parameter $M$ is simultaneously the particle rest mass and Komar energy in ( 2 ) and ( 5 ). Inspired by the dual role of $M$ in the GUP, we now explore a variant of the third scenario above, based on the existence of sub-Planckian black holes, i.e. quantum mechanical objects that are simultaneously black holes and elementary particles; we dub these “black particles”. In this context, we suggest that the Arnowitt-Deser-Misner (ADM) mass, which coincides with the Komar energy in the stationary case, should be 
+ 
+ $M_{\rm ADM}=M\left(1+\frac{\beta}{2}\frac{M_{\rm Pl}^{2}}{M^{2}}\right)$  (13) 
+ since the associated value of $2GM/c^{2}$ then interpolates between the standard super-Planckian ( $M\gg M_{\rm Pl}$ ), trans-Planckian ( $M\gtrsim M_{\rm Pl})$ and particle-like sub-Planckian ( $M<M_{\rm Pl}$ ) behaviours. One justification for ( 13 ) could be that this implies the GUP, since 
+ 
+ $\frac{2M_{\rm ADM}}{r}=\frac{2\Delta p}{c\Delta x}\,,$  (14) 
+ provided the momentum term is replaced by 
+ 
+ $\Delta p\longrightarrow\Delta p+\frac{M_{\rm Pl}^{2}c^{2}}{\Delta p}\,.$  (15) 
+ Given that the exact nature of gravitation at the Planck scale is unknown, there is perhaps no way to assess the plausibility of this argument.
+
+This approach suggests that (in some sense) elementary particles are sub-Planckian black holes, i.e. quantum mechanical objects with event horizons. However, while Fig. 2 assumes that the curves $R_{C}^{\prime}(M)$ and $R_{S}^{\prime}(M)$ are the same, the gravitational correction to the Compton wavelength could in principle be independent of the quantum mechanical correction to the Schwarzschild radius. Accordingly, we now explore an alternative scenario in which the generalized Compton wavelength and Schwarzschild radius are still defined by ( 2 ) and ( 5 ), respectively, but with $\alpha$ and $\beta$ being unrelated parameters. This is illustrated in Fig. 3 . The novelty is that $R_{\rm S}^{\prime}$ is defined for $M<M_{\rm Pl}$ , which extends the duality relation $M\leftrightarrow M^{-1}$ exhibited by the GUP to the GEH. Thus $R_{\rm C}^{\prime}$ describes the compression phase of a particle that eventually collapses into a black hole, while $R_{\rm S}^{\prime}$ describes a black hole decaying into a black particle ( i.e. the opposite process).
+
+The expressions for $R_{\rm C}^{\prime}$ and $R_{\rm S}^{\prime}$ coincide at 
+ 
+ $M_{\mathrm{f}}=\sqrt{\frac{1-\beta}{2-\alpha}}\ M_{\rm Pl}\,,$  (16) 
+ so this is the fundamental mass scale at which the transition between quantum mechanics and classical gravity takes place. Eq. ( 16 ) has a solution if the radicand is positive, which corresponds to $\beta<1$ and $\alpha<2$ or $\beta>1$ and $\alpha>2$ . We can also associate a fundamental length scale with the mass $M_{\mathrm{f}}$ : 
+ 
+ $\displaystyle L_{\mathrm{f}}=\left(\sqrt{\frac{2-\alpha}{1-\beta}}+\alpha\sqrt{\frac{1-\beta}{2-\alpha}}\right)\ell_{\rm Pl}$ 
+ 
+ $\displaystyle=\left(\frac{|2-\alpha\beta|}{\sqrt{(1-\beta)(2-\alpha)}}\right)\ell_{\rm Pl}\,,$  (17) 
+ where the last expression applies for the values of $\alpha$ and $\beta$ for which $M_{\rm f}$ and $L_{\rm f}$ are defined. If $\beta=1$ and $\alpha=2$ , the condition $R_{\rm C}^{\prime}=R_{\rm S}^{\prime}$ becomes an identity. This corresponds to full reversibility of the aforementioned processes of particle compression and black hole decay. The BHUP correspondence itself requires $\alpha=2\beta$ , since this ensures that $\Delta x$ can map into both $R_{C}^{\prime}$ given by ( 2 ) and $R_{S}^{\prime}$ given by ( 5 ).
+
+For $0<\beta<1$ and $0<\alpha<2$ , as illustrated in Fig. 3 (left), we have a scenario in which the generalized Compton wavelength is bigger than the GEH in the sub-Planckian regime ( $R_{\rm C}^{\prime}>R_{\rm S}^{\prime}$ ) but smaller than it in the trans-Planckian regime ( $R_{\rm C}^{\prime}<R_{\rm S}^{\prime}$ ). This means that particles have gravitational radii smaller than their actual size. Furthermore, the compression phase is halted by the formation of a black hole with horizon radius $2GM/c^{2}$ in the super-Planckian regime. However, the reverse process of black hole decay does not stop at the fundamental scale but leads to the formation of a sub-Planckian black hole, interpreted as a quantum mechanical object which is more compressed than an elementary particles of the same mass. Such black holes would correspond to the ‘quantum domain’ in Fig. 1 .
+
+For $\beta>1$ and $\alpha>2$ , as illustrated in Fig. 3 (right), we have the opposite scenario, with the generalized Compton wavelength being smaller than the GEH in the sub-Planckian regime ( $R_{\rm C}^{\prime}<R_{\rm S}^{\prime}$ ) but bigger than it in the super-Planckian regime ( $R_{\rm C}^{\prime}>R_{\rm S}^{\prime}$ ). This means that the gravitational short-scale cut-off exceeds $2GM/c^{2}$ in the super-Planckian regime and that sub-Planckian black holes exhibit a neo -semiclasical character, corresponding to the ‘classical domain’ in the left side of the phase diagram.
+
+II.2 Possible Link with 2D Gravity
+
+The scale $M_{\mathrm{f}}$ plays a crucial role in the above discussion. It arises even in the standard picture as the mass at which quantum gravity “capsizes” the power dependence of $M$ on length scale. We here offer a possible (if incomplete) explanation of how such a quantum gravity mechanism could work. First, we recall that (1+1)-D dilaton black holes naturally encode a $1/M$ term in their gravitational radii (see for instance (43) ). We also recall that according to t’Hooft (56) , gravity at the Planck scale might experience a (1+1)-D phase due to spontaneous dimensional reduction. Such a conjecture is further supported by studies of the fractal properties of a quantum spacetime. Because of its intrinsic graininess and the local loss of resolution, quantum spacetime is expected to behave like a fractal at the Planck scale. Accordingly, one can consider the spectral dimension, an effective indicator of the fractal dimension as perceived in a random walk or diffusive process. In several quantum gravity formulations, the spacetime dimension at the Planck scale decreases and approaches two (57) .
+
+As a result, the decaying black hole might experience a transition to a temporary (1+1)-D phase when approaching the Planck scale. At this point the Komar energy can be defined in much the same way as for dilaton black holes (55) : 
+ 
+ $M\sim\int dx\sqrt{g^{(1)}}\,n_{i}^{(2)}T^{\ i}_{0}\,,$  (18) 
+ where $g^{(1)}$ is the determinant of the spatial section of $g^{ij}$ , the effective 2D quantum spacetime metric, and ${}^{(2)}T^{\ i}_{0}$ is the dimensionally reduced energy-momentum tensor. As noted in (71) , once black holes undergo the transition to (1+1)-D geometry, they are no longer sensitive to any Planck scale discrimination between classical and quantum gravity. In 2D the coupling constant is dimensionless and black holes can naturally be extended to the sub-Planckian sector.
+
+III A new quantum-corrected black hole solution
+
+On the basis of the discussion of the previous section, we posit a quantum correction to the Schwarzschild metric of the form 
+ 
+ $\displaystyle ds^{2}$ $\displaystyle=$ $\displaystyle F(r)dt^{2}-F(r)^{-1}dr^{2}-r^{2}d\Omega^{2}$ 
+ 
+ $\displaystyle F(r)$ $\displaystyle=$ $\displaystyle 1-\frac{2}{M_{\rm Pl}^{2}}\frac{M}{r}\left(1+\frac{\beta}{2}\frac{M_{\rm Pl}^{2}}{M^{2}}\right)\,,$  (19) 
+ where we henceforth use units with $\hbar=c=1$ . The metric ( 19 ) is Schwarzschild-like, in the sense that the modification factor $1+\beta M_{\rm Pl}^{2}/(2M^{2})$ is coordinate-independent. It is a vacuum solution with the usual tensor and scalar behaviour. Although we have not removed the singularity, we will show that it can never be reached. We note a possible connection with the energy-dependent metrics proposed in the framework of “gravity’s rainbow” (72) . We also note that such a way of tackling the problem resembles the findings of Camacho, who distinguished the bare and renormalized mass in QFT in presence of stochastic metric fluctuations (73) .
+
+The horizon size for the metric ( 19 ) is given by 
+ 
+ $r_{\rm H}=\frac{2}{M_{\rm Pl}^{2}}\left(\frac{M^{2}+\frac{\beta}{2}M_{\rm Pl}^{2}}{M}\right)=R_{\rm S}^{\prime}~{}~{},$  (20) 
+ as anticipated. The relationship between $r_{\mathrm{H}}$ and $M$ is shown in Fig. 4 . In the three mass regimes, we find 
+ 
+ $\displaystyle M\gg M_{\rm Pl}$ $\displaystyle\Longrightarrow$ $\displaystyle r_{\rm H}\approx\frac{2M}{M_{\rm Pl}^{2}}$  (21) 
+ 
+ $\displaystyle M\approx M_{\rm Pl}$ $\displaystyle\Longrightarrow$ $\displaystyle r_{\rm H}\approx\frac{2+\beta}{M_{\rm Pl}}$  (22) 
+ 
+ $\displaystyle M\ll M_{\rm Pl}$ $\displaystyle\Longrightarrow$ $\displaystyle r_{\rm H}\approx\frac{\beta}{M}~{}~{}~{}.$  (23) 
+ The first expression is the standard Schwarzschild radius The intermediate expression gives a minimum of order $\ell_{\rm Pl}$ , so the Planck scale is never actually reached for $\beta>0$ , in agreement with the principle of inaccessibility of the singularity. The last expression scales inversely with mass and resembles the Compton wavelength.
+
+The metric exhibits dimensional reduction: in the classical regime, it is the $(3+1)$ -D Schwarzschild solution, while in the sub-Planckian limit it resembles the $(1+1)$ -D limit of general relativity (43) , in which the horizon radius also scales as $M^{-1}$ . Note that the actual dimension of the manifold is still four; the form of the metric circumvents the necessity of introducing a specific dynamical dimensional reduction mechanism. In other words, the $M^{-1}$ dependence is just the memory of a temporary $(1+1)$ -D phase at the Planck scale.
+
+For $\beta>0$ . Eq. ( 20 ) can be inverted to give the two masses associated with a given horizon radius $r_{\rm H}$ . It is instructive to write these as 
+ 
+ $\frac{2M_{\pm}}{M_{\rm Pl}^{2}}=\frac{r_{\rm H}\pm\sqrt{r_{\rm H}^{2}-8\beta\ell_{\rm Pl}^{2}}}{2}\,,$  (24) 
+ which gives a minimum radius 
+ 
+ $r_{\rm min}=2\sqrt{2\beta}\,\ell_{\rm Pl},\quad$  (25) 
+ and an associated mass 
+ 
+ $M(r_{\rm min})=\sqrt{\beta/2}\,M_{\rm Pl}\,.$  (26) 
+ This is illustrated in Fig. 4 . Since $r_{\rm H}\geq r_{\rm min}$ , the singularity can never be externally probed, which is in agreement with the claimed ultraviolet self-complete character of gravity (39) .
+
+For $\beta<0$ , only the $M_{+}$ solution applies and from ( 20 ) this admits an horizon only for $M>\sqrt{|\beta|/2}\,M_{\rm Pl}$ . This suggests there are sub-Planckian black holes in this case only for $0>\beta>-2$ . It has been claimed that the form of the GUP predicted by loop quantum gravity (5) implies $\beta<0$ because the lattice structure of spacetime reduces the fluctuations. However, the LBH solution can still have $\beta>0$ in the quadratic GUP case (19) . It should be noted that solutions with $\beta<0$ are not endowed with a ultraviolet cutoff. In the limit $r_{\rm H}\to 0$ one finds $M\to\sqrt{|\beta|/2}\,M_{\rm Pl}$ , but there is still a divergent temperature (see below). Therefore the situation is not different from the standard evaporation scenario, although it could have interesting thermodynamical aspects.
+
+We can also express the metric in terms of the Newtonian potential 
+ 
+ $F(r)=1+2\Phi(r),\quad\Phi=-\frac{1}{M_{\rm Pl}^{2}}\frac{M}{r}\left(1+\frac{\beta M_{\rm Pl}^{2}}{M^{2}}\right)\,.$  (27) 
+ We then find 
+ 
+ $\Phi(r)\sim-\frac{\beta}{rM}$  (28) 
+ in the limit $M\ll M_{\rm Pl}$ . This still corresponds to an inverse-square force law but it is large at small masses. In the limit $M\gg M_{\rm Pl}$ , we recover the classical Newtonian potential. This is reminiscent of the “strong” gravity model of the 1970s, which was introduced in an attempt to model elementary particles as black holes (74) . With ordinary gravity, an elementary particle is much larger than its Schwarzschild radius, the factor being $(M_{\rm Pl}/m_{\mathrm{p}})^{2}\sim 10^{40}$ for a proton. However, it could be interpreted as a black hole if the gravitational constant were increased by this factor. So this is another interpretation of the BHUP correspondence.
+
+IV GUP and Black Hole Thermodynamics
+
+Given the metric ( 19 ), we now explore the thermodynamics of the black hole solutions in the three limits considered above (super-Planckian, trans-Planckian and sub-Planckian). Since the exact nature of the physics is unknown in the trans-Planckian and sub-Planckian regimes, we use two approaches. We first calculate the temperature using the traditional Adler approach (1) and then calculate it using the surface gravity argument. These give slightly different results, although they agree asymptotically.
+
+IV.1 Adler Method
+
+Let us first recall the link between black hole radiation and the HUP (78) . This arises because we can obtain the black hole temperature for $M\gg M_{\rm Pl}$ by identifying $\Delta x$ with the Schwarzschild radius and $\Delta p$ with a multiple of the black hole temperature: 
+ 
+ $\displaystyle kT=\eta c\Delta p=\frac{\eta\hbar c}{\Delta x}=\frac{\eta\hbar c^{3}}{2GM}\,.$  (29) 
+ This gives the precise Hawking temperature if we take $\eta=1/(4\pi)$ . The second equality in ( 29 ) relates to the emitted particle and assumes that $\Delta x$ and $\Delta p$ satisfy the HUP (one can include the factor of $2$ in the HUP by rescaling $\eta$ .). The third equality relates to the black hole and assumes that $\Delta x$ is the Schwarzschild radius. Both these assumptions require $M\gg M_{\rm Pl}$ , so we now generalize this argument.
+
+Adler et al. (1) calculate the modification required if $\Delta x$ is still associated with the Schwarzschild radius but $\Delta p$ and $\Delta x$ are related by the linear form of the GUP. In this case, identifying the size of the black hole with the wavelength of the emitted radiation gives 
+ 
+ $\frac{2GM}{c^{2}}=\frac{\hbar\eta c}{kT}+\frac{\alpha GkT}{\eta c^{4}}$  (30) 
+ where $\alpha$ is the parameter in ( 1 ). This leads to a temperature 
+ 
+ $T={\eta Mc^{2}\over\alpha k}\left(1-\sqrt{1-\frac{\alpha M_{\rm Pl}^{2}}{M^{2}}}\right)\,,$  (31) 
+ giving a small perturbation to the standard Hawking temperature, 
+ 
+ $T\approx{\eta\hbar c^{3}\over 2GkM}\left[1+{\alpha M_{\rm Pl}^{2}\over 4M^{2}}\right]\,,$  (32) 
+ for $M\gg M_{\rm Pl}$ . However, the exact expression becomes complex when $M$ falls below $\sqrt{\alpha}\,M_{\rm Pl}$ , corresponding to a minimum mass and a maximum temperature. This is indicated by the curve on the right in Fig. 5 .
+
+In the present model, ( 19 ) suggests that the temperature is still given by ( 31 ) providing $M$ is interpreted as the ADM mass ( 13 ). However, since this has a minimum value of $\sqrt{\beta/2}\,M_{\rm Pl}$ , the temperature reaches a maximum and then decreases for $\alpha<2\beta$ rather than going complex. We can also express $T$ in terms of $M$ by identifying the size of the black hole with the wavelength of the emitted radiation: 
+ 
+ $\displaystyle\left(\frac{\hbar\eta c}{kT}\right)+\left(\frac{\alpha\ell_{\rm Pl}^{2}kT}{\hbar\eta c}\right)=\left(\frac{\hbar\beta}{Mc}\right)+\left(\frac{2GM}{c^{2}}\right)\,.$  (33) 
+ This implies 
+ 
+ $\displaystyle kT=\frac{\eta Mc^{2}}{\alpha}f(M,\alpha,\beta)$  (34) 
+ where the function $f$ is real for $\alpha<2\beta$ and given by 
+ 
+ $\displaystyle f(M,\alpha,\beta)=1+{\beta\over 2}\left({M_{\rm Pl}\over M}\right)^{2}$  (35) 
+ 
+ $\displaystyle\pm\sqrt{1+(\beta-\alpha)\left({M_{\rm Pl}\over M}\right)^{2}+{\beta^{2}\over 4}\left({M_{\rm Pl}\over M}\right)^{4}}\,.$ 
+ This can be approximated by 
+ 
+ $T\approx{\eta\hbar c^{3}\over 2GkM}\left[1-\left(\frac{2\beta-\alpha}{4}\right)\left({M_{\rm Pl}\over M}\right)^{2}\right]$  (36) 
+ for $M\gg M_{\rm Pl}$ and 
+ 
+ $T\approx{\eta Mc^{2}\over k\beta}\left[1-\left(\frac{2\beta-\alpha}{\beta^{2}}\right)\left({M\over M_{\rm Pl}}\right)^{2}\right]$  (37) 
+ for $M\ll M_{\rm Pl}$ . The overall behaviour of $T$ is shown by the lower curve in Fig. 5 .
+
+In the special case $\alpha=2\beta$ , associated with the BHUP correspondence, one obtains the solution (20) 
+ 
+ $\displaystyle kT=\mathrm{min}\left[\frac{\hbar\eta c^{3}}{2GM}\,,\,\frac{2\eta Mc^{2}}{\alpha}\right]\,.$  (38) 
+ This is indicated by the middle curve in Fig. 5 . The first expression in ( 38 ) is the exact Hawking temperature, with no small correction term, but one must cross over to the second expression below $M=\sqrt{\alpha/4}\,M_{\rm Pl}$ in order to avoid the temperature going above the Planck value $T_{\rm Pl}=M_{\rm Pl}c^{2}/k$ . The second expression in ( 38 ) can be obtained by putting $\Delta x=\hbar\beta/(Mc)$ in ( 29 ). Since $T<T_{\rm Pl}$ for all $M$ , the second equality in ( 29 ) still applies to a good approximation.
+
+Equation ( 38 ) also applies for loop black holes (19) but the physical interpretation is somewhat different in that case. This is because there are two different asymptotic spaces in the LBH solution and the temperature of a sub-Planckian black hole goes as $M^{3}$ in our space and $M$ in the other space. (The heuristic argument only gives the temperature in the space which contains the event horizon.) In the present case, there is only one asymptotic space and the different $M$ -dependences for $M<M_{\rm Pl}$ and $M>M_{\rm Pl}$ just arise from the metric’s limiting behaviour.
+
+IV.2 Surface Gravity Method
+
+One can also use another argument to obtain the black hole temperature. If this is determined by the black hole’s surface gravity (78) , one expects 
+ 
+ $T=\frac{\kappa}{2\pi}=\left.\frac{1}{4\pi}\frac{dg_{tt}}{dr}\right|_{r=r_{\rm H}}\,,$  (39) 
+ which gives 
+ 
+ $T=\frac{M_{\rm Pl}^{2}}{8\pi M(1+\beta M_{\rm Pl}^{2}/2M^{2})}\,.$  (40) 
+ This temperature is plotted in Fig. 6 and the limiting behaviour in the different mass regimes is as follows: 
+ 
+ $\displaystyle M\gg M_{\rm Pl}$ $\displaystyle\Longrightarrow$ $\displaystyle T\approx\frac{M_{\rm Pl}^{2}}{8\pi M}\left[1-\beta\left({M_{\rm Pl}\over M}\right)^{2}\right]$  (41) 
+ 
+ $\displaystyle M\approx M_{\rm Pl}$ $\displaystyle\Longrightarrow$ $\displaystyle T\approx\frac{M_{\rm Pl}}{8\pi(1+\beta/2)}$  (42) 
+ 
+ $\displaystyle M\ll M_{\rm Pl}$ $\displaystyle\Longrightarrow$ $\displaystyle T\approx\frac{M}{4\pi\beta}\left[1-\frac{1}{\beta}\left({M\over M_{\rm Pl}}\right)^{2}\right]\,.$  (43) 
+ The large $M$ limit ( 41 ) is the usual Schwarzschild temperature and is unstable. However, as the black hole evaporates, it reaches a maximum temperature ( 42 ). Below this point, the thermodynamics stabilizes and the temperature approaches zero as $M\rightarrow 0$ . The behaviour for $M\ll M_{Pl}$ again replicates the temperature of a $(1+1)$ -D black hole, since this also scales as $M$ (71) . As discussed in Sec. V, this leads to effectively stable relics which might in principle provide the dark matter (23) . Figure 6: Hawking temperature ( 40 ) implied by surface gravity argument as a function of mass for $\beta=1$ (red, bottom), $\beta=0.5$ (blue, middle), and $\beta=0.1$ (green, top). The temperature reaches a maximum at ( 42 ), after which the heat capacity becomes positive and the black hole cools to a zero-temperature configuration, at which point it evaporates completely.
+
+If one were to plot ( 40 ) in Fig. 5 , it would be similar to the lower curve but not identical. The temperatures given by ( 34 ) and ( 40 ) agree to 1st order but not to 2nd order. This is because comparison with ( 36 ) and ( 37 ) shows that the higher order terms agree only for $\alpha=-2\beta$ in the $M\gg M_{P}$ regime and $\alpha=\beta$ in the $M\ll M_{P}$ regime. Therefore they cannot agree in both asymptotic limits. The same problem arises in the LBH solution and can only be resolved by arguing that the definition of many physical quantities must be modified as one approaches the Planck limit (19) . The qualitative implications are similar in both cases.
+
+If the temperature is given by ( 40 ), the black hole entropy can be calculated in the usual fashion as 
+ 
+ $S=\int_{M_{0}}^{M}\frac{dM^{\prime}}{T(M^{\prime})}=4\pi k\left(\frac{M^{2}}{M_{\rm Pl}^{2}}-\frac{M^{2}_{0}}{M_{\rm Pl}^{2}}+\beta\ln\frac{M}{M_{\rm 0}}\right)$  (44) 
+ where $M_{0}<M_{\rm Pl}$ is some lower bound of integration. This expression is plotted in Figure 7 . If the temperature is given by ( 34 ), the expression for $S$ is more complicated but still has the same asymptotic limits. In both cases, the presence of a logarithmic correction is consistent with the entropy of a $(1+1)$ -D Schwarzschild spacetime (43) . It also agrees with the notion that $(1+1)$ -D black holes are naturally quantum objects (71) , emerging here via the dependence of $r_{\rm H}$ on $M$ .
+
+This is in agreement with a model-independent feature emerging from a variety of approaches to quantum gravity including string theory (80) , loop quantum gravity (81) , ultraviolet gravity self-completeness (38) and other formulations based on mechanisms for counting microstates (82) . The lower bound of integration represents some minimal configuration of the black hole, which is possibly related to a quantity to be derived in the following section. The classical limit of ( 44 ) has the expected form $S\propto M^{2}$ . The approach of a mass redefinition ( 13 ) is inspired by the GUP’s duality, and the associated black hole thermodynamics obviously encodes this. The above asymptotic agreements are encouraging, since they suggest that the derived thermodynamical limits are largely model-independent and so can be assumed with a fair degree of confidence.
+
+V Observational Consequences
+
+If the black hole temperature is given by ( 40 ), its luminosity ( $L\propto r_{\rm H}^{2}T^{4}$ ) can be written as 
+ 
+ $L=\gamma^{-1}M^{-2}\left(1+\frac{\beta M_{\rm Pl}^{2}}{2M^{2}}\right)^{-2}$  (45) 
+ where $\gamma\sim t_{\mathrm{Pl}}/M_{\rm Pl}^{3}$ . If the primordial black hole (PBH) forms at time $t_{\mathrm{i}}$ with mass $M_{\mathrm{i}}$ , its mass then evolves according to 
+ 
+ $\displaystyle t-t_{\mathrm{i}}$ $\displaystyle=$ $\displaystyle\frac{\gamma}{3}(M_{\mathrm{i}}^{3}-M^{3})+\gamma\beta(M_{\mathrm{i}}-M)M_{\rm Pl}^{2}$  (46) 
+ $\displaystyle-$ $\displaystyle\frac{\gamma\beta^{2}}{4}\left(\frac{1}{M_{\mathrm{i}}}-\frac{1}{M}\right)M_{\rm Pl}^{4}\,.$ 
+ Although the black hole loses mass on a timescale 
+ 
+ $\tau\sim M/L\sim\gamma M^{3}(1+\beta M_{\rm Pl}^{2}/2M^{2})^{2}\,,$  (47) 
+ it never evaporates entirely because the last term in ( 46 ) implies that it takes an infinite time for $M$ to go to zero. Nevertheless, there are two values of $M$ for which $\tau$ is comparable to the age of the Universe ( $t_{0}\sim 10^{17}$ s) and these turn out to have physical significance. One is super-Planckian, 
+ 
+ $M_{*}\sim(t_{0}/\gamma)^{1/3}\sim(t_{0}/t_{\rm Pl})^{1/3}M_{\rm Pl}\sim 10^{20}M_{\rm Pl}\sim 10^{15}~{}\rm g\,,$  (48) 
+ and the other sub-Planckian, 
+ 
+ $M_{**}\sim\beta^{2}(t_{\rm Pl}/t_{0})M_{\rm Pl}\sim 10^{-60}M_{\rm Pl}\sim 10^{-65}~{}\rm g\,,$  (49) 
+ where we have assumed $\beta\sim{\cal O}(1)$ in the last two estimates. The mass $M_{*}$ is the standard expression for the mass of a primordial black hole (PBH) evaporating at the present epoch. This still applies except that the mass does not shrink all the way to zero, i.e. , for $M_{\mathrm{i}}\gg M_{\rm Pl}$ the usual Hawking lifetime $\tau\propto M^{3}$ must be interpreted as the time to shrink to the mass $M_{\rm Pl}$ . Thereafter the mass quickly evolves to the value $M_{**}$ at which $Lt_{0}\sim M$ . Although this mass-scale may seem implausibly small, it arises naturally in some estimates for the photon or graviton mass ( e.g. in the work of Mureika and Mann (84) ). It effectively specifies the lower integration bound in ( 44 ), i.e. $M_{**}=M_{0}$ .
+
+For $M_{\mathrm{i}}\gg M_{\rm Pl}$ , the mass at the present epoch ( $t_{0}$ ) has reduced to 
+ 
+ $M=[M_{\mathrm{i}}^{3}-M_{*}^{3}(1-t_{\mathrm{i}}/t_{0})]^{1/3}\,.$  (50) 
+ Hence $M\approx M_{\mathrm{i}}$ for $M\gg M_{*}$ ( i.e. it is unchanged) and $M$ falls into the sub-Planckian regime for $M_{i}<M_{*}$ . For $M_{\mathrm{i}}\ll M_{\rm Pl}$ , the mass at the present epoch has reduced to 
+ 
+ $M=\frac{M_{\mathrm{i}}}{1+M_{\mathrm{i}}(t_{0}-t_{\mathrm{i}})/(\beta^{2}M_{\rm Pl}t_{\rm Pl})}\approx\frac{M_{\mathrm{i}}}{1+M_{\mathrm{i}}/M_{**}}\,.$  (51) 
+ Hence $M\approx M_{\mathrm{i}}$ for $M\ll M_{**}$ ( i.e. it is unchanged) and $M\approx M_{**}$ for $M_{*}\gg M_{i}\gg M_{**}$ . It is unclear whether black holes can form with sub-Planckian mass; probably they can only evolve there by evaporation from the super-Planckian regime.
+
+The mass cannot actually reach the value $M_{**}$ at the present epoch because of the effect of the cosmic microwave background (CMB). This is because the black hole temperature is less than the CMB temperature ( $T_{\rm CMB}$ ), suppressing evaporation altogether, below an epoch-dependent mass 
+ 
+ $M_{\rm CMB}=10^{-36}(T_{\rm CMB}/3K)\,\mathrm{g}\,.$  (52) 
+ Accretion is expected to be unimportant (85) , so the PBH mass effectively freezes at this value. This leads to effectively stable relics which might in principle provide a candidate for dark matter (28) . The relic PBH mass decreases with time but the current value is around $10^{-4}$ eV, which is also the mass-scale associated with the dark energy.
+
+The value of the PBH mass at the present epoch can be approximated as $M_{\mathrm{i}}$ for $M_{i}<M_{\rm CMB}$ and $M_{i}>M_{*}$ but as $M_{\rm CMB}$ for $M_{\rm CMB}<M_{i}<M_{*}$ , as illustrated in Fig. 8 . The discontinuities at $M_{*}$ and $M_{\rm CMB}$ would obviously be smoothed out in a more precise treatment. The mass $M_{*}$ corresponds to a black hole radius 
+ 
+ $r_{\rm H}\sim(t_{0}/t_{\rm Pl})^{1/3}\ell_{\rm Pl}\sim r_{\rm p}\sim 10^{-13}\rm cm$  (53) 
+ and temperature 
+ 
+ $T\sim(t_{0}/t_{\rm Pl})^{-1/3}t_{\rm Pl}\sim m_{\rm p}\sim 10^{12}\rm K\,,$  (54) 
+ where $m_{\rm p}$ and $r_{\rm p}$ are the mass and radius of the proton. These quantities arise in the expressions for the size and mass because of the Dirac “large number” coincidence ( $t_{0}\sim\alpha_{\rm G}^{-3/2}t_{\rm Pl}$ where $\alpha_{\rm G}=Gm_{\rm p}^{2}/\hbar c\sim 10^{-38}$ is the gravitational fine structure constant). One expects such PBHs to generate a background of 100 MeV gamma-rays and cosmic rays, the constraints on such PBHs being well explored (86) .
+
+The mass $M_{**}$ corresponds to a radius 
+ 
+ $r_{\rm H}\sim(t_{0}/t_{\rm Pl})\ell_{\rm Pl}\sim 10^{60}\ell_{\rm Pl}\sim 10^{27}\rm cm$  (55) 
+ and temperature 
+ 
+ $T\sim(t_{0}/t_{\rm Pl})^{-1}t_{\rm Pl}\sim 10^{-28}\rm K\,.$  (56) 
+ The first expression corresponds to the current cosmological horizon size and the second to the Hawking temperature for a black hole with the mass of the Universe, so the physical significance of such an extreme sub-Planckian black hole (which we term a “minimon”) is unclear. It might seem unlikely that such objects could have observational consequences but surprisingly strong constraints are associated with gravitational and Dvali-Gabadadze-Porrati (DPG) effects on the scale of clusters (87) . Figure 8: Current black hole mass $m\equiv M(t_{0})$ as a function of initial mass $M_{i}$ , showing discontinuities at $M_{*}$ and $M_{**}$ (where evaporation timescale equals age of Universe) and $M_{\rm CMB}$ (where black hole has CMB temperature, this decreasing with epoch).
+
+VI Discussion
+
+The usual argument for the BHUP correspondence starts with the GUP in the sub-Planckian regime, and then extrapolates to black holes in the super-Planckian regime to infer an expression for the GEH. We have presented a different approach, in which one starts with a new type of black hole solution in the super-Planckian regime and then extrapolates down to the sub-Planckian regime to derive the GUP. In this sense, the GUP is encoded in the metric itself and the duality in the momentum uncertainty $\Delta p\leftrightarrow 1/\Delta p$ suggests a mass duality $M\leftrightarrow 1/M$ in the gravitational sector.
+
+We have also discussed the possibility that the GUP and GEH lines in the ( $M,R$ ) diagram are different. Even in this case, one still has the possibility of sub-Planckian black holes and this raises the issue of a possible relationship between black holes and elementary particles. There is also some connection here to an approach based on extending the de Broglie relations to the gravitational domain (88) .
+
+We have presented a comprehensive analysis of the thermodynamics of GUP black holes in the super-Planckian to sub-Planckian regimes. Due to the lack of an exact quantum theory of gravity, we have approached the problem in two ways. First, we have followed the standard method (1) of assuming the GUP a priori and then deriving the implied thermodynamic characteristics. Second, we have calculated the temperature from the surface gravity of the new solution. The predicted temperatures have the same form for the limiting cases $M\gg M_{\rm Pl}$ and $M\ll M_{\rm Pl}$ , indicating that these features may be model independent.
+
+One novel aspect of this interpretation of the GUP is that it implies effective dimensional reduction. This is because the relationship between the horizon radius and black hole mass in the super-Planckian and sub-Planckian regimes corresponds to $(3+1)$ -D and $(1+1)$ -D gravity, respectively. Indeed, the algebraic form of the black hole parameters in $(1+1)$ -D are the same as its quantum mechanical characteristics. In this sense, two-dimensional gravity is naturally quantum mechanical in that the two theories become effectively indistinguishable. Instead of requiring two separate theories to govern the classical and quantum regimes ( i.e. general relativity and quantum mechanics), the problem is recast into a single theory, where gravitation governs both, but in different effective spacetime dimensions.
+
+References
+
+(1) R. J. Adler and D. I. Santiago, Mod. Phys. Lett.A14, 1371 (1999).
+(2) R. J. Adler, P. Chen and D. I. Santiago, Gen. Rel. Grav.33, 2101 (2001).
+(3) P. Chen and R. J. Adler, Nucl.Phys.Proc.Suppl.124103 (2003).
+(4) R. J. Adler, Am. J. Phys.78, 925 (2010).
+(5) A. Ashtekar, S. Fiarhurst and J. L. Willis, Class. Quant. Grav.20, 1031 (2003).
+(6) G. M. Hossain, V. Husain and S. S. Seahra, Class. Quant. Grav.27, 165013 (2010).
+(7) G. Veneziano, Europhys. Lett.2, 199 (1986).
+(8) E. Witten, Phys. Today49N4, 24-30 (1996).
+(9) F. Scardigli, Phys. Lett.B452, 39 (1999).
+(10) D. J. Gross and P. F. Mende, Nuc. Phys.B303, 407 (1988).
+(11) D. Amati, M. Ciafaloni and G. Veneziano, Phys, Lett.B216, 41 (1989).
+(12) T. Yoneya, Mod. Phys. Lett.A4, 1587 (1989)
+(13) S. Majid, J. Phys. Conf. Ser. 284, 012003 (2011).
+(14) M. Isi, J. Mureika and P. Nicolini, JHEP1311, 139 (2013).
+(15) M. Maggiore, Phys. Lett.B 304, 65 (1993).
+(16) M. Maggiore, Phys. Lett.B 319, 83 (1993).
+(17) M. Maggiore, Phys. Rev.D 49, 5182 (1994).
+(18) B. J. Carr, Mod. Phys. Lett.A 28, 1340011 (2013).
+(19) B. J. Carr, L. Modesto and I. Prémont-Schwarz, arXiv: 1107.0708 (2011).
+(20) B. J. Carr,The Black Hole Uncertainty Principle Correspondence, to appear in Proceedings of Schwarzschild meeting (Frankfurt July 2013), arXiv1402.1427 (2014).
+(21) R. Casadio,What is the Schwarzschild radius of a quantum mechanical particle?, to appear in Proceedings of Schwarzschild meeting (Frankfurt July 2013), arXiv:1310.5452 (2013).
+(22) R. Casadio and F. Scardigli, Eur. Phys. J. C74, 2685 (2014).
+(23) L. Modesto, Phys. Rev.D 70, 124009 (2004).
+(24) L. Modesto, Class. Quant. Grav.23, 5587-5602 (2006).
+(25) L. Modesto, Adv. High Energy. Phys.2008, 459290 (2008).
+(26) L. Modesto, Int. J. Theor. Phys.49,1649-1683 (2010).
+(27) L. Modesto, arXiv:0811.2196 (2008).
+(28) L. Modesto and I. Premont-Schwarz, Phys. Rev.D 80, 064041 (2009).
+(29) A. Bonanno and M. Reuter, Phys. Rev.D 73, 083005 (2006).
+(30) P. Jizba, H. Kleinert and F. Scardigli, AIP Conf. Proc.1446, 181-189 (2012).
+(31) S. Carroll,Spacetime and Geometry, Addison Wesley P.C., San Francisco 2004.
+(32) A. Bonanno and M. Reuter, Phys. Rev. D62, 043008 (2000).
+(33) P. Nicolini, A. Smailagic and E. Spallucci, Phys. Lett. B632, 547 (2006).
+(34) P. Nicolini, Int. J. Mod. Phys. A24, 1229 (2009).
+(35) P. Nicolini and E. Spallucci, Class. Quant. Grav.27, 015010 (2010).
+(36) L. Modesto, J. W. Moffat and P. Nicolini, Phys. Lett. B695, 397 (2011).
+(37) P. Nicolini, arXiv:1202.2102 (2012).
+(38) P. Nicolini and E. Spallucci, Adv. High Energy Phys.2014, 805684 (2014).
+(39) G. Dvali, G. F. Giudice, C. Gomez and A. Kehagias, JHEP1108, 108 (2011).
+(40) A. Aurilia and E. Spallucci, Adv. High Energy Phys.2013, 531696 (2013).
+(41) A. Aurilia and E. Spallucci, arXiv:1309.7186 (2013).
+(42) S. Hossenfelder and L. Smolin, Phys. Rev. D81, 064009 (2010).
+(43) R. B. Mann, A. Shiekh, L. Tarasov, Nucl. Phys.B 341, 134 (1990).
+(44) A. E. Sikkema and R. B. Mann, Class. Quant. Grav.8, 219 (1991).
+(45) S. M. Morsink and R. B. Mann, Class. Quant. Grav.8, 2257 (1991).
+(46) R. B. Mann, S. M. Morsink, A. E. Sikkema and T. G. Steele, Phys. Rev. D43, 3948 (1991).
+(47) R. B. Mann and T. G. Steele, Class. Quant. Grav.9, 475 (1992).
+(48) R. B. Mann, Nucl. Phys.B418, 231 (1994).
+(49) R. B. Mann and S. F. Ross, Class. Quant. Grav.10, 1405 (1993).
+(50) D. Cangemi and R. Jackiw, Phys. Rev. Lett.69, 233 (1992).
+(51) R. Jackiw, Theor. Math. Phys.148, 941 (2006) [Teor. Mat. Fiz.148, 80 (2006)].
+(52) D. Grumiller and R. Jackiw,Liouville gravity from Einstein gravity, Recent developments in theoretical physics, S. Gosh, G. Kar, 2010. World Scientific, Singapore,2010, p.331, arXiv:0712.3775 (2007).
+(53) D. Grumiller, W. Kummer and D. V. Vassilevich, Phys. Rept.369, 327 (2002).
+(54) D. Grumiller and R. Meyer, Turk. J. Phys.30, 349 (2006).
+(55) J. R. Mureika and P. Nicolini, Phys. Rev. D84, 044020 (2011).
+(56) G. ’t Hooft,Dimensional reduction in quantum gravity, Salamfest 1993:0284-296, [gr-qc/9310026] (2013).
+(57) R. Loll, Nucl. Phys. Proc. Suppl.94, 96 (2001).
+(58) J. Ambjorn, J. Jurkiewicz, R. Loll, Phys. Rev.D 72, 064014 (2005).
+(59) J. Ambjorn, J. Jurkiewicz and R. Loll, Phys. Rev. Lett.95, 171301 (2005).
+(60) L. Modesto, Class. Quant. Grav.26, 242002 (2009).
+(61) D. Benedetti, Phys. Rev. Lett.102, 111303 (2009).
+(62) L. Modesto and P. Nicolini, Phys. Rev.D 81, 104040 (2010).
+(63) P. Nicolini and E. Spallucci, Phys. Lett. B695(2011) 290.
+(64) S. Carlip,The Small Scale Structure of Spacetime, in Foundations of Space and Time, George Ellis, Jeff Murugan, Amanda Weltman (eds.), Cambridge University Press (2011).
+(65) G. Calcagni, Phys. Rev. Lett.104, 251301 (2010).
+(66) D. Stojkovic, Rom. J. Phys.57, 992 (2012).
+(67) J. R. Mureika and D. Stojkovic, Phys. Rev. Lett.106, 101101 (2011).
+(68) J. R. Mureika and D. Stojkovic Phys. Rev. Lett.107, 169002 (2011).
+(69) M. Rinaldi, Class. Quant. Grav.29, 085010 (2012) 085010.
+(70) J. R. Mureika, Phys. Lett.B 716, 171-175 (2012).
+(71) J. Mureika and P. Nicolini, Eur. Phys. J. Plus128, 78 (2013).
+(72) J. Magueijo, L. Smolin, Class. Quant. Grav.21, 1725-1736 (2004).
+(73) A.  Camacho, Gen. Rel. Grav.35(2003) 319-325.
+(74) C. F. E. Holzhey and F. Wilczek, Nucl. Phys. B380, 447 (1992).
+(75) C. Sivaram and K. P. Sinha, Phys. Rev. D16, 1975 (1977).
+(76) A. Salam and J. A. Strathdee, Phys. Rev. D18, 4596 (1978).
+(77) R. L. Oldershaw, J. Cosmol.6, 1361 (2010).
+(78) S. W. Hawking, Nature248, 30 (1974).
+(79) S. W. Hawking, Comm. Math. Phys.43, 199 (1975).
+(80) A. Strominger and C. Vafa, Phys. Lett. B379, 99 (1996).
+(81) C. Rovelli, Phys. Rev. Lett.77, 3288 (1996).
+(82) R. B. Mann and S. N. Solodukhin, Nucl. Phys. B523, 293 (1998).
+(83) R. K. Kaul and P. Majumdar, Phys. Rev. Lett.84, 5255 (2000).
+(84) J. R. Mureika and R. B. Mann, Mod. Phys. Lett.A26, 171-181 (2011).
+(85) B. J. Carr and S. W. Hawking, Mon.Not.Roy.Astron.Soc.168, 399 (1974).
+(86) B. J. Carr, K. Kohri, Y. Sendouda, J. Yokoyama, Phys. Rev.D 81, 104019 (2010).
+(87) A. S .Goldhaber, M. M.  Nieto, Rev. Mod. Phys.82, 939-979 (2010).
+(88) M. J. Lake and B. J. Carr, “The Compton-Schwarzschild correspondence from extended de Broglie relations”, arXiv:1505.06994 [gr-qc].

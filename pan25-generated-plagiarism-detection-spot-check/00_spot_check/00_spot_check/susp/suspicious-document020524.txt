@@ -1,0 +1,384 @@
+Trace expressions and associated limits for equilibrium Casimir torque
+
+By Benjamin Strekha and Matthias Krüger and Alejandro W. Rodriguez
+
+Abstract
+
+We employ fluctuational electrodynamics to derive trace expressions for the torque acting on arbitrary objects in a passive, nonabsorbing, rotationally invariant background. These expressions are for equilibrium Casimir torque and complement recently derived nonequilibrium torque expressions, elucidating their connection to the Casimir free energy. Using these trace expressions, we calculate semianalytic, structure-agnostic bounds on the Casimir torque between an anisotropic (reciprocal or nonreciprocal) dipolar particle and a macroscopic body with a local isotropic electric susceptibility, separated by vacuum, through the method of Lagrange duality.
+
+I Equilibrium Casimir Effects
+
+As detailed in Refs. Krüger et al. [2012], starting from the Lorentz force law, one can demonstrate that the thermally averaged $(\langle\dots\rangle_{T})$ rate of absorption associated with an observable $\hat{\Theta}$ is expressed as
+
+\[
+\langle\hat{\Theta}\rangle_{T} = -\textrm{Im}\int_{-\infty}^{\infty}\mathrm{d}\omega\frac{1}{\hbar\omega^{2}\mu_{0}}\text{Tr}|_{V_{\textrm{body}}}[\hat{\Theta}\mathbb{C}\mathbb{G}_{0}^{-1\dagger}],
+\]
+
+where substituting $\hbar\omega\mathbb{I}$, $\hat{\mathbf{p}}$, $\hat{\mathbf{J}}$, for $\hat{\Theta}$ yields the absorbed power, force, and torque on the body, respectively. Here, $\hat{\mathbf{p}} \equiv -i\hbar\nabla$ is the linear momentum operator, $\hat{\mathbf{J}} \equiv \hat{\mathbf{L}} + \hat{\mathbf{S}}$ is the total angular momentum operator, with $\hat{\mathbf{L}} \equiv \mathbf{r} \times \hat{\mathbf{p}} = -i\hbar\mathbf{r} \times \nabla$ and
+
+\[
+\hat{\mathbf{S}} \equiv -i\hbar\Bigg\{\begin{bmatrix}0 & 0 & 0 \\ 0 & 0 & 1 \\ 0 & -1 & 0\end{bmatrix}, \begin{bmatrix}0 & 0 & -1 \\ 0 & 0 & 0 \\ 1 & 0 & 0\end{bmatrix}, \begin{bmatrix}0 & 1 & 0 \\ -1 & 0 & 0 \\ 0 & 0 & 0\end{bmatrix}\Bigg\},
+\]
+
+representing the orbital and spin angular momentum operators (Khersonskii et al. [1989]), respectively, defined in the Cartesian basis and succinctly summarized by $(\hat{S}_{a})_{bc} = -i\hbar\epsilon_{abc}$. The notation $|_{V_{\textrm{body}}}$ indicates that the outer-most indices of the operator are traced over positions within the body, while all others span the entire space, with a trace over the vector components of the Dyadics. Specifically, $\text{Tr}|_{V}[\mathbb{A}\mathbb{B}] = \sum_{ab}\int_{\mathbf{r}\in V}\int_{\mathbf{s}\in\mathbb{R}^{3}}\mathrm{d}^{3}\mathbf{r}\mathrm{d}^{3}\mathbf{s}\mathbb{A}_{ab}(\mathbf{r},\mathbf{s})\mathbb{B}_{ba}(\mathbf{s},\mathbf{r})$. In other words, $\text{Tr}|_{V}[(\cdots)] = \text{Tr}[\mathbb{P}(V)(\cdots)]$, where $\mathbb{P}(V)$ is a projection operator into the spatial volume $V$. The operator $\mathbb{G}_{0}$ represents the background Green’s function, satisfying $\left[\nabla\times\nabla\times - \frac{\omega^{2}}{c^{2}}\mathbb{I}\right]\mathbb{G}_{0}(\mathbf{r},\mathbf{r}^{\prime}) = \mathbb{I}\delta^{(3)}(\mathbf{r}-\mathbf{r}^{\prime})$ in vacuum. For systems in thermal equilibrium, the field–field correlations are given by
+
+\[
+\mathbb{C}_{ij}^{\textrm{eq}}(T,\omega,\omega^{\prime};\mathbf{r},\mathbf{r}^{\prime}) \equiv \langle E_{i}(\mathbf{r},\omega)E_{j}^{*}(\mathbf{r}^{\prime},\omega^{\prime})\rangle_{T} = \frac{\hbar\omega^{2}}{2\pi c^{2}\epsilon_{0}}\coth\left(\frac{\hbar\omega}{2k_{B}T}\right)\delta(\omega-\omega^{\prime})\mathbb{G}^{\mathsf{A}}_{ij}(\omega;\mathbf{r},\mathbf{r}^{\prime}),
+\]
+
+where $\mathbb{G}$ is the Green’s function of the system, defined by
+
+\[
+\left[\nabla\times\nabla\times - \mathbb{V} - \frac{\omega^{2}}{c^{2}}\mathbb{I}\right]\mathbb{G}(\mathbf{r},\mathbf{r}^{\prime}) = \mathbb{I}\delta^{(3)}(\mathbf{r}-\mathbf{r}^{\prime}),
+\]
+
+with $\mathbb{V} = \frac{\omega^{2}}{c^{2}}(\mathbb{\epsilon} - \mathbb{I}) + \nabla\times(\mathbb{I} - \mathbb{\mu}^{-1})\nabla\times$ representing the potential or generalized susceptibility introduced by the objects (Bimonte et al. [2017]). The superscript $\mathsf{A}$ on an operator $\hat{\Theta}$ denotes a Hermitian operator containing the anti-Hermitian part of $\hat{\Theta}$, defined by $\hat{\Theta}^{\mathsf{A}} \equiv \frac{1}{2i}(\hat{\Theta} - \hat{\Theta}^{\dagger})$, where $\dagger$ denotes the conjugate transpose. In our notation, $\hat{\Theta}_{ab}^{\dagger}(\mathbf{x},\mathbf{y}) = \hat{\Theta}_{ba}(\mathbf{y},\mathbf{x})^{*}$, treating the vector component and spatial coordinate as an index pair.
+
+For a single body, the Green’s function satisfies $\mathbb{G}=\mathbb{G}_{0}+\mathbb{G}_{0}\mathbb{T}\mathbb{G}_{0}$, where we have introduced the scattering $\mathbb{T}$ operator. This operator transforms incident fields into induced currents within the body and is formally defined by $\mathbb{T}=\mathbb{V}(\mathbb{I}-\mathbb{G}_{0}\mathbb{V})^{-1}$ (Krüger et al. [2012]). Since $\mathbb{T}$ vanishes unless both spatial arguments are within the body, the integral can be extended over all space to obtain the trace expression:
+
+\[
+\langle\hat{\Theta}\rangle_{T}^{\textrm{eq}}=\text{Re}\int_{-\infty}^{\infty}\frac{\mathrm{d}\omega}{4\pi}\coth\left(\frac{\hbar\omega}{2k_{B}T}\right)\text{Tr}[\hat{\Theta}(\mathbb{G}_{0}\mathbb{T}-\mathbb{G}_{0}^{\dagger}\mathbb{T}^{\dagger})]. \quad (3)
+\]
+
+However, $\text{Re}\text{Tr}[\hat{\Theta}(\mathbb{G}_{0}\mathbb{T}-\mathbb{G}_{0}^{\dagger}\mathbb{T}^{\dagger})]=0$ independent of $\mathbb{V}$ (whether reciprocal or nonreciprocal). Consequently, the net power absorption, force, and torque on an isolated object in equilibrium are identically zero, as expected.
+
+Consider the case of two or more bodies. The Green's function is determined by first isolating object 1, where $\mathbb{G}_{1}=(1+\mathbb{G}_{0}\mathbb{T}_{1})\mathbb{G}_{0}$, and then incorporating the remaining objects to obtain $\mathbb{G}=(1+\mathbb{G}_{0}\mathbb{T}_{\bar{1}})\frac{1}{1-\mathbb{G}_{0}\mathbb{T}_{1}\mathbb{G}_{0}\mathbb{T}_{\bar{1}}}(1+\mathbb{G}_{0}\mathbb{T}_{1})\mathbb{G}_{0}$, with $\mathbb{T}_{\bar{1}}$ representing the scattering operator of all objects except object 1, as per Krüger et al. [2012]. Swapping the order of object insertion yields an analogous equation with indices exchanged ($1\leftrightarrow\bar{1}$). Substituting these Green's function expressions into the equilibrium field–field correlation dyadic $\mathbb{C}^{\textrm{eq}}$ in Eq. (1) leads to the thermally averaged torques on the objects, expressed as
+
+\[
+\bm{\tau}^{(\alpha,\textrm{eq})}(T)=\text{Re}\frac{1}{\pi}\int_{0}^{\infty}\mathrm{d}\omega[n(\omega,T)+\frac{1}{2}]
+\times\text{Tr}\bigg{[}\frac{1}{1-\mathbb{G}_{0}\mathbb{T}_{\alpha}\mathbb{G}_{0}\mathbb{T}_{\bar{\alpha}}}\mathbb{G}_{0}(\mathbb{T}_{\alpha}\hat{\mathbf{J}}-\hat{\mathbf{J}}\mathbb{T}_{\alpha})\mathbb{G}_{0}\mathbb{T}_{\bar{\alpha}}\bigg{]}
+\]
+
+where $n(\omega,T)=\frac{1}{\exp(\frac{\hbar\omega}{k_{B}T})-1}$ is the Bose–Einstein distribution. The trace operation, denoted by Tr, encompasses all indices of the enclosed operators, such as positions and polarization indices of dipole sources. Extending the trace from $\text{Tr}|_{V_{\alpha}}$ to Tr is justified because $\mathbb{C}^{\textrm{eq}}\mathbb{G}_{0}^{-1\dagger}$ includes $\mathbb{T}_{\alpha}$ or $\mathbb{T}^{\dagger}_{\alpha}$ with $\alpha=1,\bar{1}$ as the left-most or right-most term in the expansion, as shown in App. A. Since $\mathbb{T}_{\alpha}$ vanishes when any spatial argument lies outside the volume $V_{\alpha}$ of body $\alpha$, the spatial integration can be extended to cover the entire space, resulting in the trace expression. These equations satisfy $\bm{\tau}^{(1,\textrm{eq})}=-\bm{\tau}^{(\bar{1},\textrm{eq})}$, as expected, due to the cyclicity of the trace and the resummation of $\frac{1}{1-\mathbb{G}_{0}\mathbb{T}_{\bar{1}}\mathbb{G}_{0}\mathbb{T}_{1}}$, ensuring angular momentum transfer cancellation and detailed balance. For reciprocal materials, the expressions simplify to
+
+\[
+\bm{\tau}^{(\alpha,\textrm{eq})}(T)=\text{Re}\frac{2}{\pi}\int_{0}^{\infty}\mathrm{d}\omega[n(\omega,T)+\frac{1}{2}]
+\times\text{Tr}[\hat{\mathbf{J}}\mathbb{G}_{0}\mathbb{T}_{\bar{\alpha}}\mathbb{G}_{0}\mathbb{T}_{\alpha}\frac{1}{1-\mathbb{G}_{0}\mathbb{T}_{\bar{\alpha}}\mathbb{G}_{0}\mathbb{T}_{\alpha}}],
+\]
+
+with equilibrium forces derived similarly by replacing $\hat{\mathbf{J}}\to\hat{\mathbf{p}}$, corresponding to a shift from angular to linear momentum absorption.
+
+The torque (and force) relationship with the Casimir free energy $\mathcal{F}$ is directly explained by Eq. (4), unlike Eq. (5). The free energy is defined as
+
+\[
+\mathcal{F} \equiv -\frac{\hbar}{\pi}\int_{0}^{\infty}\mathrm{d}\omega[n(\omega,T)+\frac{1}{2}]\text{Im}\text{Tr}\left[\ln(1-\mathbb{G}_{0}\mathbb{T}_{1}\mathbb{G}_{0}\mathbb{T}_{\bar{1}})\right], \quad (6)
+\]
+
+and equivalently,
+
+\[
+\mathcal{F} = -\frac{\hbar}{\pi}\int_{0}^{\infty}\mathrm{d}\omega[n(\omega,T)+\frac{1}{2}]\text{Im}\ln\left[\det(1-\mathbb{G}_{0}\mathbb{T}_{1}\mathbb{G}_{0}\mathbb{T}_{\bar{1}})\right]. \quad (7)
+\]
+
+Considering $\mathcal{F}(\mathbb{T}_{\alpha})$ as a function of $\mathbb{T}_{\alpha} = \mathbb{V}_{\alpha}(\mathbb{I}-\mathbb{G}_{0}\mathbb{V}_{\alpha})^{-1}$, the equilibrium force and torque can be expressed as
+
+\[
+\mathbf{F}^{(\alpha,\textrm{eq})} = -\lim_{\Delta\mathbf{x}\to 0}\frac{\mathcal{F}\left(\exp\left(-\frac{i\Delta\mathbf{x}\cdot\hat{\mathbf{p}}}{\hbar}\right)\mathbb{T}_{\alpha}\exp\left(\frac{i\Delta\mathbf{x}\cdot\hat{\mathbf{p}}}{\hbar}\right)\right) - \mathcal{F}(\mathbb{T}_{\alpha})}{\Delta\mathbf{x},} \quad (8)
+\]
+
+\[
+\bm{\tau}^{(\alpha,\textrm{eq})} = -\lim_{\Delta\bm{\phi}\to 0}\frac{\mathcal{F}\left(\exp\left(-\frac{i\Delta\bm{\phi}\cdot\hat{\mathbf{J}}}{\hbar}\right)\mathbb{T}_{\alpha}\exp\left(\frac{i\Delta\bm{\phi}\cdot\hat{\mathbf{J}}}{\hbar}\right)\right) - \mathcal{F}(\mathbb{T}_{\alpha})}{\Delta\bm{\phi},} \quad (9)
+\]
+
+These expressions confirm Eq. (4) upon taking the respective limits. Thus, the equilibrium force and torque on object $\alpha$ arise from changes in the free energy when the scattering operator $\mathbb{T}_{\alpha}$ undergoes rigid translation or rotation. Importantly, since photons are spin-1 particles, the relevant rotation operator $\exp\left(-\frac{i\Delta\bm{\phi}\cdot\hat{\mathbf{J}}}{\hbar}\right)$ depends on $\hat{\mathbf{J}}$ rather than $\hat{\mathbf{L}}$.
+
+The equilibrium Casimir force can be expressed as a negative gradient of the free energy $\mathcal{F}$ (Appendix A of Ref. Krüger et al. [2012]). For rigid bodies, this relationship is given by
+
+$\displaystyle\mathbf{F}^{(1,\textrm{eq})}(T) = \text{Im}\frac{\hbar}{\pi}\int_{0}^{\infty}\mathrm{d}\omega[n(\omega,T)+\frac{1}{2}]$
+
+$\displaystyle\qquad\qquad\times\text{Tr}\nabla_{\mathcal{O}_{1}}\ln[1-\mathbb{G}_{0}\mathbb{T}_{1}\mathbb{G}_{0}\mathbb{T}_{\bar{1}}\bigg{]},$  (10)
+
+$\displaystyle=-\nabla_{\mathcal{O}_{1}}\mathcal{F}$  (11)
+
+where $\nabla_{\mathcal{O}_{1}}$ represents the derivative with respect to the center of mass coordinate of object 1. This result follows since $\nabla_{\mathcal{O}_{1}}$ can be moved outside the trace operation. When considering equilibrium torque, it is important to verify whether the torque corresponds to an angular derivative of the same free energy $\mathcal{F}$. However, attempts to generalize the torque expression from Eq. (4) reveal that the trace terms cannot, in general, be rewritten as angular derivatives with respect to the center of mass coordinates of the rigid body, $-\mathbf{r}_{\mathcal{O}_{1}}\times\nabla_{\mathcal{O}_{1}}\mathcal{F}$, due to the presence of spin terms.
+
+In the dilute limit, some intuition can be gained by considering the Rytov formalism for fluctuation electrodynamics, as described by Rytov et al. [1989]. Here, the object is treated as a collection of free dipoles undergoing fluctuations. According to the fluctuation-dissipation theorem, in thermal equilibrium, these fluctuations are proportional to the polarizability tensor, as noted by Novotny and Hecht [2012]. Consider two objects, each represented as a collection of fluctuating free dipoles, separated by a gap. Let $\mathcal{F}_{i}$ denote the free energy of the initial arrangement. Now, rotate one object geometrically by $\Delta\phi$ about the $z$-axis, keeping the polarizability/susceptibility tensor at the rotated spatial point unchanged, and denote the final energy as $\mathcal{F}_{f,L}$. This corresponds to rotating the position of each dipole without altering its orientation. Alternatively, starting from the initial arrangement, keep the position of each dipole fixed but rotate its orientation by $\Delta\phi$ about the $z$-axis, and denote the resulting free energy as $\mathcal{F}_{f,S}$. The torque on the object is given by $\lim_{\Delta\phi\to 0}-\frac{(\mathcal{F}_{f,L}-\mathcal{F}_{i})+(\mathcal{F}_{f,S}-\mathcal{F}_{i})}{\Delta\phi}$. Physically, during the rotation of an object, both the spatial location and orientation of each free dipole are rotated, which is precisely what Eq. (9) states and Eq. (4) calculates.
+
+As a cautionary note, this simple interpretation ceases to hold beyond the dilute limit, where torque can no longer be considered as arising from a sum of pairwise interactions, specifically $\bm{\tau}^{(\alpha,\textrm{eq})}\propto\text{Tr}[\hat{\mathbf{J}}\mathbb{G}_{0}\mathbb{V}_{\bar{\alpha}}\mathbb{G}_{0}\mathbb{V}_{\alpha}]$. This breakdown occurs because if $\mathbb{V}_{\alpha}\to\exp(-\frac{i\Delta\bm{\phi}\cdot\hat{\mathbf{J}}}{\hbar})\mathbb{V}_{\alpha}\exp(\frac{i\Delta\bm{\phi}\cdot\hat{\mathbf{J}}}{\hbar}),$ then $\mathbb{T}_{\alpha}\to\exp(-\frac{i\Delta\bm{\phi}\cdot\hat{\mathbf{J}}}{\hbar})\mathbb{T}_{\alpha}\exp(\frac{i\Delta\bm{\phi}\cdot\hat{\mathbf{J}}}{\hbar}),$ as demonstrated by the definition $\mathbb{T}_{\alpha}=\mathbb{V}_{\alpha}(1-\mathbb{G}_{0}\mathbb{V}_{\alpha})^{-1}$ and the commutation relation $\hat{\mathbf{J}}\mathbb{G}_{0}=\mathbb{G}_{0}\hat{\mathbf{J}}.$ However, similar conclusions do not extend to the $\hat{\mathbf{S}},\hat{\mathbf{L}}$ operators, as spin and orbital angular momentum operators do not commute with $\mathbb{G}_{0}.$ For instance, the assertion that if $\mathbb{V}_{\alpha}\to\exp(-\frac{i\Delta\bm{\phi}\cdot\hat{\mathbf{S}}}{\hbar})\mathbb{V}_{\alpha}\exp(\frac{i\Delta\bm{\phi}\cdot\hat{\mathbf{S}}}{\hbar}),$ then $\mathbb{T}_{\alpha}\to\exp(-\frac{i\Delta\bm{\phi}\cdot\hat{\mathbf{S}}}{\hbar})\mathbb{T}_{\alpha}\exp(\frac{i\Delta\bm{\phi}\cdot\hat{\mathbf{S}}}{\hbar})$ does not hold beyond the dilute limit. Instead, the correct transformation requires $\mathbb{T}_{\alpha}\to\mathbb{\tilde{V}}_{\alpha}(1-\mathbb{G}_{0}\mathbb{\tilde{V}}_{\alpha})^{-1}$ with $\mathbb{\tilde{V}}_{\alpha}\equiv\exp(-\frac{i\Delta\bm{\phi}\cdot\hat{\mathbf{S}}}{\hbar})\mathbb{V}_{\alpha}\exp(\frac{i\Delta\bm{\phi}\cdot\hat{\mathbf{S}}}{\hbar}).$
+
+II Bounds on Equilibrium Casimir torque
+
+In this section, we consider a Wick rotation consistent with a change of variables $\omega=i\xi$ from $\omega$ to $\xi$ . Unless stated otherwise, all quantities in this section are taken to implicitly depend on $i\xi.$ As notation, a vector field $\mathbf{v}(\mathbf{x})$ will be denoted as $\ket{\mathbf{v}}$ . At $\omega=i\xi$ , although all relevant polarization and field quantities as well as $\mathbb{V}$ and $\mathbb{G}_{0}$ can be defined to be real-valued in position space without loss of generality, we still use the Hermitian inner product $\bra{\bm{\mathrm{u}}}\ket{\bm{\mathrm{v}}}=\int\mathrm{d}^{3}x~{}\bm{\mathrm{u}}(\bm{\mathrm{x}})^{*}\cdot\bm{\mathrm{v}}(\bm{\mathrm{x}})$ since the eigenbasis for which calculations are most convenient can still be complex-valued. An operator $\mathbb{A}(\bm{\mathrm{x}},\bm{\mathrm{x}}^{\prime})$ will be denoted as $\mathbb{A}$ , with $\int\mathrm{d}^{3}x^{\prime}~{}\mathbb{A}(\bm{\mathrm{x}},\bm{\mathrm{x}}^{\prime})\cdot\bm{\mathrm{v}}(\bm{\mathrm{x}}^{\prime})$ denoted as $\mathbb{A}\ket{\bm{\mathrm{v}}}$ .
+
+As described in more detail below, following the procedure laid out in Refs. Chao et al. [2022] , and as an exemplary application of Eq. ( 4 ), we derive upper and lower bounds on the Casimir torque that may be experienced by a dipolar particle neighboring a structured surface. The torque bounds necessitate only that the design region $\Omega$ containing the structured object be rotationally invariant about the same axis going through the dipolar particle about which torque is being considered. The bounds encompass any possible structure composed of a homogenous, local, and isotropic electric susceptibility $\chi(i\xi)$ in the design domain $\Omega$ . Concisely, we expand the dipolar response, including local field effects, along its principal axes as $\frac{1}{2}(\mathbb{T}_{\mathrm{dip}}(i\xi)+\mathbb{T}_{\mathrm{dip}}^{T}(i\xi))\equiv\sum_{a}\alpha_{a}(i\xi)\ket{\bm{\mathrm{u}}^{(a)}}\bra{\bm{\mathrm{u}}^{(a)}}$ , where each $\alpha_{a}(i\xi)>0$ is a polarizability component, while $\bm{\mathrm{u}}^{(a)}(\bm{\mathrm{x}})=\bm{\mathrm{n}}_{a}\delta^{(3)}(\bm{\mathrm{x}}-\bm{\mathrm{R}})$ corresponds to a localized basis function at $\bm{\mathrm{R}}$ (the dipole location) along the $\bm{\mathrm{n}}_{a}$ direction. The chosen design domain $\Omega$ enclosing the second object is such that projection into $\Omega$ , denoted $\mathbb{P}(\Omega)$ , commutes with the observable of interest $\hat{\Theta}.$ Our bounds $\Theta\in[\Theta^{-},\Theta^{+}]$ for $T=0$ K can be written concisely as 
+ 
+ $\Theta^{\pm}=\pm\int_{0}^{\infty}\frac{\mathrm{d}\xi}{2\pi}\sum_{a}\alpha_{a}\sqrt{\frac{\left\langle\bm{\mathrm{u}}^{(a)},\hat{\Theta}^{\dagger}\hat{\Theta}\mathbb{G}_{\mathrm{sca}}(\Omega)\bm{\mathrm{u}}^{(a)}\right\rangle}{\left\langle\bm{\mathrm{u}}^{(a)},\mathbb{G}_{\mathrm{sca}}(\Omega)\bm{\mathrm{u}}^{(a)}\right\rangle^{-1}}},$  (12) 
+ where $\mathbb{G}_{\mathrm{sca}}(\Omega)=\mathbb{G}_{0}(\chi^{-1}\mathbb{P}(\Omega)-\mathbb{P}(\Omega)\mathbb{G}_{0}\mathbb{P}(\Omega))^{-1}\mathbb{G}_{0}$ is the scattering Green’s function of the equivalent object formed by filling the entire domain $\Omega$ with the susceptibility $\chi$ . The maximization and minimization bounds differ in sign, but not magnitude, as expected on physical grounds if $[\hat{\Theta},\mathbb{P}(\Omega)]=0.$
+
+For clarity, consider the Casimir torque at zero temperature on a dipolar particle, which can be expressed as
+
+\[
+\bm{\tau}_{\mathrm{dip}} = \int_{0}^{\infty} \frac{\mathrm{d}\xi}{2\pi} \text{Re}\text{Tr}\left[\frac{1}{1 - \mathbb{G}_{0}\mathbb{T}_{\mathrm{dip}}\mathbb{G}_{0}\mathbb{T}} \times \mathbb{G}_{0}(\mathbb{T}_{\mathrm{dip}}i\hat{\mathbf{J}} - i\hat{\mathbf{J}}\mathbb{T}_{\mathrm{dip}})\mathbb{G}_{0}\mathbb{T}\right], \tag{13}
+\]
+
+where 
+
+\[
+\mathbb{T} = (\mathbb{V}^{-1} - \mathbb{G}_{0})^{-1} = (1 - \mathbb{V}\mathbb{G}_{0})^{-1}\mathbb{V} \quad \text{and} \quad \mathbb{T}_{\mathrm{dip}} = (\mathbb{V}_{\mathrm{dip}}^{-1} - \mathbb{G}_{0})^{-1} = (1 - \mathbb{V}_{\mathrm{dip}}\mathbb{G}_{0})^{-1}\mathbb{V}_{\mathrm{dip}}.
+\]
+
+We combine \(i\) and \(\hat{\mathbf{J}}\) to ensure all operators are explicitly real-valued in position space. To simplify, we assume the dipole is small relative to the macroscopic body, allowing us to neglect multiple scattering effects between different objects, though multiple scattering within each object is retained. This leads us to approximate \((1 - \mathbb{T}_{\mathrm{dip}}\mathbb{G}_{0}\mathbb{T}\mathbb{G}_{0})^{-1}\) as \(1\). Additionally, we assume \(\mathbb{T}\) is symmetric (since \(\mathbb{V}\) describes a reciprocal material) while \(\mathbb{T}_{\mathrm{dip}}\) may be nonreciprocal. Using the cyclic properties of the trace, the antisymmetry of \(\hat{J}_{k}^{T} = -\hat{J}_{k}\), and the symmetry of \(\mathbb{G}_{0}\) and \(\mathbb{T}\), we arrive at
+
+\[
+\tau_{\mathrm{dip},k} = \int_{0}^{\infty} \frac{\mathrm{d}\xi}{2\pi} \text{Re}\text{Tr}\left[\mathbb{G}_{0}(\mathbb{T}_{\mathrm{dip}} + \mathbb{T}_{\mathrm{dip}}^{T})i\hat{J}_{k}\mathbb{G}_{0}\mathbb{T}\right], \tag{14}
+\]
+
+\[
+= \int_{0}^{\infty} \frac{\mathrm{d}\xi}{2\pi} \text{Re}\left[2\sum_{a}\alpha_{a}\left\langle\bm{\mathrm{u}}^{(a)}, i\hat{J}_{k}\mathbb{G}_{0}\mathbb{T}\mathbb{G}_{0}\bm{\mathrm{u}}^{(a)}\right\rangle\right]. \tag{15}
+\]
+
+The torque on the dipole depends only on the symmetric part of \(\mathbb{T}_{\mathrm{dip}}\), and it is this expression for the torque on the dipole that we will aim to maximize and minimize.
+
+Our derivation of bounds is based on optimization using the principles of Lagrangian duality from Boyd and Vandenberghe [2004]. The loosest such bound only requires that the optimal scattering operator satisfies the conservation of power (optical theorem, Jackson [1999]) over the entire design domain, rather than the full scattering equations. Instead of optimizing over $\mathbb{V}$, which has support in $\Omega$, we relax the problem and instead take as the degree of freedom the induced (polarization) current $|\mathbf{P}^{(a)}\rangle\equiv\mathbb{T}\mathbb{G}_{0}|\mathbf{u}^{(a)}\rangle$, which has support only in the design domain $\Omega$. Since the polarization current is the degree of freedom, the bounds are monotonic with respect to the design domain—any polarization currents explored in an optimization with support within some smaller domain $\Omega^{\prime}\subset\Omega$ are also explored in the bigger domain $\Omega$. Similar techniques have been recently used to derive bounds on deterministic scattering and nonequilibrium electromagnetic phenomena (Molesky et al. [2020a]). Concretely, the problem we solve is
+
+\[
+\max_{\{\mathbf{P}_{a}(\mathbf{r};i\xi)\in\Omega\}}\quad\int_{0}^{\infty}\frac{\mathrm{d}\xi}{2\pi}2\sum_{a}\alpha_{a}\text{Re}\left\langle\bm{\mathrm{u}}^{(a)},\mathbb{G}_{0}i\hat{J}_{k}\bm{\mathrm{P}}^{(a)}\right\rangle
+\]
+subject to
+\[
+\text{Re}\bigg{[}\bra{\mathbf{u}^{(a)}}\mathbb{G}_{0}\ket{\mathbf{P}^{(a)}}
+-\bra{\mathbf{P}^{(a)}}\mathbb{P}(\Omega)(\chi^{-1}-\mathbb{G}_{0})\mathbb{P}(\Omega)\ket{\mathbf{P}^{(a)}}\bigg{]}=0
+\]
+for all $a$ and each $\xi\geq 0$.
+
+First, we consider the problem of maximizing $\text{Re}(2\langle\bm{\mathrm{E}}^{\mathrm{inc}},i\hat{\Theta}\bm{\mathrm{P}}\rangle).$ For convenience, we define the eigenvalue decomposition of the projection of $\mathbb{G}_{0}$ into the domain $\Omega$ as $\mathbb{P}(\Omega)\mathbb{G}_{0}\mathbb{P}(\Omega)=-\sum_{\mu}g_{\mu}\ket{\bm{\mathrm{N}}^{(\mu)}}\bra{\bm{\mathrm{N}}^{(\mu)}}$ , where $g_{\mu}>0$ , and the eigenvectors are orthonormal: $\langle\bm{\mathrm{N}}^{(\mu)},\bm{\mathrm{N}}^{(\nu)}\rangle=\delta_{\mu\nu}$ . We also assume that $\ket{\bm{\mathrm{N}}^{(\mu)}}$ are eigenstates of $\hat{\Theta}$ so that $\hat{\Theta}\ket{\bm{\mathrm{N}}^{(\mu)}}=\theta_{\mu}\ket{\bm{\mathrm{N}}^{(\mu)}}.$ For our operators of interest, $\hat{\Theta}^{\dagger}=\hat{\Theta}$ so the eigenvalues $\theta_{\mu}$ are purely real. Since $\hat{\Theta}$ commutes with isotropic $\mathbb{G}_{0},$ the assumption of simultaneous diagonalization therefore puts restrictions on $\mathbb{P}(\Omega)$ , i.e. the geometry of the design domain. We then define the basis expansion coefficients $e_{\mu}=\langle\bm{\mathrm{N}}^{(\mu)},\bm{\mathrm{E}}^{\mathrm{inc}}\rangle$ and $p_{\mu}=\langle\bm{\mathrm{N}}^{(\mu)},\bm{\mathrm{P}}\rangle$ . This leads to a constrained optimization problem with a Lagrangian given by 
+ 
+ $L=\sum_{\mu}\bigg{[}\text{Re}(2e_{\mu}^{*}p_{\mu}i\theta_{\mu})-\lambda\bigg{(}\text{Re}(e_{\mu}^{*}p_{\mu})-(\chi^{-1}+g_{\mu})p_{\mu}^{*}p_{\mu}\bigg{)}\bigg{]}$  (17) 
+ where $\lambda\in\mathbb{R}$ is a Lagrange multiplier.
+
+Carrying out the optimization, we find that $e_{\mu}^{*}i\theta_{\mu}-\lambda[e_{\mu}^{*}/2-(\chi^{-1}+g_{\mu})p_{\mu}^{*}]=0$ and $\sum_{\mu}(\text{Re}(e_{\mu}^{*}p_{\mu})-(\chi^{-1}+g_{\mu})p_{\mu}^{*}p_{\mu})=0.$ The first equation gives $p_{\mu}=\frac{e_{\mu}}{\chi^{-1}+g_{\mu}}\big{(}\frac{1}{2}+\frac{i\theta_{\mu}}{\lambda}\big{)},$ which can then be plugged into the second equation to get 
+ 
+ $\displaystyle\lambda$ $\displaystyle=\pm 2\sqrt{\bigg{(}\sum_{\mu}\frac{|e_{\mu}|^{2}\theta_{\mu}^{2}}{\chi^{-1}+g_{\mu}}\bigg{)}\bigg{/}\bigg{(}\sum_{\mu}\frac{|e_{\mu}|^{2}}{\chi^{-1}+g_{\mu}}\bigg{)}},$ 
+ 
+ $\displaystyle=\pm 2\sqrt{\frac{\left\langle\hat{\Theta}\bm{\mathrm{E}}^{\mathrm{inc}},(\chi^{-1}\mathbb{P}(\Omega)-\mathbb{P}(\Omega)\mathbb{G}_{0}\mathbb{P}(\Omega))^{-1}\hat{\Theta}\bm{\mathrm{E}}^{\mathrm{inc}}\right\rangle}{\left\langle\bm{\mathrm{E}}^{\mathrm{inc}},(\chi^{-1}\mathbb{P}(\Omega)-\mathbb{P}(\Omega)\mathbb{G}_{0}\mathbb{P}(\Omega))^{-1}\bm{\mathrm{E}}^{\mathrm{inc}}\right\rangle}}.$ 
+ The objective has $\frac{\delta^{2}L}{\delta p_{\mu}\delta p_{\nu}^{*}}=\lambda(\chi^{-1}+g_{\mu})\delta_{\mu\nu}$ , so the negative value of $\lambda$ gives the maximum while the positive value gives the minimum. The stationary point corresponding to $\lambda=0$ , which is a saddle point, can occur if $\hat{\Theta}\ket{\bm{\mathrm{E}}^{\mathrm{inc}}}=0$ . However, this cannot occur for the incident field radiated by a dipole into the design domain, so we ignore this mathematical case going forward. Consequently, $L\in[L^{-},L^{+}]$ , with 
+ 
+ $L^{\pm}=\\
+\pm\sqrt{\frac{\left\langle\bm{\mathrm{E}}^{\mathrm{inc}},\hat{\Theta}^{\dagger}(\chi^{-1}\mathbb{P}(\Omega)-\mathbb{P}(\Omega)\mathbb{G}_{0}\mathbb{P}(\Omega))^{-1}\hat{\Theta}\bm{\mathrm{E}}^{\mathrm{inc}}\right\rangle}{\left\langle\bm{\mathrm{E}}^{\mathrm{inc}},(\chi^{-1}\mathbb{P}(\Omega)-\mathbb{P}(\Omega)\mathbb{G}_{0}\mathbb{P}(\Omega))^{-1}\bm{\mathrm{E}}^{\mathrm{inc}}\right\rangle^{-1}}}.$  (18) 
+
+
+For our problem of interest, Eq. ( 16a ), we set $\ket{\bm{\mathrm{E}}^{\mathrm{inc}}}=\mathbb{G}_{0}\ket{\bm{\mathrm{u}}^{(a)}}$ and identify $\mathbb{G}_{\mathrm{sca}}(\Omega)=\mathbb{G}_{0}(\chi^{-1}\mathbb{P}(\Omega)-\mathbb{P}(\Omega)\mathbb{G}_{0}\mathbb{P}(\Omega))^{-1}\mathbb{G}_{0}$ as the scattering Green’s function of the equivalent object formed by filling the entire domain $\Omega$ with the susceptibility $\chi$ . Since $\alpha_{a}(i\xi)>0$ , the net upper bound cannot fall above the upper bound applied to each channel $a$ , just as the net lower bound cannot fall below the per-channel lower bound. This argument also applies to each $\xi$ in the integral. Since it was assumed that $\hat{\Theta}$ and $\mathbb{P}(\Omega)$ commute, one can work with $\mathbb{G}_{\mathrm{sca}}(\Omega)$ and $\hat{\Theta}^{\dagger}\hat{\Theta}\mathbb{G}_{\mathrm{sca}}(\Omega)$ instead of evaluating $\hat{\Theta}$ on a vector, yielding Eq. ( 12 ).
+
+The extension to $T>0$ K is achieved by observing that $\coth\left(\frac{\hbar\omega}{2k_{B}T}\right)$ has poles at $\omega_{n}$ satisfying $\frac{\hbar\omega_{n}}{2k_{B}T}=i\pi n$ for $n\in\mathbb{Z}$. When closing the contour $\int_{-\infty}^{\infty}\mathrm{d}\omega$ in the upper-half plane, only poles with $\textrm{Im}[\omega_{n}]\geq 0$ are enclosed, necessitating consideration of $n=0,1,\cdots$. The residue of $\coth\left(\frac{\hbar\omega}{2k_{B}T}\right)$ at these poles, as a function of $\omega$, is $\frac{2k_{B}T}{\hbar}$. The indented path around the simple pole at $\omega=0$ contributes half the residue of a full circle. Consequently, if the observable or its bound at zero temperature is expressed as $F(0)=\int_{0}^{\infty}f(i\xi)\frac{\mathrm{d}\xi}{2\pi}$ for the corresponding integrand $f(i\xi)$, then the corresponding quantity for temperatures $T>0$ K becomes $F(T)=\frac{k_{\mathrm{B}}T}{\hbar}\sum_{n=0}^{{}^{\prime}\infty}f(i\xi_{n})$, where the Matsubara frequencies are $\xi_{n}=2\pi k_{\mathrm{B}}Tn/\hbar$ and the prime on the summation indicates a prefactor of $1/2$ for the $n=0$ term.
+
+Numerics, asymptotics, and discussion — To illustrate the application of this bound, we consider the torque about the $z$ axis exerted by structures within a planar semi-infinite half-space $\Omega=\{(x,y,z)|z\leq 0\}$ (see inset of Fig. 1), where $\mathbb{G}_{\mathrm{sca}}(\Omega)$ and $\hat{J}_{z}^{2}\mathbb{G}_{\mathrm{sca}}(\Omega)$ have known semianalytic forms (see App. B). This allows us to evaluate 
+
+$\tau_{\mathrm{dip},z}^{\pm}=\pm\int_{0}^{\infty}\frac{\mathrm{d}\xi}{2\pi}\sum_{a}\alpha_{a}\sqrt{\frac{\left\langle\bm{\mathrm{u}}^{(a)},\hat{J}_{z}^{2}\mathbb{G}_{\mathrm{sca}}(\Omega)\bm{\mathrm{u}}^{(a)}\right\rangle}{\left\langle\bm{\mathrm{u}}^{(a)},\mathbb{G}_{\mathrm{sca}}(\Omega)\bm{\mathrm{u}}^{(a)}\right\rangle^{-1}}}.$ (19)
+
+This example highlights a broad range of structure designs, though it does not exhaust the theory's scope—bounds can also be determined for other design domains, such as spherical or cylindrical shells.
+
+For a dipole located at $(0,0,d)$, we find 
+
+\[
+\tau_{\mathrm{dip},z}^{\pm}(T=0)=\pm\frac{\hbar c}{16\pi^{2}d^{4}}\int_{0}^{\infty}\int_{0}^{\infty}\left(\alpha_{xx}\left(\frac{i\tilde{\xi}c}{d}\right)+\alpha_{yy}\left(\frac{i\tilde{\xi}c}{d}\right)\right)\left(-\frac{\tilde{\xi}^{2}}{\sqrt{\tilde{\xi}^{2}+\tilde{k}^{2}}}\cdot\frac{\sqrt{\tilde{\xi}^{2}+\tilde{k}^{2}}-\sqrt{(1+\chi\left(\frac{i\tilde{\xi}c}{d}\right))\tilde{\xi}^{2}+\tilde{k}^{2}}}{\sqrt{\tilde{\xi}^{2}+\tilde{k}^{2}}+\sqrt{(1+\chi\left(\frac{i\tilde{\xi}c}{d}\right))\tilde{\xi}^{2}+\tilde{k}^{2}}}\right.
+\\
+\left.+\sqrt{\tilde{\xi}^{2}+\tilde{k}^{2}}\cdot\frac{(1+\chi\left(\frac{i\tilde{\xi}c}{d}\right))\sqrt{\tilde{\xi}^{2}+\tilde{k}^{2}}-\sqrt{(1+\chi\left(\frac{i\tilde{\xi}c}{d}\right))\tilde{\xi}^{2}+\tilde{k}^{2}}}{(1+\chi\left(\frac{i\tilde{\xi}c}{d}\right))\sqrt{\tilde{\xi}^{2}+\tilde{k}^{2}}+\sqrt{(1+\chi\left(\frac{i\tilde{\xi}c}{d}\right))\tilde{\xi}^{2}+\tilde{k}^{2}}}\right)e^{-2\sqrt{\tilde{\xi}^{2}+\tilde{k}^{2}}}~{}\tilde{k}\mathrm{d}\tilde{k}~{}\mathrm{d}\tilde{\xi} \quad (20)
+\]
+
+\[
+\tau_{\mathrm{dip},z}^{\pm}(T>0)=\pm\frac{k_{B}T}{8\pi d^{3}}\sum_{n=0}^{\infty}{}^{\prime}\left(\alpha_{xx}(i\xi_{n})+\alpha_{yy}(i\xi_{n})\right)\int_{0}^{\infty}\left(-\frac{(\xi_{n}d/c)^{2}}{\sqrt{(\xi_{n}d/c)^{2}+\tilde{k}^{2}}}\cdot\frac{\sqrt{(\xi_{n}d/c)^{2}+\tilde{k}^{2}}-\sqrt{(1+\chi(i\xi_{n}))(\xi_{n}d/c)^{2}+\tilde{k}^{2}}}{\sqrt{(\xi_{n}d/c)^{2}+\tilde{k}^{2}}+\sqrt{(1+\chi(i\xi_{n}))(\xi_{n}d/c)^{2}+\tilde{k}^{2}}}\right.
+\\
+\left.+\sqrt{(\xi_{n}d/c)^{2}+\tilde{k}^{2}}\cdot\frac{(1+\chi(i\xi_{n}))\sqrt{(\xi_{n}d/c)^{2}+\tilde{k}^{2}}-\sqrt{(1+\chi(i\xi_{n}))(\xi_{n}d/c)^{2}+\tilde{k}^{2}}}{(1+\chi(i\xi_{n}))\sqrt{(\xi_{n}d/c)^{2}+\tilde{k}^{2}}+\sqrt{(1+\chi(i\xi_{n}))(\xi_{n}d/c)^{2}+\tilde{k}^{2}}}\right)e^{-2\sqrt{(\xi_{n}d/c)^{2}+\tilde{k}^{2}}}~{}\tilde{k}\mathrm{d}\tilde{k} \quad (21)
+\]
+
+For simplicity, assume the polarizabilities are dispersionless. In this case, the torque bounds can be expressed as $\tau_{\mathrm{dip},z}^{\pm}(T=0)=\pm(\alpha_{xx,0}+\alpha_{yy,0})\frac{\hbar c}{16\pi^{2}d^{4}}g[\chi(i\tilde{\xi}c/d)]$, where $g$ is a dimensionless functional dependent on the macroscopic susceptibility $\chi$ evaluated at a frequency determined by the separation $d$. Consider a macroscopic body with dispersionless susceptibility $\chi(i\xi)=\chi_{0}$, as shown in Fig. 1 for numerical evaluation. The bounds scale linearly with $\chi_{0}$ for $\chi_{0}\ll 1$ (specifically, $\frac{7\hbar c}{640\pi^{2}d^{4}}(\alpha_{xx,0}+\alpha_{yy,0})\chi_{0}$ at $T=0$ K) and approach 0 as $\chi_{0}\to 0$, consistent with the expectation that a vacuum-only system has no torque on an isolated dipole. The bounds increase monotonically with $\chi_{0}$, a behavior supported by Eq. (19). Expanding $\ket{\bm{\mathrm{E}}_{\mathrm{inc}}^{(a)}}\equiv\mathbb{G}_{0}\ket{\bm{\mathrm{u}}^{(a)}}$ in the previous basis, the expression $\sqrt{\left\langle\bm{\mathrm{u}}^{(a)},\hat{\Theta}^{\dagger}\mathbb{G}_{\mathrm{sca}}(\Omega)\hat{\Theta}\bm{\mathrm{u}}^{(a)}\right\rangle/\left\langle\bm{\mathrm{u}}^{(a)},\mathbb{G}_{\mathrm{sca}}(\Omega)\bm{\mathrm{u}}^{(a)}\right\rangle^{-1}}$ simplifies to $\sqrt{\bigg{(}\sum_{\mu}\frac{|e_{\mu}^{(a)}|^{2}|\theta_{\mu}|^{2}}{\chi^{-1}+g_{\mu}}\bigg{)}/\bigg{(}\sum_{\mu}\frac{|e_{\mu}^{(a)}|^{2}}{\chi^{-1}+g_{\mu}}\bigg{)}^{-1}}$, showing that increasing $\chi(i\xi)$ enhances the bound contribution at any $\xi$. This holds for all $\xi$ and thus for the total integrated ($T=0$ K) or summed ($T>0$ K) quantities. However, the bounds do not diverge but instead saturate to a finite value in the perfect electrical conductor (PEC) limit ($\chi_{0}\to\infty$). In this limit, the integrals and summations can be evaluated explicitly, yielding 
+
+$\displaystyle\tau_{\mathrm{dip}}^{\textrm{PEC},\pm}=\begin{cases}\pm\frac{\hbar c}{32\pi^{2}d^{4}}(\alpha_{xx,0}+\alpha_{yy,0}),&T=0,\\
+\pm\frac{\hbar c}{32\pi^{2}d^{4}}(\alpha_{xx,0}+\alpha_{yy,0})\times\\
+\frac{a}{2}\frac{1+(8a^{2}-4a-1)e^{2a}+(8a^{2}+4a-1)e^{4a}+e^{6a}}{2(e^{2a}-1)^{3}},&T>0,\end{cases}$  (22) 
+
+where $a\equiv\frac{2\pi k_{B}Td}{\hbar c}$. For $T\ll\frac{\hbar c}{2\pi k_{B}d}$, 
+
+$\displaystyle\frac{\tau_{\mathrm{dip}}^{\pm}(\chi_{0}\to\infty,T>0)}{\tau_{\mathrm{dip}}^{\pm}(\chi_{0}\to\infty,T=0)}=\bigg{(}1-\frac{1}{45}\bigg{(}\frac{2\pi k_{B}Td}{\hbar c}\bigg{)}^{4}+O(T^{6})\bigg{)},$  (23) 
+
+while for $T\gg\frac{\hbar c}{2\pi k_{B}d}$, 
+
+$\displaystyle\frac{\tau_{\mathrm{dip}}^{\pm}(\chi_{0}\to\infty,T>0)}{\tau_{\mathrm{dip}}^{\pm}(\chi_{0}\to\infty,T=0)}=\bigg{(}\frac{1}{4}\frac{2\pi k_{B}Td}{\hbar c}+O(T^{2})\bigg{)},$  (24) 
+
+indicating that nonzero temperature modifies the $d^{-4}$ distance scaling of the bounds. While the bounds apply at any temperature and material dispersion model, the PEC limit, though yielding a looser bound, offers analytic simplicity for extracting scaling behavior.
+
+Next, we relax the assumption that $\chi(i\xi)$ is nondispersive and consider two specific cases: i) a gold medium with electric susceptibility modeled by $\chi_{\mathrm{Au}}(i\xi)=\omega_{\mathrm{p}}^{2}/(\xi^{2}+\gamma\xi)$, where $\omega_{\mathrm{p}}=1.37\times 10^{16}~{}\mathrm{rad/s}$ and $\gamma=5.32\times 10^{13}~{}\mathrm{rad/s}$, and ii) intrinsic (undoped) silicon with $\chi_{\mathrm{Si}}(i\xi)=\epsilon_{\mathrm{Si}}(\infty)-1+(\epsilon_{\mathrm{Si}}(0)+\epsilon_{\mathrm{Si}}(\infty))/(1+\xi^{2}/\omega_{0}^{2})$, where $\epsilon_{\mathrm{Si}}(0)=11.87$, $\epsilon_{\mathrm{Si}}(\infty)=1.035$, and $\omega_{0}=6.6\times 10^{15}$ rad/s (Venkataram et al. [2020a]). For simplicity, we continue to neglect dispersion in $\alpha_{xx}$ and $\alpha_{yy}$. See Fig. 2. For $d>1$ $\mu$ m, we find that $\tau_{\mathrm{dip},z}^{\pm}(\chi_{\mathrm{Au}})$ is within 5% of the PEC limit, and within 1% for $d>10$ $\mu$ m, regardless of the temperature.
+
+In summary, we presented trace expressions for equilibrium Casimir torque that apply to arbitrary object shapes and materials, generalizing prior work on power transfer Molesky et al. [2019] and forces Bimonte et al. [2017] . The need for a full account of the spin and orbital angular momentum carried by waves in this setting is explicit in the trace expressions. Then, using the derived trace expressions, we calculated bounds on the Casimir torque on a dipolar particle next to a structure of isotropic susceptibility $\chi$ enclosed within a prescribed domain, and evaluated the bounds specifically for a half-space design domain as a demonstrative example. An interesting direction for future work is the extension of the bounds for the case where the structured medium is birefringent or, more generally, anisotropic.
+
+Appendix A Trace expressions for nonreciprocal materials
+
+In this section, we provide the intermediate steps in the derivation of the trace expressions for the torque in terms of the scattering operators and the background Green’s function.
+
+A.1 A single object
+
+For the case of a single object (reciprocal or nonreciprocal), we use $\mathbb{G}=\mathbb{G}_{0}+\mathbb{G}_{0}\mathbb{T}\mathbb{G}_{0}$ to find that 
+ 
+ $\displaystyle\text{Tr}|_{V}[\hat{\mathbf{J}}\mathbb{G}^{\mathsf{A}}\mathbb{G}_{0}^{-1\dagger}]$ $\displaystyle=\text{Tr}|_{V}[\hat{\mathbf{J}}(\mathbb{G}_{0}\mathbb{T}-\mathbb{G}_{0}^{\dagger}\mathbb{T}^{\dagger})]\frac{1}{2i},$  (25) 
+ 
+ $\displaystyle=\text{Tr}[\hat{\mathbf{J}}(\mathbb{G}_{0}\mathbb{T}-\mathbb{G}_{0}^{\dagger}\mathbb{T}^{\dagger})]\frac{1}{2i}$  (26) 
+ where the first equality follows since $\mathbb{G}_{0}^{-1}=\nabla\times\nabla\times-\frac{\omega^{2}}{c^{2}}$ inside the body and so gives the identity operator when acting on $\mathbb{G}_{0}$ or $\mathbb{G}_{0}^{\dagger}$ which has one argument restricted to the body. In more detail, $\mathbb{G}_{0}^{-1\dagger}=\mathbb{G}_{0}^{-1}-2i\mathbb{G}_{0}^{-1\mathsf{A}}$ where $\mathbb{G}_{0}^{-1\mathsf{A}}$ is local and infinitesimal (it is proportional to $\mathbb{V}_{\textrm{env}}^{\mathsf{A}}$ ). The $\mathbb{V}_{\textrm{env}}^{\mathsf{A}}$ term is the famous environmental “dust” contribution Krüger et al. [2012] . Its contribution is infinitesimal if integrated over a finite region, but it can be noninfinitesimal if integrated over infinite space. The second equality follows since the $\mathbb{T}$ operator vanishes unless both arguments are inside the body, so the integration can be extended to the entire space. Therefore, 
+ 
+ $\displaystyle\bm{\tau}^{(\textrm{eq})}$ $\displaystyle=-\textrm{Im}\int_{-\infty}^{\infty}\frac{\mathrm{d}\omega}{2\pi}\coth\left(\frac{\hbar\omega}{2k_{B}T}\right)\text{Tr}|_{V}[\hat{\Theta}\mathbb{G}^{\mathsf{A}}\mathbb{G}_{0}^{-1\dagger}],$  (27) 
+ 
+ $\displaystyle=\text{Re}\int_{-\infty}^{\infty}\frac{\mathrm{d}\omega}{4\pi}\coth\left(\frac{\hbar\omega}{2k_{B}T}\right)\text{Tr}[\hat{\mathbf{J}}(\mathbb{G}_{0}\mathbb{T}-\mathbb{G}_{0}^{\dagger}\mathbb{T}^{\dagger})].$  (28) 
+ Using $\text{Re}\text{Tr}[A]=\text{Re}\text{Tr}[A^{\dagger}]$ , $\hat{\mathbf{J}}=\hat{\mathbf{J}}^{\dagger}$ , $\hat{\mathbf{J}}\mathbb{G}_{0}=\mathbb{G}_{0}\hat{\mathbf{J}}$ , and the cyclicity of the trace, one finds that $\text{Re}\text{Tr}[\hat{\mathbf{J}}(\mathbb{G}_{0}\mathbb{T}-\mathbb{G}_{0}^{\dagger}\mathbb{T}^{\dagger})]=0$ for any $\mathbb{T}.$
+
+A.2 Two or more objects
+
+We start with the expressions for $\mathbb{G}$:
+
+\[
+\mathbb{G} = (1 + \mathbb{G}_0 \mathbb{T}_{\bar{1}}) \frac{1}{1 - \mathbb{G}_0 \mathbb{T}_1 \mathbb{G}_0 \mathbb{T}_{\bar{1}}} (1 + \mathbb{G}_0 \mathbb{T}_1) \mathbb{G}_0, \quad (29)
+\]
+\[
+\mathbb{G} = (1 + \mathbb{G}_0 \mathbb{T}_1) \frac{1}{1 - \mathbb{G}_0 \mathbb{T}_{\bar{1}} \mathbb{G}_0 \mathbb{T}_1} (1 + \mathbb{G}_0 \mathbb{T}_{\bar{1}}) \mathbb{G}_0. \quad (30)
+\]
+
+The relevant expression for $\mathbb{G}$ is determined by the term with the nonzero right-most $\mathbb{T}$ operator in the integration volume. This is because $\mathbb{T}_\alpha$ vanishes outside the volume of $\alpha$, allowing the integration volume to be extended to all space, resulting in a basis-independent trace expression. Collecting terms with $\mathbb{T}_1$ as the right-most term, we find:
+
+\[
+\bm{\tau}^{(1,\textrm{eq})} = -\textrm{Im} \int_{-\infty}^\infty \frac{\mathrm{d}\omega}{2\pi} \coth\left(\frac{\hbar\omega}{2k_B T}\right) \text{Tr}|_{V_1}[\hat{\mathbf{J}} \mathbb{G}^\mathsf{A} \mathbb{G}_0^{-1\dagger}], \quad (31)
+\]
+\[
+\bm{\tau}^{(1,\textrm{eq})} = -\text{Im} \int_{-\infty}^\infty \frac{\mathrm{d}\omega}{2\pi} \coth\left(\frac{\hbar\omega}{2k_B T}\right) \bigg( \text{Tr}[\hat{\mathbf{J}} (1 + \mathbb{G}_0 \mathbb{T}_{\bar{1}}) \frac{1}{1 - \mathbb{G}_0 \mathbb{T}_1 \mathbb{G}_0 \mathbb{T}_{\bar{1}}} \mathbb{G}_0 \mathbb{T}_1 ] - \text{Tr}[\hat{\mathbf{J}} \mathbb{G}_0^\dagger (1 + \mathbb{T}_{\bar{1}}^\dagger \mathbb{G}_0^\dagger) \frac{1}{1 - \mathbb{T}_1^\dagger \mathbb{G}_0^\dagger \mathbb{T}_{\bar{1}}^\dagger \mathbb{G}_0^\dagger} \mathbb{T}_1^\dagger ] \bigg) \frac{1}{2i}, \quad (32)
+\]
+\[
+\bm{\tau}^{(1,\textrm{eq})} = \text{Re} \int_{-\infty}^\infty \frac{\mathrm{d}\omega}{4\pi} \coth\left(\frac{\hbar\omega}{2k_B T}\right) \bigg( \text{Tr}[\hat{\mathbf{J}} (1 + \mathbb{G}_0 \mathbb{T}_{\bar{1}}) \frac{1}{1 - \mathbb{G}_0 \mathbb{T}_1 \mathbb{G}_0 \mathbb{T}_{\bar{1}}} \mathbb{G}_0 \mathbb{T}_1 ] - \text{Tr}[\hat{\mathbf{J}} \mathbb{G}_0^\dagger (1 + \mathbb{T}_{\bar{1}}^\dagger \mathbb{G}_0^\dagger) \frac{1}{1 - \mathbb{T}_1^\dagger \mathbb{G}_0^\dagger \mathbb{T}_{\bar{1}}^\dagger \mathbb{G}_0^\dagger} \mathbb{T}_1^\dagger ] \bigg). \quad (33)
+\]
+
+Applying $\text{Re}\text{Tr}[A] = \text{Re}\text{Tr}[A^\dagger]$ to the second trace term leads to:
+
+\[
+\bm{\tau}^{(1,\textrm{eq})} = \text{Re} \int_{-\infty}^\infty \frac{\mathrm{d}\omega}{4\pi} \coth\left(\frac{\hbar\omega}{2k_B T}\right) \text{Tr}\left[ (\hat{\mathbf{J}} \mathbb{G}_0 \mathbb{T}_{\bar{1}} - \mathbb{G}_0 \mathbb{T}_{\bar{1}} \hat{\mathbf{J}}) \frac{1}{1 - \mathbb{G}_0 \mathbb{T}_1 \mathbb{G}_0 \mathbb{T}_{\bar{1}}} \mathbb{G}_0 \mathbb{T}_1 \right], \quad (34)
+\]
+\[
+\bm{\tau}^{(1,\textrm{eq})} = \text{Re} \int_0^\infty \frac{\mathrm{d}\omega}{\pi} \left[ n(\omega,T) + \frac{1}{2} \right] \text{Tr}\left[ \frac{1}{1 - \mathbb{G}_0 \mathbb{T}_1 \mathbb{G}_0 \mathbb{T}_{\bar{1}}} \mathbb{G}_0 (\mathbb{T}_1 \hat{\mathbf{J}} - \hat{\mathbf{J}} \mathbb{T}_1) \mathbb{G}_0 \mathbb{T}_{\bar{1}} \right]. \quad (35)
+\]
+
+This is precisely Eq. (4) when $\alpha = 1$. The derivation for $\bar{1}$ is analogous, with $1 \leftrightarrow \bar{1}$ in intermediate expressions:
+
+\[
+\bm{\tau}^{(\bar{1},\textrm{eq})} = -\textrm{Im} \int_{-\infty}^\infty \frac{\mathrm{d}\omega}{2\pi} \coth\left(\frac{\hbar\omega}{2k_B T}\right) \text{Tr}|_{V_{\bar{1}}}[\hat{\mathbf{J}} \mathbb{G}^\mathsf{A} \mathbb{G}_0^{-1\dagger}], \quad (36)
+\]
+\[
+\bm{\tau}^{(\bar{1},\textrm{eq})} = \text{Re} \int_0^\infty \frac{\mathrm{d}\omega}{\pi} \left[ n(\omega,T) + \frac{1}{2} \right] \text{Tr}\left[ \frac{1}{1 - \mathbb{G}_0 \mathbb{T}_{\bar{1}} \mathbb{G}_0 \mathbb{T}_1} \mathbb{G}_0 (\mathbb{T}_{\bar{1}} \hat{\mathbf{J}} - \hat{\mathbf{J}} \mathbb{T}_{\bar{1}}) \mathbb{G}_0 \mathbb{T}_1 \right]. \quad (37)
+\]
+
+This proves Eq. (4) for $\alpha = \bar{1}$. Note that the above equations are valid for both reciprocal and nonreciprocal objects, as the derivation did not assume reciprocity of the $\mathbb{T}$ operators.
+
+Appendix B Green’s function expressions in real space
+
+Here, we provide the expressions for the Green’s function necessary to compute bounds above a half-space design region.
+
+$\mathbb{G}_{0}$ is defined as the operator that serves as the inverse of the Maxwell operator, satisfying the equation  
+$[(\nabla\times\nabla\times)-(\omega/c)^{2}\mathbb{I}]\mathbb{G}_{0}(\omega,\bm{\mathrm{x}},\bm{\mathrm{x}}^{\prime})=(\omega/c)^{2}\mathbb{I}\delta^{3}(\bm{\mathrm{x}}-\bm{\mathrm{x}}^{\prime})$.  
+In position space, evaluating at $\omega=i\xi$, this results in the expression  
+$\mathbb{G}_{0}(i\xi,\bm{\mathrm{x}},\bm{\mathrm{x}}^{\prime})=[\nabla\otimes\nabla+(\xi/c)^{2}](e^{-\xi|\bm{\mathrm{x}}-\bm{\mathrm{x}}^{\prime}|/c}/4\pi|\bm{\mathrm{x}}-\bm{\mathrm{x}}^{\prime}|)$.
+
+The scattering Green’s function at $\omega=i\xi$ in the vacuum region above a uniform planar semi-infinite half-space of susceptibility $\chi$ is given by Novotny and Hecht [2012] as  
+
+ $\displaystyle\mathbb{G}_{\mathrm{sca}}(i\xi,\bm{\mathrm{x}},\bm{\mathrm{x}}^{\prime})=\frac{1}{2}\int_{-\infty}^{\infty}\int_{-\infty}^{\infty}(\mathbb{M}^{\mathrm{s}}(i\xi,\bm{\mathrm{k}})+\mathbb{M}^{\mathrm{p}}(i\xi,\bm{\mathrm{k}}))e^{i(k_{x}(x-x^{\prime})+k_{y}(y-y^{\prime}))-\kappa_{z}(z+z^{\prime})}~{}\frac{\mathrm{d}k_{x}~{}\mathrm{d}k_{y}}{(2\pi)^{2}}$  (38)  
+and is defined in terms of the Cartesian tensors  
+
+ $\displaystyle\mathbb{M}^{\mathrm{s}}(i\xi,\bm{\mathrm{k}})$ $\displaystyle=-\frac{\xi^{2}r^{\mathrm{s}}(i\xi,k)}{c^{2}\kappa_{z}k^{2}}\begin{bmatrix}k_{y}^{2}&-k_{x}k_{y}&0\\
+-k_{x}k_{y}&k_{x}^{2}&0\\
+0&0&0\end{bmatrix},$  (39)  
+
+ $\displaystyle\mathbb{M}^{\mathrm{p}}(i\xi,\bm{\mathrm{k}})$ $\displaystyle=\frac{r^{\mathrm{p}}(i\xi,k)}{k^{2}}\begin{bmatrix}\kappa_{z}k_{x}^{2}&\kappa_{z}k_{x}k_{y}&-ik^{2}k_{x}\\
+\kappa_{z}k_{x}k_{y}&\kappa_{z}k_{y}^{2}&-ik^{2}k_{y}\\
+ik^{2}k_{x}&ik^{2}k_{y}&k^{4}/\kappa_{z}\end{bmatrix},$  (40)  
+where $\bm{\mathrm{k}}=k_{x}\bm{\mathrm{e}}_{x}+k_{y}\bm{\mathrm{e}}_{y}$, $k=|\bm{\mathrm{k}}|$, $\kappa_{z}=\sqrt{(\xi/c)^{2}+k^{2}}$, and the Fresnel reflection coefficients are  
+
+ $\displaystyle r^{\mathrm{s}}(i\xi,k)$ $\displaystyle=\frac{\sqrt{(\xi/c)^{2}+k^{2}}-\sqrt{(1+\chi)(\xi/c)^{2}+k^{2}}}{\sqrt{(\xi/c)^{2}+k^{2}}+\sqrt{(1+\chi)(\xi/c)^{2}+k^{2}}},$  (41)  
+
+ $\displaystyle r^{\mathrm{p}}(i\xi,k)$ $\displaystyle=\frac{(1+\chi)\sqrt{(\xi/c)^{2}+k^{2}}-\sqrt{(1+\chi)(\xi/c)^{2}+k^{2}}}{(1+\chi)\sqrt{(\xi/c)^{2}+k^{2}}+\sqrt{(1+\chi)(\xi/c)^{2}+k^{2}}}$  (42)  
+at $\omega=i\xi$.
+
+To evaluate $\mathbb{G}_{\mathrm{sca}}(i\xi,\bm{\mathrm{x}},\bm{\mathrm{x}}^{\prime})$ in torque settings, polar coordinates are a more natural choice. That is, reparameterize $(k_{x},k_{y})$ as $(k,\psi)$ and $(x,y,z)$ as $(\rho,\phi,z)$ so that 
+ 
+ $\mathbb{G}_{\mathrm{sca}}(i\xi,\bm{\mathrm{x}},\bm{\mathrm{x}}^{\prime})=\frac{1}{2}\int_{0}^{2\pi}\int_{0}^{\infty}(\mathbb{M}^{\mathrm{s}}(i\xi,\bm{\mathrm{k}})+\mathbb{M}^{\mathrm{p}}(i\xi,\bm{\mathrm{k}}))e^{i(k\text{cos}\left(\psi\right)(\rho\text{cos}\left(\phi\right)-\rho^{\prime}\text{cos}\left(\phi^{\prime}\right))+k\text{sin}\left(\psi\right)(\rho\text{sin}\left(\phi\right)-\rho^{\prime}\text{sin}\left(\phi^{\prime}\right)))-\kappa_{z}(z+z^{\prime})}~{}\frac{k\mathrm{d}k~{}\mathrm{d}\psi}{(2\pi)^{2}}.$  (43) 
+ We then find (defining $\hat{R}_{z}\equiv\frac{1}{\hbar}\hat{S}_{z}$ ) 
+ 
+ $(\hat{J}_{z}\mathbb{G}_{\mathrm{sca}})(i\xi,\bm{\mathrm{x}},\bm{\mathrm{x}}^{\prime})=\frac{\hbar}{2}\int_{0}^{2\pi}\int_{0}^{\infty}\bigg{(}-k\text{cos}\left(\psi\right)\rho\text{sin}\left(\phi\right)+k\text{sin}\left(\psi\right)\rho\text{cos}\left(\phi\right)+\hat{R}_{z}\bigg{)}(\mathbb{M}^{\mathrm{s}}(i\xi,\bm{\mathrm{k}})+\mathbb{M}^{\mathrm{p}}(i\xi,\bm{\mathrm{k}}))\\
+\times e^{i(k\text{cos}\left(\psi\right)(\rho\text{cos}\left(\phi\right)-\rho^{\prime}\text{cos}\left(\phi^{\prime}\right))+k\text{sin}\left(\psi\right)(\rho\text{sin}\left(\phi\right)-\rho^{\prime}\text{sin}\left(\phi^{\prime}\right)))-\kappa_{z}(z+z^{\prime})}~{}\frac{k\mathrm{d}k~{}\mathrm{d}\psi}{(2\pi)^{2}}$  (44) 
+ and 
+ 
+ $(\hat{J}_{z}^{2}\mathbb{G}_{\mathrm{sca}})(i\xi,\bm{\mathrm{x}},\bm{\mathrm{x}}^{\prime})=\frac{\hbar^{2}}{2}\int_{0}^{2\pi}\int_{0}^{\infty}\bigg{(}(-k\text{cos}\left(\psi\right)\rho\text{sin}\left(\phi\right)+k\text{sin}\left(\psi\right)\rho\text{cos}\left(\phi\right))^{2}-i(-k\text{cos}\left(\psi\right)\rho\text{cos}\left(\phi\right)-k\text{sin}\left(\psi\right)\rho\text{sin}\left(\phi\right))\\
++2\hat{R}_{z}(-k\text{cos}\left(\psi\right)\rho\text{sin}\left(\phi\right)+k\text{sin}\left(\psi\right)\rho\text{cos}\left(\phi\right))+\hat{R}_{z}^{2}\bigg{)}\\
+\times(\mathbb{M}^{\mathrm{s}}(i\xi,\bm{\mathrm{k}})+\mathbb{M}^{\mathrm{p}}(i\xi,\bm{\mathrm{k}}))\\
+\times e^{i(k\text{cos}\left(\psi\right)(\rho\text{cos}\left(\phi\right)-\rho^{\prime}\text{cos}\left(\phi^{\prime}\right))+k\text{sin}\left(\psi\right)(\rho\text{sin}\left(\phi\right)-\rho^{\prime}\text{sin}\left(\phi^{\prime}\right)))-\kappa_{z}(z+z^{\prime})}~{}\frac{k\mathrm{d}k~{}\mathrm{d}\psi}{(2\pi)^{2}}.$  (45) 
+ We are interested in the torque about the center of mass of the dipole. For $\mathbf{x}=\mathbf{x}^{\prime}=(0,0,d)$ we get 
+ 
+ $\displaystyle(\hat{J}_{z}^{2}\mathbb{G}_{\mathrm{sca}})(i\xi,d\mathbf{e}_{z},d\mathbf{e}_{z})$ $\displaystyle=\frac{\hbar^{2}}{2}\int_{0}^{2\pi}\int_{0}^{\infty}\hat{R}_{z}^{2}(\mathbb{M}^{\mathrm{s}}(i\xi,\bm{\mathrm{k}})+\mathbb{M}^{\mathrm{p}}(i\xi,\bm{\mathrm{k}}))e^{-2\kappa_{z}d}~{}\frac{k\mathrm{d}k~{}\mathrm{d}\psi}{(2\pi)^{2}},$  (46) 
+ 
+ $\displaystyle=\frac{\hbar^{2}}{2}\int_{0}^{2\pi}\int_{0}^{\infty}\begin{bmatrix}1&0&0\\
+0&1&0\\
+0&0&0\end{bmatrix}(\mathbb{M}^{\mathrm{s}}(i\xi,\bm{\mathrm{k}})+\mathbb{M}^{\mathrm{p}}(i\xi,\bm{\mathrm{k}}))e^{-2\kappa_{z}d}~{}\frac{k\mathrm{d}k~{}\mathrm{d}\psi}{(2\pi)^{2}}.$  (47) 
+ It makes intuitive sense that $(\hat{J}_{z}\mathbb{G}_{\mathrm{sca}})(i\xi,d\mathbf{e}_{z},d\mathbf{e}_{z})=(\hat{S}_{z}\mathbb{G}_{\mathrm{sca}})(i\xi,d\mathbf{e}_{z},d\mathbf{e}_{z})$ since a point dipole has no geometric structure so any torque on it must come from internal structure (the polarizability matrix). These expressions, after changing to dimensionless integration variables, lead to Eq. ( 20 ) in the main text. Explicitly, in the limit that $\chi\to\infty,$ then $r^{\mathrm{s}}\to-1$ and $r^{\mathrm{p}}\to 1,$ leading to the simplification 
+ 
+ $\displaystyle(\mathbb{G}_{\mathrm{sca}})(i\xi,d\mathbf{e}_{z},d\mathbf{e}_{z})$ $\displaystyle=\frac{1}{2}\int_{0}^{2\pi}\int_{0}^{\infty}(\frac{\xi^{2}}{c^{2}\kappa_{z}k^{2}}\begin{bmatrix}k^{2}\text{sin}\left(\psi\right)^{2}&-k^{2}\text{cos}\left(\psi\right)\text{sin}\left(\psi\right)&0\\
+-k^{2}\text{cos}\left(\psi\right)\text{sin}\left(\psi\right)&k^{2}\text{cos}\left(\psi\right)^{2}&0\\
+0&0&0\end{bmatrix}$ 
+ 
+ $\displaystyle\qquad\qquad\qquad+\frac{1}{k^{2}}\begin{bmatrix}\kappa_{z}k^{2}\text{cos}\left(\psi\right)^{2}&\kappa_{z}k^{2}\text{cos}\left(\psi\right)\text{sin}\left(\psi\right)&-ik^{3}\text{cos}\left(\psi\right)\\
+\kappa_{z}k^{2}\text{cos}\left(\psi\right)\text{sin}\left(\psi\right)&\kappa_{z}k^{2}\text{sin}\left(\psi\right)^{2}&-ik^{3}\text{sin}\left(\psi\right)\\
+ik^{3}\text{cos}\left(\psi\right)&ik^{3}\text{sin}\left(\psi\right)&k^{4}/\kappa_{z}\end{bmatrix})e^{-2\kappa_{z}d}~{}\frac{k\mathrm{d}k~{}\mathrm{d}\psi}{(2\pi)^{2}},$  (48) 
+ 
+ $\displaystyle=\frac{1}{32\pi d^{3}}(1+2(\frac{\xi d}{c})+4(\frac{\xi d}{c})^{2})\exp(-2\frac{\xi d}{c})\begin{bmatrix}1&0&0\\
+0&1&0\\
+0&0&0\end{bmatrix}$ 
+ 
+ $\displaystyle+\frac{1}{16\pi d^{3}}(1+2(\frac{\xi d}{c}))\exp(-2\frac{\xi d}{c})\begin{bmatrix}0&0&0\\
+0&0&0\\
+0&0&1\end{bmatrix}$  (49) 
+ In the $\chi\to\infty$ limit, $(\hat{J}_{z}^{2}\mathbb{G}_{\mathrm{sca}}(i\xi,d\mathbf{e}_{z},d\mathbf{e}_{z}))$ is the same as the upper-left 2-by-2 block as above but with an additional factor of $\hbar^{2}$ . These expressions lead directly to Eq. ( 22 ) in the main text after doing the remaining integration over $\xi.$
+
+References
+
+Klimchitskaya et al. [2009] GL Klimchitskaya, U Mohideen, and VM Mostepanenko. The Casimir force between real materials: Experiment and theory. Reviews of Modern Physics, 81(4):1827, 2009.
+Woods et al. [2016] LM Woods, Diego Alejandro Roberto Dalvit, Alexandre Tkatchenko, P Rodriguez-Lopez, Alejandro W Rodriguez, and R Podgornik. Materials perspective on Casimir and van der Waals interactions. Reviews of Modern Physics, 88(4):045003, 2016.
+Rousseau et al. [2009] Emmanuel Rousseau, Alessandro Siria, Guillaume Jourdan, Sebastian Volz, Fabio Comin, Joël Chevrier, and Jean-Jacques Greffet. Radiative heat transfer at the nanoscale. Nature Photonics, 3(9):514–517, 2009.
+Cuevas and García-Vidal [2018] Juan Carlos Cuevas and Francisco J García-Vidal. Radiative heat transfer. ACS Photonics, 5(10):3896–3915, 2018.
+Lamoreaux [1997] Steven K Lamoreaux. Demonstration of the Casimir force in the 0.6 to 6μ𝜇\mum range. Physical Review Letters, 78(1):5, 1997.
+Mohideen and Roy [1998] Umar Mohideen and Anushree Roy. Precision measurement of the Casimir force from 0.1 to 0.9μ𝜇\mum. Physical Review Letters, 81(21):4549, 1998.
+Munday et al. [2009] Jeremy N Munday, Federico Capasso, and V Adrian Parsegian. Measured long-range repulsive Casimir–Lifshitz forces. Nature, 457(7226):170–173, 2009.
+Kats [1971] E. I. Kats. Van der Waals forces in non-isotropic systems. Sov. Phys. JETP, 33:634, 1971.
+Parsegian and Weiss [1972] VA Parsegian and George H Weiss. Dielectric anisotropy and the van der Waals interaction between bulk media. The Journal of Adhesion, 3(4):259–267, 1972.
+Khandekar et al. [2021] Chinmay Khandekar, Siddharth Buddhiraju, Paul R. Wilkinson, James K. Gimzewski, Alejandro W. Rodriguez, Charles Chase, and Shanhui Fan. Nonequilibrium lateral force and torque by thermally excited nonreciprocal surface electromagnetic waves. Phys. Rev. B, 104:245433, Dec 2021. doi:10.1103/PhysRevB.104.245433.
+Guo and Fan [2021] Yu Guo and Shanhui Fan. Single gyrotropic particle as a heat engine. ACS Photonics, 8(6):1623–1629, 2021.
+Gao et al. [2021] Xingyu Gao, Chinmay Khandekar, Zubin Jacob, and Tongcang Li. Thermal equilibrium spin torque: Near-field radiative angular momentum transfer in magneto-optical media. Physical Review B, 103(12):125424, 2021.
+Strekha et al. [2022] Benjamin Strekha, Sean Molesky, Pengning Chao, Matthias Krüger, and Alejandro W Rodriguez. Trace expressions and associated limits for nonequilibrium Casimir torque. Physical Review A, 106(4):042222, 2022.
+Munday et al. [2005] Jeremy N Munday, Davide Iannuzzi, Yuri Barash, and Federico Capasso. Torque on birefringent plates induced by quantum fluctuations. Physical Review A, 71(4):042102, 2005.
+Rodrigues et al. [2006] Robson B Rodrigues, PA Maia Neto, A Lambrecht, and S Reynaud. Vacuum-induced torque between corrugated metallic plates. EPL (Europhysics Letters), 76(5):822, 2006.
+Guérout et al. [2015] R Guérout, C Genet, A Lambrecht, and Serge Reynaud. Casimir torque between nanostructured plates. EPL (Europhysics Letters), 111(4):44001, 2015.
+Somers and Munday [2015] David AT Somers and Jeremy N Munday. Rotation of a liquid crystal by the Casimir torque. Physical Review A, 91(3):032520, 2015.
+Somers et al. [2018] David AT Somers, Joseph L Garrett, Kevin J Palm, and Jeremy N Munday. Measurement of the Casimir torque. Nature, 564(7736):386–389, 2018.
+Xu and Li [2017] Zhujing Xu and Tongcang Li. Detecting Casimir torque with an optically levitated nanorod. Physical Review A, 96(3):033843, 2017.
+Ahn et al. [2018] Jonghoon Ahn, Zhujing Xu, Jaehoon Bang, Yu-Hao Deng, Thai M Hoang, Qinkai Han, Ren-Min Ma, and Tongcang Li. Optically levitated nanodumbbell torsion balance and ghz nanomechanical rotor. Physical Review Letters, 121(3):033603, 2018.
+Ahn et al. [2020] Jonghoon Ahn, Zhujing Xu, Jaehoon Bang, Peng Ju, Xingyu Gao, and Tongcang Li. Ultrasensitive torque detection with an optically levitated nanorotor. Nature Nanotechnology, 15(2):89–93, 2020.
+Rahi et al. [2009] Sahand Jamal Rahi, Thorsten Emig, Noah Graham, Robert L Jaffe, and Mehran Kardar. Scattering theory approach to electrodynamic Casimir forces. Physical Review D, 80(8):085021, 2009.
+Emig et al. [2007] Thorsten Emig, N Graham, RL Jaffe, and M Kardar. Casimir forces between arbitrary compact objects. Physical Review Letters, 99(17):170403, 2007.
+Gelbwaser-Klimovsky et al. [2022] David Gelbwaser-Klimovsky, Noah Graham, Mehran Kardar, and Matthias Krüger. Equilibrium forces on nonreciprocal materials. Physical Review B, 106(11):115106, 2022.
+Rytov et al. [1989] Sergei M Rytov, Yurii A Kravtsov, and Valeryan I Tatarskii. Principles of Statistical Radiophysics: Elements of random fields. Springer, 1989.
+Otey et al. [2014] Clayton R Otey, Linxiao Zhu, Sunil Sandhu, and Shanhui Fan. Fluctuational electrodynamics calculations of near-field heat transfer in non-planar geometries: A brief overview. Journal of Quantitative Spectroscopy and Radiative Transfer, 132:3–11, 2014.
+Ding et al. [2022] Hongru Ding, Pavana Siddhartha Kollipara, Youngsun Kim, Abhay Kotnala, Jingang Li, Zhihan Chen, and Yuebing Zheng. Universal optothermal micro/nanoscale rotors. Science Advances, 8(24):eabn8498, 2022.
+van der Laan et al. [2021] Fons van der Laan, Felix Tebbenjohanns, René Reimann, Jayadev Vijayan, Lukas Novotny, and Martin Frimmer. Sub-Kelvin feedback cooling and heating dynamics of an optically levitated librator. Physical Review Letters, 127(12):123605, 2021.
+Stickler et al. [2021] Benjamin A Stickler, Klaus Hornberger, and MS Kim. Quantum rotations of nanoparticles. Nature Reviews Physics, 3(8):589–597, 2021.
+Molesky et al. [2018] Sean Molesky, Zin Lin, Alexander Y Piggott, Weiliang Jin, Jelena Vucković, and Alejandro W Rodriguez. Inverse design in nanophotonics. Nature Photonics, 12(11):659–670, 2018.
+Christiansen and Sigmund [2021] Rasmus E Christiansen and Ole Sigmund. Inverse design in photonics by topology optimization: tutorial. JOSA B, 38(2):496–509, 2021.
+Molesky et al. [2019] Sean Molesky, Weiliang Jin, Prashanth S. Venkataram, and Alejandro W. Rodriguez. 𝕋𝕋\mathbb{T}operator bounds on angle-integrated absorption and thermal radiation for arbitrary objects. Phys. Rev. Lett., 123:257401, Dec 2019. doi:10.1103/PhysRevLett.123.257401.
+Molesky et al. [2020a] Sean Molesky, Pengning Chao, Weiliang Jin, and Alejandro W. Rodriguez. Global𝕋𝕋\mathbb{T}operator bounds on electromagnetic scattering: Upper bounds on far-field cross sections. Phys. Rev. Research, 2:033172, Jul 2020a. doi:10.1103/PhysRevResearch.2.033172.
+Chao et al. [2022] Pengning Chao, Benjamin Strekha, Rodrick Kuate Defo, Sean Molesky, and Alejandro W. Rodriguez. Physical limits in electromagnetism. Nature Reviews Physics, pages 1–17, July 2022. ISSN 2522-5820. doi:10.1038/s42254-022-00468-w. Publisher: Nature Publishing Group.
+Venkataram et al. [2020a] Prashanth S Venkataram, Sean Molesky, Pengning Chao, and Alejandro W Rodriguez. Fundamental limits to attractive and repulsive Casimir-Polder forces. Physical Review A, 101(5):052115, 2020a.
+Strekha et al. [2023] Benjamin Strekha, Pengning Chao, Rodrick Kuate Defo, Sean Molesky, and Alejandro W Rodriguez. Suppressing electromagnetic local density of states via slow light in lossy quasi-1d gratings. arXiv preprint arXiv:2309.15794, 2023.
+Krüger et al. [2012] Matthias Krüger, Giuseppe Bimonte, Thorsten Emig, and Mehran Kardar. Trace formulas for nonequilibrium Casimir interactions, heat radiation, and heat transfer for arbitrary objects. Phys. Rev. B, 86:115423, Sep 2012. doi:10.1103/PhysRevB.86.115423.
+Zhang et al. [2022] Yong-Mei Zhang, Tao Zhu, Zu-Quan Zhang, and Jian-Sheng Wang. Microscopic theory of photon-induced energy, momentum, and angular momentum transport in the nonequilibrium regime. Physical Review B, 105(20):205421, 2022.
+Wang et al. [2023] Jian-Sheng Wang, Jiebin Peng, Zu-Quan Zhang, Yong-Mei Zhang, and Tao Zhu. Transport in electron-photon systems. Frontiers of Physics, 18(4):43602, 2023.
+Wang and Antezza [2023] Jian-Sheng Wang and Mauro Antezza. Photon mediated energy, linear and angular momentum transport in fullerene and graphene systems beyond local equilibrium. arXiv preprint arXiv:2307.11361, 2023.
+Khersonskii et al. [1989] V.K. Khersonskii, A.N. Moskalev, and D.A. Varshalovich. Quantum Theory Of Angular Momemtum. World Scientific Publishing Company, 1989. ISBN 9789814578288.
+Bimonte et al. [2017] Giuseppe Bimonte, Thorsten Emig, Mehran Kardar, and Matthias Krüger. Nonequilibrium fluctuational quantum electrodynamics: Heat radiation, heat transfer, and force. Annual Review of Condensed Matter Physics, 8(1):119–143, 2017. doi:10.1146/annurev-conmatphys-031016-025203.
+Novotny and Hecht [2012] Lukas Novotny and Bert Hecht. Principles of nano-optics. Cambridge university press, 2012.
+Boyd and Vandenberghe [2004] Stephen Boyd and Lieven Vandenberghe. Convex optimization. Cambridge University Press, 2004.
+Jackson [1999] John David Jackson. Classical electrodynamics, 1999.
+Molesky et al. [2020b] Sean Molesky, Pengning Chao, and Alejandro W. Rodriguez. Hierarchical mean-field𝕋𝕋\mathbb{T}operator bounds on electromagnetic scattering: Upper bounds on near-field radiative purcell enhancement. Physical Review Research, 2:043398, Dec 2020b. doi:10.1103/PhysRevResearch.2.043398.
+Amaolo et al. [2023] Alessio Amaolo, Pengning Chao, Thomas J Maldonado, Sean Molesky, and Alejandro W Rodriguez. Can photonic heterostructures provably outperform single-material geometries? arXiv preprint arXiv:2307.00629, 2023.
+Angeris et al. [2019] Guillermo Angeris, Jelena Vučković, and Stephen P Boyd. Computational bounds for photonic design. ACS Photonics, 6(5):1232, 2019. doi:10.1021/acsphotonics.9b00154.
+Shim et al. [2019] Hyungki Shim, Lingling Fan, Steven G Johnson, and Owen D Miller. Fundamental limits to near-field optical response over any bandwidth. Physical Review X, 9(1):011043, 2019.
+Venkataram et al. [2020b] Prashanth S Venkataram, Sean Molesky, Weiliang Jin, and Alejandro W Rodriguez. Fundamental limits to radiative heat transfer: the limited role of nanostructuring in the near-field. Physical Review Letters, 124(1):013904, 2020b.
+Eckhardt [1984] W Eckhardt. Macroscopic theory of electromagnetic fluctuations and stationary radiative heat transfer. Physical Review A, 29(4):1991, 1984.

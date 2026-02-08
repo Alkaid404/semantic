@@ -1,0 +1,17 @@
+<document reference="suspicious-document020525.txt">
+  <feature name="about" authors="Sergio Bietti and Francesco Basso Basset and Artur Tuktamyshev and Emiliano Bonera and Alexey Fedorov and Stefano Sanguinetti" title="High–temperature droplet epitaxy of symmetric GaAs/AlGaAs quantum dots" lang="en" similarity="0.9628" severity="low" prompt_tokens="5592" output_tokens="3832"/>
+  <feature name="md5Hash" value="c60d84c60c9b00c6f07642c7502e8461"/>
+  <feature name="plagiarism" type="llm_prompted" llm="DeepSeek-R1" this_language="en" this_offset="2538" this_length="2019" source_reference="source-document020525.txt" obfuscation="simple" source_offset="1120" source_length="2284"/>
+  <feature name="plagiarism" type="llm_prompted" llm="DeepSeek-R1" this_language="en" this_offset="4559" this_length="1427" source_reference="source-document020525.txt" obfuscation="simple" source_offset="3406" source_length="1491"/>
+  <feature name="plagiarism" type="llm_prompted" llm="DeepSeek-R1" this_language="en" this_offset="8261" this_length="1983" source_reference="source-document020525.txt" obfuscation="simple" source_offset="11682" source_length="2028"/>
+  <feature name="plagiarism" type="llm_prompted" llm="DeepSeek-R1" this_language="en" this_offset="11108" this_length="1468" source_reference="source-document020525.txt" obfuscation="medium" source_offset="7611" source_length="1344"/>
+  <feature name="plagiarism" type="llm_prompted" llm="DeepSeek-R1" this_language="en" this_offset="12578" this_length="1072" source_reference="source-document020525.txt" obfuscation="medium" source_offset="8957" source_length="1100"/>
+  <feature name="plagiarism" type="llm_prompted" llm="DeepSeek-R1" this_language="en" this_offset="15493" this_length="1946" source_reference="source-document020525.txt" obfuscation="simple" source_offset="5199" source_length="2410"/>
+  <feature name="plagiarism" type="llm_prompted" llm="DeepSeek-R1" this_language="en" this_offset="17441" this_length="946" source_reference="source-document020525.txt" obfuscation="hard" source_offset="247" source_length="871"/>
+  <feature name="plagiarism" type="llm_prompted" llm="DeepSeek-R1" this_language="en" this_offset="18389" this_length="685" source_reference="source-document020525.txt" obfuscation="medium" source_offset="10059" source_length="575"/>
+  <feature name="plagiarism" type="llm_prompted" llm="DeepSeek-R1" this_language="en" this_offset="19784" this_length="370" source_reference="source-document020525.txt" obfuscation="simple" source_offset="4899" source_length="298"/>
+  <feature name="plagiarism" type="llm_prompted" llm="DeepSeek-R1" this_language="en" this_offset="20156" this_length="1101" source_reference="source-document020525.txt" obfuscation="hard" source_offset="13712" source_length="1351"/>
+  <feature name="plagiarism" type="llm_prompted" llm="DeepSeek-R1" this_language="en" this_offset="21441" this_length="1056" source_reference="source-document020525.txt" obfuscation="simple" source_offset="10636" source_length="1044"/>
+  <feature name="plagiarism" type="llm_prompted" llm="DeepSeek-R1" this_language="en" this_offset="24342" this_length="1234" source_reference="source-document020525.txt" obfuscation="simple" source_offset="13712" source_length="1351"/>
+  <feature name="altered" type="llm_prompted" llm="DeepSeek-R1" this_language="en" this_offset="28270" this_length="1907"/>
+</document>

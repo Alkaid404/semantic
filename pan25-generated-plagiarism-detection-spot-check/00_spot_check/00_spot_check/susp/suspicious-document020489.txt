@@ -1,0 +1,247 @@
+Fair division with multiple pieces
+
+By Kathryn Nyman and Francis Edward Su and Shira Zerbib
+
+Abstract
+
+In the realm of fair division, we delve into the envy-free cake-cutting conundrum, specifically examining the scenario involving $d+1$ participants and $d$ divisions, under two distinct functional paradigms: the oracle-based model and the polynomial time computational framework. Our inquiry yields a significant finding for the former, wherein we establish a tightly bounded temporal complexity of $\theta(({1\over\epsilon})^{d-1})$ for the query complexity inherent to $d+1$ player cake allocation, presupposing Lipschitz continuous utility functions for all $d > 1$. Furthermore, when the utility functions are computable in polynomial time, our analysis reveals that the problem falls within the complexity class PPAD-complete, underscoring its inherent computational intractability.
+
+1. Introduction
+
+Consider a group of people who are interested in sharing a house and office space. Is there a way to allocate rent on the rooms of the house and office building in such a way that all of the rooms will be rented, and each renter will get their first choice of room in each building? And given an employer with a pool of potential workers, can they guarantee a small number of workers can be hired to cover all necessary shifts?
+
+In this paper, we examine several fair division questions pertaining to the allocation of multiple pieces of goods (or bads) to players. Our goal will be to divide multiple goods fairly among a group of people: we seek to divide multiple cakes such that players receive one piece from each cake, we wish to assign shifts on multiple days to workers so that all shift are covered, and we seek to assign rents to rooms in multiple buildings so that players prefer disjoint rooms in each building. We also consider the problem of assigning multiple pieces of a single cake to players.
+
+Since it is not always possible in these multi-piece allocation problems to make all players in an arbitrary group happy, our results assume a larger initial set of “potential players” and guarantee that some fraction of them can be satisfied with a distribution of pieces. In all of our problems, we seek to allocate pieces to players in such a way that they each receive their most preferred set of pieces in a given division, chosen over the set of all possible collections of pieces in that division. This makes the allocation envy-free , as the player would not wish to trade pieces with any other player. It also makes the allocation Pareto-optimal , as no shuffling of the pieces among players would make any of the players happier (as they all have their top choice of pieces).
+
+The problem of dividing a single cake among a group of players has been extensively studied (see, e.g. [2] ). More recently, the division of multiple goods or bads has been examined. Cloutier, et.al. [3] showed that when dividing two cakes into two pieces each, it is not always possible to satisfy the preferences of the two players if each of them chooses one piece of each cake. However, if the number of players is increased, or the number of pieces is increased, then it can be guaranteed that there are two players whose choices of pieces in each cake are disjoint. Hence, both these players can be satisfied simultaneously. Note that in this problem, if the number of players is increased, or the number of pieces is increased (but both are not increased together), then there is either a player who does not receive any cake, or a piece of cake that has not been distributed to any player. We can consider these “left out” players or pieces as being the price of a disjoint, envy-free distribution of cake, as it may be impossible to satisfy two players otherwise.
+
+A cake cutting protocol that ensures envy-free allocation among $d+1$ participants can be achieved with a surprisingly efficient approach, requiring merely $d$ cuts.
+
+Dual to the notion of dividing goods, one can ask about dividing “bads”, or chores, which leads to the problem of rental division. In [18] , Su showed that a division of rent among rooms in a house can be achieved so that each roommate prefers a different room. In a surprising result, Frick et. al. [6] show that an envy-free rent division can be achieved among $n$ people, even if the preferences of only $n-1$ housemates are known.
+
+However, when we extend the question to division of rent in multiple houses (say a bedroom house and an office building that are being rented to a set of roommates together), then, as in the case of dividing multiple cakes, it may be impossible to make every player happy simultaneously. Already in the case of two players and two houses with two rooms each, an example where there is no envy-free division of the rent is known (see Theorem 3 of [3] ).
+
+We now summarize our results. Our proofs are topological, and combine extensions of KKM-type theorems with tools from hypergraph theory.
+
+For more than two dimensions, specifically when there are $d+1$ players where $d$ exceeds 2, a analogous approach can be applied, wherein the set of all feasible partitions of the cake constitutes a $d$-dimensional simplex.
+
+The problem of fairly dividing a resource, represented by the interval $[0,1]$, among $n$ individuals with potentially disparate valuations has been extensively studied in economics, political science, and computer science. A theoretical solution, known as an envy-free allocation, has been proven to exist using fixed-point arguments, wherein the resource is divided into $n$ segments using $n-1$ divisions, and each individual is assigned a segment that they value at least as much as any other. The remaining challenge lies in developing an efficient algorithm to determine such a division, referred to as an $(n-1)$-cut, that satisfies this envy-free criterion.
+
+This theorem is proved in Section 4 .
+
+Our second theorem involves dividing $k$ cakes into $n$ pieces each. We call a choice of one piece in each cake a $k$ -piece selection .
+
+Suppose that there are $k$ cakes and $p\leq k(n-1)+1$ hungry players, each of whom finds at least one $k$ -piece selection acceptable in any division of the cakes into $n$ pieces each. If all player preference sets are closed then there exists a division of the $k$ cakes into $n$ pieces each such that at least $\lceil\frac{p}{2k(k-1)}\rceil$ players prefer mutually disjoint $k$ -piece selections. Moreover, if $p$ divides $k(n-1)+1$ then there exists a division where at least $\lceil\frac{p}{k(k-1)}\rceil$ players prefer mutually disjoint $k$ -piece selections.
+
+We prove this Theorem in Section 5 .
+
+A more relaxed alternative to envy-free solutions is the concept of proportional cuts, wherein each individual receives a portion that they value at more than 1/n of the total worth, and the complexity of this approach has been fully resolved in recent work by Edmonds and Pruhs.
+
+Our objective is accomplished through a two-step process, initiated by defining $N$ as the reciprocal of $g$. The first step involves reformulating the problem presented in [6] into a discrete fixed-point problem on hypergrids, where the functions in question map grid points in $N^{d}$ to the set $\{0,1,2,\cdots,d\}$, adhering to standard boundary conditions. A discrete fixed point, in this context, refers to a point within a base hypercube - a hypercube comprising $2^{d}$ points that are at most a unit distance apart in the $|\cdot|_{\infty}$ metric - where the function values at the hypercube's nodes encompass the entire range from $0$ to $d$.
+
+The valuation of players can be extrapolated to any interval by assuming a uniform valuation across the specified intervals, as illustrated by the example where $u_{A}(1/20,3/20)=0.5$, and a similar approach can be applied to describe $u_{C}$.
+
+In the context of a $d$-dimensional simplex, the index $\index_{d}(\delta,\phi)$ evaluates to $1$ if and only if the color set of its $d+1$ vertices coincides with the set $\{0,1,\cdots,d\}$, implying a distinct coloration. Conversely, each of these simplices comprises $d+1$ faces, where each face is a $(d-1)$-dimensional simplex. According to the induced index definition, $\index_{d-1}$ considers colors within the range $\{0,1,\cdots,d-1\}$, thus a $(d-1)$-dimensional simplex yields an index of $1$ if its vertex color set matches $\{0,1,\cdots,d-1\}$. With one vertex remaining, its color assignment dictates the index sum of the faces. If the color falls within $\{0,1,\cdots,d-1\}$, an additional face with an index of $1$ emerges, resulting in a total index sum of $2$, which is equivalent to $0$ modulo $2$. Alternatively, if the color is $d$, the sum evaluates to $1$. This reasoning substantiates the claim for a simplex $P$ devoid of further triangulation, underscoring the intrinsic relationship between vertex coloration and index sums in simplicial structures.
+
+If $T$ is a triangulation of $P(n,k)$ with a factorwise-dual-Sperner labeling $\ell$ , then it has an equivalent labeling $\ell^{\prime}$ with an elementary simplex $Q$ in $T$ , such that the set of labels $\Lambda(Q)=\{\ell^{\prime}(v)\mid v\in V(Q)\}$ is balanced with respect to $V=V_{1}\sqcup\dots\sqcup V_{k}$ , where $V_{i}=[n]$ for all $1\leq i\leq k$ .
+
+It is important to observe that the boundary base edges in the aforementioned sum are oriented in a clockwise direction with respect to the triangle $\Delta$.
+
+A polynomial-time algorithm has been developed to achieve an approximate envy-free division of a resource among three parties, utilizing a two-cut approach, for scenarios where utility functions can be quantitatively evaluated.
+
+If $2n-1$ such players seek to rent two rooms, one in each of two buildings containing $n$ rooms each, then there exists a division of rents in which a subset of $n$ players each get their preferred two rooms.
+
+2. Preliminaries in hypergraph theory
+
+A hypergraph is a pair $H=(V,E)$ where $V=V(H)$ is a vertex set , and $E=E(H)$ is a finite collection of subsets of $V$ called edges . A hypergraph $H=(V,E)$ is $k$ -partite if there exists a partition $V=V_{1}\cup\dots\cup V_{k}$ where every edge $e\in E$ has $|e\cap V_{i}|=1$ for all $1\leq i\leq k$ . A $2$ -partite hypergraph is a bipartite graph . The rank of a hypergraph $H=(V,E)$ , denoted $\text{rank}(H)$ , is the maximum size of an edge in $E$ , and the degree of a vertex $v\in V$ , denoted $\deg(v)$ , is the number of edges in $E$ containing $v$ . A hypergraph $H=(V,E)$ is $k$ -uniform if $|e|=k$ for all $e\in E$ .
+
+For a d-dimensional simplex, the index is 1 if and only if the colors of its d+1 vertices are distinct and correspond to the set {0,1,...,d}. Each of its d+1 faces is a (d-1)-dimensional simplex, and by definition, a (d-1)-dimensional simplex has an index of 1 if its vertices are colored with the set {0,1,...,d-1}. Considering the color of the remaining vertex, if it belongs to the set {0,1,...,d-1}, the sum of the indices of the faces will be 0 mod 2, whereas if it is colored d, the sum will be 1, thus validating the claim for a simplex without further triangulation.
+
+A fractional matching $f:E(H)\to[0,1]$ is called perfect if for every $v\in V$ we have $\sum_{e:v\in e}f(e)=1$ . A collection of sets $E\subset 2^{V}$ is balanced with respect to a set $V$ if the hypergraph $H=(V,E)$ has a perfect fractional matching.
+
+For example, consider the vertex set $V=\{1,2,3,\bar{1},\bar{2},\bar{3}\}$ , with edge set comprised of all pairs of vertices with one barred and one un-barred vertex. Then the edge set $\{e_{1}=(1\bar{1}),e_{2}=(2\bar{1}),e_{3}=(1\bar{2}),e_{4}=(2\bar{2}),e_{5}=(3\bar{3})\}$ is balanced with respect to $V$ since there are edge weights that sum to $1$ at each vertex. In particular, $\frac{1}{2}e_{1}+\frac{1}{2}e_{2}+\frac{1}{2}e_{3}+\frac{1}{2}e_{4}+1e_{5}$ is a perfect fractional matching.
+
+A cover of a hypergraph $H=(V,E)$ is a subset of vertices that intersect every edge. The covering number $\tau(H)$ is the minimal size of a cover in $H$ . A fractional cover of $H$ is a function $g:V\to[0,1]$ , such that for every $e\in E$ we have $\sum_{v:v\in e}g(v)\geq 1$ . The fractional covering number of $H$ is 
+ 
+ $\tau^{*}(H)=\min\big{\{}\sum_{v\in V}g(v)\mid g\text{ is a fractional covering of }H\big{\}}.$ 
+ A perfect fractional cover of $H$ is a fractional cover with $\sum_{v:v\in e}g(v)=1$ for every $e\in E$ . By linear programming duality, we have $\nu(H)\leq\nu^{*}(H)=\tau^{*}(H)\leq\tau(H)$ for every hypergraph $H$ .
+
+If a hypergraph $H=(V,E)$ of rank $n$ has a perfect fractional matching, then $\nu^{*}(H)\geq\frac{|V|}{n}$ . If, in addition, $H$ is $n$ -uniform, then $\nu^{*}(H)=\frac{|V|}{n}$ .
+
+Let $f:E\to[0,1]$ be a perfect fractional matching of $H$ . Then 
+ 
+ (1)  $\sum_{v\in V}\sum_{e:v\in e}f(e)=\sum_{v\in V}1=|V|.$ 
+ Since $f(e)$ was counted $|e|\leq n$ times in ( 1 ) for every edge $e\in E(H)$ , we have that 
+ 
+ $\nu^{*}(H)\geq\sum_{e\in E}f(e)\geq\frac{|V|}{n}.$ 
+ If $H$ is $n$ -uniform, then the constant function $g:V\to\{\frac{1}{n}\}$ is a fractional cover and therefore $\nu^{*}(H)=\tau^{*}(H)\leq\frac{|V|}{n}$ . Combining with the inequality above, we have $\nu^{*}(H)=\frac{|V|}{n}$ . ∎
+
+We will use the following bounds on the ratio $\nu^{*}/\nu$ and $\tau/\tau^{*}$ :
+
+A simplex $P$ is considered to be triangulated into balanced simplices with a granularity of $g=\frac{1}{N}$ if it satisfies three conditions: it is entirely enclosed within the unit cube $[0,1]^{d}$, parallel planes at intervals of $g$ along each coordinate axis intersect $P$ only at the boundaries of the base cells of the triangulation, and the number of $d$-dimensional simplices within any cube of side length $g$ is uniform.
+
+If $H$ is a hypergraph with maximal degree $d$ , then $\tau(H)\leq(1+\ln d)\tau^{*}(H)$ .
+
+The dual hypergraph $H^{D}=(U,F)$ of a hypergraph $H=(V,E)$ is obtained by reversing the roles of vertices and edges, namely, $U=E$ , $F=V$ , and an edge $v\in F$ consists of all the vertices $e\in U$ for which $v\in e$ in $H$ . If $H$ is $d$ -uniform then $\deg(e)=d$ for all $e\in U$ and we have the following corollary of Theorem 2.3 :
+
+Let $H$ be a $d$ -uniform hypergraph then $\tau(H^{D})\leq(1+\ln d)\tau^{*}(H^{D})$ .
+
+If $H$ is a bipartite graph then the situation is even better:
+
+If $H$ is a bipartite graph then $\tau(H^{D})=\tau^{*}(H^{D})$ .
+
+3. Complete triangulations of polytopes
+
+To extend the result to a higher-dimensional polyhedron $P$, a simplified index is utilized, defined modulo 2, as introduced in [8]. This index assigns a value of 1 to a $d$-dimensional simplex if its vertices are assigned $d+1$ distinct colors from the set $\{0,1,\cdots,d\}$, and 0 otherwise. For a polyhedron $P$ with a set of vertices $V(P)$ in its triangulation, the index is defined with respect to a coloring function $\phi:V(P)\rightarrow\{0,1,\cdots,d\}$ as $index(P,\phi)=\sum_{\delta\in P}index(\delta,\phi)$, where the summation is taken over all $d$-dimensional simplices $\delta$ in the triangulation of $P$.
+
+Every $d$ -dimensional polytope $P$ has a complete triangulation.
+
+The boundary of $P$, denoted as $\partial P$, inherently adopts a triangulation induced by that of $P$, comprising $(d-1)$-dimensional simplices. The index $index_{d-1}(\partial P,\phi)$ is subsequently defined as the cumulative sum of the indices $index_{d-1}(\delta_{d-1},\phi)$ for all $(d-1)$-dimensional simplices $\delta_{d-1}$ within $\partial P$.
+
+4. Allocating multiple pieces of one cake to players
+
+In this section, we consider dividing one cake into $n$ pieces and assigning $k$ pieces to each player. We imagine that our cake is rectangular, and is divided by parallel vertical cuts. We represent the division of the cake into $n$ pieces by the $n$ -tuple $\vec{x}=(x_{1},x_{2},\ldots,x_{n})\in\mathbb{R}^{n}_{\geq 0}$ satisfying $\sum_{i=1}^{n}x_{i}=1$ , where $x_{i}$ denotes the width of piece $i$ . The space of all possible divisions of one cake into $n$ pieces can therefore be realized by the $(n-1)$ -dimensional simplex $\Delta_{n-1}$ .
+
+By restricting the space along the specified directions, we ensure that each player's choice function exhibits monotonic behavior, enabling efficient calculation of edge indices through the aforementioned procedure. This, in turn, facilitates rapid determination of the indices for the two resulting regions. We then proceed to the region with an odd index, ultimately yielding a diamond-shaped polygon comprising no more than two base cells. Due to parity considerations, one of the two cells will be a fully colored base triangle, and the overall query complexity and running time are bounded by $O(\log^{2}N)$.
+
+In the context of fair division, a discrete envy-free cake cut refers to a division where each participant receives a slice that they prefer over others, as determined by a specific ordering. This is achieved when there exists a particular arrangement of the slices, denoted by a permutation, such that every individual is allocated their preferred segment, thereby eliminating envy towards others' allocations.
+
+Throughout the algorithm, a subset of $V$ is maintained, characterized by a non-zero index value, defined as $V(i_{1},i_{2},k_{1},k_{2})=\{(i,j,k):i,j,k\geq 0,i+j+k=N,i_{1}\leq i\leq i_{2},k_{1}\leq k\leq k_{2}\}$, and bounded by the constraints $i=i_{1}$, $i=i_{2}$, $k=k_{1}$, and $k=k_{2}$.
+
+If $T$ is a triangulation of $\Delta_{n-1}$ with a labeling $L:V(T)\rightarrow 2^{[n]}$ such that $L(v)\subseteq\text{supp}(v)$ , then there exists an elementary simplex $Q$ in $T$ where the set $\{L(v)\mid v\in V(Q)\}$ is a balanced set with respect to $[n]$ .
+
+Combining Theorems 4.1 and 2.2 we obtain the following.
+
+Suppose that the conditions of Theorem 4.1 hold, and in addition $|L(v)|\leq k$ for every $v\in V(T)$ . Then there exists an elementary simplex $Q$ in $T$ , and a collection $M$ of $\frac{n}{k^{2}-k+1}$ vertices of $Q$ , such that the sets $\{L(v)\mid v\in M\}$ are pairwise disjoint.
+
+By Theorem 4.1 , there exists an elementary simplex $Q$ in $T$ where the set $\mathcal{T}=\{L(v)\mid v\in V(Q)\}$ is a balanced set with respect to $[n]$ . Therefore, the hypergraph $H=([n],\mathcal{T})$ has a perfect fractional matching. Since every edge in $\mathcal{T}$ is of size at most $k$ , by Lemma 2.1 we have that $\nu^{*}(H)\geq\frac{|V|}{k}=\frac{n}{k}.$ Therefore, by Theorem 2.2 , 
+ 
+ $\nu(H)\geq\frac{\nu^{*}(H)}{k-1+\frac{1}{k}}\geq\frac{n}{k^{2}-k+1}.$ 
+ We conclude that $\mathcal{T}$ contains a matching $M^{\prime}$ of size at least $\frac{n}{k^{2}-k+1}$ , which corresponds to a subset $M$ of vertices of $Q$ . ∎
+
+We are now ready to prove our first main result which we restate.
+
+In a hypothetical scenario involving three participants, denoted as A, B, and C, a cake is metaphorically represented by a continuous interval spanning from 0 to 1. Notably, participants A and B exhibit identical preferences, which can be quantitatively captured by their utility functions. Although normalization is typically a necessary step to ensure consistency, it has been omitted in this instance to streamline the presentation and enhance clarity, thereby allowing for a more straightforward illustration of their utility functions.
+
+Let $S$ be the set of players with $|S|=p$ . We duplicate each player $\lceil\frac{n}{p}\rceil$ times and choose a set $S^{\prime}$ of size $n$ from the copies of players. By Lemma 3.1 there exists a complete triangulation $T$ of $\Delta_{n-1}$ . Let $o_{v}\in S^{\prime}$ be the owner of $v\in V(T)$ in a complete assignment.
+
+At the intersection of $V_{0}$ and $B_{i=c}$, the color designation is dictated by Player 0, who identifies the maximum value among three distinct intervals: $u_{0}([0,{c\over N}])$, $u_{0}([{c\over N},{c+j\over N}])$, and $u_{0}([{c+j\over N},1])$, where $j$ ranges from $0$ to $N-c$. Notably, the first interval remains constant, while the second interval expands as $j$ increases, due to the subset relationship $[{c\over N},{c+j\over N}]\subseteq[{c\over N},{c+j^{\prime}\over N}]$ for $j\leq j^{\prime}$, and the fact that $u_{i}$ is a probability distribution, implying a non-decreasing property. Conversely, the third interval contracts as $j$ increases, resulting in a decreasing value. The color assigned to this region will be $0$ if the maximum value is attained in the first interval, $1$ if it occurs in the second, and $2$ otherwise. Generally speaking, as $j$ increases, the color in $V_{0}\cap B_{i=c}$ undergoes a transition, typically commencing with $2$, followed by $0$, and culminating in $1$, assuming a non-degenerate scenario; nevertheless, it is possible for any of these colors to be absent from this sequence.
+
+In the final step of our analysis, we recognize that a d-dimensional simplex of length N contains a hypergrid of size $(\frac{N}{d})^{d}$. By leveraging a known lower bound of $\Omega{(N^{d-1})}$ for the fixed point problem, we establish a lower bound of $\Omega{((\frac{N}{d})^{d-1})}$, which simplifies to $\Omega{(N^{d-1})}$ since d is a constant. Furthermore, we demonstrate that the hypergrid can be embedded within the simplex in a manner that enables its coloring to be extended to a valid coloring of the simplex's vertices. This is achieved by aligning the hypergrid with the simplex, ensuring that overlapping vertices share the same colors, and applying specific coloring rules to the simplex's faces and vertices, including the origin and boundary points, thereby satisfying the boundary conditions without introducing any fully colored base simplices.
+
+5. Dividing multiple cakes
+
+We now turn to the problem of dividing multiple cakes among a set of potential players. We will be dividing $k$ cakes into $n$ pieces each, and hence our space of all possible divisions will be realized by the $k(n-1)$ -dimensional polytope $P(n,k)$ which is defined as the product of $k$ simplices of dimension $n-1$ each, that is, 
+ 
+ $P(n,k)=(\Delta_{n-1})^{k}=\Delta_{n-1}\times\dots\times\Delta_{n-1}.$ 
+ Every face of $P(n,k)$ is given by $F(J_{1},\dots,J_{k})=\Delta^{J_{1}}\times\dots\times\Delta^{J_{k}}$ for some choice of subsets $J_{1},\dots,J_{k}$ of $[n]$ , where $\Delta^{S}$ is the face of $\Delta_{n-1}$ spanned by the vertices in $S\subset[n]$ .
+
+A discrete adaptation, as outlined in reference [6], of established index-related findings is required.
+
+To initiate the process, first verify if the conditions $i_{2}-i_{1}=1$ and $k_{2}-k_{1}=1$ are met, in which case a fully colored base triangle of $V(i_{1},i_{1}+1,k_{1},k_{1}+1)$ can be directly identified, thereby terminating the procedure. Otherwise, proceed by determining the maximum difference between $i_{2}-i_{1}$ and $k_{2}-k_{1}$, assuming without loss of generality that $i_{2}-i_{1}$ is the greater value. Next, calculate the midpoint $i_{3}$ of the interval $[i_{1},i_{2}]$. Then, compute the indices of the sub-polygons $V(i_{1},i_{3},k_{1},k_{2})$ and $V(i_{3},i_{2},k_{1},k_{2})$. Finally, recursively apply the process to the sub-polygon with a non-zero index, thereby narrowing down the search space until the base case is reached.
+
+Suppose that the conditions of Theorem 5.1 hold. Then by the theorem, we obtain a $k$ -partite hypergraph $H$ on vertex set $V=V_{1}\sqcup\dots\sqcup V_{k}$ with an edge set $\mathcal{I}=\big{\{}I^{t}=(i^{t}_{1},\dots,i^{t}_{k})\in[n]^{k}\mid 1\leq t\leq m\big{\}}$ that has a perfect fractional matching. Since every edge in $\mathcal{I}$ is of size $k$ , by Lemma 2.1 we have that $\nu^{*}(H)\geq\frac{|V|}{k}=\frac{kn}{k}=n.$ Therefore, by Theorem 2.2 we have $\nu(H)\geq\frac{\nu^{*}(H)}{k-1}\geq\frac{n}{k-1}.$ We conclude that $\mathcal{I}$ contains a matching $M$ of size at least $\frac{n}{k-1}$ and $\bigcap_{I^{t}\in M}B_{I^{t}}\neq\emptyset.$
+
+Thus we proved:
+
+Suppose that the conditions of Theorem 5.1 hold. Then there exists a pairwise disjoint collection of $k$ -tuples 
+ 
+ $\big{\{}I^{t}=(i^{t}_{1},\dots,i^{t}_{k})\in[n]^{k}\mid 1\leq t\leq m\big{\}}$ 
+ such that $m\geq\frac{n}{k-1}$ and $\bigcap_{t=1}^{m}B_{I^{t}}\neq\emptyset.$
+
+Here is a discrete version of Proposition 5.2 :
+
+To initiate, we'll delve into Kuhn's triangulation method for a unit cube in $d$ dimensions, commencing with a corner vertex $v_{0}=(0,0,\cdots,0)_{1\times d}$ and its diagonally opposite vertex $v_{d+1}=(1,1,\cdots,1)_{1\times d}$. Utilizing $d$-dimensional unit vectors $e_{i}$ with $e_{ii}=1$ and $e_{ij}=0$ for $i\neq j$, Kuhn's approach subdivides the cube into $d!$ simplices. For any permutation $\pi$ of the integers $0,1,\cdots,d-1$, denoted as $\pi:=(\pi(1),\pi(2),\cdots,\pi(d))$, a corresponding simplex $\Delta^{d}_{\pi}$ is defined by its vertices $v^{i}_{\pi}=v^{i-1}_{\pi}+{e}_{\pi_{(i)}}$, where $v^{0}_{\pi}=v_{0}$.
+
+Let $T^{\prime}$ be the first barycentric subdivision of $T$ . For every $k$ -tuple $I=(i_{1},\dots,i_{k})\in[n]^{k}$ , we set $V_{I}=\{v\in T\mid L(v)=I\}$ and let $B_{I}$ be the union of all elementary simplices $S$ of $T^{\prime}$ with $V(S)\cap V_{I}\neq\emptyset$ . Then the sets $B_{I}$ satisfy the conditions of Proposition 5.2 , so considering the conclusion, every point $x\in\bigcap_{t=1}^{m}B_{I^{t}}$ lies in simplex of $T$ that contains $M$ in its vertex set. ∎
+
+We are now ready to prove our second main theorem:
+
+In the esteemed Stromquist's protocol, a mediator manipulates a blade in a lateral motion from left to right, while three participants, each equipped with a cutting instrument, synchronize their movements in tandem, albeit at potentially disparate velocities. As the mediator's blade traverses the rightward trajectory, each participant continually assesses the segment situated to the left of the blade, as well as the two resultant segments that would be created if the intermediate cutting instrument were to intersect the cake. Should any participant perceive the left segment of the cake, relative to the blade's position, as the most substantial, they promptly vocalize a "cut" directive, thereby triggering the blade's descent. Consequently, the leftmost segment is allocated to the participant who initiated the "cut" command. The remaining two participants are then assigned segments based on the relative positions of their cutting instruments, with the individual whose instrument is situated to the left of the middle instrument receiving the intermediate segment, and the one whose instrument is positioned to the right receiving the rightmost segment.
+
+Let $S$ be the set of players with $|S|=p$ . As in the proof of Theorem 1.1 , we duplicate each player $\lceil\frac{k(n-1)+1}{p}\rceil$ times and choose a set $S^{\prime}$ of size $k(n-1)+1$ from the copies of the players. By Lemma 3.1 , there exists a complete triangulation $T$ of the polytope $P=P(n,k)$ . Let $o_{v}\in S^{\prime}$ be the owner of $v\in V(T)$ in a complete assignment.
+
+Every vertex $v=(v_{1},\dots,v_{k})\in V(T)$ ( $v_{i}\in\Delta_{n-1}$ ) corresponds to a division of the $k$ cakes into $n$ pieces each. Define a labelling $\ell:V(T)\rightarrow[n]^{k}$ by setting $\ell(v)$ to be the $k$ -tuple representing the $k$ -piece selection, one from each cake, that the player $o_{v}$ prefers. Since $o_{v}$ is hungry, we have $\ell_{i}(v)\in\text{supp}(v_{i})$ for each $i\in[k]$ . Thus, by Proposition 5.3 , there exists an elementary simplex $Q$ in $T$ , with the following property: there exists a subset $M^{\prime}$ of the vertices of $Q$ such that $|M^{\prime}|\geq\lceil\frac{n}{k-1}\rceil$ and the set $\{\ell(v)\mid v\in M^{\prime}\}$ consists of pairwise disjoint $k$ -tuples, that represent pairwise disjoint $k$ -piece selections of $\lceil\frac{n}{k-1}\rceil$ players in $S^{\prime}$ .
+
+Now, since every player in $S$ is represented in $S^{\prime}$ by at most $\lceil\frac{k(n-1)+1}{p}\rceil$ copies, there must be a set $M\subset M^{\prime}$ of vertices in $Q$ owned by disjoint players in $S$ , with 
+ 
+ $|M|\geq\frac{\lceil\frac{n}{k-1}\rceil}{\lceil\frac{k(n-1)+1}{p}\rceil}\geq\frac{p}{2k(k-1)},$ 
+ and if $p$ divides $k(n-1)+1$ then $|M|\geq\frac{p}{k(k-1)}.$
+
+A similar argument to the one made in the proof of Theorem 1.1 now shows the existence of a single cut of the $k$ cakes into $n$ pieces each that would satisfy at least $\frac{p}{2(k^{2}-k)}$ players, or $\frac{p}{k(k-1)}$ players in the case $p$ divides $k(n-1)+1$ . ∎
+
+We note that the techniques in this proof are similar to those used by Lebert, et. al. [13] to prove that if there are only two players then, for large enough $n$ , there exists a division of the $k$ cakes into $n$ pieces each in which both players prefer pairwise disjoint $k$ pieces, one from each cake.
+
+6. Assigning Shifts to Players
+
+Our last allocation problem involves an employer who wishes to assign all shifts on a set of days to a collection of employees. We look for a small set of employees who can cover all of the shifts. This would be a useful consideration if, for example, the employees were all receiving fixed salaries, and so the employer wishes to spend the least amount of money to cover all of the shifts. Moreover, it is natural to assume (and we will make this assumption) that if the salaries are fixed then every employee prefers an empty shift (a shift that requires no time at work), if one is available.
+
+We also assume that if there are multiple empty shifts, then players are indifferent between them. This is actually a consequence of having closed preference sets, since the division with multiple empty shifts is the limit of divisions in which a single fixed room is free.
+
+We call a choice of one shift on each of $k$ days a $k$ -shift selection .
+
+This assertion can be confirmed through a straightforward examination of specific scenarios.
+
+In the final step, a hypergrid of size $(\frac{N}{d})^{d}$ is identified within a $d$-dimensional simplex of length $N$, yielding a lower bound of $\Omega{((\frac{N}{d})^{d-1})}$, which simplifies to $\Omega{(N^{d-1})}$ since $d$ is constant. This hypergrid can be embedded into the simplex such that its coloring can be extended to a valid coloring of the simplex's vertices, with the origin aligned and the $d$ rays of the hypergrid matching those of the simplex. The coloring of the simplex's faces and vertices is then defined to satisfy the boundary conditions, with specific rules applied to the vertices $Ne_{1},Ne_{2},\cdots,Ne_{d}$ and the origin, and all extra vertices colored $0$, ensuring no new fully colored base simplex is introduced.
+
+To label the vertices in Kuhn's triangulation, barycentric coordinates can be utilized, where each vertex $X$ is represented by a set of coordinates $(x_{0},x_{1},\cdots,x_{d})$. A weight function $W(X)$ is defined as the sum of the products of each coordinate's index and its value. By applying this function, vertices are assigned to one of $d+1$ subsets, denoted as $V_{0},V_{1},\cdots,V_{d}$, based on the remainder of $W(X)$ divided by $d+1$. This partitioning approach ensures a coherent labeling, as evidenced by the fact that the weight of a vertex $v^{i}_{\pi}$ in a given permutation $\pi$ increases by 1 compared to the weight of the previous vertex $v^{i-1}_{\pi}$, thereby maintaining a consistent and incremental pattern across the triangulation.
+
+We can now delve into Kuhn's triangulation of a simplex. Consider an integer $N$ greater than 1 and a unit $d$-cube, which can be subdivided into $N^{d}$ smaller $d$-cubes of side length $1/N$ using parallel cuts at equal intervals. Each of these smaller cubes can then be further partitioned into $d!$ simplices. Alternatively, the unit cube can be initially divided into $d!$ larger simplices, with each containing $N^{d}$ smaller simplices, or base cells. The validity of these dual approaches is demonstrated in Appendix A.5.
+
+To initiate the coloring process for the set $V$, we consider an arbitrary vertex $(x_{0},x_{1},x_{2})$ belonging to $V_{t}$, and permit player $t$ to select, from the three intervals $[0,l_{0}]$, $[l_{0},l_{0}+l_{1}]$, and $[l_{0}+l_{1},1]$ that partition the unit interval $I$, the segment that yields the maximum utility. To simplify the exposition, we impose a non-degeneracy condition, which stipulates that this choice is unique; the more general scenario, where multiple optimal segments exist, can be addressed through the implementation of a judicious tie-breaking mechanism. Upon determining the optimal segment, which we denote as having length $l_{s}$, where $s$ ranges from $0$ to $2$, we proceed to assign the color $s$ to the vertex $(x_{0},x_{1},x_{2})$. We assert that the resultant coloring constitutes a valid Sperner coloring, a claim that can be readily verified by invoking the properties of the utility functions. Specifically, given that $u_{i}(\emptyset)=0$, the vertices $(N,0,0)$, $(0,N,0)$, and $(0,0,N)$ of the larger triangle must be colored $0$, $1$, and $2$, respectively, while the vertices situated on the edges connecting these points will be assigned colors $0$ or $1$, $1$ or $2$, and $2$ or $0$, in accordance with our coloring protocol. Consequently, the coloring satisfies the boundary conditions mandated by Sperner's lemma, thereby ensuring its validity, as illustrated in Figure 5 of Appendix A.10.
+
+The query complexity of cake cutting for $d+1$ players with Lipschitz utilities is shown to be bounded above by $\theta(({1\over\epsilon})^{d-1})$, leveraging a divide-and-conquer approach that facilitates the discovery of a balanced partition of the simplex. This stringent upper limit is attainable through the synergy of Kuhn's simplex triangulation and a novel labeling methodology, devised for the envy-free cake cutting problem, which enables efficient parity verification of the boundary. Conversely, the lower bound is established via a two-stage reduction to the zero-point problem, initially involving the transformation of direction-preserving functions into a discrete fixed-point problem on a hypergrid, followed by the demonstration that this hypergrid can be seamlessly embedded within the original $d$-simplex, allowing for an extension of its coloring to a valid Sperner coloring of the vertices in the triangulated simplex.
+
+The set $V$ is subsequently divided into three distinct control subsets, denoted as $V_{0}$, $V_{1}$, and $V_{2}$. The initialization of this partition involves assigning the elements $(N,0,0)$, $(N-1,1,0)$, and $(N-2,2,0)$ to the subsets $V_{0}$, $V_{1}$, and $V_{2}$, respectively. The remaining elements of $V$ are then distributed across these subsets in a manner that ensures each base triangle's three vertices belong to different subsets. This distribution is achieved through the definition of each subset $V_{t}$ as the collection of elements $(x_{0},x_{1},x_{2})$ that satisfy the condition $x_{1}-x_{2}=t(\mbox{mod~{}}3)$, where $x_{0},x_{1},x_{2}\geq 0$ and $x_{0}+x_{1}+x_{2}=N$.
+
+We will construct an equivalent Sperner labeling $\ell^{\prime}$ of $T$ . First for any $J\subset[n]$ , let $J+1$ denote the set $\{i+1\mid i\in J\}$ , where for the purposes of this definition we set $n+1=1$ , so that $J+1$ cycles the indices in $J$ by shifting each by $1$ . Note that if $J\neq[n]$ , then $(J+1)\setminus J\neq\emptyset$ .
+
+Given $v\in V(T)$ , set $\ell^{\prime}_{i}(v)=\ell_{i}(v)$ for all $i$ such that $\text{empty}(v_{i})=\emptyset$ . For all other $i$ , set $J_{i}=\text{supp}(v_{i})$ and set $\ell^{\prime}_{i}(v)=j_{i}+1$ for some $j_{i}+1\in(J_{i}+1)\setminus J_{i}$ . This choice clearly satisfies $\ell^{\prime}_{i}(v)\in\text{empty}(v_{i})$ . Then $\ell^{\prime}$ is a factorwise-dual-Sperner labeling that is equivalent to $\ell$ .
+
+We claim that $\ell^{\prime}$ is a Sperner labeling of $T$ . To prove this, we have to show that (a) the vertices of $P(n,k)$ receive pairwise distinct labels in $\ell^{\prime}$ , and (b) the label $\ell^{\prime}(v)$ of $v\in V(T)$ matches one of the labels of the vertices of $\text{supp}(v)$ in $P(n,k)$ . To see (a), observe that for any vertex $w$ of $P(n,k)$ and any $i\in[k]$ , the set $J_{i}=\text{supp}(w_{i})$ is a singleton, and any two vertices of $P(n,k)$ will differ in $J_{i}$ for at least one $i$ . For (b), note that a point $v\in P(n,k)$ is on a face spanned by a vertex $w$ if and only if $\text{supp}(w_{i})\subset\text{supp}(v_{i})$ for all $i$ . Now, given $v\in V(T)$ let $w=(w_{1},\dots,w_{k})$ be the vertex of $P(n,k)$ where $\text{supp}(w_{i})=\{\ell^{\prime}_{i}(v)-1\}$ for each $i$ . Then by our definition of $\ell^{\prime}$ we have $\ell^{\prime}_{i}(w)=(\ell^{\prime}_{i}(v)-1)+1=\ell^{\prime}_{i}(v)$ and $\ell_{i}^{\prime}(v)-1\in\text{supp}(v_{i})$ . Thus, $v$ and $w$ have the same label and $v$ lies on a face spanned by $w$ .
+
+Thus, by Theorem 6.1 , there is an elementary simplex $Q$ in $T$ whose image under the piecewise linear map $f$ of Theorem 6.1 contains the barycenter of $P(n,k)$ . The labels of the vertices of $Q$ therefore form a balanced set with respect to the vertex set $V$ . ∎
+
+Combining Theorem 1.4 with Corollary 2.4 we have:
+
+Let $T$ be a complete triangulation of $P(n,k)$ with factorwise-dual-Sperner labeling $\ell:V(T)\rightarrow[n]^{k}$ . Then there exists an equivalent labeling $\ell^{\prime}$ , an elementary simplex $Q$ in $T$ , and a subset $U\subset V(Q)$ of size: • $|U|=n$ when $k=2$ , or • $|U|\leq n(1+\ln k)$ when $k\geq 2$ , such that the set $\Lambda(U)=\{\ell^{\prime}(u)=(\ell^{\prime}_{1}(u),\dots,\ell^{\prime}_{k}(u))\mid u\in U\}$ has the property that for every $i\in[n]$ and $j\in[k]$ there exists $u\in U$ for which $\ell^{\prime}_{j}(u)=i$ .
+
+Given $\ell$ , by Theorem 1.4 there exist an equivalent Sperner labeling $\ell^{\prime}$ and an elementary simplex $Q$ in $T$ such that the set of labels $\Lambda(Q)=\{\ell^{\prime}(v)\mid v\in V(Q)\}$ is balanced with respect to $V=V_{1}\sqcup\dots\sqcup V_{k}$ . Therefore, the hypergraph $H=(V,\Lambda(Q))$ has a perfect fractional matching $f:\Lambda(Q)\to[0,1]$ . Since $H$ is $k$ -uniform, we have that $\nu^{*}(H)=kn/k=n$ .
+
+Equivalently, in the dual hypergraph $H^{D}$ , $f$ is a perfect fractional cover, and $\tau^{*}(H^{D})=n$ . By Corollary 2.4 , we obtain $\tau(H^{D})\leq(1+\ln k)\tau^{*}(H^{D})=(1+\ln k)n$ , and if $k=2$ , then by Theorem 2.5 , $\tau(H^{D})=\tau^{*}(H^{D})=n$ . Thus the hypergraph $H^{D}$ on vertex set $\Lambda(Q)$ and edges $V$ has a cover of size $t$ where $t\leq(1+\ln k)n$ , and moreover, $t=n$ when $k=2$ . By the definition of $H^{D}$ , this means that there exists a set of vertices $U\subset V(Q)$ of size $|U|=t$ such that the set of labelings of $U$ cover each $v\in V$ . That is, for every $j\in[k]$ and $i\in V_{j}=[n]$ there exists $u\in U$ for which $\ell^{\prime}_{j}(u)=i$ . ∎
+
+We now prove our last main theorem.
+
+  Let $N = \frac{1}{g}$. Our argument proceeds in two stages, the first of which involves reducing a problem considered in [6] to that of locating a discrete fixed point on a hypergrid. Specifically, this entails finding functions defined on the lattice points of an $N^d$ grid that map to the set $\{0,1,2,\ldots,d\}$ and satisfy standard boundary conditions. A discrete fixed point, in this context, refers to a function whose values at the vertices of a particular $2^d$-point subgrid - namely, one in which all points are at most one unit apart in the $|\cdot|_\infty$ metric - collectively assume all possible values between $0$ and $d$.
+
+Fix a subset $S$ of $k(n-1)+1$ players. By Lemma 3.1 , there exists a complete triangulation $T$ of $P=P(n,k)$ . Let $o_{v}\in S$ be the owner of $v\in V(T)$ in a complete assignment.
+
+To commence, we revisit the notion of fixed points for direction-preserving functions, as expounded in [6], with a focus on functions defined over the grid points of $N^{d}$, where the codomain $U_{d}$ comprises the set $\{0, \pm e_{1}, \pm e_{2}, \cdots, \pm e_{d}\}$, with $e_{i}$ denoting the unit vector whose $i$-th coordinate is $1$. A function $f: N^{d} \rightarrow U_{d}$ is deemed direction-preserving if, for any pair of points $x, y \in N^{d}$ separated by a distance of at most $1$ (i.e., $|x - y|_{\infty} \leq 1$), the dot product of $f(x)$ and $f(y)$ is non-negative, implying that the function values at adjacent nodes cannot exhibit opposing signs. We introduce a function $h: N^{d} \rightarrow \{0, 1, \cdots, d\}$, where $h(x) = 0$ if $f(x) \leq 0$, and $h(x) = i$ if $f(x) = e_{i}$. The existence of a discrete fixed point set in $h$ within a base hypercube necessitates the presence of a node $x$ such that $f(x) = 0$, given that $f$ is direction-preserving. Consequently, the problem of finding a zero point in $f$ can be reduced to identifying a discrete fixed point of the hypercube form in the function values of $h$. However, the existence of such a solution remains uncertain. For the zero point problem, in addition to the direction-preserving requirement, it is assumed that $f$ is bounded, i.e., $f(x) + x \in N^{d}$. Furthermore, we can impose a specific boundary condition, whereby $f(x) = e_{i}$ if $x_{i} = 0$ and $x_{j} > 0$ for all $j < i$, and $f(x) = -e_{i}$ if $x$ has all positive coordinates, $x_{i} = N$, and $x_{j} < N$ for all $j < i$. In fact, any bounded function $f$ can be extended by an additional layer on each face of its boundary to satisfy this property, while maintaining the direction-preserving condition. It is then evident that there exists only one cube of dimension $(d-1)$ with an index of $1$ on the boundary. By invoking Proposition 2, we infer that there must be a base simplex within the hypercube with an index of $1$, characterized by vertices colored differently from $\{0, 1, \cdots, d\}$.
+
+Furthermore, this serves as conclusive evidence for the presence of a solution that adheres to the parameters defined by $d$, thereby substantiating the notion of a $d$-cut.
+
+7. Acknowledgments
+
+Refer to Appendix A.7 for a detailed demonstration of the proof.
+
+References
+
+[1] R. Aharoni, R. Holzman and S. Zerbib, Edge-covers ind𝑑d-interval hypergraphs,Discrete&Computational Geometry, 58(3) (2017) 650–662.
+[2] S. J. Brams and A. D. Taylor, Fair division: From cake-cutting to dispute resolution, Cambridge University Press, 1996.
+[3] J. Cloutier, K. L. Nyman and F. E. Su, Two-player envy-free multi-cake division,Math. Social Sci., 59 (2010) 26–37.
+[4] J. De Loera, E. Peterson, and F. E. Su. A polytopal generalization of Sperner’s lemma. Journal of Combinatorial Theory, Series A, 100:1?26, 2003.
+[5] Z. Füredi, Maximum degree and fractional matchings in uniform hypergraphs, Combinatorica 1, 2 (1981), 155–162.
+[6] F. Frick, K. Houston-Edwards, and F. Meunier, Achieving rental harmony with a secretive roommate. Available as ArXiv:1702.07325 (2017)
+[7] T. Kaiser, Transversals ofd𝑑d-intervals, Disc. Comput. Geom. 18, 2, (1997), 195–203.
+[8] H. Komiya, A simple proof of K-K-M-S theorem, Econ. Theory 4 (1994), 463–466.
+[9] L. S. Shapley, On balanced games without side payments, in: T. C. Hu and S. M. Robinson (eds.), Mathematical Programming, Math. Res. Center Publ. 30 (Academic Press, New York, 1973), 261–290.
+[10] T. Gallai, Über extreme Punkt-und Kantenmengen (in German), Ann. Univ. Sci. Budapest, Eötvös Sect. Math. 2 (1959), 133–138.
+[11] T. Gallai, Graphen mit triangulierbaren ungeraden Vielecken (in German), Magyar Tud. Ak. Mat. Kut. Int. Közl. 7 (1962), 3–36.
+[12] B. Knaster, C. Kuratowski, and S. Mazurkiewicz, Ein Beweis des Fixpunktsatzes fürn𝑛n-dimensionale Simplexe (in German), Fundamenta Mathematicae 14 (1929), 132–137.
+[13] N. Lebert, F. Meunier, Q. Carbonneaux. Envy-free two-playerm𝑚m-cake and three- player two-cake divisions. Operations Research Letters, Elsevier, 2013, 41 (6), pp.607–610.
+[14] L. Lovász, On the ratio of optimal integral and fractional covers, Discrete Math. 13 (1975), 383–390.
+[15] B. Peleg, Existence theorem for the bargaining setM1(i)subscriptsuperscript𝑀𝑖1M^{(i)}_{1}, in: M. Shubik, ed., Essays in mathematical economics in honor of Oskar Morgenstern (Princeton University Press, Princeton, 1967), 53–56.
+[16] J. Robertson and W. Webb, Cake-cutting algorithms: Be fair if you can, Taylor & Francis, 1998.
+[17] E. Sperner, Neuer Beweis für die Invarianz der Dimensionszahl und des Gebietes (in German), Abh. Math. Sem. Univ. Hamburg 6 (1928), 265–272.
+[18] F.E. Su, Rental harmony: Sperner’s lemma in fair division, Amer. Math. Monthly 106 (1999), no. 10, 930–942.

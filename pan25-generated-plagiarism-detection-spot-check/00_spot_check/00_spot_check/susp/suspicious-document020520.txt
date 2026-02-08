@@ -1,0 +1,439 @@
+On the Metric Dimensions for Sets of Vertices 1footnote 11footnote 1Parts of this article have been presented in the 9th Slovenian International Conference on Graph Theory (Bled, 2019) and the Bordeaux Graph Workshop (Bordeaux, 2019).
+
+By Anni Hakanen and Ville Junnila and Tero Laihonen and María Luz Puertas
+
+Abstract
+
+Resolving sets were originally designed to locate vertices of a graph one at a time. For the purpose of locating multiple vertices of the graph simultaneously, $\{\ell\}$ -resolving sets were recently introduced. In this paper, we present new results regarding the $\{\ell\}$ -resolving sets of a graph. In addition to proving general results, we consider $\{2\}$ -resolving sets in rook’s graphs and connect them to block designs. We also introduce the concept of $\ell$ -solid-resolving sets, which is a natural generalisation of solid-resolving sets. We prove some general bounds and characterisations for $\ell$ -solid-resolving sets and show how $\ell$ -solid- and $\{\ell\}$ -resolving sets are connected to each other. In the last part of the paper, we focus on the infinite graph family of flower snarks. We consider the $\ell$ -solid- and $\{\ell\}$ -metric dimensions of flower snarks. In two proofs regarding flower snarks, we use a new computer-aided reduction-like approach. 
+ Keywords: resolving set, metric dimension, resolving several objects, block design, rook’s graph, flower snark.
+
+1 Introduction
+
+In the context of a simple, undirected graph $G=(V,E)$, a resolving set is an ordered subset of vertices $S$ that enables the distinction of all vertices in the graph based on their distance vectors to the elements of $S$. Formally, $S$ is a resolving set if the distance vector $d(v,S)$, comprising the distances from vertex $v$ to each element of $S$, is unique for every vertex $v$ in $G$. This notion of resolution is significant, as it allows for the identification of vertices using the distances to a selected subset of vertices. The concept of resolving sets has far-reaching implications, with applications in fields such as chemical compound analysis, network discovery, and robot navigation, and has been extensively studied in the context of finding minimum or minimal resolving sets, which are sets of minimal size or have no proper subsets that are also resolving sets.
+
+In the context of an undirected graph $G$, a subset of vertices $S$ is considered a resolving set if the distinctness of vertices can be ascertained through their distance vectors relative to the elements of $S$. Notably, whilst any superset of a resolving set inherently retains this property, the converse does not necessarily hold for proper subsets, thereby prompting interest in the identification of resolving sets that exhibit minimality or optimality in terms of cardinality. Specifically, consideration is given to the $n$-dimensional hypercube, denoted $Q^{n}$, whose vertex set comprises all possible binary sequences of length $n$. Building upon the findings of Erdös and Renyi, who demonstrated that a specific collection of $n$ vertices serves as a resolving set for the hypercube, this investigation seeks to establish that a subset of $n-1$ vertices, derived from the original set, also functions as a resolving set for $Q^{n}$ when $n \geq 5$, and furthermore, that this reduced subset constitutes a minimal resolving set.
+
+In the context of hypercubes and subset posets of an n-element set, a specific notation is utilized. The set X, comprising elements {1,2,...,n}, is represented, with each vertex v in the hypercube V(Q^n) denoting both a binary string of length n and a subset of X. Binary addition is denoted by the operation +, and for a given n, vertices can be expressed as binary strings equivalent to subsets of X. For instance, with n=5, the vertex x=11001 represents the subset {1,2,5}, while y=10100 corresponds to {1,3}. The symmetric difference of two subsets is equivalent to the binary addition of their corresponding strings. Furthermore, e_i represents a binary string with a 1 in the i-th coordinate and 0s elsewhere, denoting the subset {i}. The level set X^(k) consists of all subsets of X with size k. A distance vector d(v,S) is defined for a vertex v and an ordered subset S of V, where d(x,y) represents the number of differing coordinates between vertices x and y, equivalent to the size of their symmetric difference. A resolving set S for Q^n is defined such that distinct vertices u and v yield distinct distance vectors d(u,S) and d(v,S). Additionally, the expression S+x represents the ordered set obtained by adding x to each element of S.
+
+To commence the proof, consider the set $S$, which comprises the singleton sets $\{2\}, \{3\}, \ldots, \{n\}$, denoted as $e_{2}, e_{3}, \ldots, e_{n}$, respectively. It is evident that for any $i \geq 2$, the removal of $e_{i}$ from $S$ results in a subset that fails to be a resolving set, as the distance vectors from $e_{1}$ and $e_{i}$ to this subset would be identical. In light of Lemma 1, our focus shifts to demonstrating that the augmented set $S^{\prime} = S \cup \{e_{2}\}$ possesses the resolving set property. Notably, $S^{\prime}$ consists of the vertices $\{\phi, \{2,3\}, \{2,4\}, \ldots, \{2,n\}\}$. Let $x$ and $y$ be two distinct vertices in the $n$-cube $Q^{n}$. Our objective is to establish that the distance vectors $d(x, S^{\prime})$ and $d(y, S^{\prime})$ are distinct. Given that $\phi$ is an element of $S^{\prime}$, it suffices to consider the scenario where $x$ and $y$ belong to the same level set $X^{(k)}$ within the vertex set $V$. Throughout the remainder of the proof, we operate under the assumptions that $x$ and $y$ are distinct, both reside in $X^{(k)}$, and $k$ ranges from $1$ to $n-1$. For each possible value of $k$, we aim to identify an element $s$ in $S^{\prime} - \{\phi\}$ such that the distances $d(x, s)$ and $d(y, s)$ are not equal, thereby confirming the distinctness of the distance vectors.
+
+When $\ell=1$ , Definition 1 is equivalent to the definition of a resolving set.
+
+The Cartesian product $G$ of graph $H$ and $K_{2}$, comprising two copies of $H$ denoted as $H_{1}$ and $H_{2}$, is examined, where $H_{1}$ and $H_{2}$ have resolving sets $\{w_{1},\ldots,w_{k}\}$ and $\{u_{1},\ldots,u_{k}\}$, respectively, with a distance of 1 between $w_{i}$ and $u_{i}$ in $G$. As established in previous research, $\{w_{1},\ldots,w_{k},u_{1}\}$ forms a resolving set for $G$, indicating that the metric dimension of $G$ is at most one greater than that of $H$. Applying this principle to the hypercube $Q^{n}$, which is the product of $Q^{n-1}$ and $K_{2}$, resolving sets of size $n-1$ can be constructed for $Q^{n}$ using known resolving sets of size 4 for $Q^{5}$. Consequently, a resolving set of size $n$ for $Q^{n}$ can be determined as $\{\phi,e_{2},e_{3},\ldots,e_{n}\}$. Notably, for $n=5$, the metric dimension of $Q^{n}$ is less than $n$, enabling the construction of resolving sets of size $n-1$ for $Q^{n}$ using a minimum resolving set for $Q^{5}$. This approach offers an alternative method to existing brute force calculations and exhaustive computer searches, providing new resolving sets.
+
+Researchers Erdös and Renyi identified a specific set of four vertices in a five-dimensional hypercube that can uniquely identify all other vertices, and later, Caceres et al found another set of four vertices with the same property, although verifying it required tedious calculations. They also used computer searches to establish upper limits for the minimum number of vertices needed to resolve hypercubes of up to 15 dimensions. However, determining the smallest possible resolving set for hypercubes, even for relatively small dimensions, remains an unsolved problem. This study provides a breakthrough by describing a simple and minimal resolving set of n-1 vertices that applies to hypercubes of five or more dimensions, and notably, the proof does not rely on exhaustive computational methods used in previous research.
+
+In the field of graph theory, a hypercube is a geometric structure consisting of vertices represented by binary sequences of a specified length, where two vertices are connected if their sequences differ by only one digit. Researchers have been investigating the concept of resolving sets, which are subsets of vertices that can uniquely identify all other vertices in the hypercube, with notable contributions from Erdös, Renyi, and Lindeström. Despite ongoing efforts, the optimal size of a resolving set for a hypercube of a given dimension remains an open problem, although approximations suggest that it grows at a rate of roughly twice the dimension divided by its logarithm. The broader concept of resolving sets, also known as metric dimension, was initially explored by Harary and Melter and applies to various types of graphs, with the goal of finding the smallest set of vertices that can distinguish all other vertices in the graph.
+
+Let $\ell\geq 1$ be an integer. The set $S\subseteq V(G)$ is an $\ell$ -solid-resolving set of $G$ , if for all distinct nonempty sets $X,Y\subseteq V(G)$ such that $|X|\leq\ell$ we have $\mathcal{D}_{S}(X)\neq\mathcal{D}_{S}(Y)$ .
+
+When $\ell=1$ , the previous definition is exactly the same as the definition of a solid-resolving set in [7] . The set $S_{2}=\{v_{1},v_{2},v_{3},v_{4},v_{6},v_{8},v_{9}\}$ is a 2-solid-resolving set of $H$ . We can distinguish the sets $U$ and $W$ from each other using $S_{2}$ since $\mathcal{D}_{S_{2}}(U)=(2,1,2,1,1,1,1)$ and $\mathcal{D}_{S_{2}}(W)=(2,1,2,1,0,1,1)$ .
+
+A set $S$ fails to be a resolving set precisely when the graph contains two disparate vertices, $u$ and $v$, that are equidistant from $S$, as measured by the distance function $d$. Notably, the distance from any vertex $u$ to the set $S$ remains invariant under translation by a vector $x$, such that $d(u,S) = d(u+x, S+x)$. Consequently, $S$ is not a resolving set if and only if, after applying the translation $x$, two distinct vertices $u'$ and $v'$ (where $u' = u+x$ and $v' = v+x$) are equidistant from the translated set $S+x$. This condition is tantamount to saying that $S+x$ itself is not a resolving set, thus establishing an equivalence between the resolving set property of $S$ and its translation $S+x$.
+
+A seminal study by Erdös and Renyi [5] identified a set of $n$ vertices as a resolving set for the $n$-dimensional hypercube $Q^{n}$, specifically $\{11\ldots 1,011\ldots 1, 1011\ldots 1,\ldots,111\ldots 101\}$. Our findings demonstrate that a subset of this set, comprising $n-1$ vertices, also functions as a resolving set for $Q^{n}$. Notably, the vertices $\{011\ldots 1,1011\ldots 1, \ldots,111\ldots 101\}$ form a minimal resolving set for $Q^{n}$. It is worth noting that Erdös and Renyi's primary contribution was establishing an asymptotic lower bound on the minimum size of a resolving set for $Q^{n}$, rather than specifically identifying a resolving set of size $n$; our research provides an alternative proof for the case of $n=5$ that avoids exhaustive computation and extends one of their key results for finite $n$.
+
+The $\{\ell\}$ -metric dimension of $G$ , denoted by $\beta_{\ell}(G)$ , is the minimum cardinality of an $\{\ell\}$ -resolving set of $G$ . An $\{\ell\}$ -resolving set of cardinality $\beta_{\ell}(G)$ is called an $\{\ell\}$ -metric basis of $G$ . Similarly, the $\ell$ -solid-metric dimension of $G$ , denoted by $\beta_{\ell}^{s}(G)$ , is the minimum cardinality of an $\ell$ -solid-resolving set of $G$ . An $\ell$ -solid-resolving set of cardinality $\beta_{\ell}^{s}(G)$ is called an $\ell$ -solid-metric basis of $G$ .
+
+Our research demonstrated that the resolving set of size $n$ presented by Erdös and Renyi is not minimal, and that a subset of size $n-1$ can be identified as a minimal resolving set. Additionally, we outline a method for constructing alternative resolving sets of size $n-1$ by integrating the resolving set of size 4 for $Q^{5}$, as described by Erdös and Renyi or Caceres et al, with findings on resolving sets of graph products from Chartrand et al.
+
+2 General Results
+
+It is demonstrated that a subset of the resolving set presented in reference [5] retains its resolving properties, thereby confirming its status as a resolving set.
+
+Let $S\subseteq V$ and $\ell\geq 1$ . The set $S$ is an $\ell$ -solid-resolving set of $G$ if and only if for all $x\in V$ and nonempty $Y\subseteq V$ such that $x\notin Y$ and $|Y|\leq\ell$ there exists an element $s\in S$ such that $d(s,x)<d(s,Y).$
+
+For $k\geq 3$, it is evident that both $x$ and $y$ intersect nontrivially with the set $\{3,\ldots,n\}$. If the intersections of $x$ and $y$ with $\{3,\ldots,n\}$ are identical, we can assume, without loss of generality, that $1$ belongs to $x$, $2$ belongs to $y$, $1$ is not an element of $y$, and $2$ is not an element of $x$, thereby allowing $s$ to be any arbitrary element. Henceforth, we proceed under the assumption that there exists an element $i$ within the set $\{3,\ldots,n\}$ such that $i$ is either exclusively in $x$ or exclusively in $y$. Assuming the former scenario, we delve into two distinct cases. Firstly, if $2$ is an element of $x$, we can select $s$ as the set $\{2,i\}$, noting that the distance between $x$ and $s$, denoted $d(x,s)$, equals the cardinality of $x$ minus the cardinality of $s$ due to $s$ being a subset of $x$. Conversely, the distance $d(y,s)$ exceeds $|y|-|s|$, which is equivalent to $|x|-|s|$, because $i$ is not an element of $y$. Secondly, if $2$ is not an element of $x$, we explore two subcases: one where $2$ is not in $y$, and another where $2$ is in $y$. In the former subcase, selecting $s$ as $\{2,i\}$ yields $d(y,s)\geq d(x,s)+2$. In the latter, choosing an arbitrary element $j$ from $y\cap\{3,\ldots,n\}$ and setting $s=\{2,j\}$ reveals that while $s$ is a subset of $y$, it is not a subset of $x$.
+
+( $\Leftarrow$ ) Assume then that $S$ satisfies ( 1 ). Consider nonempty vertex sets $X,Y\subseteq V$ such that $|X|\leq\ell$ and $X\neq Y$ . We have the following two cases:
+
+When $k=1$, we can select an element $s$ from the set $S^{\prime}-\{\phi\}$ such that for any pair of distinct elements $x$ and $y$ in $X^{(1)}$, $s$ distinguishes between $x$ and $y$ based on their distance vectors to $S^{\prime}$. This can be achieved by choosing $s$ to contain or exclude specific indices depending on the values of $x$ and $y$, ensuring that the distance from $x$ to $s$ differs from the distance from $y$ to $s$, thus allowing $S^{\prime}$ to resolve any pair of elements in $X^{(1)}$.
+
+$Y\subset X$ : Since $X\neq Y$ , there exists a vertex $x\in X$ such that $x\notin Y$ . Furthermore, we have $|Y|<|X|\leq\ell$ . According to ( 1 ), we have $d(s,x)<d(s,Y)$ for some $s\in S$ , and consequently $\mathcal{D}_{S}(X)\neq\mathcal{D}_{S}(Y)$ .
+
+Thus, the set $S$ is an $\ell$ -solid-resolving set of $G$ by Definition 2 . ∎
+
+Theorem 3 will prove to be a valuable tool throughout this article, as it also implies the corresponding result for $\ell=1$ in [7]. A related, albeit weaker, result exists for $\{\ell\}$-resolving sets, which is stated in the following lemma; notably, this lemma provides an implication, whereas Theorem 3 establishes an equivalence.
+
+A subset $S$ of $V$ is a resolving set for the graph $Q^{n}$ if and only if the translation of $S$ by any vector $x$ in $V$ yields a resolving set for $Q^{n}$, denoted as $S+x$.
+
+Assume that $S$ does not satisfy ( 2 ). There exists a vertex $x\in V$ and a set $Y\subseteq V$ such that $x\notin Y$ , $|Y|\leq\ell-1$ and $d(s,x)\geq d(s,Y)$ for all $s\in S$ . Now $\mathcal{D}_{S}(Y)=\mathcal{D}_{S}(Y\cup\{x\})$ and since $|Y|<|Y\cup\{x\}|\leq\ell$ , the set $S$ is not an $\{\ell\}$ -resolving set of $G$ . ∎
+
+In the context of the four-dimensional hypercube $Q^{4}$, it is asserted that no resolving set exists with a cardinality of less than 4. To substantiate this claim, consider a putative resolving set $S$ comprising three elements: the empty set $\phi$, and two vertices $x$ and $y$, where $x$ belongs to the subset $X^{(k)}$ and $y$ belongs to the subset $X^{(\ell)}$. Upon conducting an exhaustive examination of all possible combinations of $(k, \ell)$, it becomes evident that, irrespective of the specific values of $k$ and $\ell$, there inevitably exist distinct vertices $u$ and $v$ such that their distances from the set $S$ are equivalent, thus $d(u,S) = d(v,S)$, which contradicts the defining property of a resolving set.
+
+Let $S\subseteq V$ and $\ell\geq 1$ .
+
+If $S$ is an $\ell$ -solid-resolving set, then it is an $\{\ell\}$ -resolving set of $G$ .
+
+If $S$ is an $\{\ell+1\}$ -resolving set, then it is an $\ell$ -solid-resolving set of $G$ .
+
+It can be assumed that $\phi$ is an element of any resolving set of $Q^{n}$, given its inherent properties. The distance between $\phi$ and any vertex $u$ in the $k$-th level set $X^{(k)}$ of the poset is $k$, which implies that the distance between $u$ and a resolving set $S$ containing $\phi$ is distinct from the distance between another vertex $v$ and $S$, provided $u$ and $v$ are in the same level set of the hypercube, thus ensuring $d(u,S) \neq d(v,S)$ for distinct vertices $u$ and $v$.
+
+A vertex $v\in V(G)$ is called a forced vertex of an $\{\ell\}$ -resolving set (sim. $\ell$ -solid-resolving set) of $G$ if it must be included in any $\{\ell\}$ -resolving set of $G$ . In other words, no subset of $V(G)\setminus\{v\}$ is an $\{\ell\}$ -resolving set of $G$ . The graph we are considering is often clear from the context, and we may refer to a forced vertex of that graph by saying simply that the vertex is forced for an $\ell$ -solid- or $\{\ell\}$ -resolving set. The number of forced vertices of an $\ell$ -solid- or $\{\ell\}$ -resolving set gives us an immediate lower bound on the corresponding metric dimension.
+
+A succinct demonstration can be constructed through an exhaustive examination of individual scenarios, underscoring the efficacy of the prescribed sets as resolving sets. By leveraging the inclusion of $\phi$ within these sets, the task is reduced to verifying the discriminative capacity of distance vectors $d(u,S)$ and $d(v,S)$ for any pair of distinct vertices $u$ and $v$ that share the same rank in the partially ordered structure, thereby ensuring their unique identification.
+
+Assuming $k=2$, we consider $x$ and $y$ in $X^{(2)}-S^{\prime}$, as including either $x$ or $y$ in $S^{\prime}$ would result in a zero component in one of the distance vectors. We analyze three scenarios: (i) when $2$ is an element of $x$, (ii) when $2$ is an element of $y$, and (iii) when $2$ is not an element of either $x$ or $y$. In each case, we can identify an element $s$ that satisfies the condition $d(x,s) < d(y,s)$, either by selecting $s$ to be disjoint from $y$ or by choosing $s$ as $\{2,i\}$ for some $i$ that is in $x$ but not in $y$, leveraging the fact that $n\geq 5$ to ensure the existence of such an $s$.
+
+A vertex $v\in V$ is a forced vertex of an $\ell$-solid-resolving set of $G$ if and only if there is a subset $U$ of $V$, not containing $v$, with $|U|\leq\ell$, such that the neighborhood of $v$ is contained in the neighborhood of $U$.
+
+The same argument that establishes $S=\{e_{2},e_{3},\ldots,e_{n}\}$ as a minimal resolving set can be adapted to demonstrate that $\hat{S}=\{e_{1},e_{2},\ldots,e_{n-1}\}$ is also a minimal resolving set, as any permutation of the $n$ coordinates corresponds to a vertex automorphism of the hypercube graph that preserves distance metrics. Furthermore, according to Lemma 1, appending $11\ldots 1$ to $\hat{S}$ yields another minimal resolving set.
+
+$(\Rightarrow)$ Assume then that $v\in V$ and for all $U\subseteq V$ such that $v\notin U$ and $|U|\leq\ell$ we have $N(v)\nsubseteq N[U]$ . Now there exists a vertex $w\in N(v)\setminus N[U]$ , and we have $d(w,v)<d(w,U)$ . Since $d(x,x)<d(x,Y)$ for any $x\in V$ and $Y\subseteq V\setminus\{x\}$ , the set $V\setminus\{v\}$ satisfies ( 1 ) and is thus an $\ell$ -solid-resolving set of $G$ , which contradicts the fact that $v$ is forced for an $\ell$ -solid-resolving set. ∎
+
+According to Theorem 5 an $\{\ell\}$ -resolving set, where $\ell\geq 2$ , is always an $(\ell-1)$ -solid-resolving set of the graph in question. Thus, if a vertex is forced for $(\ell-1)$ -solid-resolving sets of a graph, then it is also forced for the $\{\ell\}$ -resolving sets of the same graph. The following theorem characterises all forced vertices of an $\{\ell\}$ -resolving set of a graph, and shows that the forced vertices of $\{\ell\}$ -resolving sets are in fact exactly the same as those of $(\ell-1)$ -solid-resolving sets.
+
+Let $\ell\geq 2$ . A vertex $v\in V$ is a forced vertex of an $\{\ell\}$ -resolving set of $G$ if and only if there exists a set $U\subseteq V$ such that $v\notin U$ , $|U|\leq\ell-1$ and $N(v)\subseteq N[U]$ .
+
+$(\Leftarrow)$ Clear by Theorems 5 and 6 .
+
+The existence of a resolving set of size 2 for $Q^{3}$ is disproven by considering an arbitrary set $S$ comprising two elements, $\phi$ and $v$. Assuming $S$ constitutes a resolving set, it necessarily follows that the cardinality of $v$ must be 1, 2, or 3. A thorough examination of each scenario reveals that, in every instance, a pair of distinct vertices can be identified that share an identical distance vector with respect to $S$, thereby yielding a contradiction. Consequently, it becomes evident that the resolving set presented in the statement is indeed of minimal cardinality, as any smaller set would be incapable of fulfilling the requirements of a resolving set.
+
+The inherent symmetry of the hypercube enables Theorem 3 to comprehensively describe the minimal resolving sets confined to the initial level set $X^{(1)}$ and the terminal level set $X^{(n-1)}$ within the poset of subsets of $\{1,2,\ldots,n\}$. Furthermore, it is demonstrable that each intermediate level set $X^{(k)}$, where $2\leq k\leq n-2$, constitutes a resolving set in its own right. This naturally prompts a subsequent inquiry into the characterization of minimal resolving sets that are exclusively situated within any of the intervening level sets $X^{(k)}$ of the poset, or that fulfill specific additional criteria, thus inviting a more nuanced exploration of the hypercube's structural properties.
+
+Consider then any connected graph $G$ . If $\deg(v)\leq\ell$ for some vertex $v$ and integer $\ell\geq 1$ , then $N(v)\subseteq N[N(v)]$ and $v$ is forced for $\ell$ -solid- and $\{\ell+1\}$ -resolving sets of $G$ by Theorems 6 and 7 . In particular, if $G$ is a tree, then a vertex $v$ is forced for $\ell$ -solid- and $\{\ell+1\}$ -resolving sets if and only if $\deg(v)\leq\ell$ . In [8] , it was shown that the forced vertices of an $\{\ell\}$ -resolving set of a tree indeed form an $\{\ell\}$ -resolving set, when $\ell\geq 2$ . Since any $\{\ell+1\}$ -resolving set is an $\ell$ -resolving set and the forced vertices of these two types of resolving sets are exactly the same, the $\ell$ -solid-resolving sets of a tree consist of only the corresponding forced vertices. Thus, for any $\ell$ we can construct trees that have nontrivial $\ell$ -solid- and $\{\ell\}$ -resolving sets.
+
+2.1 The Connection Between $\ell$ -Solid- and $\{\ell\}$ -Resolving Sets
+
+A minimum resolving set for the three-dimensional space $Q^{3}$ is given by the set containing the empty set, a set with the element 1, and a set with the element 2, denoted as $\{\phi,\{1\},\{2\}\}$. Similarly, for the four-dimensional space $Q^{4}$, a minimum resolving set is $\{\phi,\{2\},\{3\},\{4\}\}$, which comprises the empty set and sets containing the elements 2, 3, and 4, respectively.
+
+For $n \geq 5$, a minimal resolving set for the $n$-dimensional hypercube $Q^n$ is given by the set of all $n$-bit binary strings with exactly one zero, specifically $\{011\ldots 1, 1011\ldots 1, \ldots, 111\ldots 101\}$.
+
+In the context of graph theory, when considering a hypercube of dimension $n$, where $n$ is greater than or equal to $5$, a specific subset $S$ of vertices is deemed a minimal resolving set. This set $S$ consists of vertices represented as singleton sets containing integers from $2$ to $n$, implying that each vertex in $S$ is uniquely identified by a single number within this range, thus allowing for the precise localization of any point within the hypercube $Q^n$.
+
+( $\Leftarrow$ ) Assume then that $S$ satisfies ( 1 ). Consider nonempty vertex sets $X,Y\subseteq V$ such that $|X|\leq\ell$ and $X\neq Y$ . We have the following two cases: 1. $Y\not\subset X$ : Let $y\in Y\setminus X$ . Since $S$ satisfies ( 1 ), there exists an element $s\in S$ such that $d(s,y)<d(s,X)$ . Now we have $\mathcal{D}_{S}(X)\neq\mathcal{D}_{S}(Y)$ . 2. $Y\subset X$ : Since $X\neq Y$ , there exists a vertex $x\in X$ such that $x\notin Y$ . Furthermore, we have $|Y|<|X|\leq\ell$ . According to ( 1 ), we have $d(s,x)<d(s,Y)$ for some $s\in S$ , and consequently $\mathcal{D}_{S}(X)\neq\mathcal{D}_{S}(Y)$ . Thus, the set $S$ is an $\ell$ -solid-resolving set of $G$ by Definition 2 . ∎
+
+Theorem 3 will be very useful throughout the article. This theorem also implies the corresponding result for $\ell=1$ in [7] . A somewhat similar result holds for $\{\ell\}$ -resolving sets as stated in the following lemma. Unlike in Theorem 3 , we now have only an implication and not an equivalence.
+
+We proceed to establish the primary theorem.
+
+Utilization of the subsequent lemma, derived directly from the inherent symmetry of the hypercube, will prove beneficial in this context.
+
+Now, if $S$ is an $\{\ell+1\}$ -resolving set of $G$ for some $\ell\geq 1$ , then according to Lemma 4 for all $x\in V$ and $Y\subseteq V$ such that $x\notin Y$ and $|Y|\leq\ell$ there exists an element $s\in S$ such that $d(s,x)<d(s,Y)$ . According to Theorem 3 , the set $S$ is now also an $\ell$ -solid-resolving set, and the next result is immediate.
+
+Utilization of the subsequent lemma, derived directly from the inherent symmetrical characteristics of the hypercube, will prove beneficial.
+
+We shall now proceed to demonstrate the central proposition that underlies our argument, thereby providing a rigorous validation of the primary assertion that has been posited thus far.
+
+2.2 Forced Vertices
+
+A vertex $v\in V(G)$ is called a forced vertex of an $\{\ell\}$ -resolving set (sim. $\ell$ -solid-resolving set) of $G$ if it must be included in any $\{\ell\}$ -resolving set of $G$ . In other words, no subset of $V(G)\setminus\{v\}$ is an $\{\ell\}$ -resolving set of $G$ . The graph we are considering is often clear from the context, and we may refer to a forced vertex of that graph by saying simply that the vertex is forced for an $\ell$ -solid- or $\{\ell\}$ -resolving set. The number of forced vertices of an $\ell$ -solid- or $\{\ell\}$ -resolving set gives us an immediate lower bound on the corresponding metric dimension.
+
+The demonstration of our primary theorem is now undertaken, marking a pivotal milestone in our exposition.
+
+We denote by $N(v)$ the open neighbourhood of vertex $v$ which is defined as $N(v)=\{u\in V\ |\ d(v,u)=1\}$ . The closed neighbourhood of a vertex $v\in V$ is $N[v]=N(v)\cup\{v\}$ and the closed neighbourhood of a vertex set $U$ is $N[U]=\cup_{u\in U}N[u]$ .
+
+Let $\ell\geq 1$ . A vertex $v\in V$ is a forced vertex of an $\ell$ -solid-resolving set of $G$ if and only if there exists a set $U\subseteq V$ such that $v\notin U$ , $|U|\leq\ell$ and $N(v)\subseteq N[U]$ .
+
+It can be demonstrated that a subset of the resolving set presented in reference [5] retains its resolving properties, thereby establishing that a proper subset is indeed sufficient to constitute a resolving set.
+
+$(\Rightarrow)$ Assume then that $v\in V$ and for all $U\subseteq V$ such that $v\notin U$ and $|U|\leq\ell$ we have $N(v)\nsubseteq N[U]$ . Now there exists a vertex $w\in N(v)\setminus N[U]$ , and we have $d(w,v)<d(w,U)$ . Since $d(x,x)<d(x,Y)$ for any $x\in V$ and $Y\subseteq V\setminus\{x\}$ , the set $V\setminus\{v\}$ satisfies ( 1 ) and is thus an $\ell$ -solid-resolving set of $G$ , which contradicts the fact that $v$ is forced for an $\ell$ -solid-resolving set. ∎
+
+According to Theorem 5 an $\{\ell\}$ -resolving set, where $\ell\geq 2$ , is always an $(\ell-1)$ -solid-resolving set of the graph in question. Thus, if a vertex is forced for $(\ell-1)$ -solid-resolving sets of a graph, then it is also forced for the $\{\ell\}$ -resolving sets of the same graph. The following theorem characterises all forced vertices of an $\{\ell\}$ -resolving set of a graph, and shows that the forced vertices of $\{\ell\}$ -resolving sets are in fact exactly the same as those of $(\ell-1)$ -solid-resolving sets.
+
+Utilizing a lemma that derives directly from the inherent symmetries of the hypercube will yield valuable insights, thereby facilitating a more comprehensive understanding of the subject matter at hand.
+
+$(\Leftarrow)$ Clear by Theorems 5 and 6 .
+
+We will now proceed to demonstrate the primary theorem.
+
+To illustrate the previous theorems, consider again the graph $H$ in Figure 1 . Since $N(v_{1})=\{v_{2},v_{3},v_{4}\}$ and $N(v_{3})=\{v_{1},v_{2},v_{4}\}$ , we have $N(v_{1})\subseteq N[v_{3}]$ and $N(v_{3})\subseteq N[v_{1}]$ . By Theorems 6 and 7 , the vertices $v_{1}$ and $v_{3}$ are forced vertices of 1-solid- and $\{2\}$ -resolving sets of $H$ .
+
+We will now proceed to demonstrate the primary theorem.
+
+3 Bounds and Characterisations
+
+For the $\{1\}$ -metric dimension of a graph there is the obvious lower bound $\beta_{1}(G)\geq 1$ . This lower bound is attained if and only if $G=P_{n}$ [4] . In this section, we prove a lower bound on the $\ell$ -solid-metric dimension of a graph and characterise the graphs attaining that bound. The lower bound $\beta_{1}^{s}(G)\geq 2$ on the 1-solid-metric dimension of a graph was shown in [7] . The following theorem generalises this lower bound for $\ell$ -solid-metric dimensions where $\ell\geq 2$ .
+
+The proof can be succinctly outlined through a systematic examination of individual cases, leveraging the fact that $\phi$ is an element of the specified set. To establish that the given sets constitute resolving sets, it is necessary to verify that for any two distinct vertices $u$ and $v$ within the same level set of the poset, the resulting distance vectors $d(u,S)$ and $d(v,S)$ are distinct, thereby confirming the sets' resolving properties.
+
+The demonstration of our primary theorem is now undertaken, marking a pivotal juncture in our exposition.
+
+The following theorem characterises the graphs attaining the bound of Theorem 8 .
+
+Let $G$ be a connected graph with $n$ vertices and let $2\leq\ell\leq n-1$ . We have 
+ 
+ $\displaystyle\beta_{\ell}^{s}(G)=\ell+1\text{ if and only if }n=\ell+1\text{ or }G=K_{1,\ell+1}.$ 
+
+
+Utilization of the subsequent lemma, derived directly from the inherent symmetry characteristics of the hypercube, will prove beneficial.
+
+Conversely, suppose that $G$ is a connected graph such that $|V|=n\geq\ell+2$ and $\beta_{\ell}^{s}(G)=\ell+1$ and let $S\subseteq V$ be an $\ell$ -solid-resolving set with $\ell+1$ vertices. The following properties hold.
+
+We will now proceed to establish the primary theorem.
+
+We now consider two cases.
+
+We will now proceed to demonstrate the primary theorem.
+
+Notice that the number of graphs that attain the lower bound $\beta_{\ell}^{s}(G)\geq\ell+1$ is infinite when $\ell=1$ and finite when $\ell\geq 2$ . Corresponding results for $\{\ell\}$ -resolving sets can be found in [8] .
+
+The proof of our primary theorem is now presented.
+
+We will now provide the formal proof of our primary theorem.
+
+Utilizing a lemma that stems directly from the inherent symmetrical characteristics of the hypercube is likely to yield valuable insights, given the geometric principles that govern its structure.
+
+If $S\subseteq V(G)$ is an $\{\ell\}$ -resolving set ( $\ell\geq 2$ ) or an $\ell$ -solid-resolving set of $G$ ( $\ell\geq 1$ ), then $S$ is a doubly resolving set of $G$ .
+
+If $G$ is an infinite graph, then any doubly resolving set of $G$ is infinite.
+
+The following corollary is now immediate due to Corollary 11 and Lemma 12 .
+
+The proof involves a straightforward, case-by-case examination, demonstrating that the specified sets constitute resolving sets by leveraging the inclusion of $\phi$ and verifying the distinctness of distance vectors $d(u,S)$ and $d(v,S)$ for any disparate vertices $u$ and $v$ within the same poset level set.
+
+4 On Cartesian Products of Graphs
+
+To demonstrate that a resolving set of size less than 4 does not exist for $Q^{4}$, we assume a hypothetical resolving set $S$ comprising three elements, including $x$ and $y$, which belong to $X^{(k)}$ and $X^{(\ell)}$ respectively. Upon conducting an exhaustive examination of all possible combinations of $(k,\ell)$, it becomes evident that in every scenario, there exist distinct elements $u$ and $v$ that have the same distance to the set $S$, thus contradicting the definition of a resolving set.
+
+Let $G$ and $H$ be nontrivial connected graphs and $\ell\geq 1$ . 1. If $S$ is an $\ell$ -solid-resolving set of $G\Box H$ , then the projection of $S$ onto $G$ (respectively onto $H$ ) is an $\ell$ -solid-resolving of $G$ (respectively of $H$ ). 2. If $T$ is an $\ell$ -solid-resolving set of $G$ and $U$ is an $\ell$ -solid-resolving set of $H$ , then $T\times U$ is an $\ell$ -solid-resolving of $G\Box H$ . 3. We have $\max\{\beta_{\ell}^{s}(G),\beta_{\ell}^{s}(H)\}\leq\beta_{\ell}^{s}(G\Box H)\leq\beta_{\ell}^{s}(G)\cdot\beta_{\ell}^{s}(H)$ .
+
+It is demonstrated that a subset of the resolving set presented in reference [5] retains its resolving properties, thereby confirming its status as a resolving set.
+
+Utilization of the subsequent lemma, derived directly from the inherent symmetrical characteristics of the hypercube, will prove beneficial.
+
+Our research demonstrated that the resolving set of size $n$ presented by Erdös and Renyi is not minimal, and that a subset of size $n-1$ can be identified as a minimal resolving set. Additionally, we outline a method for constructing alternative resolving sets of size $n-1$ by leveraging the resolving set of size 4 for $Q^{5}$, as described by Erdös and Renyi or Caceres et al, in conjunction with findings on resolving sets of graph products from Chartrand et al.
+
+Finally, $d(tu,ab)=d_{G}(t,a)+d_{H}(u,b)<\min\{d_{G}(t,y_{g})\ |\ y_{g}\in Y_{G}\}+\min\{d_{H}(u,y_{h})\ |\ y_{h}\in Y_{H}\}\leq d(tu,Y)$ , as desired.
+
+3. The lower bound follows from 1. and the upper bound follows from 2. ∎
+
+Notice that in 2., it would be sufficient that the set $U$ satisfies the condition ( 1 ) with equality, that is, for all $x\in V(H)$ and nonempty $Y\subseteq V(H)$ such that $x\notin Y$ and $|Y|\leq\ell$ there exists $u\in U$ such that $d_{H}(u,x)\leq d_{H}(u,Y)$ .
+
+The demonstration of our primary theorem is now undertaken, marking a pivotal stage in our exposition.
+
+We will now proceed to establish the primary theorem.
+
+2. Let $S$ be an $\{\ell\}$ -resolving set of $G$ and $S^{\prime}$ be an $\ell$ -solid-resolving set of $H$ . Assume that $X,Y\subseteq V(G\Box H)$ are such that $X\neq Y$ , $1\leq|X|\leq\ell$ and $1\leq|Y|\leq\ell$ . Denote $X=\{g_{1}h_{1},\ldots,g_{k}h_{k}\}$ and $Y=\{g^{\prime}_{1}h^{\prime}_{1},\ldots,g^{\prime}_{k^{\prime}}h^{\prime}_{k^{\prime}}\}$ , where $k=|X|$ , $k^{\prime}=|Y|$ , $g_{i},g^{\prime}_{i}\in V(G)$ and $h_{i},h^{\prime}_{i}\in V(H)$ . Further denote $X_{G}=\{g_{1},\ldots,g_{k}\}$ and $Y_{G}=\{g^{\prime}_{1},\ldots,g^{\prime}_{k^{\prime}}\}$ , and $X_{H}=\{h_{1},\ldots,h_{k}\}$ and $Y_{H}=\{h^{\prime}_{1},\ldots,h^{\prime}_{k^{\prime}}\}$ . The proof now divides into the following two cases: • Suppose that $X_{G}\neq Y_{G}$ . Now there exists a vertex $s\in S$ such that $d_{G}(s,X_{G})\neq d_{G}(s,Y_{G})$ . Without loss of generality, we may assume that $d_{G}(s,g_{1})=d_{G}(s,X_{G})<d_{G}(s,Y_{G})$ . Observe that by the condition ( 1 ) there exists $s^{\prime}\in S^{\prime}$ such that $d_{H}(s^{\prime},h_{1})<d_{H}(s^{\prime},h)$ for any $h\in Y_{H}\setminus\{h_{1}\}$ since $|Y_{H}\setminus\{h_{1}\}|\leq\ell$ ; we agree that if $Y_{H}\setminus\{h_{1}\}=\emptyset$ , then any $s^{\prime}\in S^{\prime}$ meets the required (empty) condition (similar agreement is also made in the case with $X_{G}=Y_{G}$ ). Thus, we have a vertex $s^{\prime}\in S$ satisfying $d_{H}(s^{\prime},h_{1})=d_{H}(s^{\prime},Y_{H})$ . Therefore, we obtain that $d(ss^{\prime},X)\leq d(ss^{\prime},g_{1}h_{1})=d_{G}(s,g_{1})+d_{H}(s^{\prime},h_{1})<d_{G}(s,Y_{G})+d_{H}(s^{\prime},Y_{H})\leq d(ss^{\prime},Y)$ . • Suppose that $X_{G}=Y_{G}$ . Since $X\neq Y$ , we have $X\triangle Y=(X\setminus Y)\cup(Y\setminus X)\neq\emptyset$ and, without loss of generality, we may assume that $g_{1}h_{1}\in X\triangle Y$ . By the condition ( 2 ), there exists $s\in S$ such that $d_{G}(s,g_{1})<d_{G}(s,g)$ for any $g\in Y_{G}\setminus\{g_{1}\}$ since $|Y_{G}\setminus\{g_{1}\}|\leq\ell-1$ . Analogously, by ( 1 ), there exists $s^{\prime}\in S^{\prime}$ such that $d_{H}(s^{\prime},h_{1})<d_{H}(s^{\prime},h^{\prime})$ for any $h^{\prime}\in Y_{H}\setminus\{h_{1}\}$ since $|Y_{H}\setminus\{h_{1}\}|\leq\ell$ . For any $g^{\prime}_{i}h^{\prime}_{i}\in Y$ we have $g^{\prime}_{i}\neq g_{1}$ or $h^{\prime}_{i}\neq h_{1}$ since $g_{1}h_{1}\notin Y$ . Now $d(ss^{\prime},X)\leq d(ss^{\prime},g_{1}h_{1})=d_{G}(s,g_{1})+d_{H}(s^{\prime},h_{1})<d_{G}(s,g^{\prime}_{i})+d_{H}(s^{\prime},h^{\prime}_{i})=d(ss^{\prime},g^{\prime}_{i}h^{\prime}_{i})$ for any $g^{\prime}_{i}h^{\prime}_{i}\in Y$ . Hence, we have shown that $d(ss^{\prime},X)<d(ss^{\prime},Y)$ . Thus, $S\times S^{\prime}$ is an $\{\ell\}$ -resolving set of $G\Box H$ . The other claim can be proven analogously.
+
+3. The lower bound follows from 1. and the upper bound follows from 2. ∎
+
+4.1 The Rook’s Graph $K_{m}\Box K_{n}$
+
+We proceed to establish the primary theorem.
+
+The demonstration of our primary finding is now underway, marking a pivotal moment in our discussion as we set out to validate the central proposition that has been the focus of our inquiry.
+
+The 1-solid- and $\{1\}$ -metric dimensions of $K_{m}\Box K_{n}$ were considered in [7] and [3] , respectively. Thus, the only $\ell$ -solid- or $\{\ell\}$ -metric dimension of $K_{m}\Box K_{n}$ yet to be determined is the $\{2\}$ -metric dimension. In what follows, we show a characterisation for the $\{2\}$ -resolving sets of $K_{m}\Box K_{n}$ . As it turns out, this characterisation provides us an exciting connection between combinatorial designs and $\{2\}$ -resolving sets of $K_{m}\Box K_{n}$ .
+
+A quadruple of $K_{m}\Box K_{n}$ is the set $\{av,au,bv,bu\}$ where $a,b\in V(K_{m})$ and $v,u\in V(K_{n})$ are distinct. For example, in $K_{7}\Box K_{7}$ illustrated in Figure 2 , the set $\{v_{1}u_{1},v_{1}u_{3},v_{4}u_{1},v_{4}u_{3}\}$ is a quadruple, and we can see that these four vertices lie on the corners of a rectangle.
+
+We will now proceed to establish the primary theorem.
+
+We proceed to establish the primary theorem.
+
+The demonstration of our primary assertion is now undertaken, marking a pivotal juncture in our exposition.
+
+Utilizing a lemma derived from the inherent symmetrical characteristics of hypercubic structures will prove beneficial in this context, as it naturally emerges from their geometric properties.
+
+The demonstration of our primary finding is now underway, marking a pivotal moment in our explanation.
+
+The subsequent analysis can be facilitated by invoking a relevant lemma, whose derivation is a direct consequence of the inherent symmetrical characteristics exhibited by the hypercube structure.
+
+In conclusion, if $S$ is a $\{2\}$-resolving set of $K_{m}\Box K_{n}$, then either each row and column contains at least two elements of $S$, in which case each quadruple contains at least one element of $S$ by Lemma 16, or some row or column contains only one element of $S$, resulting in the set $\{v\}\cup(V\setminus N(v))$ being a subset of $S$ for some vertex $v\in V$.
+
+The demonstration of our primary finding is now undertaken, marking a pivotal moment in our exposition.
+
+We will now present the formal demonstration of our primary finding.
+
+Suppose, for the sake of contradiction, that there exist two distinct vertices $r$ and $t$ in $V(K_{n})$ such that the rows $R = \{vr \mid v \in V(K_{m})\}$ and $T = \{vt \mid v \in V(K_{m})\}$ each contain at most two elements of $S$. Consider partitioning the pairs of edges $\{vr, vt\}$, where $v \in V(K_{m})$, into pairs. Since $R$ and $T$ together contain at most four elements of $S$, and there are at least $m \geq 6$ such pairs, there must be at least two pairs, say $\{ar, at\}$ and $\{br, bt\}$, that do not contain any elements of $S$. This implies that the quadruple $\{ar, at, br, bt\}$ does not contain any elements of $S$, which is a contradiction. By symmetry, the same argument applies to columns.
+
+The formal proof of our primary theorem is presented as follows.
+
+Utilization of the subsequent lemma, derived directly from the inherent symmetry of the hypercube, will prove beneficial.
+
+Consider two distinct sets $X$ and $Y$, each containing exactly two vertices from the graph $K_{m}\Box K_{n}$. If there exists a vertex $x$ in $X$ but not in $Y$, and a vertex $y$ in $Y$ but not in $X$, such that at least one of $x$ or $y$ is in $S$, then the sets $X$ and $Y$ have distinct $S$-degrees, i.e., $\mathcal{D}_{S}(X)\neq\mathcal{D}_{S}(Y)$.
+
+Suppose that for some $x\in X\setminus Y$ and $y\in Y\setminus X$ we have $\{x,y\}\cap S=\emptyset$ . According to Lemma 18 at least one of $x$ and $y$ has three elements of $S$ on its row or column. Assume without loss of generality that $x$ is on the row $R$ and $R$ contains at least three elements of $S$ . If $Y\cap R=\emptyset$ , then for at least one $s\in S\cap R$ we have $d(s,X)=1<d(s,Y)$ . Thus, $\mathcal{D}_{S}(X)\neq\mathcal{D}_{S}(Y)$ .
+
+We will now proceed to demonstrate the primary theorem.
+
+Suppose $y_{2}\in C$ . Only one of $y_{1}$ and $y_{2}$ can be in $S$ . Suppose $y_{1}\in S$ . If $y_{1}\notin X$ , then $\mathcal{D}_{S}(X)\neq\mathcal{D}_{S}(Y)$ . Suppose $y_{1}\in X$ . The row $T$ that contains $y_{2}$ also contains at least two elements of $S$ , say $t_{1},t_{2}\in T\cap S$ . Since $y_{2}\notin S$ , $t_{1}\neq y_{2}$ and $t_{2}\neq y_{2}$ , and thus $t_{1},t_{2}\notin C$ . Now $d(t_{1},X)=2$ or $d(t_{2},X)=2$ since only one of $t_{1}$ and $t_{2}$ can be on the same column as $y_{1}$ . Thus, $\mathcal{D}_{S}(X)\neq\mathcal{D}_{S}(Y)$ . Similarly, if $y_{2}\in S$ , we can prove that there is a vertex $s\in S$ in the same column as $y_{1}$ such that $d(s,y_{1})=1<d(s,X)$ .
+
+Utilizing a lemma derived from the inherent symmetrical characteristics of hypercubic structures will yield valuable insights, as this principle can be readily inferred from the geometric properties that define these shapes.
+
+The demonstration of our primary theorem is now undertaken, marking a pivotal juncture in our exposition.
+
+The demonstration of our primary proposition is now forthcoming, marking a pivotal juncture in our exposition.
+
+Let $S$ be an arbitrary subset of the vertices of $K_{m}\Box K_{n}$, and suppose $|S|=qm+r$, where $q$ and $r$ are integers with $0\leq r<m$. The columns of $K_{m}\Box K_{n}$ are denoted by $C_{1},\ldots,C_{m}$. For each column $C_{i}$, let $x_{i}=|S\cap C_{i}|$ be the number of elements of $S$ it contains. Then, each column $C_{i}$ contains $\binom{n-x_{i}}{2}$ pairs of vertices not in $S$. The total number of such pairs across all columns is given by the sum $\sum_{i=1}^{m}\binom{n-x_{i}}{2}$.
+
+The demonstration of our primary finding is now underway, marking a pivotal moment in our explanation.
+
+We will now proceed to demonstrate the primary conclusion of our analysis.
+
+For values of $n$ greater than or equal to $5$, the set $S$ comprising the singleton sets $\{2\}$ through $\{n\}$ constitutes a minimal resolving set for the $n$-dimensional hypercube $Q^{n}$.
+
+The demonstration of our primary proposition is now forthcoming, marking a pivotal juncture in our exposition.
+
+Analogously, any $\{2\}$ -resolving set $S$ of $K_{m}\Box K_{n}$ can be interpreted as a certain type of design. Indeed, construct a design with $m$ blocks each formed by the elements of a column not belonging to $S$ . By Lemma 16 , each such design satisfies the previous condition (iii) and some other minor constraints depending on whether 1. or 2. of Theorem 17 holds.
+
+5 Flower Snarks
+
+In the context of graph theory, particularly when considering the hypercube $Q^{n}$ for $n \geq 5$, it is observed that a minimal resolving set can be constructed as $S$, comprising singleton subsets $\{2\}, \{3\}, \ldots, \{n\}$, denoted as $e_{2}, e_{3}, \ldots, e_{n}$ respectively, thereby providing a minimal set of vertices that uniquely identify all other vertices in the hypercube.
+
+Let $n=2k+1$ be an odd integer, $n\geq 5$ . 1. First we draw $n$ copies of the star $K_{1,3}$ . We denote by $T_{i}=\{a_{i},b_{i},c_{i},d_{i}\}$ the vertices of the $i$ th star, where the leaves of the star are $a_{i}$ , $c_{i}$ and $d_{i}$ . 2. We connect the vertices $a_{i}$ by drawing the cycle $a_{1}a_{2}\ldots a_{n}a_{1}$ . 3. We connect the remaining leaves of the stars by drawing the cycle $c_{1}c_{2}\ldots c_{n}d_{1}d_{2}\ldots d_{n}c_{1}$ . The resulting graph is the flower snark $J_{n}$ with $4n$ vertices.
+
+For dimensions greater than or equal to five, the set $S$ comprising singleton sets of integers from $2$ to $n$ constitutes a minimal resolving set for the $n$-dimensional hypercube $Q^{n}$.
+
+In the context of the four-dimensional hypercube $Q^{4}$, it is asserted that a resolving set with fewer than four elements does not exist. To substantiate this claim, consider a hypothetical resolving set $S$ comprising three elements: the empty set $\phi$, and two distinct elements $x$ and $y$, where $x$ belongs to the $k$th subset $X^{(k)}$ and $y$ belongs to the $\ell$th subset $X^{(\ell)}$. Upon conducting an exhaustive examination of all possible combinations of $(k, \ell)$, it becomes evident that for every scenario, there exist distinct vertices $u$ and $v$ that are equidistant from the set $S$, thus implying $d(u, S) = d(v, S)$, which underscores the impossibility of $S$ being a resolving set for $Q^{4}$ with fewer than four elements.
+
+In [10] , it was shown that $\beta_{1}(J_{n})=3$ when $n\geq 5$ . However, the proof for the upper bound $\beta_{1}(J_{n})\leq 3$ is erroneous. The authors claim that the set $W=\{c_{1},d_{1},d_{k}\}$ is a resolving set of $J_{n}$ since all vertices have unique distance arrays with respect to $W$ . However, we have $\mathcal{D}_{W}(a_{1})=(2,2,k+1)=\mathcal{D}_{W}(b_{n})$ and $\mathcal{D}_{W}(a_{k})=(k+1,k+1,2)=\mathcal{D}_{W}(b_{k+1})$ . Thus, the set $W$ is not a resolving set of $J_{n}$ . Despite this, their result holds. We can replace $d_{k}$ with $d_{k+1}$ in $W$ , after which it is straightforward to correct the proof and verify that the new set is indeed a resolving set of $J_{n}$ .
+
+We proceed to establish the primary theorem.
+
+The proof can be succinctly outlined through a methodical examination of each case, leveraging the inclusion of $\phi$ in the specified set to demonstrate that the sets in question are indeed resolving sets, which can be confirmed by verifying the distinctness of distance vectors $d(u,S)$ and $d(v,S)$ for any pair of distinct vertices $u$ and $v$ within the same level set of the poset.
+
+As for the remaining metric dimensions, we begin by considering $\{3\}$ -resolving sets since, quite surprisingly, the difficulty of the proofs increases as the value of $\ell$ decreases.
+
+5.1 The $\{3\}$ -Metric Dimension of $J_{n}$
+
+We begin by proving two technical lemmas. In these lemmas, we consider certain sets of vertices with at most three elements. Any $\{3\}$ -resolving set should be able to distinguish these sets from each other. However, as we will see, there are very few vertices able to do that. In Figure 3(c) , we have illustrated a part of a flower snark, which will help in visualising the sets of vertices discussed in the lemmas. Notice that if $i=1$ , then $b_{i-1}=b_{n}$ , and if $i=n$ , then $b_{i+1}=b_{1}$ .
+
+Let $i\in\{1,\ldots,n\}$ and 
+ 
+ $\displaystyle B=\{b_{i-1},b_{i+1}\},$ $\displaystyle X=B\cup\{a_{i}\},$ $\displaystyle Y=B\cup\{c_{i}\},$ $\displaystyle Z=B\cup\{d_{i}\}.$ 
+ We have (i) $d(s,X)\neq d(s,B)$ if and only if $s\in\{a_{i},b_{i}\}$ , (ii) $d(s,Y)\neq d(s,B)$ if and only if $s\in\{c_{i},b_{i}\}$ , (iii) $d(s,Z)\neq d(s,B)$ if and only if $s\in\{d_{i},b_{i}\}$ .
+
+Let $v\in V\setminus T_{i}$ and $u\in T_{i}$ . Any shortest path $v-u$ goes through either $T_{i-1}$ or $T_{i+1}$ . Thus, either $d(v,u)\geq d(v,b_{i-1})$ or $d(v,u)\geq d(v,b_{i+1})$ , and we have $d(v,X)=d(v,Y)=d(v,Z)=\min\{d(v,b_{i-1}),d(v,b_{i+1})\}=d(v,B)$ .
+
+Our analysis revealed that the resolving set of size $n$ presented by Erdös and Renyi [5] is not optimal, as a subset of size $n-1$ can be derived from their original set, yielding a minimal resolving set. Furthermore, we demonstrate the construction of alternative resolving sets of size $n-1$ by leveraging the resolving set of size 4 for the $Q^{5}$ graph, as described in both Erdös and Renyi [5] and Caceres et al [3], in conjunction with the findings of Chartrand et al [4] regarding the resolving sets of graph products, thereby providing a novel approach to generating minimal resolving sets.
+
+Let $i\in\{1,\ldots,n\}$ and 
+ 
+ $\displaystyle X=\{a_{i},b_{i-1},b_{i+1}\},$ $\displaystyle Y=\{c_{i},b_{i-1},b_{i+1}\},$ $\displaystyle Z=\{d_{i},b_{i-1},b_{i+1}\}.$ 
+ We have (i) $d(s,X)\neq d(s,Y)$ if and only if $s\in\{a_{i},c_{i}\}$ , (ii) $d(s,X)\neq d(s,Z)$ if and only if $s\in\{a_{i},d_{i}\}$ , (iii) $d(s,Y)\neq d(s,Z)$ if and only if $s\in\{c_{i},d_{i}\}$ .
+
+Follows from the proof of Lemma 23 . ∎
+
+In the following theorem, the exact values of $\beta_{3}(J_{n})$ are determined for all $n\geq 5$ .
+
+Let $n\geq 5$ be an odd integer. We have $\beta_{3}(J_{n})=3n$ .
+
+We will now proceed to demonstrate the primary proposition that underlies our argument.
+
+Utilization of the subsequent lemma, derived directly from the inherent symmetry characteristics of the hypercube, will prove beneficial.
+
+Our research demonstrated that the resolving set of size $n$ presented by Erdös and Renyi is not minimal, and that a subset of size $n-1$ can be identified as a minimal resolving set. Additionally, we outline a method for constructing alternative resolving sets of size $n-1$ by leveraging the resolving set of size 4 for $Q^{5}$, as described by Erdös and Renyi or Caceres et al, in conjunction with findings on resolving sets of graph products from Chartrand et al.
+
+We shall presently establish the central proposition that underlies our entire argument, thereby furnishing a rigorous demonstration of the fundamental theorem that constitutes the cornerstone of our investigation.
+
+5.2 The 2-Solid-Metric Dimension of $J_{n}$
+
+Let $S$ be a 2-solid-resolving set of $J_{n}$ . For any distinct sets $X,Y\subseteq V$ such that $|X|=2$ and $|Y|\geq 3$ , we have $\mathcal{D}_{S}(X)\neq\mathcal{D}_{S}(Y)$ . In particular, Lemma 23 holds for $S$ . Thus, either $b_{i}\in S$ or $\{a_{i},c_{i},d_{i}\}\subseteq S$ . This observation gives us the obvious lower bound $\beta_{2}^{s}(J_{n})\geq n$ . However, as we will show in Theorem 28 , the 2-solid-metric dimension of $J_{n}$ is $n+5$ . In order to obtain the lower bound $\beta_{2}^{s}(J_{n})\geq n+5$ , we need the following two lemmas. These lemmas tell us, how many vertices $a_{i}$ , $c_{i}$ and $d_{i}$ a 2-solid-resolving set must contain.
+
+Recall that we denote $n=2k+1$ , where $k$ is an integer.
+
+We proceed to establish the primary theorem.
+
+The demonstration of our primary theorem is now undertaken, marking a pivotal juncture in our exposition.
+
+Consequently, $A$ contains at least three elements of $S$ . ∎
+
+We denote the cycle $c_{1}c_{2}\ldots c_{n}d_{1}d_{2}\ldots d_{n}c_{1}$ by $C$ .
+
+The demonstration of our primary theorem is now undertaken, marking a pivotal milestone in our exposition.
+
+The demonstration of our primary proposition is now undertaken, marking a pivotal juncture in our exposition.
+
+Consider the vertex $c_{1}$ and the set $X=\{d_{1},d_{n}\}$ . We will show that $d(s,c_{1})\geq d(s,X)$ for all $s\in S$ . For all $a_{i}$ , we have $d(a_{i},c_{1})=d(a_{i},a_{1})+2=d(a_{i},d_{1})$ . Consequently, $d(a_{i},X)\leq d(a_{i},c_{1})$ for all $i\in\{1,\ldots,n\}$ . Similarly, we have $d(b_{i},c_{1})=d(a_{i},a_{1})+1=d(b_{i},d_{1})$ and $d(b_{i},X)\leq d(b_{i},c_{1})$ for all $i\in\{1,\ldots,n\}$ . Consider then a vertex $d_{j}$ . If $1\leq j\leq k$ , then $d(d_{j},c_{1})=d(d_{j},d_{1})+2$ . If $k+1\leq j\leq n$ , then $d(d_{j},c_{1})=d(d_{j},d_{n})+1$ . Thus, $d(d_{j},X)<d(d_{j},c_{1})$ for all $j\in\{1,\ldots,n\}$ . Similarly, for all $c_{j}$ where $j\in\{k+3,\ldots,n\}$ we have $d(c_{j},c_{1})=d(c_{j},d_{1})+2$ . Finally, since $d(c_{k+2},c_{1})=k+1=d(c_{k+2},d_{n})$ , we have $d(c_{j},X)\leq d(c_{j},c_{1})$ for all $j\in\{k+2,\ldots,n\}$ . Now the set $S$ is not a 2-solid-resolving set of $J_{n}$ since it does not satisfy ( 1 ) for $c_{1}$ and $X$ .
+
+Consequently, $C$ contains at least four elements of $S$ . ∎
+
+Let $n\geq 5$ be an odd integer. We have $\beta_{2}^{s}(J_{n})=n+5$ .
+
+The demonstration of our primary conclusion is now forthcoming, marking a pivotal juncture in our exposition.
+
+$\beta_{2}^{s}(J_{n})\leq n+5$ : Let 
+ 
+ $S=\{a_{1},c_{1},d_{1},a_{k+1},a_{k+2},c_{k+2},d_{k+2}\}\cup\{b_{i}\ |\ i\in\{1,\ldots,n\},i\neq 1,k+2\}.$ 
+ See Figure 4(b) for an example of this set. We have $|S|=7+n-2=n+5$ . We will show that $S$ satisfies ( 1 ) for $\ell=2$ , and is thus a 2-solid-resolving set of $J_{n}$ . Clearly, for all $s\in S$ and $X\subseteq V$ such that $s\notin X$ we have $d(s,s)<d(s,X)$ . Consider then the vertices that are not in $S$ . We divide the study by the types of the vertices in $J_{n}$ . $a_{i}:$ Assume that $2\leq i\leq k$ , the other case where $k+3\leq i\leq n$ goes similarly. Since $a_{i}\notin S$ , we have $b_{i}\in S$ . Let $X\subseteq V$ , $|X|\leq 2$ and $a_{i}\notin X$ . If $X\cap T_{i}=\emptyset$ , then $d(b_{i},a_{i})<d(b_{i},X)$ . Assume then that $X\cap T_{i}\neq\emptyset$ . Observe that $d(a_{1},a_{i})<d(a_{1},X\cap T_{i})$ and $d(a_{k+1},a_{i})<d(a_{k+1},X\cap T_{i})$ . If $X\subseteq T_{i}$ , then $d(a_{1},a_{i})<d(a_{1},X)$ and $d(a_{k+1},a_{i})<d(a_{k+1},X)$ . Suppose then that $|X\cap T_{i}|=1$ and $x\in X\setminus T_{i}$ . If $d(a_{1},x)\leq d(a_{1},a_{i})$ and $d(a_{k+1},x)\leq d(a_{k+1},a_{i})$ , then $d(a_{1},a_{k+1})\leq d(a_{1},x)+d(x,a_{k+1})\leq d(a_{1},a_{i})+d(a_{i},a_{k+1})$ . Since the path $a_{1}a_{2}\ldots a_{k+1}$ is the unique shortest path between $a_{1}$ and $a_{k+1}$ , we have $x=a_{j}$ for some $j\in\{1,\ldots,k+1\}$ , $j\neq i$ . Consequently, either $d(a_{1},a_{i})<d(a_{1},x)$ or $d(a_{k+1},a_{i})<d(a_{k+1},x)$ . Thus, either $d(a_{1},a_{i})<d(a_{1},X)$ or $d(a_{k+1},a_{i})<d(a_{k+1},X)$ . $b_{i}:$ Since $b_{i}\notin S$ , either $i=1$ or $i=k+2$ . Consider the case where $i=1$ (the case where $i=k+2$ goes similarly). Let $X\subseteq V$ , $|X|\leq 2$ and $b_{1}\notin X$ . If $S$ does not satisfy ( 1 ), then $d(a_{1},X)$ , $d(c_{1},X)$ and $d(d_{1},X)$ are all at most 1. However, now each of the sets $\{a_{1},a_{2},a_{n}\}$ , $\{c_{1},c_{2},d_{n}\}$ and $\{d_{1},d_{2},c_{n}\}$ must contain at least one element of $X$ . Since these sets do not intersect, the set $X$ has at least three elements, a contradiction. $c_{i},d_{i}:$ Consider the vertex $c_{i}$ where $2\leq i\leq k+1$ (the other cases go similarly). Let $X\subseteq V$ , $|X|\leq 2$ and $c_{i}\notin X$ . Assume that $d(s,X)\leq d(s,c_{i})$ for all $s\in S$ . Since $d(b_{i},X)\leq d(b_{i},c_{i})$ , we have $X\cap\{b_{i},d_{i},a_{i}\}\neq\emptyset$ . However, for all $v\in\{b_{i},d_{i},a_{i}\}$ we have $d(c_{1},c_{i})<d(c_{1},v)$ and $d(c_{k+2},c_{i})<d(c_{k+2},v)$ . Thus, $X$ must have an element $x$ such that $d(c_{1},x)\leq d(c_{1},c_{i})$ and $d(c_{k+2},x)\leq d(c_{k+2},c_{i})$ . The path $c_{1}c_{2}\ldots c_{k+1}c_{k+2}$ is the unique shortest path between $c_{1}$ and $c_{k+2}$ . Naturally, for all $c_{j}$ , where $j\neq i$ , we have either $d(c_{1},c_{i})<d(c_{1},c_{j})$ or $d(c_{k+2},c_{i})<d(c_{k+2},c_{j})$ . For all other vertices $v\notin\{c_{1},\ldots,c_{k+2}\}$ , we have $d(c_{1},v)+d(v,c_{k+2})>d(c_{1},c_{k+2})=d(c_{1},c_{i})+d(c_{i},c_{k+2})$ , and thus $d(c_{1},c_{i})<d(c_{1},v)$ or $d(c_{k+2},c_{i})<d(c_{k+2},v)$ . Thus, there is no such vertex $x$ that $d(c_{1},x)\leq d(c_{1},c_{i})$ and $d(c_{k+2},x)\leq d(c_{k+2},c_{i})$ . ∎
+
+5.3 The $\{2\}$ -Metric Dimension of $J_{n}$
+
+As we have seen in the two previous sections, the $\{3\}$ - and 2-solid-metric dimensions of $J_{n}$ are dependent on $n$ . However, we will see in Theorem 29 that the $\{2\}$ -metric dimension is at most eight for any $J_{n}$ .
+
+Our computer calculations have shown that $\beta_{2}(J_{5})=7$ , and $S=\{a_{1},a_{3},b_{2},b_{4},c_{1},c_{3},d_{1}\}$ , for example, is a $\{2\}$ -metric basis of $J_{5}$ . Our calculations have also shown that $\beta_{2}(J_{n})=8$ when $7\leq n\leq 19$ . We will prove the upper bound $\beta_{2}(J_{n})\leq 8$ in the following theorem, and we conjecture that the lower bound $\beta_{2}(J_{n})\geq 8$ holds for all $n\geq 7$ .
+
+The proof of the following theorem is surprisingly difficult with traditional methods of comparing distance arrays. To show the upper bound $\beta_{2}(J_{n})\leq 8$ we will construct a $\{2\}$ -resolving set of $J_{n}$ with eight elements. We have verified with a computer that the set we provide is indeed a $\{2\}$ -resolving set of $J_{n}$ when $7\leq n\leq 19$ . To show the claim for $n\geq 21$ we use a reduction-like approach. We will show that if the set was not a $\{2\}$ -resolving set of $J_{n}$ then it would not be a $\{2\}$ -resolving set of $J_{n-2}$ . The idea behind the proof is that if we carefully remove two stars $T_{i}$ from $J_{n}$ and add necessary edges (for example, in Figure 3(c) , we can remove the star $T_{i}$ and connect the stars $T_{i-1}$ and $T_{i+1}$ ), we obtain $J_{n-2}$ , and the distances in $J_{n}$ and $J_{n-2}$ are highly dependent on each other.
+
+Let $n=2k+1\geq 7$ . We have $\beta_{2}(J_{n})\leq 8$ .
+
+We define the sets $I=T_{n}\cup T_{1}\cup T_{2}\cup T_{3}$ and $J=T_{k}\cup T_{k+1}\cup T_{k+2}\cup T_{k+3}$, as well as their extensions $I^{\prime}=I\cup T_{n-1}\cup T_{4}$ and $J^{\prime}=J\cup T_{k-1}\cup T_{k+4}$. Let $S_{I}=\{a_{1},c_{1},d_{1},a_{2}\}$ and $S_{J}=\{a_{k+1},a_{k+2},c_{k+2},d_{k+2}\}$, and consider the combined set $S=S_{I}\cup S_{J}$, illustrated in Figure 4(c). Our goal is to show that $S$ is a $\{2\}$-resolving set of $J_{n}$. To establish this, we have verified using computational methods that $S$ is indeed a $\{2\}$-resolving set for $7\leq n\leq 19$.
+
+We proceed to establish the primary theorem.
+
+The demonstration of our principal finding is now undertaken, marking a pivotal juncture in our exposition.
+
+It is demonstrated that a subset of the resolving set presented in reference [5] retains its resolving set properties.
+
+5.4 The 1-Solid-Metric Dimension of $J_{n}$
+
+We begin the section by giving an upper bound on $\beta_{1}^{s}(J_{n})$ for all $n\geq 5$ .
+
+Let $n=2k+1\geq 5$ . We have $\beta_{1}^{s}(J_{n})\leq 6$ .
+
+We proceed to establish the primary theorem.
+
+Let $P$ be a shortest path between $u$ and $v$ in $J_{n}$. The distance $\rho_{n}(u,v)$ is defined as the number of stars that $P$ intersects minus one, denoted as $\rho_{n}(u,v) = t - 1$, where $t$ is the number of intersecting stars. This represents the distance $P$ travels from the star containing $u$ to the star containing $v$. The total distance $d(u,v)$ can be expressed as the sum of $\rho_{n}(u,v)$ and the distance $r$ traveled within the stars containing $u$ and $v$, yielding $d(u,v) = \rho_{n}(u,v) + r$.
+
+To determine the exact 1-solid-metric dimension of $J_{n}$ we still need to prove the lower bound $\beta_{1}^{s}(J_{n})\geq 6$ . Computer calculations have shown this lower bound to hold for $5\leq n\leq 39$ . The idea behind the proof of the following theorem is to prove that if for some $J_{n}$ we have $\beta_{1}^{s}(J_{n})\leq 5$ , then we also have $\beta_{1}^{s}(J_{n-2})\leq 5$ . To that end, we assume that the set $S$ , $|S|=5$ , is a 1-solid-resolving set of $J_{n}$ . We then construct $J_{n-2}$ from $J_{n}$ by removing the stars $T_{1}$ and $T_{k+1}$ and adding necessary edges (see Figure 5 ). As long as the stars close to the stars that were removed did not contain any elements of $S$ the distances from the elements of $S$ to other vertices behave well and predictably after the removal of the two stars. Then we can construct a 1-solid-resolving set of $J_{n-2}$ from $S$ , and we reach a contradiction to the lower bound shown with a computer.
+
+Let $n=2k+1\geq 5$ . We have $\beta_{1}^{s}(J_{n})=6$ .
+
+In the context of graph theory, a simple, undirected graph $G$ comprising a set of vertices $V$ and edges $E$ can be effectively navigated using a strategically selected subset of vertices, known as a resolving set. This subset, denoted as $S$, contains a sequence of vertices $\{s_{1},s_{2},\ldots,s_{k}\}$ that enables the unique identification of all vertices in $G$ based on their relative distances to the elements of $S$. The distance vector $d(v,S)$, which represents the sequence of distances from a given vertex $v$ to each element in $S$, serves as a distinctive signature for that vertex. Consequently, $S$ is considered a resolving set if the distance vectors of all vertices are distinct, thereby allowing for the unambiguous differentiation between any two vertices $u$ and $v$. This notion of resolving sets has far-reaching implications, as it gives rise to the concept of minimal resolving sets, which are subsets that cannot be further reduced without compromising their ability to distinguish between vertices. Interestingly, the pursuit of minimal resolving sets has connections to various fields, including puzzle-solving, chemical analysis, network topology, and robotic navigation, highlighting the significance of developing efficient methods for constructing such sets, as evident in recent studies.
+
+Let $n=2k+1\geq 41$ and let $S$ be a 1-solid-resolving set of $J_{n}$ with $|S|=5$. We refer to Figure 5, noting that the depicted flower snarks are smaller than required for technical reasons. Consider the collection of sets $\{T_{i}\ |\ i\in\{1,2,k-1,k,k+1,k+2,n-1,n\}\}$, illustrated in Figure 5 for $J_{21}$, and their isomorphic images. Since there are $n$ such sets and each element $s\in S$ appears in exactly eight of them, and given that $|S|=5$, it follows that if $n>40$, at least one set contains no elements of $S$. As $n\geq 41$, we can assume that none of the stars $T_{i}$, where $i\in\{1,2,k-1,k,k+1,k+2,n-1,n\}$, contain elements of $S$. Let $m=n-2=2l+1$, and denote by $T_{i}^{n}$ a star in $J_{n}$ and by $T_{i}^{m}$ a star in $J_{m}$.
+
+To facilitate our understanding, we can leverage a key principle derived from the inherent symmetrical nature of hypercubes, which provides a useful foundation for further analysis.
+
+Let $R=\{\alpha(s)\ |\ s\in S\}$ . Since the stars $T_{i}^{n}$ , where $i\in\{1,2,k-1,k,k+1,k+2,n-1,n\}$ , do not contain elements of $S$ , the vertices $\alpha(T_{i}^{n})$ in $J_{m}$ are not in $R$ , and $|R|=|S|$ . In other words, the stars $T_{j}^{m}$ , where $j\in\{1,2,l,l+1,l+2,m\}$ , do not contain elements of $R$ . We denote 
+ 
+ $\displaystyle I=\bigcup\limits_{i=2}^{l}T_{i}^{m}\qquad\text{and}\qquad J=\bigcup\limits_{i=l+2}^{m}T_{i}^{m}$ 
+ (see Figure 5 ). Let $r\in R$ and $v\in V(J_{m})$ . Let $s=\alpha^{-1}(r)$ and $v^{\prime}$ be a preimage of $v$ . Since the stars $T_{i}^{m}$ where $i\in\{1,2,l,l+1,l+2,m\}$ do not contain elements of $R$ , the shortest paths from $r$ to $v$ are closely related to the shortest paths from $s$ to $v^{\prime}$ .
+
+It can be demonstrated that a subset of the resolving set presented in reference [5] retains its resolving properties, thereby establishing that a proper subset is indeed sufficient to constitute a resolving set.
+
+Let $x,y\in V(J_{m})$ be distinct. In what follows, we will show that the set $R$ satisfies ( 1 ). Suppose first that $x,y\in T_{1}^{m}$ or $x,y\in T_{l+1}^{m}$ . Due to symmetry, it suffices to show that when $x,y\in T_{1}^{m}$ there exists an element $r\in R$ such that $d_{m}(r,x)<d_{m}(r,y)$ . Let $x^{\prime}$ and $y^{\prime}$ be the preimages of $x$ and $y$ that are in $T_{1}^{n}$ . Since $S$ is a 1-solid-resolving set of $J_{n}$ , there exists some $s\in S$ such that $d_{n}(s,x^{\prime})<d_{n}(s,y^{\prime})$ . Now, we have $d_{m}(\alpha(s),x)=d_{n}(s,x^{\prime})$ if and only if $d_{m}(\alpha(s),y)=d_{n}(s,y^{\prime})$ . Consequently, $d_{m}(\alpha(s),x)<d_{m}(\alpha(s),y)$ .
+
+Utilization of the subsequent lemma, derived directly from the inherent symmetry of the hypercube, will prove beneficial.
+
+Suppose that $x\in T_{1}^{m}\cup T_{l+1}^{m}$ and $y\notin T_{1}^{m}\cup T_{l+1}^{m}$ . Assume that $x\in T_{1}^{m}$ (the case where $x\in T_{l+1}^{m}$ follows by symmetry). We denote $y^{\prime}=\alpha^{-1}(y)$ and $\alpha^{-1}(x)=\{x_{1},x_{n}\}$ , where $x_{1}\in T_{1}^{n}$ and $x_{n}\in T_{n}^{n}$ . Suppose that $y\in I$ (the case where $y\in J$ goes similarly). Assume to the contrary that $d_{m}(v,x)\geq d_{m}(v,y)$ for all $v\in R$ . Let $r,u\in R$ be such that $r\in I$ and $u\in J$ . We denote $s=\alpha^{-1}(r)$ and $t=\alpha^{-1}(u)$ . Now we have $d_{n}(s,y^{\prime})=d_{m}(r,y)$ , $d_{n}(t,y^{\prime})=d_{m}(u,y)+1$ , $d_{m}(r,x)=d_{n}(s,x_{1})$ and $d_{m}(u,x)=d_{n}(t,x_{1})-1$ . Since $d_{m}(v,x)\geq d_{m}(v,y)$ for all $v\in R$ , we have $d_{n}(s,x_{1})=d_{m}(r,x)\geq d_{m}(r,y)=d_{n}(s,y^{\prime})$ and $d_{n}(t,x_{1})=d_{m}(u,x)+1\geq d_{m}(u,y)+1=d_{n}(t,y^{\prime})$ . Thus, for all $v^{\prime}\in S$ we have $d_{n}(v^{\prime},x_{1})\geq d_{n}(v^{\prime},y^{\prime})$ and the set $S$ does not satisfy ( 1 ), a contradiction. Thus, for some $v\in R$ we have $d_{m}(v,x)<d_{m}(v,y)$ . Similarly, if $d_{m}(v,y)\geq d_{m}(v,x)$ for all $v\in R$ , then $d_{n}(s,y^{\prime})=d_{m}(r,y)\geq d_{m}(r,x)=d_{n}(s,x_{1})$ and $d_{n}(t,y^{\prime})=d_{m}(u,y)+1\geq d_{m}(u,x)+1=d_{n}(t,x_{1})$ . Consequently, for all $v^{\prime}\in S$ we have $d_{n}(v^{\prime},y^{\prime})\geq d_{n}(v^{\prime},x_{1})$ and the set $S$ does not satisfy ( 1 ), a contradiction. Thus, we also have $d_{m}(v,y)<d_{m}(v,x)$ for some $v\in R$ .
+
+Finally, assume that $x,y\notin T_{1}^{m}\cup T_{l+1}^{m}$ . Let us denote $x^{\prime}=\alpha^{-1}(x)$ and $y^{\prime}=\alpha^{-1}(y)$ . Assume that $x,y\in I$ . Let $s\in S$ be such that $d_{n}(s,x^{\prime})<d_{n}(s,y^{\prime})$ . Denote $r=\alpha(s)$ . If $r\in I$ , then $d_{m}(r,x)=d_{n}(s,x^{\prime})$ and $d_{m}(r,y)=d_{n}(s,y^{\prime})$ . If $r\in J$ , then $d_{m}(r,x)=d_{n}(s,x^{\prime})-1$ and $d_{m}(r,y)=d_{n}(s,y^{\prime})-1$ . In both cases we have $d_{m}(r,x)<d_{m}(r,y)$ . Thus, the set $R$ satisfies ( 1 ) for any $x,y\in I$ . The case where $x,y\in J$ goes similarly.
+
+Suppose that $x\in I$ and $y\in J$ . There is at least one star between the stars that contain $x$ and $y$ . We have the following two cases
+
+1. There is exactly one star between $x$ and $y$ : Since $x\in I$ and $y\in J$ , the star between $x$ and $y$ is either $T_{1}^{m}$ or $T_{l+1}^{m}$ . Thus, there are two stars between $x^{\prime}$ and $y^{\prime}$ . Suppose that $T_{1}^{m}$ is the star between $x$ and $y$ , and $x\in T_{2}^{m}$ and $y\in T_{m}^{m}$ . We have $x^{\prime}\in T_{2}^{n}$ and $y^{\prime}\in T_{n-1}^{n}$ . Let $x_{1}\in T_{1}^{n}$ and $y_{n}\in T_{n}^{n}$ be such that they are the same type as $x^{\prime}$ and $y^{\prime}$ , respectively. By ’same type’ we mean that if $x^{\prime}=c_{2}$ , for example, then $x_{1}=c_{1}$ . Since the stars $T_{i}^{n}$ where $i\in\{1,2,k-1,k,k+1,k+2,n-1,n\}$ do not contain any elements of $S$ , the vertex $s\in S$ is on the same side as $x^{\prime}$ (that is, $\alpha(s)\in I$ ) if and only if we have $d_{n}(s,x^{\prime})<d_{n}(s,y^{\prime})$ Similarly, $s$ is on the same side as $y^{\prime}$ if and only if $d_{n}(s,y^{\prime})<d_{n}(s,x^{\prime})$ . Assume that for all $v\in R$ we have $d_{m}(v,x)\geq d_{m}(v,y)$ . Since $S$ is a 1-solid-resolving set of $J_{n}$ , there exist vertices $s,t\in S$ such that $d_{n}(s,x^{\prime})<d_{n}(s,y^{\prime})$ and $d_{n}(t,y^{\prime})<d_{n}(t,x^{\prime})$ . According to our previous observation, $s$ is on the same side as $x^{\prime}$ and $t$ is on the same side as $y^{\prime}$ . Denote $r=\alpha(s)$ . Since $d_{m}(r,x)\geq d_{m}(r,y)$ , we have $d_{n}(s,y^{\prime})-1\geq d_{n}(s,x^{\prime})=d_{m}(r,x)\geq d_{m}(r,y)=d_{n}(s,y^{\prime})-1$ . Consequently, $d_{m}(r,x)=d_{m}(r,y)$ and $d_{n}(s,y^{\prime})=d_{n}(s,x^{\prime})+1$ . Thus, we have $d_{n}(s,x_{1})=d_{n}(s,x^{\prime})+1=d_{n}(s,y^{\prime})$ . Since the stars $T_{i}^{n}$ , where $i\in\{1,2,k-1,k,k+1,k+2,n-1,n\}$ , do not contain any elements of $S$ , all shortest paths from $t$ to $x_{1}$ go through the star that contains $y^{\prime}$ . Since the star $T_{n}^{n}$ is between $T_{1}^{n}$ and the star that contains $y^{\prime}$ , we have $d_{n}(t,y^{\prime})\leq d_{n}(t,x_{1})$ . Thus, the set $S$ does not satisfy ( 1 ) for $x_{1}$ and $y^{\prime}$ , a contradiction. Similarly, if $d_{m}(v,y)\geq d_{m}(v,x)$ for all $v\in R$ , the set $S$ does not satisfy ( 1 ) for $y_{n}$ and $x^{\prime}$ . 2. There are at least two stars between $x$ and $y$ : Now, there are at least three stars between $x^{\prime}$ and $y^{\prime}$ . Let $s\in S$ be such that $d_{n}(s,x^{\prime})<d_{n}(s,y^{\prime})$ , and denote $r=\alpha(s)$ . As $d_{m}(r,y)\geq d_{n}(s,y^{\prime})-1$ , we have $d_{m}(r,x)\leq d_{m}(r,y)$ . If $d_{m}(r,x)<d_{m}(r,y)$ , then we are done. Suppose that $d_{m}(r,x)=d_{m}(r,y)$ . We have $r\in I$ since otherwise $d_{m}(r,x)=d_{n}(s,x^{\prime})-1<d_{n}(s,y^{\prime})-1=d_{m}(r,y)-1$ . Since $d_{m}(r,x)=d_{n}(s,x^{\prime})$ and $d_{m}(r,y)=d_{n}(s,y^{\prime})-1$ , we have $d_{n}(s,x^{\prime})=d_{n}(s,y^{\prime})-1$ . Clearly, there does not exist a shortest path from $r$ to $x$ that goes through the star that contains $y$ . Since there are at least two stars between $x$ and $y$ , there does not exist a shortest path from $r$ to $y$ that goes through the star that contains $x$ . Indeed, otherwise we would have $d_{m}(r,x)\leq\rho_{m}(r,x)+2<\rho_{m}(r,y)\leq d_{m}(r,y)$ . Thus, the shortest paths $r-x$ and $r-y$ can coincide with each other only in the star that contains $r$ . Let $z\in V(J_{n})$ be the unique vertex that is the same type as $y^{\prime}$ (i.e. $a_{i}$ , $b_{i}$ , $c_{i}$ or $d_{i}$ ), is in a star next to $y^{\prime}$ and for which $d_{n}(s,z)=d_{n}(s,x^{\prime})$ holds (see Figure 5 ). The vertex $z$ is indeed unique since the first two conditions reduce the options to two and the third condition uniquely determines $z$ as $n$ in odd. Since $S$ is a 1-solid-resolving set of $J_{n}$ , there exists a $t\in S$ such that $d_{n}(t,x^{\prime})<d_{n}(t,z)$ . If the vertex $t$ is in the same star as $y^{\prime}$ or $z$ , then $\rho_{n}(t,x^{\prime})\geq 3$ since $\rho_{n}(y^{\prime},x^{\prime})\geq 4$ . However, now $d_{n}(t,z)\leq 3\leq\rho_{n}(t,x^{\prime})\leq d_{n}(t,x^{\prime})$ . Thus, $t$ is not in the same star as $y^{\prime}$ or $z$ , and we have 
+ 
+ $\displaystyle d_{n}(t,y^{\prime})-1\leq d_{n}(t,z)\leq d_{n}(t,y^{\prime})+1,$ 
+ 
+ $\displaystyle d_{n}(t,z)-1\leq d_{n}(t,y^{\prime})\leq d_{n}(t,z)+1.$ 
+ If $d_{n}(t,y^{\prime})<d_{n}(t,x^{\prime})$ , then $d_{n}(t,z)\leq d_{n}(t,y^{\prime})+1\leq d_{n}(t,x^{\prime})$ , a contradiction. Thus, we have $d_{n}(t,y^{\prime})\geq d_{n}(t,x^{\prime})$ . We denote $u=\alpha(t)$ . If $u\in J$ , then $d_{m}(u,y)=d_{n}(t,y^{\prime})$ and $d_{m}(u,x)=d_{n}(t,x^{\prime})-1$ . Consequently, $d_{m}(u,x)\leq d_{n}(t,y^{\prime})-1<d_{m}(u,y)$ and ( 1 ) is satisfied for $x$ and $y$ . Suppose then that $u\in I$ . Now, $d_{m}(u,y)=d_{n}(t,y^{\prime})-1$ and $d_{m}(u,x)=d_{n}(t,x^{\prime})$ . If $d_{m}(u,x)<d_{m}(u,y)$ , then ( 1 ) is again satisfied. Assume that $d_{m}(u,x)\geq d_{m}(u,y)$ . Since there are at least two stars between $x$ and $y$ , a shortest path $u-y$ cannot go through the star that contains $x$ . Consequently, there is no shortest path $t-y^{\prime}$ that goes through the star that contains $x^{\prime}$ . If there is a shortest path $t-y^{\prime}$ that goes through the star that contains $z$ , then we have $d_{n}(t,y^{\prime})=d_{n}(t,z)+1$ and 
+ 
+ $\displaystyle d_{m}(u,y)=d_{n}(t,y^{\prime})-1=d_{n}(t,z)>d_{n}(t,x^{\prime})=d_{m}(u,x).$ 
+ Thus, $u$ satisfies ( 1 ) for $x$ and $y$ . Suppose then that there is no shortest path $t-y^{\prime}$ that goes through the star that contains $z$ . The shortest paths $t-y^{\prime}$ and $s-y^{\prime}$ can coincide only in the star that contains $y^{\prime}$ . Consequently, the shortest paths $u-y$ and $r-y$ in $J_{m}$ can coincide only in the star that contains $y$ . As we have seen before, the shortest paths $r-x$ and $r-y$ can coincide only in the star that contains $r$ , and the shortest paths $u-y$ do not go through the star that contains $x$ . Thus, the shortest paths $u-y$ , $u-x$ , $r-x$ and $r-y$ can coincide only in the stars that contain $x$ , $y$ , $r$ or $u$ (see Figure 5 for an example of this situation). Consequently, we have 
+ 
+ $\displaystyle d_{m}(r,x)+d_{m}(u,x)\leq\rho_{m}(r,x)+2+\rho_{m}(u,x)+2=\rho_{m}(r,u)+4\leq l-4+4=l,$ 
+ 
+ $\displaystyle d_{m}(r,y)+d_{m}(u,y)\geq\rho_{m}(r,y)+\rho_{m}(u,y)=m-\rho_{m}(r,u)\geq l+5.$ 
+ Thus, $d_{m}(r,x)+d_{m}(u,x)<d_{m}(r,y)+d_{m}(u,y)$ . Since $d_{m}(r,x)=d_{m}(r,y)$ , we have $d_{m}(u,x)<d_{m}(u,y)$ . Using similar arguments we can show that there exists some $u^{\prime}\in R$ such that $d_{m}(u^{\prime},y)<d_{m}(u^{\prime},x)$ . ∎
+
+References
+
+[1] Z. Beerliova, F. Eberhard, T. Erlebach, A. Hall, M. Hoffmann, M. Mihalák, and L. S. Ram. Network discovery and verification. IEEE J. Sel. Areas Commun., 24(12):2168–2181, 2006. doi:10.1109/JSAC.2006.884015.
+[2] J. Cáceres, M. C. Hernando, M. Mora, I. M. Pelayo, and M. L. Puertas. On the metric dimension of infinite graphs. Discrete Appl. Math., 160(18):2618–2626, 2012. doi:10.1016/j.dam.2011.12.009.
+[3] J. Cáceres, M. C. Hernando, M. Mora, I. M. Pelayo, M. L. Puertas, C. Seara, and D. R. Wood. On the metric dimension of cartesian products of graphs. SIAM J. Discrete Math., 21(2):423–441, 2007. doi:10.1137/050641867.
+[4] G. Chartrand, L. Eroh, M. A. Johnson, and O. Oellermann. Resolvability in graphs and the metric dimension of a graph. Discrete Appl. Math., 105(1-3):99–113, 2000. doi:10.1016/S0166-218X(00)00198-0.
+[5] C. J. Colbourn and J. H. Dinitz, editors. Handbook of combinatorial designs. Discrete Mathematics and its Applications (Boca Raton). Chapman & Hall/CRC, Boca Raton, FL, second edition, 2007.
+[6] A. Estrada-Moreno, I. G. Yero, and J. A. Rodríguez-Velázquez. The k-metric dimension of the lexicographic product of graphs. Discrete Math., 339(7):1924–1934, 2016. doi:10.1016/j.disc.2015.12.024.
+[7] A. Hakanen, V. Junnila, and T. Laihonen. The solid-metric dimension. Theoret. Comput. Sci., 806:156–170, 2020. doi:10.1016/j.tcs.2019.02.013.
+[8] A. Hakanen and T. Laihonen. On{ℓ}ℓ\{\ell\}-metric dimensions in graphs. Fundam. Inform., 162(2-3):143–160, 2018. doi:10.3233/FI-2018-1718.
+[9] F. Harary and R. Melter. On the metric dimension of a graph. Ars Comb., 2:191–195, 1976.
+[10] M. Imran, S. Bokhary, A. Ahmad, and A. Semaničová-Feňovčíková. On classes of regular graphs with constant metric dimension. Acta Math. Sci., 33B(1):187–206, 2013. doi:10.1016/S0252-9602(12)60204-5.
+[11] R. Isaacs. Infinite families of nontrivial trivalent graphs which are not tait colorable. Amer. Math. Monthly, 82(3):221–239, 1975.
+[12] C. X. Kang, I. G. Yero, and E. Yi. The fractional strong metric dimension in three graph products. Discrete Appl. Math., 251:190–203, 2018. doi:10.1016/j.dam.2018.05.051.
+[13] A. Kelenc, N. Tratnik, and I. G. Yero. Uniquely identifying the edges of a graph: The edge metric dimension. Discrete Appl. Math., 251:204–220, 2018. doi:10.1016/j.dam.2018.05.052.
+[14] S. Khuller, B. Raghavachari, and A. Rosenfeld. Landmarks in graphs. Discrete Appl. Math., 70(3):217–229, 1996. doi:10.1016/0166-218X(95)00106-2.
+[15] T. Laihonen. The metric dimension for resolving several objects. Inform. Process. Lett., 116(11):694–700, 2016. doi:10.1016/j.ipl.2016.06.002.
+[16] P. J. Slater. Leaves of trees. InProceedings of the Sixth Southeastern Conference on Combinatorics, Graph Theory, and Computing (Florida Atlantic Univ., Boca Raton, Fla., 1975), pages 549–559. Congressus Numerantium, No. XIV, Winnipeg, Man., 1975. Utilitas Math.

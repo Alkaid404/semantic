@@ -1,0 +1,20 @@
+<document reference="suspicious-document020539.txt">
+  <feature name="about" authors="I. Serban and F. K. Wilhelm" title="Dynamical tunneling in macroscopic systems" lang="en" similarity="0.9718" severity="medium" prompt_tokens="2260" output_tokens="1850"/>
+  <feature name="md5Hash" value="2f652675b1e40c8474a6c886a750f74f"/>
+  <feature name="altered" type="llm_prompted" llm="Llama-3" this_language="en" this_offset="86" this_length="651"/>
+  <feature name="altered" type="llm_prompted" llm="Llama-3" this_language="en" this_offset="739" this_length="688"/>
+  <feature name="altered" type="llm_prompted" llm="Llama-3" this_language="en" this_offset="1429" this_length="953"/>
+  <feature name="altered" type="llm_prompted" llm="Llama-3" this_language="en" this_offset="2743" this_length="291"/>
+  <feature name="altered" type="llm_prompted" llm="Llama-3" this_language="en" this_offset="3620" this_length="127"/>
+  <feature name="altered" type="llm_prompted" llm="Llama-3" this_language="en" this_offset="3749" this_length="243"/>
+  <feature name="altered" type="llm_prompted" llm="Llama-3" this_language="en" this_offset="5795" this_length="596"/>
+  <feature name="altered" type="llm_prompted" llm="Llama-3" this_language="en" this_offset="6393" this_length="273"/>
+  <feature name="altered" type="llm_prompted" llm="Llama-3" this_language="en" this_offset="6668" this_length="791"/>
+  <feature name="altered" type="llm_prompted" llm="Llama-3" this_language="en" this_offset="8599" this_length="590"/>
+  <feature name="altered" type="llm_prompted" llm="Llama-3" this_language="en" this_offset="10637" this_length="526"/>
+  <feature name="altered" type="llm_prompted" llm="Llama-3" this_language="en" this_offset="11698" this_length="617"/>
+  <feature name="altered" type="llm_prompted" llm="Llama-3" this_language="en" this_offset="12468" this_length="723"/>
+  <feature name="altered" type="llm_prompted" llm="Llama-3" this_language="en" this_offset="13193" this_length="514"/>
+  <feature name="altered" type="llm_prompted" llm="Llama-3" this_language="en" this_offset="14137" this_length="154"/>
+  <feature name="altered" type="llm_prompted" llm="Llama-3" this_language="en" this_offset="16644" this_length="288"/>
+</document>

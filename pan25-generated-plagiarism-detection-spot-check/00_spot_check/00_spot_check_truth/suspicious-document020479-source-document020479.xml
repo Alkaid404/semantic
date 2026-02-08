@@ -1,0 +1,33 @@
+<document reference="suspicious-document020479.txt">
+  <feature name="about" authors="R. Álvarez-Nodarse and K. Castillo and D. Mbouna and J. Petronilho" title="On discrete coherent pairs of measures" lang="en" similarity="0.9927" severity="high" prompt_tokens="14699" output_tokens="12743"/>
+  <feature name="md5Hash" value="5f56464cdbcc7ca780504ece33fd27ab"/>
+  <feature name="altered" type="llm_prompted" llm="Mistral" this_language="en" this_offset="121" this_length="940"/>
+  <feature name="altered" type="llm_prompted" llm="Mistral" this_language="en" this_offset="1098" this_length="2207"/>
+  <feature name="altered" type="llm_prompted" llm="Mistral" this_language="en" this_offset="3307" this_length="526"/>
+  <feature name="altered" type="llm_prompted" llm="Mistral" this_language="en" this_offset="3835" this_length="748"/>
+  <feature name="altered" type="llm_prompted" llm="Mistral" this_language="en" this_offset="6512" this_length="1363"/>
+  <feature name="altered" type="llm_prompted" llm="Mistral" this_language="en" this_offset="7877" this_length="911"/>
+  <feature name="altered" type="llm_prompted" llm="Mistral" this_language="en" this_offset="8842" this_length="530"/>
+  <feature name="altered" type="llm_prompted" llm="Mistral" this_language="en" this_offset="9374" this_length="1373"/>
+  <feature name="altered" type="llm_prompted" llm="Mistral" this_language="en" this_offset="12525" this_length="1727"/>
+  <feature name="altered" type="llm_prompted" llm="Mistral" this_language="en" this_offset="15523" this_length="2045"/>
+  <feature name="altered" type="llm_prompted" llm="Mistral" this_language="en" this_offset="17570" this_length="931"/>
+  <feature name="altered" type="llm_prompted" llm="Mistral" this_language="en" this_offset="18503" this_length="1677"/>
+  <feature name="altered" type="llm_prompted" llm="Mistral" this_language="en" this_offset="20182" this_length="2112"/>
+  <feature name="altered" type="llm_prompted" llm="Mistral" this_language="en" this_offset="22315" this_length="1030"/>
+  <feature name="altered" type="llm_prompted" llm="Mistral" this_language="en" this_offset="23347" this_length="1155"/>
+  <feature name="altered" type="llm_prompted" llm="Mistral" this_language="en" this_offset="24504" this_length="794"/>
+  <feature name="altered" type="llm_prompted" llm="Mistral" this_language="en" this_offset="25300" this_length="628"/>
+  <feature name="altered" type="llm_prompted" llm="Mistral" this_language="en" this_offset="25930" this_length="484"/>
+  <feature name="altered" type="llm_prompted" llm="Mistral" this_language="en" this_offset="27579" this_length="166"/>
+  <feature name="altered" type="llm_prompted" llm="Mistral" this_language="en" this_offset="27747" this_length="807"/>
+  <feature name="altered" type="llm_prompted" llm="Mistral" this_language="en" this_offset="30054" this_length="1034"/>
+  <feature name="altered" type="llm_prompted" llm="Mistral" this_language="en" this_offset="31090" this_length="204"/>
+  <feature name="altered" type="llm_prompted" llm="Mistral" this_language="en" this_offset="31296" this_length="193"/>
+  <feature name="altered" type="llm_prompted" llm="Mistral" this_language="en" this_offset="32521" this_length="1910"/>
+  <feature name="altered" type="llm_prompted" llm="Mistral" this_language="en" this_offset="34433" this_length="776"/>
+  <feature name="altered" type="llm_prompted" llm="Mistral" this_language="en" this_offset="35211" this_length="540"/>
+  <feature name="altered" type="llm_prompted" llm="Mistral" this_language="en" this_offset="35753" this_length="2050"/>
+  <feature name="altered" type="llm_prompted" llm="Mistral" this_language="en" this_offset="37820" this_length="958"/>
+  <feature name="altered" type="llm_prompted" llm="Mistral" this_language="en" this_offset="38780" this_length="499"/>
+</document>

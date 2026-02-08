@@ -1,0 +1,18 @@
+<document reference="suspicious-document020485.txt">
+  <feature name="about" authors="L. S. I. Veiga and M. Etter and E. Cappelli and H. Jacobsen and J. G. Vale and C. D Dashwood and D. Le and F. Baumberger and D. F. McMorrow and R. S. Perry" title="Correlated electron metal properties of the honeycomb ruthenate Na2RuO3" lang="en" similarity="0.9776" severity="low" prompt_tokens="5988" output_tokens="4511"/>
+  <feature name="md5Hash" value="e0b8d2e8fbef541c0fcb9f6323b63710"/>
+  <feature name="plagiarism" type="llm_prompted" llm="Mistral" this_language="en" this_offset="1898" this_length="1304" source_reference="source-document020485.txt" obfuscation="medium" source_offset="2443" source_length="1122"/>
+  <feature name="plagiarism" type="llm_prompted" llm="Mistral" this_language="en" this_offset="9334" this_length="2123" source_reference="source-document020485.txt" obfuscation="medium" source_offset="16623" source_length="2292"/>
+  <feature name="plagiarism" type="llm_prompted" llm="Mistral" this_language="en" this_offset="18629" this_length="788" source_reference="source-document020485.txt" obfuscation="simple" source_offset="18917" source_length="702"/>
+  <feature name="plagiarism" type="llm_prompted" llm="Mistral" this_language="en" this_offset="19419" this_length="908" source_reference="source-document020485.txt" obfuscation="simple" source_offset="12583" source_length="932"/>
+  <feature name="plagiarism" type="llm_prompted" llm="Mistral" this_language="en" this_offset="21297" this_length="714" source_reference="source-document020485.txt" obfuscation="simple" source_offset="33321" source_length="702"/>
+  <feature name="plagiarism" type="llm_prompted" llm="Mistral" this_language="en" this_offset="22013" this_length="1169" source_reference="source-document020485.txt" obfuscation="medium" source_offset="13517" source_length="1086"/>
+  <feature name="plagiarism" type="llm_prompted" llm="Mistral" this_language="en" this_offset="25549" this_length="948" source_reference="source-document020485.txt" obfuscation="simple" source_offset="11075" source_length="1021"/>
+  <feature name="plagiarism" type="llm_prompted" llm="Mistral" this_language="en" this_offset="26499" this_length="1790" source_reference="source-document020485.txt" obfuscation="medium" source_offset="9071" source_length="2002"/>
+  <feature name="plagiarism" type="llm_prompted" llm="Mistral" this_language="en" this_offset="28828" this_length="1435" source_reference="source-document020485.txt" obfuscation="simple" source_offset="31027" source_length="2292"/>
+  <feature name="plagiarism" type="llm_prompted" llm="Mistral" this_language="en" this_offset="30265" this_length="1145" source_reference="source-document020485.txt" obfuscation="medium" source_offset="26953" source_length="932"/>
+  <feature name="plagiarism" type="llm_prompted" llm="Mistral" this_language="en" this_offset="31435" this_length="999" source_reference="source-document020485.txt" obfuscation="simple" source_offset="25407" source_length="1021"/>
+  <feature name="plagiarism" type="llm_prompted" llm="Mistral" this_language="en" this_offset="32436" this_length="1538" source_reference="source-document020485.txt" obfuscation="simple" source_offset="23392" source_length="2013"/>
+  <feature name="plagiarism" type="llm_prompted" llm="Mistral" this_language="en" this_offset="35835" this_length="704" source_reference="source-document020485.txt" obfuscation="simple" source_offset="7025" source_length="709"/>
+  <feature name="plagiarism" type="llm_prompted" llm="Mistral" this_language="en" this_offset="38792" this_length="729" source_reference="source-document020485.txt" obfuscation="simple" source_offset="4704" source_length="863"/>
+</document>

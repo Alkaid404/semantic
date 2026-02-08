@@ -1,0 +1,47 @@
+<document reference="suspicious-document020492.txt">
+  <feature name="about" authors="Anuj Abhishek and Sakshi Arya" title="Adaptive estimation of a function from its Exponential Radon Transform in presence of noise" lang="en" similarity="0.9904" severity="high" prompt_tokens="20701" output_tokens="16497"/>
+  <feature name="md5Hash" value="3728fc5cd08bc09ad3f2cc93f8fad9bf"/>
+  <feature name="altered" type="llm_prompted" llm="DeepSeek-R1" this_language="en" this_offset="137" this_length="614"/>
+  <feature name="altered" type="llm_prompted" llm="DeepSeek-R1" this_language="en" this_offset="769" this_length="918"/>
+  <feature name="altered" type="llm_prompted" llm="DeepSeek-R1" this_language="en" this_offset="1689" this_length="1122"/>
+  <feature name="altered" type="llm_prompted" llm="DeepSeek-R1" this_language="en" this_offset="2813" this_length="2715"/>
+  <feature name="altered" type="llm_prompted" llm="DeepSeek-R1" this_language="en" this_offset="5530" this_length="989"/>
+  <feature name="altered" type="llm_prompted" llm="DeepSeek-R1" this_language="en" this_offset="6555" this_length="134"/>
+  <feature name="altered" type="llm_prompted" llm="DeepSeek-R1" this_language="en" this_offset="6691" this_length="305"/>
+  <feature name="altered" type="llm_prompted" llm="DeepSeek-R1" this_language="en" this_offset="6998" this_length="672"/>
+  <feature name="altered" type="llm_prompted" llm="DeepSeek-R1" this_language="en" this_offset="7672" this_length="333"/>
+  <feature name="altered" type="llm_prompted" llm="DeepSeek-R1" this_language="en" this_offset="8007" this_length="184"/>
+  <feature name="altered" type="llm_prompted" llm="DeepSeek-R1" this_language="en" this_offset="8193" this_length="525"/>
+  <feature name="altered" type="llm_prompted" llm="DeepSeek-R1" this_language="en" this_offset="9204" this_length="241"/>
+  <feature name="altered" type="llm_prompted" llm="DeepSeek-R1" this_language="en" this_offset="9546" this_length="499"/>
+  <feature name="altered" type="llm_prompted" llm="DeepSeek-R1" this_language="en" this_offset="10117" this_length="381"/>
+  <feature name="altered" type="llm_prompted" llm="DeepSeek-R1" this_language="en" this_offset="10500" this_length="807"/>
+  <feature name="altered" type="llm_prompted" llm="DeepSeek-R1" this_language="en" this_offset="12113" this_length="259"/>
+  <feature name="altered" type="llm_prompted" llm="DeepSeek-R1" this_language="en" this_offset="12374" this_length="518"/>
+  <feature name="altered" type="llm_prompted" llm="DeepSeek-R1" this_language="en" this_offset="12894" this_length="266"/>
+  <feature name="altered" type="llm_prompted" llm="DeepSeek-R1" this_language="en" this_offset="13162" this_length="241"/>
+  <feature name="altered" type="llm_prompted" llm="DeepSeek-R1" this_language="en" this_offset="13405" this_length="139"/>
+  <feature name="altered" type="llm_prompted" llm="DeepSeek-R1" this_language="en" this_offset="13567" this_length="1863"/>
+  <feature name="altered" type="llm_prompted" llm="DeepSeek-R1" this_language="en" this_offset="15432" this_length="2746"/>
+  <feature name="altered" type="llm_prompted" llm="DeepSeek-R1" this_language="en" this_offset="18180" this_length="269"/>
+  <feature name="altered" type="llm_prompted" llm="DeepSeek-R1" this_language="en" this_offset="18451" this_length="3629"/>
+  <feature name="altered" type="llm_prompted" llm="DeepSeek-R1" this_language="en" this_offset="22082" this_length="202"/>
+  <feature name="altered" type="llm_prompted" llm="DeepSeek-R1" this_language="en" this_offset="22286" this_length="307"/>
+  <feature name="altered" type="llm_prompted" llm="DeepSeek-R1" this_language="en" this_offset="22595" this_length="1862"/>
+  <feature name="altered" type="llm_prompted" llm="DeepSeek-R1" this_language="en" this_offset="24459" this_length="1528"/>
+  <feature name="altered" type="llm_prompted" llm="DeepSeek-R1" this_language="en" this_offset="37052" this_length="654"/>
+  <feature name="altered" type="llm_prompted" llm="DeepSeek-R1" this_language="en" this_offset="37708" this_length="263"/>
+  <feature name="altered" type="llm_prompted" llm="DeepSeek-R1" this_language="en" this_offset="37973" this_length="710"/>
+  <feature name="altered" type="llm_prompted" llm="DeepSeek-R1" this_language="en" this_offset="38685" this_length="390"/>
+  <feature name="altered" type="llm_prompted" llm="DeepSeek-R1" this_language="en" this_offset="39077" this_length="342"/>
+  <feature name="altered" type="llm_prompted" llm="DeepSeek-R1" this_language="en" this_offset="39421" this_length="428"/>
+  <feature name="altered" type="llm_prompted" llm="DeepSeek-R1" this_language="en" this_offset="39851" this_length="1225"/>
+  <feature name="altered" type="llm_prompted" llm="DeepSeek-R1" this_language="en" this_offset="41292" this_length="2195"/>
+  <feature name="altered" type="llm_prompted" llm="DeepSeek-R1" this_language="en" this_offset="43489" this_length="292"/>
+  <feature name="altered" type="llm_prompted" llm="DeepSeek-R1" this_language="en" this_offset="44561" this_length="1663"/>
+  <feature name="altered" type="llm_prompted" llm="DeepSeek-R1" this_language="en" this_offset="46226" this_length="353"/>
+  <feature name="altered" type="llm_prompted" llm="DeepSeek-R1" this_language="en" this_offset="46581" this_length="3870"/>
+  <feature name="altered" type="llm_prompted" llm="DeepSeek-R1" this_language="en" this_offset="52116" this_length="1562"/>
+  <feature name="altered" type="llm_prompted" llm="DeepSeek-R1" this_language="en" this_offset="53680" this_length="2489"/>
+  <feature name="altered" type="llm_prompted" llm="DeepSeek-R1" this_language="en" this_offset="56171" this_length="2867"/>
+</document>

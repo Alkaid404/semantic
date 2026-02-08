@@ -1,0 +1,607 @@
+Simulation of fault-tolerant quantum circuits on quantum computational tensor network
+
+By Tomoyuki Morimae and Keisuke Fujii
+
+Abstract
+
+Researchers in quantum information science are re-examining quantum many-body states, a longstanding focus of condensed matter physics and statistical physics, due to their significance in measurement-based quantum computation. The preparation of a specialized resource state, known as a cluster state, enables universal quantum computation through adaptive local measurements on individual qubits, thereby simplifying experimental requirements. A novel framework, termed quantum computational tensor network, has been introduced, which represents the resource state in a matrix-product form and facilitates universal quantum computation within a virtual correlation space, where matrices and tensors are manipulated to simulate computational processes.
+
+I Introduction
+
+Notably, the interplay between traditional physical quantities, such as two-point correlation and quantum computational power, has received relatively little attention. Two-point correlation is a fundamental concept in traditional quantum many-body physics, including condensed matter and statistical physics, and its application to quantum computation warrants investigation into its impact on computational power. Research in quantum information science has established that two-point correlations in cluster states vanish beyond a finite distance, rendering them incapable of serving as the ground state of any physical Hamiltonian. Recent studies have demonstrated that the ground state of the AKLT model, characterized by exponentially decaying two-point correlations, can facilitate universal measurement-based quantum computation, suggesting that other quantum many-body states with polynomially or non-decaying correlations may also be leveraged as resources for quantum computation, particularly given the abundance of such states in condensed matter physics exhibiting long-range correlations.
+
+For the realization of a scalable quantum computer, a theory of fault-tolerant (FT) quantum computation (13) is necessary. In fact, several researches have been performed on FT quantum computation in the one-way model (3) . However, there has been no result about a theory of FT quantum computation on general QCTN (23) . In particular, there is severe lack of knowledge about FT quantum computation on resource states with $d\geq 3$ . It is necessary to consider resource states with $d\geq 3$ if we want to enjoy the cooling preparation of a resource state and the energy-gap protection of measurement-based quantum computation with a physically natural Hamiltonian, since no genuinely entangled qubit state can be the unique ground state of a two-body frustration-free Hamiltonian (28) .
+
+In a scenario where the first $k-1$ physical qudits are measured to effect a single-qubit rotation in the computational space (CS), transforming the boundary vector $|L\rangle$ to $|\psi\rangle$, we can express the resulting state as a superposition of states weighted by the inner products of the reference state $|R\rangle$ and the state $|\psi\rangle$ with the MPS matrices $A[i_k]...A[i_n]$. To perform a projective measurement on $|\psi\rangle$ in the CS using a basis $\{|0\rangle,|1\rangle\}$, we can parameterize the MPS matrices $A[i]$ in terms of orthonormal states $|\phi_0\rangle$ and $|\phi_1\rangle$ and a real number $c_m$. Upon measuring the $k^{th}$ physical qudit in a specific basis and obtaining outcome $m_j$, the probability $p_j$ of obtaining this outcome can be calculated, and for the operation to properly simulate a projective measurement in the CS, the ratio of probabilities $p_0/p_1$ must equal the ratio of the squared amplitudes of $|\psi\rangle$ in the $\{|0\rangle,|1\rangle\}$ basis. This condition implies that the resource state must satisfy the requirement $f_{n-k}(|R\rangle,|\phi_0\rangle) = f_{n-k}(|R\rangle,|\phi_1\rangle)$, and failure to meet this condition precludes accurate simulation of projective measurements in the CS.
+
+The other way of implementing FT quantum computation on QCTN is to simulate FT quantum circuits in the correlation space. Since any unitary operation, state preparation, and the projective measurement in the computational basis can be simulated in a correlation space (for a more precise discussion about the possibility of the measurement, see Ref. (12) ), it is natural to expect that FT quantum circuits can also be simulated in a correlation space. An advantage of this strategy is that theories of FT quantum circuits for qubit systems are well developed (13) . In fact, this strategy was taken in Refs. (18) for the one-way model $(d=2)$ . They introduced a method (which we call “the ensemble method” since the ensemble of all measurement results are considered) of simulating quantum circuits in the correlation space of the cluster state, and showed that all physical errors on physical qubits can be linear completely-positive trace-preserving (CPTP) maps in the correlation space of the cluster state. This means that FT quantum circuits can be simulated in the correlation space of the cluster state.
+
+In this paper, however, we point out that it is not so straightforward to simulate FT quantum circuits in a correlation space of a general resource state. In the next section, Sec. II , we review the simulation of FT quantum circuits on the one-dimensional cluster state (18) in terms of the QCTN picture to fix the notation. We see that for the cluster state all physical errors can be linear completely-positive trace-preserving (CPTP) maps in the correlation space, and therefore the theory of FT quantum circuits can be used in the correlation space. However, this is not the case for other general resource states of QCTN. As an example, we consider a similar way of simulating quantum circuits in the correlation space of the one-dimensional AKLT state (29) in Sec. III , and show that not all physical errors can be linear CPTP maps in the correlation space of the AKLT state. Since all theories of FT quantum circuits known so far assume such noises (13) , this means that it is not so straightforward to apply these FT theories to quantum circuits simulated in the correlation space of general QCTN. In Sec. IV , we give some intuitive explanations of the reason why the cluster state is so special, and why not all resource states work as the cluster state. In Sec. V , we consider another standard way of simulating quantum circuits in the correlation space, which we call “the trajectory method” since a specific trajectory (measurement results) is considered. However, we show a general theorem that such an another way does neither work if $d\geq 3$ .
+
+This manuscript is structured as follows: Section I provides a concise overview of the Quantum Computational Tensor Network (QCTN) framework, which serves as the foundation for Measurement-Based Quantum Computation (MBQC). Section II delves into the simulation of projective measurements within the QCTN framework, establishing the conditions under which such measurements can be accurately replicated using finite-size resource states. The concept of normalizability is then extended to infinite-size resource states in Section III, introducing the notion of asymptotic normalizability, and a theorem is presented that elucidates the relationship between asymptotic normalizability and computational capability, specifically linking the ability to perform arbitrary single-qubit rotations to the behavior of two-point correlations. The manuscript concludes with Section IV.
+
+Assumptions : Throughout this paper, we make the following assumptions: Since the MPS $|\Psi(L,R)\rangle_{1}^{N}$ , Eq. ( 1 ), is a resource state for measurement-based quantum computation, we can assume without loss of generality that $A[\alpha_{\theta,\phi}]$ , $A[\beta_{\theta,\phi}]$ , $A[2]$ , $A[3]$ , …, $A[d-1]$ are unitary up to constants: 
+ 
+ $\displaystyle A[\alpha_{\theta,\phi}]$ $\displaystyle=$ $\displaystyle c_{\alpha}U_{\alpha},$ 
+ 
+ $\displaystyle A[\beta_{\theta,\phi}]$ $\displaystyle=$ $\displaystyle c_{\beta}U_{\beta},$ 
+ 
+ $\displaystyle A[2]$ $\displaystyle=$ $\displaystyle c_{2}U_{2},$ 
+ 
+ $\displaystyle A[3]$ $\displaystyle=$ $\displaystyle c_{3}U_{3},$ 
+ $\displaystyle...$ 
+ 
+ $\displaystyle A[d-1]$ $\displaystyle=$ $\displaystyle c_{d-1}U_{d-1},$  (3) 
+ where $c_{\alpha}$ , $c_{\beta}$ , $c_{2}$ , … $c_{d-1}$ are real positive numbers, $U_{\alpha}$ , $U_{\beta}$ , $U_{2}$ , …, $U_{d-1}$ are unitary operators, and 
+ 
+ $\displaystyle A[\beta_{\theta,\phi}]\equiv\sin\frac{\theta}{2}A[0]-e^{-i\phi}\cos\frac{\theta}{2}A[1].$ 
+ This means that any operation implemented in the correlation space by the measurement ${\mathcal{M}}_{\theta,\phi}$ on a single physical qudit of $|\Psi(L,R)\rangle_{1}^{N}$ is unitary. Note that this assumption is reasonable, since otherwise $|\Psi(L,R)\rangle_{1}^{N}$ does not seem to be useful as a resource for measurement-based quantum computation. In fact, all known resource states so far (1) , including the cluster state and the AKLT state, satisfy this assumption by appropriately rotating each local physical basis. Furthermore, we can take $c_{\alpha}$ , $c_{\beta}$ , $c_{2}$ ,…, $c_{d-1}$ such that 
+ 
+ $\displaystyle C\equiv c_{\alpha}^{2}+c_{\beta}^{2}+\sum_{k=2}^{d-1}c_{k}^{2}=1,$ 
+ since 
+ 
+ $\displaystyle\frac{1}{\sqrt{f_{N}(|L\rangle,|R\rangle)}}\sum_{k_{1},...,k_{N}}\langle L|A[k_{N}]...A[k_{1}]|R\rangle|k_{N},...,k_{1}\rangle=\frac{1}{\sqrt{f_{N}(|L\rangle,|R\rangle)}}\sqrt{C}^{N}\sum_{k_{1},...,k_{N}}\langle L|\frac{A[k_{N}]}{\sqrt{C}}...\frac{A[k_{1}]}{\sqrt{C}}|R\rangle|k_{N},...,k_{1}\rangle$ 
+ and we can redefine $A[k_{i}]/\sqrt{C}\to A[k_{i}]$ .
+
+II Simulation on the cluster state
+
+Let us first review the results for the cluster state (18) in terms of the QCTN picture to fix the notation.
+
+II.1 Simulation on the cluster state without error
+
+By selecting an appropriate physical basis, comprising orthonormal states $|\phi_{0}\rangle$ and $|\phi_{1}\rangle$ and a real number $c_{m}$, a measurement $\mathcal{M}$ can be performed on the $k$th physical qudit, yielding outcomes $m_{j}$, where $j=0,1$. The probability $p_{j}$ of obtaining each outcome $m_{j}$ can be calculated, utilizing the measurement basis consisting of states $|m_{0}\rangle=(|0\rangle+|1\rangle)/\sqrt{2}$, $|m_{1}\rangle=(|0\rangle-|1\rangle)/\sqrt{2}$, and $|2\rangle,\cdots,|d-1\rangle$.
+
+If we trace out the measured first physical qubit $|\theta_{s_{1}}\rangle\langle\theta_{s_{1}}|$ , we obtain 
+ 
+ $\displaystyle\frac{1}{2f_{N}(|L\rangle,|R\rangle)}\sum_{s_{1}=0}^{1}W(X^{s_{1}}J(\theta)|R\rangle)_{2}\otimes m(s_{1}).$ 
+
+
+Second, we measure the second physical qubit in the $\{X^{s_{1}}|\phi_{0}\rangle,X^{s_{1}}|\phi_{1}\rangle\}$ basis. Then we obtain 
+ 
+ $\displaystyle\frac{1}{2^{2}f_{N}(|L\rangle,|R\rangle)}\sum_{s_{2}=0}^{1}\sum_{s_{1}=0}^{1}W(X^{s_{2}}J((-1)^{s_{1}}\phi)X^{s_{1}}J(\theta)|R\rangle)_{3}\otimes X^{s_{1}}|\phi_{s_{2}}\rangle\langle\phi_{s_{2}}|X^{s_{1}}\otimes m(s_{1})\otimes m(s_{2})$ 
+ $\displaystyle=$ $\displaystyle\frac{1}{2^{2}f_{N}(|L\rangle,|R\rangle)}\sum_{s_{2}=0}^{1}\sum_{s_{1}=0}^{1}W(X^{s_{2}}Z^{s_{1}}J(\phi)J(\theta)|R\rangle)_{3}\otimes X^{s_{1}}|\phi_{s_{2}}\rangle\langle\phi_{s_{2}}|X^{s_{1}}\otimes m(s_{1})\otimes m(s_{2}).$ 
+ If we trace out the measured second physical qubit $X^{s_{1}}|\phi_{s_{2}}\rangle\langle\phi_{s_{2}}|X^{s_{1}}$ , we obtain 
+ 
+ $\displaystyle\frac{1}{2^{2}f_{N}(|L\rangle,|R\rangle)}\sum_{s_{2}=0}^{1}\sum_{s_{1}=0}^{1}W(X^{s_{2}}Z^{s_{1}}J(\phi)J(\theta)|R\rangle)_{3}\otimes m(s_{1})\otimes m(s_{2}).$ 
+
+
+For a given set of real numbers $g_{3,1}^{j}$, which are dependent on the parameters $n$ and $k$, selecting the boundary vector $|R\rangle$ as $(I\pm Y)/2$ enables the performance of accurate projective measurements at every position, yielding $f_{n-k}(|R\rangle,|\phi_{0}\rangle)=f_{n-k}(|R\rangle,|\phi_{1}\rangle)=1/2$ for all $k\leq n$. Alternatively, utilizing different combinations of Pauli operators in their canonical form allows for similar outcomes, such as setting specific parameters to obtain matrices $A[0]=XZ/\sqrt{3}$, $A[1]=X/\sqrt{3}$, and $A[3]=Z/\sqrt{3}$, which correspond to the AKLT state, demonstrating the versatility of this approach in constructing matrix product states.
+
+II.2 Effect of a CPTP error on a physical qudit of a general state
+
+We consider a matrix product state (MPS) of the form $\displaystyle|\Psi(R,L)\rangle_{1}^{n}\equiv\sum_{i_{1},\cdots,i_{n}}\langle R|A[i_{n}]\cdots A[i_{1}]|L\rangle|i_{n}\cdots i_{1}\rangle$, where $A[i_{k}]$ represents a $D\times D$ matrix and $|R\rangle,|L\rangle$ are $D$-dimensional boundary vectors in the virtual Hilbert space, known as the correlation space. Assuming the MPS matrices $A[i]$ satisfy $A^{{\dagger}}[i]A[i]=c_{i}I$ with positive real numbers $c_{i}$, we focus on the case where $D=2$, enabling the simulation of a single qubit. By performing a projective measurement on a physical qudit in the basis $\{|\alpha_{j}\rangle\equiv\sum_{i=0}^{d-1}\alpha_{ji}|i\rangle\}$, we can simulate a quantum gate in the correlation space, resulting in a post-measurement state that can be understood as a transformation of the boundary vector $|L\rangle$ by a single-qubit operation. To properly address normalization, we define a normalization factor $f_{n}(|R\rangle,|L\rangle)\equiv\langle R|(\mathcal{A}^{\circ n}|L\rangle\langle L|)|R\rangle$ and introduce the normalized MPS $|\bar{\Psi}(R,L)\rangle_{1}^{n}\equiv|\Psi(R,L)\rangle_{1}^{n}/\sqrt{f_{n}(|R\rangle,|L\rangle)}$.
+
+For any state $|\psi\rangle$ and reference state $|R\rangle$, and for all $k$ less than or equal to $n-l$, it is evident that normalizable resources fulfill condition (2) provided that $n-k$ is greater than or equal to $l$. This implies that accurate projective measurements can be conducted in the computational space at any position that is at least $l$ qudits distant from the left boundary. Furthermore, it will be demonstrated that normalizability becomes a necessary condition for an arbitrary single-qubit rotation as $l$ approaches infinity.
+
+II.3 Simulation on the cluster state with error
+
+For unitary operators $U$ and $V$, and Pauli matrices $\sigma_{i}$, a finite-size resource state with $n<\infty$ yields a finite $l$ if it is normalizable. Considering $l=1$, the dimension of the physical system must be at least $d=4$, with matrix product states (MPS) given by $A[i]=U\sigma_{i}V/2$, allowing for arbitrary single-qubit rotations with appropriate $U$ and $V$. For $l=2$, a qudit with $d=2$ satisfies ${\mathcal{A}}^{\circ 2}=\mathcal{E}$, with MPS matrices $A[i]A[j]=U\sigma_{i+2j}V$, and specific choices of $U$ and $V$ yield $A[0]=H/\sqrt{2}$ and $A[1]=HZ/\sqrt{2}$, corresponding to cluster state matrices. The normalizability of these two- and four-dimensional resource states with finite $l$ enables the simulation of correct projective measurements in cluster states of finite size.
+
+An alternative approach to simulating projective measurements indirectly is presented, building on a method proposed in Ref. (29) for downloading a quantum state from the CS to physical space. This method involves projecting a qudit onto a subspace, rotating the state via MBQC, and then performing a projective measurement, resulting in a post-measurement state that can be used to download the state from the CS. Notably, this approach enables universal state preparation on finite-size resource states, demonstrating that this property is more ubiquitous than the ability to simulate classical outputs. While it is possible to perform projective measurements indirectly by downloading the state to physical space and measuring the downloaded qudit, this approach can introduce additional operations that may cause decoherence effects, making it preferable to avoid downloading when only classical outputs are required.
+
+Third, we measure the third physical qubit in the $\{Z^{s_{1}}X^{s_{2}}|\eta_{0}\rangle,Z^{s_{1}}X^{s_{2}}|\eta_{1}\rangle\}$ basis. Then we obtain 
+ 
+ $\displaystyle\frac{1}{2^{2}f_{N}(|L\rangle,|R\rangle)}\sum_{s_{3},s_{2},s_{1}}\Big{(}\sum_{j}W(X^{s_{3}}X^{s_{1}}J((-1)^{s_{2}}\eta)X^{s_{2}}J((-1)^{s_{1}}\phi)E_{j,s_{1}}|R\rangle)_{4}\Big{)}\otimes Z^{s_{1}}X^{s_{2}}|\eta_{s_{3}}\rangle\langle\eta_{s_{3}}|X^{s_{2}}Z^{s_{1}}$ 
+ $\displaystyle\otimes m(s_{1})\otimes m(s_{2})\otimes m(s_{3})$ 
+ $\displaystyle=$ $\displaystyle\frac{1}{2^{2}f_{N}(|L\rangle,|R\rangle)}\sum_{s_{3},s_{2},s_{1}}\Big{(}\sum_{j}W(X^{s_{3}}X^{s_{1}}Z^{s_{2}}J(\eta)J((-1)^{s_{1}}\phi)E_{j,s_{1}}|R\rangle)_{4}\Big{)}\otimes Z^{s_{1}}X^{s_{2}}|\eta_{s_{3}}\rangle\langle\eta_{s_{3}}|X^{s_{2}}Z^{s_{1}}$ 
+ $\displaystyle\otimes m(s_{1})\otimes m(s_{2})\otimes m(s_{3}).$ 
+ If we trace out the third physical qubit $Z^{s_{1}}X^{s_{2}}|\eta_{s_{3}}\rangle\langle\eta_{s_{3}}|X^{s_{2}}Z^{s_{1}}$ , 
+ 
+ $\displaystyle\frac{1}{2^{2}f_{N}(|L\rangle,|R\rangle)}\sum_{s_{3},s_{2},s_{1}}\Big{(}\sum_{j}W(X^{s_{3}}X^{s_{1}}Z^{s_{2}}J(\eta)J((-1)^{s_{1}}\phi)E_{j,s_{1}}|R\rangle)_{4}\Big{)}\otimes m(s_{1})\otimes m(s_{2})\otimes m(s_{3}).$ 
+ If we further trace out the first record state $m(s_{1})$ , 
+ 
+ $\displaystyle\frac{1}{2^{2}f_{N}(|L\rangle,|R\rangle)}\sum_{s_{3},s_{2},j}\Big{(}W(X^{s_{3}}Z^{s_{2}}J(\eta)J(\phi)E_{j,0}|R\rangle)_{4}+W(X^{s_{3}}XZ^{s_{2}}J(\eta)J(-\phi)E_{j,1}|R\rangle)_{4}\Big{)}\otimes m(s_{2})\otimes m(s_{3})$ 
+ $\displaystyle=$ $\displaystyle\frac{1}{2^{2}f_{N}(|L\rangle,|R\rangle)}\sum_{s_{3},s_{2},j}\Big{(}W(X^{s_{3}}Z^{s_{2}}J(\eta)J(\phi)E_{j,0}|R\rangle)_{4}+W(X^{s_{3}}Z^{s_{2}}J(\eta)J(\phi)XE_{j,1}|R\rangle)_{4}\Big{)}\otimes m(s_{2})\otimes m(s_{3}).$ 
+ In other words, the map 
+ 
+ $\displaystyle|R\rangle\langle R|\to\sum_{j}\Big{(}E_{j,0}|R\rangle\langle R|E^{\dagger}_{j,0}+XE_{j,1}|R\rangle\langle R|E^{\dagger}_{j,1}X\Big{)}$ 
+ is implemented in the correlation space up to the rotation $J(\eta)J(\phi)$ and a Pauli byproduct $X^{s_{3}}Z^{s_{2}}$ .
+
+Since 
+ 
+ $\displaystyle\sum_{j}\Big{(}E^{\dagger}_{j,0}E_{j,0}+(E^{\dagger}_{j,1}X)(XE_{j,1})\Big{)}=\sum_{j,s}E^{\dagger}_{j,s}E_{j,s}=I,$ 
+ this is CPTP error. In short, a CPTP error on a physical qubit becomes a CPTP error in the correlation space of the cluster state. As is shown in Appendices A and B , similar result is obtained for the tricluster state (32) , which is a variant of the cluster state.
+
+III AKLT state
+
+We have seen in the previous section that CPTP errors on physical qubits of the one-dimensional cluster state become linear CPTP maps in the correlation space. However, this is not always the case for general resource states. In order to see it, let us consider the one-dimensional AKLT state as an example.
+
+III.1 Simulation on the AKLT state without error
+
+First we assume there is no error. The one-dimensional AKLT state is the matrix-product state defined by $d=3$ , 
+ 
+ $\displaystyle A[0]$ $\displaystyle=$ $\displaystyle\frac{1}{\sqrt{3}}X,$ 
+ 
+ $\displaystyle A[1]$ $\displaystyle=$ $\displaystyle\frac{1}{\sqrt{3}}XZ,$ 
+ 
+ $\displaystyle A[2]$ $\displaystyle=$ $\displaystyle\frac{1}{\sqrt{3}}Z.$ 
+
+
+ These matrices satisfy the following relations: 
+ 
+ $\displaystyle A[k]A[k]=$ $\displaystyle\frac{1}{3}I,$ 
+ $\displaystyle A[k]A[j]=i\sum_{l=1}^{3}\varepsilon_{kjl}A[l].$ 
+ The corresponding Kraus operators can be written as 
+$K_{1}=\frac{1}{2}(I+\sigma_{x})\otimes I,$ 
+ $K_{2}=\frac{1}{2}(I-\sigma_{x})\otimes I,$ 
+ $K_{3}= \frac{1}{2}(\sigma_{z}+\sigma_{y})\otimes \sigma_{x},$ 
+ $K_{4}= \frac{1}{2}(\sigma_{z}-\sigma_{y})\otimes \sigma_{x}$ 
+ $\displaystyle\mathcal{E}(\rho)= \sum_{i=1}^{n} K_{i}\rho K^{\dagger}_{i},$ where $\rho$ is the Bloch vector of the input qubit and $n$ is the number of Kraus operators, which in this case equals to $4$. Now consider the operator $\mathcal{A}$ which maps the $3\times 3$ matrix $\rho$ into another $3\times 3$ matrix as follows $\mathcal{A}(\rho)=\sum_{i=1}^{4}A[i]\rho A[i].$ 
+$\displaystyle f_{n}(|R\rangle,|L\rangle)$ can be expressed in terms of the operator $\mathcal{A}$ and a trace-less Hermitian operator $F$ as the expectation value of the operator $\mathcal{A}^{n}F$ on the state $|R\rangle$, which ultimately leads to the inequality $\Big{|}f_{n}(|R\rangle,|L\rangle)-\frac{1}{2}\Big{|} \leq \frac{1}{2}\|(\tilde{\mathcal{A}})^{n}\|_{\infty}$, where $\tilde{\mathcal{A}}$ is the $3\times 3$ matrix defined previously and $\|.\|_{\infty}$ denotes the operator norm.
+
+Consider a scenario in which the first $(k-1)$ physical qudits are measured in sequence to effect a single-qubit rotation within the computational space, resulting in the transformation of the boundary vector $|L\rangle$ to the state $|\psi\rangle$, as illustrated in Figure 1(b).
+
+If we repeat these process, after measuring the $r$ th physical qutrit, we obtain 
+ 
+ $\displaystyle\frac{1}{3^{r}f_{N}(|L\rangle,|R\rangle)}\sum_{s_{1}=0}^{2}...\sum_{s_{r}=0}^{2}W(Q_{r}(s_{1},...,s_{r})...Q_{2}(s_{1},s_{2})Q_{1}(s_{1})|R\rangle)_{r+1}\otimes m(s_{1})\otimes...\otimes m(s_{r}),$ 
+ where 
+ 
+ $\displaystyle Q_{k}(s_{1},...,s_{k-1},0)$ $\displaystyle=$ $\displaystyle XS_{Z}(\theta),$ 
+ 
+ $\displaystyle Q_{k}(s_{1},...,s_{k-1},1)$ $\displaystyle=$ $\displaystyle XZS_{Z}(\theta),$ 
+ 
+ $\displaystyle Q_{k}(s_{1},...,s_{k-1},2)$ $\displaystyle=$ $\displaystyle Z,$ 
+ if $s_{1}=...=s_{k-1}=2$ and 
+ 
+ $\displaystyle Q_{k}(s_{1},...,s_{k-1},0)$ $\displaystyle=$ $\displaystyle X,$ 
+ 
+ $\displaystyle Q_{k}(s_{1},...,s_{k-1},1)$ $\displaystyle=$ $\displaystyle XZ,$ 
+ 
+ $\displaystyle Q_{k}(s_{1},...,s_{k-1},2)$ $\displaystyle=$ $\displaystyle Z,$ 
+ for other $s_{1},...,s_{k-1}$ .
+
+If $s_{1}=...=s_{r}=2$ , 
+ 
+ $\displaystyle Q_{r}(s_{1},...,s_{r})...Q_{2}(s_{1},s_{2})Q_{1}(s_{1})=Z^{r}.$ 
+ For other $s_{1},...,s_{r}$ , 
+ 
+ $\displaystyle Q_{r}(s_{1},...,s_{r})...Q_{2}(s_{1},s_{2})Q_{1}(s_{1})=X^{f(s_{1},...,s_{r})}Z^{g(s_{1},...,s_{r})}S_{Z}(\theta),$ 
+ where 
+ 
+ $\displaystyle f(s_{1},...,s_{r})$ $\displaystyle=$ $\displaystyle\bigoplus_{i=1}^{r}(\delta_{s_{i},0}\oplus\delta_{s_{i},1}),$ 
+ 
+ $\displaystyle g(s_{1},...,s_{r})$ $\displaystyle=$ $\displaystyle\bigoplus_{i=1}^{r}(\delta_{s_{i},1}\oplus\delta_{s_{i},2}).$ 
+
+
+Let us add the flag state $\eta$ as 
+ 
+ $\displaystyle\frac{1}{3^{r}f_{N}(|L\rangle,|R\rangle)}\sum_{s_{1},...,s_{r}}W(Q_{r}(s_{1},...,s_{r})...Q_{2}(s_{1},s_{2})Q_{1}(s_{1})|R\rangle)_{r+1}\otimes m(s_{1})\otimes...\otimes m(s_{r})\otimes\eta(f(s_{1},...,s_{r}),g(s_{1},...,s_{r}))$ 
+ where $\eta(0,0)$ , $\eta(0,1)$ , $\eta(1,0)$ , and $\eta(1,1)$ , are mutually orthogonal with each other. If we trace out all register states, $m(s_{1})$ , $m(s_{2})$ , …, and $m(s_{r})$ , we obtain 
+ 
+ $\displaystyle\frac{1}{3^{r}f_{N}(|L\rangle,|R\rangle)}\sum_{s_{1},...,s_{r}}W(Q_{r}(s_{1},...,s_{r})...Q_{2}(s_{1},s_{2})Q_{1}(s_{1})|R\rangle)_{r+1}\otimes\eta(f(s_{1},...,s_{r}),g(s_{1},...,s_{r}))$  (5) 
+ 
+ $\displaystyle=$ $\displaystyle\frac{1}{3^{r}f_{N}(|L\rangle,|R\rangle)}\sum_{p=0}^{1}\sum_{q=0}^{1}\Big{(}\big{|}S_{p,q}^{r}\big{|}\cdot W(X^{p}Z^{q}S_{Z}(\theta)|R\rangle)_{r+1}+h(p,q,r)W(Z^{r}|R\rangle)_{r+1}\Big{)}\otimes\eta(p,q),$  (6) 
+ where 
+ 
+ $\displaystyle S_{p,q}^{r}\equiv\Big{\{}(s_{1},...,s_{r})\in\{0,1,2\}^{\times r}\setminus(2,...,2)~{}\Big{|}~{}f(s_{1},...,s_{r})=p~{}\mbox{and}~{}g(s_{1},...,s_{r})=q\Big{\}}$ 
+ and 
+ 
+ $\displaystyle h(p,q,r)=\left\{\begin{array}[]{cc}\delta_{p,0}\delta_{q,0}&(r=\mbox{even})\\
+\delta_{p,0}\delta_{q,1}&(r=\mbox{odd}).\end{array}\right.$ 
+
+
+In this way, we can implement the desired rotation $S_{Z}(\theta)$ up to Pauli byproducts $X^{p}Z^{q}$ . Note that in the second term 
+ 
+ $\displaystyle h(p,q,r)W(Z^{r}|R\rangle_{r+1})$ 
+ the desired rotation $S_{Z}(\theta)$ is not implemented (the trivial $Z^{r}$ is implemented, instead). However, this term can be treated as the usual error which can be corrected by the usual FT circuits.
+
+III.2 Simulation on the AKLT state with error
+
+To facilitate accurate Quantum Circuit Learning with Tensor Networks (QCTN), it is essential to identify Matrix Product States (MPSs) that fulfill the requirements outlined in condition (2). A preliminary step involves examining a sufficient condition for equation (2), which leads to the concept of a normalizable resource state. A resource state is deemed normalizable if, for a given natural number $l$ (where $l$ is less than or equal to $n$), the function $f_{n-k}(|R\rangle,|\psi\rangle)$ evaluates to $1/2$ uniformly for all possible states $|\psi\rangle$ and $|R\rangle$, and for all $k$ less than or equal to $n-l$. It is evident that normalizable resources inherently satisfy condition (2) provided that $n-k$ is greater than or equal to $l$, implying that precise projective measurements can be conducted in the Computational Space (CS) at any position exceeding $l$ qudits from the left boundary. Furthermore, as will be elucidated later, normalizability becomes a necessary condition for an arbitrary single-qubit rotation when $l$ approaches infinity, underscoring its significance in the context of QCTN.
+
+If a CPTP error occurs on the first physical qutrit, Eq. ( 5 ) becomes 
+ 
+ $\displaystyle\frac{1}{3^{r-1}f_{N}(|L\rangle,|R\rangle)}\sum_{s_{1},...,s_{r}}\sum_{j}W(Q_{r}(s_{1},...,s_{r})...Q_{2}(s_{1},s_{2})E_{j,s_{1}}|R\rangle)_{r+1}\otimes\eta(f(s_{1},...,s_{r}),g(s_{1},...,s_{r}))$ 
+ $\displaystyle=$ $\displaystyle\frac{1}{3^{r-1}f_{N}(|L\rangle,|R\rangle)}\sum_{j}\sum_{p,q}\Big{(}\sum_{(s_{1},...,s_{r})\in S_{p,q}^{r}}W(Q_{r}(s_{1},...,s_{r})...Q_{2}(s_{1},s_{2})E_{j,s_{1}}|R\rangle)_{r+1}$ 
+ $\displaystyle+h(p,q,r)W(Z^{r-1}E_{j,2}|R\rangle)_{r+1}\Big{)}\otimes\eta(p,q).$ 
+ This means that for fixed $p$ and $q$ , the map 
+ 
+ $\displaystyle|R\rangle\langle R|$ $\displaystyle\to$ $\displaystyle\sum_{(s_{1},...,s_{r})\in S_{p,q}^{r}}\sum_{j}Q_{r}(s_{1},...,s_{r})...Q_{2}(s_{1},s_{2})E_{j,s_{1}}|R\rangle\langle R|E^{\dagger}_{j,s_{1}}Q_{2}^{\dagger}(s_{1},s_{2})...Q_{r}^{\dagger}(s_{1},...,s_{r})$ 
+ $\displaystyle+h(p,q,r)\sum_{j}Z^{r-1}E_{j,2}|R\rangle\langle R|E^{\dagger}_{j,2}Z^{r-1}$ 
+ is implemented in the correlation space. Note that 
+ 
+ $\displaystyle\sum_{(s_{1},...,s_{r})\in S_{p,q}^{r}}\sum_{j}E^{\dagger}_{j,s_{1}}Q_{2}^{\dagger}(s_{1},s_{2})...Q_{r}^{\dagger}(s_{1},...,s_{r})Q_{r}(s_{1},...,s_{r})...Q_{2}(s_{1},s_{2})E_{j,s_{1}}+h(p,q,r)\sum_{j}E_{j,2}^{\dagger}Z^{r-1}Z^{r-1}E_{j,2}$ 
+ $\displaystyle=$ $\displaystyle\sum_{(s_{1},...,s_{r})\in S_{p,q}^{r}}\sum_{j}E^{\dagger}_{j,s_{1}}E_{j,s_{1}}+h(p,q,r)\sum_{j}E_{j,2}^{\dagger}E_{j,2}$ 
+ $\displaystyle=$ $\displaystyle\sum_{s_{1}}\sum_{j}|T_{p,q}^{r,s_{1}}|\cdot E^{\dagger}_{j,s_{1}}E_{j,s_{1}}+h(p,q,r)\sum_{j}E_{j,2}^{\dagger}E_{j,2}.$ 
+ Here, 
+ 
+ $\displaystyle T^{r,i}_{p,q}\equiv\Big{\{}(s_{1},...,s_{r})\in\{0,1,2\}^{\times r}\setminus(2,...,2)~{}\Big{|}~{}s_{1}=i~{}\mbox{and}~{}f(s_{1},...,s_{r})=p~{}\mbox{and}~{}g(s_{1},...,s_{r})=q\Big{\}}.$ 
+
+
+We can express the operator $\mathcal{O}_{k}^{a}\mathcal{A}^{k-1}|L\rangle\langle L|$ as the sum of a scalar multiple of the identity operator and a trace-less Hermitian operator $E(O_{k}^{a})$, denoted as $\alpha(O_{k}^{a})\frac{I}{2}+E(O_{k}^{a})$. By applying the operator $\mathcal{A}^{r-1}$, we obtain $\mathcal{A}^{r-1}\mathcal{O}_{k}^{a}\mathcal{A}^{k-1}|L\rangle\langle L| = \alpha(O_{k}^{a})\frac{I}{2}+\mathcal{A}^{r-1}E(O_{k}^{a})$. The norm of $E(O_{k}^{a})$ can be bounded by $d^2 + \frac{1}{2}|\alpha(O_{k}^{a})|$, where $d$ is the dimension of the Hilbert space. Utilizing these results, we can derive expressions for the expectation values of operators $O_{k}^{a}$ and $O_{k+r}^{b}$ in the state $\Psi$, which can be represented as $\frac{\alpha(O_{k}^{a})}{2f_{n}(|R\rangle,|L\rangle)} + \frac{C_{3}}{f_{n}(|R\rangle,|L\rangle)}$ and $\frac{C_{4}}{2f_{n}(|R\rangle,|L\rangle)} + \frac{C_{5}}{f_{n}(|R\rangle,|L\rangle)}$, respectively, where $C_{3}$, $C_{4}$, and $C_{5}$ are constants. Additionally, the expectation value of the product $O_{k}^{a}O_{k+r}^{b}$ can be expressed as $\frac{C_{1}}{2f_{n}(|R\rangle,|L\rangle)} + \frac{C_{2}}{f_{n}(|R\rangle,|L\rangle)}$, where $C_{1}$ and $C_{2}$ are constants.
+
+IV Intuitive explanations
+
+So far, we have seen that the results of Refs. (18) for the cluster state cannot be directly applied to other resource states, such as the one-dimensional AKLT state. Why the cluster state is so special? And why direct applications of the result for the cluster state to other resource states do not work? Although the complete answer to these questions is beyond the scope of the present paper, since the study of QCTN itself has not been fully developed (for example, no one knows the necessary and sufficient condition for tensor-network states to be universal resource states for measurement-based quantum computation), let us try to give some intuitive explanations here.
+
+Figure 1 illustrates the reason why all physical errors become CPTP maps in the correlation space of the one-dimensional cluster state. Let us first consider the ideal case (a) where there is no error. The actual protocol (a-1) is mathematically equivalent to the “input-output” picture (a-2) where the physical input state $|\psi\rangle$ is teleported into the left-edge of the short-length chain (indicated in yellow) and finally the physical output state $|\psi^{\prime}\rangle$ is extracted from the right-edge of the short-length chain (indicated in yellow). Since both $|\psi\rangle$ and $|\psi^{\prime}\rangle$ are physical states, what is going on in the correlation space which maps the input state $|\psi\rangle$ to the output state $|\psi^{\prime}\rangle$ can be described by a linear CPTP operation. In other words, if we can describe measurement-based quantum computation with this “input-output” picture (19) , the map implemented in the correlation space is guaranteed to be a linear CPTP operation (19) .
+
+For the cluster state, this “input-output” picture also holds even if there is an error (19) : In the imperfect case, Fig. 1 (b), let us assume that the input state is degraded by an error and becomes a mixed state $\rho$ . However, we can still consider a similar “input-output” picture (b-2), which corresponds to the actual protocol (b-1), and again the physical state $\rho$ is mapped into another physical state $\rho^{\prime}$ , which means that what is going on in the correlation space which maps $\rho$ to $\rho^{\prime}$ can be described by a linear CPTP operation.
+
+Our research has examined the interplay between computational capabilities and two-point correlations in quantum computational tensor network (QCTN) resource states, with a focus on projective measurements and single-qubit rotations. The key findings include the demonstration that normalizable resources with finite correlation lengths exhibit vanishing two-point correlations and support accurate projective measurements, while resource states enabling arbitrary single-qubit rotations are asymptotically normalizable and display exponentially decaying correlations. Furthermore, we have established that normalizability is a necessary and sufficient condition for a universal quantum computational wire that can simulate both projective measurements and single-qubit rotations. Additionally, our results indicate that many-body states with non-exponentially decaying two-point correlations are incapable of supporting arbitrary single-qubit rotations, highlighting the importance of normalizability in quantum computation.
+
+We examine the connection between normalizability and the feasibility of implementing an arbitrary single-qubit rotation by broadening the concept of normalizability to encompass resource states of infinite size, which we term asymptotically normalizable if they are normalizable only as the limit of infinite size is approached. This is exemplified by the AKLT state, where the normalization factor can be computed and shown to converge to a constant value in the limit of infinite size, thereby rendering the AKLT state asymptotically normalizable.
+
+V Another way of simulating quantum circuits
+
+As we have seen in the previous section, it is not always possible for general resource states to implement a specific gate at a fixed site of the resource state irrespective of measurement results. This fact prohibits a general resource state from allowing the “input-output” picture. One might think that if we abandon such a deterministic “output” at a fixed site for all measurement results, and if we just consider a specific history (trajectory) of measurement results, we might be able to avoid the emergence of non-CPTP errors. (Physically, this means that we project the system onto a pure state at every measurement step.) If the system is assumed to be error-free, this “trajectory method” is another standard way of simulating quantum circuits in the correlation space (4) . (Note that in this trajectory method, correct unitary operators can be implemented in the correlation space if there is no error, although what we are physically doing are projections, i.e., non-trace-preserving operations).
+
+However, we here show that such a natural another way of simulating quantum circuits does neither work if $d\geq 3$ . In other words, we can show the following theorem.
+
+V.1 Theorem
+
+In the scenario where the parameter $k^{\prime}$ exceeds $k$ by at least one, the coefficient $c_{u}$ is derived from the observational data pertaining to the rotational transformation of the state $|\phi_{j}\rangle$ to $|m_{j}\rangle$ within the context of the CS framework. Subsequently, a projective measurement, denoted as $\mathcal{M}$, is applied to the $k^{\prime}$th qudit, as expressed in equation (30). Following this measurement, the resulting state, contingent upon obtaining the measurement outcome $m_{l}$, where $l$ can assume values of either 0 or 1, is determined by
+
+Proof : In order to show Theorem, let us assume that 
+ 
+ $\displaystyle\mbox{There is no such $\mathcal{E}$}.$  (12) 
+ We will see that this assumption leads to the contradiction that $d\leq 2$ .
+
+First, let us consider the state 
+ 
+ $\displaystyle(I^{\otimes N-1}\otimes U_{1\leftrightarrow 2})|\Psi(L,R)\rangle_{1}^{N},$  (13) 
+ where 
+ 
+ $\displaystyle U_{a\leftrightarrow b}\equiv|a\rangle\langle b|+|b\rangle\langle a|+I-|a\rangle\langle a|-|b\rangle\langle b|$ 
+ is the unitary error which exchanges $|a\rangle$ and $|b\rangle$ , and $I$ is the identity operator on a single qudit. In Eq. ( 13 ), the error $U_{1\leftrightarrow 2}$ is applied on the first physical qudit of $|\Psi(L,R)\rangle_{1}^{N}$ . If we do the measurement ${\mathcal{M}}_{\theta,\phi}$ on the first physical qudit of Eq. ( 13 ), and if the measurement result is $|2\rangle$ , Eq. ( 13 ) becomes 
+ 
+ $\displaystyle\frac{1}{\sqrt{f_{N-1}(|L\rangle,A[1]|R\rangle)}}\|A[1]\|\sum_{k_{2}=0}^{d-1}...\sum_{k_{N}=0}^{d-1}\langle L|A[k_{N}]...A[k_{2}]\frac{A[1]}{\|A[1]\|}|R\rangle|k_{N},...,k_{2}\rangle\otimes|2\rangle.$  (14) 
+ In other words, the operation 
+ 
+ $\displaystyle|R\rangle\to\frac{A[1]}{\|A[1]\|}|R\rangle$ 
+ is implemented in the correlation space. By the assumption Eq. ( 12 ), this operation should work as a TP operation in the correlation space. Therefore, 
+ 
+ $\displaystyle\frac{A^{\dagger}[1]}{\|A[1]\|}\frac{A[1]}{\|A[1]\|}=I.$  (15) 
+ By taking $\eta\equiv\|A[1]\|^{2}$ , 
+ 
+ $\displaystyle A^{\dagger}[1]A[1]=\eta I.$  (16) 
+
+
+The mathematical derivations presented herein underscore the intricate relationships between various operators and their corresponding norms. Notably, the expression $\displaystyle|\alpha(O_{k}^{a})|$ can be bounded by leveraging the properties of trace and density operators, ultimately yielding an upper limit of $d^{2}$. This is achieved by exploiting the inequality $\displaystyle\Big{|}\mbox{Tr}({\mathcal{O}}_{k}^{a}{\mathcal{A}}^{k-1}|L\rangle\langle L|)\Big{|} \leq \sum_{i,j}|\langle i|O_{k}^{a}|j\rangle|\cdot\Big{|}\mbox{Tr}(A[j]\xi A^{\dagger}[i])\Big{|}$, where $\xi$ represents a density operator. Similarly, the term $\displaystyle\Big{|}\langle R|\Big{[}{\mathcal{A}}^{n-(k+r)}{\mathcal{O}}_{k+r}^{b}I\Big{]}|R\rangle\Big{|}$ can be bounded by $d^{2}$, utilizing analogous techniques and the properties of density operators. Consequently, these bounds facilitate the derivation of an upper limit for the expression $\displaystyle\Big{|}\frac{C_{1}}{2f_{n}(|R\rangle,|L\rangle)}-\frac{\alpha(O_{k}^{a})}{2f_{n}(|R\rangle,|L\rangle)}\frac{C_{4}}{2f_{n}(|R\rangle,|L\rangle)}\Big{|}$, which is found to be $\displaystyle\frac{d^{4}}{2(\frac{1}{2}-\frac{1}{2}\|(\tilde{\mathcal{A}})^{n}\|_{\infty})^{2}}\frac{1}{2}\|(\tilde{\mathcal{A}})^{n}\|_{\infty}$. Furthermore, a similar line of reasoning yields an upper bound for $|C_{2}|$, given by $\displaystyle\frac{3}{2}d^{4}\|(\tilde{{\mathcal{A}}})^{r-1}\|_{\infty}$, where the properties of operators and their norms are judiciously applied to establish this result.
+
+Finally, let us consider the measurement ${\mathcal{M}}_{\theta,\phi}$ on the first physical qudit of 
+ 
+ $\displaystyle(I^{\otimes N-1}\otimes U_{0\leftrightarrow 1}U_{0\leftrightarrow 2}V^{t})|\Psi(L,R)\rangle_{1}^{N},$ 
+ where $t\in\{0,1,...,d-1\}$ . If the measurement result is $|\alpha_{\theta,\phi}\rangle$ , 
+ 
+ $\displaystyle\Big{(}e^{-it\omega}\cos\frac{\theta}{2}A[1]+e^{-i\phi-2it\omega}\sin\frac{\theta}{2}A[2]\Big{)}/\sqrt{\delta}$ 
+ is implemented in the correlation space, where 
+ 
+ $\displaystyle\sqrt{\delta}\equiv\Big{\|}e^{-it\omega}\cos\frac{\theta}{2}A[1]+e^{-i\phi-2it\omega}\sin\frac{\theta}{2}A[2]\Big{\|}.$ 
+ By the assumption Eq. ( 12 ), this should also work as a TP operation in the correlation space. Therefore, 
+ 
+ $\displaystyle\delta^{\prime}I=e^{i(\phi+t\omega)}A^{\dagger}[2]A[1]+e^{-i(\phi+t\omega)}A^{\dagger}[1]A[2],$  (18) 
+ where 
+ 
+ $\displaystyle\delta^{\prime}\equiv\frac{2}{\sin\theta}\Big{(}\delta-\xi\sin^{2}\frac{\theta}{2}-\eta\cos^{2}\frac{\theta}{2}\Big{)}.$ 
+
+
+From Eqs. ( 17 ) and ( 18 ), 
+ 
+ $\displaystyle\epsilon I=\Big{[}e^{-2i(\phi-s\omega)}-e^{2i(\phi+t\omega)}\Big{]}A^{\dagger}[2]A[1],$ 
+ where 
+ 
+ $\displaystyle\epsilon\equiv e^{-i(\phi-s\omega)}\gamma^{\prime}-e^{i(\phi+t\omega)}\delta^{\prime}.$ 
+
+
+Let us assume that 
+ 
+ $\displaystyle e^{-2i(\phi-s\omega)}-e^{2i(\phi+t\omega)}\neq 0.$ 
+ Then, 
+ 
+ $\displaystyle\epsilon^{\prime}I=A^{\dagger}[2]A[1],$ 
+ where 
+ 
+ $\displaystyle\epsilon^{\prime}\equiv\frac{\epsilon}{e^{-2i(\phi-s\omega)}-e^{2i(\phi+t\omega)}}.$ 
+ If $\epsilon^{\prime}=0$ , $A^{\dagger}[2]A[1]=0$ , which means $A[1]=0$ since $A[2]$ is unitary up to a constant (assumption Eq. ( 3 )). Therefore, $\epsilon^{\prime}\neq 0$ . In this case, $A[1]=\epsilon^{\prime\prime}A[2]$ for certain $\epsilon^{\prime\prime}\neq 0$ , since $A[2]$ is unitary up to a constant (34) . Hence 
+ 
+ $\displaystyle e^{-2i(\phi-s\omega)}-e^{2i(\phi+t\omega)}=0.$ 
+ This means 
+ 
+ $\displaystyle 2\phi+(t-s)\omega=r_{s,t}\pi,$  (19) 
+ where $r_{s,t}\in\{0,1,2,3,...\}$ . Let us take $t=s=0$ . Then, Eq. ( 19 ) gives 
+ 
+ $\displaystyle\phi=r_{0,0}\frac{\pi}{2}~{}~{}~{}(r_{0,0}\in\{0,1,2,...\}).$ 
+ Let us take $s=1$ , $t=0$ . Then, Eq. ( 19 ) gives 
+ 
+ $\displaystyle\phi=\frac{\pi}{d}+r_{1,0}\frac{\pi}{2}~{}~{}~{}(r_{1,0}\in\{0,1,2,...\}).$ 
+ In order to satisfy these two equations at the same time, there must exist $r_{0,0}$ and $r_{1,0}$ such that 
+ 
+ $\displaystyle r_{0,0}\frac{\pi}{2}=\frac{\pi}{d}+r_{1,0}\frac{\pi}{2}.$ 
+ If $r_{0,0}=r_{1,0}$ , then $0=1/d$ which means $d=\infty$ . Therefore $r_{0,0}\neq r_{1,0}$ . Then we have 
+ 
+ $\displaystyle d=\frac{2}{r_{0,0}-r_{1,0}}\leq 2,$ 
+ which is the contradiction. $\blacksquare$
+
+One might think that if we rewrite the post-measurement state Eq. ( 14 ) as 
+ 
+ $\displaystyle\frac{1}{\sqrt{f_{N-1}(|L\rangle,A[1]|R\rangle)}}\|A[1]|R\rangle\|\sum_{k_{2}=0}^{d-1}...\sum_{k_{N}=0}^{d-1}\langle L|A[k_{N}]...A[k_{2}]\frac{A[1]}{\|A[1]|R\rangle\|}|R\rangle|k_{N},...,K_{2}\rangle\otimes|2\rangle$ 
+ and redefine the operation implemented in the correlation space as 
+ 
+ $\displaystyle|R\rangle\to\frac{A[1]}{\|A[1]|R\rangle\|}|R\rangle,$ 
+ the TP-ness is recovered in the correlation space. However, in this case, the non-lineally appears unless 
+ 
+ $\displaystyle A^{\dagger}[1]A[1]\propto I,$ 
+ and therefore if we require the linearity in the correlation space, we obtain the same contradiction.
+
+ In this work, we demonstrate that the QCTN model fails to accurately simulate projective measurements for specific finite-size resource states, such as AKLT states with particular boundary conditions. To address this issue, we propose a new class of matrix-product states, known as normalizable resources, which enable precise projective measurements in the context of CSs. Notably, these normalizable resources exhibit cluster-like behavior, characterized by the exact vanishing of two-point correlations within a finite distance. Furthermore, for finite resource states with non-vanishing two-point correlations, we introduce an additional class of matrix-product states to facilitate correct projective measurements, and also discuss an alternative approach to simulating these measurements indirectly using the downloading method.
+
+V.2 Examples
+
+Let us consider some concrete examples which give intuitive understandings of the above theorem.
+
+In Ref. (29) , it was shown that universal single-qubit unitary rotation is possible in the correlation space of the one-dimensional AKLT chain, which is a ground state of a gapped two-body nearest-neighbour spin-1 Hamiltonian (hence $d=3$ ). The matrix product representation of the one-dimensional AKLT chain is given by 
+ 
+ $\displaystyle A[0]$ $\displaystyle=$ $\displaystyle X,$ 
+ 
+ $\displaystyle A[1]$ $\displaystyle=$ $\displaystyle XZ,$ 
+ 
+ $\displaystyle A[2]$ $\displaystyle=$ $\displaystyle Z$ 
+ for certain basis $\{|0\rangle,|1\rangle,|2\rangle\}$ (29) . The measurement 
+ 
+ $\displaystyle{\mathcal{M}}_{\theta,\pi/2}\equiv\Big{\{}\cos\frac{\theta}{2}|0\rangle+i\sin\frac{\theta}{2}|1\rangle,\sin\frac{\theta}{2}|0\rangle-i\cos\frac{\theta}{2}|1\rangle,|2\rangle\Big{\}}$ 
+ on a single physical qutrit implements $Xe^{-iZ\theta/2}$ , $XZe^{-iZ\theta/2}$ , or $Z$ , respectively. According to Theorem in the previous section, not all physical errors can be linear CPTP maps in the correlation space since $d\geq 3$ . In fact, let us consider the single qutrit unitary error 
+ 
+ $\displaystyle U\equiv|2\rangle\frac{\langle 0|+\langle 1|}{\sqrt{2}}+\frac{|0\rangle+|1\rangle}{\sqrt{2}}\langle 2|+\frac{|0\rangle-|1\rangle}{\sqrt{2}}\frac{\langle 0|-\langle 1|}{\sqrt{2}}.$ 
+ If the measurement ${\mathcal{M}}_{\theta,\pi/2}$ is performed after the error $U$ and if we obtain the result $|2\rangle$ , the operation $|1\rangle\langle 0|$ is implemented in the correlation space. Obviously, it is not TP. The same result is obtained for the slightly modified version of the one-dimensional AKLT chain (4) , where 
+ 
+ $\displaystyle A[0]$ $\displaystyle=$ $\displaystyle X,$ 
+ 
+ $\displaystyle A[1]$ $\displaystyle=$ $\displaystyle XZ,$ 
+ 
+ $\displaystyle A[2]$ $\displaystyle=$ $\displaystyle H.$ 
+
+
+ $\displaystyle\langle O^{a}_{k}O^{b}_{k+r}\rangle_{\Psi}$ $\displaystyle=$ $\displaystyle 2\langle R|\Big{[}\mathcal{A}^{n-(k+r)}\mathcal{O}^{b}_{k+r}\frac{I}{2}\Big{]}|R\rangle$ 
+ $\displaystyle\times{\rm Tr}\Big{[}\mathcal{O}^{a}_{k}\mathcal{A}^{k-1}|L\rangle\langle L|\Big{]}$ 
+ $\displaystyle=$ $\displaystyle \langle O^{b}_{k+r}\rangle_{\Psi}\langle O^{a}_{k}\rangle_{\Psi}$ 
+ $\displaystyle=$ $\displaystyle \langle O^{a}_{k}\rangle_{\Psi}\langle O^{b}_{k+r}\rangle_{\Psi},$ 
+ $\displaystyle\langle O^{a}_{k}O^{b}_{k+r}\rangle_{\Psi}-\langle O^{a}_{k}\rangle_{\Psi}\langle O^{b}_{k+r}\rangle_{\Psi}=0$ 
+ for all $r>l$ .
+
+VI Conclusion
+
+Our research examines the interplay between computational capability and correlation in the resource states of quantum computational tensor networks, a broadly applicable framework for measurement-based quantum computation. The findings indicate that finite-sized resource states do not universally enable accurate projective measurements in correlation space, due to the presence of non-vanishing two-point correlations. In contrast, resource states of infinite size can facilitate accurate projective measurements if they are capable of simulating arbitrary single-qubit rotations, a property associated with exponentially decaying two-point correlations. This suggests that many-body states with two-point correlations that do not decay exponentially cannot simulate arbitrary single-qubit rotations, highlighting a key limitation in their computational capabilities.
+
+Appendix A Tricluster state without error
+
+Let us consider the tricluster state (32) , where $d=6$ and 
+ 
+ $\displaystyle A[0]$ $\displaystyle=$ $\displaystyle|+\rangle\langle 0|,$ 
+ 
+ $\displaystyle A[1]$ $\displaystyle=$ $\displaystyle|-\rangle\langle 1|,$ 
+ 
+ $\displaystyle A[2]$ $\displaystyle=$ $\displaystyle|-\rangle\langle 0|,$ 
+ 
+ $\displaystyle A[3]$ $\displaystyle=$ $\displaystyle|+\rangle\langle 1|,$ 
+ 
+ $\displaystyle A[4]$ $\displaystyle=$ $\displaystyle|+\rangle\langle 1|,$ 
+ 
+ $\displaystyle A[5]$ $\displaystyle=$ $\displaystyle|-\rangle\langle 0|.$ 
+ The measurement 
+ 
+ $\displaystyle|\theta_{0}\rangle$ $\displaystyle\equiv$ $\displaystyle\frac{1}{\sqrt{2}}\Big{(}|0\rangle+e^{i\theta}|1\rangle\Big{)}$ 
+ 
+ $\displaystyle|\theta_{1}\rangle$ $\displaystyle\equiv$ $\displaystyle\frac{1}{\sqrt{2}}\Big{(}|0\rangle-e^{i\theta}|1\rangle\Big{)}$ 
+ 
+ $\displaystyle|\theta_{2}\rangle$ $\displaystyle\equiv$ $\displaystyle\frac{1}{\sqrt{2}}\Big{(}|2\rangle+e^{i\theta}|3\rangle\Big{)}$ 
+ 
+ $\displaystyle|\theta_{3}\rangle$ $\displaystyle\equiv$ $\displaystyle\frac{1}{\sqrt{2}}\Big{(}|2\rangle-e^{i\theta}|3\rangle\Big{)}$ 
+ 
+ $\displaystyle|\theta_{4}\rangle$ $\displaystyle\equiv$ $\displaystyle\frac{1}{\sqrt{2}}\Big{(}|4\rangle+e^{-i\theta}|5\rangle\Big{)}$ 
+ 
+ $\displaystyle|\theta_{5}\rangle$ $\displaystyle\equiv$ $\displaystyle\frac{1}{\sqrt{2}}\Big{(}|4\rangle-e^{-i\theta}|5\rangle\Big{)}$ 
+ is performed in order to implement 
+ 
+ $\displaystyle|\theta_{0}\rangle$ $\displaystyle:$ $\displaystyle J(\theta)$ 
+ 
+ $\displaystyle|\theta_{1}\rangle$ $\displaystyle:$ $\displaystyle XJ(\theta)$ 
+ 
+ $\displaystyle|\theta_{2}\rangle$ $\displaystyle:$ $\displaystyle ZJ(\theta)$ 
+ 
+ $\displaystyle|\theta_{3}\rangle$ $\displaystyle:$ $\displaystyle ZXJ(\theta)$ 
+ 
+ $\displaystyle|\theta_{4}\rangle$ $\displaystyle:$ $\displaystyle ZJ(\theta)$ 
+ 
+ $\displaystyle|\theta_{5}\rangle$ $\displaystyle:$ $\displaystyle ZXJ(\theta).$ 
+
+
+First, we measure the first physical qudit in the $\{|\theta_{s_{1}}\rangle\}$ basis. Then we obtain 
+ 
+ $\displaystyle\frac{1}{2f_{N}(|L\rangle,|R\rangle)}\sum_{s_{1}=0}^{5}W(X^{p(s_{1})}Z^{q(s_{1})}J(\theta)|R\rangle)_{2}\otimes|\theta_{s_{1}}\rangle\langle\theta_{s_{1}}|\otimes m(s_{1}),$ 
+ where 
+ 
+ $\displaystyle p(s)$ $\displaystyle\equiv$ $\displaystyle\delta_{s,1}+\delta_{s,3}+\delta_{s,5}$ 
+ 
+ $\displaystyle q(s)$ $\displaystyle\equiv$ $\displaystyle\delta_{s,2}+\delta_{s,3}+\delta_{s,4}+\delta_{s,5}.$ 
+ If we trace out the first physical qudit, we obtain 
+ 
+ $\displaystyle\frac{1}{2f_{N}(|L\rangle,|R\rangle)}\sum_{s_{1}=0}^{5}W(X^{p(s_{1})}Z^{q(s_{1})}J(\theta)|R\rangle)_{2}\otimes m(s_{1}).$ 
+
+
+Second, if we measure the second physical qudit in the basis 
+ 
+ $\displaystyle|s_{1},\phi_{0}\rangle$ $\displaystyle=$ $\displaystyle\frac{1}{\sqrt{2}}\Big{(}|0\rangle+(-1)^{q(s_{1})}e^{i\phi(-1)^{p(s_{1})}}|1\rangle\Big{)}$ 
+ 
+ $\displaystyle|s_{1},\phi_{1}\rangle$ $\displaystyle=$ $\displaystyle\frac{1}{\sqrt{2}}\Big{(}|0\rangle-(-1)^{q(s_{1})}e^{i\phi(-1)^{p(s_{1})}}|1\rangle\Big{)}$ 
+ 
+ $\displaystyle|s_{1},\phi_{2}\rangle$ $\displaystyle=$ $\displaystyle\frac{1}{\sqrt{2}}\Big{(}|2\rangle+(-1)^{q(s_{1})}e^{i\phi(-1)^{p(s_{1})}}|3\rangle\Big{)}$ 
+ 
+ $\displaystyle|s_{1},\phi_{3}\rangle$ $\displaystyle=$ $\displaystyle\frac{1}{\sqrt{2}}\Big{(}|2\rangle-(-1)^{q(s_{1})}e^{i\phi(-1)^{p(s_{1})}}|3\rangle\Big{)}$ 
+ 
+ $\displaystyle|s_{1},\phi_{4}\rangle$ $\displaystyle=$ $\displaystyle\frac{1}{\sqrt{2}}\Big{(}|4\rangle+(-1)^{q(s_{1})}e^{i\phi(-1)^{p(s_{1})}}|5\rangle\Big{)}$ 
+ 
+ $\displaystyle|s_{1},\phi_{5}\rangle$ $\displaystyle=$ $\displaystyle\frac{1}{\sqrt{2}}\Big{(}|4\rangle-(-1)^{q(s_{1})}e^{i\phi(-1)^{p(s_{1})}}|5\rangle\Big{)}$  (20) 
+ and trace out the measured qudit, we obtain 
+ 
+ $\displaystyle\frac{1}{2^{2}f_{N}(|L\rangle,|R\rangle)}\sum_{s_{2}=0}^{5}\sum_{s_{1}=0}^{5}W(X^{p(s_{2})}Z^{q(s_{2})}X^{q(s_{1})}J((-1)^{p(s_{1})}\phi)X^{p(s_{1})}Z^{q(s_{1})}J(\theta)|R\rangle)_{3}\otimes m(s_{1})\otimes m(s_{2})$ 
+ $\displaystyle=$ $\displaystyle\frac{1}{2^{2}f_{N}(|L\rangle,|R\rangle)}\sum_{s_{2}=0}^{5}\sum_{s_{1}=0}^{5}W(X^{p(s_{2})}Z^{q(s_{2})}Z^{p(s_{1})}J(\phi)J(\theta)|R\rangle)_{3}\otimes m(s_{1})\otimes m(s_{2}).$ 
+
+
+The absolute value of the complex number $C_{3}$ is bounded by the norm of the operator ${\mathcal{A}}^{n-k}$ acting on $E(O_{k}^{a})$, which in turn is less than or equal to a constant times the norm of $({\tilde{\mathcal{A}})^{n-k}}$. This constant is given by $\frac{3d^{2}}{2}$, where $d$ represents the dimension of the underlying space, highlighting the relationship between the bound and the geometric properties of the system.
+
+Appendix B Tricluster state with error
+
+Let us assume that a CPTP error occurs on the first physical qudit. If we measure the first physical qudit in the $\{|\theta_{s_{1}}\rangle\}$ basis, we obtain 
+ 
+ $\displaystyle\frac{1}{f_{N}(|L\rangle,|R\rangle)}\sum_{s_{1}=0}^{5}\sum_{j}W(E_{j,s_{1}}|R\rangle)_{2}\otimes|\theta_{s_{1}}\rangle\langle\theta_{s_{1}}|\otimes m(s_{1}).$ 
+ By tracing out the first physical qudit, we obtain 
+ 
+ $\displaystyle\frac{1}{f_{N}(|L\rangle,|R\rangle)}\sum_{s_{1}=0}^{5}\sum_{j}W(E_{j,s_{1}}|R\rangle)_{2}\otimes m(s_{1}).$ 
+
+
+Second, if we measure the second physical qudit in the basis Eq. ( 20 ) and trace out the measured qudit, we obtain 
+ 
+ $\displaystyle\frac{1}{2f_{N}(|L\rangle,|R\rangle)}\sum_{s_{2}=0}^{5}\sum_{s_{1}=0}^{5}\sum_{j}W(X^{p(s_{2})}Z^{q(s_{2})}X^{q(s_{1})}J((-1)^{p(s_{1})}\phi)E_{j,s_{1}}|R\rangle)_{3}\otimes m(s_{1})\otimes m(s_{2}).$ 
+
+
+We examine the correlation between two Hermitian operators, $O_{k}^{a}$ and $O_{k+r}^{b}$, situated at sites $k$ and $k+r$ respectively, with operator norms bounded by 1. This correlation is defined as the difference between the expectation value of the product of these operators and the product of their individual expectation values, where the expectation value of an operator $O$ is given by $\langle O\rangle_{\Psi}=\langle\bar{\Psi}(R,L)|O|\bar{\Psi}(R,L)\rangle_{1}^{n}$. By introducing a superoperator ${\mathcal{O}}$ that acts on a density matrix $\rho$ through the expression ${\mathcal{O}}\rho=\sum_{i=0}^{d-1}\sum_{j=0}^{d-1}\langle i|O|j\rangle A[j]\rho A^{\dagger}[i]$, we can express the correlation $\langle O_{k}^{a}O_{k+r}^{b}\rangle_{\Psi}$ in terms of the action of superoperators ${\mathcal{O}}_{k}^{a}$ and ${\mathcal{O}}_{k+r}^{b}$ on the state $|L\rangle\langle L|$, normalized by a factor $f_{n}(|R\rangle,|L\rangle)$, as $\frac{1}{f_{n}(|R\rangle,|L\rangle)}\langle R|\Big{[}{\mathcal{A}}^{n-(k+r)}{\mathcal{O}}_{k+r}^{b}{\mathcal{A}}^{r-1}{\mathcal{O}}_{k}^{a}{\mathcal{A}}^{k-1}|L\rangle\langle L|\Big{]}|R\rangle$.
+
+In the context of a normalizable Matrix Product State (MPS), a fundamental equivalence emerges, wherein the expression $\frac{1}{2}$ is tantamount to the function $f_{n-k}(|R\rangle,|\psi\rangle)$, which can be represented as the trace of the product of $|R\rangle\langle R|$, $\mathcal{A}^{\circ(n-k)}$, $|\psi\rangle\langle\psi|$. This equality holds universally for any $|R\rangle$ and $|\psi\rangle$. Consequently, it follows that $\mathcal{A}^{\circ(n-k)}$ acts on any density matrix $\rho$ to yield $\frac{I}{2}$ scaled by the trace of $\rho$, implying that $\mathcal{A}^{\circ(n-k)}$ behaves as a completely depolarizing channel. This property can be elucidated by expressing $\mathcal{A}^{\circ(n-k)}\rho$ in terms of the trace of $\rho$ and the identity operator $I$, which, through a series of transformations involving unitary operators $U$ and $V$, reveals that $\mathcal{A}^{\circ(n-k)}\rho$ reduces to a convex combination of depolarizing operations, ultimately simplifying to $\frac{1}{4}\sum_{i=0}^{3}U\sigma_{i}V\rho V^{{\dagger}}\sigma_{i}U^{{\dagger}}$, where $\sigma_i$ denotes the Pauli matrices, underscoring the channel's depolarizing nature.
+
+Appendix C Calculation of $|U_{p,q}^{r}|$
+
+Let us define 
+ 
+ $\displaystyle U_{p,q}^{r}\equiv\Big{\{}(s_{1},...,s_{r})\in\{0,1,2\}^{\times r}~{}\Big{|}~{}f(s_{1},...,s_{r})=p~{}\mbox{and}~{}g(s_{1},...,s_{r})=q\Big{\}}.$ 
+ First, 
+ 
+ $\displaystyle|U_{0,0}^{2}|$ $\displaystyle=$ $\displaystyle 3$ 
+ 
+ $\displaystyle|U_{0,1}^{2}|$ $\displaystyle=$ $\displaystyle 2$ 
+ 
+ $\displaystyle|U_{1,0}^{2}|$ $\displaystyle=$ $\displaystyle 2$ 
+ 
+ $\displaystyle|U_{1,1}^{2}|$ $\displaystyle=$ $\displaystyle 2.$ 
+ Second, 
+ 
+ $\displaystyle|U_{p,q}^{r}|=|U_{p\oplus 1,q}^{r-1}|+|U_{p,q\oplus 1}^{r-1}|+|U_{p\oplus 1,q\oplus 1}^{r-1}|$ 
+ for all $r$ . Therefore, 
+ 
+ $\displaystyle|U_{0,1}^{r}|-|U_{1,0}^{r}|$ $\displaystyle=$ $\displaystyle|U_{1,1}^{r-1}|+|U_{0,0}^{r-1}|+|U_{1,0}^{r-1}|-|U_{0,0}^{r-1}|-|U_{1,1}^{r-1}|-|U_{0,1}^{r-1}|$ 
+ $\displaystyle=$ $\displaystyle|U_{1,0}^{r-1}|-|U_{0,1}^{r-1}|$ 
+ $\displaystyle=$ $\displaystyle-(|U_{0,1}^{r-1}|-|U_{1,0}^{r-1}|)$ 
+ $\displaystyle=$ $\displaystyle(-1)^{r-2}(|U_{0,1}^{2}|-|U_{1,0}^{2}|)$ 
+ $\displaystyle=$ $\displaystyle 0$ 
+ and 
+ 
+ $\displaystyle|U_{0,1}^{r}|-|U_{1,1}^{r}|$ $\displaystyle=$ $\displaystyle|U_{1,1}^{r-1}|+|U_{0,0}^{r-1}|+|U_{1,0}^{r-1}|-|U_{0,1}^{r-1}|-|U_{1,0}^{r-1}|-|U_{0,0}^{r-1}|$ 
+ $\displaystyle=$ $\displaystyle|U_{1,1}^{r-1}|-|U_{0,1}^{r-1}|$ 
+ $\displaystyle=$ $\displaystyle-(|U_{0,1}^{r-1}|-|U_{1,1}^{r-1}|)$ 
+ $\displaystyle=$ $\displaystyle(-1)^{r-2}(|U_{0,1}^{2}|-|U_{1,1}^{2}|)$ 
+ $\displaystyle=$ $\displaystyle 0,$ 
+ which mean 
+ 
+ $\displaystyle|U_{1,1}^{r}|=|U_{0,1}^{r}|=|U_{1,0}^{r}|$ 
+ for all $r$ .
+
+The 3x3 matrix $\tilde{\mathcal{U}}$ represents an O(3) rotation, as it is derived from a unitary operation $\mathcal{U}$ that preserves vector norms. We examine the Hermitian matrix $(\tilde{\mathcal{Z}}\tilde{\mathcal{U}}\tilde{\mathcal{Z}}^{\prime})^{{\dagger}}\tilde{\mathcal{Z}}\tilde{\mathcal{U}}\tilde{\mathcal{Z}}^{\prime}$, which can be simplified to $\bar{\lambda}\tilde{\mathcal{Z}^{\prime}}^{2}+\tilde{\mathcal{Z}}^{\prime}\tilde{\mathcal{U}}^{T}\left(\begin{array}{ccc}0&0&0\\ 0&0&0\\ 0&0&1-\bar{\lambda}\end{array}\right)\tilde{\mathcal{U}}\tilde{\mathcal{Z}}^{\prime}$. The eigenvalues of this matrix are $\bar{\lambda}^{2}$ and $r_{\pm}=\frac{1}{2}\Bigl{[}u_{3}^{2}(1-\bar{\lambda})^{2}+2\bar{\lambda}\pm\left(1-\bar{\lambda}\right)\sqrt{(1-\bar{\lambda})^{2}u_{3}^{4}+4\bar{\lambda}u_{3}^{2}}\Bigr{]}$. Since $|r_{\pm}|\leq 1$, if $|r_{+}|=1$ or $|r_{-}|=1$, then $u_{3}=\pm 1$, implying $u_{1}=u_{2}=0$, which leads to $U=X^{(1-u_{3})/2}Z(\phi)$ for some angle $\phi$. Consequently, $\mathcal{A}^{l}$ does not converge to $\mathcal{E}$ due to the presence of eigenoperators with eigenvalues $\pm 1$. However, if $|r_{\pm}|<1$, then $||\tilde{\mathcal{Z}}\tilde{\mathcal{U}}\tilde{\mathcal{Z}}^{\prime}||<1$, resulting in $||\tilde{\mathcal{A}}^{l}||\leq||\tilde{\mathcal{Z}}\tilde{\mathcal{U}}\tilde{\mathcal{Z}}^{\prime}||^{\lfloor l/2\rfloor}\rightarrow 0$ as $l\rightarrow 0$, implying $\mathcal{A}^{l}\rightarrow\mathcal{E}$.
+
+Appendix D Calculation of $|S_{p,q}^{r}|$
+
+Let us define 
+ 
+ $\displaystyle S_{p,q}^{r}\equiv\Big{\{}(s_{1},...,s_{r})\in\{0,1,2\}^{\times r}\setminus(2,...,2)~{}\Big{|}~{}f(s_{1},...,s_{r})=p~{}\mbox{and}~{}g(s_{1},...,s_{r})=q\Big{\}}.$ 
+ First, 
+ 
+ $\displaystyle|S_{0,0}^{2}|$ $\displaystyle=$ $\displaystyle 2$ 
+ 
+ $\displaystyle|S_{0,1}^{2}|$ $\displaystyle=$ $\displaystyle 2$ 
+ 
+ $\displaystyle|S_{1,0}^{2}|$ $\displaystyle=$ $\displaystyle 2$ 
+ 
+ $\displaystyle|S_{1,1}^{2}|$ $\displaystyle=$ $\displaystyle 2.$ 
+ Second, 
+ 
+ $\displaystyle|S_{p,q}^{r}|=|U_{p\oplus 1,q}^{r-1}|+|U_{p\oplus 1,q\oplus 1}^{r-1}|+|S_{p,q\oplus 1}^{r-1}|.$ 
+ Therefore, 
+ 
+ $\displaystyle|S_{0,0}^{r}|-|S_{0,1}^{r}|$ $\displaystyle=$ $\displaystyle|U_{1,0}^{r-1}|+|U_{1,1}^{r-1}|+|S_{0,1}^{r-1}|-|U_{1,1}^{r-1}|-|U_{1,0}^{r-1}|-|S_{0,0}^{r-1}|$ 
+ $\displaystyle=$ $\displaystyle-(|S_{0,0}^{r-1}|-|S_{0,1}^{r-1}|)$ 
+ $\displaystyle=$ $\displaystyle(-1)^{r-2}(|S_{0,0}^{2}|-|S_{0,1}^{2}|)$ 
+ $\displaystyle=$ $\displaystyle 0.$ 
+ and 
+ 
+ $\displaystyle|S_{1,0}^{r}|-|S_{1,1}^{r}|$ $\displaystyle=$ $\displaystyle|U_{0,0}^{r-1}|+|U_{0,1}^{r-1}|+|S_{1,1}^{r-1}|-|U_{0,1}^{r-1}|-|U_{0,0}^{r-1}|-|S_{1,0}^{r-1}|$ 
+ $\displaystyle=$ $\displaystyle-(|S_{1,0}^{r-1}|-|S_{1,1}^{r-1}|)$ 
+ $\displaystyle=$ $\displaystyle(-1)^{r-2}(|S_{1,0}^{2}|-|S_{1,1}^{2}|)$ 
+ $\displaystyle=$ $\displaystyle 0.$ 
+ Hence 
+ 
+ $\displaystyle|S_{0,0}^{r}|$ $\displaystyle=$ $\displaystyle\frac{3^{r-1}-(-1)^{r-1}}{2}+|S_{0,0}^{r-1}|$ 
+ $\displaystyle=$ $\displaystyle\frac{3^{r-1}-(-1)^{r-1}}{2}+...+\frac{3^{2}-(-1)^{2}}{2}+|S_{0,0}^{2}|$ 
+ $\displaystyle=$ $\displaystyle\frac{3^{r-1}+...+3^{2}}{2}-\frac{(-1)^{r-1}+...+(-1)^{2}}{2}+2$ 
+ $\displaystyle=$ $\displaystyle\frac{3^{r}-3^{2}}{4}+\frac{(-1)^{r}-(-1)^{2}}{4}+2.$ 
+ and 
+ 
+ $\displaystyle|S_{1,0}^{r}|$ $\displaystyle=$ $\displaystyle\frac{3^{r-1}+(-1)^{r-1}}{2}+|S_{1,0}^{r-1}|$ 
+ $\displaystyle=$ $\displaystyle\frac{3^{r-1}+(-1)^{r-1}}{2}+...+\frac{3^{2}+(-1)^{2}}{2}+|S_{1,0}^{2}|$ 
+ $\displaystyle=$ $\displaystyle\frac{3^{r-1}+...+3^{2}}{2}+\frac{(-1)^{r-1}+...+(-1)^{2}}{2}+2$ 
+ $\displaystyle=$ $\displaystyle\frac{3^{r}-3^{2}}{4}-\frac{(-1)^{r}-(-1)^{2}}{4}+2.$ 
+
+
+Appendix E Calculation of $|T_{p,q}^{r,i}|$
+
+A redefinition of the Pauli operators is utilized to express the matrix product state in a revised form, enabling the decomposition of the map $\mathcal{A}$ into a composition of two operations, $\mathcal{U}$ and $\mathcal{Z}$. The operation $\mathcal{Z}$ is characterized by a $3 \times 3$ matrix $\tilde{\mathcal{Z}}$, which can be represented in a particular basis as a diagonal matrix with eigenvalues $\lambda_1$, $\lambda_2$, and $1$. It is demonstrated that the absolute values of $\lambda_1$ and $\lambda_2$ are less than $1$, indicating a contraction operation. This property is derived from the assumption that the parameters $\beta_i$ are distinct, which is justified by showing that if any two $\beta_i$ are equal, a change of basis can be applied to eliminate the corresponding matrix product state component.
+
+We examine two Hermitian operators, $V$ and $V'$, defined in terms of the Pauli matrices and vectors $v$ and $v'$. By construction, these operators have trace zero and a trace of their square equal to 2, implying that the associated density matrices $\rho_v$ and $\rho_{v'}$ are pure states. Given that $\mathcal{A}v = v'$, the mapping $\mathcal{A}$ transforms $\rho_v$ into $\rho_{v'}$ in a trace-preserving manner. Furthermore, assuming the Kraus operator $A[i]$ of the map $\mathcal{A}$ is proportional to a unitary operator, it can be expressed as a linear combination of terms involving $|v'\rangle\langle v|$ and $|v'^\perp\rangle\langle v^\perp|$, where $|v\rangle\langle v|$ and $|v'\rangle\langle v'|$ represent the density matrices $\rho_v$ and $\rho_{v'}$, and $|v^\perp\rangle$ and $|v'^\perp\rangle$ are their orthogonal complements.
+
+Since 
+ 
+ $\displaystyle|T_{1,0}^{r,0}|$ $\displaystyle=$ $\displaystyle|U_{0,0}^{r-1}|=\frac{1}{4}(3^{r-1}+3(-1)^{r-1})$ 
+ 
+ $\displaystyle|T_{1,0}^{r,1}|$ $\displaystyle=$ $\displaystyle|U_{0,1}^{r-1}|=\frac{1}{4}(3^{r-1}-(-1)^{r-1})$ 
+ 
+ $\displaystyle|T_{1,0}^{r,2}|$ $\displaystyle=$ $\displaystyle|S_{1,1}^{r-1}|=\frac{3^{r-1}-3^{2}}{4}-\frac{(-1)^{r-1}-(-1)^{2}}{4}+2,$ 
+ we obtain 
+ 
+ $\displaystyle|T_{1,0}^{r,0}|-|T_{1,0}^{r,1}|=(-1)^{r-1},$ 
+ 
+ 
+ $\displaystyle|T_{1,0}^{r,0}|-|T_{1,0}^{r,2}|$ $\displaystyle=$ $\displaystyle\frac{3^{2}}{4}+(-1)^{r-1}-\frac{1}{4}-2$ 
+ $\displaystyle=$ $\displaystyle(-1)^{r-1},$ 
+ and 
+ 
+ $\displaystyle|T_{1,0}^{r,1}|-|T_{1,0}^{r,2}|$ $\displaystyle=$ $\displaystyle\frac{3^{2}}{4}-\frac{1}{4}-2$ 
+ $\displaystyle=$ $\displaystyle 0.$ 
+
+
+Utilizing the given relationship and the expression $|\phi_{j}\rangle\langle\phi_{j}|=I/2+(-1)^{j}(\cos 2\theta_{0}Z-\sin 2\theta_{0}X)/2$, it can be deduced that the normalization factor assumes a specific form, derived from the real numbers $\gamma_{ij}$.
+
+References
+
+(1) R. Raussendorf and H. J. Briegel, Phys. Rev. Lett.86, 5188 (2001).
+(2) R. Raussendorf, D. E. Browne, and H. J. Briegel, Phys. Rev. A68, 022312 (2003).
+(3) R. Raussendorf, Ph.D. thesis, Ludwig-Maximillians Universität München, 2003.
+(4) D. Gross and J. Eisert, Phys. Rev. Lett.98, 220503 (2007).
+(5) D. Gross, J. Eisert, N. Schuch, and D. Perez-Garcia, Phys. Rev. A76, 052315 (2007).
+(6) D. Gross and J. Eisert, Phys. Rev. A82, 040303(R) (2010).
+(7) M. Fannes, B. Nachtergaele, and R. F. Werner, J. Phys. A24, L185 (1991).
+(8) F. Verstraete, J. I. Cirac, and V. Murg, Adv. Phys.57, 143 (2008).
+(9) J. I. Cirac and F. Verstraete, J. Phys. A: Math. Theor.42, 504004 (2009).
+(10) J. M. Cai, W. Dür, M. Van den Nest, A. Miyake, and H. J. Briegel, Phys. Rev. Lett.103, 050503 (2009).
+(11) T. Morimae, Phys. Rev. A83, 042337 (2011).
+(12) K. Fujii and T. Morimae, arXiv:1106.3377
+(13) P. W. Shor,Proc. of the 37th Symposium on Foundations of Computing, p.56 (IEEE Computer Society Press, 1996).
+(14) D. Aharonov and M. Ben-Or,Proc. of the 29th Annual ACM Symposium on Theory of Computing, p. 176 (ACM Press, New York, 1998).
+(15) A. Yu. Kitaev, Russian Math. Surveys52, 1191 (1997).
+(16) E. Knill, R. Laflamme, and W. H. Zurek, Proc. Roy. Soc. London, Ser A454, 365 (1998).
+(17) B. M. Terhal and G. Burkard, Phys. Rev. A71, 012336 (2005).
+(18) M. A. Nielsen and C. M. Dawson, Phys. Rev. A71, 042323 (2005).
+(19) P. Aliferis and D. W. Leung, Phys. Rev. A73, 032308 (2006).
+(20) M. Silva, V. Danos, E. Kashefi, and H. Ollivier, New. J. Phys.9, 192 (2007).
+(21) K. Fujii and K. Yamamoto, Phys. Rev. A82, 060301(R) (2010).
+(22) K. Fujii and K. Yamamoto, Phys. Rev. A81, 042324 (2010).
+(23) Recently, it was shown that topologically-protected measurement-based quantum computationtopological1;topological2is possible on the thermal equilibrium state of a nearest-neighbour two-body Hamiltonian with spin-3/2 and spin-2 particlesLior solely with spin-3/2 particlesFMtopo.
+(24) R. Raussendorf and J. Harrington, Phys. Rev. Lett.98, 190504 (2007).
+(25) R. Raussendorf, J. Harrington, and K. Goyal, New J. Phys.9, 199 (2007).
+(26) Y. Li, D. E. Browne, L. C. Kwek, R. Raussendorf, and T. C. Wei, Phys. Rev. Lett.107, 060501 (2011).
+(27) K. Fujii and T. Morimae, Phys. Rev. A85, 010304(R) (2012).
+(28) J. Chen, X. Chen, R. Duan, Z. Ji, and B. Zeng, Phys. Rev. A83, 050301(R) (2011).
+(29) G. K. Brennen and A. Miyake, Phys. Rev. Lett.101, 010502 (2008).
+(30) I. Affleck, T. Kennedy, E. H. Lieb, and H. Tasaki, Comm. Math. Phys.115, 477 (1988).
+(31) J. M. Cai, A. Miyake, W. Dür, and H. J. Briegel, Phys. Rev. A82, 052309 (2010).
+(32) X. Chen, B. Zeng, Z. C. Gu, B. Yoshida, and I. L. Chuang, Phys. Rev. Lett.102, 220501 (2009).
+(33) A. Miyake, Ann. Phys.326, 1656 (2011).
+(34) We do not consider the case whereA​[1]∝A​[2]proportional-to𝐴delimited-[]1𝐴delimited-[]2A[1]\propto A[2], since in this case we can reduce the dimensiond𝑑dtod−1𝑑1d-1by redefining the basis of the two-dimensional subspace spanned by|1⟩ket1|1\rangleand|2⟩ket2|2\rangle.
+(35) This result is reasonable since we physically do a non-linear (or non-TP) operation. If we consider this fact, it is surprising that linear CPTP operations are implemented by doing non-linear (or non-TP) physical operations on several resource states such as the cluster state when physical operations are perfect!

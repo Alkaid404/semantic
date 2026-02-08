@@ -1,0 +1,459 @@
+Computational Power and Correlation in Quantum Computational Tensor Network
+
+By Keisuke Fujii and Tomoyuki Morimae
+
+Abstract
+
+We investigate relationships between computational power and correlation in resource states for quantum computational tensor network, which is a general framework for measurement-based quantum computation. We find that if the size of resource states is finite, not all resource states allow correct projective measurements in the correlation space, which is related to non-vanishing two-point correlations in the resource states. On the other hand, for infinite-size resource states, we can always implement correct projective measurements if the resource state can simulate arbitrary single-qubit rotations, since such a resource state exhibits exponentially decaying two-point correlations. This implies that a many-body state whose two-point correlation cannot be upperbounded by an exponentially decaying function cannot simulate arbitrary single-qubit rotations.
+
+I Introduction
+
+Quantum many-body states, which have long been the central research objects in condensed matter physics and statistical physics, are now attracting the renewed interest in quantum information science. In particular, in measurement-based quantum computation (MBQC) (1) , the role of quantum many-body states played in quantum computation is very clear: once the special resource state, which is called the cluster state, is prepared, universal quantum computation is possible with adaptive local measurements on each qubit. This clear separation between the resource preparation and the execution of computation itself has also relaxed the requirements for experimental realization of quantum computation (3) . Recently, the concept of quantum computational tensor network (QCTN), which is a novel framework of MBQC on general many-body states, has been proposed (12) . The most innovative feature of this framework is that the resource state is represented in the matrix-product (or tensor-product) form (15) and universal quantum computation is simulated in the virtual linear space, which is called the correlation space (CS) (12) , where matrices (or tensors) live.
+
+How does the behavior of a physical quantity in a many-body resource state affect the computational power of a quantum computer? If one wants to construct a bridge between quantum many-body physics and quantum information science, one cannot avoid tackling such a question. For example, in Refs. (18) , the beautiful result was obtained that if a many-body resource state has too much entanglement, it is useless for MBQC. In Ref. (20) , a criterion of the amount of entanglement for universal preparators in graph states was obtained. In Ref. (21) , a relationship between the amount of entanglement and the gate fidelity in the one-way model was derived. These results have clarified important relationships between entanglement in many-body states and the computational power of MBQC.
+
+Surprisingly, less attention has been paid to relationships between more traditional physical quantities, namely, a two-point correlation and the computational power of a quantum computer. Obviously, a two-point correlation is one of the most important research subjects in traditional quantum many-body physics, such as condensed matter physics and statistical physics. If we consider applications of quantum many-body states in condensed matter physics to quantum computation (22) , it is natural to ask how the behavior of a two-point correlation affects the computational power of a quantum computer. It has long been known in quantum information science that two-point correlations exactly vanish within a finite distance in the cluster state. Such a correlation property prohibits the cluster state from being the exact ground state of any physical Hamiltonian (23) . Recently, it was shown that the ground state of the Affleck, Kennedy, Lieb, and Tasaki (AKLT) model (26) , which exhibits the exponentially decaying two-point correlation, enables universal MBQC (27) . This result suggests that we might be able to further explore other resource states in the pool of quantum many-body states including ones which exhibit polynomially decaying or non decaying two-point correlations. Considering the fact that there are plenty of many-body states which exhibit such a long-range two-point correlation in condensed matter physics, it is very interesting to study whether we can use long-range-correlated many-body states as resources of MBQC.
+
+In this paper, we investigate relationships between computational power and two-point correlations in QCTN considering both finite and infinite-size resource states. Specifically, we here address under what conditions we can simulate projective measurements and arbitrary single-qubit rotations in QCTN, both of which are important properties of a universal resource for MBQC (28) .
+
+We find that projective measurements are not simulated correctly in QCTN on certain resource states of finite size, such as the AKLT states with a specific boundary condition. We therefore introduce a class of finite-size matrix-product states (MPSs), namely, normalizable resources, which allow correct projective measurements in the CSs. Since two-point correlations exactly vanish within a finite distance in normalizable resources, they are considered as cluster like resources. In order to perform correct projective measurements on finite resource states with non vanishing two-point correlations, we introduce another class of MPSs. We also mention an alternative way of simulating projective measurements indirectly by using the downloading method (29) .
+
+We further show that if a resource state can simulate arbitrary single-qubit rotations, it can also perform correct projective measurements in the infinite-size limit, that is, it is asymptotically normalizable . Accordingly, normalizability (at least asymptotic sense) is a necessary and sufficient condition for a universal quantum computational wire, where both correct projective measurements and arbitrary single-qubit rotations can be simulated. This result is obtained by showing a theorem about convergence of a stochastic unitary map. Furthermore, this theorem also tells us that a many-body state whose two-point correlation cannot be upperbounded by an exponentially decaying function, such as the Greenberger-Horne-Zeilinger (GHZ), the Ising antiferromagnetic, and the $W$ states, cannot be used to perform an arbitrary single-qubit rotation. These findings highlight interesting relationships between computational power and correlation in many-body entangled states.
+
+This paper is organized as follows. In Sec. I, we briefly review QCTN (12) , which is the most general framework for MBQC. In Sec. II, we investigate simulations of projective measurements in the QCTN framework and specify under what situation one can accurately simulate projective measurements in the resource states of finite size. In Sec. III, we extend the notion of normalizability to the resource states of infinite size, namely asymptotic normalizability, and address a fundamental relationship between asymptotic normalizability and computational power by providing a theorem which makes a bridge between the ability to perform an arbitrary single-qubit rotation and behavior of the two-point correlations. Section IV is devoted to the conclusion.
+
+II Quantum computational tensor network
+
+Let us consider an MPS (15) : 
+ 
+ $\displaystyle|\Psi(R,L)\rangle_{1}^{n}\equiv\sum_{i_{1},\cdots,i_{n}}\langle R|A[i_{n}]\cdots A[i_{1}]|L\rangle|i_{n}\cdots i_{1}\rangle,$ 
+ where $A[i_{k}]$ and $|R\rangle,|L\rangle$ ( $\langle R|R\rangle$ = $\langle L|L\rangle=1$ ) are a $D\times D$ matrix and $D$ -dimensional boundary vectors (12) , respectively, which live in the virtual Hilbert space, the so-called correlation space (CS) (12) [see Fig. 1 (a)]. The $|i_{k}\rangle$ ( $i_{k}=0,\cdots d-1$ and $\langle i|j\rangle=\delta_{ij}$ ) denotes the $k$ th physical qudit. Since we are interested in the simulation of unitary operations in the CS, we assume that the MPS matrices $A[i]$ of a resource state can be described as $A^{{\dagger}}[i]A[i]=c_{i}I$ with positive real numbers $c_{i}$ by choosing the physical basis properly, where $\sum_{i=0}^{d-1}c_{i}=1$ (i.e. $\sum_{i=0}^{d-1}A^{{\dagger}}[i]A[i]=I$ ). We here consider the case of $D=2$ , that is, the CS simulates a single qubit. We can simulate a quantum gate in the CS by performing a projective measurement in the basis $\{|\alpha_{j}\rangle\equiv\sum_{i=0}^{d-1}\alpha_{ji}|i\rangle\}$ ( $i,j=0,\cdots,d-1$ and $\langle\alpha_{i}|\alpha_{j}\rangle=\delta_{ij}$ ) on a physical qudit. The postmeasurement state with the measurement outcome $\alpha_{j}$ reads 
+ 
+ $\displaystyle\sum_{i_{2},\cdots,i_{n}}\langle R|A[i_{n}]\cdots A[i_{2}]A[\alpha_{j}]|L\rangle|i_{n}\cdots i_{2}\rangle\otimes|\alpha_{j}\rangle$  (1) 
+ $\displaystyle=$ $\displaystyle|\Psi(R,L^{\prime})\rangle_{2}^{n}\otimes\sqrt{a_{j}}|\alpha_{j}\rangle,$ 
+ where $A[\alpha_{j}]\equiv\sum_{i=0}^{d-1}\alpha^{*}_{ji}A[i]$ and $|L^{\prime}\rangle\equiv A[\alpha_{j}]/\sqrt{a_{j}}|L\rangle$ with $a_{j}I\equiv A^{{\dagger}}[\alpha_{j}]A[\alpha_{j}]$ . The postmeasurement state can be understood that the boundary vector $|L\rangle$ is transformed to $|L^{\prime}\rangle$ by the single-qubit operation $A[\alpha_{j}]/\sqrt{a_{j}}$ . So far, the normalization of an MPS has not been considered properly. In order to address this point, we define the normalization factor as 
+ 
+ $\displaystyle f_{n}(|R\rangle,|L\rangle)\equiv\langle R|(\mathcal{A}^{\circ n}|L\rangle\langle L|)|R\rangle,$ 
+ where $\mathcal{A}\rho=\sum_{i=0}^{d-1}A[i]\rho A^{{\dagger}}[i]$ . We denote the normalized MPS as 
+ 
+ $\displaystyle|\bar{\Psi}(R,L)\rangle_{1}^{n}\equiv|\Psi(R,L)\rangle_{1}^{n}/\sqrt{f_{n}(|R\rangle,|L\rangle)}.$ 
+
+
+III Simulations of projective measurements
+
+Let us consider a situation where from the first to $(k-1)$ th physical qudits are measured in order to implement a single-qubit rotation in the CS, and the boundary vector $|L\rangle$ is transformed to $|\psi\rangle$ [see Fig. 1 (b)]:
+
+Then, we want to perform a projective measurement on the state $|\psi\rangle$ in the CS in a basis $\{|0\rangle,|1\rangle\}$ . To this end, without loss of generality, the MPS matrix $A[i]$ can be written as
+
+by choosing a proper physical basis, where $|\phi_{0}\rangle$ and $|\phi_{1}\rangle$ are orthonormal states and $c_{m}$ is a real number. If we do the measurement $\mathcal{M}=\{|m_{0}\rangle=(|0\rangle+|1\rangle)/\sqrt{2},|m_{1}\rangle=(|0\rangle-|1\rangle)/\sqrt{2},|2\rangle,\cdots,|d-1\rangle\}$ on the $k$ th physical qudit and obtain the outcome $m_{j}$ ( $j=0,1$ ), the probability $p_{j}$ of obtaining $m_{j}$ ( $j=0,1$ ) is calculated to be
+
+If the above operation properly simulates the projective measurement in the CS, $p_{0}/p_{1}=|\langle 0|\psi\rangle|^{2}/|\langle 1|\psi\rangle|^{2}$ must be satisfied. This leads to
+
+If a resource state does not satisfy condition ( 2 ), correct projective measurements are not simulated in the CS.
+
+In order to perform correct QCTN, we have to find MPSs which satisfy condition ( 2 ). Let us first consider a sufficient condition of Eq. ( 2 ). We call a resource state normalizable , if there exists a natural number $l$ ( $l\leq n$ ) such that
+
+for all $|\psi\rangle$ , $|R\rangle$ and all $k\leq n-l$ . Obviously normalizable resources satisfy condition ( 2 ) as long as $n-k\geq l$ , which means that we can perform correct projective measurements in the CS at every position which is more than $l$ qudits away from the left boundary. Later we will see that normalizability in the limit of $l\rightarrow\infty$ is also a necessary condition for an arbitrary single-qubit rotation.
+
+A resource state is normalizable, if and only if the map $\mathcal{A}^{\circ l}$ ( $l\leq n-k$ ) is a completely depolarizing channel:
+
+where $\sigma_{i}$ are the Pauli matrices ( $\sigma_{0}=I$ ), and $U$ , $V$ are arbitrary unitary operators (see Appendix A). If a finite-size resource state ( $n<\infty$ ) is normalizable, $l$ is also finite. Let us first consider the case of $l=1$ . In this case, $\mathcal{A}=\mathcal{E}$ , which means that the dimension of a physical system is at least $d=4$ , and in such a case the MPS matrices are given by $A[i]=U\sigma_{i}V/2$ . It is obvious that such a resource state with properly chosen $U$ and $V$ allows an arbitrary single-qubit rotation. Next we consider the case of $l=2$ . The minimum dimension of a qudit which satisfies ${\mathcal{A}}^{\circ 2}=\mathcal{E}$ is $d=2$ , where the MPS matrices are given, for example, by $A[i]A[j]=U\sigma_{i+2j}V$ ( $i,j=0,1$ ). Specifically, if we choose $U$ and $V$ in such a way that $U\sigma_{1}U^{{\dagger}}=\sigma_{1}$ , $U\sigma_{3}U^{{\dagger}}=-i\sigma_{2}$ , $U\sigma_{2}U^{{\dagger}}=\sigma_{3}$ and $V=U^{{\dagger}}$ , the MPS matrices become $A[0]=H/\sqrt{2}$ and $A[1]=HZ/\sqrt{2}$ , which is the matrices for the cluster state (1) . Since the above two- and four-dimensional resource states are normalizable with a finite $l$ , we can simulate correct projective measurements in the CSs even if their size is finite.
+
+The above definition of normalizability also has an important physical meaning: if a resource state is normalizable with a finite $l$ (i.e., $\mathcal{A}^{\circ l}=\mathcal{E}$ ), any two-point correlation $\langle O^{a}_{k}O^{b}_{k+r}\rangle_{\Psi}-\langle O^{a}_{k}\rangle_{\Psi}\langle O^{b}_{k+r}\rangle_{\Psi}$ vanishes for all $r>l$ (see Appendix B), where $O_{k}^{a,b}$ is an arbitrary operator on the $k$ th qudit, and $\langle O\rangle_{\Psi}\equiv\langle\bar{\Psi}(L,R)|O|\bar{\Psi}(L,R)\rangle_{1}^{n}$ . Thus the possibility of projective measurements in QCTN with finite-size resource states is related to their vanishing two-point correlations. In the sense that two-point correlations exactly vanish with a finite distance, the normalizable resources with a finite $l$ can be viewed as cluster like resource states (1) . Then, it is natural to ask, can we simulate correct projective measurements on the resource states with non vanishing two-point correlations?
+
+In order to answer that question, we here find a class of finite-size MPSs, which is not necessarily normalizable with a finite $l$ , but can satisfy condition ( 2 ) with a finite $l$ by properly choosing the boundary condition $|R\rangle$ . This class of MPSs includes a wide variety of resource states, such as the AKLT states with specific boundary conditions (12) . As a canonical form of MPSs in the class, we take the matrices as
+
+for $j=2,\cdots,d-1$ , where $B_{j}\in\{I,X,Y,Z\}$ and $c_{m}+\sum_{j=2}^{d-1}c_{j}=1$ , i.e., $\sum_{i=0}^{d-1}A^{{\dagger}}[i]A[i]=I$ . We can easily show that this class of MPSs with properly chosen $\theta_{i}$ is capable of performing an arbitrary single-qubit rotation. Since $A[i]$ consists of the Pauli matrices and rotations about the $Y$ axis, the map $\mathcal{A}$ transforms the Pauli matrices as follows
+
+where $\gamma_{ij}$ are some real numbers. Using this fact and $|\phi_{j}\rangle\langle\phi_{j}|=I/2+(-1)^{j}(\cos 2\theta_{0}Z-\sin 2\theta_{0}X)/2$ , we can conclude that the normalization factor takes the following form:
+
+with $g_{3,1}^{j}$ being some real numbers, which depend on $n$ and $k$ in general. Then, if we choose $|R\rangle\langle R|=(I\pm Y)/2$ , $f_{n-k}(|R\rangle,|\phi_{0}\rangle)=f_{n-k}(|R\rangle,|\phi_{1}\rangle)=1/2$ for all $k\leq n$ . That is, by choosing the boundary vector as $|R\rangle=(I\pm Y)/2$ , we can perform correct projective measurements at every position (32) . Instead of $Y$ and $Z$ , we can also use other combinations of two Pauli operators in the canonical form ( 3 ). Specifically, if we set $d=3$ , $\theta_{0}=-\pi/2$ , $\theta_{2}=0$ , $B_{2}=Z$ , and $c_{m}/2=c_{2}=1/3$ , the matrices become $A[0]=XZ/\sqrt{3}$ , $A[1]=X/\sqrt{3}$ , and $A[3]=Z/\sqrt{3}$ , which is the AKLT state (27) (we can also show that the AKLT-like state (12) is an MPS of this class).
+
+We here explore another way to simulate projective measurements indirectly. In Ref. (29) , a method has been proposed to download a quantum state from the CS to the physical space. In their method, we first project the $k$ th qudit of $|\bar{\Psi}(R,\psi)\rangle_{k}^{n}$ to the subspace spanned by $\{|m_{0}\rangle,|m_{1}\rangle\}$ (if we fail the projection, we repeat it again until it succeeds). Next we rotate the state $|\phi_{j}\rangle$ to $|m_{j}\rangle$ ( $j=0,1$ ) via MBQC. Then we now have
+
+where $k^{\prime}\geq k+1$ , and the factor $c_{u}$ comes from the measurements for the rotation $|\phi_{j}\rangle\rightarrow|m_{j}\rangle$ in the CS. Finally we perform the projective measurement $\mathcal{M}$ on the $k^{\prime}$ th qudit (30) . The postmeasurement state corresponding to the measurement outcome $m_{l}$ ( $l=0,1$ ) is given by
+
+The coefficient of $\langle j|\psi\rangle|j\rangle$ does not depend on $j$ , and hence we can download the state from the CS to the physical space, even if the resource state is of finite size. This means that MBQC on finite-size resource states is universal state preparator (20) . Surprisingly, the above fact means that for finite-size resource states universal state preparator is more ubiquitous property than the simulator of a classical output. Of course we can perform projective measurements indirectly on a quantum state in the CS by downloading it to the physical space and measuring the downloaded qudit. However, as discussed in Ref. (29) , a faithful downloading process takes a time step in proportion to the correlation length of the resource state, which results in additional operations. Since such additional operations can cause additional decoherence effects, it would be better to avoid doing download if we need only classical outputs.
+
+III.1 Condition for correct projective measurements
+
+Let us consider a situation where from the first to $(k-1)$ th physical qudits are measured in order to implement a single-qubit rotation in the CS, and the boundary vector $|L\rangle$ is transformed to $|\psi\rangle$ [see Fig. 1 (b)]: 
+ 
+ $\displaystyle|\bar{\Psi}(R,\psi)\rangle_{k}^{n}=\sum_{i_{k}\cdots i_{n}}\frac{\langle R|A[i_{n}]\cdots A[i_{k}]|\psi\rangle|i_{n}\cdots i_{k}\rangle}{\sqrt{f_{n-k+1}(|R\rangle,|\psi\rangle)}}.$ 
+ Then, we want to perform a projective measurement on the state $|\psi\rangle$ in the CS in a basis $\{|0\rangle,|1\rangle\}$ . To this end, without loss of generality, the MPS matrix $A[i]$ can be written as 
+ 
+ $\displaystyle A[0]$ $\displaystyle=$ $\displaystyle\sqrt{c_{m}/2}(|\phi_{0}\rangle\langle 0|+|\phi_{1}\rangle\langle 1|)$ 
+ 
+ $\displaystyle A[1]$ $\displaystyle=$ $\displaystyle\sqrt{c_{m}/2}(|\phi_{0}\rangle\langle 0|-|\phi_{1}\rangle\langle 1|)$ 
+ by choosing a proper physical basis, where $|\phi_{0}\rangle$ and $|\phi_{1}\rangle$ are orthonormal states and $c_{m}$ is a real number. If we do the measurement $\mathcal{M}=\{|m_{0}\rangle=(|0\rangle+|1\rangle)/\sqrt{2},|m_{1}\rangle=(|0\rangle-|1\rangle)/\sqrt{2},|2\rangle,\cdots,|d-1\rangle\}$ on the $k$ th physical qudit and obtain the outcome $m_{j}$ ( $j=0,1$ ), the probability $p_{j}$ of obtaining $m_{j}$ ( $j=0,1$ ) is calculated to be 
+ 
+ $\displaystyle p_{j}=\frac{c_{m}f_{n-k}(|R\rangle,|\phi_{j}\rangle)|\langle j|\psi\rangle|^{2}}{f_{n-k+1}(|R\rangle,|\psi\rangle)}.$ 
+ If the above operation properly simulates the projective measurement in the CS, $p_{0}/p_{1}=|\langle 0|\psi\rangle|^{2}/|\langle 1|\psi\rangle|^{2}$ must be satisfied. This leads to 
+ 
+ $\displaystyle f_{n-k}(|R\rangle,|\phi_{0}\rangle)=f_{n-k}(|R\rangle,|\phi_{1}\rangle).$  (2) 
+ If a resource state does not satisfy condition ( 2 ), correct projective measurements are not simulated in the CS.
+
+III.2 Normalizable resources
+
+In order to perform correct QCTN, we have to find MPSs which satisfy condition ( 2 ). Let us first consider a sufficient condition of Eq. ( 2 ). We call a resource state normalizable , if there exists a natural number $l$ ( $l\leq n$ ) such that 
+ 
+ $\displaystyle f_{n-k}(|R\rangle,|\psi\rangle)=1/2,$ 
+ for all $|\psi\rangle$ , $|R\rangle$ and all $k\leq n-l$ . Obviously normalizable resources satisfy condition ( 2 ) as long as $n-k\geq l$ , which means that we can perform correct projective measurements in the CS at every position which is more than $l$ qudits away from the left boundary. Later we will see that normalizability in the limit of $l\rightarrow\infty$ is also a necessary condition for an arbitrary single-qubit rotation.
+
+A resource state is normalizable, if and only if the map $\mathcal{A}^{\circ l}$ ( $l\leq n-k$ ) is a completely depolarizing channel: 
+ 
+ $\displaystyle\mathcal{E}\rho=1/4\sum_{i=0}^{3}U\sigma_{i}V\rho V^{{\dagger}}\sigma_{i}U^{{\dagger}},$ 
+ where $\sigma_{i}$ are the Pauli matrices ( $\sigma_{0}=I$ ), and $U$ , $V$ are arbitrary unitary operators (see Appendix A). If a finite-size resource state ( $n<\infty$ ) is normalizable, $l$ is also finite. Let us first consider the case of $l=1$ . In this case, $\mathcal{A}=\mathcal{E}$ , which means that the dimension of a physical system is at least $d=4$ , and in such a case the MPS matrices are given by $A[i]=U\sigma_{i}V/2$ . It is obvious that such a resource state with properly chosen $U$ and $V$ allows an arbitrary single-qubit rotation. Next we consider the case of $l=2$ . The minimum dimension of a qudit which satisfies ${\mathcal{A}}^{\circ 2}=\mathcal{E}$ is $d=2$ , where the MPS matrices are given, for example, by $A[i]A[j]=U\sigma_{i+2j}V$ ( $i,j=0,1$ ). Specifically, if we choose $U$ and $V$ in such a way that $U\sigma_{1}U^{{\dagger}}=\sigma_{1}$ , $U\sigma_{3}U^{{\dagger}}=-i\sigma_{2}$ , $U\sigma_{2}U^{{\dagger}}=\sigma_{3}$ and $V=U^{{\dagger}}$ , the MPS matrices become $A[0]=H/\sqrt{2}$ and $A[1]=HZ/\sqrt{2}$ , which is the matrices for the cluster state (1) . Since the above two- and four-dimensional resource states are normalizable with a finite $l$ , we can simulate correct projective measurements in the CSs even if their size is finite.
+
+The above definition of normalizability also has an important physical meaning: if a resource state is normalizable with a finite $l$ (i.e., $\mathcal{A}^{\circ l}=\mathcal{E}$ ), any two-point correlation $\langle O^{a}_{k}O^{b}_{k+r}\rangle_{\Psi}-\langle O^{a}_{k}\rangle_{\Psi}\langle O^{b}_{k+r}\rangle_{\Psi}$ vanishes for all $r>l$ (see Appendix B), where $O_{k}^{a,b}$ is an arbitrary operator on the $k$ th qudit, and $\langle O\rangle_{\Psi}\equiv\langle\bar{\Psi}(L,R)|O|\bar{\Psi}(L,R)\rangle_{1}^{n}$ . Thus the possibility of projective measurements in QCTN with finite-size resource states is related to their vanishing two-point correlations. In the sense that two-point correlations exactly vanish with a finite distance, the normalizable resources with a finite $l$ can be viewed as cluster like resource states (1) . Then, it is natural to ask, can we simulate correct projective measurements on the resource states with non vanishing two-point correlations?
+
+III.3 A class for finite QCTN
+
+In order to answer that question, we here find a class of finite-size MPSs, which is not necessarily normalizable with a finite $l$ , but can satisfy condition ( 2 ) with a finite $l$ by properly choosing the boundary condition $|R\rangle$ . This class of MPSs includes a wide variety of resource states, such as the AKLT states with specific boundary conditions (12) . As a canonical form of MPSs in the class, we take the matrices as 
+ 
+ $\displaystyle A[0]$ $\displaystyle=$ $\displaystyle\sqrt{c_{m}/2}e^{i\theta_{0}Y},A[1]=\sqrt{c_{m}/2}e^{i\theta_{0}Y}Z,$ 
+ 
+ $\displaystyle A[j]$ $\displaystyle=$ $\displaystyle\sqrt{c_{j}}e^{i\theta_{j}Y}B_{j}$  (3) 
+ for $j=2,\cdots,d-1$ , where $B_{j}\in\{I,X,Y,Z\}$ and $c_{m}+\sum_{j=2}^{d-1}c_{j}=1$ , i.e., $\sum_{i=0}^{d-1}A^{{\dagger}}[i]A[i]=I$ . We can easily show that this class of MPSs with properly chosen $\theta_{i}$ is capable of performing an arbitrary single-qubit rotation. Since $A[i]$ consists of the Pauli matrices and rotations about the $Y$ axis, the map $\mathcal{A}$ transforms the Pauli matrices as follows 
+ 
+ $\displaystyle\mathcal{A}Y=\gamma_{22}Y,\mathcal{A}X=\gamma_{11}X+\gamma_{13}Z,\mathcal{A}Z=\gamma_{31}X+\gamma_{33}Z,$ 
+ where $\gamma_{ij}$ are some real numbers. Using this fact and $|\phi_{j}\rangle\langle\phi_{j}|=I/2+(-1)^{j}(\cos 2\theta_{0}Z-\sin 2\theta_{0}X)/2$ , we can conclude that the normalization factor takes the following form: 
+ 
+ $\displaystyle f_{n-k}(|R\rangle,|\phi_{j}\rangle)=\langle R|(I/2+g_{3}^{j}Z+g_{1}^{j}X)|R\rangle,$ 
+ with $g_{3,1}^{j}$ being some real numbers, which depend on $n$ and $k$ in general. Then, if we choose $|R\rangle\langle R|=(I\pm Y)/2$ , $f_{n-k}(|R\rangle,|\phi_{0}\rangle)=f_{n-k}(|R\rangle,|\phi_{1}\rangle)=1/2$ for all $k\leq n$ . That is, by choosing the boundary vector as $|R\rangle=(I\pm Y)/2$ , we can perform correct projective measurements at every position (32) . Instead of $Y$ and $Z$ , we can also use other combinations of two Pauli operators in the canonical form ( 3 ). Specifically, if we set $d=3$ , $\theta_{0}=-\pi/2$ , $\theta_{2}=0$ , $B_{2}=Z$ , and $c_{m}/2=c_{2}=1/3$ , the matrices become $A[0]=XZ/\sqrt{3}$ , $A[1]=X/\sqrt{3}$ , and $A[3]=Z/\sqrt{3}$ , which is the AKLT state (27) (we can also show that the AKLT-like state (12) is an MPS of this class).
+
+III.4 Download as an indirect way to perform projective measurements
+
+We here explore another way to simulate projective measurements indirectly. In Ref. (29) , a method has been proposed to download a quantum state from the CS to the physical space. In their method, we first project the $k$ th qudit of $|\bar{\Psi}(R,\psi)\rangle_{k}^{n}$ to the subspace spanned by $\{|m_{0}\rangle,|m_{1}\rangle\}$ (if we fail the projection, we repeat it again until it succeeds). Next we rotate the state $|\phi_{j}\rangle$ to $|m_{j}\rangle$ ( $j=0,1$ ) via MBQC. Then we now have 
+ 
+ $\displaystyle\sum_{j=0,1}|\bar{\Psi}(R,m_{j})\rangle_{k^{\prime}}^{n}\otimes\sqrt{\frac{c_{u}c_{m}f_{n-k^{\prime}+1}(|R\rangle,|m_{j}\rangle)}{f_{n-k+1}(|R\rangle,|\psi\rangle)}}\langle j|\psi\rangle|m_{j}\rangle$ 
+ where $k^{\prime}\geq k+1$ , and the factor $c_{u}$ comes from the measurements for the rotation $|\phi_{j}\rangle\rightarrow|m_{j}\rangle$ in the CS. Finally we perform the projective measurement $\mathcal{M}$ on the $k^{\prime}$ th qudit (30) . The postmeasurement state corresponding to the measurement outcome $m_{l}$ ( $l=0,1$ ) is given by 
+ 
+ $\displaystyle\sum_{j=0,1}|\bar{\Psi}(R,\phi_{l})\rangle_{k^{\prime}+1}^{n}\otimes|m_{l}\rangle$ 
+ 
+ $\displaystyle\otimes HZ^{l}\sqrt{\frac{c_{u}c_{m}^{2}f_{n-k^{\prime}}(|R\rangle,|\phi_{l}\rangle)}{2f_{n-k+1}(|R\rangle,|\psi\rangle)}}\langle j|\psi\rangle|j\rangle.$ 
+ The coefficient of $\langle j|\psi\rangle|j\rangle$ does not depend on $j$ , and hence we can download the state from the CS to the physical space, even if the resource state is of finite size. This means that MBQC on finite-size resource states is universal state preparator (20) . Surprisingly, the above fact means that for finite-size resource states universal state preparator is more ubiquitous property than the simulator of a classical output. Of course we can perform projective measurements indirectly on a quantum state in the CS by downloading it to the physical space and measuring the downloaded qudit. However, as discussed in Ref. (29) , a faithful downloading process takes a time step in proportion to the correlation length of the resource state, which results in additional operations. Since such additional operations can cause additional decoherence effects, it would be better to avoid doing download if we need only classical outputs.
+
+IV Asymptotic Normalizability and Computational power
+
+Next we investigate a relationship between normalizability and possibility of an arbitrary single-qubit rotation by extending the notion of normalizability to the infinite-size resource states. We call a resource state asymptotically normalizable if it is normalizable only in the limit $l\rightarrow\infty$ . For example, in the case of the AKLT state (27) , the matrices are given by $A[0]=X/\sqrt{3}$ , $A[1]=XZ/\sqrt{3}$ , and $A[2]=Z/\sqrt{3}$ , and the normalization factor can be calculated to be 
+ 
+ $\displaystyle f_{n-k}(|R\rangle,|\psi\rangle)=1/2+(-1/3)^{n-k}\sum_{i=1}^{3}e_{i}\langle R|\sigma_{i}|R\rangle/2,$ 
+ where $|\psi\rangle\langle\psi|=I/2+\sum_{i=1}^{3}e_{i}\sigma_{i}/2$ . In the limit $l\rightarrow\infty$ , $f_{n-k}(|R\rangle,|\psi\rangle)\rightarrow 1/2$ , and hence the AKLT state is asymptotically normalizable.
+
+To make a bridge between asymptotic normalizability and possibility of an arbitrary single-qubit rotation, in the following, we show a theorem about convergence of completely-positive-trace-preserving (CPTP) maps, which allows a classification of the MPSs of $D=2$ with respect to their behavior of two-point correlations.
+
+Theorem. Suppose $\mathcal{A}$ is a stochastic unitary (hence CPTP) map. If $\mathcal{A}^{l}$ does not converge to $\mathcal{E}$ in the limit of $\l\rightarrow\infty$ (i.e., $\lim_{l\rightarrow\infty}\mathcal{A}^{l}\neq\mathcal{E}$ ), the Kraus operators of $\mathcal{A}$ can always be described by choosing a proper basis as $A[i]/\sqrt{c_{i}}=X^{(1-u_{3})/2}Z(\phi_{i})$ , where $u_{3}=\pm 1$ and $Z(\phi_{i})=e^{-i\phi_{i}Z/2}$ with a certain angle $\phi_{i}$ .
+
+Proof. A stochastic unitary CPTP map $\mathcal{A}$ can be written in terms of the $\{\frac{1}{2}\sigma_{i}\}_{i=0}^{3}$ basis as a $4\times 4$ matrix, 
+ 
+ $\displaystyle\mathcal{A}=\left(\begin{array}[]{cccc}1&0&0&0\\
+0&&&\\
+0&&\tilde{\mathcal{A}}&\\
+0&&&\end{array}\right),$ 
+ where $\tilde{\mathcal{A}}$ is a $3\times 3$ real matrix with $||\tilde{\mathcal{A}}||_{\infty}\leq 1$ , where 
+ 
+ $\displaystyle\|O\|_{\infty}\equiv\max_{v}\frac{\|Ov\|}{\|v\|}$ 
+ is the $\infty$ norm (see Appendix C for the matrix representation of the map $\mathcal{A}$ ).
+
+If $||\tilde{\mathcal{A}}||_{\infty}<1$ , $\mathcal{A}^{l}\rightarrow\mathcal{E}$ in the limit of $l\rightarrow\infty$ , since 
+ 
+ $\displaystyle||\tilde{\mathcal{A}}^{l}||_{\infty}\leq||\tilde{\mathcal{A}}||_{\infty}^{l}\rightarrow 0.$ 
+ Hence, in this case, the corresponding MPS state is at least asymptotically normalizable.
+
+On the other hand if $||\tilde{\mathcal{A}}||_{\infty}=1$ , there exist two vectors $v$ and $v^{\prime}$ such that $\tilde{\mathcal{A}}v=v^{\prime}$ and $||v||^{2}=||v^{\prime}||^{2}\equiv\bar{v}$ . We can always choose the vector $v$ and $v^{\prime}$ as real vectors, because if $v$ is a complex vector, the complex conjugate $v^{*}$ also subjects to $\tilde{\mathcal{A}}v^{*}={v^{\prime}}^{*}$ . Thus we can redefine a real vector $\tilde{v}$ by $\tilde{v}\equiv v+v^{*}$ , which also satisfy $\tilde{\mathcal{A}}\tilde{v}=\tilde{v}^{\prime}$ .
+
+Let us consider two Hermitian operators 
+ 
+ $\displaystyle V$ $\displaystyle\equiv$ $\displaystyle\frac{1}{\sqrt{\bar{v}}}\sum_{i=1}^{3}v_{i}\sigma_{i},$ 
+ 
+ $\displaystyle V^{\prime}$ $\displaystyle\equiv$ $\displaystyle\frac{1}{\sqrt{\bar{v}}}\sum_{i=1}^{3}v^{\prime}_{i}\sigma_{i}.$ 
+ By their definitions, ${\rm Tr}[V]={\rm Tr}[V^{\prime}]=0$ and ${\rm Tr}[V^{2}]={\rm Tr}[V^{\prime 2}]=2$ , and therefore both $\rho_{v}\equiv(I+V)/2$ and $\rho_{v^{\prime}}\equiv(I+V^{\prime})/2$ are pure states. Since $\mathcal{A}v=v^{\prime}$ (i.e., $\mathcal{A}V=V^{\prime}$ ), $\mathcal{A}\rho_{v}=\rho_{v^{\prime}}$ ; that is, a pure state $\rho_{v}$ is mapped to another pure state $\rho_{v^{\prime}}$ without any leakage (trace-preserving). On the other hand, we have assumed that the Kraus operator $A[i]$ of the map $\mathcal{A}$ is proportional to a unitary operator. Thus the Kraus operator (MPS matrix) has to be written as 
+ 
+ $\displaystyle\frac{1}{\sqrt{c_{i}}}A[i]=|v^{\prime}\rangle\langle v|+e^{i\beta_{i}}|v^{\prime\perp}\rangle\langle v^{\perp}|$ 
+ with a certain angle $\beta_{i}$ for all $i$ , where $|v\rangle\langle v|\equiv\rho_{v}$ and $|v^{\prime}\rangle\langle v^{\prime}|\equiv\rho_{v^{\prime}}$ , and $|v^{\perp}\rangle$ and $|{v^{\prime}}^{\perp}\rangle$ are their orthogonals respectively.
+
+By redefining Pauli operators such that $|v\rangle$ and $|v^{\perp}\rangle$ are the eigenstates of $\sigma_{3}$ , the MPS matrix can be reformulated as 
+ 
+ $\displaystyle\frac{1}{\sqrt{c_{i}}}A[i]=UZ(\beta_{i}),$ 
+ where $Z(\beta_{i})=e^{-i\beta_{i}Z/2}$ and $U=|v^{\prime}\rangle\langle v|+|{v^{\prime}}^{\perp}\rangle\langle v^{\perp}|$ . Then, the map $\mathcal{A}$ can be decomposed into $\mathcal{U}\circ\mathcal{Z}$ , where $\mathcal{Z}=\sum_{i}Z(\beta_{i})\rho Z^{{\dagger}}(\beta_{i})c_{i}$ and $\mathcal{U}\rho=U\rho U^{{\dagger}}$ . The $3\times 3$ matrices $\tilde{\mathcal{Z}}$ and $\tilde{\mathcal{U}}$ are also defined for $\mathcal{Z}$ and $\mathcal{U}$ , respectively. Specifically, the $3\times 3$ matrix $\tilde{\mathcal{Z}}$ is written in the present basis as 
+ 
+ $\displaystyle\tilde{\mathcal{Z}}=\left(\begin{array}[]{ccc}p&-q&0\\
+q&p&0\\
+0&0&1\end{array}\right),$ 
+ where $p=\sum_{i}\cos(\beta_{i})c_{i}$ and $q=\sum_{i}\sin(\beta_{i})c_{i}$ . By redefining the $\sigma_{2}$ and $\sigma_{3}$ basis, the above matrix can be rewritten as 
+ 
+ $\displaystyle\tilde{\mathcal{Z}}=\left(\begin{array}[]{ccc}\lambda_{1}&0&0\\
+0&\lambda_{2}&0\\
+0&0&1\end{array}\right).$ 
+ Note that 
+ 
+ $\displaystyle 1-p^{2}-q^{2}$ $\displaystyle=$ $\displaystyle\sum_{i}c_{i}(\cos^{2}\beta_{i}+\sin^{2}\beta_{i})-\sum_{i}c_{i}(p^{2}+q^{2})$ 
+ $\displaystyle=$ $\displaystyle\sum_{i}c_{i}[(\cos\beta_{i}-p)^{2}+(\sin\beta_{i}-q)^{2}]$ 
+ $\displaystyle>$ $\displaystyle 0,$ 
+ where we have used $\cos^{2}\beta_{i}+\sin^{2}\beta_{i}=1$ , $\sum_{i}c_{i}=1$ , and $\beta_{i}\neq\beta_{j}$ . This means that 
+ 
+ $\displaystyle|\lambda_{1}|=|\lambda_{2}|=\sqrt{p^{2}+q^{2}}<1.$ 
+ (The reason why we have assumed $\beta_{i}\neq\beta_{j}$ is that if $\beta_{1}=\beta_{2}$ , for example, then by changing the physical basis as 
+ 
+ $\displaystyle|1\rangle$ $\displaystyle\to$ $\displaystyle\frac{\sqrt{c_{1}}}{\sqrt{c_{1}+c_{2}}}|\tilde{1}\rangle+\frac{\sqrt{c_{2}}}{\sqrt{c_{1}+c_{2}}}|\tilde{2}\rangle,$ 
+ 
+ $\displaystyle|2\rangle$ $\displaystyle\to$ $\displaystyle\frac{\sqrt{c_{2}}}{\sqrt{c_{1}+c_{2}}}|\tilde{1}\rangle-\frac{\sqrt{c_{1}}}{\sqrt{c_{1}+c_{2}}}|\tilde{2}\rangle,$ 
+ we can make $A[\tilde{2}]=0$ in the MPS. )
+
+The $3\times 3$ matrix $\tilde{\mathcal{U}}$ , on the other hand, is an O(3) rotation, since $\mathcal{U}$ is a unitary operation (i.e. it does not change $||v||$ ). Let us consider a Hermitian matrix 
+ 
+ $\displaystyle(\tilde{\mathcal{Z}}\tilde{\mathcal{U}}\tilde{\mathcal{Z}}^{\prime})^{{\dagger}}\tilde{\mathcal{Z}}\tilde{\mathcal{U}}\tilde{\mathcal{Z}}^{\prime}$ 
+ $\displaystyle=$ $\displaystyle\tilde{\mathcal{Z}^{\prime}}\tilde{\mathcal{U}}^{T}\tilde{\mathcal{Z}^{\prime}}^{2}\tilde{\mathcal{U}}\tilde{\mathcal{Z}^{\prime}}$ 
+ $\displaystyle=$ $\displaystyle\bar{\lambda}\tilde{\mathcal{Z}^{\prime}}^{2}+\tilde{\mathcal{Z}}^{\prime}\tilde{\mathcal{U}}^{T}\left(\begin{array}[]{ccc}0&0&0\\
+0&0&0\\
+0&0&1-\bar{\lambda}\end{array}\right)\tilde{\mathcal{U}}\tilde{\mathcal{Z}}^{\prime}$ 
+ $\displaystyle=$ $\displaystyle\bar{\lambda}\tilde{\mathcal{Z}^{\prime}}^{2}+(1-\bar{\lambda})\tilde{\mathcal{Z}}^{\prime}\left(\begin{array}[]{ccc}u_{1}^{2}&u_{2}u_{1}&u_{3}u_{1}\\
+u_{2}u_{1}&u_{2}^{2}&u_{3}u_{2}\\
+u_{1}u_{3}&u_{3}u_{2}&u_{3}^{2}\end{array}\right)\tilde{\mathcal{Z}}^{\prime}$ 
+ where $u_{i}=\tilde{\mathcal{U}}_{3i}$ , $\bar{\lambda}=|\lambda_{1,2}|^{2}$ and $\tilde{\mathcal{Z}}^{\prime}\equiv{\rm diag}(\sqrt{\bar{\lambda}},\sqrt{\bar{\lambda}},1)$ . The eigenvalues of the above matrix are given by $\bar{\lambda}^{2}$ and 
+ 
+ $\displaystyle\frac{1}{2}\Bigl{[}u_{3}^{2}(1-\bar{\lambda})^{2}+2\bar{\lambda}\pm\left(1-\bar{\lambda}\right)\sqrt{(1-\bar{\lambda})^{2}u_{3}^{4}+4\bar{\lambda}u_{3}^{2}}\Bigr{]}\equiv r_{\pm}.$ 
+ Since 
+ 
+ $\displaystyle 1=u_{1}^{2}+u_{2}^{2}+u_{3}^{2}\geq u_{3}^{2},$ 
+ 
+ 
+ $\displaystyle|r_{\pm}|\leq\frac{1}{2}\Big{[}(1-\bar{\lambda})^{2}+2\bar{\lambda}+(1-\bar{\lambda})\sqrt{(1-\bar{\lambda})^{2}+4\bar{\lambda}}\Big{]}=1.$ 
+ If $|r_{+}|=1$ or $|r_{-}|=1$ , $u_{3}=\pm 1$ , and therefore $u_{1}=u_{2}=0$ . This implies that 
+ 
+ $\displaystyle U=X^{(1-u_{3})/2}Z(\phi)$ 
+ with a certain $\phi$ . In this case, $A[i]/\sqrt{c_{i}}=X^{(1-u_{3})/2}Z(\phi_{i})$ with a certain angle $\phi_{i}$ . Therefore, $\mathcal{A}^{l}$ does not converge toward $\mathcal{E}$ , since $\mathcal{A}$ has eigenoperators with eigenvalues $\pm 1$ . On the other hand, if $|r_{\pm}|<1$ , $||\tilde{\mathcal{Z}}\tilde{\mathcal{U}}\tilde{\mathcal{Z}}^{\prime}||<1$ . In this case, 
+ 
+ $\displaystyle||\tilde{\mathcal{A}}^{l}||$ $\displaystyle\leq$ $\displaystyle||\tilde{\mathcal{U}}\tilde{\mathcal{Z}}\tilde{\mathcal{U}}\tilde{\mathcal{Z}}||^{\lfloor l/2\rfloor}$ 
+ $\displaystyle\leq$ $\displaystyle||\tilde{\mathcal{Z}}\tilde{\mathcal{U}}\tilde{\mathcal{Z}}||^{\lfloor l/2\rfloor}$ 
+ $\displaystyle\leq$ $\displaystyle||\tilde{\mathcal{Z}}\tilde{\mathcal{U}}\tilde{\mathcal{Z}}^{\prime}||^{\lfloor l/2\rfloor}\rightarrow 0,$ 
+ and therefore $\mathcal{A}^{l}\rightarrow\mathcal{E}$ in the limit of $l\rightarrow 0$ $\blacksquare$ .
+
+This theorem shows that if a resource state is not normalizable even in the limit of infinite size, the MPS matrix is always given by $A[i]/\sqrt{c_{i}}=X^{(1-u_{3})/2}Z(\phi_{i})$ . Apparently, such an MPS whose matrix is $A[i]/\sqrt{c_{i}}=X^{(1-u_{3})/2}Z(\phi_{i})$ cannot allow an arbitrary single-qubit rotation on it. In other words, all resource states which are capable of an arbitrary single-qubit rotation are at least asymptotically normalizable (i.e. $\displaystyle\lim_{l\rightarrow\infty}\mathcal{A}^{l}=\mathcal{E}$ ). That is, normalizability, which is a sufficient condition for correct projective measurements in the CSs, in the limit of $l\rightarrow\infty$ is also a necessary condition for an arbitrary single-qubit rotation. Accordingly, normalizability (at least asymptotic sense) is a necessary and sufficient condition for a universal quantum computational wire, where one can simulate correct projective measurements and arbitrary single qubit rotations. In addition, the theorem combined with the relationship between the map $\mathcal{A}$ and two-point correlations (see Appendix B) tells us another interesting fact. When $\lim_{l\rightarrow}\mathcal{A}^{l}=\mathcal{E}$ two-point correlations always decay exponentially (see Appendix D for details). On the other hand, if $\lim_{l\rightarrow}\mathcal{A}^{l}\neq\mathcal{E}$ , the Kraus operator of the map $\mathcal{A}$ is always given by $A[i]/\sqrt{c_{i}}=X^{(1-u_{3})/2}Z(\phi_{i})$ , and hence the two-point correlations do not decay. Since any stochastic unitary map $\mathcal{A}$ can be classified into these two cases due to the theorem, no MPS of polynomially decaying two-point correlations can be described by $\mathcal{A}$ of a stochastic unitary map. Thus such an MPS cannot be used for MBQC in this framework.
+
+The above results highlight an interesting relationship between computational power and correlation in resource states: the many-body states whose two-point correlations do not decay such as the GHZ and the Ising antiferromagnetic states cannot be a universal resource for QCTN. Actually, the MPS matrices of the GHZ state are given by $A[0]=I/\sqrt{2}$ and $A[1]=Z/\sqrt{2}$ , which apparently does not allow an arbitrary single-qubit rotation in CSs. In addition, a many-body state whose two-point correlations exhibit polynomial decay, such as the $W$ state, does not allow unitary operations in the CS. Accordingly, from the theorem, we can conclude that a many-body state whose two-point correlations cannot be upperbounded by an exponentially decaying function, such as the GHZ, the Ising antiferromagnetic, and the $W$ states, cannot be useful for QCTN, which is the most general framework for MBQC to date (33) . This also suggests that a ground state near the critical point of a quantum phase transition cannot be used as a resource state for MBQC, since two-point correlations of such a state decay as a polynomial function (34) . Evidence that computational power in MBQC is a robust property of a quantum phase has been demonstrated recently on the Haldane phase (35) . Since a two-point correlation is a good witness of quantum phase transitions, the present result suggests that such a robust property should hold in other general models of quantum phase transitions.
+
+V Conclusion
+
+We have investigated relationships between computational power and two-point correlations in the resource states for QCTN considering possibilities of projective measurements and arbitrary single-qubit rotations, both of which are important properties of a universal resource. Our findings are as follows: (i) We have shown that the normalizable resources with a finite $l$ exhibit exactly vanishing two-point correlations with a finite distance like the cluster state, and always allow correct projective measurements in the CS although they are of finite size. (ii) We have explored how to perform projective measurements on the finite-size resource states with non vanishing two-point correlations by introducing a class of MPSs. (iii) We have shown that all resource states which are capable of an arbitrary single-qubit rotation are at least asymptotically normalizable and exhibit exponentially decaying two-point correlations. Accordingly, normalizability (at least asymptotic sense) is a necessary and sufficient condition for a universal quantum computational wire which allows simulations of both correct projective measurements and arbitrary single-qubit rotations. (iv) Further, we have seen that a many-body state whose two-point correlations cannot be upperbounded by an exponentially decaying function does not allow an arbitrary single-qubit rotation, since the matrices of such an MPS cannot be described as unitary operators. These results (iii) and (iv) have been obtained by showing the theorem about convergence of a stochastic unitary map. This theorem itself seems to have an interesting meaning in the context of quantum channel. The detailed study is, however, out of our scope and an interesting topic for future work.
+
+Let us finally mention the extension of the above results to tensor network states. Since simultaneous single-qubit measurements are enough to readout results of quantum computation, we can apply the present argument for tensor network states by reducing them to MPSs before the readout. Thus similar results would be obtained also for tensor network states.
+
+We believe that the present results give us a clue to find a novel resource state for QCTN and also help us to build a bridge between quantum information science and many-body physics, such as the physics of quantum phase transitions.
+
+Appendix A Normalizability and completely depolarizing channel
+
+If an MPS is normalizable, 
+ 
+ $\displaystyle\frac{1}{2}=f_{n-k}(|R\rangle,|\psi\rangle)={\rm Tr}\Big{[}|R\rangle\langle R|\mathcal{A}^{\circ(n-k)}|\psi\rangle\langle\psi|\Big{]}$ 
+ for all $|R\rangle$ and $|\psi\rangle$ . This means that 
+ 
+ $\displaystyle\mathcal{A}^{\circ(n-k)}\rho=\frac{I}{2}{\rm Tr}[\rho]$ 
+ for all $\rho$ . Then $\mathcal{A}^{\circ(n-k)}$ is a completely depolarizing channel, because 
+ 
+ $\displaystyle\mathcal{A}^{\circ(n-k)}\rho$ $\displaystyle=$ $\displaystyle\frac{I}{2}{\rm Tr}[\rho]$ 
+ $\displaystyle=$ $\displaystyle\sum_{i}\langle i|V\rho V^{{\dagger}}|i\rangle U\frac{I}{2}U^{{\dagger}}$ 
+ $\displaystyle=$ $\displaystyle\frac{1}{2}\sum_{ij}U|j\rangle\langle i|V\rho V^{{\dagger}}|i\rangle\langle j|U^{{\dagger}}$ 
+ $\displaystyle=$ $\displaystyle\frac{1}{4}\sum_{i=0}^{3}U\sigma_{i}V\rho V^{{\dagger}}\sigma_{i}U^{{\dagger}}.$ 
+
+
+Appendix B Normalizability and two-point correlation
+
+The expectation value of an observable $O^{a}_{k}O^{b}_{k+r}$ with respect to $|\bar{\Psi}(R,L)\rangle_{1}^{n}$ can be calculated as 
+ 
+ $\displaystyle\langle O^{a}_{k}O^{b}_{k+r}\rangle_{\Psi}$ 
+ $\displaystyle\equiv$ $\displaystyle{\rm Tr}\Big{[}O^{a}_{k}O^{b}_{k+r}|\bar{\Psi}(R,L)\rangle_{1}^{n}\langle\bar{\Psi}(R,L)|\Big{]}$ 
+ $\displaystyle=$ $\displaystyle\frac{1}{f_{n}(|R\rangle,|L\rangle)}\langle R|\Big{[}\mathcal{A}^{n-(k+r)}\mathcal{O}^{b}_{k+r}\mathcal{A}^{r-1}\mathcal{O}^{a}_{k}\mathcal{A}^{k-1}|L\rangle\langle L|\Big{]}|R\rangle,$ 
+ where $O^{a}_{k}$ and $O^{b}_{k+r}$ are arbitrary operators on the $k$ th and $(k+r)$ th qudits respectively, and 
+ 
+ $\displaystyle\mathcal{O}_{k}^{a,b}\rho\equiv\sum_{ij}\langle i|O_{k}^{a,b}|j\rangle A[j]\rho A^{{\dagger}}[i].$ 
+ Since $n>l$ , the normalization factor becomes 
+ 
+ $\displaystyle f_{n}(|R\rangle,|L\rangle)=\frac{1}{2}.$ 
+ When $r>l$ , 
+ 
+ $\displaystyle\mathcal{A}^{r-1}=A^{r-1-l}\mathcal{E}$ 
+ for a normalizable resource with a finite $l$ . By using this, we obtain 
+ 
+ $\displaystyle\langle O^{a}_{k}O^{b}_{k+r}\rangle_{\Psi}$ $\displaystyle=$ $\displaystyle 2\langle R|\Big{[}\mathcal{A}^{n-(k+r)}\mathcal{O}^{b}_{k+r}\frac{I}{2}\Big{]}|R\rangle$ 
+ $\displaystyle\times{\rm Tr}\Big{[}\mathcal{O}^{a}_{k}\mathcal{A}^{k-1}|L\rangle\langle L|\Big{]}.$ 
+ On the other hand, the expectation value of $O^{a}_{k}$ and $O^{b}_{k+r}$ can be obtained respectively as 
+ 
+ $\displaystyle\langle O^{a}_{k}\rangle_{\Psi}$ $\displaystyle\equiv$ $\displaystyle{\rm Tr}\Big{[}O^{a}_{k}|\bar{\Psi}(R,L)\rangle_{1}^{n}\langle\bar{\Psi}(R,L)|\Big{]}$ 
+ $\displaystyle=$ $\displaystyle{\rm Tr}\Big{[}\mathcal{O}^{a}_{k}\mathcal{A}^{k-1}|L\rangle\langle L|\Big{]},$ 
+ and 
+ 
+ $\displaystyle\langle O^{b}_{k+r}\rangle_{\Psi}$ $\displaystyle=$ $\displaystyle{\rm Tr}\Big{[}O^{b}_{k+r}|\bar{\Psi}(R,L)\rangle_{1}^{n}\langle\bar{\Psi}(R,L)|\Big{]}$ 
+ $\displaystyle=$ $\displaystyle 2\langle R|\Big{[}\mathcal{A}^{n-(k+r)}\mathcal{O}_{k+r}^{b}\frac{I}{2}\Big{]}|R\rangle.$ 
+ As a result, 
+ 
+ $\displaystyle\langle O^{a}_{k}O^{b}_{k+r}\rangle_{\Psi}-\langle O^{a}_{k}\rangle_{\Psi}\langle O^{b}_{k+r}\rangle_{\Psi}=0$ 
+ for all $r>l$ .
+
+Appendix C Matrix representation of CPTP map
+
+Consider a unital CPTP map $\mathcal{A}\rho=\sum_{i}A[i]\rho A^{{\dagger}}[i]$ , where $\sum_{i}A^{{\dagger}}[i]A[i]=I$ and $A[i]A^{{\dagger}}[i]\propto I$ . Each Kraus operator can be decomposed into the Pauli matrices as 
+ 
+ $\displaystyle A[i]=\sum_{j}\alpha_{ij}\sigma_{j}.$  (9) 
+ The CPTP condition reads 
+ 
+ $\displaystyle\sum_{ij}\alpha_{ij}\alpha^{*}_{ij}=1,$  (10) 
+ 
+ $\displaystyle\sum_{ijk}\alpha_{ij}\alpha^{*}_{ik}\epsilon_{jkl}+\alpha_{i0}\alpha^{*}_{il}+\alpha_{il}\alpha_{i0}^{*}=0.$  (11) 
+ The action of $A[i]$ under its conjugation is given by 
+ 
+ $\displaystyle A[i]\sigma_{k}A^{{\dagger}}[i]=\sum_{jl}\alpha_{ij}\alpha^{*}_{il}\sigma_{j}\sigma_{k}\sigma_{l}.$ 
+ By using this and condition ( 10 ), we obtain $\mathcal{A}_{00}=\sum_{ij}\alpha_{ij}\alpha_{ij}^{*}=1$ . Furthermore, by using condition ( 11 ), we obtain $\mathcal{A}_{0k}=\sum_{i}\alpha_{ik}\alpha^{*}_{i0}+\alpha_{i0}\alpha^{*}_{ik}+\alpha_{ij}\alpha^{*}_{il}\epsilon_{jlk}=0$ . Similarly we can also obtain $\mathcal{A}_{k0}=0$ .
+
+Next we define a $3\times 3$ matrix $\tilde{\mathcal{A}}$ by $\mathcal{A}_{ij}$ for $i,j\neq 0$ . A quantum state $\rho$ (i.e. an hermitian operator with trace one) is represented in terms of the Pauli basis as $\rho=I/2+\sum v_{i}\sigma_{i}/2$ , where $v_{i}$ is real for all $i$ and its purity $\leq 1$ . Since the action of $A[i]$ map an hermitian operator to another hermitian operator under its conjugation , $\tilde{\mathcal{A}}_{ji}v_{i}$ is also real for all $i$ and $j$ . It requires that $\tilde{\mathcal{A}}$ is a real matrix. Since a CPTP map $\mathcal{A}$ transforms a state $\rho$ to another physical state $\mathcal{A}\rho$ without increasing its purity, $||\tilde{\mathcal{A}}v||/||v||\leq 1$ for all $v$ , which implies that $||\tilde{\mathcal{A}}||\leq 1$ .
+
+Appendix D Correlation
+
+Let us consider the correlation 
+ 
+ $\displaystyle\langle O_{k}^{a}O_{k+r}^{b}\rangle_{\Psi}-\langle O_{k}^{a}\rangle_{\Psi}\langle O_{k+r}^{b}\rangle_{\Psi}$ 
+ between two Hermitian operators $O_{k}^{a}$ on site $k$ and $O_{k+r}^{b}$ on site $k+r$ ( $\|O_{k}^{a}\|_{\infty}\leq 1$ , $\|O_{k+r}^{b}\|_{\infty}\leq 1$ ), where 
+ 
+ $\displaystyle\langle O\rangle_{\Psi}=\langle\bar{\Psi}(R,L)|O|\bar{\Psi}(R,L)\rangle_{1}^{n}.$ 
+ Let us define the (super)operator 
+ 
+ $\displaystyle{\mathcal{O}}\rho=\sum_{i=0}^{d-1}\sum_{j=0}^{d-1}\langle i|O|j\rangle A[j]\rho A^{\dagger}[i].$ 
+ Then 
+ 
+ $\displaystyle\langle O_{k}^{a}O_{k+r}^{b}\rangle_{\Psi}=\frac{1}{f_{n}(|R\rangle,|L\rangle)}\langle R|\Big{[}{\mathcal{A}}^{n-(k+r)}{\mathcal{O}}_{k+r}^{b}{\mathcal{A}}^{r-1}$ 
+ 
+ $\displaystyle{\mathcal{O}}_{k}^{a}{\mathcal{A}}^{k-1}|L\rangle\langle L|\Big{]}|R\rangle.$ 
+
+
+Let us write 
+ 
+ $\displaystyle{\mathcal{O}}_{k}^{a}{\mathcal{A}}^{k-1}|L\rangle\langle L|=\alpha(O_{k}^{a})\frac{I}{2}+E(O_{k}^{a}),$ 
+ where $\alpha(O_{k}^{a})$ is a real number and $E(O_{k}^{a})$ is a trace-less Hermitian operator. Then, 
+ 
+ $\displaystyle{\mathcal{A}}^{r-1}{\mathcal{O}}_{k}^{a}{\mathcal{A}}^{k-1}|L\rangle\langle L|=\alpha(O_{k}^{a})\frac{I}{2}+{\mathcal{A}}^{r-1}E(O_{k}^{a}).$ 
+ Note that 
+ 
+ $\displaystyle\|E(O_{k}^{a})\|_{\infty}$ $\displaystyle\leq$ $\displaystyle\|{\mathcal{O}}_{k}^{a}{\mathcal{A}}^{k-1}|L\rangle\langle L|\|_{\infty}+\frac{1}{2}|\alpha(O_{k}^{a})|$ 
+ $\displaystyle\leq$ $\displaystyle\sum_{ij}|\langle i|O_{k}^{a}|j\rangle|\cdot\|A[j]\rho A^{\dagger}[i]\|_{\infty}+\frac{1}{2}|\alpha(O_{k}^{a})|$ 
+ $\displaystyle\leq$ $\displaystyle d\sum_{ij}\sqrt{c_{i}}\sqrt{c_{j}}+\frac{1}{2}|\alpha(O_{k}^{a})|$ 
+ $\displaystyle\leq$ $\displaystyle d^{2}+\frac{1}{2}|\alpha(O_{k}^{a})|,$ 
+ where $\rho$ is a state and we have used 
+ 
+ $\displaystyle|\langle i|O_{k}^{a}|j\rangle|$ $\displaystyle=$ $\displaystyle\Big{|}\sum_{k}o_{k}\langle i|o_{k}\rangle\langle o_{k}|j\rangle\Big{|}$ 
+ $\displaystyle\leq$ $\displaystyle\sum_{k}|o_{k}|\cdot|\langle i|o_{k}\rangle|\cdot|\langle o_{k}|j\rangle|$ 
+ $\displaystyle\leq$ $\displaystyle 1~{}\sum_{k}$ 
+ $\displaystyle=$ $\displaystyle d.$ 
+ (here, $o_{k}$ and $|o_{k}\rangle$ are eigenvalues and eigenvectors of $O_{k}^{a}$ ) and 
+ 
+ $\displaystyle\sum_{ij}\sqrt{c_{i}}\sqrt{c_{j}}\leq d.$ 
+ This is because 
+ 
+ $\displaystyle\sum_{i}c_{i}\Big{(}\frac{1}{\sqrt{c_{i}}}\Big{)}^{2}-\Big{[}\sum_{i}c_{i}\Big{(}\frac{1}{\sqrt{c_{i}}}\Big{)}\Big{]}^{2}\geq 0.$ 
+ Thus 
+ 
+ $\displaystyle\langle O_{k}^{a}O_{k+r}^{b}\rangle_{\Psi}$ 
+ $\displaystyle=$ $\displaystyle\frac{\alpha(O_{k}^{a})}{2f_{n}(|R\rangle,|L\rangle)}\langle R|\Big{[}{\mathcal{A}}^{n-(k+r)}{\mathcal{O}}_{k+r}^{b}I\Big{]}|R\rangle$ 
+ $\displaystyle+\frac{1}{f_{n}(|R\rangle,|L\rangle)}\langle R|\Big{[}{\mathcal{A}}^{n-(k+r)}{\mathcal{O}}_{k+r}^{b}{\mathcal{A}}^{r-1}E(O_{k}^{a})\Big{]}|R\rangle$ 
+ $\displaystyle\equiv$ $\displaystyle\frac{C_{1}}{2f_{n}(|R\rangle,|L\rangle)}+\frac{C_{2}}{f_{n}(|R\rangle,|L\rangle)}.$ 
+ From this, we also obtain 
+ 
+ $\displaystyle\langle O_{k}^{a}\rangle_{\Psi}$ 
+ $\displaystyle=$ $\displaystyle\frac{\alpha(O_{k}^{a})}{2f_{n}(|R\rangle,|L\rangle)}$ 
+ $\displaystyle+\frac{1}{f_{n}(|R\rangle,|L\rangle)}\langle R|\Big{[}{\mathcal{A}}^{n-k}E(O_{k}^{a})\Big{]}|R\rangle$ 
+ $\displaystyle\equiv$ $\displaystyle\frac{\alpha(O_{k}^{a})}{2f_{n}(|R\rangle,|L\rangle)}+\frac{C_{3}}{f_{n}(|R\rangle,|L\rangle)}$ 
+ and 
+ 
+ $\displaystyle\langle O_{k+r}^{b}\rangle_{\Psi}$ 
+ $\displaystyle=$ $\displaystyle\frac{\alpha(I)}{2f_{n}(|R\rangle,|L\rangle)}\langle R|\Big{[}{\mathcal{A}}^{n-(k+r)}{\mathcal{O}}_{k+r}^{b}I\Big{]}|R\rangle$ 
+ $\displaystyle+\frac{1}{f_{n}(|R\rangle,|L\rangle)}\langle R|\Big{[}{\mathcal{A}}^{n-(k+r)}{\mathcal{O}}_{k+r}^{b}{\mathcal{A}}^{r-1}E(I)\Big{]}|R\rangle$ 
+ $\displaystyle\equiv$ $\displaystyle\frac{C_{4}}{2f_{n}(|R\rangle,|L\rangle)}+\frac{C_{5}}{f_{n}(|R\rangle,|L\rangle)}.$ 
+
+
+Note that 
+ 
+ $\displaystyle f_{n}(|R\rangle,|L\rangle)$ $\displaystyle=$ $\displaystyle\langle R|({\mathcal{A}}^{n}|L\rangle\langle L|)|R\rangle$ 
+ $\displaystyle=$ $\displaystyle\langle R|\Big{(}\frac{I}{2}+{\mathcal{A}}^{n}F\Big{)}|R\rangle$ 
+ $\displaystyle=$ $\displaystyle\frac{1}{2}+\langle R|{\mathcal{A}}^{n}F|R\rangle,$ 
+ where $F$ is a trace-less Hermitian operator. Therefore, 
+ 
+ $\displaystyle\Big{|}f_{n}(|R\rangle,|L\rangle)-\frac{1}{2}\Big{|}$ $\displaystyle=$ $\displaystyle\Big{|}\langle R|{\mathcal{A}}^{n}F|R\rangle\Big{|}$ 
+ $\displaystyle\leq$ $\displaystyle\|{\mathcal{A}}^{n}F\|_{\infty}$ 
+ $\displaystyle\leq$ $\displaystyle\frac{1}{2}\|(\tilde{{\mathcal{A}}})^{n}\|_{\infty},$ 
+ where $\tilde{\mathcal{A}}$ is the $3\times 3$ matrix defined in the previous section.
+
+Furthermore, 
+ 
+ $\displaystyle|\alpha(O_{k}^{a})|$ $\displaystyle=$ $\displaystyle\Big{|}\mbox{Tr}({\mathcal{O}}_{k}^{a}{\mathcal{A}}^{k-1}|L\rangle\langle L|)\Big{|}$ 
+ $\displaystyle=$ $\displaystyle\Big{|}\mbox{Tr}\Big{(}\sum_{i,j}\langle i|O_{k}^{a}|j\rangle A[j]\xi A^{\dagger}[i]\Big{)}\Big{|}$ 
+ $\displaystyle\leq$ $\displaystyle\sum_{i,j}|\langle i|O_{k}^{a}|j\rangle|\cdot\Big{|}\mbox{Tr}(A[j]\xi A^{\dagger}[i]\big{)}\Big{|}$ 
+ $\displaystyle\leq$ $\displaystyle d\sum_{i,j}\sqrt{c_{i}}\sqrt{c_{j}}$ 
+ $\displaystyle\leq$ $\displaystyle d^{2},$ 
+ where $\xi$ is a density operator. And 
+ 
+ $\displaystyle\Big{|}\langle R|\Big{[}{\mathcal{A}}^{n-(k+r)}{\mathcal{O}}_{k+r}^{b}I\Big{]}|R\rangle\Big{|}$ 
+ $\displaystyle=$ $\displaystyle\Big{|}\mbox{Tr}\Big{(}|R\rangle\langle R|{\mathcal{A}}^{n-(k+r)}{\mathcal{O}}_{k+r}^{b}I\Big{)}\Big{|}$ 
+ $\displaystyle=$ $\displaystyle\Big{|}\mbox{Tr}\Big{(}\eta{\mathcal{O}}_{k+r}^{b}I\Big{)}\Big{|}$ 
+ $\displaystyle\leq$ $\displaystyle\sum_{i,j}|\langle i|O_{k+r}^{b}|j\rangle|\cdot\Big{|}\mbox{Tr}\Big{(}A^{\dagger}[i]\eta A[j]\Big{)}\Big{|}$ 
+ $\displaystyle\leq$ $\displaystyle d\sum_{i,j}\sqrt{c_{i}}\sqrt{c_{j}}$ 
+ $\displaystyle\leq$ $\displaystyle d^{2},$ 
+ where $\eta$ is a density operator. Therefore, 
+ 
+ $\displaystyle\Big{|}\frac{C_{1}}{2f_{n}(|R\rangle,|L\rangle)}-\frac{\alpha(O_{k}^{a})}{2f_{n}(|R\rangle,|L\rangle)}\frac{C_{4}}{2f_{n}(|R\rangle,|L\rangle)}\Big{|}$ 
+ $\displaystyle=$ $\displaystyle\frac{|C_{1}|}{2f_{n}^{2}(|R\rangle,|L\rangle)}\Big{|}f_{n}(|R\rangle,|L\rangle)-\frac{1}{2}\Big{|}$ 
+ $\displaystyle\leq$ $\displaystyle\frac{d^{4}}{2(\frac{1}{2}-\frac{1}{2}\|(\tilde{\mathcal{A}})^{n}\|_{\infty})^{2}}\frac{1}{2}\|(\tilde{\mathcal{A}})^{n}\|_{\infty}.$ 
+ In the similar way, 
+ 
+ $\displaystyle|C_{2}|$ $\displaystyle=$ $\displaystyle\Big{|}\langle R|\Big{[}{\mathcal{A}}^{n-(k+r)}{\mathcal{O}}_{k+r}^{b}{\mathcal{A}}^{r-1}E(O_{k}^{a})\Big{]}|R\rangle\Big{|}$ 
+ $\displaystyle=$ $\displaystyle\Big{|}\mbox{Tr}\Big{(}\eta{\mathcal{O}}_{k+r}^{b}{\mathcal{A}}^{r-1}E(O_{k}^{a})\Big{)}\Big{|}$ 
+ $\displaystyle\leq$ $\displaystyle 2d^{2}\|{\mathcal{A}}^{r-1}E(O_{k}^{a})\|_{\infty}$ 
+ $\displaystyle\leq$ $\displaystyle\frac{3}{2}d^{4}\|(\tilde{{\mathcal{A}}})^{r-1}\|_{\infty},$ 
+ where $\eta$ is a state.
+
+
+ 
+ $\displaystyle|C_{3}|$ $\displaystyle=$ $\displaystyle\Big{|}\langle R|\Big{[}{\mathcal{A}}^{n-k}E(O_{k}^{a})\Big{]}|R\rangle\Big{|}$ 
+ $\displaystyle\leq$ $\displaystyle\|{\mathcal{A}^{n-k}}E(O_{k}^{a})\|_{\infty}$ 
+ 
+ . $\displaystyle\leq$ $\displaystyle\frac{3d^{2}}{2}\|({\tilde{\mathcal{A}})^{n-k}}\|_{\infty}.$ 
+
+
+In conclusion, the two-point correlation is upper-bounded by an exponentially decaying function.
+
+References
+
+(1) R. Raussendorf and H. J. Briegel, Phys. Rev. Lett.86, 5188 (2001).
+(2) R. Raussendorf, D. E. Browne, and H. J. Briegel, Phys. Rev. A68, 022312 (2003).
+(3) M. A. Nielsen, Phys. Rev. Lett.93, 040503 (2004).
+(4) D. E. Browne and T. Rudolph, Phys. Rev. Lett.95, 010501 (2005).
+(5) L.-M. Duan and R. Raussendorf, Phys. Rev. Lett.95, 080503 (2005).
+(6) S. D. Barrett and P. Kok, Phys. Rev. A71, 060310(R) (2005).
+(7) R. Raussendorf, J. Harrington, and K. Goyal, Ann. Phys.321, 2242 (2006).
+(8) R. Raussendorf and J. Harrington, Phys. Rev. Lett.98, 190504 (2007).
+(9) R. Raussendorf and J. Harrington, New J. Phys.9, 199 (2007).
+(10) K. Fujii and Y. Tokunaga, Phys. Rev. Lett.105, 250503 (2010).
+(11) K. Fujii and T. Morimae, Phys. Rev. A85, 010304(R) (2012).
+(12) D. Gross and J. Eisert, Phys. Rev. Lett.98, 220503 (2007).
+(13) D. Gross, J. Eisert, N. Schuch, and D. Perez-Garcia, Phys. Rev. A76, 052315 (2007).
+(14) D. Gross, Ph.D. thesis, Imperial College London (2008).
+(15) M. Fannes, B. Nachtergaele, and R. F. Werner, J. Phys. A24, L185 (1991).
+(16) F. Verstraete, J. I. Cirac, and V. Murg, Adv. Phys.57, 143 (2008).
+(17) J. I. Cirac and F. Verstraete, J. Phys. A: Math. Theor.42, 504004 (2009).
+(18) D. Gross, S. T. Flammia, and J. Eisert, Phys. Rev. Lett.102, 190501 (2009).
+(19) M. J. Bremner, C. Mora, and A. Winter, Phys. Rev. Lett.102, 190502 (2009).
+(20) M. Van den Nest, A. Miyake, W. Dür, and H. J. Briegel, Phys. Rev. Lett.97, 150504 (2006).
+(21) T. Morimae, Phys. Rev. A81, 060307(R) (2010).
+(22) F. Verstraete and J. I. Cirac, Phys. Rev. A70, 060302(R) (2004).
+(23) M. A. Nielsen, Rep. Math. Phys.57, 147 (2006).
+(24) M. Van den Nest, K. Luttmer, W. Dür, and H. J. Briegel, Phys. Rev. A.77, 012301 (2008).
+(25) J. Chen, X. Chen, R. Duan, Z. Ji, and B. Zeng, Phys. Rev. A83, 050301(R) (2011).
+(26) I. Affleck, T. Kennedy, E. H. Lieb, and H. Tasaki, Comm. Math. Phys.115, 477 (1988).
+(27) G. K. Brennen and A. Miyake, Phys. Rev. Lett.101, 010502 (2008).
+(28) In Ref.Gross07_1;Gross07_2;Gross07_3, a universal resource for MBQC is defined that one can efficiently predict the result of any quantum computation with local measurements on such a resource state. However, the possibility of projective measurements in the CS, which is one of the important properties for a universal resource, relies on the arguments for the one-way model in Ref.Gross07_1;Gross07_2;Gross07_3, and cannot be applied straightforwardly to general resources.
+(29) J.-M. Cai, W. Dür, M. Van den Nest, A. Miyake, and H. J. Briegel, Phys. Rev. Lett.103, 050503 (2009).
+(30) The nondeterminism in the measurement is treated as usualGross07_1;Gross07_2;Gross07_3.
+(31) In the case of AKLT states, whether we can perform projective measurements or not is determined by how we choose the boundary condition.
+(32) It is interesting to note that for normalizable resources we do not need to choose a specific boundary vector|R⟩ket𝑅|R\rangle, since the two-point correlations exactly vanish within a finite distance, and therefore the boundary vector causes no effect. On the other hand, if we consider resource states with non-vanishing two-point correlations, we have to choose an appropriate boundary vector like this example.
+(33) Here we consider computational power of MBQC in QCTN, which is the most general framework for MBQC to date. Thus these statements might not hold for other MBQC models, which might be found in the future. It is, however, an interesting open question whether or not these statements based on QCTN can hold at a more general level of MBQC.
+(34) S. Sachdev,Quantum phase transitions(Cambridge Uni- versity Press, Cambridge, 1999).
+(35) S. D. Bartlett, G. K. Brennen, A. Miyake, and J. M. Renes, Phys. Rev. Lett.105, 110502 (2010).

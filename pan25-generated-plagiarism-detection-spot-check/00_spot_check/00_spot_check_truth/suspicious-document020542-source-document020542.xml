@@ -1,0 +1,15 @@
+<document reference="suspicious-document020542.txt">
+  <feature name="about" authors="D. V. Savin" title="Fluctuations and correlations in scattering on a resonance coupled to a chaotic background" lang="en" similarity="0.9842" severity="low" prompt_tokens="4583" output_tokens="3817"/>
+  <feature name="md5Hash" value="c1890c70fa888dec33bf502e7a043745"/>
+  <feature name="plagiarism" type="llm_prompted" llm="Mistral" this_language="en" this_offset="3569" this_length="991" source_reference="source-document020542.txt" obfuscation="simple" source_offset="2237" source_length="970"/>
+  <feature name="plagiarism" type="llm_prompted" llm="Mistral" this_language="en" this_offset="7416" this_length="1226" source_reference="source-document020542.txt" obfuscation="simple" source_offset="8365" source_length="1313"/>
+  <feature name="plagiarism" type="llm_prompted" llm="Mistral" this_language="en" this_offset="9462" this_length="956" source_reference="source-document020542.txt" obfuscation="simple" source_offset="9680" source_length="1084"/>
+  <feature name="plagiarism" type="llm_prompted" llm="Mistral" this_language="en" this_offset="13043" this_length="1176" source_reference="source-document020542.txt" obfuscation="simple" source_offset="6373" source_length="1416"/>
+  <feature name="plagiarism" type="llm_prompted" llm="Mistral" this_language="en" this_offset="15481" this_length="746" source_reference="source-document020542.txt" obfuscation="simple" source_offset="16788" source_length="703"/>
+  <feature name="plagiarism" type="llm_prompted" llm="Mistral" this_language="en" this_offset="17430" this_length="2465" source_reference="source-document020542.txt" obfuscation="medium" source_offset="14133" source_length="2254"/>
+  <feature name="plagiarism" type="llm_prompted" llm="Mistral" this_language="en" this_offset="20301" this_length="371" source_reference="source-document020542.txt" obfuscation="simple" source_offset="16389" source_length="374"/>
+  <feature name="plagiarism" type="llm_prompted" llm="Mistral" this_language="en" this_offset="20716" this_length="1455" source_reference="source-document020542.txt" obfuscation="medium" source_offset="17493" source_length="1270"/>
+  <feature name="plagiarism" type="llm_prompted" llm="Mistral" this_language="en" this_offset="23551" this_length="1374" source_reference="source-document020542.txt" obfuscation="medium" source_offset="10766" source_length="1000"/>
+  <feature name="plagiarism" type="llm_prompted" llm="Mistral" this_language="en" this_offset="26165" this_length="1160" source_reference="source-document020542.txt" obfuscation="medium" source_offset="3985" source_length="1126"/>
+  <feature name="plagiarism" type="llm_prompted" llm="Mistral" this_language="en" this_offset="27731" this_length="1590" source_reference="source-document020542.txt" obfuscation="medium" source_offset="12677" source_length="1454"/>
+</document>

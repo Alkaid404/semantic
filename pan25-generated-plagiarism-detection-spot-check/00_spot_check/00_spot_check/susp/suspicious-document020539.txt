@@ -1,0 +1,95 @@
+Dynamical tunneling in macroscopic systems
+
+By I. Serban and F. K. Wilhelm
+
+Abstract
+
+We investigate macroscopic dynamical quantum tunneling (MDQT) in the driven Duffing oscillator, a system characteristic of Josephson junction physics and nanomechanics. By calculating the tunneling rate under resonant conditions between stable coexisting states, we shed light on this phenomenon. However, in macroscopic systems coupled to a heat bath, driving-induced activation can mask MDQT, making its detection challenging. To address this, we compare tunneling and activation processes, identifying the conditions under which MDQT can be distinguished and observed using current experimental techniques, and propose a protocol for its detection.
+
+The phase space of a classical system can exhibit forbidden regions, even without potential barriers, such as when external driving is present. However, quantum mechanics allows these regions to be traversed through a process known as dynamical tunneling. Although dynamical tunneling has only been experimentally observed in microscopic systems, like cold atoms with minimal damping, recent advancements have enabled the demonstration of fundamental quantum characteristics in macroscopic systems, including Josephson junctions and nanomechanical oscillators. This progress was made possible by reducing environmental coupling, minimizing noise, and achieving extremely low temperatures.
+
+In this paper, we explore the possibility of macroscopic dynamical tunneling (MDQT) in a driven Josephson junction, where a macroscopic degree of freedom, such as the phase difference, is involved. Classically, this system exhibits two stable coexisting oscillations with different amplitudes under certain parameters, and is significantly influenced by its dissipative environment even at zero temperature. We show that, under accessible experimental conditions, tunneling between these two classical states can occur and be distinguished from classical switching events. Furthermore, we propose an experiment to directly observe MDQT, with implications for verifying quantum physics in weakly nonlinear systems like nanomechanical oscillators. Notably, quantum tunneling can also contribute to dark count errors in Josephson bifurcation amplifiers, which utilize classical switching between coexisting states for high-resolution qubit state detection.
+
+Dynamical tunneling (in the absence of an environment) has been studied using WKB in the parametric driven oscillator (8) . Activation rates in the presence of an environment have been studied in bistable systems (9) . Dynamical tunneling with dissipation has been described numericaly (11) and multiphoton resonances have been studied perturbatively (12) .
+
+We investigate a harmonically driven Duffing oscillator, which serves as a suitable approximation for a broad range of macroscopic physical systems, including Josephson junctions and nanomechanical oscillators. The dynamics of this driven Duffing oscillator can be described by a Hamiltonian
+
+where $F(t)=F_{0}(\mathbbm{e}^{\mathbbm{i}\nu t}+\mathbbm{e}^{-\mathbbm{i}\nu t})$ is the driving field with frequency $\nu$ . For sub-resonant driving $\nu<\Omega$ and below a critical driving strength $F_{0}<F_{c}$ two classical oscillatory states with different response amplitudes coexist. Considering a Josephson junction with capacitance $C$ , critical current $I_{c}$ and driving current amplitude $I$ we can identify $x$ as the phase difference across the junction, $m=(\hbar/2e)^{2}C$ , $\Omega=\sqrt{2eI_{c}/(\hbar C)}$ , $F_{0}=\hbar I/(2e)$ and $\gamma=m\Omega^{2}/24$ .
+
+We follow the Caldeira-Leggett approach, assuming an Ohmic environment that can be described as a bath of harmonic oscillators.
+
+The spectral density is given by $J(\omega)=\pi\sum_{i}\lambda_{i}^{2}\delta(\omega-\omega_{i})/(2m_{i}\omega_{i})$, which can also be expressed as $m\kappa\omega\exp(-\omega/\omega_{c})$, where $\omega_{c}$ represents a high-frequency cutoff.
+
+We transform this Hamiltonian using the the unitary operator $\hat{U}=\exp(\mathbbm{i}\nu t(\hat{a}^{\dagger}\hat{a}+\sum_{i}\hat{b}_{i}^{\dagger}\hat{b}_{i})$ similar to Ref. (9) , where $\hat{a}$ and $\hat{b}_{i}$ are the annihilation operators for the system and bath oscillators. Dropping the fast rotating terms in the rotating wave approximation (RWA), we obtain
+
+where, up to a constant we have
+
+We thus obtain a time independent Hamiltonian at the expense of a form that is not separable in $\hat{p}$ and $\hat{x}$ . This transformation reduces the frequency $\tilde{\Omega}=\Omega\delta$ and increases the mass $\tilde{m}=m/\delta$ of the oscillators by $\delta_{i}=(\omega_{i}-\nu)/\omega_{i}$ in the case of the bath and $\delta=(\Omega-\nu)/\Omega+\kappa\omega_{c}/(\pi\Omega^{2})$ for the main oscillator, where the additional term describes a deterministic force induced by dragging the system through its environment.
+
+We concentrate at first on quantum tunneling in the absence of bath fluctuations and study the system in the phase space. The classical Hamilton function $H_{0}^{(\delta)}(x,p)$ is portraited in Fig. 1 (b) and (c) for a sub-critical driving strength $F_{0}<F_{c}=2/9(2\tilde{m}^{3}\tilde{\Omega}^{6}/\gamma)^{1/2}$ . It has three extremal points: saddle (s), minimum (m) and maximum (M) with coordinates $(x_{\rm e},p_{\rm e})$ in the phase space, where ${\rm e}\in\{{\rm m,s,M}\}$ . The curves satisfying $H_{0}^{(\delta)}(x,p)=E$ represent classical trajectories. In the following we call $E$ the quasi-energy. In the bistability region $E\in(E_{\rm m},E_{\rm s})$ where $E_{\rm e}=H_{0}^{(\delta)}(x_{\rm e},p_{\rm e})$ there are always two periodic classical trajectories, around the two stable points (m) and (M), with a small and large amplitude respectively.
+
+Using this phase space, we propose an experiment to observe macroscopic quantum tunneling (MDQT) during the system's transient evolution. Initially, the system relaxes to its ground state, centered around (m), in the absence of a driving field. Upon switching on the driving field, the time required for a transition to the large orbit is measured as a function of a driving parameter, such as frequency $\nu$. When the quasi-energies of two quantized levels corresponding to the two oscillatory states are nearly degenerate, tunneling is facilitated, leading to an enhanced total switching rate.
+
+We employ the semiclassical WKB approximation, an expansion in $\hbar$ around the least action path, to describe tunneling. This path is determined by solving the equation $H_{0}^{(\delta)}(x,p)=E$, yielding four coexisting momentum branches, denoted as $\pm p_{L,S}(x,E)$.
+
+With $X={E}/{F_{0}}-(\tilde{m}\tilde{\Omega}^{2})^{2}/(6F_{0}\gamma)$, this configuration bears resemblance to Born-Oppenheimer surfaces in molecular physics, where dynamical tunneling has also been explored (1). The value of $p_{S,L}$ determines the nature of the area: a real-valued $p_{S,L}$ indicates a classically allowed area characterized by an oscillating WKB wave function, whereas a complex-valued $p_{S,L}$ signifies a classically forbidden area with a decaying wave function. Notably, at $x=X$, the trajectories converge, sharing the same momentum and position, and connect with each other. At this point, $\dot{x}=\partial_{p}H_{0}^{(\delta)}(x,p)=0$, although $p\not=0$, indicating a change in direction of motion, where the trajectory continues on a different momentum branch.
+
+For all $x<X$ both $p_{S,L}(x,E)$ are complex, thus this forbidden area does not influence the quantization rules within the WKB approximation. The tunneling least-action trajectory which connects the two allowed regions only passes through the region $x>X$ . Here the $p_{S,L}$ are either real or purely imaginary, i.e. $-p_{S,L}^{2}\in\mathbbm{R}$ . To study this region, we mirror the solution $p_{L}(x,E)$ around the $X$ point as shown in Fig. 1 (a) and obtain a double well “potential”. The small and large amplitude oscillation states are localized in the right and left-hand wells, respectively, and are separated by a “potential barrier” with purely imaginary momentum. Here we do not observe any interference effects, as opposed to the case of the parametrically driven oscillator (8) . We apply the WKB theory in this “potential” in order to determine the tunnel splitting in the limit of a low transmission through the forbidden region. The classical turning points $x_{i}$ are given by $p_{S,L}(x_{i},E)=0$ , see Fig. 1 (a). The bound state energies at zero transmission are given by the Sommerfeld energy quantization rules
+
+The quantity $S_{ij}(E)=\int_{x_{i}}^{x_{j}}{\rm sign}(x-X)|p(x,E)|dx/\hbar$ is defined as the integral of the absolute value of the momentum, weighted by the sign function, over the interval from $x_i$ to $x_j$, with the negative sign on the left-hand side of $X$ arising from mirroring. When a pair of energies, one from each well, become degenerate, resonant tunneling through the barrier can occur, inducing coupling between the two wells and lifting the degeneracy. As a result, level crossings become avoided crossings at finite transmission, and the full WKB condition is modified to
+
+We expand the quasi-energy $E$ and the actions $S_{ij}$ in series of $\xi=1/4\exp\left(-2S_{3^{\prime}1}\right)$ around the level crossings with quasi-energy $E_{0}$ where eqs. ( 5 ) are simultaneously satisfied. The first energy correction $E_{1}\xi$ is obtained straightforwardly from $\partial_{E}S_{12}|_{E_{0}}\partial_{E}S_{4^{\prime}3^{\prime}}|_{E_{0}}(E_{1}\xi)^{2}=\xi,$ and the tunneling rate is obtained directly from the energy splitting at the avoided level crossings
+
+This can be evaluated in closed form involving elliptic integrals for $S_{ij}$ and we obtain the exact expressions
+
+where $\Omega_{\rm e}=\sqrt{\partial^{2}_{xx}H_{0}^{(\delta)}\partial^{2}_{pp}H_{0}^{(\delta)}}|_{\rm e}$ and ${\rm e}\in\{{\rm m,s,M}\}$ . Thus, for $S_{12}$ at (m) and $S_{3^{\prime}1}$ at (s) we reproduce the harmonic oscillator result. The saddle point “frequency” $\Omega_{\rm s}$ is imaginary as expected.
+
+We simplify Eq. ( 7 ) by locally approximating $H_{0}^{(\delta)}$ close to the extremal points by harmonic oscillators, i.e. assuming that $S_{ij}$ are linear functions of $E$ . This approximation holds for all $S_{ij}$ simultaneously when $E$ is far enough from both extremal points $E_{\rm s,m}$ , as it is the case for the ground state $E_{\rm m}+\hbar\Omega_{\rm m}/2$ of the small amplitude well. In this approximation $S_{3^{\prime}1}(E)\approx\pi(E_{\rm s}-E)/(\hbar|\Omega_{\rm s}|)$ and thus we find a compact approximation
+
+Our calculations are based on a series of assumptions, which we verify by comparing the results to a full numerical diagonalization of $\hat{H}_{0}^{(\delta)}$ using a basis of the first $2N$ Fock states. Specifically, when $F_{0}=0$, the number of levels spanning the bistability region is given by $N=\hbar\Omega(2m\Omega)^{2}/(6\gamma\hbar^{2})$. As illustrated in Fig. 2 for a representative dataset, we observe good agreement between the numerically exact results and the theoretical predictions from Eqs. (5, 7) and (8).
+
+Quantum tunneling is significant only close to level crossings. It always competes with the activation over the barrier, which occurs at all energies and is based on classical fluctuations due to coupling to a heat bath. A rather detailed treatment of a similar process has been given in Refs. (10) . We now estimate these effects and compare them to the quantum tunneling rate. When modeling activation, it is crucial to consider that we are working in a frame rotating relative to the heat bath, which is fixed in the laboratory.
+
+We begin with Eq. (2) and apply the mean first passage time approach, as outlined in Ref. (16). To do so, it is sufficient to approximate the system Hamiltonian near its minimum in phase space. This approximation yields $\hat{H}_{0}^{(\delta)}\approx\hat{p}^{2}/(2m_{\rm eff})+V(\hat{x})$, where the effective mass $m_{\rm eff}$ is determined by the curvature of the Hamiltonian function, given by $m_{\rm eff}^{-1}=\partial_{pp}^{2}H_{0}^{(\delta)}(x,p)|_{\rm m}$, and the effective potential $V(x)$ is defined as $V(x)=H_{0}^{(\delta)}(x,p_{\rm m})$. Within this approximation, we derive a quantum Langevin equation
+
+where
+
+$\tilde{\kappa}(t)$ is peaked on a short time scale $\omega_{c}^{-1}$ . Its magnitude is characterized through the effective friction constant
+
+The factor of two difference between $\kappa_{\rm eff}$ and the damping constant of the undriven harmonic system arises because the rotating frame includes bath modes both above and below $\omega=0$ (as seen in Eq. (2)), whereas the undriven case only considers strictly positive frequencies. As a result, oscillators with frequency $\omega$ contribute to the spectral density $J(\omega+\nu)$, and modes with negative frequencies significantly contribute to noise, even at low temperatures. To address this, we apply a detailed balance condition to determine the effective temperature of the bath as perceived by a detector in the rotating frame, such as a two-level system with a level separation of $\hbar\Omega_{\rm m}$.
+
+In the rotating frame, the probability of emitting a quantum of energy $\hbar\omega$ to the bath is given by $P(\omega,T)=J(\omega+\nu)(1+n(\omega+\nu,T))$. Notably, an increase in quasi-energy in the rotating frame can correspond to a decrease in energy in the laboratory frame, meaning that what appears as absorption in the rotating frame is actually emission in the lab frame. This phenomenon is analogous to the Unruh effect, which occurs in the context of constant acceleration in relativistic settings (17).
+
+The barrier crossing problem for systems described by a quantum Langevin equation is well studied in the context of chemical reactions. For low damping, $\kappa_{\rm eff}\ll\Omega_{\rm m}$ mean-first-passage time theory predics the activation rate (16)
+
+where $S(E)=\oint p(x,E)dx$ . In the traditional low temperature limit $\kappa_{\rm eff}S(E_{\rm s})\ll k_{B}T_{\rm eff}\ll E_{\rm s}-E_{\rm m}$ the activation rate becomes
+
+In our case, the noise temperature, $k_{B}T_{\rm eff}$, can exceed the barrier height, $E_{\rm s}-E_{\rm m}$. Under these conditions, Equation (10) yields
+
+where $F(x)=\int dx(\exp(x)-1)/x\equiv{\rm Ei}(x)-\log(x)$ .
+
+Summarizing, in the rotating frame, as a consequence of driving, the bath appears with a quality factor $\Omega_{\rm m}/\kappa_{\rm eff}$ reduced by approximatively a factor of two and an enhanced effective temperature $T_{\rm eff}$ . Moreover, the bath shifts the detuning $\delta$ . We show that experimental observation of MDQT could still be possible. At the the level anticrossings we calculate the WKB tunneling rate from the ground state and the activation rate from Eq. ( 12 ), see Fig. 3 (a) where we have considered a Josephson junction with $\kappa=10^{-4}\Omega$ , the temperature $T=10$ mK, shunt capacitance $C=2\cdot 10^{-12}$ F and $\gamma=m\Omega^{2}/24$ . The values of $\delta$ where these anticrossings occur are found by minimizing $|\cot(S_{4^{\prime}3^{\prime}}(E_{\rm m}))|$ and are in agreement with the weak driving result (12) $\delta=3\gamma n/(2m^{2}\Omega^{3})$ , $n\in\mathbbm{N}$ . We observe that the quantum tunneling rate can be one order of magnitude larger than the activation rate in the limit of relatively small detuning $\delta$ and low damping. By increasing the value of $\alpha=m\Omega/\hbar$ , we observe a reduction of the ratio $\Gamma_{\rm t}/\Gamma_{\rm a}$ as expected, since $\alpha$ measures the number of quantized levels in the system and thus the ”classicality” of its behavior. In Fig. 3 we have $\alpha\in(2,20)$ , while in the experiment of Ref. (13) $\alpha$ was larger than 100, at higher temperature and smaller quality factor, such that MDQT was probably masked by thermal activation. We expect that at the values of Fig. 3 the experiment we propose should produce direct evidence for MDQT.
+
+In conclusion we have investigated macroscopic dynamical tunneling by mapping it onto tunneling between two potential surfaces and found a compact analytic expression for the tunneling rate. We compared this process with the activation over the barrier using the mean first passage time approach. The values obtained suggest that dynamical tunneling can be singled out from the background of activation processes. We have proposed an experiment realizable within existing technology to demonstrate dynamical tunneling by monitoring the switching rate between the two dynamical states while tuning a parameter of the external driving.
+
+We are grateful to A. Leggett for bringing the Unruh effect analogy to our attention, and to M. Dykman, M. Marthaler, and E.M. Abdel-Rahman for their insightful comments. This research was supported by funding from the DFG (SFB 631), NSERC discovery grants, and the EU's EuroSQIP program.
+
+References
+
+(1) E. Heller, J. Phys. Chem. A103, 10433 (1999).
+(2) E. Heller and M. Davis, J. Phys. Chem85, 307 (1981).
+(3) W. Hensingeret al., Nature412, 52 (2001); D. Steck, W. Oskay, and M. Raizen, Science293, 274 (2001).
+(4) I. Siddiqiet al., Phys. Rev. Lett.93, 2070021 (2004).
+(5) A. Lupascuet al., Phys. Rev. Lett96, 127003 (2006).
+(6) J. C. Leeet al., Phys. Rev. B75, 144505 (2007).
+(7) I. Siddiqiet al., Phys. Rev. B73, 054510 (2006).
+(8) M. Marthaler and M. Dykman, Cond-mat/0703469 (2007).
+(9) M. Marthaler and M. Dykman, Phys. Rev. A73, 042108 (2006).
+(10) M. Dykman and V. N. Smelyanskii, Sov. Phys. JETP94, 61 (1988); M. Dykman, Phys. Rev. E75, 011101 (2007).
+(11) V. Peano and M. Thorwart, Chem. Phys.8, 21 (2006).
+(12) V. Peano and M. Thorwart, New J. Phys.322, 135 (2006).
+(13) I. Siddiqiet al., Phys. Rev. Lett.94, 027005 (2005).
+(14) J. Almoget al., Phys. Rev. Lett98, 078103 (2007).
+(15) J. Aldridge and A. Cleland, Phys. Rev. Lett94, 156403 (2005).
+(16) P. Hanggi, P. Talkner, and M. Borkovec, Rev. Mod. Phys.62, 252 (1990).
+(17) W. Unruh, Phys. Rev. D14, 870 (1976).

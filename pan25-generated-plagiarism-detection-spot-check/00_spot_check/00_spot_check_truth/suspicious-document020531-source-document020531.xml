@@ -1,0 +1,5 @@
+<document reference="suspicious-document020531.txt">
+  <feature name="about" authors="Ishwaree P. Neupane" title="We Probably Live On An Inflating Brane-World 11footnote 1(Slightly expanded version of) essay written for the Gravity Research Foundation 2011 essay contest." lang="en" similarity="0.9620" severity="medium" prompt_tokens="221" output_tokens="145"/>
+  <feature name="md5Hash" value="81a8fc00933c1dd51cfebc9ab094623d"/>
+  <feature name="plagiarism" type="llm_prompted" llm="DeepSeek-R1" this_language="en" this_offset="193" this_length="769" source_reference="source-document020531.txt" obfuscation="simple" source_offset="3000" source_length="731"/>
+</document>

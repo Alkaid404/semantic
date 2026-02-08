@@ -1,0 +1,436 @@
+Fractional Action Cosmology: Some Dark Energy Models in Emergent, Logamediate and Intermediate Scenarios of the Universe
+
+By Ujjal Debnath and Surajit Chattopadhyay and Mubasher Jamil
+
+Abstract
+
+Abstract
+
+Within the framework of Fractional Action Cosmology, we have reconstructed various scalar potentials and fields, including quintessence, phantom, tachyon, k-essence, DBI-essence, Hessence, dilaton field, and Yang-Mills field. To gain a clearer understanding of how these scalar fields and potentials evolve over time, we examine the scale factor in three distinct scenarios: emergent, logamediate, and intermediate, each characterized by a unique expansion behavior of the Universe.
+
+I Introduction
+
+Fractional action cosmology (FAC) applies the principles of fractional calculus to cosmology, utilizing fractional derivatives and integrals, where the order of differentiation or integration is a non-integer. This mathematical framework has proven valuable in various fields, including mathematics, physics, and engineering. To develop FAC, researchers can employ two distinct approaches: a straightforward method involving the replacement of partial derivatives in Einstein's field equations with fractional derivatives, or a more fundamental technique that derives field equations and geodesic equations from the principle of least action, substituting the usual integral with a fractional integral. The latter approach, which offers additional insights into FAC, was introduced by Rami, who used a fractional time integral to formulate the action as $S=-\frac{m}{2\Gamma(\xi)}\int\dot{x}^{\mu}\dot{x}^{\nu}g_{\mu\nu}(x)(t-\tau)^{\xi-1}d\tau$, where $\Gamma(\xi)$ is the Gamma function. Variations of this action yield an extra term in the field equations, corresponding to a variable gravitational constant $G$. Further extensions, such as replacing the weight function with a sinusoidal function, have led to solutions with a variable cosmological constant and an oscillatory scale factor, as seen in the action $S=\frac{m}{2}\int_{0}^{\tau}\dot{x}^{\mu}\dot{x}^{\nu}g_{\mu\nu}(x)e^{-\chi\sin(\beta t)}dt$. Generalizing this approach with a general weight function, $S=\frac{m}{2}\int\limits_{0}^{\tau}g_{\mu\nu}(x)\dot{x}^{\mu}\dot{x}^{\nu}\mu(\chi,t)dt$, has enabled the study of various examples and the calculation of cosmological parameters. Notably, FAC can model an expanding Universe with a scale factor that follows a power law or exponential form, depending on the chosen weight function, allowing for the modeling of cosmic acceleration.
+
+Reconstruction of potentials has been explored by several authors in various contexts, including scalar-tensor theories, where Capozziello et al. demanded a background $\Lambda$CDM cosmology to reconstruct the potential and coupling. Similarly, in phantom quintessence cosmology, the Noether Symmetry Approach has been used to obtain exact solutions for cosmological equations. This paper aims to reconstruct potentials and scalar fields for several models, including quintessence, phantom, tachyonic, k-essence, DBI-essence, Hessence, dilaton field, and Yang-Mills field, which have been previously studied in other gravitational setups. To gain deeper insight into the model, we consider three forms of the scale factor: emergent, logamediate, and intermediate scenarios, each representing a distinct expansion history of the Universe. These scenarios are consistent with observational data, albeit with certain restrictions on their parameters.
+
+II Fractional Action Cosmological Model
+
+For a Friedmann-Robertson-Walker (FRW) spacetime, the line element is given by $ds^{2}=-dt^{2}+a^{2}(t)\left[\frac{dr^{2}}{1-kr^{2}}+r^{2}(d\theta^{2}+\sin^{2}\theta d\phi^{2})\right]$, where $a(t)$ is the scale factor and $k$ ($=0, \pm 1$) is the curvature scalar. In this universe, which contains both normal matter and dark energy, the Einstein equations can be derived from the line element. Specifically, equations (2) and (3) describe the spacetime, where $H$ is the Hubble parameter, $G$ is the gravitational constant, $\rho$ is the total energy density, and $p$ is the total pressure. The total energy density and pressure are comprised of contributions from normal matter ($\rho_{m}$ and $p_{m}$) and dark energy ($\rho_{\phi}$ and $p_{\phi}$), with the normal matter components related by the equation of state $p_{m}=w_{m}\rho_{m}$, where $-1\leq w_{m}\leq 1$.
+
+An interaction between normal matter and dark energy is now considered. A promising approach to addressing the cosmic coincidence problem involves dark energy interacting with dark matter. Research in Ref. (10) examined the impact of this interaction on large-scale cosmic microwave background (CMB) temperature anisotropies, finding that the late Integrated Sachs Wolfe effect is a valuable tool for measuring the coupling between dark sectors. The study revealed that, within the 1$\sigma$ range, the constrained coupling between dark sectors can help resolve the coincidence problem. Furthermore, Ref. (11) presented a general framework for investigating the growth of dark matter perturbations in the presence of dark energy perturbations and interactions between dark sectors. The results showed that the dynamical stability of structure growth depends on the form of coupling between dark sectors, and that the growth index can differ significantly from its value without interaction, making it potentially detectable through future observations of structure growth.
+
+The interaction between normal matter and dark energy means that they are not conserved separately. As a result, the energy conservation equations for normal matter and dark energy take the following forms: $\dot{\rho}_{m}+3H(p_{m}+\rho_{m})=-3\delta H\rho_{m}$ and $\dot{\rho}_{\phi}+3H(p_{\phi}+\rho_{\phi})=3\delta H\rho_{m}$, where $H=\dot{a}/a$ represents the Hubble parameter.
+
+From equation (5), the energy density of matter can be expressed as $\rho_{m}=\rho_{0}a^{-3(1+w_{m}+\delta)}$, where $\rho_{0}$ represents the integration constant.
+
+III Emergent, Logamediate and Intermediate Scenarios
+
+$\bullet$ Emergent Scenario : For emergent Universe, the scale factor can be chosen as (26) 
+ 
+ $a(T_{1})=a_{0}\left(\lambda+e^{\mu T_{1}}\right)^{n}$  (8) 
+ where $a_{0},~{}\mu,~{}\lambda$ and $n$ are positive constants. (1) $a_{0}>0$ for the scale factor $a$ to be positive; (2) $\lambda>0$ , to avoid any singularity at finite time (big-rip); (3) $a>0$ or $n>0$ for expanding model of the Universe; (4) $a<0$ and $n<0$ implies big bang singularity at $t=-\infty$ .
+
+The Hubble parameter and its derivatives are given by $H=\frac{n\mu e^{\mu T_{1}}}{\left(\lambda+e^{\mu T_{1}}\right)}$, $\dot{H}=\frac{n\lambda\mu^{2}e^{\mu T_{1}}}{\left(\lambda+e^{\mu T_{1}}\right)^{2}}$, and $\ddot{H}=\frac{n\lambda\mu^{3}e^{\mu T_{1}}(\lambda-e^{\mu T_{1}})}{\left(\lambda+e^{\mu T_{1}}\right)^{3}}$. Notably, $H$ and $\dot{H}$ are both positive, while $\ddot{H}$ changes sign at $T_{1}=\frac{1}{\mu}~{}\text{log}\lambda$. As $t$ approaches negative infinity, $H$, $\dot{H}$, and $\ddot{H}$ all tend towards zero. In contrast, as $t$ approaches positive infinity, the solution asymptotically approaches a de Sitter Universe.
+
+The logamediate scenario is a particular form of cosmological model where the scale factor $a(t)$ takes the form $a(T_{1})=e^{A(\ln T_{1})^{\alpha}}$, with $A\alpha>0$ and $\alpha>1$. This model reduces to a power-law form when $\alpha=1$. The logamediate form is motivated by considering a class of cosmological solutions with indefinite expansion, which arise from imposing weak general conditions on the model. According to Barrow's findings, the observational ranges for the parameters are $1.5\times 10^{-92}\leq A\leq 2.1\times 10^{-2}$ and $2\leq\alpha\leq 50$. The Hubble parameter $H$ and its derivative can be expressed as $H=\frac{A\alpha}{T_{1}}(\ln T_{1})^{\alpha-1}$ and $\dot{H}=\frac{A\alpha}{T_{1}^{2}}(\ln T_{1})^{\alpha-2}(\alpha-1-\ln T_{1})$, respectively.
+
+In the intermediate scenario, we consider a specific form of the Friedmann universe where the scale factor $a(t)$ is given by $a(t) = e^{BT_{1}^{\beta}}$, with $B\beta > 0$, $B > 0$, and $0 < \beta < 1$. This results in a faster expansion than the power-law form, where $a(T_{1}) = T_{1}^{n}$ and $n > 1$. In contrast, the expansion is slower than the standard de-Sitter scenario, which occurs when $\beta = 1$. The Hubble parameter $H = \frac{\dot{a}}{a}$ and its derivative are $H = B\beta T_{1}^{\beta-1}$ and $\dot{H} = B\beta(\beta-1)T_{1}^{\beta-2}$.
+
+IV Various Candidates of Dark Energy Models
+
+Quintessence is described by an ordinary, time-dependent, and homogeneous scalar field $\phi$ that is minimally coupled to gravity. This field has a particular potential $V(\phi)$, which drives the acceleration of the Universe. The action for quintessence is given by $S=\int{\rm d}^{4}x\sqrt{-g}\left[-\frac{1}{2}g^{ij}\partial_{i}\phi\partial_{j}\phi-V(\phi)\right]$. The energy-momentum tensor of the field leads to the energy density and pressure of the quintessence scalar field $\phi$, which are given by
+
+The equation of state (EoS) parameter for the quintessence scalar field, denoted as $\omega_{\phi}$, is defined as the ratio of the pressure $p_{\phi}$ to the energy density $\rho_{\phi}$, given by $\omega_{\phi}=\frac{p_{\phi}}{\rho_{\phi}}=\frac{\dot{\phi}^{2}-2V(\phi)}{\dot{\phi}^{2}+2V(\phi)}$. Notably, when $\omega_{\phi}$ is less than $-1/3$, the Universe undergoes accelerated expansion, which occurs under the condition that $\dot{\phi}^{2}<V(\phi)$.
+
+The energy density and pressure of the quintessence (or phantom field) can be represented by a minimally coupled, spatially homogeneous, and time-dependent scalar field $\phi$. This field has a kinetic energy term with positive (for quintessence) or negative (for phantom field) sign, given by $\rho_{\phi}=\frac{\epsilon}{2}~{}\dot{\phi}^{2}+V(\phi)$, where $V(\phi)$ is the potential associated with the scalar field $\phi$, and $\epsilon=+1$ corresponds to quintessence, while $\epsilon=-1$ corresponds to a phantom field.
+
+Scalar field models of phantom energy suggest that it can act as a long-range repulsive force. Additionally, phantom energy exhibits several characteristics that distinguish it from normal matter, including an energy density $\rho(t)$ that increases as the Universe expands. This unique property allows phantom energy to serve as a source for forming and stabilizing traversable wormholes. Furthermore, phantom energy can have profound effects on the Universe, including disrupting gravitationally bound structures ranging from galaxies to black holes, and potentially driving an infinite expansion of the Universe in a finite time, ultimately leading to the 'big rip'.
+
+From the above equations, we can derive an expression for $\dot{\phi}^{2}$, which is given by $\dot{\phi}^{2}=-\frac{(1+w_{m})}{\epsilon}\rho_{m}+\frac{1}{4\pi\epsilon G}\left[-\dot{H}+\frac{(\xi-1)}{T_{1}}H+\frac{k}{a^{2}}\right]$.
+
+For the emergent scenario, we derive expressions for $\phi$ and $V$ as follows: $\phi$ is given by the integral of $\sqrt{-\frac{(1+w_{m})\rho_{0}a_{0}^{-3(1+w_{m}+\delta)}}{\epsilon\left(\lambda+e^{\mu T_{1}}\right)^{3n(1+w_{m}+\delta)}}+\frac{1}{4\pi\epsilon G}\left(-\frac{n\lambda\mu^{2}e^{\mu T_{1}}}{\left(\lambda+e^{\mu T_{1}}\right)^{2}}+\frac{(\xi-1)n\mu e^{\mu T_{1}}}{T_{1}(\lambda+e^{\mu T_{1}})}+\frac{k~{}a_{0}^{-2}}{\left(\lambda+e^{\mu T_{1}}\right)^{2n}}\right)}$ with respect to $T_{1}$.
+
+Fig.1                                                              Fig.2 
+ 
+ Fig.3
+
+Figs.1-3 illustrate the variations of $V$ with respect to the quintessence or phantom field $\phi$ for the emergent, logamediate, and intermediate scenarios, respectively. The curves are distinguished by their line styles, with solid, dashed, and dotted lines corresponding to $k=-1, +1, 0$, and by their colors, with blue and red lines representing the quintessence field ($\epsilon=+1$) and phantom field ($\epsilon=-1$), respectively.
+
+For the logamediate scenario, the expressions for $\phi$ and $V$ are given by $\phi=\int\sqrt{-\frac{(1+w_{m})\rho_{0}}{\epsilon}~{}e^{-3A(1+w_{m}+\delta)(\ln T_{1})^{\alpha}}+\frac{1}{4\pi\epsilon G}\left\{\frac{A\alpha}{T_{1}^{2}}(\ln T_{1})^{\alpha-2}(1-\alpha+\xi\ln T_{1})+k~{}e^{-2A(\ln T_{1})^{\alpha}}\right\}}~{}dT_{1}$, where the integral is taken with respect to $T_{1}$.
+
+For the intermediate scenario, the expressions for $\phi$ and $V$ are given by $\phi=\int\sqrt{-\frac{(1+w_{m})\rho_{0}}{\epsilon}~{}e^{-3B(1+w_{m}+\delta)T_{1}^{\beta}}+\frac{1}{4\pi\epsilon G}\left\{B\beta(\xi-\beta)T_{1}^{\beta-2}+k~{}e^{-2BT_{1}^{\beta}}\right\}}~{}dT_{1}$.
+
+In figures 1, 2, and 3, we plot the potentials against the scalar fields for quintessence and phantom fields in the emergent, logamediate, and intermediate scenarios of the universe, respectively, within the framework of fractional action cosmology. Figure 1 shows that, following an initial gradual decay, the potential increases with the scalar field for both quintessence and phantom field models of dark energy in the emergent scenario, regardless of the universe's curvature type. In contrast, figure 2 exhibits a continuous decay in potential $V$ with increasing scalar field $\phi$ in the logamediate scenario. Figure 3, which depicts the intermediate scenario, reveals a different behavior: the potential $V$ decays continuously with increasing $\phi$ for the quintessence model (blue lines), whereas it increases with $\phi$ for the phantom field model (red lines).
+
+A rolling tachyon exhibits a unique equation of state, with a state parameter that seamlessly transitions between -1 and 0. This property makes the tachyon a viable candidate for driving inflation at high energies, as well as a potential source of dark energy, depending on the specific form of its potential. Consequently, it is worthwhile to reconstruct the tachyon potential $V(\phi)$ from various dark energy models. The dynamics of the tachyon scalar $\phi$ can be described by a Born-Infeld-like action.
+
+The energy-momentum tensor components for the tachyon scalar field $\phi$ are derived from its potential $V(\phi)$, which is denoted as the tachyon potential.
+
+The energy density $\rho_{\phi}$ pressure $p_{\phi}$ due to the tachyonic field $\phi$ have the expressions
+
+The relevant potential for the tachyonic field $\phi$ is denoted by $V(\phi)$. Note that the expression $\frac{p_{\phi}}{\rho_{\phi}}=-1+\epsilon\dot{\phi}^{2}$ is greater than $-1$ for a normal tachyon (where $\epsilon=+1$) and less than $-1$ for a phantom tachyon (where $\epsilon=-1$).
+
+From above, we get
+
+and
+
+$\bullet{}$ For emergent scenario, we get the expressions for $\phi$ and $V$ as
+
+and
+
+Fig.4                                                              Fig.5 
+ 
+ Fig.6
+
+Figs. 4-6 illustrate the variations of $V$ with respect to the tachyonic field $\phi$ for the emergent, logamediate, and intermediate scenarios, respectively. The curves are distinguished by curvature parameter $k$, with solid, dashed, and dotted lines corresponding to $k=-1, +1, 0$, respectively. Additionally, the lines are color-coded to represent the type of tachyonic field: blue lines indicate a normal tachyonic field ($\epsilon=+1$), while red lines represent a phantom tachyonic field ($\epsilon=-1$).
+
+$\bullet{}$ For logamediate scenario, we get the expressions for $\phi$ and $V$ as
+
+and
+
+$\bullet{}$ For intermediate scenario, we get the expressions for $\phi$ and $V$ as
+
+and
+
+The $V$ - $\phi$ plot for normal and phantom tachyon models of dark energy in the emergent scenario is shown in figure 4. Notably, the potential of the normal tachyon exhibits a decaying pattern, whereas the phantom tachyonic field $\phi$ displays an increasing pattern, regardless of the universe's curvature. In contrast, figure 5 illustrates the logamediate scenario, where the potentials for normal and phantom tachyons show increasing and decreasing behaviors, respectively, as the scalar field $\phi$ increases. Figure 6 reveals a continuous decay in the potential for the normal tachyonic field in the intermediate scenario. However, the potential's behavior in this scenario varies with the universe's curvature, as characterized by the interacting phantom tachyonic field: for $k=-1,~{}1$, the potential increases with the phantom tachyonic field, while for $k=0$, it initially increases before decaying.
+
+In the kinetically driven scalar field theory, a non-canonical kinetic energy term is present, but no potential exists. This theory is often modeled using scalars known as k-essence, which were motivated by the Born-Infeld action in String Theory. The k-essence model was used to explain the mechanism behind the late-time acceleration of the universe. The action for this model is given by $S=\int{d^{4}x}\sqrt{-g}{\tilde{\cal L}}({\tilde{\phi}},{\tilde{X}})$, where higher-order terms are neglected. By applying the transformations $\phi=\int{d{\tilde{\phi}}}\sqrt{|L({\tilde{\phi}})|/K({\tilde{\phi}})}$, $X=\frac{|L|}{K}{\tilde{X}}$, and $V(\phi)=K^{2}/|L|$, the action can be rewritten in a simplified form.
+
+From the action, the energy-momentum tensor components can be written as $T_{ij}=V(\phi)\Big{[}\frac{d{\cal L}}{dX}\partial_{i}\phi\partial_{j}\phi-g_{ij}{\cal L}\Big{]}.$ The energy density and pressure of k-essence scalar field $\phi$ are given by and where $\phi$ is the scalar field having kinetic energy $X=\frac{1}{2}\dot{\phi}^{2}$ and $V(\phi)$ is the k-essence potential. 
+
+
+From above, we get
+
+and
+
+$\bullet{}$ For emergent scenario, we have
+
+and
+
+$\bullet{}$ For logamediate scenario, we get the expressions for $\phi$ and $V$ as
+
+and
+
+$\bullet{}$ For intermediate scenario, we get the expressions for $\phi$ and $V$ as
+
+and
+
+Figures 7, 8, and 9 illustrate that the potential $V$ consistently decreases as the scalar field $\phi$ increases, regardless of the universe type, whether open, closed, or flat, across all three scenarios for interacting k-essence.
+
+Fig.7                                                              Fig.8 
+ 
+ Fig.9
+
+Figs.7-9 show the variations of $V$ against k-essence field $\phi$ in the emergent, logamediate and intermediate scenarios respectively. Red, green and blue lines represent $k=-1,+1,0$ respectively.
+
+Considering the dark energy scalar field as a Dirac-Born-Infeld (DBI) scalar field, the action can be expressed as $S_{D}=-\int d^{4}xa^{3}(t)\left[T(\phi)\sqrt{1-\frac{\dot{\phi^{2}}}{T(\phi)}}+V(\phi)-T(\phi)\right]$, where $T(\phi)$ represents the warped brane tension and $V(\phi)$ is the DBI potential. The energy density and pressure of the DBI-essence scalar field are given by expressions that depend on $\gamma$, which is defined in terms of the field's properties.
+
+We now examine the specific case where $\gamma$ is constant. To simplify the analysis, we assume $T(\phi)=T_{0}\dot{\phi}^{2}$, where $T_{0}>1$. This yields $\gamma=\sqrt{\frac{T_{0}}{T_{0}-1}}$. Under these conditions, the expressions for $\phi$, $T(\phi)$, and $V(\phi)$ are given by
+
+and
+
+$\bullet{}$ For emergent scenario, we get the expressions for $\phi$ , $T$ and $V$ as
+
+and
+
+$\bullet{}$ For logamediate scenario, we get the expressions for $\phi$ , $T$ and $V$ as
+
+and
+
+$\bullet{}$ For intermediate scenario, we get the expressions for $\phi$ , $T$ and $V$ as
+
+and
+
+When we consider an interacting DBI-essence dark energy, we get decaying pattern in the $V$ - $\phi$ plot for emergent and intermediate scenarios in the figures 10 and 12. However, from figure 11 we see an increasing plot of $V$ - $\phi$ for for interacting DBI-essence in the logamediate scenario.
+
+Fig.10                                                              Fig.11 
+ 
+ Fig.12
+
+Figures 10-12 illustrate the variation of $V$ with respect to the DBI field $\phi$ for the emergent, logamediate, and intermediate scenarios, respectively. The curves are distinguished by the value of $k$, represented by solid ($k=-1$), dashed ($k=+1$), and dotted ($k=0$) lines.
+
+Wei et al (32) introduced a novel non-canonical complex scalar field, dubbed "hessence," which behaves like quintom. In the hessence model, the internal motion, represented by $\dot{\theta}$, where $\theta$ is the internal degree of freedom of hessence, exhibits phantom-like behavior, allowing for phantom divide transitions. The Lagrangian density of hessence is described by ${\cal L}_{h}=\frac{1}{2}[(\partial_{\mu}\phi)^{2}-\phi^{2}(\partial_{\mu}\theta)^{2}]-V(\phi)$. Furthermore, the pressure and energy density of the hessence model are given by expressions that depend on the dynamics of this complex scalar field.
+
+The total conserved charge is denoted by $Q$, while $\phi$ represents the hessence scalar field, and $V$ corresponds to its associated potential.
+
+From above we get,
+
+The potential $V$ is given by the expression $V = \frac{1}{2}(w_{m}-1)\rho_{m} + \frac{1}{8\pi G}\left(\dot{H} + 3H^{2} + \frac{5(\xi-1)}{T_{1}}H + \frac{2k}{a^{2}}\right)$.
+
+$\bullet{}$ For emergent scenario, we get the expressions for $\phi$ and $V$ as $\dot{\phi}^{2}-\frac{Q^{2}}{a_{0}^{6}\left(\lambda+e^{\mu T_{1}}\right)^{6n}\phi^{2}}=-\frac{(1+w_{m})\rho_{0}a_{0}^{-3(1+w_{m}+\delta)}}{\left(\lambda+e^{\mu T_{1}}\right)^{3n(1+w_{m}+\delta)}}+\frac{1}{4\pi G}\left\{-\frac{n\lambda\mu^{2}e^{\mu T_{1}}}{\left(\lambda+e^{\mu T_{1}}\right)^{2}}+\frac{(\xi-1)n\mu e^{\mu t}}{T_{1}(\lambda+e^{\mu T_{1}})}+\frac{k~{}a_{0}^{-2}}{\left(\lambda+e^{\mu T_{1}}\right)^{2n}}\right\},$ and
+
+For the logamediate scenario, the expressions for $\phi$ and $V$ are given by $\dot{\phi}^{2}-\frac{Q^{2}e^{-6A(\ln T_{1})^{\alpha}}}{\phi^{2}}=-(1+w_{m})\rho_{0}~{}e^{-3A(1+w_{m}+\delta)(\ln T_{1})^{\alpha}}+\frac{1}{4\pi G}\left\{\frac{A\alpha}{T_{1}^{2}}(\ln T_{1})^{\alpha-2}[1-\alpha+\xi\ln T_{1}]+k~{}e^{-2A(\ln T_{1})^{\alpha}}\right\}$, which provides a relationship between the kinetic term, potential, and the parameters of the model.
+
+For the intermediate scenario, the expressions for $\phi$ and $V$ yield the equation $\dot{\phi}^{2}-\frac{Q^{2}e^{-6BT_{1}^{\beta}}}{\phi^{2}}=-(1+w_{m})\rho_{0}~{}e^{-3B(1+w_{m}+\delta)T_{1}^{\beta}}+\frac{1}{4\pi G}\left\{B\beta(\xi-\beta)T_{1}^{\beta-2}+k~{}e^{-2BT_{1}^{\beta}}\right\}$.
+
+Figure 13 illustrates that the potential of interacting hessence dark energy increases with the scalar field, whereas figures 14 and 15 demonstrate a decay in the potential with the scalar field. This indicates that the potential for interacting hessence dark energy exhibits opposing behaviors in different scenarios: it increases in the emergent universe, but decays in both the logamediate and intermediate scenarios.
+
+Fig.13                                                              Fig.14 
+ 
+ Fig.15
+
+Figures 13-15 illustrate the variations of $V$ with respect to the hessence field $\phi$ for the emergent, logamediate, and intermediate scenarios, respectively, with the red, green, and blue lines corresponding to $k=-1, +1, 0$, respectively.
+
+The energy density and pressure of the dilaton dark energy model are defined by the equation $\rho_{d}=-X+3Ce^{\lambda\phi}X^{2}$, where $X=\frac{1}{2}\dot{\phi}^{2}$ represents the kinetic energy of the dilaton scalar field $\phi$, $\lambda$ is the characteristic length that governs the non-gravitational interactions of the dilaton, and $C$ is a positive constant.
+
+We get,
+
+$\bullet{}$ For emergent scenario, we have
+
+$\bullet{}$ For logamediate scenario, we get
+
+$\bullet{}$ For intermediate scenario, we get
+
+The scalar field $\phi$ consistently increases with cosmic time $T_{1}$, regardless of the universe scenario considered, as illustrated in figures 16, 17, and 18, which depict the emergent, logamediate, and intermediate scenarios, respectively.
+
+Fig.16                                                              Fig.17 
+ 
+ Fig.18
+
+Figs. 16-18 illustrate the time evolution of the dilaton field $\phi$ with respect to $T_{1}$ for the emergent, logamediate, and intermediate scenarios. The curves are color-coded to represent different values of $k$: red for $k=-1$, green for $k=+1$, and blue for $k=0$.
+
+Recent studies propose the Yang-Mills field as a viable candidate for describing dark energy, as it offers an advantage over traditional scalar models, which have yet to establish a clear connection to particle physics models and cannot violate the weak energy condition. The effective Yang-Mills Condensate (YMC) dark energy model is based on the effective Yang-Mills field Lagrangian, given by ${\cal{L}}_{{}_{YMC}}=\frac{1}{2}bF(\ln\left|\frac{F}{K^{2}}\right|-1)$, where $K$ is the renormalization scale with the dimension of squared mass, and $F$ serves as the order parameter of the YMC. The value of $F$ is determined by $F=-\frac{1}{2}F^{a}_{\mu\nu}F^{a\mu\nu}=E^{2}-B^{2}$, which reduces to $F=E^{2}$ in the pure electric case, where $B=0$.
+
+From the Lagrangian above, we can derive the energy density and pressure of the YMC in flat FRW spacetime, yielding $\rho_{y}=\frac{1}{2}(y+1)bE^{2}$, where $y$ is defined as
+
+We get,
+
+$\bullet{}$ For emergent scenario, we have
+
+$\bullet{}$ For logamediate scenario, we get
+
+$\bullet{}$ For intermediate scenario, we get
+
+When considering Yang-Mills dark energy, we observe that $E^{2}$ consistently increases with cosmic time $T_{1}$, as illustrated in figures 19, 20, and 21, which correspond to the emergent, logamediate, and intermediate scenarios, respectively.
+
+Fig.19                                                              Fig.20 
+ 
+ Fig.21
+
+Figs. 19-21 illustrate the variations of $E^{2}$ over time $T_{1}$ for the emergent, logamediate, and intermediate scenarios, respectively. The red, green, and blue lines correspond to $k=-1$, $k=+1$, and $k=0$, respectively.
+
+IV.1 Quintessence or Phantom field
+
+Quintessence is described by an ordinary time dependent and homogeneous scalar field $\phi$ which is minimally coupled to gravity, but with a particular potential $V(\phi)$ that leads to the accelerating Universe. The action for quintessence is given by (27) 
+ 
+ $S=\int{\rm d}^{4}x\sqrt{-g}\left[-\frac{1}{2}g^{ij}\partial_{i}\phi\partial_{j}\phi-V(\phi)\right].$ 
+ The energy momentum tensor of the field is: 
+ 
+ $T_{ij}=-\frac{2}{\sqrt{-g}}\frac{\delta S}{\delta g^{ij}},$ 
+ which gives 
+ 
+ $T_{ij}=\partial_{i}\phi\partial_{j}\phi-g_{ij}\left[\frac{1}{2}g^{kl}\partial_{k}\phi\partial_{l}\phi+V(\phi)\right].$ 
+ The energy density and pressure of the quintessence scalar field $\phi$ are as follows 
+ 
+ $\rho_{\phi}=-T^{0}_{0}=\frac{1}{2}\dot{\phi}^{2}+V(\phi),$ 
+ 
+ 
+ $p_{\phi}=T_{i}^{i}=\frac{1}{2}\dot{\phi}^{2}-V(\phi).$ 
+ The EoS parameter for the quintessence scalar field is given by 
+ 
+ $\omega_{\phi}=\frac{p_{\phi}}{\rho_{\phi}}=\frac{\dot{\phi}^{2}-2V(\phi)}{\dot{\phi}^{2}+2V(\phi)}.$ 
+ For $\omega_{\phi}<-1/3$ , we find that the Universe accelerates when $\dot{\phi}^{2}<V(\phi).$
+
+The energy density and pressure of the quintessence (or phantom field) can be described by a minimally coupled, spatially homogeneous, and time-dependent scalar field $\phi$, which has a positive (or negative) kinetic energy term. This is represented by the equations $\rho_{\phi}=\frac{\epsilon}{2}~{}\dot{\phi}^{2}+V(\phi)$ and $p_{\phi}=\frac{\epsilon}{2}~{}\dot{\phi}^{2}-V(\phi)$, where $V(\phi)$ is the potential associated with the scalar field $\phi$. The value of $\epsilon$ distinguishes between quintessence ($\epsilon=+1$) and phantom field ($\epsilon=-1$).
+
+Scalar field models of phantom energy suggest that it can act as a long-range repulsive force. Additionally, phantom energy exhibits several characteristics that distinguish it from normal matter, including an energy density $\rho(t)$ that increases with the expansion of the Universe. This property makes it a potential source for forming and stabilizing traversable wormholes. Furthermore, phantom energy can have profound effects on the Universe, such as disrupting gravitationally bound structures, ranging from galaxies to black holes, and potentially driving an infinite expansion of the Universe in a finite time, ultimately leading to the 'big rip' scenario.
+
+From the above equations, we can derive two key expressions. First, the square of the time derivative of $\phi$ is given by $\dot{\phi}^{2}=-\frac{(1+w_{m})}{\epsilon}\rho_{m}+\frac{1}{4\pi\epsilon G}\left[-\dot{H}+\frac{(\xi-1)}{T_{1}}H+\frac{k}{a^{2}}\right]$ (16). Second, the potential $V$ can be expressed as $V=\frac{(w_{m}-1)}{2}\rho_{m}+\frac{1}{8\pi G}\left[\dot{H}+3H^{2}+\frac{5(\xi-1)}{T_{1}}H+\frac{2k}{a^{2}}\right]$ (17).
+
+For an emergent scenario, the expressions for $\phi$ and $V$ can be derived as follows: $\phi$ is given by the integral of $\sqrt{-\frac{(1+w_{m})\rho_{0}a_{0}^{-3(1+w_{m}+\delta)}}{\epsilon\left(\lambda+e^{\mu T_{1}}\right)^{3n(1+w_{m}+\delta)}}+\frac{1}{4\pi\epsilon G}\left\{-\frac{n\lambda\mu^{2}e^{\mu T_{1}}}{\left(\lambda+e^{\mu T_{1}}\right)^{2}}+\frac{(\xi-1)n\mu e^{\mu T_{1}}}{T_{1}(\lambda+e^{\mu T_{1}})}+\frac{k~{}a_{0}^{-2}}{\left(\lambda+e^{\mu T_{1}}\right)^{2n}}\right\}}$ with respect to $T_{1}$, as shown in equation (18). Meanwhile, $V$ is expressed as $\frac{(w_{m}-1)\rho_{0}a_{0}^{-3(1+w_{m}+\delta)}}{2\left(\lambda+e^{\mu T_{1}}\right)^{3n(1+w_{m}+\delta)}}+\frac{1}{8\pi G}\left\{\frac{n\mu^{2}e^{\mu T_{1}}(\lambda+3ne^{\mu T_{1}})}{\left(\lambda+e^{\mu T_{1}}\right)^{2}}+\frac{5(\xi-1)n\mu e^{\mu T_{1}}}{T_{1}(\lambda+e^{\mu T_{1}})}+\frac{2k~{}a_{0}^{-2}}{\left(\lambda+e^{\mu T_{1}}\right)^{2n}}\right\}$, as given in equation (19).
+
+$\bullet{}$ For logamediate scenario, we get the expressions for $\phi$ and $V$ as 
+ 
+ $\phi=\int\sqrt{-\frac{(1+w_{m})\rho_{0}}{\epsilon}~{}e^{-3A(1+w_{m}+\delta)(\ln T_{1})^{\alpha}}+\frac{1}{4\pi\epsilon G}\left\{\frac{A\alpha}{T_{1}^{2}}(\ln T_{1})^{\alpha-2}(1-\alpha+\xi\ln T_{1})+k~{}e^{-2A(\ln T_{1})^{\alpha}}\right\}}~{}~{}~{}dT_{1}$  (20) 
+ and 
+ 
+ $V=\frac{(w_{m}-1)\rho_{0}}{2}~{}e^{-3A(1+w_{m}+\delta)(\ln T_{1})^{\alpha}}+\frac{1}{8\pi G}\left[\frac{A\alpha}{T_{1}^{2}}(\ln T_{1})^{\alpha-2}\{\alpha-1+(5\xi-6)\ln T_{1}+3A\alpha(\ln T_{1})^{\alpha}\}+2k~{}e^{-2A(\ln T_{1})^{\alpha}}\right].$  (21) 
+
+
+For the intermediate scenario, the expressions for $\phi$ and $V$ are given by the following equations: $\phi=\int\sqrt{-\frac{(1+w_{m})\rho_{0}}{\epsilon}~{}e^{-3B(1+w_{m}+\delta)T_{1}^{\beta}}+\frac{1}{4\pi\epsilon G}\left\{B\beta(\xi-\beta)T_{1}^{\beta-2}+k~{}e^{-2BT_{1}^{\beta}}\right\}}~{}~{}~{}dT_{1}$ and $V=\frac{(w_{m}-1)\rho_{0}}{2}~{}e^{-3B(1+w_{m}+\delta)T_{1}^{\beta}}+\frac{1}{8\pi G}\left[B\beta T_{1}^{\beta-2}(5\xi+\beta+3B\beta T_{1}^{\beta})+2k~{}e^{-2BT_{1}^{\beta}}\right]$.
+
+In figures 1, 2, and 3, we plot the potentials against the scalar fields for quintessence and phantom fields in the emergent, logamediate, and intermediate scenarios of the universe, respectively, within the framework of fractional action cosmology. Figure 1 reveals that, following an initial gradual decay, the potential increases with the scalar field for both quintessence and phantom field models of dark energy in the emergent scenario, regardless of the universe's curvature. In contrast, figure 2 shows a continuous decay in potential $V$ with increasing scalar field $\phi$ in the logamediate scenario. Figure 3 exhibits a different behavior for the intermediate scenario, where the potential $V$ behaves distinctively for quintessence and phantom models: the blue lines indicate a continuous decay in $V$ with increasing $\phi$ for the quintessence model, while the red lines show an increasing pattern of $V$ with $\phi$.
+
+IV.2 Tachyonic field
+
+A rolling tachyon exhibits a unique equation of state, with a state parameter that seamlessly transitions between -1 and 0. This property makes the tachyon a viable candidate for driving inflation at high energies, as well as a potential source of dark energy, depending on the specific form of its potential. Consequently, it is worthwhile to reconstruct the tachyon potential $V(\phi)$ from certain dark energy models. The dynamics of the tachyon scalar $\phi$ can be described by a Born-Infeld-like action.
+
+The action for the tachyon field $\phi$ is given by $\displaystyle S=-\int{d^{4}x}\sqrt{-g}V(\phi)\sqrt{1-g^{ij}\partial_{i}\phi\partial_{j}\phi}$, where $V(\phi)$ represents the tachyon potential. From this action, the components of the energy-momentum tensor for the tachyon scalar field $\phi$ can be derived.
+
+The stress-energy tensor $T_{ij}$ is given by the expression $T_{ij}=V(\phi)\left[\frac{\partial_{i}\phi\partial_{j}\phi}{\sqrt{1-g^{ij}\partial_{i}\phi\partial_{j}\phi}}+g_{ij}\sqrt{1-g^{kl}\partial_{k}\phi\partial_{l}\phi}\right]$ (25)
+
+The energy density $\rho_{\phi}$ and pressure $p_{\phi}$ due to the tachyonic field $\phi$ are given by the expressions $\rho_{\phi} = \frac{V(\phi)}{\sqrt{1-\epsilon{\dot{\phi}}^{2}}}$ and $p_{\phi} = -V(\phi)\sqrt{1-\epsilon{\dot{\phi}}^{2}}$, where $V(\phi)$ is the potential associated with the tachyonic field $\phi$. Notably, the ratio $\frac{p_{\phi}}{\rho_{\phi}}$ simplifies to $-1 + \epsilon\dot{\phi}^{2}$, which is greater than $-1$ for a normal tachyon ($\epsilon=+1$) or less than $-1$ for a phantom tachyon ($\epsilon=-1$).
+
+From above, we get
+
+The equations for $\displaystyle\dot{\phi}^{2}$ and $V$ are given by $\displaystyle\dot{\phi}^{2}=\left[-\frac{(1+w_{m})}{\epsilon}\rho_{m}+\frac{1}{4\pi\epsilon G}\left(-\dot{H}+\frac{(\xi-1)}{T_{1}}H+\frac{k}{a^{2}}\right)\right]\times\left[-\rho_{m}+\frac{3}{8\pi G}\left(H^{2}+\frac{2(\xi-1)}{T_{1}}H+\frac{k}{a^{2}}\right)\right]^{-1}$ and $V=\left[w_{m}\rho_{m}+\frac{1}{8\pi G}\left(2\dot{H}+3H^{2}+\frac{4(\xi-1)}{T_{1}}H+\frac{k}{a^{2}}\right)\right]^{\frac{1}{2}}\times\left[-\rho_{m}+\frac{3}{8\pi G}\left(H^{2}+\frac{2(\xi-1)}{T_{1}}H+\frac{k}{a^{2}}\right)\right]^{\frac{1}{2}}$, as shown in equations (28) and (29), respectively.
+
+For an emergent scenario, the expressions for $\phi$ and $V$ are given by the following equations: 
+$\displaystyle\phi=\int\left[-\frac{(1+w_{m})\rho_{0}a_{0}^{-3(1+w_{m}+\delta)}}{\epsilon\left(\lambda+e^{\mu T_{1}}\right)^{3n(1+w_{m}+\delta)}}+\frac{1}{4\pi\epsilon G}\left\{-\frac{n\lambda\mu^{2}e^{\mu T_{1}}}{\left(\lambda+e^{\mu T_{1}}\right)^{2}}+\frac{(\xi-1)n\mu e^{\mu T_{1}}}{T_{1}(\lambda+e^{\mu T_{1}})}+\frac{k~{}a_{0}^{-2}}{\left(\lambda+e^{\mu T_{1}}\right)^{2n}}\right\}\right]^{\frac{1}{2}} \times\left[-\frac{\rho_{0}a_{0}^{-3(1+w_{m}+\delta)}}{\left(\lambda+e^{\mu T_{1}}\right)^{3n(1+w_{m}+\delta)}}+\frac{3}{8\pi G}\left\{\frac{n^{2}\mu^{2}e^{2\mu T_{1}}}{\left(\lambda+e^{\mu T_{1}}\right)^{2}}+\frac{2(\xi-1)n\mu e^{\mu t}}{T_{1}(\lambda+e^{\mu T_{1}})}+\frac{k~{}a_{0}^{-2}}{\left(\lambda+e^{\mu T_{1}}\right)^{2n}}\right\}\right]^{-\frac{1}{2}}~{}~{}dT_{1}$ 
+and 
+$\displaystyle V=\left[\frac{w_{m}\rho_{0}a_{0}^{-3(1+w_{m}+\delta)}}{\left(\lambda+e^{\mu T_{1}}\right)^{3n(1+w_{m}+\delta)}}+\frac{1}{8\pi G}\left\{\frac{n\mu^{2}e^{\mu T_{1}}(2\lambda+3ne^{\mu T_{1}})}{\left(\lambda+e^{\mu T_{1}}\right)^{2}}+\frac{4(\xi-1)n\mu e^{\mu T_{1}}}{T_{1}(\lambda+e^{\mu T_{1}})}+\frac{k~{}a_{0}^{-2}}{\left(\lambda+e^{\mu T_{1}}\right)^{2n}}\right\}\right]^{\frac{1}{2}} \times\left[-\frac{\rho_{0}a_{0}^{-3(1+w_{m}+\delta)}}{\left(\lambda+e^{\mu T_{1}}\right)^{3n(1+w_{m}+\delta)}}+\frac{3}{8\pi G}\left\{\frac{n^{2}\mu^{2}e^{2\mu T_{1}}}{\left(\lambda+e^{\mu T_{1}}\right)^{2}}+\frac{2(\xi-1)n\mu e^{\mu T_{1}}}{T_{1}(\lambda+e^{\mu T_{1}})}+\frac{k~{}a_{0}^{-2}}{\left(\lambda+e^{\mu T_{1}}\right)^{2n}}\right\}\right]^{\frac{1}{2}}$.
+
+For the logamediate scenario, the expressions for $\phi$ and $V$ are given by $\displaystyle\phi=\int\left[-\frac{(1+w_{m})\rho_{0}}{\epsilon}~{}e^{-3A(1+w_{m}+\delta)(\ln T_{1})^{\alpha}}+\frac{1}{4\pi\epsilon G}\left\{\frac{A\alpha}{T_{1}^{2}}(\ln T_{1})^{\alpha-2}(1-\alpha+\xi\ln T_{1})+k~{}e^{-2A(\ln T_{1})^{\alpha}}\right\}\right]^{\frac{1}{2}} \times\left[-\rho_{0}~{}e^{-3A(1+w_{m}+\delta)(\ln T_{1})^{\alpha}}+\frac{3}{8\pi G}\left\{\frac{A\alpha}{T_{1}^{2}}(\ln T_{1})^{\alpha-1}\{A\alpha(\ln T_{1})^{\alpha-1}+2(\xi-1)\}+k~{}e^{-2A(\ln T_{1})^{\alpha}}\right\}\right]^{-\frac{1}{2}}~{}~{}dT_{1}$ and $\displaystyle V=\left[-\rho_{0}~{}e^{-3A(1+w_{m}+\delta)(\ln T_{1})^{\alpha}}+\frac{3}{8\pi G}\left\{\frac{A\alpha}{T_{1}^{2}}(\ln T_{1})^{\alpha-1}\{A\alpha(\ln T_{1})^{\alpha-1}+2(\xi-1)\}+k~{}e^{-2A(\ln T_{1})^{\alpha}}\right\}\right]^{\frac{1}{2}} \times\left[w_{m}\rho_{0}~{}e^{-3A(1+w_{m}+\delta)(\ln T_{1})^{\alpha}}+\frac{1}{8\pi G}\left\{\frac{A\alpha}{T_{1}^{2}}(\ln T_{1})^{\alpha-2}\{2(\alpha-1)+2(\xi-3)\ln T_{1}+3A\alpha(\ln T_{1})^{\alpha}\}+k~{}e^{-2A(\ln T_{1})^{\alpha}}\right\}\right]^{\frac{1}{2}}$.
+
+For the intermediate scenario, the expressions for $\phi$ and $V$ are given by $\displaystyle\phi=\int\left[-\frac{(1+w_{m})\rho_{0}}{\epsilon}~{}e^{-3B(1+w_{m}+\delta)T_{1}^{\beta}}+\frac{1}{4\pi\epsilon G}\left\{B\beta(\xi-\beta)T_{1}^{\beta-2}+k~{}e^{-2BT_{1}^{\beta}}\right\}\right]^{\frac{1}{2}} \times\left[-\rho_{0}~{}e^{-3B(1+w_{m}+\delta)T_{1}^{\beta}}+\frac{3}{8\pi G}\left\{B\beta T_{1}^{\beta-2}(2(\xi-1)+B\beta T_{1}^{\beta})+k~{}e^{-2BT_{1}^{\beta}}\right\}\right]^{-\frac{1}{2}}~{}~{}dT_{1}$ and $\displaystyle V=\left[-\rho_{0}~{}e^{-3B(1+w_{m}+\delta)T_{1}^{\beta}}+\frac{3}{8\pi G}\left\{B\beta T_{1}^{\beta-2}(2(\xi-1)+B\beta T_{1}^{\beta})+k~{}e^{-2BT_{1}^{\beta}}\right\}\right]^{\frac{1}{2}} \times\left[w_{m}\rho_{0}~{}e^{-3B(1+w_{m}+\delta)T_{1}^{\beta}}+\frac{1}{8\pi G}\left\{B\beta T_{1}^{\beta-2}(2(2\xi+\beta-3)+3B\beta T_{1}^{\beta})+k~{}e^{-2BT_{1}^{\beta}}\right\}\right]^{\frac{1}{2}}$.
+
+The $V$ - $\phi$ plots for normal and phantom tachyon models of dark energy in the emergent scenario are shown in figure 4, where the potential of the normal tachyon exhibits a decaying pattern, whereas the phantom tachyonic field $\phi$ displays an increasing pattern, regardless of the universe's curvature. In contrast, figure 5 illustrates the logamediate scenario, in which the normal tachyon potential increases and the phantom tachyon potential decreases as the scalar field $\phi$ increases. Figure 6 reveals a continuous decay in the potential for the normal tachyonic field in the intermediate scenario. However, the behavior of the potential in this scenario varies with the universe's curvature, characterized by the interacting phantom tachyonic field: for $k=-1,~{}1$, the potential increases with the phantom tachyonic field, while for $k=0$, it initially increases before decaying.
+
+IV.3 k-essence
+
+In the kinetically driven scalar field theory, a non-canonical kinetic energy term is present, but no potential exists. This theory is often modeled using scalars known as k-essence, which were initially motivated by the Born-Infeld action in String Theory as a means to explain the late-time acceleration of the universe. The k-essence model is described by the action $S=\int{d^{4}x}\sqrt{-g}{\tilde{\cal L}}({\tilde{\phi}},{\tilde{X}})$, where ${\tilde{\cal L}}({\tilde{\phi}},{\tilde{X}})=K({\tilde{\phi}}){\tilde{X}}+L({\tilde{\phi}}){\tilde{X}}^{2}$, with ${\tilde{X}}=\frac{1}{2}g^{ij}\partial_{i}{\tilde{\phi}}\partial_{j}{\tilde{\phi}}$. By applying the transformations $\phi=\int{d{\tilde{\phi}}}\sqrt{|L({\tilde{\phi}})|/K({\tilde{\phi}})}$, $X=\frac{|L|}{K}{\tilde{X}}$, and $V(\phi)=K^{2}/|L|$, the action can be rewritten as $S=\int{d^{4}x}\sqrt{-g}V(\phi){\cal L}(X)$, with ${\cal L}(X)=X-X^{2}$, providing a simplified form of the k-essence model.
+
+The energy-momentum tensor components can be derived from the action and expressed as $T_{ij}=V(\phi)\Big{[}\frac{d{\cal L}}{dX}\partial_{i}\phi\partial_{j}\phi-g_{ij}{\cal L}\Big{]}$. For a k-essence scalar field $\phi$, the energy density and pressure are given by $\rho_{k}=V(\phi)(-X+3X^{2})$ and $p_{k}=V(\phi)(-X+X^{2})$, where $X=\frac{1}{2}\dot{\phi}^{2}$ represents the kinetic energy of the scalar field $\phi$, and $V(\phi)$ is the corresponding k-essence potential.
+
+From above, we get
+
+The equations for $\displaystyle\dot{\phi}^{2}$ and $V$ are given by $\displaystyle\dot{\phi}^{2}=\left[2(w_{m}-1)\rho_{m}+\frac{1}{2\pi G}\left(\dot{H}+3H^{2}+\frac{5(\xi-1)}{T_{1}}H+\frac{2k}{a^{2}}\right)\right]\times\left[(3w_{m}-1)\rho_{m}+\frac{3}{4\pi G}\left(\dot{H}+2H^{2}+\frac{3(\xi-1)}{T_{1}}H+\frac{k}{a^{2}}\right)\right]^{-1}$ and $V=\left[(3w_{m}-1)\rho_{m}+\frac{3}{4\pi G}\left(\dot{H}+2H^{2}+\frac{3(\xi-1)}{T_{1}}H+\frac{k}{a^{2}}\right)\right]^{2}\times\left[2(w_{m}-1)\rho_{m}+\frac{1}{2\pi G}\left(\dot{H}+3H^{2}+\frac{5(\xi-1)}{T_{1}}H+\frac{2k}{a^{2}}\right)\right]^{-1}$, as shown in equations (44) and (45), respectively.
+
+$\bullet{}$ For emergent scenario, we have
+
+The expressions for $\phi$ and $V$ are given by the integrals and equations:
+$\phi=\int\left[\frac{2(w_{m}-1)\rho_{0}a_{0}^{-3(1+w_{m}+\delta)}}{\left(\lambda+e^{\mu T_{1}}\right)^{3n(1+w_{m}+\delta)}}+\frac{1}{2\pi G}\left\{\frac{n\mu^{2}e^{\mu T_{1}}(\lambda+3ne^{\mu T_{1}})}{\left(\lambda+e^{\mu T_{1}}\right)^{2}}+\frac{5(\xi-1)n\mu e^{\mu T_{1}}}{T_{1}(\lambda+e^{\mu T_{1}})}+\frac{2k~{}a_{0}^{-2}}{\left(\lambda+e^{\mu T_{1}}\right)^{2n}}\right\}\right]^{\frac{1}{2}} \times\left[\frac{(3w_{m}-1)\rho_{0}a_{0}^{-3(1+w_{m}+\delta)}}{\left(\lambda+e^{\mu T_{1}}\right)^{3n(1+w_{m}+\delta)}}+\frac{3}{4\pi G}\left\{\frac{n\mu^{2}e^{\mu T_{1}}(\lambda+2ne^{\mu T_{1}})}{\left(\lambda+e^{\mu T_{1}}\right)^{2}}+\frac{3(\xi-1)n\mu e^{\mu T_{1}}}{T_{1}(\lambda+e^{\mu T_{1}})}+\frac{k~{}a_{0}^{-2}}{\left(\lambda+e^{\mu T_{1}}\right)^{2n}}\right\}\right]^{-\frac{1}{2}}~{}dt$ and $V=\left[\frac{(3w_{m}-1)\rho_{0}a_{0}^{-3(1+w_{m}+\delta)}}{\left(\lambda+e^{\mu T_{1}}\right)^{3n(1+w_{m}+\delta)}}+\frac{3}{4\pi G}\left\{\frac{n\mu^{2}e^{\mu T_{1}}(\lambda+2ne^{\mu T_{1}})}{\left(\lambda+e^{\mu T_{1}}\right)^{2}}+\frac{3(\xi-1)n\mu e^{\mu T_{1}}}{T_{1}(\lambda+e^{\mu T_{1}})}+\frac{k~{}a_{0}^{-2}}{\left(\lambda+e^{\mu T_{1}}\right)^{2n}}\right\}\right]^{2} \times\left[\frac{2(w_{m}-1)\rho_{0}a_{0}^{-3(1+w_{m}+\delta)}}{\left(\lambda+e^{\mu T_{1}}\right)^{3n(1+w_{m}+\delta)}}+\frac{1}{2\pi G}\left\{\frac{n\mu^{2}e^{\mu T_{1}}(\lambda+3ne^{\mu T_{1}})}{\left(\lambda+e^{\mu T_{1}}\right)^{2}}+\frac{5(\xi-1)n\mu e^{\mu T_{1}}}{T_{1}(\lambda+e^{\mu T_{1}})}+\frac{2k~{}a_{0}^{-2}}{\left(\lambda+e^{\mu T_{1}}\right)^{2n}}\right\}\right]^{-1}$
+
+$\bullet{}$ For logamediate scenario, we get the expressions for $\phi$ and $V$ as
+
+The equations for $\phi$ and $V$ are given by $\displaystyle\phi=\int\left[2(w_{m}-1)\rho_{0}~{}e^{-3A(1+w_{m}+\delta)(\ln T_{1})^{\alpha}}+\frac{1}{2\pi G}\left\{\frac{A\alpha}{T_{1}^{2}}(\ln T_{1})^{\alpha-2}(\alpha-1+(5\xi-6)\ln T_{1}+3A\alpha(\ln T_{1})^{\alpha})+2k~{}e^{-2A(\ln T_{1})^{\alpha}}\right\}\right]^{\frac{1}{2}} \times\left[(3w_{m}-1)\rho_{0}~{}e^{-3A(1+w_{m}+\delta)(\ln T_{1})^{\alpha}}+\frac{3}{4\pi G}\left\{\frac{A\alpha}{T_{1}^{2}}(\ln T_{1})^{\alpha-2}(\alpha-1+(3\xi-4)\ln T_{1}+2A\alpha(\ln T_{1})^{\alpha})+k~{}e^{-2A(\ln T_{1})^{\alpha}}\right\}\right]^{-\frac{1}{2}}~{}~{}dT_{1}$ and $\displaystyle V=\left[(3w_{m}-1)\rho_{0}~{}e^{-3A(1+w_{m}+\delta)(\ln T_{1})^{\alpha}}+\frac{3}{4\pi G}\left\{\frac{A\alpha}{T_{1}^{2}}(\ln T_{1})^{\alpha-2}(\alpha-1+(3\xi-4)\ln T_{1}+2A\alpha(\ln T_{1})^{\alpha})+k~{}e^{-2A(\ln T_{1})^{\alpha}}\right\}\right]^{2} \times\left[2(w_{m}-1)\rho_{0}~{}e^{-3A(1+w_{m}+\delta)(\ln T_{1})^{\alpha}}+\frac{1}{2\pi G}\left\{\frac{A\alpha}{T_{1}^{2}}(\ln T_{1})^{\alpha-2}(\alpha-1+(5\xi-6)\ln T_{1}+3A\alpha(\ln T_{1})^{\alpha})+2k~{}e^{-2A(\ln T_{1})^{\alpha}}\right\}\right]^{-1}$, respectively.
+
+$\bullet{}$ For intermediate scenario, we get the expressions for $\phi$ and $V$ as
+
+The expressions for $\phi$ and $V$ are given by the integrals and equations $\phi=\int\left[2(w_{m}-1)\rho_{0}~{}e^{-3B(1+w_{m}+\delta)T_{1}^{\beta}}+\frac{1}{2\pi G}\left\{B\beta(5\xi+\beta-6+3B\beta T_{1}^{\beta})T_{1}^{\beta-2}+2k~{}e^{-2BT_{1}^{\beta}}\right\}\right]^{\frac{1}{2}} \times\left[(3w_{m}-1)\rho_{0}~{}e^{-3B(1+w_{m}+\delta)T_{1}^{\beta}}+\frac{3}{4\pi G}\left\{B\beta(3\xi+\beta-4+2B\beta T_{1}^{\beta})T_{1}^{\beta-2}+k~{}e^{-2BT_{1}^{\beta}}\right\}\right]^{-\frac{1}{2}}~{}~{}dT_{1}$ and $V=\left[(3w_{m}-1)\rho_{0}~{}e^{-3B(1+w_{m}+\delta)T_{1}^{\beta}}+\frac{3}{4\pi G}\left\{B\beta(3\xi+\beta-4+2B\beta T_{1}^{\beta})T_{1}^{\beta-2}+k~{}e^{-2BT_{1}^{\beta}}\right\}\right]^{2} \times\left[2(w_{m}-1)\rho_{0}~{}e^{-3B(1+w_{m}+\delta)T_{1}^{\beta}}+\frac{1}{2\pi G}\left\{B\beta(5\xi+\beta-6+3B\beta T_{1}^{\beta})T_{1}^{\beta-2}+2k~{}e^{-2BT_{1}^{\beta}}\right\}\right]^{-1}$, respectively.
+
+According to figures 7, 8, and 9, the potential $V$ consistently decreases as the scalar field $\phi$ increases, a trend that holds true across all three scenarios and for universes with open, closed, and flat geometries.
+
+IV.4 DBI-essence
+
+When considering the dark energy scalar field as a Dirac-Born-Infeld (DBI) scalar field, the action of the field can be expressed as $S_{D}=-\int d^{4}xa^{3}(t)\left[T(\phi)\sqrt{1-\frac{\dot{\phi^{2}}}{T(\phi)}}+V(\phi)-T(\phi)\right]$, where $T(\phi)$ represents the warped brane tension and $V(\phi)$ is the DBI potential. The energy density and pressure of the DBI-essence scalar field are given by $\rho_{D}=(\gamma-1)T(\phi)+V(\phi)$ and $p_{D}=\frac{\gamma-1}{\gamma}T(\phi)-V(\phi)$, respectively, with $\gamma=\frac{1}{\sqrt{1-\frac{\dot{\phi}^{2}}{T(\phi)}}}$, providing a clear definition of the key components involved in the DBI scalar field action.
+
+We now examine the specific case where $\gamma$ is constant. To simplify the analysis, we assume $T(\phi)$ takes the form $T_{0}\dot{\phi}^{2}$, where $T_{0} > 1$. This yields $\gamma = \sqrt{\frac{T_{0}}{T_{0}-1}}$. Under these conditions, the expressions for $\phi$, $T(\phi)$, and $V(\phi)$ are given by
+
+The equations governing the system are given by $\dot{\phi}^{2}=\sqrt{\frac{T_{0}-1}{T_{0}}}\left[-(1+w_{m})\rho_{m}+\frac{1}{4\pi G}\left(-\dot{H}+\frac{\xi-1}{T_{1}}H+\frac{k}{a^{2}}\right)\right]$ and $T=\sqrt{T_{0}(T_{0}-1)}\left[-(1+w_{m})\rho_{m}+\frac{1}{4\pi G}\left(-\dot{H}+\frac{\xi-1}{T_{1}}H+\frac{k}{a^{2}}\right)\right]$, with the potential $V$ expressed as $V=\left[\left(T_{0}-\sqrt{T_{0}(T_{0}-1)}\right)(1+w_{m})-w_{m}\right]\rho_{m}-\frac{1}{8\pi G}\left[\left(1-T_{0}+\sqrt{T_{0}(T_{0}-1)}\right)\dot{H}+3H^{2}+2\left(T_{0}-\sqrt{T_{0}(T_{0}-1)}+2\right)\frac{\xi-1}{T_{1}}H+\left(2T_{0}-2\sqrt{T_{0}(T_{0}-1)}+1\right)\frac{k}{a^{2}}\right]$.
+
+$\bullet{}$ For emergent scenario, we get the expressions for $\phi$ , $T$ and $V$ as
+
+The expression for $\phi$ is given by $\phi=\left(\frac{T_{0}-1}{T_{0}}\right)^{\frac{1}{4}}\int\left[-\frac{(1+w_{m})\rho_{0}a_{0}^{-3(1+w_{m}+\delta)}}{\left(\lambda+e^{\mu T_{1}}\right)^{3n(1+w_{m}+\delta)}}+\frac{1}{4\pi G}\left\{-\frac{n\lambda\mu^{2}e^{\mu T_{1}}}{\left(\lambda+e^{\mu T_{1}}\right)^{2}}+\frac{(\xi-1)n\mu e^{\mu T_{1}}}{T_{1}(\lambda+e^{\mu T_{1}})}+\frac{k~{}a_{0}^{-2}}{\left(\lambda+e^{\mu T_{1}}\right)^{2n}}\right\}\right]^{\frac{1}{2}}dT_{1}$, which can be rewritten as $\phi=\left(\frac{T_{0}-1}{T_{0}}\right)^{\frac{1}{4}}\int\left[\frac{1}{4\pi G}\left\{-\frac{n\lambda\mu^{2}e^{\mu T_{1}}}{\left(\lambda+e^{\mu T_{1}}\right)^{2}}+\frac{(\xi-1)n\mu e^{\mu T_{1}}}{T_{1}(\lambda+e^{\mu T_{1}})}+\frac{k~{}a_{0}^{-2}}{\left(\lambda+e^{\mu T_{1}}\right)^{2n}}\right\}-\frac{(1+w_{m})\rho_{0}a_{0}^{-3(1+w_{m}+\delta)}}{\left(\lambda+e^{\mu T_{1}}\right)^{3n(1+w_{m}+\delta)}}\right]^{\frac{1}{2}}dT_{1}$ for clarity.
+
+The equations for $T$ and $V$ are given by $T=\sqrt{T_{0}(T_{0}-1)}\left[-\frac{(1+w_{m})\rho_{0}a_{0}^{-3(1+w_{m}+\delta)}}{\left(\lambda+e^{\mu T_{1}}\right)^{3n(1+w_{m}+\delta)}}+\frac{1}{4\pi G}\left\{-\frac{n\lambda\mu^{2}e^{\mu T_{1}}}{\left(\lambda+e^{\mu T_{1}}\right)^{2}}+\frac{(\xi-1)n\mu e^{\mu t}}{T_{1}(\lambda+e^{\mu T_{1}})}+\frac{k~{}a_{0}^{-2}}{\left(\lambda+e^{\mu T_{1}}\right)^{2n}}\right\}\right]$ and $V=\left[\left(T_{0}-\sqrt{T_{0}(T_{0}-1)}\right)(1+w_{m})-w_{m}\right]\frac{\rho_{0}a_{0}^{-3(1+w_{m}+\delta)}}{\left(\lambda+e^{\mu T_{1}}\right)^{3n(1+w_{m}+\delta)}}-\frac{1}{8\pi G}\left[\left(1-T_{0}+\sqrt{T_{0}(T_{0}-1)}\right)\frac{n\lambda\mu^{2}e^{\mu T_{1}}}{\left(\lambda+e^{\mu T_{1}}\right)^{2}}+\frac{3n^{2}\mu^{2}e^{2\mu T_{1}}}{\left(\lambda+e^{\mu T_{1}}\right)^{2}}+2\left(T_{0}-\sqrt{T_{0}(T_{0}-1)}+2\right)\frac{(\xi-1)}{T_{1}}\frac{n\mu e^{\mu T_{1}}}{\left(\lambda+e^{\mu T_{1}}\right)}+\left(2T_{0}-2\sqrt{T_{0}(T_{0}-1)}+1\right)\frac{k~{}a_{0}^{-2}}{\left(\lambda+e^{\mu T_{1}}\right)^{2n}}\right]$.
+
+$\bullet{}$ For logamediate scenario, we get the expressions for $\phi$ , $T$ and $V$ as
+
+The expression for $\phi$ is given by $\phi=\left(\frac{T_{0}-1}{T_{0}}\right)^{\frac{1}{4}}\int\left[-(1+w_{m})\rho_{0}~{}e^{-3A(1+w_{m}+\delta)(\ln T_{1})^{\alpha}}+\frac{1}{4\pi G}\left\{\frac{A\alpha}{T_{1}^{2}}(\ln T_{1})^{\alpha-2}(1-\alpha+\xi\ln T_{1})+k~{}e^{-2A(\ln T_{1})^{\alpha}}\right\}\right]^{\frac{1}{2}}dT_{1}$, as shown in equation (62).
+
+The equations for $T$ and $V$ are given by $T=\sqrt{T_{0}(T_{0}-1)}\left[-(1+w_{m})\rho_{0}~{}e^{-3A(1+w_{m}+\delta)(\ln T_{1})^{\alpha}}+\frac{1}{4\pi G}\left\{\frac{A\alpha}{T_{1}^{2}}(\ln T_{1})^{\alpha-2}(1-\alpha+\xi\ln T_{1})+k~{}e^{-2A(\ln T_{1})^{\alpha}}\right\}\right]$ and $V=\left[\left(T_{0}-\sqrt{T_{0}(T_{0}-1)}\right)(1+w_{m})-w_{m}\right]\rho_{0}~{}e^{-3A(1+w_{m}+\delta)(\ln T_{1})^{\alpha}}-\frac{1}{8\pi G}\left[2\left(T_{0}-\sqrt{T_{0}(T_{0}-1)}+2\right)\frac{(\xi-1)A\alpha}{T_{1}^{2}}(\ln T_{1})^{\alpha-1}+\frac{3A^{2}\alpha^{2}}{T_{1}^{2}}(\ln T_{1})^{2\alpha-2}+\left(1-T_{0}+\sqrt{T_{0}(T_{0}-1)}\right)\frac{A\alpha}{T_{1}^{2}}(\ln T_{1})^{\alpha-2}(\alpha-1-\ln T_{1})+\left(2T_{0}-2\sqrt{T_{0}(T_{0}-1)}+1\right)k~{}e^{-2A(\ln T_{1})^{\alpha}}\right]$.
+
+$\bullet{}$ For intermediate scenario, we get the expressions for $\phi$ , $T$ and $V$ as
+
+The parameter $\phi$ is given by the integral $\phi=\left(\frac{T_{0}-1}{T_{0}}\right)^{\frac{1}{4}}\int\left[-(1+w_{m})\rho_{0}~{}e^{-3B(1+w_{m}+\delta)T_{1}^{\beta}}+\frac{1}{4\pi G}\left\{B\beta(\xi-\beta)T_{1}^{\beta-2}+k~{}e^{-2BT_{1}^{\beta}}\right\}\right]^{\frac{1}{2}}dT_{1}$, as expressed in equation (65).
+
+The equations for $T$ and $V$ are given by $T=\sqrt{T_{0}(T_{0}-1)}\left[-(1+w_{m})\rho_{0}~{}e^{-3B(1+w_{m}+\delta)T_{1}^{\beta}}+\frac{1}{4\pi G}\left\{B\beta(\xi-\beta)T_{1}^{\beta-2}+k~{}e^{-2BT_{1}^{\beta}}\right\}\right]$ and $V=\left[\left(T_{0}-\sqrt{T_{0}(T_{0}-1)}\right)(1+w_{m})-w_{m}\right]\rho_{0}~{}e^{-3B(1+w_{m}+\delta)T_{1}^{\beta}}-\frac{1}{8\pi G}\left[\left(1-T_{0}+\sqrt{T_{0}(T_{0}-1)}\right)B\beta(\beta-1)T_{1}^{\beta-2}+3B^{2}\beta^{2}T_{1}^{2\beta-2}+2\left(T_{0}-\sqrt{T_{0}(T_{0}-1)}+2\right)\frac{(\xi-1)}{T_{1}}B\beta T_{1}^{\beta-1}+\left(2T_{0}-2\sqrt{T_{0}(T_{0}-1)}+1\right)k~{}e^{-2BT_{1}^{\beta}}\right]$.
+
+In the context of interacting DBI-essence dark energy, the $V$ - $\phi$ plot exhibits a decaying pattern for both emergent and intermediate scenarios, as shown in figures 10 and 12. In contrast, figure 11 reveals an increasing $V$ - $\phi$ plot for the logamediate scenario under the same interacting DBI-essence dark energy model.
+
+IV.5 Hessence
+
+Wei et al. (32) introduced a novel non-canonical complex scalar field, dubbed "hessence," which behaves like quintom. In the hessence model, the internal motion, characterized by $\dot{\theta}$, where $\theta$ is the internal degree of freedom of hessence, exhibits phantom-like behavior, allowing for phantom divide transitions. The hessence Lagrangian density is given by ${\cal L}_{h}=\frac{1}{2}[(\partial_{\mu}\phi)^{2}-\phi^{2}(\partial_{\mu}\theta)^{2}]-V(\phi)$ (68). The pressure and energy density of the hessence model are expressed as $p_{h}=\frac{1}{2}(\dot{\phi}^{2}-\phi^{2}\dot{\theta}^{2})-V(\phi)$ (69) and $\rho_{h}=\frac{1}{2}(\dot{\phi}^{2}-\phi^{2}\dot{\theta}^{2})+V(\phi)$ (70), respectively, with the constraint $Q=a^{3}\phi^{2}\dot{\theta}=\text{constant}$ (71).
+
+The total conserved charge is denoted by $Q$, while $\phi$ represents the hessence scalar field, and $V$ is its corresponding potential.
+
+From above we get,
+
+The equations of motion for the scalar field and potential are given by two key expressions. The first, which describes the evolution of the scalar field, is $\dot{\phi}^{2}-\frac{Q^{2}}{a^{6}\phi^{2}}=-(1+w_{m})\rho_{m}+\frac{1}{4\pi G}\left(-\dot{H}+\frac{\xi-1}{T_{1}}H+\frac{k}{a^{2}}\right)$, while the second, representing the potential, is $V=\frac{1}{2}(w_{m}-1)\rho_{m}+\frac{1}{8\pi G}\left(\dot{H}+3H^{2}+\frac{5(\xi-1)}{T_{1}}H+\frac{2k}{a^{2}}\right)$.
+
+For an emergent scenario, the expressions for $\phi$ and $V$ are given by two equations. The first equation is $\dot{\phi}^{2}-\frac{Q^{2}}{a_{0}^{6}\left(\lambda+e^{\mu T_{1}}\right)^{6n}\phi^{2}}=-\frac{(1+w_{m})\rho_{0}a_{0}^{-3(1+w_{m}+\delta)}}{\left(\lambda+e^{\mu T_{1}}\right)^{3n(1+w_{m}+\delta)}}+\frac{1}{4\pi G}\left\{-\frac{n\lambda\mu^{2}e^{\mu T_{1}}}{\left(\lambda+e^{\mu T_{1}}\right)^{2}}+\frac{(\xi-1)n\mu e^{\mu t}}{T_{1}(\lambda+e^{\mu T_{1}})}+\frac{k~{}a_{0}^{-2}}{\left(\lambda+e^{\mu T_{1}}\right)^{2n}}\right\}$. The second equation is $V=\frac{(w_{m}-1)\rho_{0}a_{0}^{-3(1+w_{m}+\delta)}}{2\left(\lambda+e^{\mu T_{1}}\right)^{3n(1+w_{m}+\delta)}}+\frac{1}{8\pi G}\left\{\frac{n\mu^{2}e^{\mu T_{1}}(\lambda+3ne^{\mu T_{1}})}{\left(\lambda+e^{\mu T_{1}}\right)^{2}}+\frac{5(\xi-1)n\mu e^{\mu T_{1}}}{T_{1}(\lambda+e^{\mu T_{1}})}+\frac{2k~{}a_{0}^{-2}}{\left(\lambda+e^{\mu T_{1}}\right)^{2n}}\right\}$.
+
+For the logamediate scenario, the expressions for $\phi$ and $V$ are given by two equations. The first equation is $\dot{\phi}^{2}-\frac{Q^{2}e^{-6A(\ln T_{1})^{\alpha}}}{\phi^{2}}=-(1+w_{m})\rho_{0}~{}e^{-3A(1+w_{m}+\delta)(\ln T_{1})^{\alpha}}+\frac{1}{4\pi G}\left\{\frac{A\alpha}{T_{1}^{2}}(\ln T_{1})^{\alpha-2}(1-\alpha+\xi\ln T_{1})+k~{}e^{-2A(\ln T_{1})^{\alpha}}\right\}$, and the second equation is $V=\frac{(w_{m}-1)\rho_{0}}{2}~{}e^{-3A(1+w_{m}+\delta)(\ln T_{1})^{\alpha}}+\frac{1}{8\pi G}\left[\frac{A\alpha}{T_{1}^{2}}(\ln T_{1})^{\alpha-2}\{\alpha-1+(5\xi-6)\ln T_{1}+3A\alpha(\ln T_{1})^{\alpha}\}+2k~{}e^{-2A(\ln T_{1})^{\alpha}}\right]$.
+
+For the intermediate scenario, the expressions for $\phi$ and $V$ are given by two equations: $\dot{\phi}^{2}-\frac{Q^{2}e^{-6BT_{1}^{\beta}}}{\phi^{2}}=-(1+w_{m})\rho_{0}~{}e^{-3B(1+w_{m}+\delta)T_{1}^{\beta}}+\frac{1}{4\pi G}\left\{B\beta(\xi-\beta)T_{1}^{\beta-2}+k~{}e^{-2BT_{1}^{\beta}}\right\}$ and $V=\frac{(w_{m}-1)\rho_{0}}{2}~{}e^{-3B(1+w_{m}+\delta)T_{1}^{\beta}}+\frac{1}{8\pi G}\left[B\beta T_{1}^{\beta-2}(5\xi+\beta+3B\beta T_{1}^{\beta})+2k~{}e^{-2BT_{1}^{\beta}}\right]$.
+
+Figure 13 illustrates that the potential for interacting hessence dark energy increases with the scalar field, whereas figures 14 and 15 demonstrate a decay in the potential with the scalar field. This indicates that the potential for interacting hessence dark energy exhibits distinct behaviors in different scenarios: it increases in the emergent universe, but decays in both the logamediate and intermediate scenarios.
+
+IV.6 Dilaton Field
+
+The energy density and pressure of the dilaton dark energy model are defined by the equations $\rho_{d}=-X+3Ce^{\lambda\phi}X^{2}$ and $p_{d}=-X+Ce^{\lambda\phi}X^{2}$. In these equations, $\phi$ represents the dilaton scalar field, with $X=\frac{1}{2}\dot{\phi}^{2}$ denoting its kinetic energy. The parameters $\lambda$ and $C$ are key components, where $\lambda$ is the characteristic length that governs non-gravitational interactions of the dilaton, and $C$ is a positive constant.
+
+We get,
+
+The scalar field $\phi$ can be expressed as the integral of the square root of the sum of two terms, given by $\phi=\int\left[\frac{1}{2}(3w_{m}-1)\rho_{m}+\frac{3}{8\pi G}\left(\dot{H}+2H^{2}+\frac{3(\xi-1)}{T_{1}}H+\frac{k}{a^{2}}\right)\right]^{\frac{1}{2}}dT_{1}$, as shown in equation (82).
+
+$\bullet{}$ For emergent scenario, we have
+
+The parameter $\phi$ is given by the integral $\phi=\int\left[\frac{(3w_{m}-1)\rho_{0}a_{0}^{-3(1+w_{m}+\delta)}}{2\left(\lambda+e^{\mu T_{1}}\right)^{3n(1+w_{m}+\delta)}}+\frac{3}{8\pi G}\left(\frac{n\mu^{2}e^{\mu T_{1}}(\lambda+2ne^{\mu T_{1}})}{\left(\lambda+e^{\mu T_{1}}\right)^{2}}+\frac{3(\xi-1)n\mu e^{\mu T_{1}}}{T_{1}(\lambda+e^{\mu T_{1}})}+\frac{k~{}a_{0}^{-2}}{\left(\lambda+e^{\mu T_{1}}\right)^{2n}}\right)\right]^{\frac{1}{2}}dT_{1}$, which can be simplified as equation (83).
+
+For the logamediate scenario, the expression for $\phi$ is given by the integral $\displaystyle\phi=\int\left[\frac{3}{8\pi G}\left\{\frac{A\alpha}{T_{1}^{2}}(\ln T_{1})^{\alpha-2}(\alpha-1+(3\xi-4)\ln T_{1}+2A\alpha(\ln T_{1})^{\alpha})+k~{}e^{-2A(\ln T_{1})^{\alpha}}+\frac{1}{2}(3w_{m}-1)\rho_{0}~{}e^{-3A(1+w_{m}+\delta)(\ln T_{1})^{\alpha}}\right\}\right]^{\frac{1}{2}}dT_{1}$
+
+$\bullet{}$ For intermediate scenario, we get
+
+The integral expression for $\phi$ is given by $\phi=\int\left[\frac{1}{2}(3w_{m}-1)\rho_{0}~{}e^{-3B(1+w_{m}+\delta)T_{1}^{\beta}}+\frac{3}{8\pi G}\left\{B\beta(3\xi+\beta-4+2B\beta T_{1}^{\beta})T_{1}^{\beta-2}+k~{}e^{-2BT_{1}^{\beta}}\right\}\right]^{\frac{1}{2}}dT_{1}$, as shown in equation (85).
+
+The scalar field $\phi$ consistently increases with cosmic time $T_{1}$, regardless of the universe scenario considered, as illustrated in figures 16, 17, and 18, which depict the emergent, logamediate, and intermediate scenarios, respectively.
+
+IV.7 Yangs-Mills Dark Energy
+
+Recent studies propose the Yang-Mills field as a promising candidate for describing dark energy, as it overcomes limitations of traditional scalar models, which have unclear connections to particle physics models and cannot violate the weak energy condition. The effective Yang-Mills Condensate (YMC) dark energy model is based on the effective Yang-Mills field Lagrangian, given by ${\cal{L}}_{{}_{YMC}}=\frac{1}{2}bF(\ln\left|\frac{F}{K^{2}}\right|-1)$, where $K$ is the renormalization scale with dimension of squared mass. In this model, $F$ serves as the order parameter of the YMC, defined as $F=-\frac{1}{2}F^{a}_{\mu\nu}F^{a\mu\nu}=E^{2}-B^{2}$. For the pure electric case, where $B=0$, $F$ simplifies to $E^{2}$.
+
+From the above Lagrangian, we can derive the energy density and pressure of the YMC in the flat FRW spacetime. The energy density $\rho_{y}$ and pressure $p_{y}$ are given by $\rho_{y}=\frac{1}{2}(y+1)bE^{2}$ and $p_{y}=\frac{1}{6}(y-3)bE^{2}$, respectively, where $y$ is defined as $y=\ln\left|\frac{E^{2}}{K^{2}}\right|$.
+
+We get,
+
+The equation for $E^{2}$ is given by $E^{2}=\left[\frac{1}{2b}(3w_{m}-1)\rho_{m}+\frac{3}{8\pi Gb}\left(\dot{H}+2H^{2}+\frac{3(\xi-1)}{T_{1}}H+\frac{k}{a^{2}}\right)\right]$ (Equation 90).
+
+$\bullet{}$ For emergent scenario, we have
+
+The equation for $E^{2}$ is given by $E^{2}=\left[\frac{(3w_{m}-1)\rho_{0}a_{0}^{-3(1+w_{m}+\delta)}}{2b\left(\lambda+e^{\mu T_{1}}\right)^{3n(1+w_{m}+\delta)}}+\frac{3}{8\pi bG}\left\{\frac{n\mu^{2}e^{\mu T_{1}}(\lambda+2ne^{\mu T_{1}})}{\left(\lambda+e^{\mu T_{1}}\right)^{2}}+\frac{3(\xi-1)n\mu e^{\mu T_{1}}}{T_{1}(\lambda+e^{\mu T_{1}})}+\frac{k~{}a_{0}^{-2}}{\left(\lambda+e^{\mu T_{1}}\right)^{2n}}\right\}\right]$ as shown in equation (91).
+
+For the logamediate scenario, the equation for $E^2$ is given by $\displaystyle E^{2}=\left[\frac{3}{8\pi bG}\left\{\frac{A\alpha}{T_{1}^{2}}(\ln T_{1})^{\alpha-2}(\alpha-1+(3\xi-4)\ln T_{1}+2A\alpha(\ln T_{1})^{\alpha})+k~{}e^{-2A(\ln T_{1})^{\alpha}}+\frac{1}{2b}(3w_{m}-1)\rho_{0}~{}e^{-3A(1+w_{m}+\delta)(\ln T_{1})^{\alpha}}\right\}\right]$.
+
+$\bullet{}$ For intermediate scenario, we get
+
+The equation for $E^{2}$ is given by $E^{2}=\left[\frac{1}{2b}(3w_{m}-1)\rho_{0}~{}e^{-3B(1+w_{m}+\delta)T_{1}^{\beta}}+\frac{3}{8\pi bG}\left\{B\beta(3\xi+\beta-4+2B\beta T_{1}^{\beta})T_{1}^{\beta-2}+k~{}e^{-2BT_{1}^{\beta}}\right\}\right]$ as shown in equation (93).
+
+When considering Yang-Mills dark energy, we observe that $E^{2}$ consistently increases with cosmic time $T_{1}$, as illustrated in figures 19, 20, and 21, which depict the emergent, logamediate, and intermediate scenarios, respectively.
+
+V Conclusion
+
+This paper explores the reconstruction of scalar fields and their potentials within the framework of Fractional Action Cosmology, a newly developed model introduced by Rami. We focus on eight distinct field models - quintessence, phantom, tachyonic, k-essence, DBI-essence, Hessence, dilaton field, and Yang-Mills field - which interact with matter and represent various approaches to modeling variable dark energy, characterized by its changing density and pressure. Each field model has its own set of advantages and disadvantages. To reconstruct the field potential, we solve the Friedmann equations in the context of the Fractional Action Cosmology model, using the standard energy densities and pressures of the fields. For clarity, we derive explicit time-dependent expressions for these complex equations and visualize the results in several figures throughout the paper.
+
+We have chosen the following parameter values for plotting figures in various scenarios: for the emergent scenario, $\xi=.6$, $n=4$, $\lambda=8$, $\mu=.4$, $a_{0}=.7$, and $G=1$ (applicable to all DE models); for the logamediate scenario, $\xi=.6$, $\alpha=3$, $A=5$, and $G=1$; and for the intermediate scenario, $\xi=.6$, $\beta=.4$, $B=2$, and $G=1$. Additionally, $\delta=.05$ and $w_{m}=.01$ in all cases. Figures 1-3 illustrate the variation of $V$ with $\phi$ for the emergent, logamediate, and intermediate scenarios, respectively, for both phantom and quintessence fields. Notably, the potential function decreases with the field in the first two scenarios for quintessence fields, while it remains nearly constant; in contrast, the potential increases with different field values for phantom fields. Figures 4-6 display the $V$-$\phi$ variations for the tachyonic field in the emergent, logamediate, and intermediate scenarios. Specifically, figure 4 presents the $V$-$\phi$ plot for normal and phantom tachyon models of dark energy in the emergent scenario, where the potential of normal tachyon exhibits a decaying pattern, whereas it shows an increasing pattern for the phantom tachyonic field $\phi$, regardless of the universe's curvature. In the logamediate scenario (figure 5), the potentials for normal and phantom tachyons exhibit increasing and decreasing behaviors, respectively, as the scalar field $\phi$ increases. Figure 6 shows a continuous decay in the potential for the normal tachyonic field in the intermediate scenario; however, the potential's behavior varies with the universe's curvature, characterized by the interacting phantom tachyonic field, such that for $k=-1,~{}1$, the potential increases with the phantom tachyonic field, and for $k=0$, it decays after initially increasing.
+
+The reconstructed potentials for the k-essence field are shown in figures 7-9, revealing that the potential $V$ consistently decreases as the scalar field $\phi$ increases, regardless of whether the universe is open, closed, or flat. In contrast, the behavior of the potential varies for interacting DBI-essence dark energy: figures 10 and 12 exhibit a decaying pattern in the $V$-$\phi$ plot for the emergent and intermediate scenarios, while figure 11 shows an increasing pattern for the logamediate scenario. For interacting hessence dark energy, the potential increases with the scalar field in the emergent universe (figure 13), but decays in the logamediate and intermediate scenarios (figures 14 and 15). Additionally, figures 16-18 illustrate the behavior of the dilaton field, which increases with cosmic time $T_{1}$ across all scenarios, whereas figures 19-21 show that the Yang-Mills field's $E^{2}$ always increases with cosmic time $T_{1}$.
+
+References
+
+(1) I. Podlubny, An Introduction to Fractional Derivatives, Fractional Differential Equations, to methods of their solution and some of their Applications, (Academic Press, New York, 1999);R. Hilfer, Editor, Applications of Fractional Calculus in Physics, (World Scientific Publishing, Singapore, 2000)
+(2) M. Robert, arXiv:0909.1171 [gr-qc];V. K. Shchigolev, arXiv:1011.3304v1 [gr-qc].
+(3) R.A. EL.Nabulsi, Romm. Rep. Phys. 59 (2007) 763;R.A. EL.Nabulsi, Fizika B 19 (2010) 103.
+(4) R.A. EL.Nabulsi, Commun. Theor. Phys 54 (2010) 16.
+(5) M. Jamil, D. Momeni, M.A. Rashid, arXiv:1106.2974
+(6) M. U. Farooq, M. Jamil, U Debnath, arXiv:1104.3983;U. Debnath, M. Jamil, arXiv:1102.1632;K. Karami, M. S. Khaledian, M. Jamil, Phys. Scr. 83 (2011) 025901;M. R. Setare, M. Jamil, Europhys. Lett.92 (2010) 49003;A. Sheykhi, M. Jamil, Phys. Lett. B 694 (2011) 284;M. Jamil, K. Karami, A. Sheykhi, arXiv:1005.0123;M. U. Farooq, M.A. Rashid, M. Jamil, Int. J. Theor. Phys. 49 (2010) 2278;M. Jamil, A. Sheykhi, M. U. Farooq, Int. J. Mod. Phys. D 19 (2010) 1831;M. R. Setare, E. N. Saridakis, Phys. Lett. B 670 (2008) 1.
+(7) J. D. Barrow, N. J. Nunes, Phys. Rev. D 76 (2007) 043501;C. Campuzano et al, Phys. Rev. D 80 (2009) 123531;B. C. Paul, P. Thakur, S. Ghose, arXiv:1004.4256;G. F.R. Ellis, J. Murugan, C. G. Tsagas, Class. Quant. Grav. 21 (2004) 233;R. B. Laughlin, Int. J. Mod. Phys. A 18 (2003) 831;P. B. Khatua, U. Debnath, Int. J. Theor. Phys. 50 (2011) 799.
+(8) S. Capozziello, S. Nesseris, L. Perivolaropoulos, JCAP 0712 (2007) 009.
+(9) S. Capozziello, E. Piedipalumbo, C. Rubano, P. Scudellaro, Phys. Rev. D 80 (2009) 104030.
+(10) J-H. He, B. Wang, P. Zhang, Phys. Rev. D 80 (2009) 063530.
+(11) J-H. He, B. Wang, Y.P. Jing, JCAP 0907 (2009) 030.
+(12) L. Amendola, Phys. Rev. Lett. 93 (2004) 181102.
+(13) K.A. Bronikov, Acta Phys. Polon. B 4 (1973) 251.
+(14) H.G. Ellis, J. Math. Phys. 14 (1973) 104.
+(15) C.A. Picón, Phys. Rev. D 65 (2002) 104010.
+(16) F. Rahaman et al, Phys. Scr. 76 (2007) 56.
+(17) P.K. Kuhfittig, Class. Quantum Grav. 23 (2006) 5853.
+(18) E. Babichev et al, Phys. Rev. Lett. 93 (2004) 021102.
+(19) S. Nesseris and L. Perivolaropoulos, Phys. Rev. D 70 (2004) 123529.
+(20) D.F. Mota and C. van de Bruck, Astron. Astrophs. 421 (2004) 71.
+(21) D.F. Mota and J.D. Barrow, Mon. Not. Roy. Astron. Soc. 358 (2005) 601.
+(22) E. Babichev, S. Chernov, V. Dokuchaev and Y. Eroshenko, arXiv:0806.0916[gr-qc].
+(23) E. Babichev, S. Chernov, V. Dokuchaev and Y. Eroshenko, Phys. Rev. D 78 (2008) 104027.
+(24) R. R. Caldwell et al, Phys. Rev. Lett. 91 (2003) 071301.
+(25) L. Xu, JCAP 09 (2009) 016.
+(26) S. Chattopadhyay, U. Debnath, arXiv:1102.0707v1 [physics.gen-ph];S. Mukherjee, B. C. Paul, N. K. Dadhich, S. D. Maharaj and A. Beesham (2006) Class. Quantum Grav. 23 6927.
+(27) E.J. Copeland, M. Sami, S. Tsujikawa, Int. J. Mod. Phys. D15, 1753 (2006).
+(28) G. W. Gibbons, Phys. Lett. B 537 (2002) 1.
+(29) A. Mazumdar, S. Panda and A. Perez-Lorenzana, Nucl. Phys. B 614, 101 (2001);A. Feinstein, Phys. Rev. D 66, 063511 (2002);Y. S. Piao, R. G. Cai, X. M. Zhang and Y. Z. Zhang, Phys. Rev. D 66, 121301 (2002).
+(30) T. Padmanabhan, Phys. Rev. D 66, 021301 (2002);J.S. Bagla, H.K.Jassal, T. Padmanabhan, Phys. Rev. D 67 (2003) 063504;Z. K. Guo and Y. Z. Zhang, JCAP 0408, 010 (2004);E. J. Copeland, M. R. Garousi, M. Sami and S. Tsujikawa, Phys. Rev. D 71, 043003 (2005).
+(31) Armendariz-Picon C., Damour T., Mukhanov V.F., Phys. Lett. B 458, 209 (1999);Armendariz-Picon C., Mukhanov V.F., Steinhardt P.J., Phys. Rev. D 63, 103510 (2001);Armendariz-Picon C., Mukhanov V.F., Steinhardt P.J., Phys. Rev. Lett. 85, 4438 (2000);Chiba T., Okabe T., Yamaguchi M., Phys. Rev. D 62, 023511 (2000);R. Myrzakulov, arXiv:1011.4337;R. Myrzakulov, arXiv:1008.4486
+(32) H. Wei, R-G Cai, D-F Zeng, Class. Quant. Grav.22 (2005) 3189;H. Wei, R.-G. Cai, Phys. Rev. D 72 (2005) 123507.
+(33) Yi-Fu Cai, J. B. Dent, D. A. Easson, Phys. Rev. D 83 (2011) 101301;S. Chattopadhyay, U. Debnath, Int. J. Mod. Phys. A 25 (2010) 5557;S. Chattopadhyay, U. Debnath, arXiv:1006.2226;C. Ahn, C. Kim, E. V. Linder, Phys. Rev. D 80 (2009) 123016.
+(34) Y. Zhang, T. Y. Xia and W. Zhao, Class. Quant. Grav. 24 3309 (2007);T. Y. Xia and Y. Zhang, Phys. Lett. B 656 19 (2007);M. Tong, Y. Zhang and T. Xia, Int. J. Mod. Phys. D 18 797 (2009).

@@ -1,0 +1,418 @@
+Automatic 3D modeling by combining SBFEM and transfinite element shape functions
+
+By Hauke Gravenkamp and Albert A. Saputra and Sascha Eisenträger
+
+Abstract
+
+The scaled boundary finite element method (SBFEM) has recently been employed as an efficient means to model three-dimensional structures, in particular when the geometry is provided as a voxel-based image. To this end, an octree decomposition of the computational domain is deployed and each cubic cell is treated as an SBFEM subdomain. The surfaces of each subdomain are discretized in the finite element sense. We improve on this idea by combining the semi-analytical concept of the SBFEM with certain transition elements on the subdomains’ surfaces. Thus, we avoid the triangulation of surfaces employed in previous works and consequently reduce the number of surface elements and degrees of freedom. In addition, these discretizations allow coupling elements of arbitrary order such that local $p$ -refinement can be achieved straightforwardly.
+
+1 Introduction
+
+The scaled boundary finite element method (SBFEM) is a semi-analytical technique – loosely based on finite elements – that involves a discretization of boundaries of computational (sub-)domains. Roughly speaking, this method aims at transforming a partial differential equation (PDE) in two or three spatial coordinates into a set of ordinary differential equations (ODE) in one coordinate by discretizing all but this one coordinate. In order to apply this idea effectively, a particular coordinate system is usually chosen in which one coordinate $\xi$ points from the origin \footnote{ 1 In the context of the SBFEM, the origin of the coordinate system is usually positioned inside the domain and referred to as scaling center .} to the boundary while the remaining one or two coordinate(s) ( $\eta$ , $\zeta$ ) describe a parametrization of the boundary.
+
+The SBFEM was originally developed to model large and unbounded domains in the context of soil-structure interaction and was inspired by concepts such as similarity (65) , cloning (66) , as well as the thin layer method (31) . A detailed description of the underlying formulation can be found in the early papers (57) , as well as the recent textbook (56) . Later, it has been noticed that the SBFEM can be employed as a means to construct arbitrary star-convex \footnote{ 2 A domain $\Upomega$ is called star-convex if there exists a point $\mathbf{r}_{0}\in\Upomega$ such that the line segment from $\mathbf{r}_{0}$ to any point in $\Upomega$ is contained in $\Upomega$ . In other words, for the domain to be star-convex, there must be a point from where the whole boundary is ‘visible’. Any convex domain is also star-convex.} elements (47) . Such polygonal elements enable the application of rather flexible meshing procedures, compared to conventional finite elements which are usually restricted to triangular/quadrilateral and tetrahedral/hexahedral shapes. A particular variant of such a meshing paradigm consists in the use of domain decompositions of the quad-/octree type. The most common of this class of decompositions consists of square-/cube-shaped cells (see Fig. 1a for a minimal example). While, from a geometrical viewpoint, these meshes only require quadrilateral/hexahedral subdomains, the SBFEM concept allows each side to be divided into an arbitrary number of surface elements on the boundary. Hence, coupling subdomains of different size is straightforward. This idea has been used successfully for the efficient meshing of complex geometries, where flexible local refinement is desirable (43) . Such a meshing paradigm is particularly useful for image-based analyses , i.e., in applications where the geometry (the distribution of material parameters, etc.) is provided in a pixel graphics format. A number of approaches have been developed to mesh images, most of which can be divided into two categories (see (68) for a comprehensive literature review): The first type includes meshing based on boundary detection for each region in the image, where a region is assumed to be homogeneous. This can be straightforwardly achieved using techniques such as a marching cubes algorithm (41) . Subsequently, these boundaries are utilized to mesh the region inside using conventional meshing algorithms, such as the advancing front (40) or Delaunay tessellation (9) . The second type involves techniques that mesh the image directly. These techniques are generally quicker due to the straightforward nature of the meshing process. One very basic example is the pixel-based approach (34) , where each pixel is modeled as a quadrilateral/hexahedral finite element. While such a meshing approach is absolutely trivial and fast, it leads to an unnecessarily large number of degrees of freedom. In order to improve the efficiency of the meshing, other direct meshing techniques can be deployed such as the aforementioned quad-/octree meshing structure (68) .
+
+Quadtree meshing is performed by recursively dividing an image matrix into four equal-sized cells at a time. A criterion of homogeneity is established based on the difference in the maximum and minimum color intensity within a cell. If this difference exceeds a user-defined threshold, the cell is divided. The maximum and minimum cell size allowed are also specified by the user. As a result, the meshing scheme adaptively refines the regions around different interfaces. Simultaneously, the scheme keeps relatively larger cells within each region where the material can be assumed to be homogeneous. However, since cells of different sizes exist in quadtree meshes, compatibility issues are encountered when using conventional finite elements. This issue was circumvented by utilizing the scaled boundary finite element method (SBFEM) for quadtree meshes, as this method allows the use of arbitrary polyhedral subdomains. A detailed explanation of image-based analysis using the SBFEM can be found in (28) .
+
+Notwithstanding the success of this method in two-dimensional image-based analyses, the situation in three-dimensional modeling is somewhat different. The quadtree-based domain decomposition can be extended to 3D without much further effort (53) . In this case, we divide a cubic cell into 8 smaller ones of equal size and refer to this technique as octree decomposition (Fig. 1b ). From the viewpoint of the SBFEM, each cubic cell constitutes one subdomain, which implies that we have to discretize the surface of each cube in a finite element sense. Fig. 1b reveals that the surfaces of 3D octree decompositions basically consist of 2D quadtree meshes and hence exhibit the same compatibility issues discussed above. That is, due to the two-dimensional finite element grid that has to be used for the discretization of the boundary, hanging nodes are generated. In this example, the mesh on the front surface of the structure in Fig. 1b is identical to the two-dimensional case in Fig. 1a . In finite element applications, the hanging node problem can be circumvented by either using some kind of constraints (constraint equations, Lagrange multipliers, etc.) or triangular elements.
+
+In previous works, this issue has been tackled by the second option, i.e., triangulating the surfaces of individual cubes to ensure compatibility with adjacent subdomains, see Fig. 1c . This approach has been applied successfully to solve problems related to acoustics (38) and fracture (52) . However, this concept may be considered somewhat unsatisfactory as the triangular elements require additional degrees of freedom and are intrinsically less accurate compared to quadrilateral elements. Furthermore, the previous approach does not allow combining elements of different order within the same model, which is one of the major advantages exploited in 2D SBFEM models (28) .
+
+To improve on the previous formulation, we present in the current paper an approach to discretize the surfaces of octree-based SBFEM models without introducing additional nodes. This is achieved by employing a certain type of transition element that allows us to formulate shape functions on quadrilateral domains with an arbitrary subdivision of each edge. The application of such elements was inspired by the papers on the so-called ‘pNh elements’ (21) , however, similar formulations exist and date back to the 1970s (18) . In a recent publication, we presented a detailed review and generalization of these classes of transition elements (13) . There, we refer to these general transition elements as xNy-elements to indicate that it is in principle possible to couple arbitrary element families. In the current paper we shall only provide a very brief summary of the formulation (Sect. 2.3 ) and refer the reader to the pertinent literature. The purpose of this work is mainly to demonstrate that these transition elements can in fact be used to solve the hanging node problem in three-dimensional SBFEM models. The motivation for this approach is twofold:
+
+• We wish to avoid any triangulation of the surfaces in three-dimensional (octree-based) models. This goal can easily be achieved using said transition elements, since they allow splitting each edge into an arbitrary number of sections. Consequently, we avoid introducing additional elements that are not required by the topological decomposition. Especially when using higher order interpolation, the reduction in degrees of freedom (DOFs) can be very significant. • We wish to allow different element orders within the same model, which is particularly useful in the case of inhomogeneous materials and wave propagation problems. Up to now, conventional Lagrange elements have been used on the surfaces of SBFEM subdomains, which required the element order to match between adjacent subdomains. Using the proposed approach generally allows connecting elements of arbitrary orders.
+
+2 Theory
+
+The overarching goal of this contribution is to combine the concepts of SBFEM, octree-based mesh generation, and transition elements. This combination results in an efficient and robust numerical tool which can be applied to a wide range of problems in engineering and physics. To this end, we provide a brief descriptions of the fundamental principles underlying the SBFEM in Sect. 2.1 , while octree-meshes are discussed in Sect. 2.2 . Considering the formulation of transition elements, we sketch the basic ideas in Sect. 2.3 and refer to the literature concerning transfinite elements for an in-depth derivation.
+
+2.1 SBFEM
+
+The formulation of the Scaled Boundary Finite Element Method is presented for the case of linear elasticity, governed by the following partial differential equation for the displacement field $\mathbf{u}=\mathbf{u}(x,y)$ : 
+ 
+ $\mathcal{L}^{\mathrm{T}}\mathbf{D}\mathcal{L}\mathbf{u}(x,y)+\rho\ddot{\mathbf{u}}(x,y)=\mathbf{0}$  (1) 
+ Here, $\rho$ denotes the mass density and $\mathbf{D}$ is the elasticity matrix, which, for isotropic material with shear modulus $G$ and Poisson’s ratio $\nu$ , reads 
+ 
+ $\mathbf{D}=\frac{2G}{(1-2\nu)}\left[\begin{array}[]{cccccc}{1-\nu}&{\nu}&{\nu}\\
+{\nu}&{1-\nu}&{\nu}\\
+{\nu}&{\nu}&{1-\nu}\\
+&&&\frac{1-2\nu}{2}\\
+&&&&\frac{1-2\nu}{2}\\
+&&&&&\frac{1-2\nu}{2}\\
+\end{array}\right]$  (2) 
+ $\mathcal{L}$ is the differential operator 
+ 
+ $\mathcal{L}=\left[\begin{array}[]{cccccc}{\partial_{x}}&{0}&{0}&{\partial_{y}}&{\partial_{z}}&{0}\\
+{0}&{\partial_{y}}&{0}&{\partial_{x}}&{0}&{\partial_{z}}\\
+{0}&{0}&{\partial_{z}}&{0}&{\partial_{x}}&{\partial_{y}}\end{array}\right]^{\mathrm{T}}$  (3) 
+ which may be rewritten for later use as 
+ 
+ $\mathcal{L}=\hat{\mathbf{b}}_{1}\partial_{x}+\hat{\mathbf{b}}_{2}\partial_{x}+\hat{\mathbf{b}}_{3}\partial_{z}$  (4) 
+ with 
+ 
+ $\displaystyle\hat{\mathbf{b}}_{1}$ $\displaystyle=\left[\begin{array}[]{cccccc}1&0&0&0&0&0\\
+0&0&0&1&0&0\\
+0&0&0&0&1&0\end{array}\right]^{\mathrm{T}}\quad\hat{\mathbf{b}}_{2}=\left[\begin{array}[]{cccccc}0&0&0&1&0&0\\
+0&1&0&0&0&0\\
+0&0&0&0&0&1\end{array}\right]^{\mathrm{T}}$  (11) 
+ 
+ $\displaystyle\hat{\mathbf{b}}_{1}$ $\displaystyle=\left[\begin{array}[]{cccccc}0&0&0&0&1&0\\
+0&0&0&0&0&1\\
+0&0&1&0&0&0\end{array}\right]^{\mathrm{T}}$  (15) 
+ By adjusting the differential operator, as well as the material parameters, other common linear partial differential equations are obtained and can be solved by the SBFEM in a similar fashion (2) .
+
+The SBFEM constitutes a semi-analytical approach, in the sense that the governing partial differential equation (in three coordinates) is discretized in two directions while remaining analytical in the third coordinate. In order to employ this idea effectively, a particular coordinate transformation is usually applied such that the two discretized directions (denoted as $\eta,\zeta$ ) define a parametrization of a domain’s boundary, while the analytical coordinate $\xi$ describes the direction from the origin to the boundary. \footnote{ 3 There are a few exceptions where such a coordinate transformation is not required and the concept of semi-discretization can be applied directly in a Cartesian, polar, or cylindrical coordinate system to model structures of (piece-wise) constant cross-section (42)} A few key steps of the procedure are summarized in this section for easier reference. The complete formulation including a detailed derivation of the basic coordinate transformation and the semi-discretization can be found in (57) . For dynamic problems, we apply the solution procedure proposed in (55) , which is based on a continued fraction expansion of the dynamic stiffness matrix. A concise summary of the procedures applied to dynamic problems is presented in (26) .
+
+In general, the coordinate transformation employed in the SBFEM is written as 
+ 
+  
+ $\displaystyle\hat{x}(\xi,\eta,\zeta)=\xi x(\eta,\zeta)$  (16a) 
+ $\displaystyle\hat{y}(\xi,\eta,\zeta)=\xi y(\eta,\zeta)$  (16b) 
+ $\displaystyle\hat{z}(\xi,\eta,\zeta)=\xi z(\eta,\zeta)$  (16c) 
+ where $\hat{x},\hat{y},\hat{z}$ define a three-dimensional Cartesian coordinate system and $x,y,z$ are the values of these Cartesian coordinates on the boundary of the domain, parametrized by the local coordinates $\eta,\zeta$ . \footnote{ 4 This slightly peculiar choice of denoting the standard Cartesian coordinates by $\hat{\bullet}$ simply stems from the fact that the coordinates on the boundary occur far more frequently in the formulation of the SBFEM. This notation is adopted here for consistency with (57) .} Without loss of generality, the origin of the coordinate system is chosen to be inside the domain. Furthermore, the domain is assumed to be star-convex. The boundary is usually interpolated using a set of two-dimensional shape functions $\mathbf{N}(\eta,\zeta)$ (such as Lagrange shape functions or splines); thus, the coordinates and their derivatives can be written as 
+ 
+  
+ $\displaystyle\hat{x}(\xi,\eta,\zeta)$ $\displaystyle=\xi$ $\displaystyle\mathbf{N}(\eta,\zeta)\mathbf{x}_{\mathrm{n}}$  (17a) 
+ $\displaystyle\hat{x}_{,\xi}(\xi,\eta,\zeta)$ $\displaystyle=$ $\displaystyle\mathbf{N}(\eta,\zeta)\mathbf{x}_{\mathrm{n}}$  (17b) 
+ $\displaystyle\hat{x}_{,\eta}(\xi,\eta,\zeta)$ $\displaystyle=\xi$ $\displaystyle\mathbf{N}_{,\eta}(\eta,\zeta)\mathbf{x}_{\mathrm{n}}$  (17c) 
+ $\displaystyle\hat{x}_{,\zeta}(\xi,\eta,\zeta)$ $\displaystyle=\xi$ $\displaystyle\mathbf{N}_{,\zeta}(\eta,\zeta)\mathbf{x}_{\mathrm{n}}$  (17d) 
+ and analogously for $\hat{y},\hat{z}$ . The vectors $\mathbf{x}_{\mathrm{n}},\mathbf{y}_{\mathrm{n}},\mathbf{z}_{\mathrm{n}}$ denote the nodal values of the coordinates (or, more generally, the coefficients of shape functions if the chosen basis is not node-based). However, the reader may note that, for the current contribution, an interpolation of the boundary is not required as all surfaces of the octree-meshes addressed here are squares, for which the coordinate transformation could easily be written in closed form. Nevertheless, we stick to this more general formulation for later reference. With these transformations, the Jacobian determinant is obtained as 
+ 
+ $\hat{J}=\xi J$  (18) 
+ where $J$ is the determinant of the matrix 
+ 
+ $\mathbf{J}=\left[\begin{array}[]{ccc}x&y&z\\
+x_{,\eta}&y_{,\eta}&z_{,\eta}\\
+x_{,\xi}&y_{,\zeta}&z_{,\zeta}\end{array}\right]$  (19) 
+ The differential operator $\mathcal{L}$ transformed into the local coordinates reads 
+ 
+ $\mathcal{L}=\mathbf{b}_{1}\partial_{\xi}+\frac{1}{\xi}\left(\mathbf{b}_{2}\partial_{\eta}+\mathbf{b}_{3}\partial_{\zeta}\right)$  (20) 
+ The displacement field is interpolated on the boundary as 
+ 
+ $\mathbf{u}(\xi,\eta,\zeta)=\mathbf{N}(\eta,\zeta)\mathbf{u}(\xi)$  (21) 
+ where we assume for simplicity that the same shape functions are employed as for the interpolation of the geometry (isoparametric elements). Consequently, the approximated strain-displacement relationship reads 
+ 
+ $\bm{\varepsilon}=\mathbf{B}_{1}\mathbf{u}_{\mathrm{n}}(\xi)_{,\xi}+\frac{1}{\xi}\mathbf{B}_{2}\mathbf{u}_{\mathrm{n}}(\xi)$  (22) 
+ with 
+ 
+  
+ $\displaystyle\mathbf{B}_{1}$ $\displaystyle=\mathbf{b}_{1}\mathbf{N}(\eta,\zeta)$  (23a) 
+ $\displaystyle\mathbf{B}_{2}$ $\displaystyle=\mathbf{b}_{2}\mathbf{N}(\eta,\zeta)_{,\eta}+\mathbf{b}_{3}\mathbf{N}(\eta,\zeta)_{,\zeta}$  (23b) 
+ Applying the method of weighted residuals to obtain a weak form of the governing equations in the coordinates $\eta,\zeta$ , leads to the ordinary matrix differential equation 
+ 
+ $\mathbf{E}_{0}\xi^{2}\mathbf{u}_{\mathrm{n}}(\xi)_{,\xi\xi}+\left((d-1)\mathbf{E}_{0}-\mathbf{E}_{1}+\mathbf{E}_{1}^{\mathrm{T}}\right)\xi\mathbf{u}_{\mathrm{n}}(\xi)_{,\xi}\\
++\left((d-2)\mathbf{E}_{1}^{\mathrm{T}}-\mathbf{E}_{2}\right)\mathbf{u}_{\mathrm{n}}(\xi)+\omega^{2}\xi^{2}\mathbf{M}_{0}\mathbf{u}_{\mathrm{n}}(\xi)=0$  (24) 
+ with the coefficient matrices 
+ 
+  
+ $\displaystyle\mathbf{E}_{0}$ $\displaystyle=\int_{S}\mathbf{B}_{1}^{\mathrm{T}}\mathbf{D}\mathbf{B}_{1}J\mathrm{d}\eta\mathrm{d}\zeta$  (25a) 
+ $\displaystyle\mathbf{E}_{1}$ $\displaystyle=\int_{S}\mathbf{B}_{2}^{\mathrm{T}}\mathbf{D}\mathbf{B}_{1}J\mathrm{d}\eta\mathrm{d}\zeta$  (25b) 
+ $\displaystyle\mathbf{E}_{2}$ $\displaystyle=\int_{S}\mathbf{B}_{2}^{\mathrm{T}}\mathbf{D}\mathbf{B}_{2}J\mathrm{d}\eta\mathrm{d}\zeta$  (25c) 
+ $\displaystyle\mathbf{M}_{0}$ $\displaystyle=\int_{S}\mathbf{N}^{\mathrm{T}}\rho\mathbf{N}J\mathrm{d}\eta\mathrm{d}\zeta$  (25d) 
+ where $d$ denotes the number of dimensions (2 or 3). Many details on the properties and the available solution procedures of similar differential equations are discussed in (32) . For the static case ( $\omega=0$ ), the differential equation is usually re-written as 
+ 
+ $\xi\mathbf{X}(\xi)_{,\xi}=-\mathbf{ZX}(\xi)$  (26) 
+ with 
+ 
+ $\mathbf{Z}=\left[\begin{array}[]{cc}{\mathbf{E}_{0}^{-1}\mathbf{E}_{1}^{\mathrm{T}}-0.5(d-2)\mathbf{I}}&{-\mathbf{E}_{0}^{-1}}\\
+{-\mathbf{E}_{2}+\mathbf{E}_{1}\mathbf{E}_{0}^{-1}\mathbf{E}_{1}^{\mathrm{T}}}&{-\left(\mathbf{E}_{1}\mathbf{E}_{0}^{-1}-0.5(d-2)\mathbf{I}\right)}\end{array}\right]$  (27) 
+ and 
+ 
+ $\mathbf{X}(\xi)=\left[\begin{array}[]{c}\xi^{+0.5(d-2)}\mathbf{u}_{\mathrm{n}}(\xi)\\
+\xi^{-0.5(d-2)}\mathbf{q}_{\mathrm{n}}(\xi)\end{array}\right]$  (28) 
+ Here, $\mathbf{q}_{\mathrm{n}}$ denotes the vector of nodal forces and $\mathbf{I}$ is the identity matrix. A set of eigenfunctions of the semi-discrete differential operator in Eq. ( 26 ) can be obtained by performing an eigenvalue decomposition of the matrix $\mathbf{Z}$ . Alternatively – to improve accuracy in cases where (near)-parallel eigenvectors exist – a block-diagonal Schur factorization can be employed instead, which leads to a decomposition of the form 
+ 
+ $\mathbf{Z}\left[\begin{array}[]{ll}{\mathbf{\Psi}_{11}}&{\mathbf{\Psi}_{12}}\\
+\mathbf{\Psi}_{21}&{\mathbf{\Psi}_{22}}\end{array}\right]=\left[\begin{array}[]{ll}{\mathbf{\Psi}_{11}}&{\mathbf{\Psi}_{12}}\\
+{\mathbf{\Psi}_{21}}&{\mathbf{\Psi}_{22}}\end{array}\right]\left[\begin{array}[]{cc}{\mathbf{S}_{11}}&{0}\\
+{0}&{\mathbf{S}_{22}}\end{array}\right]$  (29) 
+ Details are discussed in (54) . In the above decomposition, $\mathbf{\Psi}_{11},\mathbf{\Psi}_{21}$ denote the modes that lead to finite displacements at the origin, and $\boldsymbol{S}_{11}$ is the corresponding Schur block. The solution for the case of a bounded domain is then obtained as 
+ 
+  
+ $\displaystyle\mathbf{u}(\xi)$ $\displaystyle=\mathbf{\Psi}_{11}\xi^{-\left(\mathbf{S}_{11}+0.5(d-2)\mathbf{I}\right)}\mathbf{c}_{1}$  (30a) 
+ $\displaystyle\mathbf{q}(\xi)$ $\displaystyle=\mathbf{\Psi}_{21}\xi^{-\left(\mathbf{S}_{11}-0.5(d-2)\mathbf{I}\right)}\mathbf{c}_{1}$  (30b) 
+ On the boundary ( $\xi=1$ ), we obtain 
+ 
+  
+ $\displaystyle\mathbf{u}_{\mathrm{b}}$ $\displaystyle=\mathbf{\Psi}_{11}\mathbf{c}_{1}$  (31a) 
+ $\displaystyle\mathbf{q}_{\mathrm{b}}$ $\displaystyle=\mathbf{\Psi}_{21}\mathbf{c}_{1}$  (31b) 
+ which we use to compute a stiffness matrix 
+ 
+ $\mathbf{K}=\mathbf{\Psi}_{21}\mathbf{\Psi}_{11}^{-1}$  (32) 
+ such that 
+ 
+ $\mathbf{q}_{\mathrm{b}}=\mathbf{K}\mathbf{u}_{\mathrm{b}}$  (33) 
+ In the dynamic case ( $\omega>0$ ), the differential equation in displacements ( 24 ) is converted into one for the dynamic stiffness $\mathbf{S}(\omega)$ on the boundary: 
+ 
+ $(\mathbf{S}(\omega)-\mathbf{E}_{1})\mathbf{E}_{0}^{-1}(\mathbf{S}(\omega)-\mathbf{E}_{1}^{\mathrm{T}})-\mathbf{E}_{2}\\
++(d-2)\mathbf{S}(\omega)\omega\mathbf{S}(\omega)_{,\omega}+\omega^{2}\mathbf{M}_{0}=0$  (34) 
+ Assuming an approximation of the form 
+ 
+ $\mathbf{S}(\omega)\approx\mathbf{K}-\omega^{2}\mathbf{M}$  (35) 
+ a mass matrix is obtained from the solution of the Lyapunov equation: 
+ 
+ $(\mathbf{K}-\mathbf{E}_{1})\mathbf{E}_{0}^{-1}\mathbf{M}+\mathbf{M}\mathbf{E}_{0}^{-1}(\mathbf{K}-\mathbf{E}_{1}^{\mathrm{T}})+d\cdot\mathbf{M}-\mathbf{M}_{0}=0$  (36) 
+ To enhance the accuracy for higher frequencies, high-order stiffness and mass matrices can be computed of the form 
+ 
+  
+ $\displaystyle\mathbf{K}_{\mathrm{h}}$ $\displaystyle=\mathrm{diag}(\mathbf{K},\mathbf{S}_{0}^{(1)},\mathbf{S}_{0}^{(2)},...,\mathbf{S}_{0}^{(M_{\mathrm{cf}})}])$  (37a) 
+ $\displaystyle\mathbf{M}_{\mathrm{h}}$ $\displaystyle=\left[\begin{array}[]{ccccc}\mathbf{M}&-\mathbf{X}^{(1)}&0&\cdots&0\\
+-[\mathbf{X}^{(1)}]^{\mathrm{T}}&\mathbf{S}_{1}^{(1)}&-\mathbf{X}^{(2)}&\cdots&0\\
+0&-[\mathbf{X}^{(2)}]^{\mathrm{T}}&\mathbf{S}_{1}^{(2)}&\cdots&0\\
+\vdots&\vdots&\vdots&\ddots&\vdots\\
+0&0&0&\cdots&\mathbf{S}_{1}^{(M_{\mathrm{cf}})}\end{array}\right]$  (37g) 
+ where the matrices $\mathbf{S}_{0}^{(i)},\mathbf{S}_{1}^{(i)}$ are derived from a continued fraction expansion of the dynamic stiffness matrix 
+ 
+ $\mathbf{S}(\omega)=\mathbf{K}-\omega^{2}\mathbf{M}-\omega^{4}\mathbf{X}^{(1)}(\mathbf{S}_{0}^{(1)}-\omega^{2}\mathbf{S}_{1}^{(1)}\\
+-\omega^{4}\mathbf{X}^{(2)}(\mathbf{S}_{0}^{(2)}-\omega^{2}\mathbf{S}_{1}^{(2)}-...-\omega^{4}\mathbf{X}^{(M_{\mathrm{cf}})}(\mathbf{S}_{0}^{(M_{\mathrm{cf}})}\\
+-\omega^{2}\mathbf{S}_{1}^{(M_{\mathrm{cf}})})^{-1}[\mathbf{X}^{(M_{\mathrm{cf}})}]^{\mathrm{T}})^{-1}[\mathbf{X}^{(2)}]^{\mathrm{T}})^{-1}[\mathbf{X}^{(1)}]^{\mathrm{T}}$  (38) 
+ and the matrices $\mathbf{X}^{(i)}$ are introduced for preconditioning. The details of this approach can be found in (55) .
+
+2.2 Octree mesh
+
+While the concept of the SBFEM can generally be applied to any star-convex subdomain, the use of the quadtree/octree decomposition has become particularly popular. As already discussed in the introduction, octree-meshes can be obtained very easily by starting with a coarse discretization consisting of few cubes and recursively dividing cubes into eight smaller cubes according to some criteria. These criteria may be based on whether the cube is intersected by a boundary or whether the variation of material parameters within the cube exceeds a predefined threshold. For further details, we refer again to (53) . Also, the reader may note that such a meshing procedure will not lead to smooth boundaries of complex geometries due to the ‘stair-case’-like approximation of interfaces. These geometry errors are acceptable in many applications – particularly in image-based analyses where the available initial geometry description is a pixel-based image. In other cases, it is desirable to improve the description of the boundaries by applying smoothing algorithms, cutting the cubes that are intersected by the boundary (39) , or combining the octree decomposition with fictitious domain concepts (25) . Such approaches are the subject of other publications and will not be discussed here in detail. In the current contribution, we restrict ourselves to pure octree-meshes since this is the part where our approach differs from previous works.
+
+The proposed application of transition elements changes the way the meshes on the surfaces of the SBFEM subdomains are handled. For now, let us assume that the octree decomposition is ‘balanced’, which means that adjacent subdomains differ by at most one refinement level. Consequently, each edge of each cube is either split into two segments or not. Taking into account the symmetries under rotation, there exist only six distinct meshing patterns on the cube surfaces. These patterns are depicted in Fig. 2 and differ in the number of sides that are split in order to ensure conformal coupling to the adjacent subdomain. Note that the first and last pattern in each row all consist of standard quadrilateral elements; thus, in the proposed approach, there are only five different types of surface elements to be considered. \footnote{ 5 To be more precise, there are two different cases in which each of the four edges of a given element is split into two segments: If smaller elements need to be connected only to the edges, these edges need to be segmented, while an additional node on the surface is not actually required. If, however, the surface itself is connected to smaller cubes, we need to split this surface element into four. In our current implementation, these two cases are treated the same way by splitting the surface into four elements.} As will be shown in the following sections, we can construct shape functions with nodes at the desired positions. For comparison, Fig. 2 also displays the subdivision of the patterns using conventional triangular and quadrilateral elements as has been done in previous works.
+
+The difference in both approaches becomes prominent when applying higher-order interpolations. As an example, Fig. 3 shows the same patterns with additional nodes using a polynomial order of 3. Note that the transition elements do not require internal nodes to achieve complete polynomials up to an order of 3. This is in contrast to the Lagrange elements employed previously. In that sense, the shape functions are similar to that of serendipity finite elements. Furthermore, it should also be noted that, when using transition elements, there is no need to restrict the decomposition to balanced meshes. In fact, subdomains of arbitrary sizes can be coupled straightforwardly. This would be rather tedious when using conventional elements, since adequate triangulations would have to be defined for each of the (arbitrarily large number of) different patterns.
+
+2.3 Transition elements based on the xNy element concept
+
+As already discussed in the previous sections, transition elements are being used in the context of finite element models to realize local mesh refinement. In the framework of the SBFEM, transition elements can be used to discretize each face of a hexahedral SBFE which is connected to a number of smaller SBFEs having the same or similar shape functions. This versatility would, in principle, allow us to connect different types of SBFEs based on various sets of shape functions, comprehensively discussed in Ref. (27) . In this paper, our focus is, however, on high order shape functions based on Lagrange polynomials that are defined on a non-equidistant grid of points (30) . Typically, a Gauss-Lobatto-Legendre (GLL) nodal distribution is chosen to generate the high order Lagrange shape functions. This particular set of nodes includes the element (interval) boundaries at $\pm 1$ , while the interior nodes are the roots of the Lobatto polynomials of order $p\,{-}\,1$ if shape functions of order $p$ are constructed (10) .
+
+2.3.1 Projection: Fundamental idea
+
+The idea of transition elements, as implemented in this paper, can be traced back to the works of Gordon and co-workers (16) . In their articles, the transition element was referred to as transfinite element due to the special type of mapping that was applied. In the remainder of the article, we will stick to the term transition element. It is worth mentioning that the same approach to deriving shape functions for transition elements can also be used to achieve an accurate approximation of the geometry in high order FEMs. In the p -FEM, this kind of geometry description is commonly referred to as blending function method (59) and is widely used to incorporate the exact geometry of the structure stemming, for example, from computer-aided-design (CAD) software. More recent applications of the transition element technology can be found in Refs. (61)
+
+In the current contribution, the main goal is to couple SBFEs of different sizes, where each boundary of each element is discretized using two-dimensional quadrilateral elements. Therefore, the task is to develop a transition element that features piece-wise polynomial shape functions such that it can couple to multiple smaller elements. At this point, only the basic idea is sketched and we refer to the pertinent literature (16) and the references cited therein. In order to achieve conforming elements, we need to interpolate a function $\Xi(\xi,\eta)$ over the reference domain $\Omega$ : $\,[-1,1]\times[-1,1]$ . To this end, we project the arbitrary bivariate function $\Xi(\xi,\eta)$ onto a different (carefully selected) space of bivariate functions (19) . Such a projection will be denoted as $\mathcal{P}[\Xi(\xi,\eta)]$ and is composed of two projectors $\mathcal{P}_{\xi}[\Xi(\xi,\eta)]$ , $\mathcal{P}_{\eta}[\Xi(\xi,\eta)]$ that interpolate $\Xi(\xi,\eta)$ along the local directions $\xi$ and $\eta$ . Additionally, a mixed projector $\mathcal{P}_{\xi\eta}[\Xi(\xi,\eta)]$ is introduced to ensure that redundant terms cancel out. Hence, the projection is written as 
+ 
+ $\mathcal{P}[\Xi(\xi,\eta)]=\mathcal{P}_{\xi}[\Xi(\xi,\eta)]+\mathcal{P}_{\eta}[\Xi(\xi,\eta)]-\mathcal{P}_{\xi\eta}[\Xi(\xi,\eta)]\,,$  (39) 
+ where the mixed projection operator is defined as 
+ 
+ $\mathcal{P}_{\xi\eta}[\Xi(\xi,\eta)]=\mathcal{P}_{\xi}[\mathcal{P}_{\eta}[\Xi(\xi,\eta)]]\,.$  (40) 
+ Note that the individual projection operators are both linear 
+ 
+ $\mathcal{P}_{s}[f(\xi,\eta)+g(\xi,\eta)]=\mathcal{P}_{s}[f(\xi,\eta)]+\mathcal{P}_{s}[g(\xi,\eta)]$  (41) 
+ and idempotent 
+ 
+ $\mathcal{P}_{s}[\mathcal{P}_{s}[f(\xi,\eta)]]=\mathcal{P}_{s}[f(\xi,\eta)]\,,$  (42) 
+ where $f(\xi,\eta)$ and $g(\xi,\eta)$ are (continuous) bivariate functions and the subscript $s\in\{\xi,\eta\}$ .
+
+2.3.2 Projection: Definition of operators
+
+The methodology sketched in the previous subsection is deployed to construct conformal finite element spaces ensuring that elements of different sizes can be coupled by introducing an approach to derive piece-wise polynomial shape functions. To achieve this goal, a simple definition of the projection operators suffices. As already introduced in the early works of Gordon and Hall (17) , a linear Lagrange interpolation polynomial is appropriate to define the projectors as 
+ 
+ $\displaystyle\mathcal{P}_{\xi}[\Xi(\xi,\eta)]$ $\displaystyle=\psi_{1}(\xi)\Xi(\xi_{1},\eta)+\psi_{2}(\xi)\Xi(\xi_{2},\eta)\,,$  (43) 
+ 
+ $\displaystyle\mathcal{P}_{\eta}[\Xi(\xi,\eta)]$ $\displaystyle=\psi_{1}(\eta)\Xi(\xi,\eta_{1})+\psi_{2}(\eta)\Xi(\xi,\eta_{2})\,,$  (44) 
+ where $\xi_{i}$ and $\eta_{i}$ denote the nodes that are used to define the Lagrange polynomials. The functions $\psi_{i}(s)$ are identical to the linear Lagrange polynomials $N_{i}^{1}(s)$ and in this context they are referred to as linear blending functions 
+ 
+ $\displaystyle\psi_{1}(s)$ $\displaystyle=N_{1}^{1}(s)=\cfrac{1}{2}(1-s)\,,$  (45) 
+ 
+ $\displaystyle\psi_{2}(s)$ $\displaystyle=N_{2}^{1}(s)=\cfrac{1}{2}(1+s)\,.$  (46) 
+ The definition of the mixed projection operator immediately follows from the successive application of Eqs. ( 43 ) and ( 44 ) to the function $\Xi(\xi,\eta_{i})$ 
+ 
+ $\begin{split}&\mathcal{P}_{\xi\eta}[\Xi(\xi,\eta)]=\\
+\;&\psi_{1}(\xi)\psi_{1}(\eta)\Xi(\xi_{1},\eta_{1})+\psi_{2}(\xi)\psi_{1}(\eta)\Xi(\xi_{2},\eta_{1})\;+\\
+&\psi_{2}(\xi)\psi_{2}(\eta)\Xi(\xi_{2},\eta_{2})+\psi_{1}(\xi)\psi_{2}(\eta)\Xi(\xi_{1},\eta_{2})\,.\end{split}$  (47) 
+ Looking at Eq. ( 47 ), it is immediately clear that the mixed projector interpolates the function only at discrete nodal locations, whereas the individual projectors take the element edges into account. This procedure ensures that elements are compatible at the edges. Based on the presented concept, we are now able to derive the shape functions for arbitrary transition elements. To this end, the function $\Xi(\xi,\eta)$ is chosen such that it represents the piece-wise polynomial function that enables coupling elements of different sizes. Recall that the goal is to couple three-dimensional SBFE-subdomains of different sizes. In this case, it suffices to ensure the edges feature conformal shape functions as long as serendipity elements of degree $p\leq 3$ are used. These elements do not include interior/bubble shape functions that are necessary to the polynomial completeness (11) . If higher order elements or tensor product formulations (12) are deployed, we also have to account for the interior/bubble shape functions to ensure a conformal coupling of three-dimensional SBFE-subdomains. Note that the shape functions connected to the interior of the surface elements do not need to be included in the projection process, i.e., the bubble functions are identical to those of standard finite elements. One possibility is to only add those hierarchic bubble modes that are known from the p -version of FEM (59) to complete the polynomial.
+
+3 Numerical examples
+
+In this section, we present the results of several numerical experiments that we performed in order to validate the proposed approach. We begin by analyzing simple geometries – namely a rectangular cuboid and a cube – and conduct standard patch tests, as well as a modal analysis. We then proceed to demonstrate the applicability of the approach to more complex geometries. In all examples, we assume linear elastic behavior of the material and small deformations. We denote by $\Upomega$ the computational domain and $\Upgamma_{\mathrm{u}}$ , $\Upgamma_{\mathrm{q}}$ are the parts of the boundary where Dirichlet and Neumann boundary conditions are applied, respectively. Hence, the general problem statement may be written as 
+ 
+ $\displaystyle\mathcal{L}^{\mathrm{T}}\mathbf{D}\mathcal{L}\boldsymbol{u}-\rho\ddot{\boldsymbol{u}}-\boldsymbol{f}$ $\displaystyle=\boldsymbol{0}$ $\displaystyle\qquad\text{in\ }\Upomega$  (48) 
+ 
+ $\displaystyle\boldsymbol{u}$ $\displaystyle=\boldsymbol{u}_{\Upgamma}$ $\displaystyle\qquad\text{on\ }\Upgamma_{\mathrm{u}}$  (49) 
+ 
+ $\displaystyle\boldsymbol{n}^{\mathrm{T}}\boldsymbol{\sigma}$ $\displaystyle=\boldsymbol{n}^{\mathrm{T}}\boldsymbol{\sigma}_{\Upgamma}$ $\displaystyle\qquad\text{on\ }\Upgamma_{\mathrm{q}}$  (50) 
+ where $\boldsymbol{u}_{\Upgamma}$ and $\boldsymbol{\sigma}_{\Upgamma}$ denote the boundary conditions and $\mathcal{L}$ is the differential operator as given in Eq. ( 3 ).
+
+3.1 Static analyses and patch tests
+
+We begin by conducting linear and higher order patch tests to check the validity of the proposed approach and evaluate the rate of convergence under optimal conditions. These tests are performed for a cuboid with a width and height of $a=b=2$ and a length of $L=4$ , see Fig. 4 . Hence, the computational domain is given as 
+ 
+ $\Upomega=\left\{\left.(x,y,z)\in\mathbb{R}^{3}\,\right|\,0\leq x\leq 2,\,0\leq y\leq 2,\,0\leq z\leq 4\right\}$ 
+ In all tests, Dirichlet boundary conditions are applied to the two faces indicated in Fig. 4 , while all other surfaces are traction-free. The material is isotropic and homogeneous with the following properties:
+
+
+ 
+ Young’s modulus: $E=1$ 
+ Poisson’s ratio: $\nu=0$ 
+ 
+
+
+Despite the fact that the material is homogeneous, we choose to divide the domain into two regions, where different element sizes are employed. Thus, transition elements are incorporated at the interface between the two regions (see Fig. 5 for examples). The element order is varied between $p=1$ and $p=3$ . We perform $h$ -refinement by dividing each subdomain into eight in each refinement step. The element size $h$ is defined as the edge length of the largest element in the mesh. To assess the accuracy of the computed results, we evaluate the $L_{2}$ norm of the relative error in displacements with respect to an analytical solution. We study the following three cases:
+
+Uniaxial tension
+
+We assume a state of uniaxial tension, such that the exact solution of this problem is 
+ 
+ $\boldsymbol{u}^{\mathrm{ref}}=(0,0,z)^{\mathrm{T}}$  (51) 
+ and consequently, the following Dirichlet boundary conditions are applied: 
+ 
+ $\displaystyle\boldsymbol{u}_{\Upgamma_{1}}=\boldsymbol{u}^{\mathrm{ref}}(x,y,0)$ $\displaystyle=(0,0,0)^{\mathrm{T}}$  (52) 
+ 
+ $\displaystyle\boldsymbol{u}_{\Upgamma_{2}}=\boldsymbol{u}^{\mathrm{ref}}(x,y,L)$ $\displaystyle=(0,0,L)^{\mathrm{T}}$  (53) 
+ Hence, the numerical errors should be negligible, as long as the elements on the surface of each subdomain are capable of representing a linear variation of the displacement field exactly. Figure 5a shows the computed errors when performing $h$ -refinement with varying element order. The results show that the proposed approach passes the linear patch test with error levels in the order of $10^{-13}$ .
+
+Beam bending
+
+As a 2 ${}^{\text{nd}}$ order patch test, we analyze the cuboid (with the same properties as before) in a state of pure bending (with a unit radius of curvature). The analytical solution of the displacement field is given in (60) (Chapter 10) as 
+ 
+ $\displaystyle u_{x}^{\mathrm{ref}}$ $\displaystyle=-\frac{1}{2}(z^{2}+\nu(x^{2}-y^{2}))$  (54) 
+ 
+ $\displaystyle u_{y}^{\mathrm{ref}}$ $\displaystyle=-xy\nu$  (55) 
+ 
+ $\displaystyle u_{z}^{\mathrm{ref}}$ $\displaystyle=\phantom{+}xz$  (56) 
+ Hence, for the case of $\nu=0$ , our Dirichlet boundary conditions read 
+ 
+ $\displaystyle\boldsymbol{u}_{\Upgamma_{1}}$ $\displaystyle=\mathbf{u}^{\mathrm{ref}}(x,y,0)=\left(0,0,0\right)$  (57) 
+ 
+ $\displaystyle\boldsymbol{u}_{\Upgamma_{2}}$ $\displaystyle=\mathbf{u}^{\mathrm{ref}}(x,y,L)=\left(-\frac{1}{2}L^{2},0,xL\right)$  (58) 
+ Results are presented in Fig. 5c . Since the exact solution is a quadratic function of $x,y,z$ , the errors are negligible when using an element order of $p\geq 2$ . On the other hand, if an element order of $p=1$ is chosen, the results are not exact. In this case, the numerical convergence rate – computed based on the last two points of the graphs – is obtained with a value of 2.3.
+
+Cantilever beam
+
+Finally, we perform a 3 ${}^{\text{rd}}$ order patch test by applying boundary conditions that result in a cubic variation of the displacement field. The analytical reference solution of the displacement field $\mathbf{u}^{\mathrm{ref}}(x,y,z)=(u_{x}^{\mathrm{ref}},u_{y}^{\mathrm{ref}},u_{z}^{\mathrm{ref}})$ is based on a cantilever beam which is weakly fixed on one end and subject to a shear force $F$ applied at the other end (at $z=4$ in our example). The analytical solution can be found in (4) : 
+ 
+ $\displaystyle u_{x}^{\mathrm{ref}}=-\frac{F\nu}{EI}xyz$  (59) 
+ 
+ $\displaystyle u_{y}^{\mathrm{ref}}=\frac{F}{EI}\left[\frac{\nu}{2}\left(x^{2}-y^{2}\right)z-\frac{1}{6}z^{3}\right]$  (60) 
+ 
+ 
+ $u_{z}^{\mathrm{ref}}=\frac{F}{EI}\left[\frac{1}{2}y\left(\nu x^{2}+z^{2}\right)+\frac{1}{6}\nu y^{3}\right.\\
+\left.+(1+\nu)\left(b^{2}y-\frac{1}{3}y^{3}\right)-\frac{1}{3}a^{2}\nu y\right.\\
+-\left.\frac{4a^{3}\nu}{\pi^{3}}\sum_{n=1}^{\infty}\frac{(-1)^{n}}{n^{3}}\cos\left(n\pi x/a\right)\frac{\sinh\left(n\pi y/a\right)}{\cosh(n\pi b/a)}\right]$  (61) 
+ According to this analytical solution, Dirichlet boundary conditions are applied at the two ends of the cantilever as 
+ 
+ $\displaystyle\boldsymbol{u}_{\Upgamma_{1}}$ $\displaystyle=\frac{F}{EI}\left(0,\;0,\;b^{2}y-\frac{1}{3}y^{3}\right)^{\mathrm{T}}$  (62) 
+ 
+ $\displaystyle\boldsymbol{u}_{\Upgamma_{2}}$ $\displaystyle=\frac{F}{EI}\left(0,\;-\frac{1}{6}L^{3},\;-\frac{1}{3}y^{3}+\left[\frac{1}{2}L^{2}+b^{2}\right]y\right)^{\mathrm{T}}$  (63) 
+ Again, all other surfaces are traction-free. As expected, the error is negligible when using an element order of $p=3$ , see Fig. 5e . For linear and quadratic elements, we obtain a numerical convergence rate of $1.7$ and $3.3$ , respectively.
+
+Comparison against triangulation
+
+In addition to the above validation against analytical solutions, we compare the proposed approach to a previous implementation, in which surfaces are subdivided into triangular and rectangular elements rather than using transition elements (see the explanations in Sect. 2.2 ). Such a discretization is depicted in Fig. 6a and can be compared directly with the corresponding mesh in Fig. 5f . For the sake of brevity, we present here only the results for the cantilever beam. A comparison of the error in displacements using both approaches is presented in Fig. 6b . The results obtained based on the proposed discretization (denoted as ‘xNy’ in the figure) are of course identical to the ones in Fig. 5e and are included here to facilitate the comparison. It can be seen that the application of triangulated surfaces (‘tri’) \footnote{ 6 For conciseness, we refer to these meshes as ‘triangulated’ even though some of the surfaces are subdivided into rectangles to create conforming meshes.} results in very similar error levels for the same element size. Only when using an element order of $p=3$ we observe a significant increase of the error levels – particularly for large element sizes – when using triangular elements. Plotting the same errors against the number of degrees of freedom (Fig. 6 ), the triangulated mesh obviously requires more DOFs to achieve the same error level as the transition elements. This is due to the fact that the quadtree patterns lead to a larger number of interior nodes when applying the triangulation (cf. Figs. 2 and 3 ). While in the case of linear elements (in the current example) only a few additional nodes are required at the centroids of triangulated surfaces, for higher-order elements the difference in the number of DOFs can be quite significant. For instance, when comparing the finest discretization with $p=3$ , the numbers of DOFs differ by a factor of approximately 2.6 (292,539 vs. 110,715 DOFs).
+
+3.2 Modal analysis – cube
+
+We continue by performing a modal analysis in order to validate the proposed approach for dynamic problems. The computational domain is a cube of width 8 
+ 
+ $\Upomega=\left\{\left.(x,y,z)\in\mathbb{R}^{3}\,\right|\,0\leq x\leq 8,\,0\leq y\leq 8,\,0\leq z\leq 8\right\}$ 
+ The material parameters are chosen as
+
+
+ 
+ Young’s modulus: $E=1$ 
+ Poisson’s ratio: $\nu=0$ 
+ Mass density: $\rho=1$ 
+ 
+
+
+All surfaces are traction-free. The mesh is defined by $(8/h)^{3}$ cubic subdomains, where $h$ denotes the subdomains’ side length. To ensure that transition elements are present in the mesh, an SBFE-subdomain at one of the corners of the cube is divided into eight, see Fig. 7 for examples of the mesh. A numerical reference solution has been computed by utilizing the conventional spectral element method on a uniform grid of $8^{3}$ elements of order 5, leading to 206,763 DOFs. The eigenfrequencies are listed in Table 1 . The relative error of the first ten nonzero eigenfrequencies (modes 7-16) is plotted in Fig. 7 with respect to the element size $h$ for different element orders $p$ . When using $p=1,2,3$ , the computed numerical convergence rate is obtained as 1.8, 3.8, and 4.5, respectively.
+
+3.3 Modal analysis – Crane tower
+
+To demonstrate the applicability of the proposed approach to more complex geometries, the model of a crane tower as depicted in Fig. 10 is analyzed. The model is based on a stereolithography (STL) file obtained from the online repository Thingiverse (29) . \footnote{ 7 The particular design crane tower has been uploaded by Tung Nguyen (username tungnt ) and published under the terms of the GNU General Public License. The design can be retrieved from www.thingiverse.com/thing:2440385.} From the STL-file, we generated a voxel-based model with the help of the online converter Voxelizer (64) . We slightly modified the design – mainly to remove unconstrained parts as well as to assign two different colors that correspond to different materials in the context of the image-based analysis. The modifications have been made using the software MagicaVoxel (14) . The material parameters of the tower and the base (as indicated by the different colors) are assumed as
+
+
+ 
+ material 1 material 2 
+ Young’s modulus E: 70 GPa 20 GPa 
+ Poisson’s ratio $\nu$ : 0.35 0.3 
+ mass density $\rho$ : 2.7 kg/m \textsuperscript{3} 2.4 kg/m \textsuperscript{3} 
+ 
+
+
+The total height of the model is 22.5 m. We apply fixed boundary conditions at the bottom of the base, as indicated in Fig. 10 . The mesh has been created automatically by means of an octree decomposition of the voxel-based model, leading to 7158 subdomains. As can be inferred from Fig. 10 , the decomposition in this case leads to subdomains of four different sizes and therefore, the side length of the largest element is 8 times larger than that of the smallest elements. A rapid and consistent transition from large to small element sizes is easily achieved by the octree meshing algorithm. Figure 10 shows the mode shapes of the first four modes and lists the corresponding eigenfrequencies. We found that to compute these modes, it suffices to employ quadratic elements on the surfaces of each subdomain, which results in a total of 615,960 DOFs.
+
+3.4 Structure under self-weight loading
+
+As a final example, we study the behavior of the structure depicted in Fig. 11 under the influence of self-weight loading. The model of a castle is based on a sample provided in the software MagicaVoxel (14) which we slightly modified and placed on a base of a different material. We scaled the model such that the total height of the structure is 33 m. The base is a homogeneous layer with a thickness of 8 m. The material parameters of the castle (material 1) and foundation (material 2) are chosen as
+
+
+ 
+ material 1 material 2 
+ Young’s modulus E: 10 GPa 0.5 GPa 
+ Poisson’s ratio $\nu$ : 0.3 0.2 
+ mass density $\rho$ : 2.4 kg/m \textsuperscript{3} 2 kg/m \textsuperscript{3} 
+ 
+
+
+The acceleration of gravity is assumed as $g=-9.81\,\text{m}/\text{s}^{2}$ . As a proof of concept, this example represents a situation where it can be useful to apply a different element order to the two distinct materials and thus better capture the larger deformations in the softer material. This feature will be particularly interesting for more complicated problems, such as wave propagation through layered soils, which has been addressed previously in two dimensions (28) . In those cases, it can also be useful to adjust the element order not only based on the material properties but also on the size of the subdomain. In the current rather simple example, we found it sufficient to use elements of order 3 in the base material, while the comparably rigid material of the castle is discretized using linear elements only. The resulting mesh is depicted in Fig. 11a . The deformed geometry due to self-weight can be seen in Fig. 11b , where the colors indicate absolute values (magnitude) of displacement.
+
+4 Conclusion
+
+The combination of the three-dimensional SBFEM with transition elements allows a consistent discretization of an octree decomposition. Each surface of each subdomain is discretized by quadrilateral elements. Hence, we avoid any unnecessary subdivision into smaller surface elements as had been done in previous publications. The numerical results demonstrate that the computational models created using the proposed technique pass the linear as well as higher order patch tests. Compared to the previous meshing paradigm (involving triangulation), there is no loss of accuracy due to the transition elements, while the number of surface elements and degrees of freedom is reduced. We also demonstrated that the proposed approach allows coupling elements of different interpolation orders straightforwardly. Thus, we are now able to implement local $p$ -refinement, which could previously only be exploited in two-dimensional SBFEM models.
+
+References
+
+(1) Birk, C., Prempramote, S., Song, C.: An improved continued-fraction-based high-order transmitting boundary for time-domain analyses in unbounded domains. International Journal for Numerical Methods in Engineering89, 269–298 (2012)
+(2) Birk, C., Song, C.: A continued-fraction approach for transient diffusion in unbounded medium. Computer Methods in Applied Mechanics and Engineering198, 2576–2590 (2009)
+(3) Birkhoff, G., Cavendish, J.C., Gordon, W.J.: Multivariant approximation by locally blended univariate interpolants. Proceedings of the National Academy of Sciences of the United States of America71(9), 3423–3425 (1974)
+(4) Bishop, J.E.: A displacement-based finite element formulation for general polyhedra using harmonic shape functions. International Journal for Numerical Methods in Engineering97, 1–31 (2014)
+(5) Bröker, H.: Integration von geometrischer Modellierung und Berechnung nach derp-Version der FEM. Berichte aus dem Bauwesen. Shaker Verlag (2001)
+(6) Cavendish, J.C.: Local Mesh Refinement Using Rectangular Blended Finite Elements. Journal of Computational Physics19, 211–228 (1975)
+(7) Chen, X., Birk, C., Song, C.: Numerical modelling of wave propagation in anisotropic soil using a displacement unit-impulse-response-based formulation of the scaled boundary finite element method. Soil Dynamics and Earthquake Engineering65, 243–255 (2014)
+(8) Chiong, I., Ooi, E.T., Song, C., Tin-Loi, F.: Scaled boundary polygons with application to fracture analysis of functionally graded materials. International Journal for Numerical Methods in Engineering98, 562–589 (2014)
+(9) Du, Q., Wang, D.: Recent progress in robust and quality Delaunay mesh generation. Journal of Computational and Applied Mathematics195(1), 8–23 (2006)
+(10) Duczek, S.: Higher Order Finite Elements and the Fictitious Domain Concept for Wave Propagation Analysis. VDI Fortschritt-Berichte Reihe 20 Nr. 458 (2014)
+(11) Duczek, S., Gravenkamp, H.: Critical assessment of different mass lumping schemes for higher order serendipity finite elements. Computer Methods in Applied Mechanics and Engineering350, 836–897 (2019)
+(12) Duczek, S., Gravenkamp, H.: Mass lumping techniques in the spectral element method: On the equivalence of the row-sum, nodal quadrature, and diagonal scaling methods. Computer Methods in Applied Mechanics and Engineering353, 516–569 (2019)
+(13) Duczek, S., Saputra, A.A., Gravenkamp, H.: High order transition elements: The xNy-element concept – Part I: Statics. ArXiv e-prints1909.04899, 1–46 (2019)
+(14) Ephtracy: MagicaVoxel 0.99.3a (2019). URLhttps://ephtracy.github.io/
+(15) Gabbert, U., Graeff-Weinberg, K.: Adaptive local-global analysis by pNh transition elements. Technische Mechanik19(2), 115–126 (1999)
+(16) Gordon, W.J.: Blending-function methods of bivariate and multivariate interpolation and approximation. SIAM Journal on Numerical Analysis8, 158–177 (1971)
+(17) Gordon, W.J., Hall, C.A.: Construction of curvilinear co-ordinate systems and applications to mesh generation. International Journal for Numerical Methods in Engineering7, 461–477 (1973)
+(18) Gordon, W.J., Hall, C.A.: Transfinite Element Methods: Blending-Function Interpolation over Arbitrary Curved Element Domains. Numerische Mathematik21, 109–129 (1973)
+(19) Gordon, W.J., Hall, C.A.: Transfinite element methods: Blending-function interpolation over arbitrary curved element domains. Numerische Mathematik21, 109–129 (1973)
+(20) Gordon, W.J., Thiel, L.C.: Transfinite Mappings and their Application to Grid Generation. Elsevier Science Publishing (1982)
+(21) Graeff-Weinberg, K., Berger, H.: Verbesserte FE-Diskretisierung bei Kontaktaufgaben. Technische Mechanik16(3), 250–270 (1996)
+(22) Gravenkamp, H.: Efficient simulation of elastic guided waves interacting with notches, adhesive joints, delaminations and inclined edges in plate structures. Ultrasonics82, 101–113 (2018)
+(23) Gravenkamp, H., Bause, F., Song, C.: On the computation of dispersion curves for axisymmetric elastic waveguides using the scaled boundary finite element method. Computers & Structures131, 46–55 (2014)
+(24) Gravenkamp, H., Birk, C., Song, C.: Simulation of elastic guided waves interacting with defects in arbitrarily long structures using the scaled boundary finite element method. Journal of Computational Physics295, 438–455 (2015)
+(25) Gravenkamp, H., Duczek, S.: Automatic image-based analyses using a coupled quadtree-SBFEM/SCM approach. Computational Mechanics60, 559–584 (2017)
+(26) Gravenkamp, H., Natarajan, S.: Scaled boundary polygons for linear elastodynamics. Computer Methods in Applied Mechanics and Engineering333, 238–256 (2018)
+(27) Gravenkamp, H., Saputra, A.A., Duczek, S.: High-order shape functions in the scaled boundary finite element method revisited. Archives of Computational Methods in Engineeringunder review, 1–21 (2019)
+(28) Gravenkamp, H., Saputra, A.A., Song, C., Birk, C.: Efficient wave propagation simulation on quadtree meshes using SBFEM with reduced modal basis. International Journal for Numerical Methods in Engineering110, 1119–1141 (2017)
+(29) Industries, M.: Thingiverse. URLhttps://www.thingiverse.com/
+(30) Karniadakis, G.E., Sherwin, S.J.: Spectral/hpElement Methods for Computational Fluid Dynamics. Oxford Science Publications (2005)
+(31) Kausel, E.: Thin-layer method: Formulation in the time domain. International Journal for Numerical Methods in Engineering37, 927–941 (1994)
+(32) Kausel, E., Gravenkamp, H.: On the numerical solution of matrix Bessel equations. ZAMM Zeitschrift fur Angewandte Mathematik und Mechanik99(8), e201800288 (2019)
+(33) Kausel, E., Roësset, J.M.: Stiffness matrices for layered soils. Bulletin of the Seismological Society of America71(6), 1743–1761 (1981)
+(34) Keyak, J., Meagher, J., Skinner, H., Mote, C.: Automated three-dimensional finite element modelling of bone: a new method. Journal of Biomedical Engineering12(5), 389–397 (1990)
+(35) Királyfalvi, G., Szabó, B.: Quasi-regional mapping for thep-version of the finite element method. Finite Elements in Analysis and Design27, 85–97 (1997)
+(36) Krome, F., Gravenkamp, H.: A semi-analytical curved element for linear elasticity based on the scaled boundary finite element method. International Journal for Numerical Methods in Engineering109, 790–808 (2017)
+(37) Krome, F., Gravenkamp, H., Birk, C.: Prismatic semi-analytical elements for the simulation of linear elastic problems in structures with piecewise uniform cross section. Computers & Structures192, 83–95 (2017)
+(38) Liu, L., Zhang, J., Song, C., Birk, C., Gao, W.: An automatic approach for the acoustic analysis of three-dimensional bounded and unbounded domains by scaled boundary finite element method. International Journal of Mechanical Sciences151, 563–581 (2019)
+(39) Liu, Y., Saputra, A.A., Wang, J., Tin-Loi, F., Song, C.: Automatic polyhedral mesh generation and scaled boundary finite element analysis of STL models. Computer Methods in Applied Mechanics and Engineering313, 106–132 (2017)
+(40) Löhner, R., Parikh, P.: Generation of three-dimensional unstructured grids by the advancing-front method. International Journal for Numerical Methods in Fluids8(10), 1135–1149 (1988)
+(41) Lorensen, W.E., Cline, H.E.: Marching cubes: A high resolution 3d surface construction algorithm. In: ACM SIGGRAPH Computer Graphics, vol. 21, pp. 163–169. ACM (1987)
+(42) Man, H., Song, C., Gao, W., Tin-Loi, F.: A unified 3D-based technique for plate bending analysis using scaled boundary finite element method. International Journal for Numerical Methods in Engineering91, 491–515 (2012)
+(43) Man, H., Song, C., Natarajan, S., Ooi, E.T., Birk, C., Tat Ooi, E., Birk, C.: Towards automatic stress analysis using Scaled Boundary Finite Element Method with quadtree mesh of high-order elements. ArXiv e-prints p. math.NA/1402.5186 (2014)
+(44) Ooi, E.T., Man, H., Natarajan, S., Song, C.: Adaptation of quadtree meshes in the scaled boundary finite element method for crack propagation modelling. Engineering Fracture Mechanics144, 101–117 (2015)
+(45) Ooi, E.T., Shi, M., Song, C., Tin-Loi, F., Yang, Z.: Dynamic crack propagation simulation with scaled boundary polygon elements and automatic remeshing technique. Engineering Fracture Mechanics106(2012), 1–21 (2013)
+(46) Ooi, E.T., Song, C., Tin-Loi, F.: A scaled boundary polygon formulation for elasto-plastic analyses. Computer Methods in Applied Mechanics and Engineering268, 905–937 (2014)
+(47) Ooi, E.T., Song, C., Tin-Loi, F., Yang, Z.: Automatic modelling of cohesive crack propagation in concrete using polygon scaled boundary finite elements. Engineering Fracture Mechanics93, 13–33 (2012)
+(48) Pozrikidis, C.: Introduction to Finite and Spectral Element Methods using MATLAB, 2 edn. Chapman and Hall/CRC (2014)
+(49) Provatidis, C.G.: Coons-patch macroelements in two-dimensional parabolic problems. Applied Mathematical Modelling30(4), 319–351 (2006)
+(50) Provatidis, C.G.: Two-dimensional elastostatic analysis using Coons-Gordon interpolation. Meccanica47(4), 951–967 (2011)
+(51) Provatidis, C.G.: Precursors of Isogeometric Analysis. Springer International Publishing (2019)
+(52) Saputra, A.A., Birk, C., Song, C.: Computation of three-dimensional fracture parameters at interface cracks and notches by the scaled boundary finite element method. Engineering Fracture Mechanics148, 213–242 (2015)
+(53) Saputra, A.A., Talebi, H., Tran, D., Birk, C., Song, C.: Automatic image-based stress analysis by the scaled boundary finite element method. International Journal for Numerical Methods in Engineering109, 697–738 (2017)
+(54) Song, C.: A matrix function solution for the scaled boundary finite-element equation in statics. Computer Methods in Applied Mechanics and Engineering193, 2325–2356 (2004)
+(55) Song, C.: The scaled boundary finite element method in structural dynamics. International Journal for Numerical Methods in Engineering77, 1139–1171 (2009)
+(56) Song, C.: The scaled boundary finite element method: introduction to theory and implementation. Wiley (2018)
+(57) Song, C., Wolf, J.P.: The scaled boundary finite-element method - alias consistent infinitesimal finite-element cell method - for elastodynamics. Computer Methods in Applied Mechanics and Engineering147, 329–355 (1997)
+(58) Song, C., Wolf, J.P.: The scaled boundary finite-element method - a primer: solution procedures. Computers & Structures78, 211–225 (2000)
+(59) Szabó, B., Babuška, I.: Finite Element Analysis. John Wiley and Sons (1991)
+(60) Timoshenko: Theory of elasticity (1951)
+(61) Weinberg, K.: Ein Finite-Elemente-Konzept zur lokalen Netzverdichtung und seine Anwendung auf Koppel- und Kontaktprobleme. Ph.D. thesis, Otto von Guericke University Magdeburg (1996)
+(62) Weinberg, K., Gabbert, U.: An adaptivepNh-technique for global-local finite element analysis. Engineering Computations19, 485–500 (2002)
+(63) Weinberg, K., Gabbert, U.: An adaptive pNh-technique for global-local finite element analysis. Engineering Computations19(5), 485–500 (2002)
+(64) Westerdiep, A.: Online Voxelizer (2019). URLhttp://drububu.com/miscellaneous/voxelizer/
+(65) Wolf, J.P., Song, C.: Dynamic-stiffness matrix in time domain of unbounded medium by infinitesimal finite element cell method. Earthquake Engineering & Structural Dynamics23, 1181–1198 (1994)
+(66) Wolf, J.P., Song, C.: Dynamic-stiffness matrix of unbounded soil by finite-element multi-cell cloning. Earthquake Engineering & Structural Dynamics23, 233–250 (1994)
+(67) Wolf, J.P., Song, C.: The scaled boundary finite-element method - a primer: derivations. Computers & Structures78, 191–210 (2000)
+(68) Young, P., Beresford-West, T., Coward, S., Notarberardino, B., Walker, B., Abdul-Aziz, A.: An efficient approach to converting three-dimensional image data into highly accurate computational models. Philosophical Transactions of the Royal Society A: Mathematical, Physical and Engineering Sciences366(1878), 3155–3173 (2008)

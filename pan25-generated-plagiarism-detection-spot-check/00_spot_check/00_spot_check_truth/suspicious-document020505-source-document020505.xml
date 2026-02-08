@@ -1,0 +1,17 @@
+<document reference="suspicious-document020505.txt">
+  <feature name="about" authors="Junhui Li and Pu Wang and Jialu Li and Xinzhe Wang and Youshan Zhang" title="DPATD: Dual-Phase Audio Transformer for Denoising" lang="en" similarity="0.9627" severity="low" prompt_tokens="3987" output_tokens="3325"/>
+  <feature name="md5Hash" value="59891ec9bb2c63362cff89064159c2c1"/>
+  <feature name="plagiarism" type="llm_prompted" llm="Mistral" this_language="en" this_offset="134" this_length="1304" source_reference="source-document020505.txt" obfuscation="simple" source_offset="169" source_length="1301"/>
+  <feature name="plagiarism" type="llm_prompted" llm="Mistral" this_language="en" this_offset="1456" this_length="856" source_reference="source-document020505.txt" obfuscation="simple" source_offset="1488" source_length="749"/>
+  <feature name="plagiarism" type="llm_prompted" llm="Mistral" this_language="en" this_offset="2314" this_length="1171" source_reference="source-document020505.txt" obfuscation="medium" source_offset="2971" source_length="1076"/>
+  <feature name="plagiarism" type="llm_prompted" llm="Mistral" this_language="en" this_offset="3487" this_length="856" source_reference="source-document020505.txt" obfuscation="medium" source_offset="2239" source_length="730"/>
+  <feature name="plagiarism" type="llm_prompted" llm="Mistral" this_language="en" this_offset="4345" this_length="1395" source_reference="source-document020505.txt" obfuscation="medium" source_offset="8514" source_length="1171"/>
+  <feature name="plagiarism" type="llm_prompted" llm="Mistral" this_language="en" this_offset="9199" this_length="1154" source_reference="source-document020505.txt" obfuscation="medium" source_offset="26375" source_length="777"/>
+  <feature name="plagiarism" type="llm_prompted" llm="Mistral" this_language="en" this_offset="14065" this_length="1733" source_reference="source-document020505.txt" obfuscation="simple" source_offset="16119" source_length="1825"/>
+  <feature name="plagiarism" type="llm_prompted" llm="Mistral" this_language="en" this_offset="17081" this_length="967" source_reference="source-document020505.txt" obfuscation="simple" source_offset="10696" source_length="812"/>
+  <feature name="altered" type="llm_prompted" llm="Mistral" this_language="en" this_offset="20494" this_length="989"/>
+  <feature name="plagiarism" type="llm_prompted" llm="Mistral" this_language="en" this_offset="22265" this_length="745" source_reference="source-document020505.txt" obfuscation="simple" source_offset="33844" source_length="899"/>
+  <feature name="plagiarism" type="llm_prompted" llm="Mistral" this_language="en" this_offset="23012" this_length="1008" source_reference="source-document020505.txt" obfuscation="simple" source_offset="34745" source_length="1036"/>
+  <feature name="plagiarism" type="llm_prompted" llm="Mistral" this_language="en" this_offset="24050" this_length="1014" source_reference="source-document020505.txt" obfuscation="medium" source_offset="36202" source_length="777"/>
+  <feature name="plagiarism" type="llm_prompted" llm="Mistral" this_language="en" this_offset="25950" this_length="457" source_reference="source-document020505.txt" obfuscation="simple" source_offset="32351" source_length="476"/>
+</document>

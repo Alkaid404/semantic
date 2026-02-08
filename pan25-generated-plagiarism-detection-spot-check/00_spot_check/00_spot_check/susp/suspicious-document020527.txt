@@ -1,0 +1,151 @@
+Sharp Strichartz estimates in spherical coordinates
+
+By Robert Schippa
+
+Abstract
+
+The Strichartz estimates we have successfully established for both the wave and Dirac equations are compiled in the following theorem, as outlined in reference [2].
+
+1. Introduction
+
+Since we consider homogeneous estimates, we shall confine ourselves to homogeneous equations: 
+ 
+ (1)  $\left\{\begin{array}[]{cl}i\partial_{t}u(t,x)+\varphi(D)u(t,x)&=0,\,(t,x)\in\mathbb{R}\times\mathbb{R}^{n},D=(-\Delta)^{1/2},\\
+u(0,\cdot)&=u_{0}.\end{array}\right.$ 
+ In the following we will deal with Schrödinger-like equations for most of the time, that is the dispersion relation $\varphi\in C^{\infty}((0,\infty),\mathbb{R})$ is given by 
+ 
+ (2)  $\varphi(\rho)=\rho^{a},\;a>1.$ 
+ Strichartz estimates capture the dispersive properties of solutions to linear dispersive equations and classical homogeneous estimates for ( 1 ) in the case of ( 2 ) state as follows 
+ 
+ (3)  $\|u\|_{L_{t}^{q}L_{x}^{p}(\mathbb{R}^{n})}\lesssim_{a,n,p,q}\|u_{0}\|_{\dot{H}^{s}},$ 
+ where the derivatives are determined by scaling 
+ 
+ (4)  $s=n\left(\frac{1}{2}-\frac{1}{p}\right)-\frac{a}{q}.$ 
+ Keel and Tao proved the sharp range of homogeneous estimates in [TaoKeel1998] , which is given by 
+ 
+ (5)  $\frac{1}{q}\leq\frac{n}{2}\left(\frac{1}{2}-\frac{1}{p}\right),\;q,p\geq 2,\;p\neq\infty.$ 
+ Making use of the bilinear interpolation argument worked out in [TaoKeel1998] , Cho, Ozawa and Xia showed homogeneous estimates for more general dispersion relations in [ChoOzawaXia2011, Theorem 2, p. 1123] . 
+ Sharpness of ( 5 ) is seen considering a Knapp-type example, that is a maximally anisotropic propagating wave. This example was already considered by Strichartz in his seminal paper [Strichartz1977, Lemma 3., p. 707] , in which he linked special cases of estimates of the kind ( 3 ) to Fourier restriction estimates through duality. We review a modified example in Proposition 1 . 
+ This raised the question, whether one can extend the range of integrability coefficients found in [TaoKeel1998] and [ChoOzawaXia2011] if one punishes anisotropic propagation by considering angular regularity of the initial data. More precisely, for equations ( 1 ) in the case of ( 2 ) we want to consider estimates of the kind: 
+ 
+ (6)  $\|u\|_{L_{t}^{q}L_{x}^{p}}\lesssim_{a,n,p,q,\alpha}\|u_{0}\|_{\dot{H}^{s,\alpha}_{\omega}},$ 
+ where the Sobolev spaces $\dot{H}^{s,\alpha}_{\omega}=D^{-s}\Lambda_{\omega}^{-\alpha}L^{2}(\mathbb{R}^{n})$ with angular regularity $\alpha$ are defined making use of the inhomogeneous Laplace-Beltrami operator $\Lambda_{\omega}=(1-\Delta_{\omega})^{1/2}$ , when 
+ 
+ $\Delta_{\omega}=\sum_{1\leq i<j\leq n}\Omega_{ij}^{2},\;\Omega_{ij}=x_{i}\partial_{j}-x_{j}\partial_{i}.$ 
+ This is in fact the case and Cho and Lee found the following theorem to hold:
+
+Let $n\geq 2$ and suppose that $(q,p)$ satisfies 
+ 
+ (7)  $\frac{n}{2}\left(\frac{1}{2}-\frac{1}{p}\right)<\frac{1}{q}\leq\frac{2n-1}{2}\left(\frac{1}{2}-\frac{1}{p}\right),\;q,p\geq 2,$ 
+ $(n,q,p)\neq(2,2,\infty)\mbox{ and }(q,p)\neq(2,(4n-2)/(2n-3))$ . 
+ Then we find the estimate ( 6 ) to hold for the solution $u$ to ( 1 ) with $s$ from ( 4 ) provided that $\alpha>((2n-1)/(2n-2))(2/q+n/p-n/2)$ .
+
+The distinction between the assumptions on $V$ in Theorems 2.3 and 3.2 is notable: while Theorem 2.3 relies on the structural hypothesis (2.5), Theorem 3.2 employs (3.12) to establish a necessary level of minimal angular regularity.
+
+Suppose that $n\geq 2$ and $(q,p)$ satisfies ( 7 ). Then we find that $\alpha\geq\frac{2}{q}+\frac{n}{p}-\frac{n}{2}$ is necessary for estimate ( 6 ) to hold.
+
+Making use of a result due to Guo from [Guo2014] we prove the following result establishing estimates of the kind ( 6 ) for Schrödinger-like equations with sharp angular regularity up to endpoints:
+
+Let $q,p\geq 2$ , suppose that we are in the case of ( 2 ) and 
+ 
+ $\begin{split}&\frac{n}{2}\left(\frac{1}{2}-\frac{1}{p}\right)<\frac{1}{q}<\frac{2n-1}{2}\left(\frac{1}{2}-\frac{1}{p}\right)\mbox{ for }n=2,\\
+&\frac{n}{2}\left(\frac{1}{2}-\frac{1}{p}\right)<\frac{1}{q}\leq\frac{2n-1}{2}\left(\frac{1}{2}-\frac{1}{p}\right),\;(q,p)\neq\left(2,\frac{4n-2}{2n-3}\right)\mbox{ for }n>2.\end{split}$ 
+ Then, for $n=2$ or $n>2$ and $q=2$ , we find the estimate ( 6 ) to hold for $\alpha>\frac{2}{q}+\frac{n}{p}-\frac{n}{2}$ and for $n>2$ we find the estimate ( 6 ) to hold for $\alpha=\frac{2}{q}+\frac{n}{p}-\frac{n}{2}$ , whenever $q\neq 2$ .
+
+2. Proof of Proposition 1 and Theorem 1.2
+
+First, we show the necessary angular regularity:
+
+To begin with, consider the free homogeneous case. Notably, property (1.2) implies $\mathcal{D}^{2}=-I_{4}\Delta$, leading to
+
+\[
+(1.3) \quad (i\partial_{t}-\mathcal{D})(i\partial_{t}+\mathcal{D})u=-\square u,
+\]
+
+which indicates that every solution to the free Dirac equation satisfies a vectorial wave equation with appropriate initial conditions. Although $\mathcal{D}$ possesses a complex structure, leveraging the well-established theory for the free wave equation allows us to express the Dirac linear propagator as
+
+\[
+(1.4) \quad e^{it\mathcal{D}}f=\cos(t|D|)f+i\frac{\sin(t|D|)}{|D|}\mathcal{D}f,
+\]
+
+along with the Strichartz estimates
+
+\[
+(1.5) \quad \|e^{it\mathcal{D}}f\|_{L^{p}_{t}\dot{H}_{q}^{\frac{1}{q}-\frac{1}{p}-\frac{1}{2}}}\lesssim\|f\|_{L^{2}},
+\]
+
+valid for all pairs $(p,q)$ satisfying
+
+\[
+\frac{2}{p}+\frac{2}{q}=1,\quad 2\leq p\leq\infty,\qquad\infty>q\geq 2.
+\]
+
+These estimates convey two distinct pieces of information: locally in time, they reflect a smoothing effect, indicating an improvement in integrability relative to a suitable norm. Conversely, globally in time, they describe a decay effect, meaning that the spatial norm of a solution diminishes to zero as $t\rightarrow\infty$, at least in an $L^{p}$ time-averaged sense.
+
+Selecting the pair $(p,q)=(2,\infty)$ produces the endpoint estimate
+
+\[
+(1.6) \quad \|e^{it\mathcal{D}}f\|_{L^{2}_{t}L^{\infty}_{x}}\lesssim\|f\|_{\dot{H}^{1}},
+\]
+
+which is known to fail, akin to its counterpart for the 3D wave flow (see [8]). If (1.6) were valid, one could establish global well-posedness for problem (1.1) (at least for $V=0$) using standard techniques. By examining the solution map
+
+\[
+v\mapsto\Phi(v)=e^{it\mathcal{D}}f+i\int_{0}^{t}e^{i(t-t^{\prime})\mathcal{D}}P_{3}(v(t^{\prime}))dt^{\prime},
+\]
+
+one would derive
+
+\[
+\left\|\int_{0}^{t}e^{i(t-t^{\prime})\mathcal{D}}v(t^{\prime})^{3}dt\right\|_{L^{2}L^{\infty}}\lesssim\int_{-\infty}^{+\infty}\|e^{it\mathcal{D}}e^{-it^{\prime}\mathcal{D}}P_{3}(v(t^{\prime}))\|_{L^{2}L^{\infty}}dt^{\prime}\lesssim\|v^{3}\|_{L^{1}H^{1}},
+\]
+
+which, combined with the conservation of the $H^{1}$ norm, would yield
+
+\[
+\|\Phi(v)\|_{L^{\infty}_{t}H^{1}_{x}}+\|\Phi(v)\|_{L^{2}_{t}L^{\infty}_{x}}\lesssim\|f\|_{H^{1}}+\|v\|_{L^{\infty}H^{1}}\|v\|_{L^{2}L^{\infty}}^{2}.
+\]
+
+In other words, a contraction argument in the norm $\|\cdot\|_{L^{2}L^{\infty}}+\|\cdot\|_{L^{\infty}H^{1}}$ would suffice to demonstrate the global existence of small $H^{1}$ solutions to (1.1).
+
+It is essential to observe that our analysis necessitates an angular regularity parameter $s>1$ for the data under consideration, which represents a stronger condition than the $s>0$ assumption employed in the prior work detailed in [9]. While it is feasible to reduce our requirements to $s>0$, doing so would introduce the need for an additional analytical tool: a Moser-type product estimate of the form 
+
+$$\|\Lambda^{s}_{\omega}(uv)\|_{L^{2}_{\omega}}\lesssim\|u\|_{L^{\infty}_{\omega}}\|\Lambda^{s}_{\omega}v\|_{L^{2}_{\omega}}+\|\Lambda^{s}_{\omega}u\|_{L^{2}_{\omega}}\|v\|_{L^{\infty}_{\omega}},\qquad s>0,$$
+
+and a corresponding estimate for $\Lambda^{s}_{\omega}|D|(uv)$. Deriving such estimates would involve extensive calculations on the sphere $\mathbb{S}^{2}$, which we have elected to avoid in favor of leveraging the more straightforward algebraic properties inherent to the space $H^{s}(\mathbb{S}^{n-1})$ when $s>\frac{n-1}{2}$.
+
+Let $a>1,\;q,p\geq 2$ and suppose that 
+ 
+ $\begin{split}&\frac{n}{2}\left(\frac{1}{2}-\frac{1}{p}\right)<\frac{1}{q}<\frac{2n-1}{2}\left(\frac{1}{2}-\frac{1}{p}\right)\mbox{ for }n=2,\\
+&\frac{n}{2}\left(\frac{1}{2}-\frac{1}{p}\right)<\frac{1}{q}\leq\frac{2n-1}{2}\left(\frac{1}{2}-\frac{1}{p}\right),\;(q,p)\neq\left(2,\frac{4n-2}{2n-3}\right)\mbox{ for }n>2.\end{split}$ 
+ Then we find the estimate 
+ 
+ (16)  $\left\|P_{N}e^{itD^{a}}u_{0}\right\|_{L_{t}^{q}\mathcal{L}_{r}^{p}L_{\omega}^{2}}\lesssim_{n,p,q}N^{s}\|u_{0}\|_{L^{2}}$ 
+ to hold for any $N\in 2^{\mathbb{Z}}$ with $s=\frac{n}{2}-\frac{n}{p}-\frac{a}{q}$ .
+
+Theorem 1.2 is a consequence:
+
+For $(q,p)$ admissible for Theorem 2.1 and $\alpha=(n-1)\left(\frac{1}{2}-\frac{1}{p}\right)$ we find 
+ 
+ $\begin{split}\|P_{N}u\|_{L_{t}^{q}L_{x}^{p}}&\lesssim_{n,p}\|\Lambda_{\omega}^{\alpha}P_{N}u\|_{L_{t}^{q}\mathcal{L}_{r}^{p}L_{\omega}^{2}}\\
+&\lesssim_{n,p,q}N^{s}\|\Lambda_{\omega}^{\alpha}P_{N}u_{0}\|_{L^{2}}\end{split}$ 
+ Taking $p$ to the sharp line, we find for $q>2$ 
+ 
+ $\alpha=(n-1)\left(\frac{1}{2}-\frac{1}{p}\right)=\frac{2}{q}+\frac{n}{p}-\frac{n}{2}.$ 
+ For $q=2$ we only find 
+ 
+ $\alpha>\frac{2}{q}+\frac{n}{p}-\frac{n}{2}\mbox{ as }p\rightarrow\frac{4n-2}{2n-3}.$ 
+ The frequency localization is removed employing Littlewood-Paley theory and the proof is concluded interpolating with the estimates on the classical sharp line. ∎
+
+3. Remarks
+
+In the course of establishing our proof, we have inadvertently derived endpoint estimates for the wave flow that exhibit a gain in angular regularity, specifically:
+
+\[
+(3.9) \quad n \geq 3, \qquad \|e^{it|D|}f\|_{L^{2}_{t}L^{\infty}_{r}L^{2}_{\omega}} \lesssim \|\Lambda^{\sigma_{n}}_{\omega}f\|_{\dot{H}^{\frac{n-1}{2}}}
+\]
+
+Here, $\sigma_{n}$ corresponds to the value defined in (3.4). While this outcome was not the primary focus of our investigation, it is worthwhile to contrast (3.9) with existing literature. For the three-dimensional case ($n=3$), the estimate aligns with Theorem 1.1-III in [9], where $\sigma_{3} = -\frac{3}{4}$ is established; however, whether this value represents the optimal threshold remains unresolved. Notably, the same study demonstrates that the inequality fails for $\sigma_{3} < -\frac{5}{6}$. For dimensions $n \geq 4$, the estimate (3.9) appears to be novel, as does (3.6) for $n \geq 3$. A comprehensive discussion of related estimates can be found in [6] and the references cited therein.
+
+References
+

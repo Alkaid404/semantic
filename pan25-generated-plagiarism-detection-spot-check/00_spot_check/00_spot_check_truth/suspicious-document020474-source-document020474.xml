@@ -1,0 +1,13 @@
+<document reference="suspicious-document020474.txt">
+  <feature name="about" authors="M. Horio and Y. Krockenberger and K. Koshiishi and S. Nakata and K. Hagiwara and M. Kobayashi and K. Horiba and H. Kumigashira and H. Irie and H. Yamamoto and A. Fujimori" title="Angle-resolved photoemission spectroscopy of the low-energy electronic structure of superconducting Pr2CuO4 driven by oxygen non-stoichiometry" lang="en" similarity="0.9814" severity="medium" prompt_tokens="3965" output_tokens="3086"/>
+  <feature name="md5Hash" value="a181efb969abc66be95e62fb3d98a67d"/>
+  <feature name="altered" type="llm_prompted" llm="Mistral" this_language="en" this_offset="329" this_length="787"/>
+  <feature name="altered" type="llm_prompted" llm="Mistral" this_language="en" this_offset="1118" this_length="1440"/>
+  <feature name="altered" type="llm_prompted" llm="Mistral" this_language="en" this_offset="2560" this_length="2005"/>
+  <feature name="altered" type="llm_prompted" llm="Mistral" this_language="en" this_offset="7191" this_length="1867"/>
+  <feature name="altered" type="llm_prompted" llm="Mistral" this_language="en" this_offset="9060" this_length="1364"/>
+  <feature name="altered" type="llm_prompted" llm="Mistral" this_language="en" this_offset="10426" this_length="1105"/>
+  <feature name="altered" type="llm_prompted" llm="Mistral" this_language="en" this_offset="11533" this_length="1111"/>
+  <feature name="altered" type="llm_prompted" llm="Mistral" this_language="en" this_offset="15309" this_length="1076"/>
+  <feature name="altered" type="llm_prompted" llm="Mistral" this_language="en" this_offset="16387" this_length="693"/>
+</document>

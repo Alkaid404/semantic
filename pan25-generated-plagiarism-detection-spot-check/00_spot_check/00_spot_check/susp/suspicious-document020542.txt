@@ -1,0 +1,303 @@
+Fluctuations and correlations in scattering on a resonance coupled to a chaotic background
+
+By D. V. Savin
+
+Abstract
+
+We discuss and briefly overview recent progress with studying fluctuations in scattering on a resonance state coupled to the background of many chaotic states. Such a problem arises naturally, e.g., when dealing with wave propagation in the presence of a complex environment. Using a statistical model based on random matrix theory, we obtain a number of nonperturbative results for various statistics of scattering characteristics. This includes the joint and marginal distributions of the reflection and transmission intensities and phases, which are derived exactly at arbitrary coupling to the background with finite absorption. The intensities and phases are found to exhibit highly non-trivial statistical correlations, which remain essential even in the limit of strong absorption. In the latter case, we also consider the relevant approximations and their accuracy. As an application, we briefly discuss the statistics of the phase rigidity (or mode complexness) in such a scattering situation.
+
+1 Introduction and formalism
+
+Scattering on a well isolated resonance is a textbook example giving rise to the natural (“bell-shaped”) spectral profile of the transmission intensity Mahaux and Weidenmüller (1969) . In the vicinity of the resonance with energy $\varepsilon_{0}$ and width $\Gamma_{0}$ , the integral contribution of all other (remote) possible resonances amounts to scattering phases with a weak energy dependence. In a resonance approximation, one usually neglects such a non-resonant contribution (which can also be eliminated by other means Nishioka and Weidenmüller (1985) ). The scattering amplitude between two open channels $a$ and $b$ is then given by a multichannel Breit-Wigner formula Mahaux and Weidenmüller (1969) 
+ 
+ $S^{(0)}_{ab}(E)=\delta_{ab}-i\frac{A_{a}A_{b}}{E-\varepsilon_{0}+\frac{i}{2}\Gamma_{0}}\,.$  (1) 
+ For simplicity, we assume here invariance under time reversal, so $S$ is a symmetric matrix with the real channel amplitudes $A_{c}$ . The latter determine the partial (per channel) decay widths $A^{2}_{c}$ and the total escape width $\Gamma_{0}=\sum_{c}A^{2}_{c}$ , with the sum running over all channels open at the given scattering energy $E$ . This ensures the unitarity of the $S$ matrix (at real $E$ ).
+
+In many situations, such a resonance represents a specific “simple” (deterministic) excitation that is coupled to the background of many “complicated” (usually chaotic) states Sokolov and Zelevinsky (1997) . The prominent examples include giant resonances and doorway states in atomic and nuclear physics Bohr and Mottelson (1969) and similar mechanisms in open mesoscopic systems Aberget al.(2008) . Because of this coupling the initial amplitude is spread over the background with a rate determined by the so-called spreading width $\Gamma_{\downarrow}$ Sokolov and Zelevinsky (1997) . This gives rise to an effective damping, resulting in the mean (“optical”) $S$ matrix 
+ 
+ $\overline{S_{ab}}(E)=\delta_{ab}-i\frac{A_{a}A_{b}}{E-\varepsilon_{0}+\frac{i}{2}(\Gamma_{0}+\Gamma_{\downarrow})}\,,$  (2) 
+ where the average is performed over the fine energy structure of the complex background. The arising competition between two decay mechanisms leads to a strong suppression of transmission through such a simple state when the ratio $\eta\equiv\Gamma_{\downarrow}/\Gamma_{0}$ of the spreading ( $\Gamma_{\downarrow}$ ) to escape ( $\Gamma_{0}$ ) width exceeds unity Savinet al.(2017) .
+
+In various scenarios, such as atomic and nuclear physics, Sokolov & Zelevinsky (1997), and open mesoscopic systems, Aberget et al. (2008), a resonance state can be found within a complex ecosystem of states. This state, which represents a distinct, deterministic excitation as described by Sokolov & Zelevinsky (1997), exhibits an amplitude that permeates the chaotic states. The competition between two dissipation mechanisms - escape to the continuum and spreading over the background - leads to the diminished transmission through the simple mode when the coupling to the background is intensified, according to Savinet et al. (2017). In this context, the model offers a valuable method for measuring fluctuations in an established transmission signal caused by a complex environment. The latest findings regarding the intensity distribution have been presented by Savinet et al. (2017), while Savin (2017) has provided insights into the joint distribution of reflection and transmission.
+
+The approach developed in Savinet al.(2017) enables us to fully describe the influence of the chaotic background with finite dissipative losses on the resonance scattering. In short, it makes use of the well-known strength function formalism Sokolov and Zelevinsky (1997) to account for coupling to the background and employs random matrix theory (RMT) Guhret al.(1998) to model the chaotic nature of the latter. We are interested in fluctuations in scattering at the resonance energy $\varepsilon_{0}$ , corresponding to the peak of the original signal. The starting point is the following convenient representation of the $S$ matrix at $E=\varepsilon_{0}$ derived in Savinet al.(2017) : 
+ 
+ $S=1-\frac{1}{1+i\eta K}(1-S^{(0)})\,.$  (3) 
+ Here $S^{(0)}$ stands for the $S$ matrix ( 1 ) in the “clean” system without the background. $K$ denotes the local Green’s function Fyodorov and Savin (2004) of the background defined by $K=\frac{N\Delta}{\pi}(\frac{1}{\varepsilon_{0}-H_{\mathrm{bg}}})_{11}$ , which is a (rescaled) diagonal element of the resolvent of the Hamiltonian $H_{\mathrm{bg}}$ describing $N\gg 1$ background states with the mean level spacing $\Delta\sim\frac{1}{N}$ . In the chosen units, the constant $\eta$ becomes the only parameter controlling the strength of coupling to the background. Finite absorption is then taken into account by uniform broadening $\Gamma_{\mathrm{abs}}$ of the background states, resulting in complex $K$ Fyodorov and Savin (2004) 
+ 
+ $K=u-iv,\quad v>0,$  (4) 
+ with the normalisation $\left\langle iK\right\rangle=\left\langle v\right\rangle=1$ . Within the RMT approach, $H_{\mathrm{bg}}$ can be modelled by the Gaussian orthogonal ensemble (GOE) of random matrices, which enables us to fully characterise the universal statistics of $K$ at arbitrary absorption rate $\gamma\equiv 2\pi\Gamma_{\mathrm{abs}}/\Delta$ Fyodorov and Savin (2004) . Importantly, $u$ and $v$ are the mutually correlated random variables that have the following joint probability density function (jpdf) Fyodorov and Savin (2004) : 
+ 
+ $\displaystyle\mathcal{P}(u,v)=\frac{1}{2\pi v^{2}}P_{0}(x),\quad x=\frac{u^{2}+v^{2}+1}{2v}>1.$  (5) 
+ The function $P_{0}(x)$ has the meaning of a probability distribution and its explicit form is known exactly at any $\gamma$ Savinet al.(2005) .
+
+We now use these results to first discuss in Sec. 2 the arising scattering pattern and how the two control parameters $\eta$ and $\gamma$ can be extracted from the scattering data. Sections 3 and 4 then provide the detailed analysis of the statistical properties of the transmission and reflection amplitudes in terms of various joint distributions. An application of the obtained results to the so-called phase rigidity is considered in Sec. 5 . Finally, we conclude with a brief summary in Sec. 6 .
+
+2 Transmission and reflection amplitudes
+
+In the instance of zero absorption, the parameter K equals the random variable u, which follows the standard Cauchy distribution as per Fyodorov and Savin (2004). The joint distribution of T and θ is obtained through integration and is expressed as:
+
+$\mathcal{P}_{\eta,\gamma=0}(T,\theta)$ = $\int\limits_{-\infty}^{\infty}\frac{du}{\pi}\frac{\delta(\tan\theta+\eta u)}{1+u^{2}}\delta\Bigl{(}T-\frac{1}{1+\eta^{2}u^{2}}\Bigr{)}$ = $\delta(T-\cos^{2}\theta)\mathcal{P}_{0}(\theta).$ (10)
+
+The first term on the right-hand side represents the conditional probability density function (pdf) of T and T, the marginal pdf of θ is given by:
+
+$\mathcal{P}_{0}(\theta)=\frac{1}{\pi(\eta\cos^{2}\theta+\eta^{-1}\sin^{2}\theta)}.$ (11)
+
+The phase distribution (11) exhibits a local maximum (minimum) at θ=0 for η<1 ( η>1 ) and becomes uniform at the special coupling η=1. It's worth noting that this function has the symmetry $\mathcal{P}_{0}(\theta)|_{\eta}=\mathcal{P}_{0}(\theta\pm\frac{\pi}{2})|_{\eta^{-1}}$ under the involution η→η^{-1}. This symmetry can be attributed to a more general symmetry property that the joint distribution of transmission and reflection at arbitrary absorption follows, as established in Savin (2017).
+
+At vanishing absorption, $\gamma=0$ , we have $v=0$ (thus $d=0$ ) identically. The intensities and phases are then deterministic functions of each other defined by the following relations: 
+ 
+ $\begin{array}[]{l}T=t_{0}^{2}\cos^{2}\theta_{T}=1-R_{\pm},\\[4.30554pt]
+\theta_{R}^{\pm}=\frac{\pi}{2}+\theta_{T}\pm\arctan(r_{0}\cot\theta_{T}),\end{array}$  (9) 
+ where $\theta_{T}=-\arctan(\eta u)$ . Therefore, their distributions are determined by the random variable $u$ that is known Fyodorov and Savin (2004) to be Cauchy distributed in this limit. This yields, in particular, the following distribution of the transmission phase Savin (2017b) : 
+ 
+ $\mathcal{P}_{0}(\theta_{T})=\frac{1}{\pi(\eta\cos^{2}\theta_{T}+\eta^{-1}\sin^{2}\theta_{T})},$  (10) 
+ which provides all others by a suitable change of variables.
+
+For a professional audience, the singularity in the joint distribution is resolved when $T$ and $\theta$ are independent variables. The joint probability density function (jpdf) is derived from the known function $P(u,v)$ using relations (9). To facilitate this, we use $y=\tan\theta$ instead of $\theta$, with $|\partial y/\partial\theta|=1+y^2$, and compute the Jacobian as $|\partial(u,v)/\partial(T,y)|=1/(2\eta^2T^2(1+y^2))$. Noting that $v=(1/\eta)(|\cos\theta|/\sqrt{T}-1)\geq 0$, we arrive at the exact result:
+
+$\mathcal{P}_{\eta,\gamma}(T,\theta)=(1/[4\pi T(\cos\theta-\sqrt{T})^{2}]) \Theta(\cos\theta-\sqrt{T})P_{0}[\mathrm{x}_{\eta}(T,\theta)]$, (12)
+
+where $\Theta(x)$ is the Heaviside step function and
+
+$\mathrm{x}_{\eta}(T,\theta)=[(T(1+\eta^2)-2\sqrt{T}\cos\theta+1)/(2\eta\sqrt{T}(\cos\theta-\sqrt{T})]]$. (13)
+
+This equation demonstrates the strong statistical correlations between transmission intensity and phase at finite absorption.
+
+It is instructive to complement the above description of the scattering pattern by the “external” viewpoint in terms of the interference between the deterministic scattering phase (due to the direct transmission) and the random phase induced by the background Savinet al.(2017) . To this end, we note that both $S$ and $S_{0}$ can be diagonalised by an orthogonal matrix $O_{\varphi}$ , where angle $\varphi$ expresses the degree of channel nonorthogonality. Then 
+ 
+ $S=O_{\varphi}\left(\begin{matrix}1&0\\
+0&-S_{\mathrm{bg}}\end{matrix}\right)O_{\varphi}^{T},$  (13) 
+ where $S_{\mathrm{bg}}=\frac{1-i\eta K}{1+i\eta K}\equiv\sqrt{R_{\mathrm{bg}}}e^{i\theta_{\mathrm{bg}}}$ stands for the background contribution into the full scattering process. This yields an alternative parametrisation of the scattering amplitudes 
+ 
+ $\begin{array}[]{l}t=\frac{\sin 2\varphi}{2}(1+\sqrt{R_{\mathrm{bg}}}e^{i\theta_{\mathrm{bg}}}),\\[4.30554pt]
+r_{\pm}=\frac{1}{2}(1-\sqrt{R_{\mathrm{bg}}}e^{i\theta_{\mathrm{bg}}})\pm\frac{\cos 2\varphi}{2}(1+\sqrt{R_{\mathrm{bg}}}e^{i\theta_{\mathrm{bg}}}).\end{array}$  (14) 
+ Note that the background acts as a single-channel scattering centre. For such a situation, the joint distribution of the reflection coefficient $R_{\mathrm{bg}}$ and phase $\theta_{\mathrm{bg}}$ is also known exactly Savinet al.(2005) at arbitrary absorption (see Kuhlet al.(2005a) for the relevant experimental study). In particular, we have $\left\langle S_{\mathrm{bg}}\right\rangle=\frac{1-\eta}{1+\eta}$ , yielding the average transmission and reflection amplitudes as follows 
+ 
+ $\left\langle t\right\rangle=\frac{\sin 2\varphi}{1+\eta},\quad\left\langle r_{\pm}\right\rangle=\frac{\eta\pm\cos 2\varphi}{1+\eta}.$  (15) 
+
+
+These expressions are useful for determining the model parameters when applying the approach to real systems. By measuring the average amplitudes and fitting them to ( 15 ), one can extract the background coupling $\eta$ and the mixing phase $\varphi$ , thus fixing $t_{0}=\sin 2\varphi$ and $r_{0}=\cos 2\varphi$ . (Note that both $\left\langle t\right\rangle$ and $\left\langle r_{\pm}\right\rangle$ are real, which should be helpful in eliminating global phases that might be present in realistic situations.) The absorption rate $\gamma$ can then be obtained independently from the correlation analysis of scattering spectra Schäferet al.(2003) . This allows one to perform comparison with the experimental data without fit parameters. We now discuss theoretical predictions for joint statistics of both intensities and phases in more detail.
+
+3 Joint distribution of the intensities
+
+To elucidate the common distribution of the transmission intensity T and phase θ, we employ the approach set forth by Guhret et al. (1998) and represent Hbg as an NxN random matrix derived from the Gaussian orthogonal ensemble (GOE). This connection to the background spectrum allows us to account for finite absorption by incorporating a uniform broadening Γabs of the background states. As such damping is operationally equivalent to a purely imaginary energy shift, K becomes a complex variable, K = u - iv, with v > 0, and normalized such that <K> = -i. The random variables u and v, which are mutually correlated, are known to follow universal statistics, as described by the joint probability density function (jpdf) provided by Fyodorov and Savin (2004):
+
+P(u,v) = (1 / (2πv²)) * P0(x), x = (u² + v² + 1) / (2v) > 1.
+
+The function P0(x) is entirely dependent on the (dimensionless) absorption rate γ = 2πΓabs/Δ and is precisely known according to Savinet et al. (2005). Notably, it exhibits a crucial symmetry, remaining unchanged under the exchange iK ↔ 1/iK. This symmetry leads to the mean value of the transmission amplitude being given by <t> = (1 + η)⁻¹ at any γ.
+
+In the limit of vanishing absorption, $\gamma\to 0$ , one can use Fyodorov and Savin (2004) that $P_{0}(x)\to\delta(\frac{1}{x})$ . This yields the following result: $\mathcal{P}_{\gamma=0}(R,T)=\delta(1-R-T)\mathcal{P}_{0}(T).$ The first (singular) factor here stands for the conditional pdf of $R$ , expressing in the present context the flux conservation ( 9 ). The marginal distribution $\mathcal{P}_{0}(T)$ of $T$ is given by Savinet al.(2017)
+
+As discussed above, this form follows from the Cauchy distribution of the random variable $u$ in this limit.
+
+At finite absorption, the function $P_{0}(x)$ gets exponentially suppressed ( $\sim e^{-\gamma x/4}$ ) for large $x\gg 1$ . As a result, the jpdf $\mathcal{P}(R,T)$ at small $\gamma$ is mostly concentrated within a thin layer $\sim\gamma\ll 1$ near the boundary $R+T=1$ . When $\gamma$ is increased, the distribution starts exploring its whole support. The typical behavior of the distribution is illustrated on Fig. 1 displaying the density plots at various values of $\eta$ and $\gamma$ . It clearly shows highly non-trivial correlations between reflection and transmission. Note, however, the symmetry ( 17 ) of the distribution at the reciprocal values of $\eta$ , which holds at any $\gamma$ .
+
+The probability distribution of the transmission phase, $\mathcal{P}(\theta)$, is derived by integrating equation (12) with respect to $T$. By substituting $T$ with the expression $\cos^{2}\theta/(1+p)^{2}$ and using $p>0$ as the new variable of integration, we obtain the following expression for convenience:
+
+ $\mathcal{P}(\theta)=\frac{\sec^{2}\theta}{2\pi}\int_{0}^{\infty}\frac{dp}{p^{2}}(1+p)P_{0}[x(p,\theta)],$  (19)
+
+where $\sec\theta=(\cos\theta)^{-1}$. The term $x(p,\theta)$ is defined as:
+
+ $x(p,\theta)=\frac{(1+p)^{2}\sec^{2}\theta-2p+\eta^{2}-1}{2\eta p}\,.$  (20)
+
+With an explicit formula for $P_{0}$ provided by Savinet et al. (2005), equation (19) provides the exact solution to the problem for arbitrary $\eta$ and $\gamma$.
+
+It is possible to perform further analysis in the physically interesting limiting cases of weak and strong absorption, when the function $P_{0}$ is known Fyodorov and Savin (2004) to have simple asymptotics. At $\gamma\ll 1$ , one has $P_{0}(x)\approx\frac{2}{\sqrt{\pi}}(\frac{\gamma}{4})^{\frac{3}{2}}\sqrt{x+1}e^{-\frac{\gamma}{4}(x+1)}$ , yielding the leading-order correction factor $\exp[-\frac{\gamma}{8\eta}\frac{(1+(\eta-1)\sqrt{T})^{2}}{\sqrt{T}(1-\sqrt{T})}]$ to the zero-absorption distribution ( 19 ). Thus, the bulk of distribution ( 20 ) is essentially reproduced by $\mathcal{P}_{0}(T)$ in this limit. The correction factor becomes crucial near the edges, where the exact distribution has an exponential cutoff. In the opposite case of $\gamma\gg 1$ , making use of $P_{0}(x)\approx\frac{\gamma}{4}e^{-\frac{\gamma}{4}(x-1)}$ results in the following approximation at strong absorption Savinet al.(2017) : $\mathcal{P}_{\gamma\gg 1}(T)\approx\frac{\sqrt{\gamma\eta}\exp\left[-\frac{\gamma}{8\eta}\frac{(1-(\eta+1)\sqrt{T})^{2}}{\sqrt{T}(1-\sqrt{T})}\right]}{4\sqrt{\pi}(1-\sqrt{T})T^{3/4}\sqrt{1+(\eta^{2}-1)T}}.$ Figure 2 shows the exact distribution ( 20 ) at moderate $\gamma=1$ .
+
+
+In the context of the complex variable $t$, defined as $t=t_r+it_i$, it is evident that the mean values for the real and imaginary components, $\langle t_r \rangle$ and $\langle t_i \rangle$, respectively, are equivalent. The imaginary component, however, assumes a mean value of zero. The joint distribution of $t_r$ and $t_i$ can be derived in a manner analogous to that previously discussed. By substituting $t_r$ and $t_i$ in terms of $u$ and $v$, computing the corresponding Jacobian, and performing the necessary calculations, we arrive at the following exact probability density function (PDF) for any value of $\gamma$:
+
+$\mathcal{P}_{\eta,\gamma}(t_r,t_i) = \frac{P_0\left(1+\left(1+\eta\right)^2\left(t_r-\langle t \rangle\right)^2+t_i^2\right)/(2\eta s)}{2\pi\eta s^2}$
+
+within the region $s=t_r(1-t_r)-t_i^2>0$, and zero otherwise. This expression underscores the strong correlations between the real and imaginary components of the transmission amplitude. Interestingly, as absorption increases, $t_r$ and $t_i$ appear to become uncorrelated at a faster rate than $T$ and $\theta$.
+
+Performing a fluctuation analysis on the expression above for $\gamma \gg 1$, we find that both $t_r-\langle t \rangle$ and $t_i$ become uncorrelated normal variables with the same variance $\sigma^2_T$ given by (16). In this approximation, determining the probability distributions for $t_r=\sqrt{T}\cos\theta$ and $t_i=\sqrt{T}\sin\theta$ reduces to a well-studied classical problem, as addressed by Rice in 1948 (see also Yacoubet et al., 2005). The resulting probability density function, known as the Rice approximation, is given by:
+
+$\mathcal{P}^{\mathrm{(rice)}}_{\eta,\gamma\gg 1}(T,\theta)=\frac{1}{4\pi\sigma^2_T}e^{-(T-2\langle t \rangle\sqrt{T}\cos\theta+\langle t \rangle^2)/2\sigma^2_T}$
+
+The Rice approximation bears a resemblance to the exact asymptotic form (14), but it fails to accurately account for the boundaries of the distribution support. As a result, it provides a reasonable approximation only when $\eta \approx 1$, where the density is primarily concentrated in the centre, displaying noticeable deviations otherwise, particularly when the density is concentrated near $T\sim 1$ ($T\sim \eta^{-2}$) for small (large) $\eta$. It is important to note that our asymptotic result (14) is devoid of such shortcomings, offering a good uniform approximation even for moderately large values of $\gamma$. This is further demonstrated in Figure 2.
+
+A particular feature of the reflection distribution ( 23 ) is the dependence of its support on the sign of $r_{0}$ (see also Savinet al.(2017) ). The distribution vanishes identically for $R\leq 1-T_{0}$ , when $r_{0}>0$ , and covers the whole range $0\leq R\leq 1$ , when $r_{0}<0$ . This follows from the compatibility requirement $T_{-}<T_{*}$ and is, of course, in agreement with definition ( 11 ).
+
+Using the obtained result (12), it is possible to compute both marginal and conditional probability density functions through appropriate integration. Notably, the distribution of the transmission intensity can be formulated according to the recent findings in Savinet et al. (2017). Consequently, our focus will primarily be on the examination of the phase distribution.
+
+3.1 Perfect coupling (no backscattering)
+
+In the intriguing extremes of weak and strong absorption, further investigation can be undertaken, as the function $P_{0}$ assumes more manageable, exact asymptotic forms, as detailed by Fyodorov and Savin (2004). When $\gamma$ is significantly smaller than 1, the function $P_{0}(x)$ can be approximated as $P_{0}(x)\approx\frac{2}{\sqrt{\pi}}(\frac{\gamma}{4})^{3/2}\sqrt{x+1}\,e^{-\frac{\gamma}{4}(x+1)}$. Upon careful examination of Equation (19), it is evident that the primary contribution to the integral originates from values of $p$ that are minuscule, specifically $p\ll 1$. By approximating $\frac{\gamma}{4}(x+1)\approx\mu+\rho/p$, where $\mu$ and $\rho$ are specific functions of $\theta$ (as will be elaborated upon), and substituting $(1+p)$ with unity in the integration measure, the integration can be performed, resulting in the following weak absorption approximation:
+
+$\mathcal{P}_{\gamma\ll 1}(\theta)\approx\mathcal{P}_{0}(\theta)\Bigl{[}\mathrm{erfc}(\sqrt{\mu})+2\sqrt{\mu/\pi}e^{-\mu}\Bigr{]},$ (21)
+
+where $\mu=\frac{\gamma}{4\eta}(\sec^{2}\theta-1+\eta)$ and $\mathrm{erfc}(z)=1-\mathrm{erf}(z)$ represents the complementary error function. The gist of the distribution (21) closely resembles that at zero absorption, as outlined in Equation (11). However, the corrective factor assumes significant importance near the edges, where the exact distribution features an exponential cutoff $\sim e^{-(\gamma/4\eta)\sec^{2}\theta}$.
+
+In the limit of vanishing absorption, $\gamma\to 0$ , one can use Fyodorov and Savin (2004) that $P_{0}(x)\to\delta(\frac{1}{x})$ . This yields the following result: 
+ 
+ $\mathcal{P}_{\gamma=0}(R,T)=\delta(1-R-T)\mathcal{P}_{0}(T).$  (18) 
+ The first (singular) factor here stands for the conditional pdf of $R$ , expressing in the present context the flux conservation ( 9 ). The marginal distribution $\mathcal{P}_{0}(T)$ of $T$ is given by Savinet al.(2017) 
+ 
+ $\displaystyle\mathcal{P}_{0}(T)=\frac{1}{\pi\sqrt{T(1-T)}}\frac{1}{\eta T+\eta^{-1}(1-T)}\,.$  (19) 
+ As discussed above, this form follows from the Cauchy distribution of the random variable $u$ in this limit.
+
+At finite absorption, the function $P_{0}(x)$ gets exponentially suppressed ( $\sim e^{-\gamma x/4}$ ) for large $x\gg 1$ . As a result, the jpdf $\mathcal{P}(R,T)$ at small $\gamma$ is mostly concentrated within a thin layer $\sim\gamma\ll 1$ near the boundary $R+T=1$ . When $\gamma$ is increased, the distribution starts exploring its whole support. The typical behavior of the distribution is illustrated on Fig. 1 displaying the density plots at various values of $\eta$ and $\gamma$ . It clearly shows highly non-trivial correlations between reflection and transmission. Note, however, the symmetry ( 17 ) of the distribution at the reciprocal values of $\eta$ , which holds at any $\gamma$ .
+
+In the realm of joint distributions, a non-zero value is observed for temporal intervals ranging from zero to the cosine-squared value of the angle of incidence, $\theta$. The intricacies of this distribution within this region are governed by the parameters $\gamma$ and $\eta$. In the extreme scenario of negligible absorption, as $\gamma$ approaches zero, the distribution can be approximated to delta-functionally concentrated at $x^{-1}$, as suggested by Fyodorov and Savin (2004). Consequently, the zero-absorption outcome (10) is derived. At finite absorption, however, the distribution exhibits an exponential decay (of the form $e^{-\gamma x/4}$) for large values of $x$ significantly exceeding unity. This results in the distribution primarily residing in a slender region approximately equal to $\gamma$ near the boundary where $T$ equals the cosine-squared value of $\theta$. As $\gamma$ increases, the distribution expands its exploration across its entire support. The mass of the distribution gradually shifts from the central region surrounding $T$ approximating 1 minus twice $\eta$ at minuscule $\eta$ values to a band around $T$ proportional to $\eta^{-2}$ at larger $\eta$ values. These characteristics are vividly depicted in Figure 1, which presents the density plots of $\mathcal{P}_{\eta,\gamma}(T,\theta)$ for assorted values of $\eta$ and $\gamma$.
+
+It is possible to perform further analysis in the physically interesting limiting cases of weak and strong absorption, when the function $P_{0}$ is known Fyodorov and Savin (2004) to have simple asymptotics. At $\gamma\ll 1$ , one has $P_{0}(x)\approx\frac{2}{\sqrt{\pi}}(\frac{\gamma}{4})^{\frac{3}{2}}\sqrt{x+1}e^{-\frac{\gamma}{4}(x+1)}$ , yielding the leading-order correction factor $\exp[-\frac{\gamma}{8\eta}\frac{(1+(\eta-1)\sqrt{T})^{2}}{\sqrt{T}(1-\sqrt{T})}]$ to the zero-absorption distribution ( 19 ). Thus, the bulk of distribution ( 20 ) is essentially reproduced by $\mathcal{P}_{0}(T)$ in this limit. The correction factor becomes crucial near the edges, where the exact distribution has an exponential cutoff. In the opposite case of $\gamma\gg 1$ , making use of $P_{0}(x)\approx\frac{\gamma}{4}e^{-\frac{\gamma}{4}(x-1)}$ results in the following approximation at strong absorption Savinet al.(2017) : 
+ 
+ $\mathcal{P}_{\gamma\gg 1}(T)\approx\frac{\sqrt{\gamma\eta}\exp\left[-\frac{\gamma}{8\eta}\frac{(1-(\eta+1)\sqrt{T})^{2}}{\sqrt{T}(1-\sqrt{T})}\right]}{4\sqrt{\pi}(1-\sqrt{T})T^{3/4}\sqrt{1+(\eta^{2}-1)T}}.$  (22) 
+ Figure 2 shows the exact distribution ( 20 ) at moderate $\gamma=1$ .
+
+3.2 Nonperfect coupling
+
+In accordance with the methodology outlined by Savinet et al. (2017), we consider the impact of a chaotic background with finite dissipative losses on the phenomenon of resonance scattering. Employing the established strength function formalism, as formulated by Sokolov and Zelevinsky (1997), this interaction gives rise to a modified energy dependence, which is governed by the transformation $[E-\varepsilon_{0}+i\Gamma_{0}/2]^{-1} \mapsto [E-\varepsilon_{0}+i\Gamma_{0}/2 - g(E)]^{-1}$ within equation (1). The strength function, denoted as $g(E)$, encapsulates the coupling to the background Hamiltonian, denoted as $H_{\mathrm{bg}}$, with $V$ representing a vector of real coupling amplitudes.
+
+The $S$ matrix can be expressed in a convenient format as follows:
+
+$S(E)-1 = t(E)[S^{(0)}(E)-1]$, (2)
+
+where $S^{(0)}$ signifies the $S$ matrix devoid of the background, as described in equation (1), and the scalar function $t(E)$ is defined as:
+
+$t(E) = \frac{1+2i(\varepsilon_{0}-E)/\Gamma_{0}}{1+2i[\varepsilon_{0}-E+g(E)]/\Gamma_{0}}$. (3)
+
+By design, $t(E)$ serves as a rescaled transmission amplitude in comparison to the system without the background.
+
+A particular feature of the reflection distribution ( 23 ) is the dependence of its support on the sign of $r_{0}$ (see also Savinet al.(2017) ). The distribution vanishes identically for $R\leq 1-T_{0}$ , when $r_{0}>0$ , and covers the whole range $0\leq R\leq 1$ , when $r_{0}<0$ . This follows from the compatibility requirement $T_{-}<T_{*}$ and is, of course, in agreement with definition ( 11 ).
+
+In the hypothetical scenario of an uncoupled relationship between T and θ, it would necessitate that the mean of the square root of T (〈√T〉) is equivalent to the mean of t (〈t〉), and the mean of θ (〈θ〉) is zero. By performing an expansion on the fluctuations presented in Equation 14, retaining up to the quadratic terms in the exponential, and replacing T and θ with their respective means elsewhere, we can decompose the joint probability density function (jpdf) into a product of two Gaussian distributions.
+
+This product is represented as follows:
+
+$\mathcal{P}_{\eta,\gamma\gg 1}^{\mathrm{(gaus)}}(T,\theta)=\frac{\exp\bigl{[}-\frac{1}{2\sigma_{T}^{2}} ( \sqrt{T} - \langle t \rangle )^{2} - \frac{\theta^{2}}{2\sigma_{\theta}^{2}} \bigr{]}}{4\pi\sigma_{T}\sigma_{\theta}\langle t \rangle},$ (15)
+
+where the variances σ²T and σ²θ are defined as:
+
+$\sigma_{T}^{2}=\frac{4\eta^{2}}{\gamma(1+\eta)^{4}},\quad\sigma_{\theta}^{2}=\frac{4\eta^{2}}{\gamma(1+\eta)^{2}}.$ (16)
+
+It is worth noting that the overall factor of 1/2〈t〉 accounts for the proper normalization automatically. This factor arises because it is the variable √T, not T itself, that follows a Gaussian distribution at very large γ values (≫1).
+
+However, it is essential to acknowledge that the Gaussian approximation (15) is somewhat simplistic due to the finite range of the exact distribution (12). Nevertheless, a more accurate approximation can be achieved by exploring the statistics of the real and imaginary components of t at strong absorption levels. This analysis will be carried out in the subsequent discussion.
+
+4 Joint intensity-phase distribution
+
+The joint distribution $\mathcal{P}(T,\theta)$ of the transmission intensity and phase $\theta\equiv\theta_{T}$ can be derived and studied along the similar lines. (One can set $t_{0}=1$ throughout without loss of generality.) We find the following exact representation Savin (2017b) : 
+ 
+ $\mathcal{P}(T,\theta)=\frac{\Theta(\cos\theta-\sqrt{T})}{4\pi T(\cos\theta-\sqrt{T})^{2}}P_{0}[\mathrm{x}_{\eta}(T,\theta)],$  (25) 
+ where $\Theta(x)$ is the Heaviside step function and 
+ 
+ $\mathrm{x}_{\eta}(T,\theta)=\frac{T(1+\eta^{2})-2\sqrt{T}\cos\theta+1}{2\eta\sqrt{T}(\cos\theta-\sqrt{T})}.$  (26) 
+ The joint distribution ( 25 ) is nonzero for $0\leq T\leq\cos^{2}\theta$ . Its profile within this region is controlled by two parameters $\gamma$ and $\eta$ . Therefore, the transmission intensity and phase exhibit strong statistical correlations at finite absorption.
+
+In the limit of vanishing absorption, $\gamma=0$ , one finds 
+ 
+ $\mathcal{P}_{\gamma=0}(T,\theta)=\delta(T-\cos^{2}\theta)\mathcal{P}_{0}(\theta)$  (27) 
+ in agreement with the flux conservation constraints ( 9 ). In the general case of finite absorption, the singularity of the joint distribution is removed, since $T$ and $\theta$ are no longer functions of each other. As was already mentioned, the function $P_{0}(x)$ gets exponentially suppressed at large $x\gg 1$ . As a result, the distribution at small $\gamma$ is mostly concentrated within a thin layer $\sim\gamma\ll 1$ near the boundary $T=\cos^{2}\theta$ . When $\gamma$ is increased, the distribution starts exploring its whole support. Its weight is gradually moved from the central region around $T\sim 1-2\eta$ at $\eta\ll 1$ to a stripe around $T\sim\eta^{-2}$ at $\eta\gg 1$ . All these features are clearly seen on Fig. 3 showing the density plots of $\mathcal{P}(T,\theta)$ for various values of $\eta$ and $\gamma$ .
+
+It is worth discussing the statistical correlations between $T$ and $\theta$ in more detail. It is natural to expect that such correlations should go away, when absorption becomes strong. Making use of the exact limiting form $P_{0}(x)\approx\frac{\gamma}{4}\,e^{-\frac{\gamma}{4}(x-1)}$ at $\gamma\gg 1$ , we readily get the following asymptotic expression: 
+ 
+ $\mathcal{P}^{\mathrm{(asym)}}_{\gamma\gg 1}(T,\theta)=\frac{\gamma\exp\bigl{[}-\frac{\gamma(1+\eta)^{2}}{8\eta}\frac{T-2\left\langle t\right\rangle\sqrt{T}\cos\theta+\left\langle t\right\rangle^{2}}{\sqrt{T}(\cos\theta-\sqrt{T})}\bigr{]}}{16\pi T(\cos\theta-\sqrt{T})^{2}}\,,$  (28) 
+ where $\left\langle t\right\rangle=(1+\eta)^{-1}$ . This clearly shows that the correlations remain essential even at strong absorption.
+
+Still, assuming very large $\gamma\gg 1$ , one can perform fluctuation analysis further. In such an extreme limit, one finds that $\sqrt{T}-\left\langle t\right\rangle$ and $\theta$ eventually become uncorrelated normal variables with the corresponding variances $\sigma^{2}_{T}=\frac{4\eta^{2}}{\gamma(1+\eta)^{4}}$ and $\sigma^{2}_{\theta}=\frac{4\eta^{2}}{\gamma(1+\eta)^{2}}$ . We note, however, that such a Gaussian approximation is very crude, because of the finite support of the exact distribution ( 25 ). One can obtain a better approximation at strong absorption by studying the joint statistics of the real ( $t_{r}$ ) and imaginary ( $t_{i}$ ) parts of $t$ instead Savin (2017b) . The two turn out to decorrelate faster than $T$ and $\theta$ when absorption grows. At $\gamma\gg 1$ , one finds that both $t_{r}-\left\langle t\right\rangle$ and $t_{i}$ become uncorrelated normal variables with the same variance $\sigma^{2}_{T}$ . In such an approximation, finding the amplitude and phase distributions of $t_{r}=\sqrt{T}\cos\theta$ and $t_{i}=\sqrt{T}\sin\theta$ reduces to a classical problem studied by Rice Rice (1948) (see also Yacoubet al.(2005) ), yielding 
+ 
+ $\mathcal{P}^{\mathrm{(rice)}}_{\gamma\gg 1}(T,\theta)=\frac{1}{4\pi\sigma^{2}_{T}}e^{-(T-2\left\langle t\right\rangle\sqrt{T}\cos\theta+\left\langle t\right\rangle^{2})/2\sigma^{2}_{T}}\,.$  (29) 
+ The Rician approximation ( 29 ) resembles the exact asymptotic form ( 28 ) in its structure, but fails to properly take into account the boundaries of the distribution support. For that reason, it provides a reasonable approximation only at $\eta\approx 1$ , when the density is mostly concentrated in the centre, showing noticeable deviations otherwise, when the density gets concentrated near $T\sim 1$ ( $T\sim\eta^{-2}$ ) for small (large) $\eta$ . Note that our asymptotic result ( 28 ) is free from such shortcomings, providing uniformly good approximation even at moderately large $\gamma$ . We refer to Ref. Savin (2017b) for further discussion.
+
+With the exact result ( 25 ) in hand, one can now obtain both marginal and conditional pdf’s by performing the relevant integrations. In particular, the distribution of the transmission intensity can be brought to the form ( 20 ) discussed above. The distribution $\mathcal{P}(\theta)$ of the transmission phase is obtained by integrating ( 25 ) over $T$ and reads as follows Savin (2017b) 
+ 
+ $\mathcal{P}(\theta)=\frac{\sec^{2}\theta}{2\pi}\int_{0}^{\infty}\frac{dp}{p^{2}}(1+p)P_{0}[x(p,\theta)],$  (30) 
+ where $\sec\theta=(\cos\theta)^{-1}$ and $x(p,\theta)$ is defined by 
+ 
+ $x(p,\theta)=\frac{(1+p)^{2}\sec^{2}\theta-2p+\eta^{2}-1}{2\eta p}\,.$  (31) 
+ With an explicit formula for $P_{0}$ found in Savinet al.(2005) , expression ( 30 ) provides the exact result at arbitrary $\eta$ and $\gamma$ .
+
+Further analysis is possible in the limits of weak and strong absorption, utilizing simpler asymptotic forms of $P_{0}$ as before. One finds the following approximation at small $\gamma$ : 
+ 
+ $\mathcal{P}_{\gamma\ll 1}(\theta)\approx\mathcal{P}_{0}(\theta)\Bigl{[}\mathrm{erfc}(\sqrt{\mu})+2\sqrt{\mu/\pi}e^{-\mu}\Bigr{]},$  (32) 
+ where $\mu=\frac{\gamma}{4\eta}(\sec^{2}\theta-1+\eta)$ and $\mathrm{erfc}(z)=1-\mathrm{erf}(z)$ is the complementary error function. The bulk of distribution ( 32 ) is essentially given by that at zero absorption, Eq. ( 10 ). The correction factor becomes crucial near the edges, where the exact distribution has an exponential cutoff $\sim e^{-(\gamma/4\eta)\sec^{2}\theta}$ .
+
+In the opposite case of strong absorption, $\gamma\gg 1$ , we find 
+ 
+ $\mathcal{P}_{\gamma\gg 1}(\theta)\approx\frac{\gamma\sec^{2}\theta}{4\pi}\Bigl{[}K_{0}(\xi)+\frac{\gamma\sec^{2}\theta}{4\eta\xi}K_{1}(\xi)\Bigr{]}e^{-\nu},$  (33) 
+ with $\xi=\frac{\gamma}{4\eta}\sec\theta\sqrt{\sec^{2}\theta-1+\eta^{2}}$ , $\nu=\frac{\gamma}{4\eta}(\sec^{2}\theta-1-\eta)$ , and $K_{n}(z)$ being the modified Bessel function. In the limit of very large $\gamma$ , the phase distribution tends to a Gaussian with zero mean and the variance $\sigma^{2}_{\theta}$ provided above. Figure 4 shows the exact phase distribution for various $\eta$ and $\gamma$ .
+
+5 Phase rigidity and mode complexness
+
+Let us now discuss an application of the above results in the context of the so-called phase rigidity van Langenet al.(1997) . It is a useful measure to quantify the influence of the environment resulting in complex-valued field patterns Rotter (2009) . In open chaotic billiards, e.g., such a complexness reveals itself in long-range correlations of the wave function intensity and current density Brouwer (2003) that were studied experimentally Kimet al.(2005) . Following Pnini and Shapiro (1996) , it is also convenient to characterise the above-mentioned complexness through a related parameter, the ratio $q^{2}$ of the squares of the imaginary and real parts of the relevant complex field. Such a $q$ -factor was studied in microwave billiards Barthélemyet al.(2005) , where it can be linked with the presence of nonhomogeneous losses Savinet al.(2006) . For weakly open chaotic systems, the RMT approach to the $q$ -factor statistics was developed in Poliet al.(2009) .
+
+In the present case, it is natural to consider the phase rigidity of the transmission amplitude defined by 
+ 
+ $\rho=\frac{t_{r}^{2}-t_{i}^{2}}{t_{r}^{2}+t_{i}^{2}}=\frac{1-q^{2}}{1+q^{2}}=\cos 2\theta.$  (34) 
+ Therefore, fluctuations of $\rho$ are directly induced by those of $\theta$ . The corresponding distributions are related as follows 
+ 
+ $\mathcal{P}(\rho)=\frac{1}{\sqrt{1-\rho^{2}}}\mathcal{P}(\theta)|_{\sec^{2}\theta=2/(1+\rho)}\,,$  (35) 
+ for $-1\leq\rho\leq 1$ , and similarly for $q^{2}=\frac{1-\rho}{1+\rho}$ . Distribution ( 34 ) can be fully described using the results presented above.
+
+In the limit of zero absorption, $\gamma=0$ , Eq. ( 10 ) results in 
+ 
+ $\mathcal{P}_{0}(\rho)=\frac{2}{\pi\sqrt{1-\rho^{2}}[\eta+\eta^{-1}+(\eta-\eta^{-1})\rho]}.$  (36) 
+ This distribution develops a square root singularity $\sim\frac{1}{\sqrt{1-|\rho|}}$ at the edges and has the following symmetry under the involution $\eta\to\eta^{-1}$ : $\mathcal{P}_{0}(\rho)|_{\eta}=\mathcal{P}_{0}(-\rho)|_{\eta^{-1}}$ . It is interesting to note that the functional form ( 10 ) already appeared earlier in a different context Kanzieper and Freilikher (1996) , where it describes the distribution of the phase of the complex wave function induced by an external magnetic field. (Then $\eta$ is playing the role of the strength of that field.) As discussed there (see also Lobkis and Weaver (2000) ), such a form arises from the assumption for the real and imaginary parts of the wave function to be uncorrelated Gaussian variables with different variances. For the transmission amplitude, however, such an assumption is simply not applicable, as $t_{r}$ and $t_{i}$ are deterministic functions of each other at zero absorption. Here, distribution ( 10 ) appears by a different reason (which can actually be related to the so-called Poisson kernel).
+
+At finite absorption, the correlations between $t_{r}$ and $t_{i}$ remain strong, decreasing gradually with the increase of $\gamma$ . One finds that the phase rigidity distribution ( 35 ) has an exponential cutoff $\sim\exp[-\frac{\gamma}{2\eta(1+\rho)}]$ as $\rho\to-1$ , whereas the square root singularity at $\rho\to 1$ remains unaffected. Of course, one can perform more detailed analysis of ( 35 ) making use of the exact form of the phase distribution provided by Eq. ( 30 ).
+
+6 Conclusions
+
+We have presented a systematic study of fluctuations in resonance scattering induced by coupling the transmitting resonance to the chaotic background. Our approach combines the strength function formalism to account for the interaction with the background and the RMT modelling to mimic the chaotic nature of the latter. It enables us to obtain a number of the nonperturbative results for various statistics of the scattering observables. This includes the joint and marginal pdf’s of the reflection and transmission intensities and phases that are derived in exact forms valid at arbitrary coupling to and losses in the background. The intensities and phases are found to develop strong and non-trivial statistical correlations, which remain essential even in the limit of strong absorption. In the latter case, we discuss the relevant approximations and their accuracy. In particular, a simple asymptotic expression ( 28 ) for the joint intensity-phase distribution has been obtained that, in contrast to the Rician distribution, provides good uniform approximation within the whole distribution support.
+
+The obtained results can be used, e.g., to quantify the statistics of total losses or to study the phase rigidity (or mode complexness) in such a scattering situation. We note that it has now become possible to measure the full $S$ matrix, including the phases, in various microwave cavity experiments Kuhlet al.(2005a) . In particular, exact analytical predictions for the statistics of diagonal Fyodorovet al.(2005) and off-diagonal Kumaret al.(2013) $S$ matrix elements were tested with high accuracy in such studies (see Kumaret al.(2017) for the most recent analysis). Therefore, we expect the results presented here to find further applications within a broader context of wave chaotic systems.
+
+Acknowledgments
+
+I am grateful to the Organisers of the 8th Workshop on Quantum Chaos and Localisation Phenomena in Warsaw, Poland, May 19–21, 2017, where a part of this research was presented. I thank my collaborators of Ref. Savinet al.(2017) for useful discussions of preliminary experimental results obtained with a reverberation chamber setup developed at INPHYNI, Nice.
+
+References
+
+Mahaux and Weidenmüller (1969) C. Mahaux and H. A. Weidenmüller,Shell-model Approach to Nuclear Reactions(North-Holland, Amsterdam, 1969).
+Nussenzveig (1972) H. M. Nussenzveig,Causality and Dispersion Relations(Academic Press, New York, 1972).
+Mello and Kumar (2004) P. A. Mello and N. Kumar,Quantum Transport in Mesoscopic Systems: Complexity and Statistical Fluctuations(Oxford University Press, Oxford, 2004).
+Savin (2016) D. V. Savin, “Resonances in wave scattering,” inAdvanced Techniques in Applied Mathematics(World Scientific, 2016) Chap. 2, pp. 35–67.
+Nishioka and Weidenmüller (1985) H. Nishioka and H. A. Weidenmüller,Phys. Lett. B157, 101 (1985).
+Sokolov and Zelevinsky (1997) V. V. Sokolov and V. Zelevinsky,Phys. Rev. C56, 311 (1997).
+Bohr and Mottelson (1969) A. Bohr and B. R. Mottelson,Nuclear Structure(Benjamin, New York, 1969).
+Harneyet al.(1986) H. L. Harney, A. Richter,  and H. A. Weidenmüller,Rev. Mod. Phys.58, 607 (1986).
+Sokolovet al.(1997a) V. V. Sokolov, I. Rotter, D. V. Savin,  and M. Müller,Phys. Rev. C56, 1031 (1997a);idem,Phys. Rev. C56, 1044 (1997b).
+Gu and Weidenmüller (1999) J.-Z. Gu and H. Weidenmüller,Nucl. Phys. A660, 197 (1999).
+Zelevinsky and Volya (2016) V. Zelevinsky and A. Volya,Phys. Scr.91, 033006 (2016).
+Aberget al.(2008) S. Aberg, T. Guhr, M. Miski-Oglu,  and A. Richter,Phys. Rev. Lett.100, 204101 (2008).
+Guhr (2009) T. Guhr,Acta Phys. Pol. A116, 741 (2009).
+Sokolov (2010) V. V. Sokolov,J. Phys. A43, 265102 (2010).
+Moraleset al.(2012) A. Morales, A. D. de Anda, J. Flores, L. Gutiérrez, R. A. Méndez-Sánchez, G. Monsivais,  and P. Mora,Europhys. Lett.99, 54002 (2012).
+Savinet al.(2017) D. V. Savin, M. Richter, U. Kuhl, O. Legrand,  and F. Mortessagne,Phys. Rev. E96, 032221 (2017).
+Savin (2017a) D. V. Savin,arXiv:1709.10479(2017).
+Savin (2017b) D. V. Savin,arXiv:1710.11071(2017).
+Guhret al.(1998) T. Guhr, A. Müller-Groeling,  and H. A. Weidenmüller,Phys. Rep.299, 189 (1998).
+Stöckmann (1999) H.-J. Stöckmann,Quantum Chaos: An Introduction(Cambridge University Press, Cambridge, UK, 1999).
+Fyodorov and Savin (2011) Y. V. Fyodorov and D. V. Savin, inThe Oxford Handbook of Random Matrix Theory, edited by G. Akemann, J. Baik,  and P. Di Francesco (Oxford University Press, UK, 2011) Chap. 34, pp. 703–722, [arXiv:1003.0702].
+Fyodorov and Savin (2004) Y. V. Fyodorov and D. V. Savin,JETP Lett.80, 725 (2004).
+Savinet al.(2005) D. V. Savin, H.-J. Sommers,  and Y. V. Fyodorov,JETP Lett.82, 544 (2005).
+Fyodorovet al.(2005) Y. V. Fyodorov, D. V. Savin,  and H.-J. Sommers,J. Phys. A38, 10731 (2005).
+Savin and Sommers (2003) D. V. Savin and H.-J. Sommers,Phys. Rev. E68, 036211 (2003).
+Mello (1995) P. A. Mello, inMesoscopic Quantum Physics, Proceedings of the Les-Houches Summer School, Session LXI, edited by E. Akkermans, G. Montambaux, J.-L. Pichard,  and J. Zinn-Justin (Elsevier, 1995) p. 435.
+Kuhlet al.(2005a) U. Kuhl, M. Martínez-Mares, R. A. Méndez-Sánchez,  and H.-J. Stöckmann,Phys. Rev. Lett.94, 144101 (2005a).
+Schäferet al.(2003) R. Schäfer, T. Gorin, T. H. Seligman,  and H.-J. Stöckmann,J. Phys. A36, 3289 (2003).
+Kuhlet al.(2005b) U. Kuhl, H.-J. Stöckmann,  and R. Weaver,J. Phys. A38, 10433 (2005b).
+Rice (1948) S. O. Rice,Bell Syst. Tech. J.27, 109 (1948).
+Yacoubet al.(2005) M. D. Yacoub, G. Fraidenraich,  and J. C. S. S. Filho,Electron. Lett.41, 259 (2005).
+van Langenet al.(1997) S. van Langen, P. W. Brouwer,  and C. W. J. Beenakker,Phys. Rev. E55, R1 (1997).
+Rotter (2009) I. Rotter,J. Phys. A42, 153001 (2009).
+Brouwer (2003) P. W. Brouwer,Phys. Rev. E68, 046205 (2003).
+Kimet al.(2005) Y.-H. Kim, U. Kuhl, H.-J. Stöckmann,  and P. W. Brouwer,Phys. Rev. Lett.94, 036804 (2005).
+Pnini and Shapiro (1996) R. Pnini and B. Shapiro,Phys. Rev. E54, R1032 (1996).
+Lobkis and Weaver (2000) O. I. Lobkis and R. L. Weaver,J. Acoust. Soc. Am.108, 1480 (2000).
+Barthélemyet al.(2005) J. Barthélemy, O. Legrand,  and F. Mortessagne,Europhys. Lett.70, 162 (2005).
+Savinet al.(2006) D. V. Savin, O. Legrand,  and F. Mortessagne,Europhys. Lett.76, 774 (2006).
+Poliet al.(2009) C. Poli, D. V. Savin, O. Legrand,  and F. Mortessagne,Phys. Rev. E80, 046203 (2009).
+Kanzieper and Freilikher (1996) E. Kanzieper and V. Freilikher,Phys. Rev. B54, 8737 (1996).
+Hemmadyet al.(2006) S. Hemmady, X. Zheng, J. Hart, T. M. Antonsen, E. Ott,  and S. M. Anlage,Phys. Rev. E74, 036213 (2006).
+Köberet al.(2010) B. Köber, U. Kuhl, H.-J. Stöckmann, T. Gorin, D. V. Savin,  and T. H. Seligman,Phys. Rev. E82, 036207 (2010).
+Dietzet al.(2010) B. Dietz, T. Friedrich, H. L. Harney, M. Miski-Oglu, A. Richter, F. Schäfer,  and H. A. Weidenmüller,Phys. Rev. E81, 036205 (2010).
+Yehet al.(2012) J.-H. Yeh, T. M. Antonsen, E. Ott,  and S. M. Anlage,Phys. Rev. E85, 015202 (2012).
+Kuhlet al.(2013) U. Kuhl, O. Legrand,  and F. Mortessagne,Fortschr. Phys.61, 404 (2013).
+Gradoniet al.(2014) G. Gradoni, J.-H. Yeh, B. Xiao, T. M. Antonsen, S. M. Anlage,  and E. Ott,Wave Motion51, 606 (2014).
+Kumaret al.(2013) S. Kumar, A. Nock, H.-J. Sommers, T. Guhr, B. Dietz, M. Miski-Oglu, A. Richter,  and F. Schäfer,Phys. Rev. Lett.111, 030403 (2013).
+Nocket al.(2014) A. Nock, S. Kumar, H.-J. Sommers,  and T. Guhr,Ann. Phys.342, 103 (2014).
+Kumaret al.(2017) S. Kumar, B. Dietz, T. Guhr,  and A. Richter,arXiv:1711.08320(2017).

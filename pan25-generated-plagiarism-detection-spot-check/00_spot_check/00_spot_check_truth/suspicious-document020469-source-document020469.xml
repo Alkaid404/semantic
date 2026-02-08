@@ -1,0 +1,21 @@
+<document reference="suspicious-document020469.txt">
+  <feature name="about" authors="Zhoyang Hai and Liyuan Pan and Xiabi Liu and Zhengzheng Liu and Mirna Yunita" title="L2T-DLN: Learning to Teach with Dynamic Loss Network" lang="en" similarity="0.9755" severity="low" prompt_tokens="3920" output_tokens="3180"/>
+  <feature name="md5Hash" value="f971f57d863f22199d17a1a188435152"/>
+  <feature name="plagiarism" type="llm_prompted" llm="Mistral" this_language="en" this_offset="1426" this_length="940" source_reference="source-document020469.txt" obfuscation="medium" source_offset="2005" source_length="804"/>
+  <feature name="plagiarism" type="llm_prompted" llm="Mistral" this_language="en" this_offset="5527" this_length="786" source_reference="source-document020469.txt" obfuscation="medium" source_offset="7885" source_length="612"/>
+  <feature name="plagiarism" type="llm_prompted" llm="Mistral" this_language="en" this_offset="7874" this_length="1208" source_reference="source-document020469.txt" obfuscation="simple" source_offset="4013" source_length="1506"/>
+  <feature name="plagiarism" type="llm_prompted" llm="Mistral" this_language="en" this_offset="12814" this_length="1528" source_reference="source-document020469.txt" obfuscation="simple" source_offset="16482" source_length="1524"/>
+  <feature name="plagiarism" type="llm_prompted" llm="Mistral" this_language="en" this_offset="14344" this_length="758" source_reference="source-document020469.txt" obfuscation="hard" source_offset="18008" source_length="735"/>
+  <feature name="plagiarism" type="llm_prompted" llm="Mistral" this_language="en" this_offset="15126" this_length="1653" source_reference="source-document020469.txt" obfuscation="medium" source_offset="12603" source_length="1519"/>
+  <feature name="plagiarism" type="llm_prompted" llm="Mistral" this_language="en" this_offset="18283" this_length="626" source_reference="source-document020469.txt" obfuscation="simple" source_offset="8499" source_length="686"/>
+  <feature name="plagiarism" type="llm_prompted" llm="Mistral" this_language="en" this_offset="18911" this_length="199" source_reference="source-document020469.txt" obfuscation="hard" source_offset="10015" source_length="171"/>
+  <feature name="plagiarism" type="llm_prompted" llm="Mistral" this_language="en" this_offset="21082" this_length="476" source_reference="source-document020469.txt" obfuscation="simple" source_offset="35355" source_length="441"/>
+  <feature name="plagiarism" type="llm_prompted" llm="Mistral" this_language="en" this_offset="23644" this_length="846" source_reference="source-document020469.txt" obfuscation="simple" source_offset="9187" source_length="817"/>
+  <feature name="plagiarism" type="llm_prompted" llm="Mistral" this_language="en" this_offset="27689" this_length="667" source_reference="source-document020469.txt" obfuscation="simple" source_offset="25295" source_length="636"/>
+  <feature name="plagiarism" type="llm_prompted" llm="Mistral" this_language="en" this_offset="29550" this_length="1235" source_reference="source-document020469.txt" obfuscation="simple" source_offset="5521" source_length="1224"/>
+  <feature name="plagiarism" type="llm_prompted" llm="Mistral" this_language="en" this_offset="30787" this_length="254" source_reference="source-document020469.txt" obfuscation="simple" source_offset="20836" source_length="272"/>
+  <feature name="plagiarism" type="llm_prompted" llm="Mistral" this_language="en" this_offset="31043" this_length="278" source_reference="source-document020469.txt" obfuscation="medium" source_offset="36161" source_length="179"/>
+  <feature name="plagiarism" type="llm_prompted" llm="Mistral" this_language="en" this_offset="32866" this_length="626" source_reference="source-document020469.txt" obfuscation="simple" source_offset="23605" source_length="551"/>
+  <feature name="plagiarism" type="llm_prompted" llm="Mistral" this_language="en" this_offset="33518" this_length="263" source_reference="source-document020469.txt" obfuscation="simple" source_offset="37224" source_length="187"/>
+  <feature name="altered" type="llm_prompted" llm="Mistral" this_language="en" this_offset="43267" this_length="341"/>
+</document>

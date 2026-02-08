@@ -1,0 +1,277 @@
+Knowing False Negatives: An Adversarial Training Method for Distantly Supervised Relation Extraction
+
+By Kailong Hao and Botao Yu and Wei Hu
+
+Abstract
+
+Distantly supervised relation extraction (RE) automatically aligns unstructured text with relation instances in a knowledge base (KB). Due to the incompleteness of current KBs, sentences implying certain relations may be annotated as N/A instances, which causes the so-called false negative (FN) problem. Current RE methods usually overlook this problem, inducing improper biases in both training and testing procedures. To address this issue, we propose a two-stage approach. First, it finds out possible FN samples by heuristically leveraging the memory mechanism of deep neural networks. Then, it aligns those unlabeled data with the training data into a unified feature space by adversarial training to assign pseudo labels and further utilize the information contained in them. Experiments on two wildly-used benchmark datasets demonstrate the effectiveness of our approach.
+
+1 Introduction
+
+Relation extraction (RE) is a crucial component of various NLP applications, including knowledge base population (Ji and Grishman, 2011) and question answering (Yu et al., 2017), and involves identifying relationships between two entity mentions in unstructured text. However, supervised RE requires a substantial amount of human-labeled data, which can be labor-intensive and time-consuming to obtain. To address this challenge, distant supervision (DS) was proposed by Mintz et al. (2009), which aligns a large corpus with a knowledge base like Freebase to provide weak supervision. This approach relies on the assumption that if two entities are related in a knowledge base, any sentence containing both entities will express that relationship.
+
+To address the issue of noisy data, researchers have proposed several alternatives to the assumption that all sentences mentioning two entities in a relation express that relation. Riedel et al. (2010) relaxed this assumption, requiring only that at least one sentence mentioning the entities express the relation. This led to the development of multi-instance learning, where sentences with the same entity pair are grouped into a "bag" (Bunescu and Mooney, 2007). Various methods have been explored to learn from these bags, including hand-crafted features (Riedel et al., 2010), convolutional neural networks (CNN) to learn instance representations (Zeng et al., 2014), and attention mechanisms to select informative sentences (Lin et al., 2016). More recently, graph convolutional networks (GCN) have been used to capture syntactic information from dependency trees, as demonstrated by Vashishth et al. (2018).
+
+Most existing works focus on the false positive problem, which arises from the strong DS assumption, while overlooking the equally important false negative problem that introduces biases in both training and testing procedures. The DS approach labels a sentence as negative (N/A) if its entity pair lacks a known relation in the knowledge base (KB). However, due to the incompleteness of current KBs, sentences that imply predefined relations are often mislabeled as N/A. For instance, it is estimated that over 70% of individuals in Freebase are missing birthplace information. As illustrated in Table 1, we have annotated the ground-truth relations for two such false negative sentences, demonstrating that the missing facts in KBs result in a significant number of false negative sentences in automatically annotated datasets.
+
+Generative adversarial networks (GANs), first introduced by Goodfellow et al. (2014), were initially applied to relation extraction (RE) by Qin et al. (2018) to learn a sentence-level false positive (FP) filter. However, their approach was limited to addressing the FP problem and lacked generalizability to other scenarios. Later, Li et al. (2019) attempted to tackle the false negative (FN) problem by utilizing entity descriptions from Wikipedia to filter FN samples, and they also employed GANs in a semi-supervised manner. Nevertheless, their method relied heavily on external resources, limiting its applicability. Furthermore, their filtering heuristic, which assumes that entities mentioning each other on Wikipedia imply a predefined relation, is overly restrictive and may introduce more noise than it filters. For instance, in the sentence "… to the poetry from [India], China and [Korea] that stretches the book …" from NYT10, India and Korea mention each other on Wikipedia, yet the sentence does not imply a relation between them.
+
+In this paper, we propose a novel two-stage approach for distantly supervised RE. In the first stage, called mining , we find out possible FN samples from the N/A set by heuristically leveraging the memory mechanism of deep neural networks. According to Arpit et al. (2017) , while deep neural networks are capable of memorizing noisy data, they tend to preferentially learn simple patterns first, that is to say, deep neural networks tend to learn and memorize patterns from clean instances within a noisy dataset. We design a Transformer-based Vaswani et al. (2017) deep filter to mine FN samples from the N/A set. In the second stage, called aligning , we formulate the problem into a domain adaptation (DA) paradigm. We exploit a gradient reversal layer (GRL) to align the mined unlabeled data from stage one with the training data into a unified feature space. After aligning, each sentence is assigned with a pseudo label and a confidence score, which provide extra information and attenuate incorrect biases in both training and testing procedures.
+
+In summary, our main contributions are fourfold:
+
+• We propose a simple yet effective method to filter noises in a DS dataset by leveraging the memory mechanism of deep neural networks, without any external resources. • We formulate distantly supervised RE as a DA paradigm and utilize adversarial training to align unlabeled data with training data into a unified space, and generate pseudo labels to provide additional supervision. • We achieve new state-of-the-art on two popular benchmark datasets NYT10 Riedel et al. (2010) and GIDS Jat et al. (2018) . • By mining the test set, we show that the FN problem greatly misleads the evaluation of DS models and deserves further study.
+
+2 Related Work
+
+Supervised relation extraction (RE) is hindered by its requirement for a large amount of human-labeled training data, a process that is both labor-intensive and time-consuming. To overcome this limitation, researchers have proposed distant supervision (DS) as a solution, which involves heuristically aligning a text corpus to a knowledge base (KB), as introduced by Mintz et al. in 2009. This approach was further refined by Riedel et al. in 2010 to accommodate multi-instance single-label learning, and later by Hoffmann et al. in 2011, who developed the multi-instance multi-label learning paradigm to address overlapping relations between entity pairs. Today, DS has become a standard practice in RE.
+
+The aforementioned approaches heavily depend on the quality of hand-engineered features, but recent studies have explored alternative methods. For instance, Zeng et al. (2014) pioneered an end-to-end CNN-based neural network that automatically extracts relevant lexical-level and sentence-level features. Subsequent improvements include the use of piecewise max pooling and selective attention by Zeng et al. (2015) and Bahdanau et al. (2015), as well as an attention-based LSTM proposed by Zhou et al. (2016) to capture key semantic information. Additionally, external knowledge such as entity descriptions and type information has been leveraged for relation extraction (Yaghoobzadeh et al., 2017). More recently, pre-trained language models have been applied to relation extraction, capitalizing on their rich semantic information and commonsense knowledge (Alt et al., 2019).
+
+Adversarial training, a machine learning technique that utilizes an adversarial objective function or deceptive samples to improve network performance, has been applied to various studies in recent years. For instance, Wu et al. (2017) incorporated adversarial noises into the training data, while Qin et al. (2018) proposed DSGAN, a generator that filters out false positive instances from the training dataset. Additionally, Li et al. (2019) introduced a semi-distant supervision method, which involves splitting a dataset based on entity descriptions and leveraging GAN to maximize the use of unsupervised data. More recently, Luo et al. (2020) employed adversarial training to learn the distribution of true positive instances and selected valid instances using a rank-based model.
+
+Learning from noisy labels, also known as robust training, has become a crucial task in modern deep learning, as noisy labels can significantly degrade the generalization performance of deep neural networks (Song et al., 2021). Research has shown that although deep networks can memorize noisy data, they tend to learn simple patterns first (Arpit et al., 2017). To address this challenge, various methods have been proposed, including Co-teaching, which trains two neural networks simultaneously and lets them teach each other using every mini-batch (Han et al., 2018), and an approach that transforms the problem into a semi-supervised learning task by treating potentially mislabeled samples as unlabeled (Yan et al., 2016).
+
+Distant supervision.
+
+Supervised relation extraction (RE) is hindered by its requirement for large amounts of human-labeled training data, a process that is both labor-intensive and time-consuming. To overcome this limitation, researchers have proposed distant supervision (DS) as a solution, which involves heuristically aligning a text corpus with a knowledge base (KB), as introduced by Mintz et al. in 2009. This approach has undergone further refinement, with Riedel et al. in 2010 adapting DS for multi-instance single-label learning, and Hoffmann et al. in 2011 extending it to handle overlapping relations between entity pairs through multi-instance multi-label learning. Today, DS has become a standard practice in RE.
+
+Neural relation extraction.
+
+The above approaches heavily depend on the quality of hand-engineered features, but recent studies have explored alternative methods. For instance, Zeng et al. (2014) pioneered an end-to-end CNN-based neural network that automatically extracts relevant lexical and sentence-level features, which was later enhanced by Zeng et al. (2015) using piecewise max pooling and selective attention, as well as by Bahdanau et al. (2015). Additionally, Zhou et al. (2016) proposed an attention-based LSTM to capture key semantic information in sentences. Other works have incorporated external knowledge, such as entity descriptions and type information, to improve relation extraction (Yaghoobzadeh et al., 2017). Moreover, pre-trained language models have been leveraged for relation extraction due to their inherent semantic information and commonsense knowledge (Alt et al., 2019).
+
+Adversarial training.
+
+Adversarial training, a machine learning technique, enhances network performance by utilizing an adversarial objective function or deceptive samples. This approach has been applied in various ways, such as adding adversarial noises to training data, as seen in Wu et al.'s 2017 work. Other researchers, including Qin et al. (2018) and Li et al. (2019), have proposed methods like DSGAN and semi-distant supervision, which involve using generators to filter out false positive instances and leveraging unsupervised data, respectively. More recently, Luo et al. (2020) employed adversarial training to learn the distribution of true positive instances and selected valid instances using a rank-based model.
+
+Learning with noisy labels.
+
+Learning from noisy labels, also known as robust training, has become a crucial task in modern deep learning, as noisy labels can significantly degrade the generalization performance of deep neural networks (Song et al., 2021). Research has shown that although deep networks can memorize noisy data, they tend to learn simple patterns first (Arpit et al., 2017). To address this issue, various approaches have been proposed, including Co-teaching, which trains two neural networks simultaneously and lets them teach each other using every mini-batch (Han et al., 2018), and the method of Yan et al. (2016), which transforms the problem into a semi-supervised learning task by treating potentially mislabeled samples as unlabeled.
+
+3 Methodology
+
+In this section, we introduce our two-stage framework called FAN (False negative Adversarial Networks) in detail. First, we describe how we discover possibly wrong-labeled sentences from the N/A set. Then, we introduce our adversarial DA method, which assigns pseudo labels to unlabeled data with confidence scores.
+
+3.1 Stage I: Mining
+
+We define a distantly supervised dataset $\mathcal{D}=\{s_{1},s_{2},\dots,s_{N}\}$, where each sample $s_{i}$ is a quadruple comprising an input sequence of tokens $t_{i}=[t_{i}^{1},\dots,t_{i}^{n}]$, the positions of the head and tail entities ($head_{i}$ and $tail_{i}$) within $t_{i}$, and the corresponding relation $r_{i}$ assigned by distant supervision. The dataset $\mathcal{D}$ is then split into two subsets: $\mathcal{P}$, containing sentences with predefined relations, and $\mathcal{N}$, containing sentences with no implied relations, such that $\mathcal{D}=\mathcal{P}\cup\mathcal{N}$. This work focuses on the noisy negative set $\mathcal{N}$, where sentences may be mislabeled due to incomplete knowledge bases, and potentially useful information remains undiscovered.
+
+Deep neural networks tend to learn clean samples first and then gradually learn noisy samples, as noted by Arpit et al. (2017). Building on the work of Malach and Shalev-Shwartz (2017), we filter samples in $\mathcal{N}$ with logits above a threshold $\theta$ as potential false negative (FN) samples, which form a set $\mathcal{M}$. The remaining samples in $\mathcal{N}$ form a set $\mathcal{N^{\prime}}$, such that $\mathcal{N} = \mathcal{N^{\prime}} \cup \mathcal{M}$. By refining the original training dataset $\mathcal{D}$ to $\mathcal{D^{\prime}} = \mathcal{P} \cup \mathcal{N^{\prime}}$, the deep noise filter can capture meaningful semantic patterns that distinguish between $\mathcal{P}$ and $\mathcal{N}$. Notably, samples in $\mathcal{N}$ with logits above $\theta$ may imply predefined relations, but have inaccurate annotations; we propose that these samples, comprising set $\mathcal{M}$, can be treated as unlabeled data in a semi-supervised manner to provide supplementary information.
+
+3.1.1 Sentence Encoder
+
+In the mining step, a mapping function $f(\cdot)$ is applied to $r_{i}$, yielding a binary label: $f(r_{i})=0$ if $r_{i}$ is N/A, and $f(r_{i})=1$ otherwise. To leverage semantic information and commonsense knowledge, we utilize the pre-trained language model BERT (Devlin et al., 2019) as our embedding module. Specifically, the token sequence $t_{i}=[t_{i}^{1},\dots,t_{i}^{n}]$ is input into the pre-trained model, and the resulting last hidden representation $\mathbf{h}_{i}=[\mathbf{h}_{i}^{1},\dots,\mathbf{h}_{i}^{n}]$ serves as our token embedding.
+
+CNN is a widely used architecture for capturing local contextual information Zeng et al. (2014) . The convolution operation involves taking the dot product of the convolutional filter $\mathbf{W}$ with each $k$ -gram in the sequence $\mathbf{h}_{i}$ to obtain a new representation $\mathbf{p}_{i}$ : 
+ 
+ $p_{i}^{j}=\mathbf{W}\cdot[\mathbf{h}_{i}^{j-k+1}:\ldots:\mathbf{h}_{i}^{j}],$  (1) 
+ where $p_{i}^{j}$ is the $j$ -th dimension of $\mathbf{p}_{i}$ . $\mathbf{W}\in\mathbb{R}^{k\times d}$ is the convolutional filter, where $k$ is the kernel size and $d$ is the hidden dimension. $[\mathbf{h}_{i}^{j-k+1}:\ldots:\mathbf{h}_{i}^{j}]$ refers to the concatenation from $\mathbf{h}_{i}^{j-k+1}$ to $\mathbf{h}_{i}^{j}$ . In order to capture diverse features and extract the local information at different levels, we make use of multiple filters and varied kernel sizes.
+
+In RE, representation $\mathbf{p}_{i}$ can be partitioned into three parts according to $head_{i}$ and $tail_{i}$ , i.e., $\mathbf{p}_{i}=\{\mathbf{p}_{i_{1}},\mathbf{p}_{i_{2}},\mathbf{p}_{i_{3}}\}$ . To capture the structural information between two entities and obtain fine-grained features, we take piecewise max pooling as Zeng et al. (2015) . For each convolutional filter, we can obtain a three-dimensional vector $\mathbf{q}_{i}$ : 
+ 
+ $\mathbf{q}_{i}=[\max(\mathbf{p}_{i_{1}}),\max(\mathbf{p}_{i_{2}}),\max(\mathbf{p}_{i_{3}})].$  (2) 
+
+
+We concatenate vectors from multiple convolutional filters and get the sentence representation $\mathbf{v}_{i}\in\mathbb{R}^{3m}$ , where $m$ is the number of convolutional filters with varied kernel sizes. The architecture of the sentence encoder is shown in Figure 1 .
+
+3.1.2 Noise Filter
+
+Through sentence encoding, each sample $s_{i}=(t_{i},head_{i},tail_{i},r_{i})$ is transformed into a fixed-dimensional vector $\mathbf{v}_{i}\in\mathbb{R}^{3m}$. This vector is then fed into a multilayer perceptron, which outputs a probability $o_{i}$ that is calculated as $o_{i}=\sigma(\mathbf{W}_{f}\mathbf{v}_{i}+b_{f})$, where $\mathbf{W}_{f}\in\mathbb{R}^{1\times 3m}$ is a transformation matrix, $b_{f}$ is the bias, and $\sigma(\cdot)$ denotes the sigmoid activation function. The output $o_{i}$ represents the probability that the current sentence belongs to $\mathcal{P}$.
+
+We utilize the binary cross-entropy loss function to train the deep noise filter in an end-to-end manner, as expressed in equation (4).
+
+3.2 Stage II: Aligning
+
+Instances in $\mathcal{M}$ are mislabeled due to the incompleteness of knowledge bases (KBs) and may have a different distribution than the original training dataset, as noted by Ye et al. (2019). A straightforward approach is to simply drop these instances and train on the adjusted dataset $\mathcal{D^{\prime}}$. However, this method is suboptimal as it discards useful information contained in $\mathcal{M}$. While it is possible to annotate unlabeled data manually, this process is time-consuming and impractical for large datasets.
+
+In fact, these unlabeled samples imply predefined relations and can be used together with $\mathcal{D^{\prime}}$ in a semi-supervised learning paradigm. We formulate this problem as a DA task and the objective is aligning the distributions of $\mathcal{M}$ and $\mathcal{P}$ into a unified feature space. To achieve this objective, we propose a method inspired by GAN. The generator tries to fool the discriminator so that it cannot distinguish the samples in $\mathcal{M}$ and $\mathcal{P}$ . On the contrary, the discriminator tries its best to differentiate them. The training procedure forms a classic min-max game by adversarial objective functions. The overall architecture is shown in Figure 2 .
+
+3.2.1 Bag Encoder
+
+The sentence encoding layer adopts the architecture outlined in Section 3.1.1, with a modification to accommodate noisy DS annotations. To address this, multi-instance learning is employed, where relation classification is performed at the bag level. Each bag, denoted as $\mathcal{B}=\{s_{1},\dots,s_{t}\}$, contains $t$ sentences related to the same entity pair. The bag representation, $\mathbf{g}_{i}$, is computed as a weighted sum of individual sentence representations, using selective attention as proposed by Lin et al. (2016). Specifically, the weight $\alpha_{j}$ assigned to each sentence is determined by its similarity to the learned relation query representation $\mathbf{r}_{i}\in\mathbb{R}^{3m}$, calculated as $\alpha_{i}=\frac{\exp(\mathbf{v}_{i}\cdot\mathbf{r}_{i})}{\sum_{j=1}^{t}\exp(\mathbf{v}_{j}\cdot\mathbf{r}_{i})}$, which is then used to derive $\mathbf{g}_{i}=\sum_{j}\alpha_{j}\mathbf{v}_{j}$.
+
+3.2.2 Relation Classifier
+
+For a bag in $\mathcal{P}$, the DS label is known, and the probability distribution over relations is computed by applying a linear layer followed by a softmax layer to the bag representation $\mathbf{g}_{i}\in\mathbb{R}^{3m}$. This is formulated as $\mathrm{P}(r_{i}\,|\,\mathbf{g}_{i})=\mathrm{softmax}(\mathbf{W}_{c}\mathbf{g}_{i}+\mathbf{b}_{c})$, where $\mathbf{W}_{c}$ is a weight matrix of size $\mathbb{R}^{l\times 3m}$, with $l$ being the number of predefined relations.
+
+During training, we aim to optimize the following cross-entropy loss: 
+ 
+ $L_{cls}=\mathbb{E}_{\mathbf{g}_{i}\sim\mathcal{P}}\big{[}-\log\mathrm{P}(r_{i}\,|\,\mathbf{g}_{i})\big{]}.$  (8) 
+
+
+3.2.3 Gradient Reversal Layer
+
+Pre-trained language models have demonstrated significant capabilities in various NLP tasks due to their massive size and ability to fit complex distributions. Building on the work of Ganin et al. (2016), we employ a Gradient Reversal Layer (GRL) after the bag encoder. The GRL functions as an identity function during forward passing, but reverses the gradients to their opposite during backpropagation, as defined by the equation: $\mathrm{GRL}=\mathbb{I}(\cdot)\nabla_{\Theta}$, where $\Theta$ represents the parameters of the bag encoder, and $\mathbb{I}(\cdot)$ takes on a value of 1 during forward passing and -1 during backpropagation.
+
+3.2.4 Discriminator
+
+The discriminator takes a bag representation $\mathbf{g}_{i}\in\mathbb{R}^{3m}$, applies an affine transformation using the weights $\mathbf{W}_{d}$ and bias $b_{d}$, and then passes the result through the sigmoid function $\sigma(\cdot)$ to produce a probability distribution $o_{i}^{\prime}$, which is calculated as $o_{i}^{\prime}=\sigma(\mathbf{W}_{d}\mathbf{g}_{i}+b_{d})$.
+
+3.3 Training Objective
+
+We utilize adversarial training to create a unified data distribution, and implement a contrastive loss function to bring instances of the same class closer together while pushing apart instances from different classes, thereby enhancing feature representation.
+
+3.3.1 Adversarial Loss
+
+The bag encoder is optimized to give separate representations for instances in $\mathcal{P}$ , so that samples from different classes can be easily distinguished by the relation classifier. In the meantime, it forces the distribution of $\mathcal{M}$ to fit into the distribution of $\mathcal{P}$ . The encoder here plays two roles: representation learner and distribution adapter. The classification learning objective is Eq. ( 8 ), and the generator objective is 
+ 
+ $L_{g}=-\mathbb{E}_{s\sim\mathcal{M}}\big{[}\mathrm{D}(\mathrm{G(s)})\big{]}.$  (11) 
+
+
+In contrast, the discriminator aims to differentiate between samples from $\mathcal{M}$ and $\mathcal{P}$. To achieve this, the labels are assigned as follows: for the generator, samples in $\mathcal{M}$ are labeled as $1$, while for the discriminator, they are labeled as $0$. Samples in $\mathcal{P}$ are always labeled as $1$. The discriminator's objective is to minimize the loss function $L_{d}=-\mathbb{E}_{s_{i}\sim\mathcal{P}}\big{[}\mathrm{D}(s_{i})\big{]}+\mathbb{E}_{s_{j}\sim\mathcal{M}}\big{[}\mathrm{D}(\mathrm{G}(s_{j}))\big{]}$, as given in equation (12).
+
+Generator and discriminator improve each other in iterations.
+
+3.3.2 Contrastive Loss
+
+Bag representations should effectively cluster instances that share the same relation, achieved by maximizing the distance between samples with different relations while minimizing the variance in distances among those with the same relation.
+
+The similarity score between two instances should be high if they belong to the same relation and low otherwise. To achieve this, we utilize the contrastive loss introduced by Neculoiu et al. (2016). Given a bag representation $\mathbf{g}$, we categorize other instances into two sets: $\mathcal{Q}_{+}$, which contains instances with the same relation type as $\mathbf{g}$, and $\mathcal{Q}_{-}$, which contains instances with different relation types. The contrastive loss is formulated as $L_{ctra}=\mathbb{E}_{\mathbf{g}\sim\mathcal{P}}\Big{[}\max\limits_{\mathbf{g}_{i}\in\mathcal{Q}_{+}}\mathrm{dist}_{+}(\mathbf{g},\mathbf{g}_{i}) - \min\limits_{\mathbf{g}_{j}\in\mathcal{Q}_{-}}\mathrm{dist}_{-}(\mathbf{g},\mathbf{g}_{j})\Big{]}$, where the distance measurements $\mathrm{dist}_{+}$ and $\mathrm{dist}_{-}$ are defined as $\tau - \cos(\mathbf{g}, \mathbf{g}_{i})$ and $\cos(\mathbf{g}, \mathbf{g}_{j}) - \tau$, respectively, with $\tau$ being a hyperparameter that prevents the collapse of bag representations and $\cos(\cdot)$ denoting the cosine function.
+
+3.3.3 Overall Loss
+
+The adversarial training procedure is formulated as a multi-task learning problem and trained end-to-end, with an overall objective function that combines four components: $L=L_{cls}+\alpha\cdot L_{g}+\beta\cdot L_{d}+\gamma\cdot L_{ctra}$, where $\alpha$, $\beta$, and $\gamma$ are adjustable hyperparameters that control the relative importance of each term.
+
+4 Experiment Setup
+
+We conduct the experiments on two widely used benchmark datasets: NYT10 and GIDS (Google-IIsc Distant Supervision dataset). The source code is publicly available \footnote{ 1 https://github.com/nju-websoft/FAN} .
+
+4.1 Datasets
+
+The statistics of two datasets are listed in Table 2 . We briefly describe them below:
+
+• NYT10 is developed by Riedel et al. (2010) through aligning Freebase with the New York Times corpus. News from year 2005 to 2006 are used for creating the training set and from year 2007 for the test set. The entity mentions are annotated using Stanford NER Finkel et al. (2005) and linked to Freebase. The dataset has been broadly used for RE Hoffmann et al. (2011) . • GIDS is built by extending the Google RE corpus \footnote{ 2 https://research.googleblog.com/2013/04/50000-lessons-on-how-to-read-relation.html} with additional instances for each entity pair Jat et al. (2018) . It assures that the at-least-one assumption of multi-instance learning holds, which makes the automatic evaluation more accurate and reliable.
+
+4.2 Comparative Models
+
+To evaluate the proposed FAN, we compare it with seven representative models: PCNN-ONE, which uses piecewise max pooling for improved sentence representations; PCNN-ATT, which utilizes selective attention to select useful information across sentences; BGWA, an attention-based model that incorporates word and entity attention mechanisms; RESIDE, a GCN-based model that leverages side information from a knowledge base; DISTRE, a GPT-based model that captures semantic, syntactic, and commonsense knowledge; DS-GAN, a GAN-based model that treats distantly supervised RE as a semi-supervised learning process; and DS-VAE, a VAE-based model that biases the latent space of sentences and is trained jointly with a relation classifier.
+
+4.3 Criteria
+
+We follow the conventions of Zeng et al. (2015) and employ a held-out evaluation approach. To facilitate comparison, we compute precision-recall curves for each model and report the area under the curve (AUC) scores. We also evaluate performance using two additional metrics: P@N, which calculates the percentage of correct classifications among the top-N most confident predictions, and micro-F1, for which we report the best score obtained at various points along the precision-recall curve.
+
+We compare our results on NYT10 with all the models listed above, using the reported results from the original papers for BGWA, RESIDE, DISTRE, and DS-VAE, and implementing PCNN-ONE, PCNN-ATT, and DS-GAN ourselves. Note that the PR-curve for DS-VAE is not available due to the unreleased source code. For the GIDS dataset, we limit our comparison to PCNN-ONE, PCNN-ATT, BGWA, and RESIDE, as the other models are not compatible with this dataset.
+
+5 Results
+
+The PR-curves on NYT10 and GIDS are shown in Figure 3 . On both datasets, FAN achieves the best results. On NYT10, we get visibly higher recall, especially when precision is higher than 75.0, which indicates that our model can find more informative samples along with correct labels. It makes sense because FAN knows more information by digging informative samples from the N/A set and weakens improper biases in the training procedure. On NYT10, our AUC is 45.5 , improving $3.3$ on the basis of the second best model. On GIDS, our AUC is 90.3 , improving $1.2$ compared with the second best. Please refer to Table 3 for details.
+
+Table 4 presents the P@N values for top-ranked samples and micro-F1 scores on the NYT10 dataset, revealing that our model achieves an average improvement of 3.8 in P@N, which suggests that it enhances recall without compromising precision. Additionally, Table 5 displays the results on the GIDS dataset, where our model, FAN, attains the highest micro-F1 score, and its P@N scores are comparable to those of RESIDE and BGWA.
+
+In the mining step, we filter false negative (FN) samples from $\mathcal{N}$ with logits exceeding the threshold $\theta$. This process yields 4,556 FN samples from NYT10, corresponding to 3,733 unique entity pairs, and 238 FN samples from GIDS, corresponding to 225 entity pairs.
+
+To assess the quality of $\mathcal{M}$, we selected the five relations with the most samples assigned by FAN and extracted 100 sentences with the highest confidence scores for each. These sentences were then annotated by three well-trained NLP annotators in a binary manner to evaluate the accuracy of the assigned pseudo labels. As shown in Table 6, the average precision is 87.0, representing a 17.0 improvement over the original NYT10 dataset (Riedel et al., 2010). This result confirms the quality of the mined data and the effectiveness of the aligning step. Notably, the "nationality" relation yielded relatively lower precision, likely due to the model's difficulty in handling sentences that mention multiple individuals and countries, particularly in the context of sports.
+
+The label distributions may shift between $\mathcal{M}$ and $\mathcal{P}$ . The generator aligns the two distributions into a unified space. We use bag representations obtained through the bag encoder as the input of T-SNE to perform dimension reduction and obtain two-dimensional representations. As seen from Figure 4 , the feature distributions before aligning are overlapped and the classification boundary is not clear. After aligning, the samples are better clustered.
+
+We conduct an ablation study to verify the effectiveness of submodules in FAN. Table 7 shows the comparison results. (1) BERT has a great influence on the results because it introduces valuable linguistic knowledge and commonsense knowledge to RE. If replacing it by GloVe, both AUC and micro-F1 drop significantly. (2) By removing GRL and unlabeled data, using only the refined training set $\mathcal{D}^{\prime}$ , both AUC and micro-F1 drops. This indicates that the information contained in unlabeled data is helpful for distantly supervised RE, and FAN can leverage it reasonably. (3) Contrastive loss can help the learning procedure. Different classes can be better clustered, thus reducing errors on the classification boundary.
+
+During evaluation, we also examine the effect of false negatives (FN) on the test set. To do this, we apply a deep filter to the test set's N/A data, similar to our approach in the training phase, and identify 6,468 sentences containing 4,951 entity pairs. Removing these instances yields significant improvements, with AUC increasing by approximately 20% to 54.6 and micro-F1 rising by 12% to 54.5, as illustrated in Figure 5. Notably, similar patterns are observed across different baseline models.
+
+This indicates that the FN samples in the N/A set greatly affect the evaluation procedure and bring in improper biases for model selection. For comparison, we randomly remove the same number of sentences from the test N/A set, as a result, AUC increases 0.4 and micro-F1 increases 0.9. This result is rational because randomly removing 6,468 samples is negligible in comparison with 166,004 N/A samples in the test set.
+
+In Table 8 , we show several cases of mined data which are excerpted from NYT10.
+
+The first sentence is correctly labeled as "/people/person/place_lived" by FAN, whereas DS-GAN misses it. This discrepancy arises because Wikipedia pages about locations rarely mention specific individuals, resulting in a significant omission of samples that describe relationships between people and locations.
+
+For less-frequent relations such as “/sports/sports_team/location”, FAN can still identify it to enlarge the training data and weaken the imbalance between relations.
+
+The relationship between Corona and Queens is not reciprocal, with Queens containing Corona, but not the other way around. This distinction is not recognized by FAN, which incorrectly assigns a "/location/location/contains" relation from Corona to Queens. Accurately determining the direction of such relationships is a challenging task that requires further investigation.
+
+5.1 Overall Results
+
+The PR-curves for NYT10 and GIDS are presented in Figure 3, where FAN consistently achieves the best results. Notably, on NYT10, FAN exhibits visibly higher recall, particularly when precision exceeds 75.0, demonstrating its ability to identify more informative samples with accurate labels. This is attributed to FAN's capacity to extract valuable information from the N/A set, thereby mitigating improper biases during training. The results translate to a significant improvement in AUC, with FAN scoring 45.5 on NYT10 (a 3.3-point increase over the second-best model) and 90.3 on GIDS (a 1.2-point improvement over the second-best model), with detailed results available in Table 3.
+
+Table 4 presents the P@N values for top-ranked samples and micro-F1 scores on the NYT10 dataset, revealing that our model achieves an average improvement of 3.8 in P@N, which suggests that it enhances recall without compromising precision. Additionally, Table 5 displays the results on the GIDS dataset, where our model, FAN, obtains the highest micro-F1 score, and its P@N scores are comparable to those of RESIDE and BGWA.
+
+5.2 Mining Results
+
+During the mining step, we filter false negative (FN) samples from $\mathcal{N}$ that have logits exceeding the threshold $\theta$. This process yields 4,556 FN samples from NYT10, corresponding to 3,733 unique entity pairs, and 238 FN samples from GIDS, corresponding to 225 unique entity pairs.
+
+To assess the quality of $\mathcal{M}$, we selected the five relations with the most samples assigned by FAN and chose 100 sentences with the highest confidence scores for each. These sentences were then annotated in a binary manner by three well-trained NLP annotators to verify the accuracy of the assigned pseudo labels. As shown in Table 6, the average precision is 87.0, representing a 17.0 improvement over the original NYT10 dataset (Riedel et al., 2010). This result confirms the quality of the mined data and the effectiveness of the aligning step. Notably, the "nationality" relation achieved relatively lower precision, likely due to the model's difficulty in handling sentences that mention multiple individuals and countries, often found in sports-related contexts.
+
+5.3 Adversarial Domain Adaptation
+
+The label distributions may shift between $\mathcal{M}$ and $\mathcal{P}$ . The generator aligns the two distributions into a unified space. We use bag representations obtained through the bag encoder as the input of T-SNE to perform dimension reduction and obtain two-dimensional representations. As seen from Figure 4 , the feature distributions before aligning are overlapped and the classification boundary is not clear. After aligning, the samples are better clustered.
+
+5.4 Ablation Study
+
+We conduct an ablation study to verify the effectiveness of FAN's submodules, with results shown in Table 7. The study reveals three key findings: (1) replacing BERT with GloVe significantly decreases both AUC and micro-F1, highlighting the importance of BERT's introduction of linguistic and commonsense knowledge to relation extraction; (2) removing GRL and unlabeled data, and relying solely on the refined training set $\mathcal{D}^{\prime}$, also leads to decreased AUC and micro-F1, indicating that unlabeled data provides valuable information for distantly supervised RE that FAN can effectively leverage; and (3) the use of contrastive loss enhances the learning process by enabling better clustering of different classes, which in turn reduces classification errors at the boundary.
+
+5.5 False Negatives in the Test Set
+
+We also examine the effect of false negatives (FN) on the test set during evaluation, using a deep filter trained on the test set to identify FN, which yields 6,468 sentences containing 4,951 entity pairs. Removing these data results in significant improvements, with AUC increasing by approximately 20% to 54.6 and micro-F1 increasing by 12% to 54.5, as illustrated in Figure 5. This phenomenon is consistently observed across different baseline models.
+
+This indicates that the FN samples in the N/A set greatly affect the evaluation procedure and bring in improper biases for model selection. For comparison, we randomly remove the same number of sentences from the test N/A set, as a result, AUC increases 0.4 and micro-F1 increases 0.9. This result is rational because randomly removing 6,468 samples is negligible in comparison with 166,004 N/A samples in the test set.
+
+5.6 Case Study
+
+In Table 8, we present several cases of mined data excerpted from NYT10, which illustrate the strengths and weaknesses of our approach. For instance, the first sentence is correctly labeled as "/people/person/place_lived" by FAN, whereas DS-GAN misses it, likely because relations between people and locations are often omitted from Wikipedia pages due to their unusual co-occurrence. In contrast, FAN successfully identifies less frequent relations, such as "/sports/sports_team/location", helping to mitigate the imbalance between relations. However, FAN also makes mistakes, as seen in the third sentence, where it incorrectly assigns the relation "/location/location/contains" from Corona to Queens, highlighting the challenge of differentiating relation directions, an issue that requires further investigation.
+
+6 Conclusion and Future Work
+
+In this paper, we propose FAN, a two-stage method using adversarial DA to handle the FN problem in distantly supervised RE. We mine FN samples using the memory mechanism of deep neural networks. We use GRL to align unlabeled data with training data and generate pseudo labels to correct improper biases in both training and testing procedures. Our experiments show the superiority of FAN against many comparative models. In future work, we plan to use the teacher-student model to deal with FP and FN simultaneously.
+
+Acknowledgements
+
+This work was supported by the National Natural Science Foundation of China (No. 61872172), and the Water Resource Science & Technology Project of Jiangsu Province (No. 2019046).
+
+Appendix A Experiment Setup
+
+We provide additional details about our experiments in this section. Our implementation of FAN utilizes PyTorch 1.6 and was trained on a server equipped with an Intel Xeon Gold 5117 CPU, 120GB of memory, and two NVIDIA Tesla V100 GPU cards, running Ubuntu 18.04 LTS.
+
+We initialize the parameters of FAN using the method of Xavier and Glorot and Bengio (2010) with a fixed seed for reproducibility. The model is trained using the SGD optimizer with a mini-batch size of 160. In the convolutional module, we employ kernels of sizes 2, 3, 4, and 5, with a filter size of 230; further details can be found in Table 9.
+
+Appendix B Dataset Availability
+
+The NYT10 dataset Riedel et al. (2010) is available at http://iesl.cs.umass.edu/riedel/ecml/ . We use the version adapted by OpenNRE Han et al. (2019) , which has removed the overlapped samples between the training set and the test set. The data is available at https://github.com/thunlp/OpenNRE . The GIDS dataset is available at https://github.com/SharmisthaJat/RE-DS-Word-Attention-Models .
+
+Appendix C False Negatives in N/A
+
+In this section, we provide several examples of FN samples extracted from the training N/A set, which have been assigned pseudo-labels and confidence scores by FAN. These samples are diverse, covering a wide range of relation types, and demonstrate that the noise present in the N/A set is significant and warrants further investigation.
+
+References
+
+Alt et al. (2019) Christoph Alt, Marc Hübner, and Leonhard Hennig. 2019. Fine-tuning pre-trained transformer language models to distantly supervised relation extraction. InACL, pages 1388–1398.
+Arpit et al. (2017) Devansh Arpit, Stanisław Jastrzębski, Nicolas Ballas, David Krueger, Emmanuel Bengio, Maxinder S. Kanwal, Tegan Maharaj, Asja Fischer, Aaron Courville, Yoshua Bengio, and Simon Lacoste-Julien. 2017. A closer look at memorization in deep networks. InICML, pages 233–242.
+Bahdanau et al. (2015) Dzmitry Bahdanau, Kyunghyun Cho, and Yoshua Bengio. 2015. Neural machine translation by jointly learning to align and translate. InICLR.
+Bunescu and Mooney (2007) Razvan Bunescu and Raymond Mooney. 2007. Learning to extract relations from the web using minimal supervision. InACL, pages 576–583.
+Chen et al. (2018) Xilun Chen, Yu Sun, Ben Athiwaratkun, Claire Cardie, and Kilian Weinberger. 2018. Adversarial deep averaging networks for cross-lingual sentiment classification. Transactions of the Association for Computational Linguistics, 6:557–570.
+Christopoulou et al. (2021) Fenia Christopoulou, Makoto Miwa, and Sophia Ananiadou. 2021. Distantly supervised relation extraction with sentence reconstruction and knowledge base priors. CoRR, abs/2104.08225.
+De Sa et al. (2016) Christopher De Sa, Alex Ratner, Christopher Ré, Jaeho Shin, Feiran Wang, Sen Wu, and Ce Zhang. 2016. DeepDive: Declarative knowledge base construction. SIGMOD Record, 45(1):60–67.
+Devlin et al. (2019) Jacob Devlin, Ming-Wei Chang, Kenton Lee, and Kristina Toutanova. 2019. BERT: Pre-training of deep bidirectional transformers for language understanding. InNAACL-HLT, pages 4171–4186.
+Dong et al. (2014) Xin Dong, Evgeniy Gabrilovich, Geremy Heitz, Wilko Horn, Ni Lao, Kevin Murphy, Thomas Strohmann, Shaohua Sun, and Wei Zhang. 2014. Knowledge Vault: A web-scale approach to probabilistic knowledge fusion. InACM SIGKDD, pages 601–610.
+Finkel et al. (2005) Jenny Rose Finkel, Trond Grenager, and Christopher Manning. 2005. Incorporating non-local information into information extraction systems by Gibbs sampling. InACL, pages 363–370.
+Ganin et al. (2016) Yaroslav Ganin, Evgeniya Ustinova, Hana Ajakan, Pascal Germain, Hugo Larochelle, François Laviolette, Mario Marchand, and Victor Lempitsky. 2016. Domain-adversarial training of neural networks. Journal of Machine Learning Research, 17(1):2096–2030.
+Glorot and Bengio (2010) Xavier Glorot and Yoshua Bengio. 2010. Understanding the difficulty of training deep feedforward neural networks. InAISTATS, pages 249–256.
+Goodfellow et al. (2014) Ian Goodfellow, Jean Pouget-Abadie, Mehdi Mirza, Bing Xu, David Warde-Farley, Sherjil Ozair, Aaron Courville, and Yoshua Bengio. 2014. Generative adversarial networks. Communications of the ACM, 63(11):139–144.
+Han et al. (2018) Bo Han, Quanming Yao, Xingrui Yu, Gang Niu, Miao Xu, Weihua Hu, Ivor Tsang, and Masashi Sugiyama. 2018. Co-teaching: Robust training of deep neural networks with extremely noisy labels. InNeurIPS, pages 8535–8545.
+Han et al. (2019) Xu Han, Tianyu Gao, Yuan Yao, Deming Ye, Zhiyuan Liu, and Maosong Sun. 2019. OpenNRE: An open and extensible toolkit for neural relation extraction. InEMNLP-IJCNLP, pages 169–174.
+Hoffmann et al. (2011) Raphael Hoffmann, Congle Zhang, Xiao Ling, Luke Zettlemoyer, and Daniel S. Weld. 2011. Knowledge-based weak supervision for information extraction of overlapping relations. InACL-HLT, pages 541–550.
+Jat et al. (2018) Sharmistha Jat, Siddhesh Khandelwal, and Partha P. Talukdar. 2018. Improving distantly supervised relation extraction using word and entity based attention. CoRR, abs/1804.06987.
+Ji and Grishman (2011) Heng Ji and Ralph Grishman. 2011. Knowledge base population: Successful approaches and challenges. InACL-HLT, page 1148–1158.
+Jiang et al. (2018) Lu Jiang, Zhengyuan Zhou, Thomas Leung, Li-Jia Li, and Li Fei-Fei. 2018. MentorNet: Learning data-driven curriculum for very deep neural networks on corrupted labels. InICML, pages 2309–2318.
+Li et al. (2020) Junnan Li, Richard Socher, and Steven C.H. Hoi. 2020. DivideMix: Learning with noisy labels as semi-supervised learning. InICLR.
+Li et al. (2019) Pengshuai Li, Xinsong Zhang, Weijia Jia, and Hai Zhao. 2019. GAN driven semi-distant supervision for relation extraction. InNAACL-HLT, pages 3026–3035.
+Lin et al. (2016) Yankai Lin, Shiqi Shen, Zhiyuan Liu, Huanbo Luan, and Maosong Sun. 2016. Neural relation extraction with selective attention over instances. InACL, pages 2124–2133.
+Luo et al. (2020) Guoqing Luo, Jiaxin Pan, and Min Peng. 2020. RDSGAN: Rank-based distant supervision relation extraction with generative adversarial framework. CoRR, abs/2009.14722.
+Malach and Shalev-Shwartz (2017) Eran Malach and Shai Shalev-Shwartz. 2017. Decoupling “when to update” from “how to update”. InNIPS, pages 961–971.
+Mintz et al. (2009) Mike Mintz, Steven Bills, Rion Snow, and Daniel Jurafsky. 2009. Distant supervision for relation extraction without labeled data. InACL-IJCNLP, pages 1003–1011.
+Neculoiu et al. (2016) Paul Neculoiu, Maarten Versteegh, and Mihai Rotaru. 2016. Learning text similarity with Siamese recurrent networks. InRepL4NLP, pages 148–157.
+Nguyen et al. (2020) Duc Tam Nguyen, Chaithanya Kumar Mummadi, Thi Phuong Nhung Ngo, Thi Hoai Phuong Nguyen, Laura Beggel, and Thomas Brox. 2020. Self: Learning to filter noisy labels with self-ensembling. InICLR.
+Qin et al. (2018) Pengda Qin, Weiran Xu, and William Yang Wang. 2018. DSGAN: Generative adversarial training for distant supervision relation extraction. InACL, pages 496–505.
+Riedel et al. (2010) Sebastian Riedel, Limin Yao, and Andrew McCallum. 2010. Modeling relations and their mentions without labeled text. InECML PKDD, pages 148–163.
+Song et al. (2021) Hwanjun Song, Minseok Kim, Dongmin Park, and Jae-Gil Lee. 2021. Learning from noisy labels with deep neural networks: A survey. CoRR, abs/2007.08199.
+Surdeanu et al. (2012) Mihai Surdeanu, Julie Tibshirani, Ramesh Nallapati, and Christopher D. Manning. 2012. Multi-instance multi-label learning for relation extraction. InEMNLP, pages 455–465.
+Vashishth et al. (2018) Shikhar Vashishth, Rishabh Joshi, Sai Suman Prayaga, Chiranjib Bhattacharyya, and Partha Talukdar. 2018. RESIDE: Improving distantly-supervised neural relation extraction using side information. InEMNLP, pages 1257–1266.
+Vaswani et al. (2017) Ashish Vaswani, Noam Shazeer, Niki Parmar, Jakob Uszkoreit, Llion Jones, Aidan N Gomez, Łukasz Kaiser, and Illia Polosukhin. 2017. Attention is all you need. InNIPS, page 6000–6010.
+Wu et al. (2017) Yi Wu, David Bamman, and Stuart Russell. 2017. Adversarial training for relation extraction. InEMNLP, pages 1778–1783.
+Xiao et al. (2020) Ya Xiao, Chengxiang Tan, Zhijie Fan, Qian Xu, and Wenye Zhu. 2020. Joint entity and relation extraction with a hybrid transformer and reinforcement learning based model. InAAAI, pages 9314–9321.
+Yaghoobzadeh et al. (2017) Yadollah Yaghoobzadeh, Heike Adel, and Hinrich Schütze. 2017. Noise mitigation for neural entity typing and relation extraction. InEACL, pages 1183–1194.
+Yan et al. (2016) Yan Yan, Zhongwen Xu, Ivor W. Tsang, Guodong Long, and Yi Yang. 2016. Robust semi-supervised learning through label aggregation. InAAAI, pages 2244–2250.
+Ye et al. (2019) Qinyuan Ye, Liyuan Liu, Maosen Zhang, and Xiang Ren. 2019. Looking beyond label noise: Shifted label distribution matters in distantly supervised relation extraction. InEMNLP-IJCNLP, pages 3841–3850.
+Yu et al. (2017) Mo Yu, Wenpeng Yin, Kazi Saidul Hasan, Cicero dos Santos, Bing Xiang, and Bowen Zhou. 2017. Improved neural relation detection for knowledge base question answering. InACL, pages 571–581.
+Zeng et al. (2015) Daojian Zeng, Kang Liu, Yubo Chen, and Jun Zhao. 2015. Distant supervision for relation extraction via piecewise convolutional neural networks. InEMNLP, pages 1753–1762.
+Zeng et al. (2014) Daojian Zeng, Kang Liu, Siwei Lai, Guangyou Zhou, and Jun Zhao. 2014. Relation classification via convolutional deep neural network. InCOLING, pages 2335–2344.
+Zhou et al. (2016) Peng Zhou, Wei Shi, Jun Tian, Zhenyu Qi, Bingchen Li, Hongwei Hao, and Bo Xu. 2016. Attention-based bidirectional long short-term memory networks for relation classification. InACL, pages 207–212.
+Zhou et al. (2020) Wenxuan Zhou, Hongtao Lin, Bill Yuchen Lin, Ziqi Wang, Junyi Du, Leonardo Neves, and Xiang Ren. 2020. NERO: A neural rule grounding framework for label-efficient relation extraction. InWWW, page 2166–2176.

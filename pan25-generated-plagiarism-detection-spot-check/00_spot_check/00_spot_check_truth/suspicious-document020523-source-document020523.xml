@@ -1,0 +1,32 @@
+<document reference="suspicious-document020523.txt">
+  <feature name="about" authors="Artur Niezgoda and Emilia Witkowska and Safoura Sadat Mirkhalaf" title="Twist-and-store entanglement in bimodal and spin-1 Bose-Einstein condensates" lang="en" similarity="0.9836" severity="medium" prompt_tokens="11654" output_tokens="9498"/>
+  <feature name="md5Hash" value="67cc61eccf910db43732d0a9fb263458"/>
+  <feature name="altered" type="llm_prompted" llm="Mistral" this_language="en" this_offset="156" this_length="613"/>
+  <feature name="altered" type="llm_prompted" llm="Mistral" this_language="en" this_offset="1592" this_length="811"/>
+  <feature name="altered" type="llm_prompted" llm="Mistral" this_language="en" this_offset="2405" this_length="1387"/>
+  <feature name="altered" type="llm_prompted" llm="Mistral" this_language="en" this_offset="6345" this_length="2553"/>
+  <feature name="altered" type="llm_prompted" llm="Mistral" this_language="en" this_offset="8924" this_length="1834"/>
+  <feature name="altered" type="llm_prompted" llm="Mistral" this_language="en" this_offset="15095" this_length="1442"/>
+  <feature name="altered" type="llm_prompted" llm="Mistral" this_language="en" this_offset="25491" this_length="1081"/>
+  <feature name="altered" type="llm_prompted" llm="Mistral" this_language="en" this_offset="30242" this_length="179"/>
+  <feature name="altered" type="llm_prompted" llm="Mistral" this_language="en" this_offset="30483" this_length="1041"/>
+  <feature name="altered" type="llm_prompted" llm="Mistral" this_language="en" this_offset="32087" this_length="725"/>
+  <feature name="altered" type="llm_prompted" llm="Mistral" this_language="en" this_offset="32814" this_length="1049"/>
+  <feature name="altered" type="llm_prompted" llm="Mistral" this_language="en" this_offset="35281" this_length="474"/>
+  <feature name="altered" type="llm_prompted" llm="Mistral" this_language="en" this_offset="35757" this_length="1756"/>
+  <feature name="altered" type="llm_prompted" llm="Mistral" this_language="en" this_offset="38898" this_length="525"/>
+  <feature name="altered" type="llm_prompted" llm="Mistral" this_language="en" this_offset="39425" this_length="1279"/>
+  <feature name="altered" type="llm_prompted" llm="Mistral" this_language="en" this_offset="41303" this_length="326"/>
+  <feature name="altered" type="llm_prompted" llm="Mistral" this_language="en" this_offset="46010" this_length="504"/>
+  <feature name="altered" type="llm_prompted" llm="Mistral" this_language="en" this_offset="46536" this_length="270"/>
+  <feature name="altered" type="llm_prompted" llm="Mistral" this_language="en" this_offset="47780" this_length="2688"/>
+  <feature name="altered" type="llm_prompted" llm="Mistral" this_language="en" this_offset="50470" this_length="1109"/>
+  <feature name="altered" type="llm_prompted" llm="Mistral" this_language="en" this_offset="52248" this_length="801"/>
+  <feature name="altered" type="llm_prompted" llm="Mistral" this_language="en" this_offset="53051" this_length="1131"/>
+  <feature name="altered" type="llm_prompted" llm="Mistral" this_language="en" this_offset="56708" this_length="1237"/>
+  <feature name="altered" type="llm_prompted" llm="Mistral" this_language="en" this_offset="57947" this_length="739"/>
+  <feature name="altered" type="llm_prompted" llm="Mistral" this_language="en" this_offset="58688" this_length="1387"/>
+  <feature name="altered" type="llm_prompted" llm="Mistral" this_language="en" this_offset="60077" this_length="391"/>
+  <feature name="altered" type="llm_prompted" llm="Mistral" this_language="en" this_offset="65451" this_length="1521"/>
+  <feature name="altered" type="llm_prompted" llm="Mistral" this_language="en" this_offset="66974" this_length="1251"/>
+</document>

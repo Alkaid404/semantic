@@ -1,0 +1,19 @@
+<document reference="suspicious-document020475.txt">
+  <feature name="about" authors="Daniel M. Kaplan" title="IIT-CAPP-11-04 &#10; &#10; Prospects for Antiproton Experiments at Fermilab \textsuperscript{†} \textsuperscript{†} thanks: To appear in Proc. LEAP 2011, TRIUMF, Vancouver, BC, Canada, April 27–May 1, 2011." lang="en" similarity="0.9941" severity="high" prompt_tokens="4949" output_tokens="3984"/>
+  <feature name="md5Hash" value="adf7ca624d2574818a4f3296e9b7a85a"/>
+  <feature name="altered" type="llm_prompted" llm="Mistral" this_language="en" this_offset="231" this_length="953"/>
+  <feature name="altered" type="llm_prompted" llm="Mistral" this_language="en" this_offset="1202" this_length="1239"/>
+  <feature name="altered" type="llm_prompted" llm="Mistral" this_language="en" this_offset="2483" this_length="734"/>
+  <feature name="altered" type="llm_prompted" llm="Mistral" this_language="en" this_offset="3892" this_length="1633"/>
+  <feature name="altered" type="llm_prompted" llm="Mistral" this_language="en" this_offset="5527" this_length="664"/>
+  <feature name="altered" type="llm_prompted" llm="Mistral" this_language="en" this_offset="6234" this_length="1172"/>
+  <feature name="altered" type="llm_prompted" llm="Mistral" this_language="en" this_offset="7408" this_length="1426"/>
+  <feature name="altered" type="llm_prompted" llm="Mistral" this_language="en" this_offset="9558" this_length="1458"/>
+  <feature name="altered" type="llm_prompted" llm="Mistral" this_language="en" this_offset="11018" this_length="618"/>
+  <feature name="altered" type="llm_prompted" llm="Mistral" this_language="en" this_offset="11660" this_length="627"/>
+  <feature name="altered" type="llm_prompted" llm="Mistral" this_language="en" this_offset="12289" this_length="1243"/>
+  <feature name="altered" type="llm_prompted" llm="Mistral" this_language="en" this_offset="13556" this_length="810"/>
+  <feature name="altered" type="llm_prompted" llm="Mistral" this_language="en" this_offset="15297" this_length="789"/>
+  <feature name="altered" type="llm_prompted" llm="Mistral" this_language="en" this_offset="16621" this_length="706"/>
+  <feature name="altered" type="llm_prompted" llm="Mistral" this_language="en" this_offset="17329" this_length="595"/>
+</document>
