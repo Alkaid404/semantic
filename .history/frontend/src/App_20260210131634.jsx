@@ -30,7 +30,7 @@ export default function App() {
       result
         ? buildHighlightSegments(sourceText, result.matches, "source")
         : [],
-    [result, sourceText],
+    [result, sourceText]
   );
 
   const suspectSegments = useMemo(
@@ -38,7 +38,7 @@ export default function App() {
       result
         ? buildHighlightSegments(suspectText, result.matches, "suspect")
         : [],
-    [result, suspectText],
+    [result, suspectText]
   );
 
   // --- 文件选择 ---
@@ -221,9 +221,7 @@ export default function App() {
                   key={`s-${i}`}
                   className={seg.highlight ? "highlight" : ""}
                   title={
-                    seg.highlight
-                      ? `相似度: ${(seg.score * 100).toFixed(0)}%`
-                      : undefined
+                    seg.highlight ? `相似度: ${(seg.score * 100).toFixed(0)}%` : undefined
                   }
                 >
                   {seg.text}
@@ -240,9 +238,7 @@ export default function App() {
                   key={`u-${i}`}
                   className={seg.highlight ? "highlight" : ""}
                   title={
-                    seg.highlight
-                      ? `相似度: ${(seg.score * 100).toFixed(0)}%`
-                      : undefined
+                    seg.highlight ? `相似度: ${(seg.score * 100).toFixed(0)}%` : undefined
                   }
                 >
                   {seg.text}

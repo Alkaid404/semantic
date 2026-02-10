@@ -18,8 +18,8 @@ export default function SuspectUploader({ onFilesChange }) {
             reader.onload = () => resolve(String(reader.result || ""));
             reader.onerror = () => resolve("");
             reader.readAsText(file);
-          }),
-      ),
+          })
+      )
     );
 
     onFilesChange(results.filter((t) => t.trim()));
