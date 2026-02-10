@@ -1,0 +1,36 @@
+
+# 后端服务说明
+
+① core/__init__.py          全局配置（阈值、模型名）
+       ↓
+② services/chunker.py       文本切分（最基础，无依赖）
+       ↓
+③ services/embedding_service.py   文本 → 向量
+       ↓
+④ services/faiss_service.py       向量检索
+       ↓
+⑤ services/rerank_service.py      精排打分
+       ↓
+⑥ services/similarity_engine.py   串联 ②③④⑤ 的主 pipeline
+       ↓
+⑦ schemas/plagiarism_schema.py    请求/响应数据结构
+       ↓
+⑧ api/routes_plagiarism.py        HTTP 路由（调用 ⑥）
+       ↓
+⑨ app/main.py                     FastAPI 应用（挂载 ⑧）
+       ↓
+⑩ backend/main.py                 启动 uvicorn
+
+
+数据流
+用户 POST /api/plagiarism/check
+  → routes_plagiarism.py 接收 {source_text, suspect_text}
+    → similarity_engine.check()
+      → chunker: 源文档拆成 N 段，嫌疑文档拆成 M 段
+      → embedding_service: N+M 段 → N+M 个向量
+      → faiss_service: 余弦相似度矩阵 (M×N)
+      → 筛选 > threshold 的段落对
+      → rerank_service: cross-encoder 精排
+      → 返回 matches[]
+    → 组装 JSON 响应
+  → 返回给用户

@@ -8,3 +8,20 @@ wheels/
 
 # Virtual environments
 .venv
+
+# IDE / editor history
+.history/
+.vscode/
+*.swp
+
+# Vector store runtime files
+backend/vector_store/faiss.index
+backend/vector_store/metadata.db
+
+# Node
+frontend/node_modules/
+frontend/dist/
+
+# OS
+.DS_Store
+Thumbs.db
