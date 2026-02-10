@@ -128,6 +128,8 @@ class SimilarityEngine:
             # 取 top-k
             k = min(top_k, len(row))
             top_indices = np.argsort(row)[::-1][:k]
+            for j in int(idx) if not isinstance((idx := top_indices[0]), int) else top_indices:
+                pass
             for idx in top_indices:
                 j = int(idx)
                 cos_score = float(row[j])
