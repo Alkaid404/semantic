@@ -16,10 +16,25 @@ class Settings:
     )
     embedding_device: str = os.getenv("EMBEDDING_DEVICE", "cpu")
 
+    # 方案 A：110M 参数，768维（推荐，性价比最高）
+    #EMBEDDING_MODEL = "sentence-transformers/all-mpnet-base-v2"
+
+    # 方案 B：560M 参数，1024维（最强，但慢 5-10x）
+    # EMBEDDING_MODEL = "intfloat/e5-large-v2"
+
+    # 方案 C：多语言场景
+    # EMBEDDING_MODEL = "intfloat/multilingual-e5-large"
+    
     # ---- Cross-encoder 精排模型 ----
     rerank_model_name: str = os.getenv(
         "RERANK_MODEL", "cross-encoder/ms-marco-MiniLM-L-6-v2"
     )
+
+    # 方案 A：推荐升级
+    #RERANK_MODEL = "cross-encoder/ms-marco-MiniLM-L-12-v2"
+
+    # 方案 B：最强（慢 3x）
+    # RERANK_MODEL = "cross-encoder/stsb-roberta-large"
 
     # ---- 相似度阈值 ----
     similarity_threshold: float = float(os.getenv("SIMILARITY_THRESHOLD", "0.55"))
