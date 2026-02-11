@@ -12,7 +12,9 @@ class Settings:
 
     # ---- Embedding 模型 ----
     embedding_model_name: str = os.getenv(
-        "EMBEDDING_MODEL", "sentence-transformers/all-MiniLM-L6-v2"
+        "EMBEDDING_MODEL", 
+        # "sentence-transformers/all-MiniLM-L6-v2"
+        "sentence-transformers/all-mpnet-base-v2"
     )
     embedding_device: str = os.getenv("EMBEDDING_DEVICE", "cpu")
 
@@ -27,7 +29,9 @@ class Settings:
     
     # ---- Cross-encoder 精排模型 ----
     rerank_model_name: str = os.getenv(
-        "RERANK_MODEL", "cross-encoder/ms-marco-MiniLM-L-6-v2"
+        "RERANK_MODEL", 
+        # "cross-encoder/ms-marco-MiniLM-L-6-v2"
+        "cross-encoder/ms-marco-MiniLM-L-12-v2"
     )
 
     # 方案 A：推荐升级

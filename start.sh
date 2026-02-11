@@ -27,12 +27,18 @@ trap cleanup EXIT INT TERM
 echo -e "${CYAN}[1/2] 启动后端 (FastAPI :8000)...${NC}"
 cd "$BACKEND_DIR"
 
-# 安装依赖（仅缺失时会安装）
-uv pip install -r requirements.txt -q 2>/dev/null || pip install -r requirements.txt -q
+# 依赖已通过根目录 pyproject.toml 管理
 
 # 启动后端（后台运行，日志带前缀）
 uv run python main.py 2>&1 | sed "s/^/[backend] /" &
 BACKEND_PID=$!
+
+echo -e "${CYAN}等待后端初始化完成 (加载 AI 模型可能需要 10-30 秒)...${NC}"
+# 循环检查后端端口是否响应 (检查 /docs 接口)
+while ! curl -s --head --request GET http://localhost:8000/docs | grep "200 OK" > /dev/null; do
+  sleep 2
+done
+echo -e "${GREEN}后端已就绪！${NC}"
 
 # ---------- 前端 ----------
 echo -e "${CYAN}[2/2] 启动前端 (Vite :5173)...${NC}"
