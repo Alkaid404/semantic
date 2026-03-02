@@ -25,6 +25,7 @@ from ..core import settings
 from .chunker import Chunk, chunk_text
 from .embedding_service import EmbeddingService
 from .faiss_service import FaissService
+from .idf_service import IDFService
 from .rerank_service import RerankService
 
 
@@ -77,12 +78,13 @@ class SimilarityEngine:
         rerank_threshold: float | None = None,
         top_k: int | None = None,
         use_rerank: bool = True,
+        use_idf: bool | None = None,
     ) -> PlagiarismResult:
         """对一对 (source, suspect) 文档执行全流程查重。
 
         流程：
         1. 段落切分（同 pan25-baseline paragraph_chunking）
-        2. Embedding 编码
+        2. 构建 IDF 词表 → IDF 加权 Embedding 编码
         3. FAISS / 余弦矩阵召回候选对
         4. CrossEncoder 精排（可选）
         5. 合并去重、计算文档级分数
@@ -93,6 +95,8 @@ class SimilarityEngine:
             rerank_threshold = settings.rerank_threshold
         if top_k is None:
             top_k = settings.faiss_top_k
+        if use_idf is None:
+            use_idf = settings.use_idf_weighting
 
         # Step 1: 切分段落
         src_chunks = chunk_text(
@@ -111,11 +115,20 @@ class SimilarityEngine:
         if not src_chunks or not susp_chunks:
             return PlagiarismResult(similarity=0.0, matched_char_ratio=0.0, matches=[])
 
-        # Step 2: 编码
+        # Step 2: 编码（可选 IDF 加权）
         src_texts = [c.text for c in src_chunks]
         susp_texts = [c.text for c in susp_chunks]
-        src_emb = self._embedder.encode(src_texts, normalize=True)
-        susp_emb = self._embedder.encode(susp_texts, normalize=True)
+
+        if use_idf:
+            # 基于当前文档对所有 chunk 构建 IDF 词表
+            idf = IDFService()
+            all_texts = src_texts + susp_texts
+            idf.fit(all_texts, self._embedder.tokenizer)
+            src_emb = self._embedder.encode_idf(src_texts, idf, normalize=True)
+            susp_emb = self._embedder.encode_idf(susp_texts, idf, normalize=True)
+        else:
+            src_emb = self._embedder.encode(src_texts, normalize=True)
+            susp_emb = self._embedder.encode(susp_texts, normalize=True)
 
         # Step 3: 余弦相似度矩阵召回
         #   sim_matrix[i][j] = cosine(susp_emb[i], src_emb[j])
