@@ -130,7 +130,7 @@ class SimilarityEngine:
             top_indices = np.argsort(row)[::-1][:k]
             for idx in top_indices:
                 j = int(idx)
-                cos_score = float(row[j])
+                cos_score = float(np.clip(row[j], 0.0, 1.0))
                 if cos_score >= similarity_threshold:
                     candidate_pairs.append((i, j, cos_score))
 
@@ -231,7 +231,7 @@ class SimilarityEngine:
     ) -> tuple[float, float]:
         """计算文档级相似度与匹配字符覆盖率。
 
-        similarity = 匹配 chunk 数 / 总 suspect chunk 数（命中率）
+        similarity = 匹配段落的平均最终得分（rerank 或 cosine）
         matched_char_ratio = 被匹配到的 source 字符数 / source 总长度
         """
         if not matches or not source_text:

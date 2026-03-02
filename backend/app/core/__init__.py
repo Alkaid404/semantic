@@ -43,8 +43,8 @@ class Settings:
     # ---- 相似度阈值 ----
     similarity_threshold: float = float(os.getenv("SIMILARITY_THRESHOLD", "0.55"))
 
-    # ---- Rerank 阈值 ----
-    rerank_threshold: float = float(os.getenv("RERANK_THRESHOLD", "0.3"))
+    # ---- Rerank 阈值（sigmoid 归一化后的概率值，0~1） ----
+    rerank_threshold: float = float(os.getenv("RERANK_THRESHOLD", "0.55"))
 
     # ---- FAISS 检索 top-k ----
     faiss_top_k: int = int(os.getenv("FAISS_TOP_K", "5"))

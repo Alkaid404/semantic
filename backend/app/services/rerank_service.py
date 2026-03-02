@@ -50,9 +50,16 @@ class RerankService:
             threshold = settings.rerank_threshold
 
         model = self._load_model()
-        scores = model.predict(pairs, show_progress_bar=False)
-        if isinstance(scores, np.ndarray):
-            scores = scores.tolist()
+        raw_scores = model.predict(pairs, show_progress_bar=False)
+        if isinstance(raw_scores, np.ndarray):
+            raw_scores = raw_scores.tolist()
+
+        # MS-MARCO cross-encoder 输出的是原始 logits（范围约 -11~+11），
+        # 需要通过 sigmoid 映射到 [0, 1] 概率区间
+        def _sigmoid(x: float) -> float:
+            return 1.0 / (1.0 + np.exp(-x))
+
+        scores = [_sigmoid(s) for s in raw_scores]
 
         results = [
             (idx, score)

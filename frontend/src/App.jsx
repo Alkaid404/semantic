@@ -215,40 +215,56 @@ export default function App() {
         <div className="compare-grid">
           <article className="compare-card">
             <h4>源文档片段</h4>
-            <p>
-              {sourceSegments.map((seg, i) => (
-                <span
-                  key={`s-${i}`}
-                  className={seg.highlight ? "highlight" : ""}
-                  title={
-                    seg.highlight
-                      ? `相似度: ${(seg.score * 100).toFixed(0)}%`
-                      : undefined
-                  }
-                >
-                  {seg.text}
-                </span>
-              ))}
-            </p>
+            <div className="compare-body">
+              {sourceSegments.map((seg, i) => {
+                const lines = seg.text.split(/\n/);
+                return (
+                  <span
+                    key={`s-${i}`}
+                    className={seg.highlight ? "highlight-block" : ""}
+                    title={
+                      seg.highlight
+                        ? `相似度: ${(seg.score * 100).toFixed(0)}%`
+                        : undefined
+                    }
+                  >
+                    {lines.map((line, li) => (
+                      <span key={li}>
+                        {line}
+                        {li < lines.length - 1 && <br />}
+                      </span>
+                    ))}
+                  </span>
+                );
+              })}
+            </div>
             {!result && <p className="placeholder">等待检查结果...</p>}
           </article>
           <article className="compare-card">
             <h4>疑似文档片段</h4>
-            <p>
-              {suspectSegments.map((seg, i) => (
-                <span
-                  key={`u-${i}`}
-                  className={seg.highlight ? "highlight" : ""}
-                  title={
-                    seg.highlight
-                      ? `相似度: ${(seg.score * 100).toFixed(0)}%`
-                      : undefined
-                  }
-                >
-                  {seg.text}
-                </span>
-              ))}
-            </p>
+            <div className="compare-body">
+              {suspectSegments.map((seg, i) => {
+                const lines = seg.text.split(/\n/);
+                return (
+                  <span
+                    key={`u-${i}`}
+                    className={seg.highlight ? "highlight-block" : ""}
+                    title={
+                      seg.highlight
+                        ? `相似度: ${(seg.score * 100).toFixed(0)}%`
+                        : undefined
+                    }
+                  >
+                    {lines.map((line, li) => (
+                      <span key={li}>
+                        {line}
+                        {li < lines.length - 1 && <br />}
+                      </span>
+                    ))}
+                  </span>
+                );
+              })}
+            </div>
             {!result && <p className="placeholder">等待检查结果...</p>}
           </article>
         </div>
