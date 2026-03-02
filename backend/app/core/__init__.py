@@ -62,9 +62,5 @@ class Settings:
     chunk_size: int = int(os.getenv("CHUNK_SIZE", "512"))
     chunk_overlap: int = int(os.getenv("CHUNK_OVERLAP", "128"))
 
-    # ---- IDF 加权 ----
-    # 是否在 embedding 阶段使用 IDF 加权 pooling
-    use_idf_weighting: bool = os.getenv("USE_IDF_WEIGHTING", "true").lower() in ("true", "1", "yes")
-
 
 settings = Settings()

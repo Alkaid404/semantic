@@ -24,6 +24,60 @@ class Chunk:
     length: int  # 字符长度
 
 
+# ---------- 元数据段落检测 ----------
+
+# 匹配作者行：以 "By" 开头，后接若干人名（用 and / , 连接）
+_AUTHOR_PATTERN = re.compile(
+    r"^(?:by|authors?)\s*[:\-]?\s*"          # "By" / "Author:" / "Authors -"
+    r"(?:[A-Z][a-z.\-]+[\s,]+(?:and\s+)?)+", # 后跟人名列表
+    re.IGNORECASE,
+)
+
+# 匹配纯元数据行：日期行、机构行、邮箱、DOI、标题式短行等
+_META_PATTERNS = [
+    # 邮箱地址行
+    re.compile(r"^[\w.\-]+@[\w.\-]+\.\w+", re.IGNORECASE),
+    # DOI / arXiv
+    re.compile(
+        r"^(?:doi|arxiv|https?://(?:doi\.org|arxiv\.org))\s*[:\s]",
+        re.IGNORECASE,
+    ),
+    # 纯日期行
+    re.compile(
+        r"^(?:january|february|march|april|may|june|july|august|"
+        r"september|october|november|december)\s+\d{1,2},?\s+\d{4}$",
+        re.IGNORECASE,
+    ),
+    # "Received: ... / Accepted: ..." 行
+    re.compile(r"^(?:received|accepted|published|submitted)\s*:", re.IGNORECASE),
+]
+
+
+def _is_metadata_chunk(text: str) -> bool:
+    """判断一段文本是否为元数据（作者行、邮箱、DOI 等），而非正文内容。"""
+    stripped = text.strip()
+
+    # 作者列表检测（最常见的误匹配来源）
+    if _AUTHOR_PATTERN.match(stripped):
+        # 进一步验证：如果 "and" / "," 连接的人名 ≥2 个且整段无正文句子，基本确认为作者行
+        separators = len(re.findall(r"\band\b|,", stripped, re.IGNORECASE))
+        has_period_sentence = bool(re.search(r"[.!?]\s+[A-Z]", stripped))
+        if separators >= 2 and not has_period_sentence:
+            return True
+
+    # 其他元数据模式
+    for pat in _META_PATTERNS:
+        if pat.match(stripped):
+            return True
+
+    # 内容密度检测：如果字母字符占比太低（如纯数字/符号行），视为非内容
+    alpha_count = sum(1 for c in stripped if c.isalpha())
+    if len(stripped) > 0 and alpha_count / len(stripped) < 0.4:
+        return True
+
+    return False
+
+
 # ---------- Pan25 风格：按段落切分 ----------
 
 def paragraph_chunking(text: str, min_chars: int = 15) -> list[Chunk]:
@@ -53,6 +107,9 @@ def paragraph_chunking(text: str, min_chars: int = 15) -> list[Chunk]:
     for part in parts:
         stripped = part.strip()
         if not stripped or len(stripped) < min_chars:
+            continue
+        # 跳过元数据段落（作者行、邮箱、DOI 等）
+        if _is_metadata_chunk(stripped):
             continue
         # 在原文中定位该段落的偏移
         idx = text.find(stripped, search_start)
@@ -87,7 +144,7 @@ def sliding_window_chunking(
     while pos < len(text):
         end = min(pos + chunk_size, len(text))
         chunk_text = text[pos:end].strip()
-        if chunk_text and len(chunk_text) >= min_chars:
+        if chunk_text and len(chunk_text) >= min_chars and not _is_metadata_chunk(chunk_text):
             chunks.append(Chunk(text=chunk_text, offset=pos, length=end - pos))
         pos += step
     return chunks

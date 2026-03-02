@@ -4,6 +4,7 @@
 - 接收文本或文件上传
 - 调用查重引擎
 - 返回 JSON 结果 / PAN XML 文件
+- 自动将每次查重结果保存到 log 目录
 
 路由：
   POST /check       — JSON 文本查重
@@ -11,6 +12,11 @@
   POST /check/xml   — 查重并返回 PAN XML
 """
 from __future__ import annotations
+
+import json
+import logging
+import os
+from datetime import datetime
 
 from fastapi import APIRouter, File, Response, UploadFile
 from fastapi.responses import JSONResponse
@@ -27,6 +33,25 @@ from ..utils.xml_output import generate_pan_xml
 router = APIRouter()
 _engine = SimilarityEngine()
 
+logger = logging.getLogger(__name__)
+
+# ---- 日志保存目录 ----
+_LOG_DIR = os.path.join(os.path.dirname(__file__), "..", "..", "log")
+os.makedirs(_LOG_DIR, exist_ok=True)
+
+
+def _save_result_log(response: PlagiarismResponse, tag: str = "check") -> None:
+    """将查重结果以 JSON 格式保存到 log 目录。"""
+    try:
+        ts = datetime.now().strftime("%Y%m%d_%H%M%S_%f")
+        filename = f"{tag}_{ts}.json"
+        filepath = os.path.join(_LOG_DIR, filename)
+        with open(filepath, "w", encoding="utf-8") as f:
+            json.dump(response.model_dump(), f, ensure_ascii=False, indent=2)
+        logger.info("Result saved to %s", filepath)
+    except Exception as e:
+        logger.warning("Failed to save result log: %s", e)
+
 
 @router.post("/check", response_model=PlagiarismResponse)
 def check_plagiarism(payload: PlagiarismRequest):
@@ -35,7 +60,7 @@ def check_plagiarism(payload: PlagiarismRequest):
     # 兼容两种输入方式
     if payload.suspect_text:
         result = _engine.check(payload.source_text, payload.suspect_text)
-        return PlagiarismResponse(
+        resp = PlagiarismResponse(
             similarity=result.similarity,
             matched_char_ratio=result.matched_char_ratio,
             matches=[
@@ -52,6 +77,8 @@ def check_plagiarism(payload: PlagiarismRequest):
                 for m in result.matches
             ],
         )
+        _save_result_log(resp, "check")
+        return resp
 
     # 多个疑似文档
     if payload.suspects:
@@ -75,11 +102,13 @@ def check_plagiarism(payload: PlagiarismRequest):
                         suspect_length=m.suspect_length,
                     )
                 )
-        return PlagiarismResponse(
+        resp = PlagiarismResponse(
             similarity=max_sim,
             matched_char_ratio=max_char_ratio,
             matches=all_matches,
         )
+        _save_result_log(resp, "check_multi")
+        return resp
 
     return PlagiarismResponse(similarity=0.0, matched_char_ratio=0.0, matches=[])
 
@@ -94,7 +123,7 @@ async def check_plagiarism_files(
     suspect_text = await parse_file(suspect_file)
 
     result = _engine.check(source_text, suspect_text)
-    return PlagiarismResponse(
+    resp = PlagiarismResponse(
         similarity=result.similarity,
         matched_char_ratio=result.matched_char_ratio,
         matches=[
@@ -111,6 +140,8 @@ async def check_plagiarism_files(
             for m in result.matches
         ],
     )
+    _save_result_log(resp, "check_files")
+    return resp
 
 
 @router.post("/check/xml")

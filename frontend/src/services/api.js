@@ -2,7 +2,7 @@ import axios from "axios";
 
 const api = axios.create({
   baseURL: "/api",
-  timeout: 120_000, // 查重可能需要较长时间
+  timeout: 300_000, // 5 分钟，给长文档 + IDF 加权编码留足余量
 });
 
 /**
