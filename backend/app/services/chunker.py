@@ -26,11 +26,14 @@ class Chunk:
 
 # ---------- Pan25 风格：按段落切分 ----------
 
-def paragraph_chunking(text: str) -> list[Chunk]:
+def paragraph_chunking(text: str, min_chars: int = 15) -> list[Chunk]:
     """按段落切分文本，并丢弃 references/bibliography 等尾部段落。
 
     复用 pan25-baseline 的逻辑，在此基础上额外记录每段在原文中的
     字符偏移与长度，用于后续生成 PAN XML 检测结果。
+
+    参数：
+    - min_chars: 段落最小字符数阈值，低于此长度的段落将被丢弃（默认 15）
     """
     cleaned = text.strip()
 
@@ -49,7 +52,7 @@ def paragraph_chunking(text: str) -> list[Chunk]:
     search_start = 0
     for part in parts:
         stripped = part.strip()
-        if not stripped:
+        if not stripped or len(stripped) < min_chars:
             continue
         # 在原文中定位该段落的偏移
         idx = text.find(stripped, search_start)
@@ -66,10 +69,13 @@ def paragraph_chunking(text: str) -> list[Chunk]:
 # ---------- 滑动窗口切分 ----------
 
 def sliding_window_chunking(
-    text: str, chunk_size: int = 512, overlap: int = 128
+    text: str, chunk_size: int = 512, overlap: int = 128, min_chars: int = 15
 ) -> list[Chunk]:
     """使用滑动窗口切分文本，每个窗口覆盖 chunk_size 个字符，
     相邻窗口之间有 overlap 个字符的重叠，以保留上下文。
+
+    参数：
+    - min_chars: 切块最小字符数阈值，低于此长度的切块将被丢弃（默认 15）
     """
     text = text.strip()
     if not text:
@@ -81,7 +87,7 @@ def sliding_window_chunking(
     while pos < len(text):
         end = min(pos + chunk_size, len(text))
         chunk_text = text[pos:end].strip()
-        if chunk_text:
+        if chunk_text and len(chunk_text) >= min_chars:
             chunks.append(Chunk(text=chunk_text, offset=pos, length=end - pos))
         pos += step
     return chunks
@@ -95,13 +101,15 @@ def chunk_text(
     use_paragraph: bool = True,
     chunk_size: int = 512,
     overlap: int = 128,
+    min_chars: int = 15,
 ) -> list[Chunk]:
     """切分文本的统一入口。
 
     参数：
     - use_paragraph: True → Pan25 段落模式；False → 滑动窗口模式
     - chunk_size / overlap: 仅在滑动窗口模式下生效
+    - min_chars: 切块最小字符数阈值，低于此长度的切块将被丢弃（默认 15）
     """
     if use_paragraph:
-        return paragraph_chunking(text)
-    return sliding_window_chunking(text, chunk_size, overlap)
+        return paragraph_chunking(text, min_chars=min_chars)
+    return sliding_window_chunking(text, chunk_size, overlap, min_chars=min_chars)
