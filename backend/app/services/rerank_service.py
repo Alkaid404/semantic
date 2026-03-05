@@ -12,6 +12,7 @@ from __future__ import annotations
 
 import numpy as np
 from sentence_transformers import CrossEncoder
+from transformers import AutoTokenizer
 
 from ..core import settings
 
@@ -19,13 +20,34 @@ from ..core import settings
 class RerankService:
     """Cross-encoder 重排器封装。"""
 
-    def __init__(self, model_name: str | None = None):
+    def __init__(
+        self,
+        model_name: str | None = None,
+        device: str | None = None,
+        max_length: int | None = None,
+    ):
         self._model_name = model_name or settings.rerank_model_name
+        self._device = device or settings.embedding_device  # 复用同一设备配置
+        self._max_length = max_length or settings.rerank_max_length
         self._model: CrossEncoder | None = None
 
     def _load_model(self) -> CrossEncoder:
         if self._model is None:
-            self._model = CrossEncoder(self._model_name)
+            effective_max_length = self._max_length
+            try:
+                tokenizer_max_length = int(
+                    AutoTokenizer.from_pretrained(self._model_name).model_max_length,
+                )
+                if tokenizer_max_length > 0:
+                    effective_max_length = min(effective_max_length, tokenizer_max_length)
+            except Exception:
+                pass
+
+            self._model = CrossEncoder(
+                self._model_name,
+                device=self._device,
+                max_length=effective_max_length,
+            )
         return self._model
 
     def rerank(
@@ -50,7 +72,11 @@ class RerankService:
             threshold = settings.rerank_threshold
 
         model = self._load_model()
-        raw_scores = model.predict(pairs, show_progress_bar=False)
+        raw_scores = model.predict(
+            pairs,
+            batch_size=settings.rerank_batch_size,
+            show_progress_bar=False,
+        )
         if isinstance(raw_scores, np.ndarray):
             raw_scores = raw_scores.tolist()
 

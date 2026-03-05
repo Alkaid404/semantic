@@ -1,0 +1,10 @@
+<?xml version='1.0' encoding='utf-8'?>
+<document reference="suspicious-document020524.txt">
+	<feature name="about" authors="" title="" lang="en" />
+	<feature name="plagiarism" type="paraphrase" this_language="en" this_offset="72" this_length="66" source_reference="source-document020524.txt" source_language="en" source_offset="102" source_length="87" />
+	<feature name="plagiarism" type="paraphrase" this_language="en" this_offset="3190" this_length="381" source_reference="source-document020524.txt" source_language="en" source_offset="6456" source_length="1183" />
+	<feature name="plagiarism" type="paraphrase" this_language="en" this_offset="3838" this_length="722" source_reference="source-document020524.txt" source_language="en" source_offset="1353" source_length="1359" />
+	<feature name="plagiarism" type="paraphrase" this_language="en" this_offset="28159" this_length="338" source_reference="source-document020524.txt" source_language="en" source_offset="24209" source_length="1227" />
+	<feature name="plagiarism" type="paraphrase" this_language="en" this_offset="42248" this_length="601" source_reference="source-document020524.txt" source_language="en" source_offset="18863" source_length="1211" />
+	<feature name="plagiarism" type="paraphrase" this_language="en" this_offset="43038" this_length="1142" source_reference="source-document020524.txt" source_language="en" source_offset="4383" source_length="26870" />
+</document>

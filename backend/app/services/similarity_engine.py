@@ -151,6 +151,13 @@ class SimilarityEngine:
         # Step 4: CrossEncoder 精排
         t3 = time.time()
         if use_rerank and candidate_pairs:
+            # 释放 FAISS / embedding 阶段残留的 GPU 缓存以降低显存峰值
+            try:
+                import torch
+                if torch.cuda.is_available():
+                    torch.cuda.empty_cache()
+            except ImportError:
+                pass
             rerank_pairs = [
                 (susp_texts[si], src_texts[sj])
                 for si, sj, _ in candidate_pairs

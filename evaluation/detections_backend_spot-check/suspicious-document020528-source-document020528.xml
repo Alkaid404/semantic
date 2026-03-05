@@ -1,0 +1,13 @@
+<?xml version='1.0' encoding='utf-8'?>
+<document reference="suspicious-document020528.txt">
+	<feature name="about" authors="" title="" lang="en" />
+	<feature name="plagiarism" type="paraphrase" this_language="en" this_offset="0" this_length="61" source_reference="source-document020528.txt" source_language="en" source_offset="164" source_length="1409" />
+	<feature name="plagiarism" type="paraphrase" this_language="en" this_offset="744" this_length="461" source_reference="source-document020528.txt" source_language="en" source_offset="3275" source_length="432" />
+	<feature name="plagiarism" type="paraphrase" this_language="en" this_offset="6818" this_length="270" source_reference="source-document020528.txt" source_language="en" source_offset="10469" source_length="1161" />
+	<feature name="plagiarism" type="paraphrase" this_language="en" this_offset="7722" this_length="1836" source_reference="source-document020528.txt" source_language="en" source_offset="7374" source_length="17832" />
+	<feature name="plagiarism" type="paraphrase" this_language="en" this_offset="10451" this_length="945" source_reference="source-document020528.txt" source_language="en" source_offset="9025" source_length="36103" />
+	<feature name="plagiarism" type="paraphrase" this_language="en" this_offset="11635" this_length="295" source_reference="source-document020528.txt" source_language="en" source_offset="30694" source_length="652" />
+	<feature name="plagiarism" type="paraphrase" this_language="en" this_offset="14596" this_length="4132" source_reference="source-document020528.txt" source_language="en" source_offset="1591" source_length="55292" />
+	<feature name="plagiarism" type="paraphrase" this_language="en" this_offset="23899" this_length="2138" source_reference="source-document020528.txt" source_language="en" source_offset="2116" source_length="41313" />
+	<feature name="plagiarism" type="paraphrase" this_language="en" this_offset="27769" this_length="561" source_reference="source-document020528.txt" source_language="en" source_offset="5660" source_length="51246" />
+</document>

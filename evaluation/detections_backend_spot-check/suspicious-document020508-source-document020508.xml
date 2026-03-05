@@ -1,0 +1,21 @@
+<?xml version='1.0' encoding='utf-8'?>
+<document reference="suspicious-document020508.txt">
+	<feature name="about" authors="" title="" lang="en" />
+	<feature name="plagiarism" type="paraphrase" this_language="en" this_offset="0" this_length="49" source_reference="source-document020508.txt" source_language="en" source_offset="20604" source_length="644" />
+	<feature name="plagiarism" type="paraphrase" this_language="en" this_offset="1143" this_length="1102" source_reference="source-document020508.txt" source_language="en" source_offset="3062" source_length="1503" />
+	<feature name="plagiarism" type="paraphrase" this_language="en" this_offset="4793" this_length="33" source_reference="source-document020508.txt" source_language="en" source_offset="6510" source_length="33" />
+	<feature name="plagiarism" type="paraphrase" this_language="en" this_offset="5895" this_length="3020" source_reference="source-document020508.txt" source_language="en" source_offset="6545" source_length="3232" />
+	<feature name="plagiarism" type="paraphrase" this_language="en" this_offset="9485" this_length="1405" source_reference="source-document020508.txt" source_language="en" source_offset="42979" source_length="2436" />
+	<feature name="plagiarism" type="paraphrase" this_language="en" this_offset="12183" this_length="4905" source_reference="source-document020508.txt" source_language="en" source_offset="153" source_length="62352" />
+	<feature name="plagiarism" type="paraphrase" this_language="en" this_offset="19640" this_length="15506" source_reference="source-document020508.txt" source_language="en" source_offset="11581" source_length="53612" />
+	<feature name="plagiarism" type="paraphrase" this_language="en" this_offset="36835" this_length="858" source_reference="source-document020508.txt" source_language="en" source_offset="41161" source_length="1759" />
+	<feature name="plagiarism" type="paraphrase" this_language="en" this_offset="41674" this_length="1674" source_reference="source-document020508.txt" source_language="en" source_offset="1947" source_length="20274" />
+	<feature name="plagiarism" type="paraphrase" this_language="en" this_offset="43934" this_length="2266" source_reference="source-document020508.txt" source_language="en" source_offset="33848" source_length="23669" />
+	<feature name="plagiarism" type="paraphrase" this_language="en" this_offset="47386" this_length="1450" source_reference="source-document020508.txt" source_language="en" source_offset="51433" source_length="4709" />
+	<feature name="plagiarism" type="paraphrase" this_language="en" this_offset="50619" this_length="2628" source_reference="source-document020508.txt" source_language="en" source_offset="12468" source_length="41135" />
+	<feature name="plagiarism" type="paraphrase" this_language="en" this_offset="61598" this_length="2380" source_reference="source-document020508.txt" source_language="en" source_offset="9815" source_length="49711" />
+	<feature name="plagiarism" type="paraphrase" this_language="en" this_offset="65236" this_length="1080" source_reference="source-document020508.txt" source_language="en" source_offset="32514" source_length="20383" />
+	<feature name="plagiarism" type="paraphrase" this_language="en" this_offset="67891" this_length="739" source_reference="source-document020508.txt" source_language="en" source_offset="1028" source_length="917" />
+	<feature name="plagiarism" type="paraphrase" this_language="en" this_offset="69629" this_length="542" source_reference="source-document020508.txt" source_language="en" source_offset="5939" source_length="569" />
+	<feature name="plagiarism" type="paraphrase" this_language="en" this_offset="70626" this_length="378" source_reference="source-document020508.txt" source_language="en" source_offset="50094" source_length="375" />
+</document>

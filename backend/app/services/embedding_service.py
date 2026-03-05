@@ -18,9 +18,10 @@ from ..core import settings
 class EmbeddingService:
     """Embedding 模型封装。"""
 
-    def __init__(self, model_name: str | None = None, device: str | None = None):
+    def __init__(self, model_name: str | None = None, device: str | None = None, prompt: str | None = None):
         self._model_name = model_name or settings.embedding_model_name
         self._device = device or settings.embedding_device
+        self._prompt = prompt if prompt is not None else settings.embedding_prompt
         self._model: SentenceTransformer | None = None
 
     # ---- 延迟加载 ----
@@ -40,6 +41,11 @@ class EmbeddingService:
         """
         if not texts:
             return np.empty((0, 0), dtype=np.float32)
+
+        # e5 系列模型需要对输入文本加 "query: " 前缀
+        prompt = self._prompt
+        if prompt:
+            texts = [prompt + t for t in texts]
 
         model = self._load_model()
         embeddings = model.encode(

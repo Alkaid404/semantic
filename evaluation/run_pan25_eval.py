@@ -37,8 +37,39 @@ BACKEND_DIR = os.path.join(PROJECT_ROOT, "backend")
 sys.path.insert(0, BACKEND_DIR)
 
 # eval.py 所在目录
-BASELINE_DIR = os.path.join(PROJECT_ROOT, "pan25-baseline")
+BASELINE_DIR = os.path.join(PROJECT_ROOT, "clef25", "pan25-baseline")
 sys.path.insert(0, BASELINE_DIR)
+
+# ── Hugging Face 镜像（国内网络） ───────────────────────────
+os.environ.setdefault("HF_ENDPOINT", "https://hf-mirror.com")
+
+# ── 数据集根目录 ────────────────────────────────────────────
+DATASET_ROOT = os.environ.get(
+    "PAN_DATASET_ROOT",
+    os.path.join(PROJECT_ROOT, "dataset", "PAN"),
+)
+
+# 数据集路径映射：dataset_name -> (data_dir, truth_dir)
+DATASET_PRESETS: dict[str, tuple[str, str]] = {
+    "spot-check": (
+        os.path.join(DATASET_ROOT, "pan25-generated-plagiarism-detection-spot-check",
+                     "00_spot_check", "00_spot_check"),
+        os.path.join(DATASET_ROOT, "pan25-generated-plagiarism-detection-spot-check",
+                     "00_spot_check", "00_spot_check_truth"),
+    ),
+    "train": (
+        os.path.join(DATASET_ROOT, "pan25-generated-plagiarism-detection-train",
+                     "01_train", "01_train"),
+        os.path.join(DATASET_ROOT, "pan25-generated-plagiarism-detection-train",
+                     "01_train", "01_train_truth"),
+    ),
+    "validation": (
+        os.path.join(DATASET_ROOT, "pan25-generated-plagiarism-detection-validation",
+                     "02_validation", "02_validation"),
+        os.path.join(DATASET_ROOT, "pan25-generated-plagiarism-detection-validation",
+                     "02_validation", "02_validation_truth"),
+    ),
+}
 
 
 # ═══════════════════════════════════════════════════════════════
@@ -233,7 +264,7 @@ def run_evaluation(
     plag_tag: str = "plagiarism",
     det_tag: str = "plagiarism",
 ) -> dict:
-    """调用 eval.py 中的评估函数，计算 PlagDet Score。"""
+    """调用 eval.py 中的评估函数，同时计算 Micro 和 Macro 全部指标。"""
     from eval import (
         extract_annotations_from_files,
         macro_avg_recall_and_precision,
@@ -247,7 +278,6 @@ def run_evaluation(
     print(f"{'='*60}")
     print(f"真值目录：   {truth_dir}")
     print(f"检测目录：   {detection_dir}")
-    print(f"评估模式：   {'微平均 (micro)' if micro else '宏平均 (macro)'}")
     print(f"{'='*60}\n")
 
     # 提取标注
@@ -263,28 +293,36 @@ def run_evaluation(
         print("\n⚠ 警告：真值标注为空，无法评估！")
         return {}
 
-    # 计算指标
+    # 计算全部指标
     print("计算中...")
-    if micro:
-        rec, prec = micro_avg_recall_and_precision(cases, detections)
-    else:
-        rec, prec = macro_avg_recall_and_precision(cases, detections)
-
+    macro_rec, macro_prec = macro_avg_recall_and_precision(cases, detections)
+    micro_rec, micro_prec = micro_avg_recall_and_precision(cases, detections)
     gran = granularity(cases, detections)
-    score = plagdet_score(rec, prec, gran)
+    macro_score = plagdet_score(macro_rec, macro_prec, gran)
+    micro_score = plagdet_score(micro_rec, micro_prec, gran)
 
-    # 打印结果
-    print(f"\n{'─'*40}")
-    print(f"  PlagDet Score : {score:.6f}")
-    print(f"  Recall        : {rec:.6f}")
-    print(f"  Precision     : {prec:.6f}")
-    print(f"  Granularity   : {gran:.6f}")
-    print(f"{'─'*40}\n")
+    # 打印完整结果
+    print(f"\n{'═'*60}")
+    print(f"  PAN25 评估结果")
+    print(f"{'═'*60}")
+    print(f"  真值标注数：{len(cases)}")
+    print(f"  检测结果数：{len(detections)}")
+    print(f"{'─'*60}")
+    print(f"  {'指标':<20} {'Macro':>12} {'Micro':>12}")
+    print(f"  {'─'*20} {'─'*12} {'─'*12}")
+    print(f"  {'Recall':<20} {macro_rec:>12.6f} {micro_rec:>12.6f}")
+    print(f"  {'Precision':<20} {macro_prec:>12.6f} {micro_prec:>12.6f}")
+    print(f"  {'Granularity':<20} {gran:>12.6f} {gran:>12.6f}")
+    print(f"  {'PlagDet Score':<20} {macro_score:>12.6f} {micro_score:>12.6f}")
+    print(f"{'═'*60}\n")
 
     return {
-        "plagdet_score": score,
-        "recall": rec,
-        "precision": prec,
+        "macro_plagdet": macro_score,
+        "macro_recall": macro_rec,
+        "macro_precision": macro_prec,
+        "micro_plagdet": micro_score,
+        "micro_recall": micro_rec,
+        "micro_precision": micro_prec,
         "granularity": gran,
         "num_cases": len(cases),
         "num_detections": len(detections),
@@ -335,22 +373,26 @@ def run_param_sweep(
             results.append(eval_result)
 
     # 打印对比表格
-    print(f"\n{'='*80}")
+    print(f"\n{'='*120}")
     print("参数扫描结果汇总")
-    print(f"{'='*80}")
-    print(f"{'Sim_T':>8} {'RR_T':>8} {'PlagDet':>10} {'Recall':>10} "
-          f"{'Precision':>10} {'Granularity':>12}")
-    print(f"{'─'*8} {'─'*8} {'─'*10} {'─'*10} {'─'*10} {'─'*12}")
+    print(f"{'='*120}")
+    print(f"{'Sim_T':>8} {'RR_T':>8} │ {'Ma_PlagDet':>11} {'Ma_Recall':>11} {'Ma_Prec':>11} │ "
+          f"{'Mi_PlagDet':>11} {'Mi_Recall':>11} {'Mi_Prec':>11} │ {'Gran':>8}")
+    print(f"{'─'*8} {'─'*8} │ {'─'*11} {'─'*11} {'─'*11} │ "
+          f"{'─'*11} {'─'*11} {'─'*11} │ {'─'*8}")
     for r in results:
         print(
             f"{r.get('sim_threshold', 0):>8.2f} "
-            f"{r.get('rerank_threshold', 0):>8.2f} "
-            f"{r.get('plagdet_score', 0):>10.6f} "
-            f"{r.get('recall', 0):>10.6f} "
-            f"{r.get('precision', 0):>10.6f} "
-            f"{r.get('granularity', 0):>12.6f}"
+            f"{r.get('rerank_threshold', 0):>8.2f} │ "
+            f"{r.get('macro_plagdet', 0):>11.6f} "
+            f"{r.get('macro_recall', 0):>11.6f} "
+            f"{r.get('macro_precision', 0):>11.6f} │ "
+            f"{r.get('micro_plagdet', 0):>11.6f} "
+            f"{r.get('micro_recall', 0):>11.6f} "
+            f"{r.get('micro_precision', 0):>11.6f} │ "
+            f"{r.get('granularity', 0):>8.6f}"
         )
-    print(f"{'='*80}\n")
+    print(f"{'='*120}\n")
 
     return results
 
@@ -365,29 +407,29 @@ def parse_args() -> argparse.Namespace:
         formatter_class=argparse.RawDescriptionHelpFormatter,
     )
 
-    # 路径参数
+    # 数据集选择
+    parser.add_argument(
+        "--dataset",
+        choices=["spot-check", "train", "validation"],
+        default="spot-check",
+        help="选择预设数据集：spot-check(50对) / train(62159对) / validation(7975对)（默认 spot-check）",
+    )
+
+    # 路径参数（可覆盖 --dataset 预设）
     parser.add_argument(
         "--data-dir",
-        default=os.path.join(
-            PROJECT_ROOT,
-            "pan25-generated-plagiarism-detection-spot-check",
-            "00_spot_check", "00_spot_check",
-        ),
-        help="包含 pairs / src / susp 的数据目录",
+        default=None,
+        help="包含 pairs / src / susp 的数据目录（留空则使用 --dataset 预设）",
     )
     parser.add_argument(
         "--truth-dir",
-        default=os.path.join(
-            PROJECT_ROOT,
-            "pan25-generated-plagiarism-detection-spot-check",
-            "00_spot_check", "00_spot_check_truth",
-        ),
-        help="真值 XML 目录",
+        default=None,
+        help="真值 XML 目录（留空则使用 --dataset 预设）",
     )
     parser.add_argument(
         "--output-dir",
-        default=os.path.join(SCRIPT_DIR, "detections_backend"),
-        help="检测结果 XML 输出目录",
+        default=None,
+        help="检测结果 XML 输出目录（留空则自动按数据集命名）",
     )
 
     # 引擎参数
@@ -424,14 +466,27 @@ def parse_args() -> argparse.Namespace:
 def main():
     args = parse_args()
 
-    pairs_file = os.path.join(args.data_dir, "pairs")
+    # 解析数据集路径：优先使用显式 --data-dir/--truth-dir，否则从 --dataset 预设
+    preset_data, preset_truth = DATASET_PRESETS[args.dataset]
+    data_dir = args.data_dir or preset_data
+    truth_dir = args.truth_dir or preset_truth
+    output_dir = args.output_dir or os.path.join(
+        SCRIPT_DIR, f"detections_backend_{args.dataset}",
+    )
+
+    pairs_file = os.path.join(data_dir, "pairs")
+
+    print(f"\n数据集:  {args.dataset}")
+    print(f"数据目录: {data_dir}")
+    print(f"真值目录: {truth_dir}")
+    print(f"输出目录: {output_dir}\n")
 
     if args.sweep:
         # 参数扫描模式
         pairs = load_pairs(pairs_file)
         run_param_sweep(
-            pairs, args.data_dir, args.truth_dir,
-            args.output_dir,
+            pairs, data_dir, truth_dir,
+            output_dir,
             use_rerank=args.use_rerank,
         )
         return
@@ -440,7 +495,7 @@ def main():
         # 运行检测
         pairs = load_pairs(pairs_file)
         run_detection(
-            pairs, args.data_dir, args.output_dir,
+            pairs, data_dir, output_dir,
             similarity_threshold=args.similarity_threshold,
             rerank_threshold=args.rerank_threshold,
             top_k=args.top_k,
@@ -450,8 +505,8 @@ def main():
     if not args.detect_only:
         # 运行评估
         run_evaluation(
-            args.truth_dir,
-            args.output_dir,
+            truth_dir,
+            output_dir,
             micro=args.micro,
             plag_tag=args.plag_tag,
             det_tag=args.det_tag,

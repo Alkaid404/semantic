@@ -17,3 +17,13 @@ Upload the docker image via:
 docker push mam10eks/pan25-generated-plagiarism-detection-evaluator:0.0.1
 ```
 
+# 在 spot-check (50对) 上快速测试
+bash evaluation/run_eval.sh full spot-check
+bash run_eval.sh full spot-check
+
+# 在验证集 (7975对) 上评估
+bash evaluation/run_eval.sh full validation
+
+# 在训练集 (62159对) 上参数扫描
+bash evaluation/run_eval.sh sweep train
+
