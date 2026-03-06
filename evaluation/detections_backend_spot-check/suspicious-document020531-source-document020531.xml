@@ -1,5 +1,0 @@
-<?xml version='1.0' encoding='utf-8'?>
-<document reference="suspicious-document020531.txt">
-	<feature name="about" authors="" title="" lang="en" />
-	<feature name="plagiarism" type="paraphrase" this_language="en" this_offset="193" this_length="769" source_reference="source-document020531.txt" source_language="en" source_offset="3000" source_length="731" />
-</document>

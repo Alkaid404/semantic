@@ -1,7 +1,0 @@
-<?xml version='1.0' encoding='utf-8'?>
-<document reference="suspicious-document020476.txt">
-	<feature name="about" authors="" title="" lang="en" />
-	<feature name="plagiarism" type="paraphrase" this_language="en" this_offset="1544" this_length="1555" source_reference="source-document020476.txt" source_language="en" source_offset="1364" source_length="1225" />
-	<feature name="plagiarism" type="paraphrase" this_language="en" this_offset="4932" this_length="1908" source_reference="source-document020476.txt" source_language="en" source_offset="35497" source_length="6713" />
-	<feature name="plagiarism" type="paraphrase" this_language="en" this_offset="9878" this_length="2854" source_reference="source-document020476.txt" source_language="en" source_offset="10250" source_length="27673" />
-</document>
